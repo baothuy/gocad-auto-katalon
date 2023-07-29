@@ -36,12 +36,13 @@ public class MySignInPage extends BasePage<MySignInPage> {
 	}
 
 	public MySignInPage verifySuccessfullySignInAsSeller () {
-		WebUI.delay(5)
+		WebUI.delay(GlobalVariable.smallSleepTime)
 		WebUI.verifyTextPresent('Dashboard', false)
 		return this
 	}
 
 	public MySignInPage verifySuccessfullySignInAsBuyer () {
+		WebUI.delay(GlobalVariable.smallSleepTime)
 		WebUI.verifyTextPresent('Draft', false)
 		return this
 	}
