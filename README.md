@@ -1,0 +1,1 @@
+# gocad-auto-katalon
