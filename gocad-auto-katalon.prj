@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
    <description></description>
-   <name>gocad-auto-katalon</name>
+   <name>gocad-automation-katalon</name>
    <tag></tag>
    <UUID>52a04ec7-d9ff-4705-9fdd-6bbfb02f169b</UUID>
    <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
-   <projectFileLocation>Automation Project/gocad-auto-katalon.prj</projectFileLocation>
+   <projectFileLocation>Automation Project/gocad-automation-katalon.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>
