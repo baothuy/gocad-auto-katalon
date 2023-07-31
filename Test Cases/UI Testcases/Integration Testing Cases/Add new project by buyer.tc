@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Add new project by buyer</name>
+   <tag>integration-test,ui</tag>
+   <comment></comment>
+   <testCaseGuid>e0ddb168-6834-4e03-bd95-457083674d7a</testCaseGuid>
+</TestCaseEntity>

@@ -11,12 +11,12 @@ public class LoginService extends BaseService<LoginService>{
 	static String loginUrl = GlobalVariable.myApi + "/authenticate";
 
 	public LoginService login(String email, String password) {
-		initRequestObject().create(new Account(email: email, password: password), loginUrl)
+		initRequestObject().create(new Account(username: email, password: password), loginUrl)
 		return this
 	}
 
 	public LoginService loginWithEncryptedPwd(String email, String encrypedPwd) {
-		initRequestObject().create(new Account(email: email, password: CryptoUtil.decode(CryptoUtil.getDefault(encrypedPwd))), loginUrl)
+		initRequestObject().create(new Account(username: email, password: CryptoUtil.decode(CryptoUtil.getDefault(encrypedPwd))), loginUrl)
 		return this
 	}
 
@@ -33,7 +33,7 @@ public class LoginService extends BaseService<LoginService>{
 	}
 
 	public LoginService getToken () {
-		String token = parseResponseBodyToJsonObject().data.jwt
+		String token = parseResponseBodyToJsonObject().jwtToken
 		GlobalVariable.encodedToken = token
 		return this
 	}

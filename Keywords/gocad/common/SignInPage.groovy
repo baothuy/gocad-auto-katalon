@@ -30,8 +30,30 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		return this
 	}
 
+	public MySignInPage openBrowser () {
+		WebUI.navigateToUrl(GlobalVariable.myUrl)
+		return this
+	}
+
+	public MySignInPage inputEmail (String email) {
+		WebUI.sendKeys(id('basic_username'), email)
+		return this
+	}
+
+	public MySignInPage inputPassword (String password) {
+		WebUI.sendKeys(id('basic_password'), password)
+		return this
+	}
+
 	public MySignInPage clickSignIn () {
 		WebUI.click(byType("submit"))
+		return this
+	}
+
+	public MySignInPage verifyAfterInputWrongAccount () {
+		WebUI.delay(GlobalVariable.smallSleepTime)
+		String message = WebUI.getText(xpath('//div[@class="alert alert-danger alert-dismissible fade show"]'))
+		WebUI.verifyEqual(message, 'Invalid email or password. Please try again.')
 		return this
 	}
 
@@ -46,7 +68,7 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		WebUI.verifyTextPresent('Draft', false)
 		return this
 	}
-	
+
 	public MySignInPage changeLanguage () {
 		WebUI.click(xpath("//button[@class='btn']"))
 		return this
