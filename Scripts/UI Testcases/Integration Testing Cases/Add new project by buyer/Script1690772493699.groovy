@@ -20,4 +20,3 @@ Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
 
 '5. Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting()
-

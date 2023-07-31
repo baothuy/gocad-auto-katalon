@@ -14,5 +14,5 @@
    <filteringBuiltIn>com.kms.katalon.execution.platform.DynamicBuiltInSearch</filteringBuiltIn>
    <filteringExtension></filteringExtension>
    <filteringPlugin></filteringPlugin>
-   <filteringText>name=(AC-) tag=(api) </filteringText>
+   <filteringText>tag=(api) </filteringText>
 </FilteringTestSuiteEntity>
