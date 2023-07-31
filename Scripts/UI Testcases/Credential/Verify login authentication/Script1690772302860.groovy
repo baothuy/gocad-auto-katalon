@@ -1,6 +1,6 @@
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-import gocad.common.MySignInPage
 import gocad.buyer.LeftNavBar
+import gocad.common.MySignInPage
+import internal.GlobalVariable
 import katalon.fw.lib.Page
 
 '1. User buyer signs in to administration page'
@@ -16,4 +16,4 @@ Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfull
 Page.nav(LeftNavBar).clickLogout()
 
 '5. User buyer signs in to administration page with wrong account or password'
-Page.nav(MySignInPage).openBrowser().changeLanguage().inputEmail("account").inputPassword("password").clickSignIn().verifyAfterInputWrongAccount()
+Page.nav(MySignInPage).openBrowser().inputEmail(GlobalVariable.buyer_mail).inputPassword("password").clickSignIn().verifyAfterInputWrongAccount()
