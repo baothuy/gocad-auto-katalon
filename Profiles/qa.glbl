@@ -6,6 +6,11 @@
    <defaultProfile>true</defaultProfile>
    <GlobalVariableEntity>
       <description></description>
+      <initValue>40</initValue>
+      <name>sleepLargeTime</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
       <initValue>15</initValue>
       <name>sleepSomeTime</name>
    </GlobalVariableEntity>

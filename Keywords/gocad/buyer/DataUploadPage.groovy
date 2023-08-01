@@ -13,11 +13,11 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		WebUI.click(xpath('//span[@class="ant-upload ant-upload-btn"]'))
 	}
 
-	public DataUploadPage uploadFileTesting() {
+	public DataUploadPage uploadFileTesting(String fileName) {
 		WebUI.waitForElementVisible(xpath('//input[@type="file"]'), 5)
-		def path = RunConfiguration.getProjectDir() + '/Data/FileTesting/auto_Platte.step'
+		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"
 		WebUI.uploadFile(xpath('//input[@type="file"]'), path)
-		WebUI.delay(GlobalVariable.smallSleepTime)
+		refreshUntilTextPresent("Quantity", GlobalVariable.sleepLargeTime, GlobalVariable.smallSleepTime)
 		return this
 	}
 }

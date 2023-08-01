@@ -1,24 +1,123 @@
 package gocad.buyer
 
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
-
-import com.kms.katalon.core.annotation.Keyword
-import com.kms.katalon.core.checkpoint.Checkpoint
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
-import com.kms.katalon.core.model.FailureHandling
-import com.kms.katalon.core.testcase.TestCase
-import com.kms.katalon.core.testdata.TestData
-import com.kms.katalon.core.testobject.TestObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import katalon.fw.lib.BasePage
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 
-import internal.GlobalVariable
 
-public class ManufacturingInformationPage {
+
+
+public class ManufacturingInformationPage extends BasePage<ManufacturingInformationPage> {
+	
+	public ManufacturingInformationPage clickAddPart() {
+		WebUI.click(xpath('//span[text()=" Add part"]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickImagePart() {
+		WebUI.click(xpath('//img[@class="ant-image-img"]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickDownloadImage() {
+		WebUI.click(xpath('//a[@class="text-decoration-none"]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickDeletePart() {
+		WebUI.click(xpath('//span[text()="Delete"]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickCopyPart() {
+		WebUI.click(xpath('//span[text()=" Copy"]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickMoreOption() {
+		WebUI.click(xpath('//span[@role="img" and @aria-label="more"]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickMovePart() {
+		WebUI.click(xpath('//span[text()="Move"]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickPleaseSelectMaterial() {
+		WebUI.click(xpath('//*[@id="materialId"]/a'))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickProvideOwnMaterialCB() {
+		WebUI.click(xpath('//span[text()="Provide own material (From customer)"]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage inputQuantity(String number) {
+		clearTextAndSendKeys(xpath('//*[@id="quantity"]'), number)
+		return this
+	}
+	
+	public ManufacturingInformationPage selectSurfaceTreatment(String surfaceTreatment) {
+		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
+		WebUI.click(xpath("//div[contains(@class, 'ant-select-item ant-select-item-option') and @title='$surfaceTreatment']"))
+		return this
+	}
+	
+	public ManufacturingInformationPage inputComment(String text) {
+		WebUI.sendKeys(xpath('//*[@id="additionalComments"]'), text)
+		return this
+	}
+	
+	public ManufacturingInformationPage clickCalculate() {
+		WebUI.click(xpath('//span[text()="Calculate"]/parent::button'))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickAddTechnicalDrawing() {
+		WebUI.click(xpath('//button[@title="Add technical drawing"]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickContinueToOfferOverview() {
+		WebUI.click(xpath('//span[text()="Continue to offer overview "]'))
+		return this
+	}
+
+	public ManufacturingInformationPage clickEdit() {
+		WebUI.click(xpath('//span[text()="Edit"]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickCancel() {
+		WebUI.click(xpath('//span[text()="Cancel"]'))
+		return this
+	}
+	//Data upload > Milled / Turned Parts
+	public ManufacturingInformationPage inputThread(String number) {
+		WebUI.sendKeys(xpath('//*[@id="numberOfThreads"]'), number)
+		return this
+	}
+	
+	public ManufacturingInformationPage inputTolerances(String number) {
+		WebUI.sendKeys(xpath('//*[@id="numberOfFits"]'), number)
+		return this
+	}
+	
+	public ManufacturingInformationPage clickToggleTolerances(String value) {
+		String isChecked = WebUI.getAttribute(xpath("//*[@id='hasTolerances']"), "aria-checked")
+		println "isChecked = $isChecked"
+		boolean isNo = value.equals("false")
+		if(isChecked != isNo) {
+			WebUI.click(xpath("//*[@id='hasTolerances']"))
+		}
+		return this
+	}
+	
+	public ManufacturingInformationPage selectSurfaceQuality(String quality) {
+		WebUI.sendKeys(xpath('//input[@id="surfaceQuality"]'), quality)
+		return this
+	}
+
 }
