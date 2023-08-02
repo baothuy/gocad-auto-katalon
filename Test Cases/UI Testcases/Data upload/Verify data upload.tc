@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Verify data upload</name>
+   <tag>story-test,data-upload,ui</tag>
+   <comment></comment>
+   <testCaseGuid>5ac075dd-d2ba-46b4-9b1c-2b0fd2fa25a0</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d22a2002-dc13-4f26-adc2-49b9e2173fa0</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'auto_Milling.step'</defaultValue>
+      <description></description>
+      <id>d22a2002-dc13-4f26-adc2-49b9e2173fa0</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>
