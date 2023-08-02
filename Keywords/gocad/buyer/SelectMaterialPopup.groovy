@@ -20,8 +20,13 @@ public class SelectMaterialPopup extends BasePage<SelectMaterialPopup>{
 	}
 	
 	public SelectMaterialPopup selectMaterialName(String materialName) {
-		WebUI.click(xpath("//*[text()='$materialName']"))
+		WebUI.click(xpath("//div[contains(text(),'$materialName')]/parent::div[@class='row material-item']"))
 		return this
+	}
+	
+	public String getCO2EmissionCol(String materialName) {
+		String CO2Emission = WebUI.getText(xpath("//div[contains(text(),'$materialName')]/parent::div[@class='row material-item']/div[2]"))
+		return CO2Emission
 	}
 	
 	public SelectMaterialPopup clickCloseSearchMaterialPopup() {

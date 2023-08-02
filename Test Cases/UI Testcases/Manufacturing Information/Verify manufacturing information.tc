@@ -53,12 +53,38 @@
       <value></value>
       <variableId>698e7a49-0041-4fbb-8e5a-dd2e832be4c6</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>fd587416-9c50-40e7-8d53-73074bb25c2e</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>4f72a354-bc43-4386-8849-8daa2d1378ef</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'auto_Milling.step'</defaultValue>
       <description></description>
       <id>4d634512-e555-4faf-aae2-b3e893272a33</id>
       <masked>false</masked>
       <name>fileName</name>
+   </variable>
+   <variable>
+      <defaultValue>'All'</defaultValue>
+      <description></description>
+      <id>4f72a354-bc43-4386-8849-8daa2d1378ef</id>
+      <masked>false</masked>
+      <name>materialGroup</name>
+   </variable>
+   <variable>
+      <defaultValue>'Al2Cl3'</defaultValue>
+      <description></description>
+      <id>fd587416-9c50-40e7-8d53-73074bb25c2e</id>
+      <masked>false</masked>
+      <name>materialName</name>
    </variable>
    <variable>
       <defaultValue>'6'</defaultValue>

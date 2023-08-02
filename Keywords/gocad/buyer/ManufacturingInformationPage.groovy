@@ -59,6 +59,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage selectSurfaceTreatment(String surfaceTreatment) {
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-item ant-select-item-option') and @title='$surfaceTreatment']"))
+		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
 		return this
 	}
 
@@ -114,13 +115,65 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage selectSurfaceQuality(String quality) {
-		WebUI.sendKeys(xpath('//input[@id="surfaceQuality"]'), quality)
+		WebUI.click(xpath("//*[text()='Surface Quality']/parent::div/following::div[@class='ant-select-selector']"))
+		//WebUI.click(xpath("//*[text()='Surface Quality']/parent::div/following::div[@class='ant-form-item-control-input']"))
+		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$quality']"))
 		return this
 	}
 	
-	public ManufacturingInformationPage verifyMaterial(String quality) {
-		WebUI.sendKeys(xpath('//input[@id="surfaceQuality"]'), quality)
+	public ManufacturingInformationPage verifyMaterial(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Material']/following-sibling::div")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-
+	
+	public ManufacturingInformationPage verifyQuantity(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Quantity']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyThread(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Thread (Quantity)']/following-sibling::div")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyTolerancesNumber(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Tolerances and fits with less than 1/10mm or IT 1 - IT 10 (Number)']/following-sibling::div")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyTolerancesToggle(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Tolerance requirement with smaller 1/100mm or IT 1 - IT 5']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifySurfaceTreatment(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Surface Treatment']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifySurfaceQuality(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Surface Quality']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyAdditionalComments(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Additional Comments']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
 }

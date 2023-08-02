@@ -24,9 +24,12 @@ Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().v
 Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickAction('Project LFjb7oYebV')
 
-'6. Select material'
+'6. Select material and get CO2 Emission'
 Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
-Page.nav(SelectMaterialPopup).clickMaterialGroup("All").selectMaterialName("Al2Cl3")
+Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
+String CO2Emission = Page.nav(SelectMaterialPopup).getCO2EmissionCol(materialName)
+println "CO2Emission = $CO2Emission"
+Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 
 '7. Input required field'
 Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
@@ -37,4 +40,15 @@ Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
 										.selectSurfaceQuality(quality)
 										.inputComment(comment)
 										.clickCalculate()
+										
+'8. Verify info after Calculate'
+materialCombine = materialName + "/" + CO2Emission
+Page.nav(ManufacturingInformationPage).verifyMaterial(materialCombine)
+										.verifyQuantity(quantityNum)
+										.verifyThread(threadNum)
+										.verifyTolerancesNumber(tolerancesNum)
+										.verifyTolerancesToggle(tolerancesToggle)
+										.verifySurfaceTreatment(surfaceTreatment)
+										.verifySurfaceQuality(quality)
+										.verifyAdditionalComments(comment)
 										
