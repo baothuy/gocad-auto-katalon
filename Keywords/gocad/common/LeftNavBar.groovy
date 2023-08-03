@@ -1,4 +1,4 @@
-package gocad.buyer
+package gocad.common
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import katalon.fw.lib.BasePage
@@ -53,4 +53,40 @@ public class LeftNavBar extends BasePage<LeftNavBar> {
 		WebUI.click(link('Log out'))
 		return this
 	}
+
+	public LeftNavBar clickMyProjects() {
+		WebUI.click(xpath('//a[text()="My Projects"]'))
+		return this
+	}
+
+	public LeftNavBar clickCustomerOverview() {
+		WebUI.click(xpath('//a[text()="Customer Overview"]'))
+		return this
+	}
+
+	public LeftNavBar clickMaterials() {
+		WebUI.click(link('Materials'))
+		return this
+	}
+
+	public LeftNavBar clickMachines() {
+		WebUI.click(link('Machines'))
+		return this
+	}
+
+	public LeftNavBar clickSurfaceTreatments() {
+		WebUI.click(link('Surface Treatments'))
+		return this
+	}
+
+	public LeftNavBar clickPriceAndDeliverySettings() {
+		WebUI.click(link('Price and Delivery Settings'))
+		return this
+	}
+
+	public LeftNavBar clickAccount() {
+		WebUI.click(link('Account'))
+		return this
+	}
+
 }

@@ -1,6 +1,6 @@
 import gocad.buyer.AddProjectPopup
 import gocad.buyer.DataUploadPage
-import gocad.buyer.LeftNavBar
+import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility

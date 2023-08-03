@@ -1,5 +1,5 @@
 import gocad.buyer.DraftPage
-import gocad.buyer.LeftNavBar
+import gocad.common.LeftNavBar
 import gocad.buyer.ManufacturingInformationPage
 import gocad.buyer.SelectMaterialPopup
 import gocad.common.MySignInPage

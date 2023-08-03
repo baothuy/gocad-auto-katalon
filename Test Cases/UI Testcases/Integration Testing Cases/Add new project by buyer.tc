@@ -53,6 +53,18 @@
       <value></value>
       <variableId>698e7a49-0041-4fbb-8e5a-dd2e832be4c6</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>c4920326-cfdb-4444-9e75-67dad6e5363c</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>8fd32587-b883-4d99-b01f-41af4b6d6fd2</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'auto_Milling.step'</defaultValue>
       <description></description>
@@ -108,5 +120,19 @@
       <id>698e7a49-0041-4fbb-8e5a-dd2e832be4c6</id>
       <masked>false</masked>
       <name>tolerancesToggle</name>
+   </variable>
+   <variable>
+      <defaultValue>'All'</defaultValue>
+      <description></description>
+      <id>c4920326-cfdb-4444-9e75-67dad6e5363c</id>
+      <masked>false</masked>
+      <name>materialGroup</name>
+   </variable>
+   <variable>
+      <defaultValue>'Al2Cl3'</defaultValue>
+      <description></description>
+      <id>8fd32587-b883-4d99-b01f-41af4b6d6fd2</id>
+      <masked>false</masked>
+      <name>materialName</name>
    </variable>
 </TestCaseEntity>

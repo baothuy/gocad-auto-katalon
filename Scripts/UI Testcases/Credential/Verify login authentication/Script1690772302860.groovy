@@ -1,4 +1,4 @@
-import gocad.buyer.LeftNavBar
+import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
 import internal.GlobalVariable
 import katalon.fw.lib.Page
