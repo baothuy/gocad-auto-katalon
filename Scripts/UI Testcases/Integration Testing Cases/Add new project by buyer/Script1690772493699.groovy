@@ -32,7 +32,7 @@ Page.nav(SelectMaterialPopup).clickMaterialGroup("All").selectMaterialName("Al2C
 Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
 										.inputThread(threadNum)
 										.inputTolerances(tolerancesNum)
-										//.clickToggleTolerances(tolerancesToggle)
+										.clickToggleTolerances(tolerancesToggle)
 										.selectSurfaceTreatment(surfaceTreatment)
 										.selectSurfaceQuality(quality)
 										.inputComment(comment)
