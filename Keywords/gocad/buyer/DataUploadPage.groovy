@@ -11,6 +11,18 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 
 	public DataUploadPage clickOpenFileUpload() {
 		WebUI.click(xpath('//span[@class="ant-upload ant-upload-btn"]'))
+		return this
+	}
+	
+	public String getIdProject() {
+		WebUI.waitForElementVisible(xpath('//div[text()="Data upload"]'), 5)
+		String url = WebUI.getUrl()
+		println "url: $url"
+		// Extract the number using regular expressions
+		def number = url =~ /\d+/
+		String extractedNumber = Integer.parseInt(number[0]).toString()
+		println "Number: " + extractedNumber
+		return extractedNumber
 	}
 
 	public DataUploadPage uploadFileTesting(String fileName) {

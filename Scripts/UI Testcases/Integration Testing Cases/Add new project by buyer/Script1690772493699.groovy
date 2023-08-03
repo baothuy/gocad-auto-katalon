@@ -1,11 +1,13 @@
 import gocad.buyer.AddProjectPopup
 import gocad.buyer.CheckoutPage
 import gocad.buyer.DataUploadPage
-import gocad.common.LeftNavBar
 import gocad.buyer.ManufacturingInformationPage
 import gocad.buyer.ReviewPage
 import gocad.buyer.SelectMaterialPopup
+import gocad.common.DetailOffer
+import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
+import gocad.seller.OpenInquiriesPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
@@ -19,8 +21,10 @@ Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().v
 '2. User buyer add project'
 Page.nav(LeftNavBar).clickAddProject()
 
-'3. Open add project popup and input project name'
+'3. Open add project popup and add new project name'
 Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+String projectId = Page.nav(DataUploadPage).getIdProject()
+println "projectId: $projectId"
 
 '4. Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting(fileName)
@@ -53,4 +57,8 @@ Page.nav(LeftNavBar).clickLogout()
 '11. Seller Login system to check offers of buyer'
 Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
 
-'12. Seller go details offers of buyer checkout'
+'12. Seller go detail offers of buyer checkout'
+Page.nav(OpenInquiriesPage).clickAction(projectId)
+
+'13. Seller click accept and send offers to buyer'
+Page.nav(DetailOffer).clickAcceptAndSendOffer().clickOKConfirmPopup()
