@@ -7,9 +7,11 @@ import gocad.buyer.SelectMaterialPopup
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
+import gocad.seller.ConfirmedOffersPageOfSeller
 import gocad.seller.OpenInquiriesPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
+import katalon.utility.DateTimeUtility
 
 'All param on this flow'
 'Random project name'
@@ -27,7 +29,7 @@ String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
 '4. Upload file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTesting(fileName)
+Page.nav(DataUploadPage).uploadFileTestingForMTP(fileName)
 
 '6. Select material'
 Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
@@ -47,14 +49,22 @@ Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
 '8. Click Checkout button on Review Page'
 Page.nav(ReviewPage).clickCheckout()
 
-'9. Click Checkout button on Checkout Page'
+'9. Get information Checkout page'
+String deliveryDate = Page.nav(CheckoutPage).getDeliveryDate()
+String companyName = Page.nav(CheckoutPage).getCompanyName()
+String netTotal = Page.nav(CheckoutPage).getNetTotal()
+List<String> listBillingAddress = Page.nav(CheckoutPage).getBillingAddress()
+List<String> listShippingAddress = Page.nav(CheckoutPage).getShippingAddress()
+String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
+
+'10. Click Checkout button on Checkout Page'
 Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
 						.clickPlaceYourOrder()
 						
-'10. Buyer click Logout button'
+'11. Buyer click Logout button'
 Page.nav(LeftNavBar).clickLogout()
 
-'11. Seller Login system to check offers of buyer'
+'12. Seller Login system to check offers of buyer'
 Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
 
 '12. Seller go detail offers of buyer checkout'
@@ -62,3 +72,21 @@ Page.nav(OpenInquiriesPage).clickAction(projectId)
 
 '13. Seller click accept and send offers to buyer'
 Page.nav(DetailOffer).clickAcceptAndSendOffer().clickOKConfirmPopup()
+
+'14. Seller go confirmed offers of buyer checkout'
+Page.nav(LeftNavBar).clickConfirmedOffers()
+
+'15. Verify information show on list'
+Page.nav(ConfirmedOffersPageOfSeller).verifyProjectName(projectId, projectName)
+									 .verifyCompanyName(projectId, companyName)
+									 .verifyOrderNumber(projectId)
+									 .verifyOrderDate(projectId, orderDate)
+									 .verifyNetTotal(projectId, netTotal)
+									 .verifysStatus(projectId, "Order confirmed")
+
+'16. Go confirmed offers deltail of buyer checkout'
+Page.nav(ConfirmedOffersPageOfSeller).clickAction(projectId)
+
+'17. Verify detail of offer'
+Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+					 .verifyShippingAddress(listShippingAddress)

@@ -13,7 +13,7 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		WebUI.click(xpath('//span[@class="ant-upload ant-upload-btn"]'))
 		return this
 	}
-	
+
 	public String getIdProject() {
 		WebUI.waitForElementVisible(xpath('//div[text()="Data upload"]'), 5)
 		String url = WebUI.getUrl()
@@ -25,8 +25,17 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		return extractedNumber
 	}
 
-	public DataUploadPage uploadFileTesting(String fileName) {
-		WebUI.waitForElementVisible(xpath('//input[@type="file"]'), 5)
+	public DataUploadPage uploadFileTestingForMTP(String fileName) {
+		WebUI.waitForElementVisible(xpath('//*[@class="ant-card-body"]'), 5)
+		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"
+		WebUI.uploadFile(xpath('//input[@type="file"]'), path)
+		refreshUntilTextPresent("Quantity", GlobalVariable.sleepLargeTime, GlobalVariable.smallSleepTime)
+		return this
+	}
+	
+	public DataUploadPage uploadFileTestingForSMP(String fileName) {
+		WebUI.waitForElementVisible(xpath('//*[@class="ant-card-body"]'), 5)
+		WebUI.click(xpath("//p[text()='Sheet Metal Part']/ancestor::div[@class='ant-card-body']"))
 		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"
 		WebUI.uploadFile(xpath('//input[@type="file"]'), path)
 		refreshUntilTextPresent("Quantity", GlobalVariable.sleepLargeTime, GlobalVariable.smallSleepTime)

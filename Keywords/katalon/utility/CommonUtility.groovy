@@ -22,7 +22,7 @@ public class CommonUtility {
 	static public List<String> generateRandomUUIDs(int size) {
 		return IntStream.rangeClosed(1, size).boxed().map{ item -> UUID.randomUUID().toString(); }.collect(Collectors.toList())
 	}
-	
+
 	static public String generateRandomProjectName(int size) {
 		Random random = new Random()
 		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
@@ -35,5 +35,18 @@ public class CommonUtility {
 	static public List<String> convertString2ListString(String st, String separator){
 		List<String>rs = st.split(separator)
 		return  rs.stream().map({r -> r.trim()}).collect(Collectors.toList())
+	}
+
+	static public String rgbaToHex(String rgba) {
+		// Remove "rgba(" and ")" and split the values
+		String[] rgbaValues = rgba.replaceAll("rgba\\(|\\)", "").split(",\\s*")
+
+		// Convert each value to hexadecimal
+		String hex = "#"
+		for (String value : rgbaValues[0..2]) {
+			hex += Integer.toHexString(Integer.parseInt(value)).toUpperCase().padLeft(2, '0')
+		}
+
+		return hex
 	}
 }

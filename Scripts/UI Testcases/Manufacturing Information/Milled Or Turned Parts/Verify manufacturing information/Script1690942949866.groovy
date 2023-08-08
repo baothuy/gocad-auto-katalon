@@ -18,7 +18,7 @@ Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().v
 //Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
 //
 //'5. Upload file part on Data upload page'
-//Page.nav(DataUploadPage).uploadFileTesting(fileName)
+//Page.nav(DataUploadPage).uploadFileTestingForMTP(fileName)
 
 'debug. select project'
 Page.nav(LeftNavBar).clickDraft()

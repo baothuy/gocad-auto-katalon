@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Add new project by buyer</name>
+   <name>Verify seller accept offers successfully when project larger than Threshold</name>
    <tag>integration-test,ui</tag>
    <comment></comment>
    <testCaseGuid>e0ddb168-6834-4e03-bd95-457083674d7a</testCaseGuid>
@@ -129,7 +129,7 @@
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'Al2Cl3'</defaultValue>
+      <defaultValue>'AlMg3Si'</defaultValue>
       <description></description>
       <id>8fd32587-b883-4d99-b01f-41af4b6d6fd2</id>
       <masked>false</masked>

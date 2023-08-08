@@ -88,5 +88,4 @@ public class LeftNavBar extends BasePage<LeftNavBar> {
 		WebUI.click(link('Account'))
 		return this
 	}
-
 }
