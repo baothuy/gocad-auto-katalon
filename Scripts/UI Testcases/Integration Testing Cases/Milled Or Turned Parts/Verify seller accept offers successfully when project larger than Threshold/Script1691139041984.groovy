@@ -1,5 +1,6 @@
 import gocad.buyer.AddProjectPopup
 import gocad.buyer.CheckoutPage
+import gocad.buyer.ConfirmedOffersPageOfBuyer
 import gocad.buyer.DataUploadPage
 import gocad.buyer.ManufacturingInformationPage
 import gocad.buyer.ReviewPage
@@ -53,6 +54,7 @@ Page.nav(ReviewPage).clickCheckout()
 String deliveryDate = Page.nav(CheckoutPage).getDeliveryDate()
 String companyName = Page.nav(CheckoutPage).getCompanyName()
 String netTotal = Page.nav(CheckoutPage).getNetTotal()
+String grossTotal = Page.nav(CheckoutPage).getGrossTotal()
 List<String> listBillingAddress = Page.nav(CheckoutPage).getBillingAddress()
 List<String> listShippingAddress = Page.nav(CheckoutPage).getShippingAddress()
 String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
@@ -82,11 +84,31 @@ Page.nav(ConfirmedOffersPageOfSeller).verifyProjectName(projectId, projectName)
 									 .verifyOrderNumber(projectId)
 									 .verifyOrderDate(projectId, orderDate)
 									 .verifyNetTotal(projectId, netTotal)
-									 .verifysStatus(projectId, "Order confirmed")
+									 .verifyStatus(projectId, "Order confirmed")
 
 '16. Go confirmed offers deltail of buyer checkout'
 Page.nav(ConfirmedOffersPageOfSeller).clickAction(projectId)
 
 '17. Verify detail of offer'
+Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+					 .verifyShippingAddress(listShippingAddress)
+					 
+'18. Seller click Logout button'
+Page.nav(LeftNavBar).clickLogout()
+
+'19. User buyer signs in to administration page'
+Page.nav(MySignInPage).enterCredentialAsBuyer().clickSignIn().verifySuccessfullySignInAsBuyer()
+
+'20. Verify information show on list Confirmed Offers of buyer'
+Page.nav(LeftNavBar).clickConfirmedOffers()
+Page.nav(ConfirmedOffersPageOfBuyer).verifyHighlightOnList(projectId)
+									.verifyProjectName(projectId, projectName)
+									.verifyDeliveryDate(projectId, deliveryDate)
+									.verifyOrderNumber(projectId)
+									.verifyGrossTotal(projectId, grossTotal)
+									.verifyStatus(projectId, "Order confirmed")
+									.clickAction(projectId)
+
+'21. Verify information show on detail Confirmed Offers of buyer page'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)

@@ -1,5 +1,6 @@
 import gocad.buyer.AddProjectPopup
 import gocad.buyer.CheckoutPage
+import gocad.buyer.ConfirmedOffersPageOfBuyer
 import gocad.buyer.DataUploadPage
 import gocad.buyer.ManufacturingInformationPage
 import gocad.buyer.ReviewPage
@@ -52,6 +53,7 @@ Page.nav(ReviewPage).clickCheckout()
 String deliveryDate = Page.nav(CheckoutPage).getDeliveryDate()
 String companyName = Page.nav(CheckoutPage).getCompanyName()
 String netTotal = Page.nav(CheckoutPage).getNetTotal()
+String grossTotal = Page.nav(CheckoutPage).getGrossTotal()
 List<String> listBillingAddress = Page.nav(CheckoutPage).getBillingAddress()
 List<String> listShippingAddress = Page.nav(CheckoutPage).getShippingAddress()
 String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
@@ -60,27 +62,36 @@ String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
 Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
 						.clickPlaceYourOrder()
 						
-'11. Buyer click Logout button'
+'11. Verify information show on list Confirmed Offers of buyer'
+Page.nav(LeftNavBar).clickConfirmedOffers()
+Page.nav(ConfirmedOffersPageOfBuyer).verifyHighlightOnList(projectId)
+									.verifyProjectName(projectId, projectName)
+									.verifyDeliveryDate(projectId, deliveryDate)
+									.verifyOrderNumber(projectId)
+									.verifyGrossTotal(projectId, grossTotal)
+									.verifyStatus(projectId, "Order confirmed")
+						
+'12. Buyer click Logout button'
 Page.nav(LeftNavBar).clickLogout()
 
-'12. Seller Login system to check offers of buyer'
+'13. Seller Login system to check offers of buyer'
 Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
 
-'13. Seller go confirmed offers of buyer checkout'
+'14. Seller go confirmed offers of buyer checkout'
 Page.nav(LeftNavBar).clickConfirmedOffers()
 
-'14. Verify information show on list'
+'15. Verify information show on list'
 Page.nav(ConfirmedOffersPageOfSeller).verifyHighlightOnList(projectId)
 									 .verifyProjectName(projectId, projectName)
 									 .verifyCompanyName(projectId, companyName)
 									 .verifyOrderNumber(projectId)
 									 .verifyOrderDate(projectId, orderDate)
 									 .verifyNetTotal(projectId, netTotal)
-									 .verifysStatus(projectId, "Order confirmed")
+									 .verifyStatus(projectId, "Order confirmed")
 
-'15. Go confirmed offers deltail of buyer checkout'
+'16. Go confirmed offers deltail of buyer checkout'
 Page.nav(ConfirmedOffersPageOfSeller).clickAction(projectId)
 
-'16. Verify detail of offer'
+'17. Verify detail of offer'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)

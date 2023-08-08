@@ -27,12 +27,13 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 
 	public DataUploadPage uploadFileTestingForMTP(String fileName) {
 		WebUI.waitForElementVisible(xpath('//*[@class="ant-card-body"]'), 5)
+		WebUI.click(xpath("//p[text()='Milled / Turned Parts']/ancestor::div[@class='ant-card-body']"))
 		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"
 		WebUI.uploadFile(xpath('//input[@type="file"]'), path)
 		refreshUntilTextPresent("Quantity", GlobalVariable.sleepLargeTime, GlobalVariable.smallSleepTime)
 		return this
 	}
-	
+
 	public DataUploadPage uploadFileTestingForSMP(String fileName) {
 		WebUI.waitForElementVisible(xpath('//*[@class="ant-card-body"]'), 5)
 		WebUI.click(xpath("//p[text()='Sheet Metal Part']/ancestor::div[@class='ant-card-body']"))

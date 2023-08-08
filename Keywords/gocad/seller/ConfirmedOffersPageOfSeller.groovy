@@ -66,7 +66,7 @@ public class ConfirmedOffersPageOfSeller extends BasePage<ConfirmedOffersPageOfS
 		return this
 	}
 	
-	public ConfirmedOffersPageOfSeller verifysStatus(String projectId, String expectedResult) {
+	public ConfirmedOffersPageOfSeller verifyStatus(String projectId, String expectedResult) {
 		String status = WebUI.getText(statusCol(projectId))
 		println "status: $status"
 		WebUI.verifyEqual(status, expectedResult)

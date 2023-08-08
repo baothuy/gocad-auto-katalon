@@ -102,4 +102,9 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		String netTotal = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::label"))
 		return netTotal
 	}
+	
+	public String getGrossTotal() {
+		String netTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label"))
+		return netTotal
+	}
 }
