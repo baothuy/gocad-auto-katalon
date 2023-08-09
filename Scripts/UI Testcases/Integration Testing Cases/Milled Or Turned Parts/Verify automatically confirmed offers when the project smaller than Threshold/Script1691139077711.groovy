@@ -59,8 +59,10 @@ List<String> listShippingAddress = Page.nav(CheckoutPage).getShippingAddress()
 String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
 
 '10. Click Checkout button on Checkout Page'
-Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
-						.clickPlaceYourOrder()
+Page.nav(CheckoutPage).selectDeliveryOption(deliveryOption)
+					  .selectShippingOption(shippingOption)
+					  .clickCheckboxAgreeTermsAndConditions()
+					  .clickPlaceYourOrder()
 						
 '11. Verify information show on list Confirmed Offers of buyer'
 Page.nav(LeftNavBar).clickConfirmedOffers()

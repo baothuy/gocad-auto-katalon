@@ -6,7 +6,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable
 
 public class CheckoutPage extends BasePage<CheckoutPage>{
-	
+
 	def partCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[2]")}
 	def materialCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[4]")}
 	def quantityCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[5]")}
@@ -27,8 +27,14 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	}
 
 	public CheckoutPage selectDeliveryOption(String deliveryOption) {
-		WebUI.click(xpath("//div[contains(@class, 'ant-select-selector')]"))
+		WebUI.click(xpath("//input[@id='deliveryOption']/parent::span/parent::div"))
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-item') and @title='$deliveryOption']"))
+		return this
+	}
+	
+	public CheckoutPage selectShippingOption(String shippingOptions) {
+		WebUI.click(xpath("//input[@id='shippingOption']/parent::span/parent::div"))
+		WebUI.click(xpath("//div[contains(@class, 'ant-select-item') and @title='$shippingOptions']"))
 		return this
 	}
 
@@ -40,11 +46,17 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		return extractedDate
 	}
 	
+	public String getDeliveryOption() {
+		String text = WebUI.getText(xpath("//input[@id='deliveryOption']/parent::span/following-sibling::span"))
+		String deliveryOption = text.split('-')[0].trim()
+		return deliveryOption
+	}
+
 	public String getCompanyName() {
 		String companyName = WebUI.getText(xpath("//*[text()='Company Name']/ancestor::div[@class='row']/div[2]"))
 		return companyName
 	}
-	
+
 	//Billing Address
 	public List<String> getBillingAddress() {
 		String fullName = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Full name']/parent::div/span[2]"))
@@ -67,7 +79,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		List<String> billingAddress = [fullName, houseNumber, street, state, zipCode, city]
 		return billingAddress
 	}
-	
+
 	public ReviewPage verifyMaterial(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(materialCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
@@ -97,12 +109,12 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public String getNetTotal() {
 		String netTotal = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::label"))
 		return netTotal
 	}
-	
+
 	public String getGrossTotal() {
 		String netTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label"))
 		return netTotal

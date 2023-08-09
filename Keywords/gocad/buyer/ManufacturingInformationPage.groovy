@@ -175,4 +175,25 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
+	
+	public ManufacturingInformationPage verifyUnitPrice(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyNetPrice(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::h6")).trim()
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public String calculateNetPrice(String unitPrice, String quantity) {
+		def numericValue = unitPrice.replaceAll(/[^\d.,]/, '').replace(',', '.').toDouble()
+		def expectedResult = quantity.toDouble() * numericValue
+		String formattedSum = "${String.format("%.2f", expectedResult)} €"
+		String newExpectedResult = formattedSum.replace('.', ',')
+		return newExpectedResult
+	}
 }

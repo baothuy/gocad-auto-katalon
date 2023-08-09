@@ -6,9 +6,11 @@ import katalon.fw.lib.BasePage
 
 public class ReviewPage extends BasePage<ReviewPage>{
 
-	def partCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[1]")}
+	def imagePartCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[1]")}
+	def partCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[2]")}
+	def fileCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[3]//a")}
 	def materialCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[4]")}
-	def quantityCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[5]")}
+	def quantityCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[5]//input[@id='quantity']")}
 	def unitPriceCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[6]")}
 	def partPriceTotalCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[7]")}
 	def CO2EmissionCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[9]")}
@@ -39,6 +41,29 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.click(xpath('//span[text()="Move"]'))
 		return this
 	}
+	
+	public ReviewPage verifyImagePartClickable(String partName) {
+		WebUI.verifyElementClickable(imagePartCol(partName))
+		return this
+	}
+	
+	public ReviewPage verifyPartName(String partName) {
+		String actualResult = WebUI.getText(partCol(partName))
+		WebUI.verifyEqual(actualResult, partName)
+		return this
+	}
+	
+	public ReviewPage verifyFileClickable(String partName) {
+		WebUI.verifyElementClickable(fileCol(partName))
+		return this
+	}
+	
+	public ReviewPage verifyFiles(String partName) {
+		WebUI.mouseOver(fileCol(partName))
+		String actualResult = WebUI.getText(xpath("//div[@role='tooltip' and text()='$partName']"))
+		WebUI.verifyEqual(actualResult, partName)
+		return this
+	}
 
 	public ReviewPage verifyMaterial(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(materialCol(partName))
@@ -47,7 +72,8 @@ public class ReviewPage extends BasePage<ReviewPage>{
 	}
 
 	public ReviewPage verifyQuantity(String partName, String expectedResult) {
-		String actualResult = WebUI.getText(quantityCol(partName))
+		//String actualResult = WebUI.getText(quantityCol(partName))
+		String actualResult = WebUI.getAttribute(quantityCol(partName), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
@@ -57,9 +83,9 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-
+	
 	public ReviewPage verifyPartPriceTotal(String partName, String expectedResult) {
-		String actualResult = WebUI.getText(partPriceTotalCol(partName))
+		String actualResult = WebUI.getText(partPriceTotalCol(partName)).trim()
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
@@ -69,4 +95,5 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
+	
 }

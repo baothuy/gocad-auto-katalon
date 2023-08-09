@@ -8,8 +8,9 @@ import katalon.fw.lib.BasePage
 
 
 public class DetailOffer extends BasePage<DetailOffer>{
-	
+
 	def partCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[2]")}
+	def fileCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[3]//a")}
 	def materialCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[4]")}
 	def quantityCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[5]")}
 	def unitPriceCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[6]")}
@@ -33,7 +34,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.delay(GlobalVariable.smallSleepTime)
 		return this
 	}
-	
+
 	public DetailOffer verifyBillingAddress(List<String> expectedResult) {
 		String fullName = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
 		String houseNumber = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))
@@ -46,7 +47,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.verifyEqual(actualBillingAddress, expectedResult)
 		return this
 	}
-	
+
 	public DetailOffer verifyShippingAddress(List<String> expectedResult) {
 		String fullName = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
 		String houseNumber = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))

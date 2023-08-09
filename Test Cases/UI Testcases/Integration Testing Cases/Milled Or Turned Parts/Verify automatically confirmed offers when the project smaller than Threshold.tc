@@ -65,6 +65,18 @@
       <value></value>
       <variableId>2c02cbb8-c167-4c76-b462-52fd79f1ac44</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e4167302-c2db-4dfd-9719-7d54247b3f49</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>cb9b750c-6437-4e6d-82fb-de0eb22d6e6a</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'auto_Milling.step'</defaultValue>
       <description></description>
@@ -129,10 +141,24 @@
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'AlMg3Si'</defaultValue>
+      <defaultValue>'TECAST L yellow'</defaultValue>
       <description></description>
       <id>2c02cbb8-c167-4c76-b462-52fd79f1ac44</id>
       <masked>false</masked>
       <name>materialName</name>
+   </variable>
+   <variable>
+      <defaultValue>'STANDARD - 6 weeks (09/20/2023)'</defaultValue>
+      <description></description>
+      <id>e4167302-c2db-4dfd-9719-7d54247b3f49</id>
+      <masked>false</masked>
+      <name>deliveryOption</name>
+   </variable>
+   <variable>
+      <defaultValue>'Standard shipping'</defaultValue>
+      <description></description>
+      <id>cb9b750c-6437-4e6d-82fb-de0eb22d6e6a</id>
+      <masked>false</masked>
+      <name>shippingOption</name>
    </variable>
 </TestCaseEntity>

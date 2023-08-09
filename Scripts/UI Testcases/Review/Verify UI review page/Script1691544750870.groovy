@@ -1,10 +1,15 @@
 import gocad.buyer.DataUploadPage
 import gocad.buyer.DraftPage
 import gocad.buyer.ManufacturingInformationPage
+import gocad.buyer.ReviewPage
 import gocad.buyer.SelectMaterialPopup
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
 import katalon.fw.lib.Page
+
+//'All param on this flow'
+//'Random project name'
+//def projectName = CommonUtility.generateRandomProjectName(10)
 
 '1. User buyer signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
@@ -12,30 +17,26 @@ Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().v
 //'2. User buyer add project'
 //Page.nav(LeftNavBar).clickAddProject()
 //
-//'3. Random project name'
-//def projectName = CommonUtility.generateRandomProjectName(10)
-//
-//'4. Open add project popup and input project name'
+//'3. Open add project popup and add new project name'
 //Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
-//
-//'5. Upload file part on Data upload page'
-//Page.nav(DataUploadPage).uploadFileTestingForMTP(fileName)
+//String projectId = Page.nav(DataUploadPage).getIdProject()
+//println "projectId: $projectId"
 
 'debug. select project'
 Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickAction('Project 578X4cNyl7')
 
-'5. Upload file part on Data upload page'
+'4. Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTestingForMTP(fileName)
 
-'6. Select material and get number part'
+'5. Select material and get CO2 Emission'
 Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
 Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
 String material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
 println "material = $material"
 Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 
-'7. Input required field'
+'6. Input required field'
 Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
 										.inputThread(threadNum)
 										.inputTolerances(tolerancesNum)
@@ -44,16 +45,18 @@ Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
 										.selectSurfaceQuality(quality)
 										.inputComment(comment)
 										.clickCalculate()
-																				
-'8. Verify info after Calculate'
-String netTotal = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitPrice, quantityNum)
-Page.nav(ManufacturingInformationPage).verifyMaterial(material)
-										.verifyQuantity(quantityNum)
-										.verifyThread(threadNum)
-										.verifyTolerancesNumber(tolerancesNum)
-										.verifyTolerancesToggle(tolerancesToggle)
-										//.verifySurfaceTreatment(surfaceTreatment)
-										.verifySurfaceQuality(quality)
-										.verifyAdditionalComments(comment)
-										.verifyNetPrice(netTotal)
 										
+'7. Calculate Net total and click Continue To Offer Overview'
+String netTotal = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitPrice,quantityNum)
+Page.nav(ManufacturingInformationPage).clickContinueToOfferOverview()
+										
+'8. Verify value after navigate to Review page'
+Page.nav(ReviewPage).verifyImagePartClickable(fileName)
+					.verifyPartName(fileName)
+					.verifyFileClickable(fileName)
+					.verifyFiles(fileName)
+					.verifyMaterial(fileName, material)
+					.verifyQuantity(fileName, quantityNum)
+					.verifyUnitPrice(fileName, unitPrice)
+					.verifyPartPriceTotal(fileName, netTotal)
+					
