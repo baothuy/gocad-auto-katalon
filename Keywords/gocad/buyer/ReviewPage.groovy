@@ -21,6 +21,11 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.click(xpath("//span[text()='Check out']"))
 		return this
 	}
+	
+	public ReviewPage clickRequestOffer() {
+		WebUI.click(xpath("//span[text()='Request Offer']"))
+		return this
+	}
 
 	public ReviewPage clickView(String partName) {
 		WebUI.click(actionView(partName))
@@ -41,23 +46,23 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.click(xpath('//span[text()="Move"]'))
 		return this
 	}
-	
+
 	public ReviewPage verifyImagePartClickable(String partName) {
 		WebUI.verifyElementClickable(imagePartCol(partName))
 		return this
 	}
-	
+
 	public ReviewPage verifyPartName(String partName) {
 		String actualResult = WebUI.getText(partCol(partName))
 		WebUI.verifyEqual(actualResult, partName)
 		return this
 	}
-	
+
 	public ReviewPage verifyFileClickable(String partName) {
 		WebUI.verifyElementClickable(fileCol(partName))
 		return this
 	}
-	
+
 	public ReviewPage verifyFiles(String partName) {
 		WebUI.mouseOver(fileCol(partName))
 		String actualResult = WebUI.getText(xpath("//div[@role='tooltip' and text()='$partName']"))
@@ -83,7 +88,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public ReviewPage verifyPartPriceTotal(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(partPriceTotalCol(partName)).trim()
 		WebUI.verifyEqual(actualResult, expectedResult)
@@ -95,5 +100,4 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
 }

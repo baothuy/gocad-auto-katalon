@@ -135,4 +135,18 @@
       <masked>false</masked>
       <name>materialName</name>
    </variable>
+   <variable>
+      <defaultValue>'STANDARD'</defaultValue>
+      <description></description>
+      <id>e4167302-c2db-4dfd-9719-7d54247b3f49</id>
+      <masked>false</masked>
+      <name>deliveryOption</name>
+   </variable>
+   <variable>
+      <defaultValue>'Standard shipping'</defaultValue>
+      <description></description>
+      <id>cb9b750c-6437-4e6d-82fb-de0eb22d6e6a</id>
+      <masked>false</masked>
+      <name>shippingOption</name>
+   </variable>
 </TestCaseEntity>

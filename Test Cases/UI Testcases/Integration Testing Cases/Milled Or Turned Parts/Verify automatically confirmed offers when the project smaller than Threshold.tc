@@ -148,7 +148,7 @@
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'STANDARD - 6 weeks (09/20/2023)'</defaultValue>
+      <defaultValue>'STANDARD'</defaultValue>
       <description></description>
       <id>e4167302-c2db-4dfd-9719-7d54247b3f49</id>
       <masked>false</masked>

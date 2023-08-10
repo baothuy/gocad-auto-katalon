@@ -28,13 +28,13 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 
 	public CheckoutPage selectDeliveryOption(String deliveryOption) {
 		WebUI.click(xpath("//input[@id='deliveryOption']/parent::span/parent::div"))
-		WebUI.click(xpath("//div[contains(@class, 'ant-select-item') and @title='$deliveryOption']"))
+		WebUI.click(xpath("//div[contains(@class, 'ant-select-item') and contains(@title,'$deliveryOption')]"))
 		return this
 	}
 	
 	public CheckoutPage selectShippingOption(String shippingOptions) {
 		WebUI.click(xpath("//input[@id='shippingOption']/parent::span/parent::div"))
-		WebUI.click(xpath("//div[contains(@class, 'ant-select-item') and @title='$shippingOptions']"))
+		WebUI.click(xpath("//div[contains(@class, 'ant-select-item') and contains(@title,'$shippingOptions')]"))
 		return this
 	}
 
@@ -80,34 +80,52 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		return billingAddress
 	}
 
-	public ReviewPage verifyMaterial(String partName, String expectedResult) {
+	public CheckoutPage verifyMaterial(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(materialCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ReviewPage verifyQuantity(String partName, String expectedResult) {
+	public CheckoutPage verifyQuantity(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(quantityCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ReviewPage verifyUnitPrice(String partName, String expectedResult) {
+	public CheckoutPage verifyUnitPrice(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(unitPriceCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ReviewPage verifyPartPriceTotal(String partName, String expectedResult) {
+	public CheckoutPage verifyPartPriceTotal(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(partPriceTotalCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ReviewPage verifyCO2EmissionCol(String partName, String expectedResult) {
+	public CheckoutPage verifyCO2EmissionCol(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(CO2EmissionCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
+	}
+	
+	public CheckoutPage inputShippingComment(String expectedResult) {
+		WebUI.setText(xpath("//textarea[@id='shippingComment']"), expectedResult)
+		return this
+	}
+	
+	public List<String> getOrderSummary() {
+		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label"))
+		String surfaceTreatmentSurcharge = WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label"))
+		String expressSurcharge = WebUI.getText(xpath("//label[text()='Express Surcharge']/following-sibling::label"))
+		String packagingCost = WebUI.getText(xpath("//label[text()='Packaging Cost']/following-sibling::label"))
+		String shippingCosts = WebUI.getText(xpath("//label[text()='Shipping costs']/following-sibling::label"))
+		String netTotal = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::label"))
+		String vat = WebUI.getText(xpath("//label[text()='VAT (19%)']/following-sibling::label"))
+		String grossTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label"))
+		List<String> orderSummary = [totalPartPrice, surfaceTreatmentSurcharge, expressSurcharge, packagingCost, shippingCosts, netTotal, vat, grossTotal]
+		return orderSummary
 	}
 
 	public String getNetTotal() {
@@ -116,7 +134,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	}
 
 	public String getGrossTotal() {
-		String netTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label"))
-		return netTotal
+		String grossTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label"))
+		return grossTotal
 	}
 }

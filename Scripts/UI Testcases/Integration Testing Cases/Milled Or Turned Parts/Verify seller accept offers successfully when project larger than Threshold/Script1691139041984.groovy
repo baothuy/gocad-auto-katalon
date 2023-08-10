@@ -55,6 +55,8 @@ String deliveryDate = Page.nav(CheckoutPage).getDeliveryDate()
 String companyName = Page.nav(CheckoutPage).getCompanyName()
 String netTotal = Page.nav(CheckoutPage).getNetTotal()
 String grossTotal = Page.nav(CheckoutPage).getGrossTotal()
+List<String> listOrderSummary = Page.nav(CheckoutPage).getOrderSummary()
+println "listOrderSummary: $listOrderSummary"
 List<String> listBillingAddress = Page.nav(CheckoutPage).getBillingAddress()
 List<String> listShippingAddress = Page.nav(CheckoutPage).getShippingAddress()
 String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
@@ -112,3 +114,4 @@ Page.nav(ConfirmedOffersPageOfBuyer).verifyHighlightOnList(projectId)
 '21. Verify information show on detail Confirmed Offers of buyer page'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)
+					 .verifyOrderSummary(listOrderSummary)
