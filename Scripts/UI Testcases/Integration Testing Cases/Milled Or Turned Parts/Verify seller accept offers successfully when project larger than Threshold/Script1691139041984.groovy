@@ -50,6 +50,10 @@ Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
 '8. Click Checkout button on Review Page'
 Page.nav(ReviewPage).clickCheckout()
 
+'Select information on checkout page'
+Page.nav(CheckoutPage).selectDeliveryOption(deliveryOption)
+					  //.selectShippingOption(shippingOption)
+
 '9. Get information Checkout page'
 String deliveryDate = Page.nav(CheckoutPage).getDeliveryDate()
 String companyName = Page.nav(CheckoutPage).getCompanyName()

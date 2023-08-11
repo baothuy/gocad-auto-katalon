@@ -29,6 +29,16 @@ public class LeftNavBar extends BasePage<LeftNavBar> {
 		return this
 	}
 
+	public LeftNavBar clickOpenInquiries() {
+		WebUI.click(xpath('//a[text()="Open inquiries"]'))
+		return this
+	}
+
+	public LeftNavBar clickSentOffers() {
+		WebUI.click(xpath('//a[text()="Sent offers"]'))
+		return this
+	}
+
 	public LeftNavBar clickConfirmedOffers() {
 		WebUI.click(xpath('//a[text()="Confirmed Offers"]'))
 		return this

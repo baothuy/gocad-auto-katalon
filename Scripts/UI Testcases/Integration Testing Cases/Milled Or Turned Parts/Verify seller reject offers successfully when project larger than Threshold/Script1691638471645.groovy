@@ -1,6 +1,6 @@
 import gocad.buyer.AddProjectPopup
+import gocad.buyer.CancelledOffersPageOfBuyer
 import gocad.buyer.CheckoutPage
-import gocad.buyer.ConfirmedOffersPageOfBuyer
 import gocad.buyer.DataUploadPage
 import gocad.buyer.ManufacturingInformationPage
 import gocad.buyer.ReviewPage
@@ -8,7 +8,8 @@ import gocad.buyer.SelectMaterialPopup
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
-import gocad.seller.ConfirmedOffersPageOfSeller
+import gocad.seller.CancelledOffersPageOfSeller
+import gocad.seller.OpenInquiriesPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
@@ -51,7 +52,7 @@ Page.nav(ReviewPage).clickCheckout()
 
 'Select information on checkout page'
 Page.nav(CheckoutPage).selectDeliveryOption(deliveryOption)
-					  //.selectShippingOption(shippingOption)
+					  .selectShippingOption(shippingOption)
 
 '9. Get information Checkout page'
 String deliveryDate = Page.nav(CheckoutPage).getDeliveryDate()
@@ -59,49 +60,61 @@ String companyName = Page.nav(CheckoutPage).getCompanyName()
 String netTotal = Page.nav(CheckoutPage).getNetTotal()
 String grossTotal = Page.nav(CheckoutPage).getGrossTotal()
 List<String> listOrderSummary = Page.nav(CheckoutPage).getOrderSummary()
+println "listOrderSummary: $listOrderSummary"
 List<String> listBillingAddress = Page.nav(CheckoutPage).getBillingAddress()
 List<String> listShippingAddress = Page.nav(CheckoutPage).getShippingAddress()
 String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
 
 '10. Click Checkout button on Checkout Page'
 Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
-					  .clickPlaceYourOrder()
+						.clickPlaceYourOrder()
 						
-'11. Verify information show on list Confirmed Offers of buyer'
-Page.nav(LeftNavBar).clickConfirmedOffers()
-Page.nav(ConfirmedOffersPageOfBuyer).verifyHighlightOnList(projectId)
-									.verifyProjectName(projectId, projectName)
-									.verifyDeliveryDate(projectId, deliveryDate)
-									.verifyOrderNumber(projectId)
-									.verifyGrossTotal(projectId, grossTotal)
-									.verifyStatus(projectId, "Order confirmed")
-									.clickAction(projectId)
-									
-'12. Verify detail of offer'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
-					 .verifyShippingAddress(listShippingAddress)
-					 .verifyOrderSummary(listOrderSummary)
-						
-'13. Buyer click Logout button'
+'11. Buyer click Logout button'
 Page.nav(LeftNavBar).clickLogout()
 
-'14. Seller Login system to check offers of buyer'
+'12. Seller Login system to check offers of buyer'
 Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
 
-'15. Seller go confirmed offers of buyer checkout'
-Page.nav(LeftNavBar).clickConfirmedOffers()
+'12. Seller go detail offers of buyer checkout'
+Page.nav(OpenInquiriesPage).clickAction(projectId)
 
-'16. Verify information show on list'
-Page.nav(ConfirmedOffersPageOfSeller).verifyHighlightOnList(projectId)
-									 .verifyProjectName(projectId, projectName)
+'13. Seller click accept and send offers to buyer'
+Page.nav(DetailOffer).clickRejectOffer().clickOKConfirmPopup()
+
+'14. Seller go confirmed offers of buyer checkout'
+Page.nav(LeftNavBar).clickCancelledOffers()
+
+'15. Verify information show on list'
+Page.nav(CancelledOffersPageOfSeller).verifyProjectName(projectId, projectName)
 									 .verifyCompanyName(projectId, companyName)
 									 .verifyOrderNumber(projectId)
 									 .verifyOrderDate(projectId, orderDate)
 									 .verifyNetTotal(projectId, netTotal)
-									 .verifyStatus(projectId, "Order confirmed")
+									 .verifyStatus(projectId, "Offer rejected")
 									 .clickAction(projectId)
 
-'17. Verify detail of offer'
+'16. Verify detail of offer'
+Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+					 .verifyShippingAddress(listShippingAddress)
+					 .verifyOrderSummary(listOrderSummary)
+					 
+'17. Seller click Logout button'
+Page.nav(LeftNavBar).clickLogout()
+
+'18. User buyer signs in to administration page'
+Page.nav(MySignInPage).enterCredentialAsBuyer().clickSignIn().verifySuccessfullySignInAsBuyer()
+
+'19. Verify information show on list Confirmed Offers of buyer'
+Page.nav(LeftNavBar).clickCancelledOffers()
+Page.nav(CancelledOffersPageOfBuyer).verifyHighlightOnList(projectId)
+									.verifyProjectName(projectId, projectName)
+									.verifyDeliveryDate(projectId, deliveryDate)
+									.verifyOrderNumber(projectId)
+									.verifyGrossTotal(projectId, grossTotal)
+									.verifyStatus(projectId, "Offer rejected")
+									.clickAction(projectId)
+
+'20. Verify information show on detail Confirmed Offers of buyer page'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)

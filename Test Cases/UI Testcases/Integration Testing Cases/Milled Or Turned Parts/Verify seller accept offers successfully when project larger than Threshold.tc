@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description></description>
    <name>Verify seller accept offers successfully when project larger than Threshold</name>
-   <tag>integration-test,ui</tag>
+   <tag>integration,ui</tag>
    <comment></comment>
    <testCaseGuid>e0ddb168-6834-4e03-bd95-457083674d7a</testCaseGuid>
    <variableLinks>
@@ -64,6 +64,18 @@
       <type>DEFAULT</type>
       <value></value>
       <variableId>8fd32587-b883-4d99-b01f-41af4b6d6fd2</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e4167302-c2db-4dfd-9719-7d54247b3f49</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>cb9b750c-6437-4e6d-82fb-de0eb22d6e6a</variableId>
    </variableLinks>
    <variable>
       <defaultValue>'auto_Milling.step'</defaultValue>
@@ -129,7 +141,7 @@
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'TECAST L yellow'</defaultValue>
+      <defaultValue>'EN AW-7075 / AlZn5'</defaultValue>
       <description></description>
       <id>8fd32587-b883-4d99-b01f-41af4b6d6fd2</id>
       <masked>false</masked>

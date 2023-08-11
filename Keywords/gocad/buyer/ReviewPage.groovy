@@ -21,7 +21,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.click(xpath("//span[text()='Check out']"))
 		return this
 	}
-	
+
 	public ReviewPage clickRequestOffer() {
 		WebUI.click(xpath("//span[text()='Request Offer']"))
 		return this
@@ -77,7 +77,6 @@ public class ReviewPage extends BasePage<ReviewPage>{
 	}
 
 	public ReviewPage verifyQuantity(String partName, String expectedResult) {
-		//String actualResult = WebUI.getText(quantityCol(partName))
 		String actualResult = WebUI.getAttribute(quantityCol(partName), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
@@ -99,5 +98,18 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		String actualResult = WebUI.getText(CO2EmissionCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
+	}
+	
+	public List<String> getTablePartReview(String partName) {
+		String partNameCol = WebUI.getText(partCol(partName))
+		String material = WebUI.getText(materialCol(partName))
+		String quantity = WebUI.getText(quantityCol(partName))
+		String unitPrice = WebUI.getText(unitPriceCol(partName))
+		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName))
+		WebUI.mouseOver(xpath("//*[@aria-label='message']"))
+		String comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
+		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
+		List<String> result = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
+		return result
 	}
 }

@@ -31,7 +31,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-item') and contains(@title,'$deliveryOption')]"))
 		return this
 	}
-	
+
 	public CheckoutPage selectShippingOption(String shippingOptions) {
 		WebUI.click(xpath("//input[@id='shippingOption']/parent::span/parent::div"))
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-item') and contains(@title,'$shippingOptions')]"))
@@ -45,7 +45,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		String extractedDate = dateMatch[0]
 		return extractedDate
 	}
-	
+
 	public String getDeliveryOption() {
 		String text = WebUI.getText(xpath("//input[@id='deliveryOption']/parent::span/following-sibling::span"))
 		String deliveryOption = text.split('-')[0].trim()
@@ -109,12 +109,12 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public CheckoutPage inputShippingComment(String expectedResult) {
 		WebUI.setText(xpath("//textarea[@id='shippingComment']"), expectedResult)
 		return this
 	}
-	
+
 	public List<String> getOrderSummary() {
 		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label"))
 		String surfaceTreatmentSurcharge = WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label"))
