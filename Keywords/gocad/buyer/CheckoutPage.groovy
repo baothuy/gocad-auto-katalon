@@ -37,7 +37,12 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-item') and contains(@title,'$shippingOptions')]"))
 		return this
 	}
-
+	
+	public CheckoutPage inputPackagingAndShippingComments(String expectedResult) {
+		WebUI.setText(xpath("//textarea[@id='shippingComment']"), expectedResult)
+		return this
+	}
+	
 	public String getDeliveryDate() {
 		String deliveryOption = WebUI.getText(xpath("//input[@id='deliveryOption']/parent::span/following-sibling::span"))
 		String regex = "\\d{2}/\\d{2}/\\d{4}"
@@ -51,7 +56,17 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		String deliveryOption = text.split('-')[0].trim()
 		return deliveryOption
 	}
-
+	
+	public String getShippingOptions() {
+		String shippingOptions = WebUI.getAttribute(xpath("//input[@id='shippingOption']/parent::span/parent::div/span[2]"), "title")
+		return shippingOptions
+	}
+	
+	public String getPackagingAndShippingComments() {
+		String text = WebUI.getText(xpath("//textarea[@id='shippingComment']"))
+		return text
+	}
+	
 	public String getCompanyName() {
 		String companyName = WebUI.getText(xpath("//*[text()='Company Name']/ancestor::div[@class='row']/div[2]"))
 		return companyName
@@ -107,11 +122,6 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	public CheckoutPage verifyCO2EmissionCol(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(CO2EmissionCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
-		return this
-	}
-
-	public CheckoutPage inputShippingComment(String expectedResult) {
-		WebUI.setText(xpath("//textarea[@id='shippingComment']"), expectedResult)
 		return this
 	}
 

@@ -9,10 +9,10 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 
 'debug. select project'
 Page.nav(LeftNavBar).clickOpenInquiries()
-Page.nav(OpenInquiriesPage).clickAction("759")
+Page.nav(OpenInquiriesPage).clickAction("766")
+
+List<String> expectedResult = ['GOCAD766','1','ECONOMY','08/26/2023','Packaging and Shipping Comments','Standard shipping']
 
 'Input change unit price'
-Page.nav(DetailOffer).inputUnitPrice(unitPriceChanged).clickAcceptChangeUnitPrice().clickCloseToastMessage()
-
-List<String> tablePartChanged = Page.nav(DetailOffer).getTablePartReview(fileName)
-println "tablePartChanged: $tablePartChanged"
+Page.nav(DetailOffer).verifyShippingOptionsContent("Standard shipping")
+					 .verifyShippingInfo(expectedResult)

@@ -2,12 +2,10 @@ package gocad.common
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
-import gocad.buyer.ConfirmedOffersPageOfBuyer
 import internal.GlobalVariable
 import katalon.fw.lib.BasePage
-
-
-
+import katalon.fw.lib.Page
+import katalon.utility.DateTimeUtility
 
 public class DetailOffer extends BasePage<DetailOffer>{
 
@@ -79,26 +77,26 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		return this
 	}
 
-	public ConfirmedOffersPageOfBuyer verifyOrderNumber(String projectId) {
+	public DetailOffer verifyOrderNumber(String projectId) {
 		String actualResult = WebUI.getText(xpath("//p[text()='Order Number']/parent::div"))
 		String expectedResult = "GOCAD"+ projectId
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ConfirmedOffersPageOfBuyer verifyNumberOfParts(String expectedResult) {
+	public DetailOffer verifyNumberOfParts(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//p[text()='Number of parts']/parent::div"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ConfirmedOffersPageOfBuyer verifyDeliveryOption(String expectedResult) {
+	public DetailOffer verifyDeliveryOption(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//p[text()='Delivery Option']/parent::div"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ConfirmedOffersPageOfBuyer verifyDeliveryDate(String expectedResult) {
+	public DetailOffer verifyDeliveryDate(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//p[text()='Delivery Date']/parent::div"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
@@ -124,12 +122,12 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String state = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State']/ancestor::tr/following-sibling::tr[1]/td[1]"))
 		String zipCode = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
 		String city = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		List<String> actualBillingAddress = [fullName, houseNumber, street, state, zipCode, city]
-		println "actualBillingAddress: $actualBillingAddress"
-		WebUI.verifyEqual(actualBillingAddress, expectedResult)
+		List<String> actualShippingAddress = [fullName, houseNumber, street, state, zipCode, city]
+		println "actualShippingAddress: $actualShippingAddress"
+		WebUI.verifyEqual(actualShippingAddress, expectedResult)
 		return this
 	}
-	
+
 	public DetailOffer verifyTablePartReview(String partName, List<String> expectedResult ) {
 		String partNameCol = WebUI.getText(partCol(partName))
 		String material = WebUI.getText(materialCol(partName))
@@ -140,7 +138,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
 		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
 		List<String> actualResult = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
-		println "orderSummary Confirmed page: $orderSummary"
+		println "tablePart info: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
@@ -156,21 +154,64 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String vat = WebUI.getText(xpath("//label[text()='VAT (19%)']/following-sibling::label"))
 		String grossTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label"))
 		List<String> orderSummary = [totalPartPrice, surfaceTreatmentSurcharge, expressSurcharge, packagingCost, shippingCosts, netTotal, vat, grossTotal]
-		println "orderSummary Confirmed page: $orderSummary"
+		println "orderSummary: $orderSummary"
 		WebUI.verifyEqual(orderSummary, expectedResult)
 		return this
 	}
 
-	public ConfirmedOffersPageOfBuyer verifyCustomerInfo(List<String> expectedResult) {
+	public DetailOffer verifyCustomerInfo(List<String> expectedResult) {
 		String nameCostumer = WebUI.getText(xpath("//*[text()='Customer Info']/ancestor::div[@class='ant-card-head']/following-sibling::div//span[@aria-label='user']/following-sibling::label"))
 		String email = WebUI.getText(xpath("//*[text()='Customer Info']/ancestor::div[@class='ant-card-head']/following-sibling::div//span[@aria-label='mail']/following-sibling::label"))
 		String phone = WebUI.getText(xpath("//*[text()='Customer Info']/ancestor::div[@class='ant-card-head']/following-sibling::div//span[@aria-label='phone']/following-sibling::label"))
 		String companyName = WebUI.getText(xpath("//*[text()='Customer Info']/ancestor::div[@class='ant-card-head']/following-sibling::div//span[@aria-label='home']/following-sibling::label"))
 		List<String> customerInfo = [nameCostumer, email, phone, companyName]
 		println "customerInfo: $customerInfo"
+		WebUI.verifyEqual(customerInfo, expectedResult)
 		return this
 	}
-
+	
+	public DetailOffer verifyShippingInfo(List<String> expectedResult) {
+		String orderNumber = WebUI.getText(xpath("//p[text()='Order Number']/following-sibling::label"))
+		String numberOfPart = WebUI.getText(xpath("//p[text()='Number of parts']/following-sibling::label"))
+		String deliveryOption = WebUI.getText(xpath("//p[text()='Delivery Option']/following-sibling::label"))
+		String deliveryDate = WebUI.getText(xpath("//p[text()='Delivery Date']/following-sibling::label"))
+		String formatDeliveryDate = DateTimeUtility.changeDateFormat(deliveryDate, "MMMM d, yyyy", "MM-dd-yyyy")
+		println "formatDeliveryDate: $formatDeliveryDate"
+		String packagingAndShippingComments = WebUI.getText(xpath("//p[text()='Packaging and Shipping Comments']/following-sibling::label"))
+		String shippingOptions = WebUI.getText(xpath("//div[@class='text-muted']"))
+		List<String> shippingInfo = [orderNumber, numberOfPart, deliveryOption, formatDeliveryDate, packagingAndShippingComments, shippingOptions]
+		println "shippingInfo: $shippingInfo"
+		WebUI.verifyEqual(shippingInfo, expectedResult)
+		return this
+	}
+	
+	public DetailOffer verifyShippingOptionsContent(String shippingOptions) {
+	
+    	switch (shippingOptions) {
+	        case "Standard shipping":
+	            String actualShippingContent = ""
+				String expectedContent = ""
+				println "actualShippingContent: $actualShippingContent"
+				WebUI.verifyEqual(actualShippingContent, expectedContent)
+				println "actualShippingContent: $actualShippingContent and expectedContent: $expectedContent"
+	            break
+	        case "Pickup at factory":
+				String actualShippingContent = WebUI.getText(xpath("//p[text()='Shipping options']/following-sibling::label"))
+				println "actualShippingContent: $actualShippingContent"
+				String expectedContent = "Pick-up at factory"
+				WebUI.verifyEqual(actualShippingContent, expectedContent)
+				println "actualShippingContent: $actualShippingContent and expectedContent: $expectedContent"
+	            break
+	        case "Special packaging / via freight forwarding":
+				String actualShippingContent = WebUI.getText(xpath("//p[text()='Shipping options']/following-sibling::label"))
+				String expectedContent = "Special delivery that will be invoiced later"
+				WebUI.verifyEqual(actualShippingContent, expectedContent)
+				println "actualShippingContent: $actualShippingContent and expectedContent: $expectedContent"
+	            break
+    		}
+		return this
+	}
+	
 	public List<String> getOrderSummary() {
 		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label"))
 		String surfaceTreatmentSurcharge = WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label"))
@@ -207,7 +248,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		List<String> billingAddress = [fullName, houseNumber, street, state, zipCode, city]
 		return billingAddress
 	}
-	
+
 	public List<String> getTablePartReview(String partName) {
 		String partNameCol = WebUI.getText(partCol(partName))
 		String material = WebUI.getText(materialCol(partName))

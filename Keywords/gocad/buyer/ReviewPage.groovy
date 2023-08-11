@@ -99,7 +99,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public List<String> getTablePartReview(String partName) {
 		String partNameCol = WebUI.getText(partCol(partName))
 		String material = WebUI.getText(materialCol(partName))
