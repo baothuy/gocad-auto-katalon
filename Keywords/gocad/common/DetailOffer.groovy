@@ -141,6 +141,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String unitPrice = WebUI.getText(unitPriceCol(partName))
 		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName))
 		List<String> findTestObjects = findTestObjects("//*[@aria-label='message']")
+		println "findTestObjects: $findTestObjects"
 		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
 		String comment
 		if (findTestObjects.size() != 0) {
