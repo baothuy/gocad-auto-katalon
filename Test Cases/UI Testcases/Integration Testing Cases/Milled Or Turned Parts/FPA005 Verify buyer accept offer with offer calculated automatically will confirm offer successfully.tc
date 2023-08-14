@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Verify seller reject offers successfully when project larger than Threshold</name>
-   <tag>story-test,integration,ui</tag>
+   <name>FPA005 Verify buyer accept offer with offer calculated automatically will confirm offer successfully</name>
+   <tag>integration-test,ui</tag>
    <comment></comment>
-   <testCaseGuid>f6c421de-cb0d-431a-bcc8-fc5e4f45024f</testCaseGuid>
+   <testCaseGuid>ab9d87b6-13ac-4825-99e3-4cf7c28b21b0</testCaseGuid>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
       <variableId>78717f81-35f4-4a03-bf31-6b51807c5f2e</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>052b3ee4-8bdc-43aa-b5d5-6e6b479ee3fc</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
@@ -77,12 +83,25 @@
       <value></value>
       <variableId>cb9b750c-6437-4e6d-82fb-de0eb22d6e6a</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>670df784-ef30-4d8f-aa7b-46096b2a727f</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'auto_Milling.step'</defaultValue>
       <description></description>
       <id>78717f81-35f4-4a03-bf31-6b51807c5f2e</id>
       <masked>false</masked>
       <name>fileName</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>052b3ee4-8bdc-43aa-b5d5-6e6b479ee3fc</id>
+      <masked>false</masked>
+      <name>filePDF</name>
    </variable>
    <variable>
       <defaultValue>'150'</defaultValue>
@@ -160,5 +179,12 @@
       <id>cb9b750c-6437-4e6d-82fb-de0eb22d6e6a</id>
       <masked>false</masked>
       <name>shippingOption</name>
+   </variable>
+   <variable>
+      <defaultValue>'58,03'</defaultValue>
+      <description></description>
+      <id>670df784-ef30-4d8f-aa7b-46096b2a727f</id>
+      <masked>false</masked>
+      <name>unitPriceChanged</name>
    </variable>
 </TestCaseEntity>

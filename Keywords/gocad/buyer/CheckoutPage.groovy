@@ -37,12 +37,12 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-item') and contains(@title,'$shippingOptions')]"))
 		return this
 	}
-	
+
 	public CheckoutPage inputPackagingAndShippingComments(String expectedResult) {
 		WebUI.setText(xpath("//textarea[@id='shippingComment']"), expectedResult)
 		return this
 	}
-	
+
 	public String getDeliveryDate() {
 		String deliveryOption = WebUI.getText(xpath("//input[@id='deliveryOption']/parent::span/following-sibling::span"))
 		String regex = "\\d{2}/\\d{2}/\\d{4}"
@@ -56,17 +56,17 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		String deliveryOption = text.split('-')[0].trim()
 		return deliveryOption
 	}
-	
+
 	public String getShippingOptions() {
 		String shippingOptions = WebUI.getAttribute(xpath("//input[@id='shippingOption']/parent::span/parent::div/span[2]"), "title")
 		return shippingOptions
 	}
-	
+
 	public String getPackagingAndShippingComments() {
 		String text = WebUI.getText(xpath("//textarea[@id='shippingComment']"))
 		return text
 	}
-	
+
 	public String getCompanyName() {
 		String companyName = WebUI.getText(xpath("//*[text()='Company Name']/ancestor::div[@class='row']/div[2]"))
 		return companyName
@@ -127,7 +127,8 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 
 	public List<String> getOrderSummary() {
 		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label"))
-		String surfaceTreatmentSurcharge = WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label"))
+		List<String> surfaceTreatmentSurchargeObject = findTestObjects("//label[text()='Surface Treatment Surcharge']/following-sibling::label")
+		def surfaceTreatmentSurcharge = (surfaceTreatmentSurchargeObject.size() != 0) ? WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label")) : "Empty"
 		String expressSurcharge = WebUI.getText(xpath("//label[text()='Express Surcharge']/following-sibling::label"))
 		String packagingCost = WebUI.getText(xpath("//label[text()='Packaging Cost']/following-sibling::label"))
 		String shippingCosts = WebUI.getText(xpath("//label[text()='Shipping costs']/following-sibling::label"))

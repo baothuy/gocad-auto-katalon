@@ -103,13 +103,24 @@ public class ReviewPage extends BasePage<ReviewPage>{
 	public List<String> getTablePartReview(String partName) {
 		String partNameCol = WebUI.getText(partCol(partName))
 		String material = WebUI.getText(materialCol(partName))
-		String quantity = WebUI.getText(quantityCol(partName))
+		String quantity = WebUI.getAttribute(quantityCol(partName), "value")
 		String unitPrice = WebUI.getText(unitPriceCol(partName))
 		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName))
-		WebUI.mouseOver(xpath("//*[@aria-label='message']"))
-		String comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
+		List<String> findTestObjects = findTestObjects("//*[@aria-label='message']")
 		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
-		List<String> result = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
-		return result
+		String comment
+		println "findTestObjects: $findTestObjects"
+		if (findTestObjects.size() != 0) { 
+			WebUI.mouseOver(xpath("//*[@aria-label='message']"))
+			comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
+		} 
+		else
+		{
+			comment = ""
+			
+		}
+		List<String> actualResult = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
+		println "getTablePartReview: $actualResult"
+		return actualResult
 	}
 }

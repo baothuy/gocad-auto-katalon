@@ -9,6 +9,30 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
+      <variableId>78717f81-35f4-4a03-bf31-6b51807c5f2e</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>8e364813-81f4-4eaa-92dd-762cba92e264</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>cadcd02a-9a4a-4a73-96a0-9a835a65509b</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>7fd59e68-2070-4b35-917c-741af579cf85</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>f06efde4-8b48-4e82-9c09-430fe0543fef</variableId>
    </variableLinks>
    <variableLinks>
@@ -57,14 +81,36 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>c7d6f10f-7182-4256-904c-1c761a649b30</variableId>
+      <variableId>a99bc2e1-be83-4f97-ac52-d7bad672594d</variableId>
    </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>3fc35948-aa64-4b3a-82b1-f6d23222ec17</variableId>
-   </variableLinks>
+   <variable>
+      <defaultValue>'auto_Milling.step'</defaultValue>
+      <description></description>
+      <id>78717f81-35f4-4a03-bf31-6b51807c5f2e</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description></description>
+      <id>8e364813-81f4-4eaa-92dd-762cba92e264</id>
+      <masked>false</masked>
+      <name>quantityNum</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description></description>
+      <id>cadcd02a-9a4a-4a73-96a0-9a835a65509b</id>
+      <masked>false</masked>
+      <name>threadNum</name>
+   </variable>
+   <variable>
+      <defaultValue>'4'</defaultValue>
+      <description></description>
+      <id>7fd59e68-2070-4b35-917c-741af579cf85</id>
+      <masked>false</masked>
+      <name>tolerancesNum</name>
+   </variable>
    <variable>
       <defaultValue>'Eloxieren'</defaultValue>
       <description></description>
@@ -101,38 +147,31 @@
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'TECAST L yellow'</defaultValue>
+      <defaultValue>'EN AW-7075 / AlZn5'</defaultValue>
       <description></description>
       <id>2c02cbb8-c167-4c76-b462-52fd79f1ac44</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'ECONOMY'</defaultValue>
+      <defaultValue>'STANDARD'</defaultValue>
       <description></description>
       <id>e4167302-c2db-4dfd-9719-7d54247b3f49</id>
       <masked>false</masked>
       <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>'Pickup at factory'</defaultValue>
+      <defaultValue>'Standard shipping'</defaultValue>
       <description></description>
       <id>cb9b750c-6437-4e6d-82fb-de0eb22d6e6a</id>
       <masked>false</masked>
       <name>shippingOption</name>
    </variable>
    <variable>
-      <defaultValue>'shipping nocomment'</defaultValue>
+      <defaultValue>'goCAD_milling v4.pdf'</defaultValue>
       <description></description>
-      <id>c7d6f10f-7182-4256-904c-1c761a649b30</id>
+      <id>a99bc2e1-be83-4f97-ac52-d7bad672594d</id>
       <masked>false</masked>
-      <name>shippingComment</name>
-   </variable>
-   <variable>
-      <defaultValue>'5000-02003-00_Platte.STEP'</defaultValue>
-      <description></description>
-      <id>3fc35948-aa64-4b3a-82b1-f6d23222ec17</id>
-      <masked>false</masked>
-      <name>fileName</name>
+      <name>filePDF</name>
    </variable>
 </TestCaseEntity>

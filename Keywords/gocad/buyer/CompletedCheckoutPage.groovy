@@ -8,12 +8,12 @@ import katalon.fw.lib.BasePage
 
 
 public class CompletedCheckoutPage extends BasePage<CompletedCheckoutPage>{
-	
+
 	public CompletedCheckoutPage clickBackToProject() {
 		WebUI.click(xpath("//*[text()='Back to project']"))
 		return this
 	}
-	
+
 	public CompletedCheckoutPage verifyUICompletedPage() {
 		WebUI.verifyElementVisible(xpath("//*[@data-icon='check-circle']"))
 		WebUI.verifyElementVisible(text("Successfully checkout!"))

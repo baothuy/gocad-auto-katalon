@@ -1,8 +1,10 @@
 package gocad.buyer
 
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import katalon.fw.lib.BasePage
+import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
+import internal.GlobalVariable
+import katalon.fw.lib.BasePage
 
 public class ManufacturingInformationPage extends BasePage<ManufacturingInformationPage> {
 
@@ -58,13 +60,22 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage selectSurfaceTreatment(String surfaceTreatment) {
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
-		WebUI.click(xpath("//div[contains(@class, 'ant-select-item ant-select-item-option') and @title='$surfaceTreatment']"))
+		List<String> surfaceTreatmentObject = findTestObjects("//div[contains(@class, 'ant-select-item ant-select-item-option') and @title='$surfaceTreatment']")
+		def clickAble = (surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item ant-select-item-option') and @title='$surfaceTreatment']")) : "Empty"
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
 		return this
 	}
 
 	public ManufacturingInformationPage inputComment(String text) {
 		WebUI.sendKeys(xpath('//*[@id="additionalComments"]'), text)
+		return this
+	}
+	
+	public ManufacturingInformationPage uploadFilePDFTesting(String fileName) {
+		WebUI.waitForElementVisible(xpath("//span[@aria-label='delete']/parent::button"), 10)
+		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"
+		WebUI.uploadFile(xpath('//input[@type="file"]'), path)
+		waitForElementDisplay(xpath("//*[@id='materialId']/div[@class='b-robot']/div/*[@class='check']"))
 		return this
 	}
 

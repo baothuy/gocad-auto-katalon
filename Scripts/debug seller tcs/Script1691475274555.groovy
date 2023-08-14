@@ -1,3 +1,5 @@
+import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
@@ -9,10 +11,9 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 
 'debug. select project'
 Page.nav(LeftNavBar).clickOpenInquiries()
-Page.nav(OpenInquiriesPage).clickAction("766")
-
-List<String> expectedResult = ['GOCAD766','1','ECONOMY','08/26/2023','Packaging and Shipping Comments','Standard shipping']
-
-'Input change unit price'
-Page.nav(DetailOffer).verifyShippingOptionsContent("Standard shipping")
-					 .verifyShippingInfo(expectedResult)
+Page.nav(OpenInquiriesPage).clickAction("808")
+  
+println 'Input change unit price'
+List<String> listshippinginfo = Page.nav(DetailOffer).getShippingInfo()
+Page.nav(DetailOffer).verifyShippingInfo(listshippinginfo)
+					

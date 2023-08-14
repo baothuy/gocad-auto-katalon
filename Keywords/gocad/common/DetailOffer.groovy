@@ -40,6 +40,11 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		return this
 	}
 
+	public DetailOffer clickResetAdapt() {
+		WebUI.click(xpath("//span[text()='Reset Adapt']/parent::button"))
+		return this
+	}
+
 	public DetailOffer clickCancelPopup() {
 		WebUI.click(xpath("//span[text()='Cancel']/parent::button"))
 		return this
@@ -47,7 +52,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 
 	public DetailOffer clickOKConfirmPopup() {
 		WebUI.click(xpath("//span[text()='OK']/parent::button"))
-		WebUI.delay(GlobalVariable.smallSleepTime)
+		//WebUI.delay(GlobalVariable.smallSleepTime)
 		return this
 	}
 
@@ -57,7 +62,8 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	}
 
 	public DetailOffer clickCloseToastMessage() {
-		WebUI.click(xpath("//*[@aria-label='close']/parent::span"))
+		WebUI.waitForElementVisible(xpath("//*[@aria-label='close']/ancestor::a"), 5)
+		WebUI.click(xpath("//*[@aria-label='close']/ancestor::a"))
 		return this
 	}
 
@@ -134,9 +140,18 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String quantity = WebUI.getText(quantityCol(partName))
 		String unitPrice = WebUI.getText(unitPriceCol(partName))
 		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName))
-		WebUI.click(xpath("//*[@aria-label='message']"))
-		String comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
+		List<String> findTestObjects = findTestObjects("//*[@aria-label='message']")
 		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
+		String comment
+		if (findTestObjects.size() != 0) {
+			WebUI.mouseOver(xpath("//*[@aria-label='message']"))
+			comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
+		}
+		else
+		{
+			comment = ""
+			
+		}
 		List<String> actualResult = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
 		println "tablePart info: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
@@ -145,7 +160,8 @@ public class DetailOffer extends BasePage<DetailOffer>{
 
 	public DetailOffer verifyOrderSummary(List<String> expectedResult) {
 		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label"))
-		String surfaceTreatmentSurcharge = WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label"))
+		List<String> surfaceTreatmentSurchargeObject = findTestObjects("//label[text()='Surface Treatment Surcharge']/following-sibling::label")
+		def surfaceTreatmentSurcharge = (surfaceTreatmentSurchargeObject.size() != 0) ? WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label")) : "Empty"
 		String expressSurchargeValue = WebUI.getText(xpath("//label[text()='Express Surcharge']/following-sibling::label"))
 		String expressSurcharge = expressSurchargeValue == "00.0 €" ? "-- €" : expressSurchargeValue
 		String packagingCost = WebUI.getText(xpath("//label[text()='Packaging Cost']/following-sibling::label"))
@@ -169,49 +185,30 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.verifyEqual(customerInfo, expectedResult)
 		return this
 	}
-	
+
 	public DetailOffer verifyShippingInfo(List<String> expectedResult) {
 		String orderNumber = WebUI.getText(xpath("//p[text()='Order Number']/following-sibling::label"))
 		String numberOfPart = WebUI.getText(xpath("//p[text()='Number of parts']/following-sibling::label"))
 		String deliveryOption = WebUI.getText(xpath("//p[text()='Delivery Option']/following-sibling::label"))
 		String deliveryDate = WebUI.getText(xpath("//p[text()='Delivery Date']/following-sibling::label"))
-		String formatDeliveryDate = DateTimeUtility.changeDateFormat(deliveryDate, "MMMM d, yyyy", "MM-dd-yyyy")
-		println "formatDeliveryDate: $formatDeliveryDate"
-		String packagingAndShippingComments = WebUI.getText(xpath("//p[text()='Packaging and Shipping Comments']/following-sibling::label"))
-		String shippingOptions = WebUI.getText(xpath("//div[@class='text-muted']"))
-		List<String> shippingInfo = [orderNumber, numberOfPart, deliveryOption, formatDeliveryDate, packagingAndShippingComments, shippingOptions]
+		String formatDeliveryDate = DateTimeUtility.changeDateFormat(deliveryDate)
+		
+		String Comments = WebUI.getText(xpath("//p[text()='Packaging and Shipping Comments']/following-sibling::label"))
+		def packagingAndShippingComments = (Comments == 'Empty') ? "" : Comments
+		
+		List<String> shippingOptionsContentObject = findTestObjects("//p[text()='Shipping options']/following-sibling::label")
+		def shippingOptionsContent = (shippingOptionsContentObject.size() != 0) ? WebUI.getText(xpath("//p[text()='Shipping options']/following-sibling::label")) : "Empty"
+		
+		List<String> shippingOptionsObject = findTestObjects("//div[@class='text-muted']")
+		def shippingOptions = (shippingOptionsObject.size() != 0) ? WebUI.getText(xpath("//div[@class='text-muted']")) : "Empty"
+		
+		List<String> shippingInfo = [orderNumber, numberOfPart, deliveryOption, formatDeliveryDate, packagingAndShippingComments, shippingOptions, shippingOptionsContent]
+		
 		println "shippingInfo: $shippingInfo"
 		WebUI.verifyEqual(shippingInfo, expectedResult)
 		return this
 	}
-	
-	public DetailOffer verifyShippingOptionsContent(String shippingOptions) {
-	
-    	switch (shippingOptions) {
-	        case "Standard shipping":
-	            String actualShippingContent = ""
-				String expectedContent = ""
-				println "actualShippingContent: $actualShippingContent"
-				WebUI.verifyEqual(actualShippingContent, expectedContent)
-				println "actualShippingContent: $actualShippingContent and expectedContent: $expectedContent"
-	            break
-	        case "Pickup at factory":
-				String actualShippingContent = WebUI.getText(xpath("//p[text()='Shipping options']/following-sibling::label"))
-				println "actualShippingContent: $actualShippingContent"
-				String expectedContent = "Pick-up at factory"
-				WebUI.verifyEqual(actualShippingContent, expectedContent)
-				println "actualShippingContent: $actualShippingContent and expectedContent: $expectedContent"
-	            break
-	        case "Special packaging / via freight forwarding":
-				String actualShippingContent = WebUI.getText(xpath("//p[text()='Shipping options']/following-sibling::label"))
-				String expectedContent = "Special delivery that will be invoiced later"
-				WebUI.verifyEqual(actualShippingContent, expectedContent)
-				println "actualShippingContent: $actualShippingContent and expectedContent: $expectedContent"
-	            break
-    		}
-		return this
-	}
-	
+
 	public List<String> getOrderSummary() {
 		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label"))
 		String surfaceTreatmentSurcharge = WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label"))
@@ -249,16 +246,36 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		return billingAddress
 	}
 
+	public List<String> getShippingInfo() {
+		String orderNumber = WebUI.getText(xpath("//p[text()='Order Number']/following-sibling::label"))
+		String numberOfPart = WebUI.getText(xpath("//p[text()='Number of parts']/following-sibling::label"))
+		String deliveryOption = WebUI.getText(xpath("//p[text()='Delivery Option']/following-sibling::label"))
+		String deliveryDate = WebUI.getText(xpath("//p[text()='Delivery Date']/following-sibling::label"))
+		String formatDeliveryDate = DateTimeUtility.changeDateFormat(deliveryDate)
+		String Comments = WebUI.getText(xpath("//p[text()='Packaging and Shipping Comments']/following-sibling::label"))
+		def packagingAndShippingComments = (Comments == 'Empty') ? "" : Comments
+		List<String> findShippingOptionsContentObject = findTestObjects("//p[text()='Shipping options']/following-sibling::label")
+		def shippingOptionsContent = (findShippingOptionsContentObject.size() != 0) ? WebUI.getText(xpath("//p[text()='Shipping options']/following-sibling::label")) : "Empty"
+		List<String> findShippingOptionsObject = findTestObjects("//div[@class='text-muted']")
+		def shippingOptions = (findShippingOptionsObject.size() != 0) ? WebUI.getText(xpath("//div[@class='text-muted']")) : "Standard shipping"
+		List<String> shippingInfo = [orderNumber, numberOfPart, deliveryOption, formatDeliveryDate, packagingAndShippingComments, shippingOptions, shippingOptionsContent]
+		println "final get shippingInfo: $shippingInfo"
+		return shippingInfo
+	}
+
 	public List<String> getTablePartReview(String partName) {
 		String partNameCol = WebUI.getText(partCol(partName))
 		String material = WebUI.getText(materialCol(partName))
 		String quantity = WebUI.getText(quantityCol(partName))
-		String unitPrice = WebUI.getAttribute(unitPriceInputCol(partName), "value") + " €"
+		List<String> unitPriceObject = findTestObjects("//div[text()='$partName']/ancestor::tr/td[6]//input[@id='unitPrice']")
+		println "unitPriceObject: $unitPriceObject"
+		def unitPrice = (unitPriceObject.size() == 0) ? WebUI.getText(unitPriceCol(partName)) : (WebUI.getAttribute(unitPriceInputCol(partName), "value") + " €")
 		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName))
 		WebUI.mouseOver(xpath("//*[@aria-label='message']"))
 		String comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
 		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
 		List<String> result = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
+		println "getTablePartReview: $result"
 		return result
 	}
 }

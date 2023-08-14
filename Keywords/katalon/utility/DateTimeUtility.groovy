@@ -35,7 +35,7 @@ public class DateTimeUtility {
 		def dateTime = dateTimeFormatter.parseDateTime(dateString)
 		return dateTime
 	}
-	
+
 	public static String changeDateFormat(String dateString, String oldFormat = "MMMM d, yyyy", String newFormat = "MM/dd/yyyy") {
 		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(oldFormat)
 		DateTime dateTime = dateTimeFormatter.parseDateTime(dateString)
@@ -80,5 +80,4 @@ public class DateTimeUtility {
 			plusDays(days, format);
 		}
 	}
-
 }

@@ -19,14 +19,14 @@ Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().v
 //Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
 //
 //'5. Upload file part on Data upload page'
-//Page.nav(DataUploadPage).uploadFileTestingForMTP(fileName)
+//Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
 
 'debug. select project'
 Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickAction('Project 578X4cNyl7')
 
 '5. Upload file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTestingForMTP(fileName)
+Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
 
 '6. Select material and get number part'
 Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()

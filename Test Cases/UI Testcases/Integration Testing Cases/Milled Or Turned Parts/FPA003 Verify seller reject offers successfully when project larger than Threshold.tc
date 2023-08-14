@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Verify automatically confirmed offers when the project smaller than Threshold</name>
+   <name>FPA003 Verify seller reject offers successfully when project larger than Threshold</name>
    <tag>integration-test,ui</tag>
    <comment></comment>
-   <testCaseGuid>c57eaac9-38f6-40ea-a4b8-f0f1b789c032</testCaseGuid>
+   <testCaseGuid>f6c421de-cb0d-431a-bcc8-fc5e4f45024f</testCaseGuid>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
       <variableId>78717f81-35f4-4a03-bf31-6b51807c5f2e</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>b343f4b0-4a63-4700-9d3f-ef3f2093880b</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
@@ -85,7 +91,14 @@
       <name>fileName</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>b343f4b0-4a63-4700-9d3f-ef3f2093880b</id>
+      <masked>false</masked>
+      <name>filePDF</name>
+   </variable>
+   <variable>
+      <defaultValue>'150'</defaultValue>
       <description></description>
       <id>8e364813-81f4-4eaa-92dd-762cba92e264</id>
       <masked>false</masked>

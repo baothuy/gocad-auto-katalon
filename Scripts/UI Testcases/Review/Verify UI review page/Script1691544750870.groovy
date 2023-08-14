@@ -27,7 +27,7 @@ Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickAction('Project 578X4cNyl7')
 
 '4. Upload file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTestingForMTP(fileName)
+Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
 
 '5. Select material and get CO2 Emission'
 Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
