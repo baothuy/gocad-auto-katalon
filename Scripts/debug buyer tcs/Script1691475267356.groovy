@@ -1,40 +1,58 @@
+import gocad.buyer.DataUploadPage
 import gocad.buyer.DraftPage
-import gocad.buyer.RequestOfferPopup
+import gocad.buyer.ManufacturingInformationPage
 import gocad.buyer.ReviewPage
-import gocad.common.DetailOffer
+import gocad.buyer.SelectMaterialPopup
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
-import gocad.seller.OpenInquiriesPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
-println '>> All param on this flow'
+
+println '>> FPA002 Verify seller accept offers successfully when project larger than Threshold'
 println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
-println '>>  User buyer signs in to administration page'
+println '>> User buyer signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>>  User buyer add project'
 Page.nav(LeftNavBar).clickDraft()
 
-Page.nav(DraftPage).clickAction('Project lay10193fG')
+Page.nav(DraftPage).clickAction('Project z71ewwkyEL')
 
-Page.nav(ReviewPage).clickRequestOffer()
+//println '>> Upload file part on Data upload page'
+//Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
+//
+//if (filePDF == "")
+//{
+//	println '>> Select material'
+//	Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
+//	Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).selectMaterialName(materialName)
+//	
+//	println '>> Input required field'
+//	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+//											.inputThread(threadNum)
+//											.inputTolerances(tolerancesNum)
+//											.clickToggleTolerances(tolerancesToggle)
+//											.selectSurfaceTreatment(surfaceTreatment)
+//											.selectSurfaceQuality(quality)
+//											.inputComment(comment)
+//}
+//else
+//{
+//	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+//										  .selectSurfaceTreatment(surfaceTreatment)
+//										  .selectSurfaceQuality(quality)
+//										  .uploadFilePDFTesting(filePDF)
+//										  .inputComment(comment)
+//}
+//
+//println '>> click Calculate and move to Review page'
+//Page.nav(ManufacturingInformationPage).clickCalculate()
+//									  .clickContinueToOfferOverview()
 
-Page.nav(RequestOfferPopup).clickOK()
-
-println '>> Get info Detail offer after click OK on Request Offer Popup'
-List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
-List<String> tablePart = Page.nav(DetailOffer).getTablePartReview(fileName)
-
-println '>> Buyer click Logout button'
-Page.nav(LeftNavBar).clickLogout()
-
-println '>> Seller Login system to check offers of buyer'
-Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
-
-Page.nav(OpenInquiriesPage).clickAction('848')
-
-println '>> Input change unit price'
-Page.nav(DetailOffer).inputUnitPrice(unitPriceChanged).clickAcceptChangeUnitPrice().clickCloseToastMessage()
+println '>> Click get infor and Checkout button on Review Page'
+List<String> tablePart = Page.nav(ReviewPage).getTablePartReview(fileName)
+println "tablePart: $tablePart"
+Page.nav(ReviewPage).clickCheckout()

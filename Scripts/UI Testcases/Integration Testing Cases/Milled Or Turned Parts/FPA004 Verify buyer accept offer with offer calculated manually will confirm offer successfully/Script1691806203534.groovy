@@ -17,7 +17,7 @@ import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
 
-println '>> All param on this flow'
+println '>> FPA004 Verify buyer accept offer with offer calculated manually will confirm offer successfully'
 println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 

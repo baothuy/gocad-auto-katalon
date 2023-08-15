@@ -15,8 +15,8 @@ import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
 
-println 'All param on this flow'
-println 'Random project name'
+println '>> FPA003 Verify seller reject offers successfully when project larger than Threshold'
+println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>> User buyer signs in to administration page'

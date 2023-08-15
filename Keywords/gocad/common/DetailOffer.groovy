@@ -148,10 +148,8 @@ public class DetailOffer extends BasePage<DetailOffer>{
 			WebUI.mouseOver(xpath("//*[@aria-label='message']"))
 			comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
 		}
-		else
-		{
+		else {
 			comment = ""
-			
 		}
 		List<String> actualResult = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
 		println "tablePart info: $actualResult"
@@ -193,18 +191,18 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String deliveryOption = WebUI.getText(xpath("//p[text()='Delivery Option']/following-sibling::label"))
 		String deliveryDate = WebUI.getText(xpath("//p[text()='Delivery Date']/following-sibling::label"))
 		String formatDeliveryDate = DateTimeUtility.changeDateFormat(deliveryDate)
-		
+
 		String Comments = WebUI.getText(xpath("//p[text()='Packaging and Shipping Comments']/following-sibling::label"))
 		def packagingAndShippingComments = (Comments == 'Empty') ? "" : Comments
-		
+
 		List<String> shippingOptionsContentObject = findTestObjects("//p[text()='Shipping options']/following-sibling::label")
 		def shippingOptionsContent = (shippingOptionsContentObject.size() != 0) ? WebUI.getText(xpath("//p[text()='Shipping options']/following-sibling::label")) : "Empty"
-		
+
 		List<String> shippingOptionsObject = findTestObjects("//div[@class='text-muted']")
 		def shippingOptions = (shippingOptionsObject.size() != 0) ? WebUI.getText(xpath("//div[@class='text-muted']")) : "Empty"
-		
+
 		List<String> shippingInfo = [orderNumber, numberOfPart, deliveryOption, formatDeliveryDate, packagingAndShippingComments, shippingOptions, shippingOptionsContent]
-		
+
 		println "shippingInfo: $shippingInfo"
 		WebUI.verifyEqual(shippingInfo, expectedResult)
 		return this

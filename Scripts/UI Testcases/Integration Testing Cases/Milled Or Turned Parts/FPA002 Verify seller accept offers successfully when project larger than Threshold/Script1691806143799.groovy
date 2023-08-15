@@ -15,7 +15,7 @@ import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
 
-println '>> All param on this flow'
+println '>> FPA002 Verify seller accept offers successfully when project larger than Threshold'
 println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
@@ -68,7 +68,7 @@ Page.nav(ReviewPage).clickCheckout()
 
 println '>> Select information on checkout page'
 Page.nav(CheckoutPage).selectDeliveryOption(deliveryOption)
-					  //.selectShippingOption(shippingOption)
+					  .selectShippingOption(shippingOption)
 
 println '>> Get information Checkout page'
 String orderNumber = "GOCAD" + projectId

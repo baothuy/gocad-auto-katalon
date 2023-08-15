@@ -110,14 +110,12 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
 		String comment
 		println "findTestObjects: $findTestObjects"
-		if (findTestObjects.size() != 0) { 
+		if (findTestObjects.size() != 0) {
 			WebUI.mouseOver(xpath("//*[@aria-label='message']"))
 			comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
-		} 
-		else
-		{
+		}
+		else {
 			comment = ""
-			
 		}
 		List<String> actualResult = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
 		println "getTablePartReview: $actualResult"

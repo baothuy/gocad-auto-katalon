@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description></description>
    <name>debug seller tcs</name>
-   <tag></tag>
+   <tag>debug</tag>
    <comment></comment>
    <testCaseGuid>3f0969dd-aafb-43f3-9fd5-20663f6915b8</testCaseGuid>
    <variableLinks>
