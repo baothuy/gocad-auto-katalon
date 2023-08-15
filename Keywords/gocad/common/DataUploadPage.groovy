@@ -1,4 +1,4 @@
-package gocad.buyer
+package gocad.common
 
 import com.kms.katalon.core.configuration.RunConfiguration
 import java.io.File

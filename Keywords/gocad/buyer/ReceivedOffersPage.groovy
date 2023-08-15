@@ -4,6 +4,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
+import katalon.utility.DateTimeUtility
 
 
 public class ReceivedOffersPage extends BasePage<ReceivedOffersPage>{
@@ -38,7 +39,7 @@ public class ReceivedOffersPage extends BasePage<ReceivedOffersPage>{
 
 	public ReceivedOffersPage verifyDeliveryDate(String projectId, String expectedResult) {
 		String deliveryDate = WebUI.getText(deliveryDateCol(projectId)).trim()
-		println "deliveryDate: $deliveryDate"
+		println "deliveryDate: $deliveryDate"		
 		WebUI.verifyEqual(deliveryDate, expectedResult)
 		return this
 	}

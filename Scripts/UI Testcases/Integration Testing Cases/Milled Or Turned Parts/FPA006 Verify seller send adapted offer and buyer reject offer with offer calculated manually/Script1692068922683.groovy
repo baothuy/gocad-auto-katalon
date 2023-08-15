@@ -1,5 +1,5 @@
 import gocad.common.AddProjectPopup
-import gocad.buyer.ConfirmedOffersPageOfBuyer
+import gocad.buyer.CancelledOffersPageOfBuyer
 import gocad.common.DataUploadPage
 import gocad.common.ManufacturingInformationPage
 import gocad.buyer.ReceivedOffersPage
@@ -10,6 +10,7 @@ import gocad.buyer.SettingsPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
+import gocad.seller.CancelledOffersPageOfSeller
 import gocad.seller.ConfirmedOffersPageOfSeller
 import gocad.seller.OpenInquiriesPage
 import gocad.seller.SentOffersPage
@@ -156,19 +157,19 @@ Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(fileName, tablePartChanged)
 					 .verifyShippingInfo(listShippingInfo)
-					 .clickAcceptOffer()
+					 .clickRejectOffer()
 					 .clickOKConfirmPopup()
  
-println '>> Verify information show on list Confirmed Offers of buyer'
-Page.nav(LeftNavBar).clickConfirmedOffers()
-Page.nav(ConfirmedOffersPageOfBuyer).verifyProjectName(projectId, projectName)
+println '>> Verify information show on list Rejected Offers of buyer'
+Page.nav(LeftNavBar).clickCancelledOffers()
+Page.nav(CancelledOffersPageOfBuyer).verifyProjectName(projectId, projectName)
 									.verifyDeliveryDate(projectId, deliveryDate)
 									.verifyOrderNumber(projectId)
 									.verifyGrossTotal(projectId, grossTotal)
-									.verifyStatus(projectId, "Order confirmed")
+									.verifyStatus(projectId, "Offer rejected")
 									.clickAction(projectId)
 
-println '>> Verify information show on detail Confirmed Offers of buyer page'
+println '>> Verify information show on detail Rejected Offers of buyer page'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
@@ -182,19 +183,19 @@ println '>> Seller Login system to check offers of buyer'
 Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
 					 
 println '>> Verify information show on list'
-Page.nav(LeftNavBar).clickConfirmedOffers()
-Page.nav(ConfirmedOffersPageOfSeller).verifyHighlightOnList(projectId)
+Page.nav(LeftNavBar).clickCancelledOffers()
+Page.nav(CancelledOffersPageOfSeller).verifyHighlightOnList(projectId)
 									 .verifyProjectName(projectId, projectName)
 									 .verifyCompanyName(projectId, companyName)
 									 .verifyOrderNumber(projectId)
 									 .verifyOrderDate(projectId, orderDate)
 									 .verifyNetTotal(projectId, netTotal)
-									 .verifyStatus(projectId, "Order confirmed")
+									 .verifyStatus(projectId, "Offer rejected")
 
-println '>> Go confirmed offers deltail of buyer checkout'
-Page.nav(ConfirmedOffersPageOfSeller).clickAction(projectId)
+println '>> Go Rejected Offers deltail of buyer checkout'
+Page.nav(CancelledOffersPageOfSeller).clickAction(projectId)
 
-println '>> Verify information show on detail Confirmed Offers of buyer page'
+println '>> Verify information show on detail Rejected Offers of buyer page'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)

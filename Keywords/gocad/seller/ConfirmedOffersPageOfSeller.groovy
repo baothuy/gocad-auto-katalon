@@ -22,7 +22,7 @@ public class ConfirmedOffersPageOfSeller extends BasePage<ConfirmedOffersPageOfS
 		WebUI.click(actionCol(projectId))
 		return this
 	}
-	
+
 	public ConfirmedOffersPageOfSeller verifyHighlightOnList(String projectId) {
 		String backgroundColor = WebUI.getCSSValue(rowOfProject(projectId), 'background-color')
 		String rgbaToHex = CommonUtility.rgbaToHex(backgroundColor)
@@ -30,20 +30,20 @@ public class ConfirmedOffersPageOfSeller extends BasePage<ConfirmedOffersPageOfS
 		WebUI.verifyEqual(rgbaToHex, "#FFF8E6")
 		return this
 	}
-	
+
 	public ConfirmedOffersPageOfSeller verifyProjectName(String projectId, String expectedResult) {
 		String projectName = WebUI.getText(projectNameCol(projectId))
 		WebUI.verifyEqual(projectName, expectedResult)
 		return this
 	}
-	
+
 	public ConfirmedOffersPageOfSeller verifyCompanyName(String projectId, String expectedResult) {
 		String companyName = WebUI.getText(companyNameCol(projectId))
 		println "companyName: $companyName"
 		WebUI.verifyEqual(companyName, expectedResult)
 		return this
 	}
-	
+
 	public ConfirmedOffersPageOfSeller verifyOrderNumber(String projectId) {
 		String orderNumber = WebUI.getText(orderNumberCol(projectId))
 		String expectedResult = "GOCAD"+ projectId
@@ -51,21 +51,21 @@ public class ConfirmedOffersPageOfSeller extends BasePage<ConfirmedOffersPageOfS
 		WebUI.verifyEqual(orderNumber, expectedResult)
 		return this
 	}
-	
+
 	public ConfirmedOffersPageOfSeller verifyOrderDate(String projectId, String expectedResult) {
 		String orderDate = WebUI.getText(orderDateCol(projectId))
 		println "orderDate: $orderDate"
 		WebUI.verifyEqual(orderDate, expectedResult)
 		return this
 	}
-	
+
 	public ConfirmedOffersPageOfSeller verifyNetTotal(String projectId, String expectedResult) {
 		String netTotal = WebUI.getText(netTotalCol(projectId))
 		println "netTotal: $netTotal"
 		WebUI.verifyEqual(netTotal, expectedResult)
 		return this
 	}
-	
+
 	public ConfirmedOffersPageOfSeller verifyStatus(String projectId, String expectedResult) {
 		String status = WebUI.getText(statusCol(projectId))
 		println "status: $status"

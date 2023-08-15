@@ -1,6 +1,6 @@
-import gocad.buyer.DataUploadPage
 import gocad.buyer.DraftPage
-import gocad.buyer.ManufacturingInformationPage
+import gocad.common.DataUploadPage
+import gocad.common.ManufacturingInformationPage
 import gocad.buyer.SelectMaterialPopup
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage

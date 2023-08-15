@@ -1,11 +1,11 @@
-import gocad.buyer.AddProjectPopup
+import gocad.common.AddProjectPopup
 import gocad.buyer.CheckoutPage
 import gocad.buyer.CompletedCheckoutPage
 import gocad.buyer.ConfirmedOffersPageOfBuyer
-import gocad.buyer.DataUploadPage
-import gocad.buyer.ManufacturingInformationPage
+import gocad.common.DataUploadPage
+import gocad.common.ManufacturingInformationPage
 import gocad.buyer.ReviewPage
-import gocad.buyer.SelectMaterialPopup
+import gocad.common.SelectMaterialPopup
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage

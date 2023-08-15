@@ -1,9 +1,10 @@
-package gocad.buyer
+package gocad.common
+
+import org.openqa.selenium.Keys
 
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
-import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 
 public class ManufacturingInformationPage extends BasePage<ManufacturingInformationPage> {
@@ -108,7 +109,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		clearTextAndSendKeysByActions(xpath('//*[@id="numberOfThreads"]'), number)
 		return this
 	}
-
+	
 	public ManufacturingInformationPage inputTolerances(String number) {
 		clearTextAndSendKeysByActions(xpath('//*[@id="numberOfFits"]'), number)
 		return this
@@ -128,6 +129,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage selectSurfaceQuality(String quality) {
 		WebUI.click(xpath("//*[text()='Surface Quality']/parent::div/following::div[@class='ant-select-selector']"))
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$quality']"))
+		return this
+	}
+	
+	public ManufacturingInformationPage inputDeliveryDate(String deliveryDate) {
+		WebUI.sendKeys(xpath("//input[@id='deliveryDate']"), deliveryDate + Keys.RETURN)
 		return this
 	}
 

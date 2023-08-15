@@ -1,12 +1,13 @@
-package gocad.buyer
+package gocad.seller
 
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import katalon.fw.lib.BasePage
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import internal.GlobalVariable
 
-public class CheckoutPage extends BasePage<CheckoutPage>{
+import katalon.fw.lib.BasePage
 
+public class SendOfferPage extends BasePage<SendOfferPage>{
+	
 	def partCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[2]")}
 	def materialCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[4]")}
 	def quantityCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[5]")}
@@ -16,45 +17,26 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	def actionView = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]")}
 	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]//button")}
 
-	public CheckoutPage clickCheckboxAgreeTermsAndConditions() {
-		WebUI.click(xpath('//*[@id="agreeTermConditions"]'))
+	public SendOfferPage clickSendOffer() {
+		WebUI.click(xpath('//*[text()="Send Offer"]'))
+		return this
+	}
+	
+	public SendOfferPage inputCustomer(String text) {
+		WebUI.setText(xpath("//input[@id='email']"), text)
+		WebUI.click(xpath("//div[contains(@class, 'ant-select-item ant-select-item-option')]//span[text()='$text']"))
 		return this
 	}
 
-	public CheckoutPage clickPlaceYourOrder() {
-		WebUI.click(xpath('//*[text()="Place your order"]'))
-		return this
-	}
-
-	public CheckoutPage selectDeliveryOption(String deliveryOption) {
-		WebUI.click(xpath("//input[@id='deliveryOption']/parent::span/parent::div"))
-		WebUI.click(xpath("//div[contains(@class, 'ant-select-item') and contains(@title,'$deliveryOption')]"))
-		return this
-	}
-
-	public CheckoutPage selectShippingOption(String shippingOptions) {
+	public SendOfferPage selectShippingOption(String shippingOptions) {
 		WebUI.click(xpath("//input[@id='shippingOption']/parent::span/parent::div"))
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-item') and contains(@title,'$shippingOptions')]"))
 		return this
 	}
 
-	public CheckoutPage inputPackagingAndShippingComments(String text) {
+	public SendOfferPage inputPackagingAndShippingComments(String text) {
 		WebUI.setText(xpath("//textarea[@id='shippingComment']"), text)
 		return this
-	}
-
-	public String getDeliveryDate() {
-		String deliveryOption = WebUI.getText(xpath("//input[@id='deliveryOption']/parent::span/following-sibling::span"))
-		String regex = "\\d{2}/\\d{2}/\\d{4}"
-		def dateMatch = deliveryOption =~ regex
-		String extractedDate = dateMatch[0]
-		return extractedDate
-	}
-
-	public String getDeliveryOption() {
-		String text = WebUI.getText(xpath("//input[@id='deliveryOption']/parent::span/following-sibling::span"))
-		String deliveryOption = text.split('-')[0].trim()
-		return deliveryOption
 	}
 
 	public String getShippingOptions() {
@@ -68,7 +50,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	}
 
 	public String getCompanyName() {
-		String companyName = WebUI.getText(xpath("//*[text()='Company Name']/ancestor::div[@class='row']/div[2]"))
+		String companyName = WebUI.getText(xpath("//*[text()='Company Name']/ancestor::div[@class='row']/div[4]"))
 		return companyName
 	}
 
@@ -95,31 +77,31 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		return billingAddress
 	}
 
-	public CheckoutPage verifyMaterial(String partName, String expectedResult) {
+	public SendOfferPage verifyMaterial(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(materialCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public CheckoutPage verifyQuantity(String partName, String expectedResult) {
+	public SendOfferPage verifyQuantity(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(quantityCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public CheckoutPage verifyUnitPrice(String partName, String expectedResult) {
+	public SendOfferPage verifyUnitPrice(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(unitPriceCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public CheckoutPage verifyPartPriceTotal(String partName, String expectedResult) {
+	public SendOfferPage verifyPartPriceTotal(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(partPriceTotalCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public CheckoutPage verifyCO2EmissionCol(String partName, String expectedResult) {
+	public SendOfferPage verifyCO2EmissionCol(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(CO2EmissionCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this

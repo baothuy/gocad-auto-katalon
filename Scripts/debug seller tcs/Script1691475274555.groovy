@@ -1,10 +1,7 @@
-import gocad.buyer.DataUploadPage
-import gocad.buyer.DraftPage
-import gocad.buyer.ManufacturingInformationPage
-import gocad.buyer.ReviewPage
-import gocad.buyer.SelectMaterialPopup
 import gocad.common.LeftNavBar
+import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
+import gocad.seller.MyProjectsPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
@@ -14,14 +11,12 @@ println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickDraft()
+Page.nav(LeftNavBar).clickMyProjects()
 
-Page.nav(DraftPage).clickAction('Project z71ewwkyEL')
+Page.nav(MyProjectsPage).clickAction('985')
 
-println '>> Click get infor and Checkout button on Review Page'
-List<String> tablePart = Page.nav(ReviewPage).getTablePartReview(fileName)
-println "tablePart: $tablePart"
-Page.nav(ReviewPage).clickCheckout()
+Page.nav(ManufacturingInformationPage).inputDeliveryDate(deliveryDate).clickContinueToOfferOverview()
+
