@@ -6,16 +6,16 @@ import katalon.fw.lib.BasePage
 
 public class ReviewPage extends BasePage<ReviewPage>{
 
-	def imagePartCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[1]")}
-	def partCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[2]")}
-	def fileCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[3]//a")}
-	def materialCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[4]")}
-	def quantityCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[5]//input[@id='quantity']")}
-	def unitPriceCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[6]")}
-	def partPriceTotalCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[7]")}
-	def CO2EmissionCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[9]")}
-	def actionView = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]")}
-	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]//button")}
+	def imagePartCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[1]")}
+	def partCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[2]")}
+	def fileCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[3]//a")}
+	def materialCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[4]")}
+	def quantityCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[5]//input[@id='quantity']")}
+	def unitPriceCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[6]")}
+	def partPriceTotalCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[7]")}
+	def CO2EmissionCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[9]")}
+	def actionView = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]")}
+	def actionMore = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]//button")}
 
 	public ReviewPage clickCheckout() {
 		WebUI.click(xpath("//span[text()='Check out']"))

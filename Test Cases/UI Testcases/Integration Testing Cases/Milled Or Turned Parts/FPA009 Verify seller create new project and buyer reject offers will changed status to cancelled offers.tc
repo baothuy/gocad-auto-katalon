@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>FPA008 Verify seller create new project and buyer accept offers will changed status to comfirmed offers</name>
+   <name>FPA009 Verify seller create new project and buyer reject offers will changed status to cancelled offers</name>
    <tag>integration-test,ui</tag>
    <comment></comment>
-   <testCaseGuid>0c71d873-eeb4-4df1-bf40-82f08d4ecb93</testCaseGuid>
+   <testCaseGuid>23e25e66-3b0c-4118-a039-f00f81d8cb01</testCaseGuid>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
@@ -179,7 +179,7 @@
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'2024-08-16'</defaultValue>
+      <defaultValue>'2023-12-16'</defaultValue>
       <description>yyyy-mm-dd</description>
       <id>319690ba-d5fc-43d3-bdcb-f962139da9d5</id>
       <masked>false</masked>

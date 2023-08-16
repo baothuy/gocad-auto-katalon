@@ -39,7 +39,7 @@ public class ReceivedOffersPage extends BasePage<ReceivedOffersPage>{
 
 	public ReceivedOffersPage verifyDeliveryDate(String projectId, String expectedResult) {
 		String deliveryDate = WebUI.getText(deliveryDateCol(projectId)).trim()
-		println "deliveryDate: $deliveryDate"		
+		println "deliveryDate: $deliveryDate"
 		WebUI.verifyEqual(deliveryDate, expectedResult)
 		return this
 	}
