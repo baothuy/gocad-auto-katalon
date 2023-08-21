@@ -2,7 +2,6 @@ import gocad.buyer.DraftPage
 import gocad.common.DataUploadPage
 import gocad.common.ManufacturingInformationPage
 import gocad.buyer.ReviewPage
-import gocad.buyer.SelectMaterialPopup
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
 import katalon.fw.lib.Page
@@ -19,40 +18,10 @@ Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().v
 println '>>  User buyer add project'
 Page.nav(LeftNavBar).clickDraft()
 
-Page.nav(DraftPage).clickAction('Project z71ewwkyEL')
+Page.nav(DraftPage).clickAction('Auto Generate Prj s2ztbqWkq9')
 
-//println '>> Upload file part on Data upload page'
-//Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
-//
-//if (filePDF == "")
-//{
-//	println '>> Select material'
-//	Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
-//	Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).selectMaterialName(materialName)
-//	
-//	println '>> Input required field'
-//	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
-//											.inputThread(threadNum)
-//											.inputTolerances(tolerancesNum)
-//											.clickToggleTolerances(tolerancesToggle)
-//											.selectSurfaceTreatment(surfaceTreatment)
-//											.selectSurfaceQuality(quality)
-//											.inputComment(comment)
-//}
-//else
-//{
-//	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
-//										  .selectSurfaceTreatment(surfaceTreatment)
-//										  .selectSurfaceQuality(quality)
-//										  .uploadFilePDFTesting(filePDF)
-//										  .inputComment(comment)
-//}
-//
-//println '>> click Calculate and move to Review page'
-//Page.nav(ManufacturingInformationPage).clickCalculate()
-//									  .clickContinueToOfferOverview()
+println '>> Upload file part on Data upload page'
+Page.nav(DataUploadPage).uploadFileTesting(workflow, fileName)
 
-println '>> Click get infor and Checkout button on Review Page'
-List<String> tablePart = Page.nav(ReviewPage).getTablePartReview(fileName)
-println "tablePart: $tablePart"
-Page.nav(ReviewPage).clickCheckout()
+println '>> Continues file part on Data upload page'
+Page.nav(DataUploadPage).uploadFileTesting(workflow, fileName)

@@ -39,4 +39,16 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		WebUI.click(xpath("//p[text()='$workflow']/ancestor::div[@class='ant-card-body']"))
 		return this
 	}
+	
+	public DataUploadPage verifyUIDataUploadPage(String projectName) {
+		WebUI.verifyElementVisible(xpath("//span[text()='$projectName']"))
+		WebUI.verifyElementVisible(xpath("//div[text()='Data upload']/parent::div/preceding-sibling::div//*[text()='1']"))
+		WebUI.verifyElementVisible(xpath("//div[text()='Manufacturing information']/parent::div/preceding-sibling::div//*[text()='2']"))
+		WebUI.verifyElementVisible(xpath("//div[text()='Review']/parent::div/preceding-sibling::div//*[text()='3']"))
+		WebUI.verifyElementVisible(xpath("//div[text()='Checkout']/parent::div/preceding-sibling::div//*[text()='4']"))
+		WebUI.verifyElementVisible(xpath("//div[text()='Completed']/parent::div/preceding-sibling::div//*[text()='5']"))
+		WebUI.verifyElementVisible(xpath("//input[@type='file']"))
+		return this
+	}
+	
 }

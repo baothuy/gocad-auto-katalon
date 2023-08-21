@@ -4,6 +4,7 @@ import java.util.regex.Matcher
 import java.util.regex.Pattern
 import java.util.stream.Collectors
 import java.util.stream.IntStream
+import internal.GlobalVariable
 
 
 
@@ -27,7 +28,7 @@ public class CommonUtility {
 		Random random = new Random()
 		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 		String randomString = (1..size).collect { characters[random.nextInt(characters.length())] }.join()
-		String projectName = "Project" + " " + randomString
+		String projectName = "$GlobalVariable.prefixName" + " " + randomString
 		println "Random string of length $size: $randomString"
 		return projectName
 	}
