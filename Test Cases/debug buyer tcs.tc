@@ -15,6 +15,12 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
+      <variableId>0a8b2299-e2d5-4624-b48e-b6ca37e3143b</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>8e364813-81f4-4eaa-92dd-762cba92e264</variableId>
    </variableLinks>
    <variableLinks>
@@ -90,11 +96,18 @@
       <variableId>94ecca2d-b77a-40a8-a03e-7b55b08bdeb2</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'auto_Milling.step'</defaultValue>
+      <defaultValue>'!@#$%^&amp;()_+{}[];\',.~`.dxf'</defaultValue>
       <description></description>
       <id>78717f81-35f4-4a03-bf31-6b51807c5f2e</id>
       <masked>false</masked>
       <name>fileName</name>
+   </variable>
+   <variable>
+      <defaultValue>'!@#$%^&amp;()_+{}[];\',.~`.step'</defaultValue>
+      <description></description>
+      <id>0a8b2299-e2d5-4624-b48e-b6ca37e3143b</id>
+      <masked>false</masked>
+      <name>fileName2</name>
    </variable>
    <variable>
       <defaultValue>'2'</defaultValue>

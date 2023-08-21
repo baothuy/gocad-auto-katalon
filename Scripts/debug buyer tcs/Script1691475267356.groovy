@@ -18,10 +18,10 @@ Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().v
 println '>>  User buyer add project'
 Page.nav(LeftNavBar).clickDraft()
 
-Page.nav(DraftPage).clickAction('Auto Generate Prj s2ztbqWkq9')
+Page.nav(DraftPage).clickAction('1343')
 
 println '>> Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting(workflow, fileName)
 
-println '>> Continues file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTesting(workflow, fileName)
+println '>> Verify show error when upload Incompatible File'
+Page.nav(ManufacturingInformationPage).verifyShowErrorIncompatibleFile()

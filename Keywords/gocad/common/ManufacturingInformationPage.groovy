@@ -71,7 +71,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.sendKeys(xpath('//*[@id="additionalComments"]'), text)
 		return this
 	}
-	
+
 	public ManufacturingInformationPage uploadFilePDFTesting(String fileName) {
 		WebUI.waitForElementVisible(xpath("//span[@aria-label='delete']/parent::button"), 10)
 		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"
@@ -109,7 +109,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		clearTextAndSendKeysByActions(xpath('//*[@id="numberOfThreads"]'), number)
 		return this
 	}
-	
+
 	public ManufacturingInformationPage inputTolerances(String number) {
 		clearTextAndSendKeysByActions(xpath('//*[@id="numberOfFits"]'), number)
 		return this
@@ -131,7 +131,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$quality']"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage inputDeliveryDate(String deliveryDate) {
 		WebUI.sendKeys(xpath("//input[@id='deliveryDate']"), deliveryDate + Keys.RETURN)
 		return this
@@ -212,5 +212,10 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		String formattedSum = "${String.format("%.2f", expectedResult)} €"
 		String newExpectedResult = formattedSum.replace('.', ',')
 		return newExpectedResult
+	}
+	
+	public ManufacturingInformationPage verifyShowErrorIncompatibleFile() {
+		WebUI.verifyElementVisible(xpath("//div[text()='There is problem when calculating the request. Please contact the admin.']"))
+		return this
 	}
 }

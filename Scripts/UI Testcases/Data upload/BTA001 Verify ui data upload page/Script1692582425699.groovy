@@ -1,3 +1,4 @@
+import gocad.buyer.DraftPage
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
@@ -19,3 +20,11 @@ Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
 
 println '>> Verify ui data upload page'
 Page.nav(DataUploadPage).verifyUIDataUploadPage("$projectName")
+
+String projectId = Page.nav(DataUploadPage).getIdProject()
+println "projectId: $projectId"
+
+println '>> Back to draft page check data on list Draft page'
+Page.nav(LeftNavBar).clickDraft()
+Page.nav(DraftPage).verifyProjectName(projectId, projectName)
+					.verifyStatus(projectId, 'Draft')

@@ -25,7 +25,6 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 	public ConfirmedOffersPageOfBuyer verifyHighlightOnList(String projectId) {
 		String backgroundColor = WebUI.getCSSValue(rowOfProject(projectId), 'background-color')
 		String rgbaToHex = CommonUtility.rgbaToHex(backgroundColor)
-		println "colorActual: $rgbaToHex"
 		WebUI.verifyEqual(rgbaToHex, "#FFF8E6")
 		return this
 	}
@@ -38,7 +37,6 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 
 	public ConfirmedOffersPageOfBuyer verifyDeliveryDate(String projectId, String expectedResult) {
 		String deliveryDate = WebUI.getText(deliveryDateCol(projectId)).trim()
-		println "deliveryDate: $deliveryDate"
 		WebUI.verifyEqual(deliveryDate, expectedResult)
 		return this
 	}
@@ -46,7 +44,6 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 	public ConfirmedOffersPageOfBuyer verifyOrderNumber(String projectId) {
 		String orderNumber = WebUI.getText(orderNumberCol(projectId))
 		String expectedResult = "GOCAD"+ projectId
-		println "orderNumber: $orderNumber"
 		WebUI.verifyEqual(orderNumber, expectedResult)
 		return this
 	}
@@ -54,14 +51,12 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 
 	public ConfirmedOffersPageOfBuyer verifyGrossTotal(String projectId, String expectedResult) {
 		String grossTotal = WebUI.getText(grossTotalCol(projectId)).trim()
-		println "grossTotal: $grossTotal"
 		WebUI.verifyEqual(grossTotal, expectedResult)
 		return this
 	}
 
 	public ConfirmedOffersPageOfBuyer verifyStatus(String projectId, String expectedResult) {
 		String status = WebUI.getText(statusCol(projectId))
-		println "status: $status"
 		WebUI.verifyEqual(status, expectedResult)
 		return this
 	}

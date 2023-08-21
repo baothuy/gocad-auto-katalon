@@ -29,7 +29,7 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		WebUI.waitForElementVisible(xpath('//*[@class="ant-card-body"]'), 5)
 		WebUI.click(xpath("//p[text()='$workflow']/ancestor::div[@class='ant-card-body']"))
 		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"
-		WebUI.uploadFile(xpath('//input[@type="file"]'), path)
+		WebUI.uploadFile(xpath("//div[@class='mt-5']//span[@class='ant-upload ant-upload-btn']/input[@type='file']"), path)
 		refreshUntilTextPresent("Quantity", GlobalVariable.sleepLargeTime, GlobalVariable.smallSleepTime)
 		return this
 	}
@@ -39,7 +39,7 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		WebUI.click(xpath("//p[text()='$workflow']/ancestor::div[@class='ant-card-body']"))
 		return this
 	}
-	
+
 	public DataUploadPage verifyUIDataUploadPage(String projectName) {
 		WebUI.verifyElementVisible(xpath("//span[text()='$projectName']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Data upload']/parent::div/preceding-sibling::div//*[text()='1']"))
@@ -47,8 +47,9 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		WebUI.verifyElementVisible(xpath("//div[text()='Review']/parent::div/preceding-sibling::div//*[text()='3']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Checkout']/parent::div/preceding-sibling::div//*[text()='4']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Completed']/parent::div/preceding-sibling::div//*[text()='5']"))
-		WebUI.verifyElementVisible(xpath("//input[@type='file']"))
+		WebUI.verifyElementVisible(xpath("//span[@role='img']/*[@data-icon='inbox']"))
+		WebUI.verifyElementVisible(xpath("//p[text()='Upload CAD file']"))
+		WebUI.verifyElementVisible(xpath("//p[text()='You can upload a CAD file. Supported formats are: STEP, JT, SolidWorks, Solid Edge, Autodesk Inventor, Siemens NX, CATIA V5, Creo Parametric']"))
 		return this
 	}
-	
 }
