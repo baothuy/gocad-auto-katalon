@@ -180,7 +180,7 @@
    </variable>
    <variable>
       <defaultValue>'2023-12-16'</defaultValue>
-      <description>yyyy-mm-dd</description>
+      <description>yyyy-MM-dd</description>
       <id>319690ba-d5fc-43d3-bdcb-f962139da9d5</id>
       <masked>false</masked>
       <name>deliveryDate</name>
