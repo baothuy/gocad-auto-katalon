@@ -10,13 +10,13 @@ import internal.GlobalVariable
 
 public class CommonUtility {
 
-	public String substringUseRegExp(String input, String regexp) {
+	static public String substringUseRegExp(String input, String regexp,int group) {
 		Pattern pattern = Pattern.compile(regexp)
 		Matcher matcher = pattern.matcher(input)
 		if(!matcher.find()) {
 			println 'Regexp not work'
 		} else {
-			return matcher.group(0)
+			return matcher.group(group)
 		}
 	}
 
@@ -45,6 +45,19 @@ public class CommonUtility {
 		// Convert each value to hexadecimal
 		String hex = "#"
 		for (String value : rgbaValues[0..2]) {
+			hex += Integer.toHexString(Integer.parseInt(value)).toUpperCase().padLeft(2, '0')
+		}
+
+		return hex
+	}
+
+	static public String rgbToHex(String rgb) {
+		// Remove "rgb(" and ")" and split the values
+		String[] rgbValues = rgb.replaceAll("rgb\\(|\\)", "").split(",\\s*")
+
+		// Convert each value to hexadecimal
+		String hex = "#"
+		for (String value : rgbValues[0..2]) {
 			hex += Integer.toHexString(Integer.parseInt(value)).toUpperCase().padLeft(2, '0')
 		}
 

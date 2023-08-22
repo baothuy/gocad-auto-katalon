@@ -6,6 +6,7 @@ import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import katalon.fw.lib.BasePage
+import katalon.utility.CommonUtility
 
 public class ManufacturingInformationPage extends BasePage<ManufacturingInformationPage> {
 
@@ -15,7 +16,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage clickImagePart() {
-		WebUI.click(xpath('//img[@class="ant-image-img"]'))
+		WebUI.click(xpath('//img[@class="ant-image-img"]/following-sibling::div/span'))
 		return this
 	}
 
@@ -75,13 +76,30 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage uploadFilePDFTesting(String fileName) {
 		WebUI.waitForElementVisible(xpath("//span[@aria-label='delete']/parent::button"), 10)
 		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"
-		WebUI.uploadFile(xpath('//input[@type="file"]'), path)
-		waitForElementDisplay(xpath("//*[@id='materialId']/div[@class='b-robot']/div/*[@class='check']"))
+		WebUI.uploadFile(xpath("//span[@class='ant-upload']/input"), path)
+		waitForElementDisplay(xpath("//label[@title='Thread (Quantity)']/parent::div/following-sibling::div//div[@class='b-robot']/div/*[@class='check']"))
 		return this
+	}
+
+	public String getMaterialWhenUploadFilePDF() {
+		String material = WebUI.getText(xpath("//div[@id='materialId']/a"))
+		def pattern = /(.*?)\s*\(.+\)/
+		String newGetMaterial = CommonUtility.substringUseRegExp(material,pattern,1)
+		println "material name: $material"
+		return newGetMaterial
+	}
+
+	public String getMaterialGroupWhenUploadFilePDF() {
+		String materialGroup = WebUI.getText(xpath("//div[@id='materialId']/a"))
+		def pattern = /(.+)\s+\((.+)\)/
+		String newGetMaterialGroup = CommonUtility.substringUseRegExp(materialGroup,pattern,2)
+		println "material group: $materialGroup"
+		return newGetMaterialGroup
 	}
 
 	public ManufacturingInformationPage clickCalculate() {
 		WebUI.click(xpath('//span[text()="Calculate"]/parent::button'))
+		WebUI.waitForElementVisible(xpath("//label[text()='Unit price']"), 10)
 		return this
 	}
 
@@ -92,6 +110,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage clickContinueToOfferOverview() {
 		WebUI.click(xpath('//span[text()="Continue to offer overview "]'))
+		return this
+	}
+
+	public ManufacturingInformationPage clickManufacturingInformationProcess() {
+		WebUI.click(xpath("//span[@class='ant-steps-icon']/span[text()='2']"))
 		return this
 	}
 
@@ -134,6 +157,12 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage inputDeliveryDate(String deliveryDate) {
 		WebUI.sendKeys(xpath("//input[@id='deliveryDate']"), deliveryDate + Keys.RETURN)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyPDFFileVisibleAfterCalculated(String fileName) {
+		String href = WebUI.getAttribute(xpath("//a[@class='text-decoration-none' and @title='$fileName']/parent::label/following-sibling::label/a"), "href")
+		WebUI.verifyElementVisible(xpath("//a[@href='$href']"))
 		return this
 	}
 
@@ -196,7 +225,8 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage verifyUnitPrice(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
-		WebUI.verifyEqual(actualResult, expectedResult)
+		String convertExpectedResult = expectedResult + " €"
+		WebUI.verifyEqual(actualResult, convertExpectedResult)
 		return this
 	}
 
@@ -213,9 +243,122 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		String newExpectedResult = formattedSum.replace('.', ',')
 		return newExpectedResult
 	}
-	
+
 	public ManufacturingInformationPage verifyShowErrorIncompatibleFile() {
 		WebUI.verifyElementVisible(xpath("//div[text()='There is problem when calculating the request. Please contact the admin.']"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyProcessAddProjectHighLighted() {
+		String colorTwo = WebUI.getCSSValue(xpath("//div[text()='Manufacturing information']/parent::div/preceding-sibling::div//*[text()='2']"), "background")
+		String pattern = /(rgb\(\d+,\s*\d+,\s*\d+\))/
+		String rgbValue = CommonUtility.substringUseRegExp(colorTwo, pattern,1)
+		String rgbToHex = CommonUtility.rgbToHex(rgbValue)
+		WebUI.verifyEqual(rgbToHex, "#FFCB3D")
+		return this
+	}
+
+	public ManufacturingInformationPage verifyAddTechnicalDrawingButtonVisible() {
+		WebUI.verifyElementVisible(xpath('//button[@title="Add technical drawing"]'))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyAddPartButtonVisible() {
+		WebUI.verifyElementVisible(xpath('//span[text()=" Add part"]'))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyCalculateButtonVisible() {
+		WebUI.verifyElementVisible(xpath('//span[text()="Calculate"]/parent::button'))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyDeleteButtonVisible() {
+		WebUI.verifyElementVisible(xpath('//span[text()="Delete"]'))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyContinueToOfferOverviewButtonVisible() {
+		WebUI.verifyElementVisible(xpath('//span[text()="Continue to offer overview "]'))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyCommentInputVisible() {
+		WebUI.verifyElementVisible(xpath('//*[@id="additionalComments"]'))
+		return this
+	}
+
+	public ManufacturingInformationPage verifySurfaceQualitySelectVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='Surface Quality']/parent::div/following::div[@class='ant-select-selector']"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyTolerancesToggleVisible() {
+		WebUI.verifyElementVisible(xpath("//*[@id='hasTolerances']"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyTolerancesFitsInputVisible() {
+		WebUI.verifyElementVisible(xpath('//*[@id="numberOfFits"]'))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyThreadInputVisible() {
+		WebUI.verifyElementVisible(xpath('//*[@id="numberOfThreads"]'))
+		return this
+	}
+
+	public ManufacturingInformationPage verifySurfaceTreatmentSelectVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment']/parent::div/following::div[@class='ant-select-selector']"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyQuantityInputVisible() {
+		WebUI.verifyElementVisible(xpath('//*[@id="quantity"]'))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyProvideOwnMaterialCBVisible() {
+		WebUI.verifyElementVisible(xpath('//span[text()="Provide own material (From customer)"]'))
+		return this
+	}
+
+	public ManufacturingInformationPage verifySelectMaterialVisible() {
+		WebUI.verifyElementVisible(xpath('//*[@id="materialId"]/a'))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyPartImageVisible() {
+		WebUI.verifyElementVisible(xpath("//img[@class='ant-image-img']"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyCanPreviewPartFile() {
+		WebUI.click(xpath('//img[@class="ant-image-img"]/following-sibling::div/span'))
+		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-mask']"))
+		clickByJS(xpath("//span[@role='img' and @aria-label='close']"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyLinkPartVisible(String fileName) {
+		WebUI.verifyElementVisible(xpath("//span[text()='$fileName']"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyNamePartVisible(String fileName) {
+		WebUI.verifyElementVisible(xpath("//span[text()='$fileName']"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyNameWorkflowVisible(String workflow) {
+		WebUI.verifyElementVisible(xpath("//label[text()='$workflow']"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyTooltipTolerancesVisible() {
+		WebUI.verifyElementVisible(xpath("//span[@aria-label='info-circle']"))
+		WebUI.mouseOver(xpath("//span[@aria-label='info-circle']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Please enter the number of threads and tolerances in the component here. For a more detailed description, please refer to the attached graphic on the right.']"))
 		return this
 	}
 }

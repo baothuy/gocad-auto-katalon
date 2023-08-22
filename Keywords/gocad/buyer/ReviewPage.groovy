@@ -1,6 +1,8 @@
 package gocad.buyer
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
+import gocad.common.ManufacturingInformationPage
 import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 
@@ -120,5 +122,10 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		List<String> actualResult = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
 		println "getTablePartReview: $actualResult"
 		return actualResult
+	}
+
+	public ReviewPage clickManufacturingInformationProcess() {
+		WebUI.click(xpath("//span[@class='ant-steps-icon']/span[text()='2']"))
+		return this
 	}
 }

@@ -1,8 +1,8 @@
 import gocad.buyer.DraftPage
-import gocad.common.DataUploadPage
-import gocad.common.ManufacturingInformationPage
 import gocad.buyer.SelectMaterialPopup
+import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
+import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import katalon.fw.lib.Page
 
@@ -23,7 +23,7 @@ Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().v
 
 'debug. select project'
 Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickAction('Project 578X4cNyl7')
+Page.nav(DraftPage).clickAction('1347')
 
 '5. Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
@@ -32,28 +32,32 @@ Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
 Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
 Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
 String material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
-println "material = $material"
-Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 
-'7. Input required field'
-Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
-										.inputThread(threadNum)
-										.inputTolerances(tolerancesNum)
-										.clickToggleTolerances(tolerancesToggle)
-										//.selectSurfaceTreatment(surfaceTreatment)
-										.selectSurfaceQuality(quality)
-										.inputComment(comment)
-										.clickCalculate()
-																				
-'8. Verify info after Calculate'
-String netTotal = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitPrice, quantityNum)
-Page.nav(ManufacturingInformationPage).verifyMaterial(material)
-										.verifyQuantity(quantityNum)
-										.verifyThread(threadNum)
-										.verifyTolerancesNumber(tolerancesNum)
-										.verifyTolerancesToggle(tolerancesToggle)
-										//.verifySurfaceTreatment(surfaceTreatment)
-										.verifySurfaceQuality(quality)
-										.verifyAdditionalComments(comment)
-										.verifyNetPrice(netTotal)
+if (filePDF == "")
+{
+	println '>> Select material'
+	Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
+	Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).selectMaterialName(materialName)
+	
+	println '>> Input required field'
+	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+											.inputThread(threadNum)
+											.inputTolerances(tolerancesNum)
+											.clickToggleTolerances(tolerancesToggle)
+											.selectSurfaceTreatment(surfaceTreatment)
+											.selectSurfaceQuality(quality)
+											.inputComment(comment)
+}
+else
+{
+	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+										  .selectSurfaceTreatment(surfaceTreatment)
+										  .selectSurfaceQuality(quality)
+										  .uploadFilePDFTesting(filePDF)
+										  .inputComment(comment)
+}
+
+println '>> click Calculate and move to Review page'
+Page.nav(ManufacturingInformationPage).clickCalculate()
+									  .clickContinueToOfferOverview()
 										

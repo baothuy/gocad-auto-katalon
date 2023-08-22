@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>BTA003 Verify cannot upload the file when users selected incompatible file</name>
+   <name>BTUF003 Verify cannot upload the file when users selected incompatible file</name>
    <tag></tag>
    <comment></comment>
    <testCaseGuid>128aba78-ad75-4046-b7c4-8aaa3148b161</testCaseGuid>

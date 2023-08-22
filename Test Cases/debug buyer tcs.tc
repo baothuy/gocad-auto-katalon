@@ -15,7 +15,7 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>0a8b2299-e2d5-4624-b48e-b6ca37e3143b</variableId>
+      <variableId>94ecca2d-b77a-40a8-a03e-7b55b08bdeb2</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
@@ -89,25 +89,19 @@
       <value></value>
       <variableId>a99bc2e1-be83-4f97-ac52-d7bad672594d</variableId>
    </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>94ecca2d-b77a-40a8-a03e-7b55b08bdeb2</variableId>
-   </variableLinks>
    <variable>
-      <defaultValue>'!@#$%^&amp;()_+{}[];\',.~`.dxf'</defaultValue>
+      <defaultValue>'16-110_10_01_01-001_Platte.step'</defaultValue>
       <description></description>
       <id>78717f81-35f4-4a03-bf31-6b51807c5f2e</id>
       <masked>false</masked>
       <name>fileName</name>
    </variable>
    <variable>
-      <defaultValue>'!@#$%^&amp;()_+{}[];\',.~`.step'</defaultValue>
+      <defaultValue>'Milled / Turned Parts'</defaultValue>
       <description></description>
-      <id>0a8b2299-e2d5-4624-b48e-b6ca37e3143b</id>
+      <id>94ecca2d-b77a-40a8-a03e-7b55b08bdeb2</id>
       <masked>false</masked>
-      <name>fileName2</name>
+      <name>workflow</name>
    </variable>
    <variable>
       <defaultValue>'2'</defaultValue>
@@ -187,17 +181,10 @@
       <name>shippingOption</name>
    </variable>
    <variable>
-      <defaultValue>'goCAD_milling v4.pdf'</defaultValue>
+      <defaultValue>'Don\'t have material.pdf'</defaultValue>
       <description></description>
       <id>a99bc2e1-be83-4f97-ac52-d7bad672594d</id>
       <masked>false</masked>
       <name>filePDF</name>
-   </variable>
-   <variable>
-      <defaultValue>'Milled / Turned Parts'</defaultValue>
-      <description></description>
-      <id>94ecca2d-b77a-40a8-a03e-7b55b08bdeb2</id>
-      <masked>false</masked>
-      <name>workflow</name>
    </variable>
 </TestCaseEntity>

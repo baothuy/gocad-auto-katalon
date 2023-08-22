@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>BTA002 Verify validation data upload</name>
+   <name>BTUF002 Verify validation data upload</name>
    <tag>functional-test,data-upload,ui</tag>
    <comment></comment>
    <testCaseGuid>5ac075dd-d2ba-46b4-9b1c-2b0fd2fa25a0</testCaseGuid>

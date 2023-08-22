@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>BTA004 Verify can add more than one part to upload file</name>
+   <name>BTUF004 Verify can add more than one part to upload file</name>
    <tag>functional-test,data-upload,ui</tag>
    <comment></comment>
    <testCaseGuid>4d97f72d-c7f0-4a54-af6f-4a127849b6e9</testCaseGuid>

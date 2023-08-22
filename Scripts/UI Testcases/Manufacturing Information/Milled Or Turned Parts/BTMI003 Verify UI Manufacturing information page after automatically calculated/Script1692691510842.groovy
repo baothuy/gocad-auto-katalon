@@ -1,5 +1,5 @@
-import gocad.buyer.DraftPage
-import gocad.buyer.ReviewPage
+import gocad.common.AddProjectPopup
+import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
@@ -7,27 +7,20 @@ import gocad.common.SelectMaterialPopup
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
-
-println '>> FPA002 Verify seller accept offers successfully when project larger than Threshold'
-println '>> Random project name'
-def projectName = CommonUtility.generateRandomProjectName(10)
-
-println '>> User buyer signs in to administration page'
+println '>>  User buyer signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickDraft()
+Page.nav(LeftNavBar).clickAddProject()
 
-Page.nav(DraftPage).clickAction('1376')
+println '>>  Random project name'
+def projectName = CommonUtility.generateRandomProjectName(10)
 
-Page.nav(ReviewPage).clickManufacturingInformationProcess()
+println '>>  Open add project popup and input project name'
+Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
 
-//Page.nav(ManufacturingInformationPage).clickEdit()
-
-//String material = Page.nav(ManufacturingInformationPage).getMaterialWhenUploadFilePDF()
-//String materialGroup = Page.nav(ManufacturingInformationPage).getMaterialGroupWhenUploadFilePDF()
-//println "material: $material"
-//println "materialGroup: $materialGroup"
+println '>>  Upload file part on Data upload page'
+Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
 
 String material
 if (filePDF == "")
@@ -77,12 +70,11 @@ else
 println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 
-//println '>> Calculate netPrice value'
-//String netPrice = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitPrice)
+println '>> Calculate netPrice value'
+String netPrice = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitPrice,quantityNum)
 if (filePDF == ""){
 	println '>> Verify UI after calculated manually of request'
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
-											.verifyNameWorkflowVisible('Milled / Turned Parts')
 											.verifyMaterial(material)
 											.verifyQuantity(quantityNum)
 											.verifyThread(threadNum)
@@ -91,12 +83,11 @@ if (filePDF == ""){
 											.verifySurfaceTreatment(surfaceTreatment)
 											.verifySurfaceQuality(quality)
 											.verifyAdditionalComments(comment)
-	//										.verifyUnitPrice(unitPrice)
-	//										.verifyNetPrice(netPrice)
+											.verifyUnitPrice(unitPrice)
+											.verifyNetPrice(netPrice)
 }
 else {
 	println '>> Verify UI after calculated manually of request'
-	
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
 											.verifyPDFFileVisibleAfterCalculated(fileName)
 											.verifyMaterial(material)
@@ -104,6 +95,7 @@ else {
 											.verifySurfaceTreatment(surfaceTreatment)
 											.verifySurfaceQuality(quality)
 											.verifyAdditionalComments(comment)
-	//										.verifyUnitPrice(unitPrice)
-	//										.verifyNetPrice(netPrice)
+											.verifyUnitPrice(unitPrice)
+											.verifyNetPrice(netPrice)
 }
+	
