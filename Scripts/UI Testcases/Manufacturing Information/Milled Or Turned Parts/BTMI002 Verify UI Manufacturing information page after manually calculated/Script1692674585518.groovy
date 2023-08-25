@@ -1,3 +1,4 @@
+import gocad.buyer.DraftPage
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
@@ -18,6 +19,8 @@ def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>>  Open add project popup and input project name'
 Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+String projectId = Page.nav(DataUploadPage).getIdProject()
+println "projectId: $projectId"
 
 println '>>  Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
@@ -70,12 +73,11 @@ else
 println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 
-println '>> Calculate netPrice value'
-String netPrice = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitPrice,quantityNum)
-
 if (filePDF == ""){
 	println '>> Verify UI after calculated manually of request'
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
+											.clickClosePreviewPartFilePopup()
+											.verifyContentAlertManualCalculateVisible()
 											.verifyMaterial(material)
 											.verifyQuantity(quantityNum)
 											.verifyThread(threadNum)
@@ -88,6 +90,8 @@ if (filePDF == ""){
 else {
 	println '>> Verify UI after calculated manually of request'
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
+											.clickClosePreviewPartFilePopup()
+											.verifyContentAlertManualCalculateVisible()
 											.verifyPDFFileVisibleAfterCalculated(fileName)
 											.verifyMaterial(material)
 											.verifyQuantity(quantityNum)
@@ -96,3 +100,7 @@ else {
 											.verifyAdditionalComments(comment)
 }
 	
+println '>>  Clear data'
+Page.nav(LeftNavBar).clickDraft()
+Page.nav(DraftPage).clickArchiveAction(projectId)
+					.clickCloseToastMessage()

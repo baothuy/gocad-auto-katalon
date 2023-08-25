@@ -15,7 +15,7 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>94ecca2d-b77a-40a8-a03e-7b55b08bdeb2</variableId>
+      <variableId>c1e5fcc0-d227-4a0e-9f7d-9cb640415ca0</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
@@ -83,25 +83,19 @@
       <value></value>
       <variableId>cb9b750c-6437-4e6d-82fb-de0eb22d6e6a</variableId>
    </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>a99bc2e1-be83-4f97-ac52-d7bad672594d</variableId>
-   </variableLinks>
    <variable>
-      <defaultValue>'16-110_10_01_01-001_Platte.step'</defaultValue>
+      <defaultValue>'auto_Milling.step'</defaultValue>
       <description></description>
       <id>78717f81-35f4-4a03-bf31-6b51807c5f2e</id>
       <masked>false</masked>
       <name>fileName</name>
    </variable>
    <variable>
-      <defaultValue>'Milled / Turned Parts'</defaultValue>
+      <defaultValue>'goCAD_milling v4.pdf'</defaultValue>
       <description></description>
-      <id>94ecca2d-b77a-40a8-a03e-7b55b08bdeb2</id>
+      <id>c1e5fcc0-d227-4a0e-9f7d-9cb640415ca0</id>
       <masked>false</masked>
-      <name>workflow</name>
+      <name>filePDF</name>
    </variable>
    <variable>
       <defaultValue>'2'</defaultValue>
@@ -179,12 +173,5 @@
       <id>cb9b750c-6437-4e6d-82fb-de0eb22d6e6a</id>
       <masked>false</masked>
       <name>shippingOption</name>
-   </variable>
-   <variable>
-      <defaultValue>'Don\'t have material.pdf'</defaultValue>
-      <description></description>
-      <id>a99bc2e1-be83-4f97-ac52-d7bad672594d</id>
-      <masked>false</masked>
-      <name>filePDF</name>
    </variable>
 </TestCaseEntity>

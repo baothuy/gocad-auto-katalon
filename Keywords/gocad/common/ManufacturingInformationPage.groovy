@@ -335,8 +335,14 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage verifyCanPreviewPartFile() {
 		WebUI.click(xpath('//img[@class="ant-image-img"]/following-sibling::div/span'))
-		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-mask']"))
-		clickByJS(xpath("//span[@role='img' and @aria-label='close']"))
+		waitUntilElementInvisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::div[@class='icon-loading']"), 10)
+		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-body']/*[@class='classmateCloudFrame']"))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickClosePreviewPartFilePopup() {
+		waitUntilElementVisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"), 10)
+		WebUI.click(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"))
 		return this
 	}
 
@@ -359,6 +365,42 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath("//span[@aria-label='info-circle']"))
 		WebUI.mouseOver(xpath("//span[@aria-label='info-circle']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Please enter the number of threads and tolerances in the component here. For a more detailed description, please refer to the attached graphic on the right.']"))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyErrorWhenQuantityEmpty() {
+		def errorEmpty = WebUI.getText(xpath("//*[text()='Quantity']/parent::div/following::div[@id='quantity_help']/div"))
+		def expectedResult = "quantity is required."
+		WebUI.verifyEqual(errorEmpty, expectedResult)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyErrorWhenMaterialEmpty() {
+		def errorEmpty = WebUI.getText(xpath("//*[text()='Material']/parent::div/following::div[@id='materialId_help']/div"))
+		def expectedResult = "Material is required."
+		WebUI.verifyEqual(errorEmpty, expectedResult)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyErrorWhenThreadEmpty() {
+		def errorEmpty = WebUI.getText(xpath("//*[text()='Thread (Quantity)']/parent::div/following::div[@id='numberOfThreads_help']/div"))
+		def expectedResult = "Thread (Quantity) is required."
+		WebUI.verifyEqual(errorEmpty, expectedResult)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyErrorWhenTolerancesEmpty() {
+		def errorEmpty = WebUI.getText(xpath("//*[text()='Tolerances / fits (Number)']/parent::div/following::div[@id='numberOfFits_help']/div"))
+		def expectedResult = "Tolerances / fits (Number) is required."
+		WebUI.verifyEqual(errorEmpty, expectedResult)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyContentAlertManualCalculateVisible() {
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
+		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
+		def expectedResult = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
+		WebUI.verifyEqual(contentAlertActual, expectedResult)
 		return this
 	}
 }

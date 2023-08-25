@@ -72,6 +72,9 @@ Page.nav(ManufacturingInformationPage).clickCalculate()
 
 println '>> Calculate netPrice value'
 String netPrice = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitPrice,quantityNum)
+
+println '>> Calculate netPrice value'
+String netPrice = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitPrice,quantityNum)
 if (filePDF == ""){
 	println '>> Verify UI after calculated manually of request'
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()

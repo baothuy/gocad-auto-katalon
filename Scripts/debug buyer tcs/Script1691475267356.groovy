@@ -1,5 +1,9 @@
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
 import gocad.buyer.DraftPage
+import gocad.buyer.ReviewPage
 import gocad.common.LeftNavBar
+import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
@@ -15,7 +19,12 @@ Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().v
 println '>>  User buyer add project'
 Page.nav(LeftNavBar).clickDraft()
 
-String projName = Page.nav(DraftPage).getProjectName('1371')
 
-Page.nav(DraftPage).clickArchiveAction('1371')
-					.verifyToastMessageWhenArchivedProject(projName)
+Page.nav(DraftPage).clickViewAction('1491')
+
+Page.nav(ReviewPage).clickManufacturingInformationProcess()
+					
+println '>> Input required field is empty'
+Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
+										.clickClosePreviewPartFilePopup()
+WebUI.delay(2)										
