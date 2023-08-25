@@ -20,11 +20,17 @@ println '>>  User buyer add project'
 Page.nav(LeftNavBar).clickDraft()
 
 
-Page.nav(DraftPage).clickViewAction('1491')
+Page.nav(DraftPage).clickViewAction('1497')
 
 Page.nav(ReviewPage).clickManufacturingInformationProcess()
 					
 println '>> Input required field is empty'
 Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
 										.clickClosePreviewPartFilePopup()
+										.verifyDeleteButtonVisible()
+										.verifyEditButtonVisible()
+										.clickMoreOption()
+										.verifyCopyButtonVisible()
+										.verifyMoveButtonVisible()
+										
 WebUI.delay(2)										

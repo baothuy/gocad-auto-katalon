@@ -1,3 +1,4 @@
+import gocad.buyer.DraftPage
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
@@ -17,6 +18,8 @@ def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>>  Open add project popup and input project name'
 Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+String projectId = Page.nav(DataUploadPage).getIdProject()
+println "projectId: $projectId"
 
 println '>>  Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
@@ -42,4 +45,9 @@ Page.nav(ManufacturingInformationPage).verifyProcessAddProjectHighLighted()
 										.verifySurfaceQualitySelectVisible()
 										.verifyCommentInputVisible()
 										.verifyContinueToOfferOverviewButtonVisible()
+										
+println '>>  Clear data'
+Page.nav(LeftNavBar).clickDraft()
+Page.nav(DraftPage).clickArchiveAction(projectId)
+					.clickCloseToastMessage()
 										

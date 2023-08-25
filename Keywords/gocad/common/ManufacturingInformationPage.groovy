@@ -166,63 +166,63 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage verifyMaterial(String expectedResult) {
+	public ManufacturingInformationPage verifyMaterialValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Material']/following-sibling::div")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ManufacturingInformationPage verifyQuantity(String expectedResult) {
+	public ManufacturingInformationPage verifyQuantityValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Quantity']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ManufacturingInformationPage verifyThread(String expectedResult) {
+	public ManufacturingInformationPage verifyThreadValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Thread (Quantity)']/following-sibling::div")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ManufacturingInformationPage verifyTolerancesNumber(String expectedResult) {
+	public ManufacturingInformationPage verifyTolerancesNumberValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Tolerances and fits with less than 1/10mm or IT 1 - IT 10 (Number)']/following-sibling::div")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ManufacturingInformationPage verifyTolerancesToggle(String expectedResult) {
+	public ManufacturingInformationPage verifyTolerancesToggleValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Tolerance requirement with smaller 1/100mm or IT 1 - IT 5']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ManufacturingInformationPage verifySurfaceTreatment(String expectedResult) {
+	public ManufacturingInformationPage verifySurfaceTreatmentValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Surface Treatment']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ManufacturingInformationPage verifySurfaceQuality(String expectedResult) {
+	public ManufacturingInformationPage verifySurfaceQualityValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Surface Quality']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ManufacturingInformationPage verifyAdditionalComments(String expectedResult) {
+	public ManufacturingInformationPage verifyAdditionalCommentsValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Additional Comments']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ManufacturingInformationPage verifyUnitPrice(String expectedResult) {
+	public ManufacturingInformationPage verifyUnitPriceValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		String convertExpectedResult = expectedResult + " €"
@@ -230,7 +230,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage verifyNetPrice(String expectedResult) {
+	public ManufacturingInformationPage verifyNetPriceValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::h6")).trim()
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
@@ -274,7 +274,22 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyDeleteButtonVisible() {
-		WebUI.verifyElementVisible(xpath('//span[text()="Delete"]'))
+		WebUI.verifyElementVisible(xpath('//span[contains(text(),"Delete")]/parent::button'))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyEditButtonVisible() {
+		WebUI.verifyElementVisible(xpath('//span[contains(text(),"Edit")]/parent::button'))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyCopyButtonVisible() {
+		WebUI.verifyElementVisible(xpath('//span[contains(text(),"Copy")]/parent::li'))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyMoveButtonVisible() {
+		WebUI.verifyElementVisible(xpath('//span[contains(text(),"Move")]/parent::li'))
 		return this
 	}
 
