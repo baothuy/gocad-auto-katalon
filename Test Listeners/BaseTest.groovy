@@ -41,11 +41,6 @@ class BaseTest {
 			WebUI.maximizeWindow()
 		}
 	}
-	
-	@AfterTestCase
-	def resetDriver() {
-		Page.nav(BasePage).resetDriver()
-	}
 
 	@AfterTestCase
 	def closeBrowser(TestCaseContext testCaseContext) {

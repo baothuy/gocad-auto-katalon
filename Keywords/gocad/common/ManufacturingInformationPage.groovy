@@ -159,7 +159,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.sendKeys(xpath("//input[@id='deliveryDate']"), deliveryDate + Keys.RETURN)
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyPDFFileVisibleAfterCalculated(String fileName) {
 		String href = WebUI.getAttribute(xpath("//a[@class='text-decoration-none' and @title='$fileName']/parent::label/following-sibling::label/a"), "href")
 		WebUI.verifyElementVisible(xpath("//a[@href='$href']"))

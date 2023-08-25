@@ -12,28 +12,61 @@ public class DraftPage extends BasePage<DraftPage>{
 	def partsCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[3]")}
 	def imagesCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[4]")}
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[5]/span")}
-	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]/a")}
+	def actionViewCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//button[1]")}
+	def actionMoreCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//button[2]")}
 
-	public DraftPage clickAction(String projectId) {
-		WebUI.click(actionCol(projectId))
+	public DraftPage clickViewAction(String projectId) {
+		WebUI.click(actionViewCol(projectId))
 		return this
 	}
 	
+	public DraftPage clickArchiveAction(String projectId) {
+		WebUI.mouseOver(actionMoreCol(projectId))
+		WebUI.click(xpath("//span[text()='Archive']"))
+		return this
+	}
+
 	public DraftPage clickPaging(String paging) {
 		WebUI.click(xpath("//input[@id='rc_select_21']/ancestor::div[@class='ant-select-selector']"))
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-item') and @title='$paging']"))
 		return this
 	}
-	
+
 	public DraftPage verifyProjectName(String projectId, String expectedResult) {
 		String projectName = WebUI.getText(projectNameCol(projectId))
 		WebUI.verifyEqual(projectName, expectedResult)
 		return this
 	}
-	
+
 	public DraftPage verifyStatus(String projectId, String expectedResult) {
 		String status = WebUI.getText(statusCol(projectId))
 		WebUI.verifyEqual(status, expectedResult)
+		return this
+	}
+	
+	public DraftPage verifyProjectNotVisible(String projectId) {
+		WebUI.verifyElementNotVisible(projectIdCol(projectId))
+		return this
+	}
+	
+	public String getProjectName(String projectId) {
+		String projectName = WebUI.getText(projectNameCol(projectId))
+		return projectName
+	}
+	
+	public DraftPage verifyToastMessageWhenArchivedProject(String projectName) {
+		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
+		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
+		def expectedTitle = "Archived!"
+		def expectedMessage = "The project \'$projectName\' has been archived."
+		WebUI.verifyEqual(actualTitle, expectedTitle)
+		WebUI.verifyEqual(actualMessage, expectedMessage)
+		return this
+	}
+	
+	public DraftPage clickCloseToastMessage() {
+		WebUI.waitForElementVisible(xpath("//*[@aria-label='close']/ancestor::a"), 5)
+		WebUI.click(xpath("//*[@aria-label='close']/ancestor::a"))
 		return this
 	}
 }
