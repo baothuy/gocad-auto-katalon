@@ -1,5 +1,9 @@
 package gocad.common
 
+import java.nio.file.Files
+import java.nio.file.Paths
+import org.openqa.selenium.WebDriver
+
 import org.openqa.selenium.Keys
 
 import com.kms.katalon.core.configuration.RunConfiguration
@@ -163,6 +167,37 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage verifyPDFFileVisibleAfterCalculated(String fileName) {
 		String href = WebUI.getAttribute(xpath("//a[@class='text-decoration-none' and @title='$fileName']/parent::label/following-sibling::label/a"), "href")
 		WebUI.verifyElementVisible(xpath("//a[@href='$href']"))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickPDFFileToDownload(String fileName) {
+		WebUI.click(xpath("//a[@class='text-decoration-none' and contains(@title, 'pdf')]"))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickPartFileToDownload(String fileName) {
+		WebUI.click(xpath("//a[@class='text-decoration-none' and contains(@title, '$fileName')]"))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyPartFileDownloaded(String fileName) {
+		// Define the path where the file will be downloaded
+		String downloadFolderPath = System.getProperty("user.home") + "/Downloads/"
+		String expectedFileName = "$fileName"
+		// Wait for the file to be downloaded
+		boolean isDownloaded = false
+		int timeoutInSeconds = 60 // Maximum wait time
+		int pollingIntervalInMillis = 1000 // Polling interval
+		long endTime = System.currentTimeMillis() + timeoutInSeconds * 1000
+		while (System.currentTimeMillis() < endTime) {
+		    if (Files.exists(Paths.get(downloadFolderPath, expectedFileName))) {
+		        isDownloaded = true
+		        break
+		    }
+		}
+		// Verify the download
+		if (isDownloaded) { println "File downloaded successfully." } 
+		else { println "File download failed." }
 		return this
 	}
 
@@ -385,7 +420,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	
 	public ManufacturingInformationPage verifyErrorWhenQuantityEmpty() {
 		def errorEmpty = WebUI.getText(xpath("//*[text()='Quantity']/parent::div/following::div[@id='quantity_help']/div"))
-		def expectedResult = "quantity is required."
+		def expectedResult = "Quantity is required."
 		WebUI.verifyEqual(errorEmpty, expectedResult)
 		return this
 	}

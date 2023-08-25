@@ -24,13 +24,7 @@ Page.nav(DraftPage).clickViewAction('1497')
 
 Page.nav(ReviewPage).clickManufacturingInformationProcess()
 					
-println '>> Input required field is empty'
-Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
-										.clickClosePreviewPartFilePopup()
-										.verifyDeleteButtonVisible()
-										.verifyEditButtonVisible()
-										.clickMoreOption()
-										.verifyCopyButtonVisible()
-										.verifyMoveButtonVisible()
+Page.nav(ManufacturingInformationPage).clickPartFileToDownload(fileName)
+										.verifyPartFileDownloaded(fileName)
 										
 WebUI.delay(2)										
