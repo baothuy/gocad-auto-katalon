@@ -2,10 +2,9 @@ package gocad.common
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
-import internal.GlobalVariable
 import katalon.fw.lib.BasePage
-import katalon.fw.lib.Page
 import katalon.utility.DateTimeUtility
+import katalon.utility.FileHelper
 
 public class DetailOffer extends BasePage<DetailOffer>{
 
@@ -276,5 +275,18 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		List<String> result = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
 		println "getTablePartReview: $result"
 		return result
+	}
+	
+	public DetailOffer verifyPDFPreviewOffer(String fileName, String expectedText) {
+		String contentFile = FileHelper.readDetailContentFile(fileName)
+		String actualResult = contentFile.contains(expectedText)
+		println "actualResult: $actualResult"
+		if (contentFile.contains(expectedText)) {
+			println "Desired content $expectedText found in PDF."
+		} else {
+			println "Desired content $expectedText not found in PDF."
+		}
+		WebUI.verifyEqual(actualResult, "true")
+		return this
 	}
 }

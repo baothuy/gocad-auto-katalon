@@ -7,6 +7,7 @@ import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
+import katalon.utility.FileHelper
 
 println '>>  User buyer signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
@@ -109,7 +110,11 @@ else {
 											.verifyCopyButtonVisible()
 											.verifyMoveButtonVisible()
 }
-	
+
+println '>>  Verify can download succesfully'
+Page.nav(ManufacturingInformationPage).clickPartFileToDownload(fileName)
+Page.nav(FileHelper).verifyFileDownloaded(fileName)
+
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickArchiveAction(projectId)
