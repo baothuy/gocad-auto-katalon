@@ -6,7 +6,7 @@ import gocad.buyer.ReceivedOffersPage
 import gocad.buyer.RequestOfferPopup
 import gocad.buyer.ReviewPage
 import gocad.common.SelectMaterialPopup
-import gocad.buyer.SettingsPage
+import gocad.buyer.AccountSettingsPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
@@ -26,7 +26,7 @@ Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().v
 
 println '>> Get company Name on Settings page'
 Page.nav(LeftNavBar).clickSettings()
-String companyName = Page.nav(SettingsPage).getCompanyName()
+String companyName = Page.nav(AccountSettingsPage).getCompanyName()
 
 println '>> User buyer add project'
 Page.nav(LeftNavBar).clickAddProject()
@@ -39,11 +39,15 @@ println "projectId: $projectId"
 println '>> Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
 
+String material
 if (filePDF == "")
 {
 	println '>> Select material'
 	Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
-	Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).selectMaterialName(materialName)
+	Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
+	material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
+	println "material = $material"
+	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 	
 	println '>> Input required field'
 	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
@@ -56,11 +60,28 @@ if (filePDF == "")
 }
 else
 {
-	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
-										  .selectSurfaceTreatment(surfaceTreatment)
-										  .selectSurfaceQuality(quality)
-										  .uploadFilePDFTesting(filePDF)
-										  .inputComment(comment)
+	Page.nav(ManufacturingInformationPage).uploadFilePDFTesting(filePDF)
+	 String getMaterialName = Page.nav(ManufacturingInformationPage).getMaterialWhenUploadFilePDF()
+	 String getMaterialGroup = Page.nav(ManufacturingInformationPage).getMaterialGroupWhenUploadFilePDF()
+	 
+	 if (getMaterialName == null) {
+		Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
+		Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
+		material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
+		println "material = $material"
+		Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
+	 }
+	 else {
+		Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
+		Page.nav(SelectMaterialPopup).clickMaterialGroup(getMaterialGroup).inputSearchMaterial(getMaterialName)
+		material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(getMaterialName)
+		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
+	 }
+	 
+	 Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+											 .selectSurfaceTreatment(surfaceTreatment)
+											 .selectSurfaceQuality(quality)
+											 .inputComment(comment)
 }
 
 println '>> click Calculate and move to Review page'

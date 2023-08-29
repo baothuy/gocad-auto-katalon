@@ -145,9 +145,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage clickToggleTolerances(String value) {
 		String isChecked = WebUI.getAttribute(xpath("//*[@id='hasTolerances']"), "aria-checked")
 		boolean isYes = value.equals("Yes")
-		println "isYes: $isYes & isChecked: $isChecked"
 		if(Boolean.parseBoolean(isChecked) != isYes) {
-			println "touched"
 			WebUI.click(xpath("//*[@id='hasTolerances']"))
 		}
 		return this
@@ -179,7 +177,12 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath("//a[@class='text-decoration-none' and contains(@title, '$fileName')]"))
 		return this
 	}
-	
+
+	public String getUnitPriceValue() {
+		String unitPrice = WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim()
+		return unitPrice
+	}
+
 	public String getNetPriceValue() {
 		String netPrice = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::h6")).trim()
 		return netPrice

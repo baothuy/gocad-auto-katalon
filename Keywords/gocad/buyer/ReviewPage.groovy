@@ -3,21 +3,23 @@ package gocad.buyer
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import gocad.common.ManufacturingInformationPage
-import internal.GlobalVariable
 import katalon.fw.lib.BasePage
+import katalon.utility.CommonUtility
 
 public class ReviewPage extends BasePage<ReviewPage>{
 
-	def imagePartCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[1]")}
+	def imagePartCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[1]//img")}
 	def partCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[2]")}
 	def fileCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[3]//a")}
 	def materialCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[4]")}
 	def quantityCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[5]//input[@id='quantity']")}
 	def unitPriceCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[6]")}
 	def partPriceTotalCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[7]")}
+	def commentCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[8]/span")}
 	def CO2EmissionCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[9]")}
-	def actionView = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]")}
-	def actionMore = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]//button")}
+	def actionView = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]//button[1]")}
+	def actionMore = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]//button[2]")}
+	def contentAlertManually = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
 
 	public ReviewPage clickCheckout() {
 		WebUI.click(xpath("//span[text()='Check out']"))
@@ -48,13 +50,31 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.click(xpath('//span[text()="Move"]'))
 		return this
 	}
+	
+	public ManufacturingInformationPage verifyProcessReviewtHighLighted() {
+		String colorTwo = WebUI.getCSSValue(xpath("//div[text()='Review']/parent::div/preceding-sibling::div//*[text()='3']"), "background")
+		String pattern = /(rgb\(\d+,\s*\d+,\s*\d+\))/
+		String rgbValue = CommonUtility.substringUseRegExp(colorTwo, pattern,1)
+		String rgbToHex = CommonUtility.rgbToHex(rgbValue)
+		WebUI.verifyEqual(rgbToHex, "#FFCB3D")
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyContentAlertManualCalculateVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='Manually calculated']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
+		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
+		def expectedResult = contentAlertManually
+		WebUI.verifyEqual(contentAlertActual, expectedResult)
+		return this
+	}
 
 	public ReviewPage verifyImagePartClickable(String partName) {
 		WebUI.verifyElementClickable(imagePartCol(partName))
 		return this
 	}
 
-	public ReviewPage verifyPartName(String partName) {
+	public ReviewPage verifyPartNameValue(String partName) {
 		String actualResult = WebUI.getText(partCol(partName))
 		WebUI.verifyEqual(actualResult, partName)
 		return this
@@ -72,34 +92,53 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		return this
 	}
 
-	public ReviewPage verifyMaterial(String partName, String expectedResult) {
+	public ReviewPage verifyMaterialValue(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(materialCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ReviewPage verifyQuantity(String partName, String expectedResult) {
+	public ReviewPage verifyQuantityValue(String partName, String expectedResult) {
 		String actualResult = WebUI.getAttribute(quantityCol(partName), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ReviewPage verifyUnitPrice(String partName, String expectedResult) {
+	public ReviewPage verifyUnitPriceValue(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(unitPriceCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public ReviewPage verifyPartPriceTotal(String partName, String expectedResult) {
+	public ReviewPage verifyPartPriceTotalValue(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(partPriceTotalCol(partName)).trim()
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
+	
+	public ReviewPage verifyCommentValue(String partName, String expectedResult) {
+		String actualResult
+		List<String> findTestObjects = findTestObjects("//*[@aria-label='message']")
+		if (findTestObjects.size() != 0) {
+			WebUI.mouseOver(commentCol(partName))
+			actualResult = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
+		}
+		else {
+			actualResult = ""
+		}		
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
 
-	public ReviewPage verifyCO2EmissionCol(String partName, String expectedResult) {
+	public ReviewPage verifyCO2EmissionValue(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(CO2EmissionCol(partName))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
+	}
+	
+	public String getCO2EmissionValue(String partName) {
+		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
+		return CO2Emission
 	}
 
 	public List<String> getTablePartReview(String partName) {
@@ -126,6 +165,66 @@ public class ReviewPage extends BasePage<ReviewPage>{
 
 	public ReviewPage clickManufacturingInformationProcess() {
 		WebUI.click(xpath("//span[@class='ant-steps-icon']/span[text()='2']"))
+		return this
+	}
+	
+	public ReviewPage verifyPartNameVisible(String partName) {
+		WebUI.verifyElementVisible(partCol(partName))
+		return this
+	}
+	
+	public ReviewPage verifyFileVisible(String partName) {
+		WebUI.verifyElementVisible(fileCol(partName))
+		return this
+	}
+	
+	public ReviewPage verifyMaterialVisible(String partName) {
+		WebUI.verifyElementVisible(materialCol(partName))
+		return this
+	}
+	
+	public ReviewPage verifyQuantityVisible(String partName) {
+		WebUI.verifyElementVisible(quantityCol(partName))
+		return this
+	}
+	
+	public ReviewPage verifyUnitPriceVisible(String partName) {
+		WebUI.verifyElementVisible(unitPriceCol(partName))
+		return this
+	}
+	
+	public ReviewPage verifyTotalPartPriceVisible(String partName) {
+		WebUI.verifyElementVisible(partPriceTotalCol(partName))
+		return this
+	}
+	
+	public ReviewPage verifyCO2EmissionVisible(String partName) {
+		WebUI.verifyElementVisible(CO2EmissionCol(partName))
+		return this
+	}
+	
+	public ReviewPage verifyActionViewVisible(String partName) {
+		WebUI.verifyElementVisible(actionView(partName))
+		return this
+	}
+	
+	public ReviewPage verifyActionMoreVisible(String partName) {
+		WebUI.verifyElementVisible(actionMore(partName))
+		return this
+	}
+	
+	public ReviewPage verifyActionCopyVisible(String partName) {
+		WebUI.verifyElementVisible(xpath("//span[text()='Copy']"))
+		return this
+	}
+	
+	public ReviewPage verifyActionMoveVisible(String partName) {
+		WebUI.verifyElementVisible(xpath("//span[text()='Move']"))
+		return this
+	}
+	
+	public ReviewPage verifyRequestOfferButtonVisible(String partName) {
+		WebUI.verifyElementVisible(xpath("//span[text()='Request Offer']"))
 		return this
 	}
 }

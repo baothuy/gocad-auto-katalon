@@ -18,6 +18,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	def CO2EmissionCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[9]")}
 	def actionView = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]")}
 	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]//button")}
+	def contentAlertManually = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
 
 	public DetailOffer clickAcceptAndSendOffer() {
 		WebUI.click(xpath("//span[text()='Accept And Send Offer ']/parent::button"))
@@ -76,8 +77,8 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		return this
 	}
 
-	public DetailOffer verifyOrderStatus(String projectId, String expectedResult) {
-		String status = WebUI.getText(xpath("//*[text()='$projectId']/following-sibling::span/span[2]"))
+	public DetailOffer verifyOrderStatus(String expectedResult) {
+		String status = WebUI.getText(xpath("//span[@aria-label='clock-circle']/following-sibling::span"))
 		WebUI.verifyEqual(status, expectedResult)
 		return this
 	}
@@ -140,7 +141,6 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String unitPrice = WebUI.getText(unitPriceCol(partName))
 		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName))
 		List<String> findTestObjects = findTestObjects("//*[@aria-label='message']")
-		println "findTestObjects: $findTestObjects"
 		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
 		String comment
 		if (findTestObjects.size() != 0) {
@@ -276,7 +276,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		println "getTablePartReview: $result"
 		return result
 	}
-	
+
 	public DetailOffer verifyPDFPreviewOffer(String fileName, String expectedText) {
 		String contentFile = FileHelper.readDetailContentFile(fileName)
 		String actualResult = contentFile.contains(expectedText)
@@ -287,6 +287,15 @@ public class DetailOffer extends BasePage<DetailOffer>{
 			println "Desired content $expectedText not found in PDF."
 		}
 		WebUI.verifyEqual(actualResult, "true")
+		return this
+	}
+	
+	public DetailOffer verifyContentAlertManualCalculateVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='Manually calculated']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
+		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
+		def expectedResult = contentAlertManually
+		WebUI.verifyEqual(contentAlertActual, expectedResult)
 		return this
 	}
 }

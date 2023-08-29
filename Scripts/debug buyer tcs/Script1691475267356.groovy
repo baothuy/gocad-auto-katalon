@@ -1,8 +1,5 @@
-import gocad.buyer.DraftPage
-import gocad.buyer.ReviewPage
-import gocad.common.CopyPartPopup
+import gocad.buyer.AccountSettingsPage
 import gocad.common.LeftNavBar
-import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import katalon.fw.lib.Page
 
@@ -17,11 +14,9 @@ println '>> User buyer signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickDownCirclePartColumn('1525')
-					.verifyPartNameOnDetailPartColumn('16-110_10_01_01-001_Platte.step')
-					.verifyMaterialOnDetailPartColumn('EN AW-5754 / AlMg3/3.3535')
-					.verifyPriceOnDetailPartColumn('190,48 €')
+Page.nav(LeftNavBar).clickSettings()
+List<String> listCustomerInfo = Page.nav(AccountSettingsPage).getCustomerInfo()
+println "listCustomerInfo: $listCustomerInfo"
 
 
 //Page.nav(DraftPage).clickViewAction('1525')
