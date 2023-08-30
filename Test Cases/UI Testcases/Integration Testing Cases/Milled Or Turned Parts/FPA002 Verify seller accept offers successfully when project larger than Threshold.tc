@@ -88,7 +88,7 @@
       <description></description>
       <id>4d634512-e555-4faf-aae2-b3e893272a33</id>
       <masked>false</masked>
-      <name>fileName</name>
+      <name>partName</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>

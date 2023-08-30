@@ -22,17 +22,17 @@ String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
 println '>>  Upload file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
+Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', partName)
 
 println '>> Verify UI of the page'
 Page.nav(ManufacturingInformationPage).verifyProcessAddProjectHighLighted()
 										.verifyAddPartButtonVisible()
 										.verifyCalculateButtonVisible()
 										.verifyAddTechnicalDrawingButtonVisible()
-										.verifyNamePartVisible(fileName)
+										.verifyNamePartVisible(partName)
 										.verifyPartImageVisible()
 										.verifyCanPreviewPartFile()
-										.verifyLinkPartVisible(fileName)
+										.verifyLinkPartVisible(partName)
 										.verifyNameWorkflowVisible('Milled / Turned Parts')
 										.verifySelectMaterialVisible()
 										.verifyProvideOwnMaterialCBVisible()

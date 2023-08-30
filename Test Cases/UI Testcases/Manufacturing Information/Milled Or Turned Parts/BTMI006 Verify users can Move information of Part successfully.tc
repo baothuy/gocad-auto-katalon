@@ -94,7 +94,7 @@
       <description></description>
       <id>ff732389-db57-4234-b255-d74fe8bf5679</id>
       <masked>false</masked>
-      <name>fileName</name>
+      <name>partName</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>

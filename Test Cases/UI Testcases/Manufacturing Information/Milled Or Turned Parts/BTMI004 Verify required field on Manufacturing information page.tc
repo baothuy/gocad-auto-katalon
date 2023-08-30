@@ -88,7 +88,7 @@
       <description></description>
       <id>ddcfd144-0b72-4f0b-a6d8-6e5cf82885ec</id>
       <masked>false</masked>
-      <name>fileName</name>
+      <name>partName</name>
    </variable>
    <variable>
       <defaultValue>'goCAD_milling v4.pdf'</defaultValue>

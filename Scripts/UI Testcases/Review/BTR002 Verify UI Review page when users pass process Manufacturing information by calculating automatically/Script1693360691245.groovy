@@ -1,36 +1,40 @@
+import gocad.buyer.AccountSettingsPage
 import gocad.buyer.DraftPage
+import gocad.buyer.ReviewPage
 import gocad.common.AddProjectPopup
-import gocad.common.CopyPartPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.common.ViewPartPopup
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
-println '>>  User buyer signs in to administration page'
+
+println '>> FPA004 Verify buyer accept offer with offer calculated manually will confirm offer successfully'
+println '>> Random project name'
+def projectName = CommonUtility.generateRandomProjectName(10)
+
+println '>> User buyer signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
-println '>>  User buyer add project'
+println '>> Get company Name on Settings page'
+Page.nav(LeftNavBar).clickSettings()
+String companyName = Page.nav(AccountSettingsPage).getCompanyName()
+List<String> listBillingAddress = Page.nav(AccountSettingsPage).getBillingAddress()
+List<String> listShippingAddress = Page.nav(AccountSettingsPage).getShippingAddress()
+List<String> listCustomerInfo = Page.nav(AccountSettingsPage).getCustomerInfo()
+
+println '>> User buyer add project'
 Page.nav(LeftNavBar).clickAddProject()
 
-println '>>  Random project name'
-def projectName = CommonUtility.generateRandomProjectName(10)
-def projectName2 = CommonUtility.generateRandomProjectName(10)
-
-println '>>  Open add project popup and input project name'
+println '>> Open add project popup and add new project name'
 Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
-println "projectName: $projectName"
 String projectId = Page.nav(DataUploadPage).getIdProject()
+println "projectId: $projectId"
 
-println '>>  User buyer add another project'
-Page.nav(LeftNavBar).clickAddProject()
-Page.nav(AddProjectPopup).inputProjectName("$projectName2").clickOKButton()
-println "projectName2: $projectName2"
-String projectId2 = Page.nav(DataUploadPage).getIdProject()
-
-println '>>  Upload file part on Data upload page'
+println '>> Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', partName)
 
 String material
@@ -78,30 +82,52 @@ else
 											 .inputComment(comment)
 }
 
-println '>> click Calculate button'
+println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
-
-println '>> get Net Price Value'
+String unitPrice = Page.nav(ManufacturingInformationPage).getUnitPriceValue()
 String netPrice = Page.nav(ManufacturingInformationPage).getNetPriceValue()
+Page.nav(ManufacturingInformationPage).clickContinueToOfferOverview()
 
-println '>> click Copy button'
-Page.nav(ManufacturingInformationPage).clickMoreOption()
-									  .clickMovePart()
-										
-println '>> select project to copy'
-Page.nav(CopyPartPopup).inputProjectToCopy(projectName)
-						.clickOK()
+println '>> Verify UI Visible'
+Page.nav(ReviewPage)//.verifyImagePartClickable(partName)
+					.verifyPartNameVisible(partName)
+					.verifyFileVisible(partName)
+					.verifyFileClickable(partName)
+					.verifyMaterialVisible(partName)
+					.verifyQuantityVisible(partName)
+					.verifyUnitPriceVisible(partName)
+					.verifyTotalPartPriceVisible(partName)
+					.verifyCO2EmissionVisible(partName)
+					.verifyActionViewVisible(partName)
+					.verifyActionMoreVisible(partName)
+					.clickMoreOption(partName)
+					.verifyActionCopyVisible(partName)
+					.verifyActionMoveVisible(partName)
+					.verifyRequestOfferButtonVisible(partName)
+				
+println '>> Verify value on Review Page show correctly'
+Page.nav(ReviewPage).verifyPartNameValue(partName)
+					.verifyMaterialValue(partName, material)
+					.verifyQuantityValue(partName, quantityNum)
+					.verifyUnitPriceValue(partName, unitPrice)
+					.verifyPartPriceTotalValue(partName, netPrice)
+					.verifyCommentValue(partName, comment)
 
-println '>>  Verify part information after copied to another project'
-Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickDownCirclePartColumn(projectId)
-					.verifyPartNameOnDetailPartColumn(partName)
-					.verifyMaterialOnDetailPartColumn(material)
-					.verifyPriceOnDetailPartColumn(netPrice)
+println '>> Verify data on View page show correctly'
+Page.nav(ReviewPage).clickView(partName)
+Page.nav(ViewPartPopup).verifyMaterialValue(material)
+						.verifyQuantityValue(quantityNum)
+						.verifyThreadValue(threadNum)
+						.verifyTolerancesNumberValue(tolerancesNum)
+						.verifyTolerancesToggleValue(tolerancesToggle)
+						.verifySurfaceTreatmentValue(surfaceTreatment)
+						.verifySurfaceQualityValue(quality)
+						.verifyAdditionalCommentsValue(comment)
+						.verifyUnitPriceValue(unitPrice)
+						.verifyNetPriceValue(netPrice)
+						.clickCloseViewPopup()
 
 println '>>  Clear data'
+Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
-					.clickArchiveAction(projectId2)
-					.clickCloseToastMessage()
-	

@@ -50,7 +50,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.click(xpath('//span[text()="Move"]'))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyProcessReviewtHighLighted() {
 		String colorTwo = WebUI.getCSSValue(xpath("//div[text()='Review']/parent::div/preceding-sibling::div//*[text()='3']"), "background")
 		String pattern = /(rgb\(\d+,\s*\d+,\s*\d+\))/
@@ -59,7 +59,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.verifyEqual(rgbToHex, "#FFCB3D")
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyContentAlertManualCalculateVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='Manually calculated']"))
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
@@ -115,7 +115,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public ReviewPage verifyCommentValue(String partName, String expectedResult) {
 		String actualResult
 		List<String> findTestObjects = findTestObjects("//*[@aria-label='message']")
@@ -125,7 +125,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		}
 		else {
 			actualResult = ""
-		}		
+		}
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
@@ -135,7 +135,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public String getCO2EmissionValue(String partName) {
 		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
 		return CO2Emission
@@ -167,64 +167,69 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.click(xpath("//span[@class='ant-steps-icon']/span[text()='2']"))
 		return this
 	}
-	
+
 	public ReviewPage verifyPartNameVisible(String partName) {
 		WebUI.verifyElementVisible(partCol(partName))
 		return this
 	}
-	
+
 	public ReviewPage verifyFileVisible(String partName) {
 		WebUI.verifyElementVisible(fileCol(partName))
 		return this
 	}
-	
+
 	public ReviewPage verifyMaterialVisible(String partName) {
 		WebUI.verifyElementVisible(materialCol(partName))
 		return this
 	}
-	
+
 	public ReviewPage verifyQuantityVisible(String partName) {
 		WebUI.verifyElementVisible(quantityCol(partName))
 		return this
 	}
-	
+
 	public ReviewPage verifyUnitPriceVisible(String partName) {
 		WebUI.verifyElementVisible(unitPriceCol(partName))
 		return this
 	}
-	
+
 	public ReviewPage verifyTotalPartPriceVisible(String partName) {
 		WebUI.verifyElementVisible(partPriceTotalCol(partName))
 		return this
 	}
-	
+
 	public ReviewPage verifyCO2EmissionVisible(String partName) {
 		WebUI.verifyElementVisible(CO2EmissionCol(partName))
 		return this
 	}
-	
+
 	public ReviewPage verifyActionViewVisible(String partName) {
 		WebUI.verifyElementVisible(actionView(partName))
 		return this
 	}
-	
+
 	public ReviewPage verifyActionMoreVisible(String partName) {
 		WebUI.verifyElementVisible(actionMore(partName))
 		return this
 	}
-	
+
 	public ReviewPage verifyActionCopyVisible(String partName) {
 		WebUI.verifyElementVisible(xpath("//span[text()='Copy']"))
 		return this
 	}
-	
+
 	public ReviewPage verifyActionMoveVisible(String partName) {
 		WebUI.verifyElementVisible(xpath("//span[text()='Move']"))
 		return this
 	}
-	
+
 	public ReviewPage verifyRequestOfferButtonVisible(String partName) {
 		WebUI.verifyElementVisible(xpath("//span[text()='Request Offer']"))
+		return this
+	}
+	
+	public ReviewPage verifyCheckoutButtonVisible(String partName) {
+		WebUI.verifyElementVisible(xpath("//span[text()='Check out']"))
 		return this
 	}
 }

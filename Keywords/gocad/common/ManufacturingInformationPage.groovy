@@ -30,7 +30,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage clickDeletePart() {
-		WebUI.click(xpath('//span[text()="Delete"]'))
+		WebUI.click(xpath('//span[contains(text(),"Delete")]'))
 		return this
 	}
 
@@ -40,12 +40,17 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage clickMoreOption() {
-		WebUI.click(xpath('//span[@role="img" and @aria-label="more"]'))
+		WebUI.click(xpath('//span[@role="img" and @aria-label="more"]/parent::button'))
 		return this
 	}
 
 	public ManufacturingInformationPage clickMovePart() {
 		WebUI.click(xpath('//span[contains(text(),"Move")]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickOK() {
+		WebUI.click(xpath('//span[contains(text(),"OK")]'))
 		return this
 	}
 

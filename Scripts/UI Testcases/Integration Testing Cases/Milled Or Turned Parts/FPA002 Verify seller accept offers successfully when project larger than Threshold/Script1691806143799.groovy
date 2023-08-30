@@ -31,7 +31,7 @@ String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
 println '>> Upload file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
+Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', partName)
 
 String material
 if (filePDF == "")
@@ -83,7 +83,7 @@ Page.nav(ManufacturingInformationPage).clickCalculate()
 									  .clickContinueToOfferOverview()
 
 println '>> Click get infor and Checkout button on Review Page'
-List<String> tablePart = Page.nav(ReviewPage).getTablePartReview(fileName)
+List<String> tablePart = Page.nav(ReviewPage).getTablePartReview(partName)
 println "tablePart: $tablePart"
 Page.nav(ReviewPage).clickCheckout()
 
@@ -143,7 +143,7 @@ println '>> Verify detail of offer'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)
-					 .verifyTablePartReview(fileName, tablePart)
+					 .verifyTablePartReview(partName, tablePart)
 					 .verifyShippingInfo(listShippingInfo)
 					 
 println '>> Seller click Logout button'
@@ -166,5 +166,5 @@ println '>> Verify information show on detail Confirmed Offers of buyer page'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)
-					 .verifyTablePartReview(fileName, tablePart)
+					 .verifyTablePartReview(partName, tablePart)
 					 .verifyShippingInfo(listShippingInfo)

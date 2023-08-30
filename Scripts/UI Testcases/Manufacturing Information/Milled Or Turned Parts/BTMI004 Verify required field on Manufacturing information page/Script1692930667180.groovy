@@ -22,7 +22,7 @@ String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
 println '>>  Upload file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
+Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', partName)
 
 println '>> Input required field is empty and verify'
 Page.nav(ManufacturingInformationPage).inputQuantity(' ')

@@ -33,7 +33,7 @@ Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
 String projectId = Page.nav(DataUploadPage).getIdProject()
 
 println '>> Upload file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
+Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', partName)
 
 String material
 if (filePDF == "")
@@ -85,7 +85,7 @@ Page.nav(ManufacturingInformationPage).clickCalculate()
 									  .clickContinueToOfferOverview()
 
 println '>> Click get infor and Checkout button on Review Page'
-List<String> tablePart = Page.nav(ReviewPage).getTablePartReview(fileName)
+List<String> tablePart = Page.nav(ReviewPage).getTablePartReview(partName)
 println "tablePart: $tablePart"
 Page.nav(ReviewPage).clickCheckout()
 
@@ -129,7 +129,7 @@ Page.nav(RequestedOffersPage).verifyProjectName(projectId, projectName)
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
  					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)
-					 .verifyTablePartReview(fileName, tablePart)
+					 .verifyTablePartReview(partName, tablePart)
 					 .verifyShippingInfo(listShippingInfo)
 					  					  
 println '>> Seller click Logout button'
@@ -151,7 +151,7 @@ println '>> get Information on Detail page after change unit price'
 List<String> listOrderSummaryChanged = Page.nav(DetailOffer).getOrderSummary()
 List<String> listBillingAddressChanged = Page.nav(DetailOffer).getBillingAddress()
 List<String> listShippingAddressChanged = Page.nav(DetailOffer).getShippingAddress()
-List<String> tablePartChanged = Page.nav(DetailOffer).getTablePartReview(fileName)
+List<String> tablePartChanged = Page.nav(DetailOffer).getTablePartReview(partName)
 String netTotalChanged = listOrderSummaryChanged[5]
 String grossTotalChanged = listOrderSummaryChanged[7]
  
@@ -171,7 +171,7 @@ println '>> Verify value on detail page'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
-					 .verifyTablePartReview(fileName, tablePartChanged)
+					 .verifyTablePartReview(partName, tablePartChanged)
 					 .verifyShippingInfo(listShippingInfo)
  
 println '>> Seller click Logout button'
@@ -193,7 +193,7 @@ Page.nav(ReceivedOffersPage).verifyHighlightOnList(projectId)
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
 					  .verifyShippingAddress(listShippingAddressChanged)
 					  .verifyOrderSummary(listOrderSummaryChanged)
-					  .verifyTablePartReview(fileName, tablePartChanged)
+					  .verifyTablePartReview(partName, tablePartChanged)
 					  .verifyShippingInfo(listShippingInfo)
 					  .clickAcceptOffer()
 					  .clickOKConfirmPopup()
@@ -211,7 +211,7 @@ println '>> Verify information show on detail Confirmed Offers of buyer page'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
-					 .verifyTablePartReview(fileName, tablePartChanged)
+					 .verifyTablePartReview(partName, tablePartChanged)
 					 .verifyShippingInfo(listShippingInfo)
  
 println '>> Seller click Logout button'
@@ -237,5 +237,5 @@ println '>> Verify information show on detail Confirmed Offers of buyer page'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
-					 .verifyTablePartReview(fileName, tablePartChanged)
+					 .verifyTablePartReview(partName, tablePartChanged)
 					 .verifyShippingInfo(listShippingInfo)

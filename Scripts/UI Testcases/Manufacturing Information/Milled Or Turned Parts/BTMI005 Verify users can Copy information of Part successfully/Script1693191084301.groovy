@@ -31,7 +31,7 @@ println "projectName2: $projectName2"
 String projectId2 = Page.nav(DataUploadPage).getIdProject()
 
 println '>>  Upload file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
+Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', partName)
 
 String material
 if (filePDF == "")
@@ -91,12 +91,12 @@ Page.nav(ManufacturingInformationPage).clickMoreOption()
 println '>> select project to copy'
 Page.nav(CopyPartPopup).inputProjectToCopy(projectName)
 						.clickOK()
-						.verifyToastMessageWhenCopyProject(fileName, projectName)
+						.verifyToastMessageWhenCopyProject(partName, projectName)
 
 println '>>  Verify part information after copied to another project'
 Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickDownCirclePartColumn(projectId)
-					.verifyPartNameOnDetailPartColumn(fileName)
+					.verifyPartNameOnDetailPartColumn(partName)
 					.verifyMaterialOnDetailPartColumn(material)
 					.verifyPriceOnDetailPartColumn(netPrice)
 

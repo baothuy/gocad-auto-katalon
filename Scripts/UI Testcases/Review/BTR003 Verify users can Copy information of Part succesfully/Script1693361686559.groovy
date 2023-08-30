@@ -1,4 +1,6 @@
+import gocad.buyer.AccountSettingsPage
 import gocad.buyer.DraftPage
+import gocad.buyer.ReviewPage
 import gocad.common.AddProjectPopup
 import gocad.common.CopyPartPopup
 import gocad.common.DataUploadPage
@@ -8,6 +10,7 @@ import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
+
 
 println '>>  User buyer signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
@@ -78,30 +81,32 @@ else
 											 .inputComment(comment)
 }
 
-println '>> click Calculate button'
+println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
-
-println '>> get Net Price Value'
+String unitPrice = Page.nav(ManufacturingInformationPage).getUnitPriceValue()
 String netPrice = Page.nav(ManufacturingInformationPage).getNetPriceValue()
+Page.nav(ManufacturingInformationPage).clickContinueToOfferOverview()
 
-println '>> click Copy button'
-Page.nav(ManufacturingInformationPage).clickMoreOption()
-									  .clickMovePart()
-										
-println '>> select project to copy'
-Page.nav(CopyPartPopup).inputProjectToCopy(projectName)
-						.clickOK()
-
-println '>>  Verify part information after copied to another project'
-Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickDownCirclePartColumn(projectId)
-					.verifyPartNameOnDetailPartColumn(partName)
-					.verifyMaterialOnDetailPartColumn(material)
-					.verifyPriceOnDetailPartColumn(netPrice)
+println '>> Verify UI Visible'
+Page.nav(ReviewPage).clickMoreOption(partName)
+					.clickCopyPart()
+					
+Page.nav(CopyPartPopup).verifyMaterialValue(material)
+					.verifyQuantityValue(quantityNum)
+					.verifyThreadValue(threadNum)
+					.verifyTolerancesNumberValue(tolerancesNum)
+					.verifyTolerancesToggleValue(tolerancesToggle)
+					.verifySurfaceTreatmentValue(surfaceTreatment)
+					.verifySurfaceQualityValue(quality)
+					.verifyAdditionalCommentsValue(comment)
+					.verifyUnitPriceValue(unitPrice)
+					.verifyNetPriceValue(netPrice)
+					.inputProjectToCopy(projectName)
+					.clickOK()
+					.verifyToastMessageWhenCopyProject(partName, projectName)
 
 println '>>  Clear data'
 Page.nav(DraftPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
 					.clickArchiveAction(projectId2)
 					.clickCloseToastMessage()
-	

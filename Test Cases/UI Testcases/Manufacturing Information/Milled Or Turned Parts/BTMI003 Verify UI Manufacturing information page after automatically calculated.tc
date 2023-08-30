@@ -94,7 +94,7 @@
       <description></description>
       <id>1dd9e1e8-5025-45b9-93ec-d170f16aef9b</id>
       <masked>false</masked>
-      <name>fileName</name>
+      <name>partName</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>
@@ -181,7 +181,7 @@
       <name>shippingOption</name>
    </variable>
    <variable>
-      <defaultValue>'96,27'</defaultValue>
+      <defaultValue>'106,82'</defaultValue>
       <description></description>
       <id>4117b2f1-9182-4aea-bf15-ca672583953e</id>
       <masked>false</masked>

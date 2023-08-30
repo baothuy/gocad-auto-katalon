@@ -12,120 +12,120 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
 
-public class CopyPartPopup extends BasePage<CopyPartPopup> {
+public class MovePartPopup extends BasePage<MovePartPopup> {
 
 
-	public CopyPartPopup clickImagePart() {
+	public MovePartPopup clickImagePart() {
 		WebUI.click(xpath('//img[@class="ant-image-img"]/following-sibling::div/span'))
 		return this
 	}
 
-	public CopyPartPopup clickDownloadImage() {
+	public MovePartPopup clickDownloadImage() {
 		WebUI.click(xpath('//a[@class="text-decoration-none"]'))
 		return this
 	}
 
-	public CopyPartPopup clickOK() {
+	public MovePartPopup clickOK() {
 		WebUI.click(xpath('//span[text()="OK"]'))
 		return this
 	}
 
-	public CopyPartPopup clickCancel() {
+	public MovePartPopup clickCancel() {
 		WebUI.click(xpath('//span[text()="Cancel"]'))
 		return this
 	}
 
-	public CopyPartPopup clickSelectProject() {
+	public MovePartPopup clickSelectProject() {
 		WebUI.click(xpath('//span[text()="Cancel"]'))
 		return this
 	}
 
-	public CopyPartPopup inputProjectToCopy(String projectName) {
+	public MovePartPopup inputProjectToCopy(String projectName) {
 		WebUI.setText(xpath("//*[@class='ant-input-prefix']/following::input[@type='search']"), projectName)
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$projectName']"))
 		return this
 	}
 
-	public CopyPartPopup verifyPDFFileVisibleAfterCalculated(String fileName) {
+	public MovePartPopup verifyPDFFileVisibleAfterCalculated(String fileName) {
 		String href = WebUI.getAttribute(xpath("//a[@class='text-decoration-none' and @title='$fileName']/parent::label/following-sibling::label/a"), "href")
 		WebUI.verifyElementVisible(xpath("//a[@href='$href']"))
 		return this
 	}
 
-	public CopyPartPopup clickPDFFileToDownload(String fileName) {
+	public MovePartPopup clickPDFFileToDownload(String fileName) {
 		WebUI.click(xpath("//a[@class='text-decoration-none' and contains(@title, 'pdf')]"))
 		return this
 	}
 
-	public CopyPartPopup clickPartFileToDownload(String fileName) {
+	public MovePartPopup clickPartFileToDownload(String fileName) {
 		WebUI.click(xpath("//a[@class='text-decoration-none' and contains(@title, '$fileName')]"))
 		return this
 	}
 
-	public CopyPartPopup verifyMaterialValue(String expectedResult) {
+	public MovePartPopup verifyMaterialValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Material']/following-sibling::div")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public CopyPartPopup verifyQuantityValue(String expectedResult) {
+	public MovePartPopup verifyQuantityValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Quantity']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public CopyPartPopup verifyThreadValue(String expectedResult) {
+	public MovePartPopup verifyThreadValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Thread (Quantity)']/following-sibling::div")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public CopyPartPopup verifyTolerancesNumberValue(String expectedResult) {
+	public MovePartPopup verifyTolerancesNumberValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Tolerances and fits with less than 1/10mm or IT 1 - IT 10 (Number)']/following-sibling::div")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public CopyPartPopup verifyTolerancesToggleValue(String expectedResult) {
+	public MovePartPopup verifyTolerancesToggleValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Tolerance requirement with smaller 1/100mm or IT 1 - IT 5']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public CopyPartPopup verifySurfaceTreatmentValue(String expectedResult) {
+	public MovePartPopup verifySurfaceTreatmentValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Surface Treatment']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public CopyPartPopup verifySurfaceQualityValue(String expectedResult) {
+	public MovePartPopup verifySurfaceQualityValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Surface Quality']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public CopyPartPopup verifyAdditionalCommentsValue(String expectedResult) {
+	public MovePartPopup verifyAdditionalCommentsValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Additional Comments']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public CopyPartPopup verifyUnitPriceValue(String expectedResult) {
+	public MovePartPopup verifyUnitPriceValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
-	public CopyPartPopup verifyNetPriceValue(String expectedResult) {
+	public MovePartPopup verifyNetPriceValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::h6")).trim()
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
@@ -139,45 +139,40 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 		return newExpectedResult
 	}
 
-	public CopyPartPopup verifyShowErrorIncompatibleFile() {
+	public MovePartPopup verifyShowErrorIncompatibleFile() {
 		WebUI.verifyElementVisible(xpath("//div[text()='There is problem when calculating the request. Please contact the admin.']"))
 		return this
 	}
 
-	public CopyPartPopup verifyCanPreviewPartFile() {
+	public MovePartPopup verifyCanPreviewPartFile() {
 		WebUI.click(xpath('//img[@class="ant-image-img"]/following-sibling::div/span'))
 		waitUntilElementInvisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::div[@class='icon-loading']"), 10)
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-body']/*[@class='classmateCloudFrame']"))
 		return this
 	}
 
-	public CopyPartPopup clickClosePreviewPartFilePopup() {
+	public MovePartPopup clickClosePreviewPartFilePopup() {
 		waitUntilElementVisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"), 10)
 		WebUI.click(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"))
 		return this
 	}
 
-	public ViewPartPopup clickClosePopup() {
-		WebUI.click(xpath("//*[@aria-label='close']/parent::span"))
-		return this
-	}
-
-	public CopyPartPopup verifyLinkPartVisible(String fileName) {
+	public MovePartPopup verifyLinkPartVisible(String fileName) {
 		WebUI.verifyElementVisible(xpath("//span[text()='$fileName']"))
 		return this
 	}
 
-	public CopyPartPopup verifyNamePartVisible(String fileName) {
+	public MovePartPopup verifyNamePartVisible(String fileName) {
 		WebUI.verifyElementVisible(xpath("//span[text()='$fileName']"))
 		return this
 	}
 
-	public CopyPartPopup verifyNameWorkflowVisible(String workflow) {
+	public MovePartPopup verifyNameWorkflowVisible(String workflow) {
 		WebUI.verifyElementVisible(xpath("//label[text()='$workflow']"))
 		return this
 	}
 
-	public CopyPartPopup verifyToastMessageWhenCopyProject(String fileName, String projectName) {
+	public MovePartPopup verifyToastMessageWhenCopyProject(String fileName, String projectName) {
 		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
 		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
 		def expectedTitle = ""
@@ -187,7 +182,7 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 		return this
 	}
 
-	public CopyPartPopup verifyContentAlertManualCalculateVisible() {
+	public MovePartPopup verifyContentAlertManualCalculateVisible() {
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
 		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
 		def expectedResult = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."

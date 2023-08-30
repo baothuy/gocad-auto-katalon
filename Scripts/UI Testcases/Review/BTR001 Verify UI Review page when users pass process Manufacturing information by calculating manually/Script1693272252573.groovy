@@ -1,4 +1,5 @@
 import gocad.buyer.AccountSettingsPage
+import gocad.buyer.DraftPage
 import gocad.buyer.RequestOfferPopup
 import gocad.buyer.RequestedOffersPage
 import gocad.buyer.ReviewPage
@@ -9,6 +10,7 @@ import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.common.ViewPartPopup
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
@@ -114,19 +116,34 @@ Page.nav(ReviewPage).verifyPartNameValue(partName)
 					.verifyPartPriceTotalValue(partName, netPrice)
 					.verifyCommentValue(partName, comment)
 
+println '>> Verify data on View page show correctly'
+Page.nav(ReviewPage).clickView(partName)
+Page.nav(ViewPartPopup).verifyMaterialValue(material)
+						.verifyQuantityValue(quantityNum)
+						.verifyThreadValue(threadNum)
+						.verifyTolerancesNumberValue(tolerancesNum)
+						.verifyTolerancesToggleValue(tolerancesToggle)
+						.verifySurfaceTreatmentValue(surfaceTreatment)
+						.verifySurfaceQualityValue(quality)
+						.verifyAdditionalCommentsValue(comment)
+						.verifyUnitPriceValue(unitPrice)
+						.verifyNetPriceValue(netPrice)
+						.clickClosePopup()
+					
 String CO2Emission = Page.nav(ReviewPage).getCO2EmissionValue(partName)	
 List<String> tablePart = [partName, material, quantityNum, unitPrice, netPrice, comment, CO2Emission]
+
 println '>> Verify value on Request Offer Popup show correctly'
 Page.nav(ReviewPage).clickRequestOffer()
 
 Page.nav(RequestOfferPopup).verifyUIVisableOnRequestOfferPopup()
 							.verifyContentAlert()
 							.verifyBillingAddressValue(listBillingAddress)
-							
-Page.nav(RequestOfferPopup).clickOK()
+							.clickOK()
 
 String orderNumber = "GOCAD" + projectId
 String numberOfParts = '1'
+
 println '>> Verify value on detail page'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
 						//.verifyShippingAddress(listShippingAddress)
@@ -134,12 +151,17 @@ Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
 						.verifyOrderStatus("Request for quotation")
 						.verifyContentAlertManualCalculateVisible()
 						.verifyCustomerInfo(listCustomerInfo)
-						
-Page.nav(LeftNavBar).clickAddProject()
-Page.nav(RequestedOffersPage).verifyHighlightOnList(projectId)
-							.verifyProjectName(projectId, projectName)
+
+println '>> Verify project show in list Requested Offers Page'
+Page.nav(LeftNavBar).clickRequestedOffers()
+Page.nav(RequestedOffersPage).verifyProjectName(projectId, projectName)
 							//.verifyDeliveryDate(projectId, deliveryDate)
 							.verifyOrderNumber(projectId)
 							//.verifyGrossTotal(projectId, grossTotal)
 							.verifyStatus(projectId, "Request for quotation")
 							.clickAction(projectId)
+							
+println '>>  Clear data'
+Page.nav(LeftNavBar).clickDraft()
+Page.nav(DraftPage).clickArchiveAction(projectId)
+					.clickCloseToastMessage()

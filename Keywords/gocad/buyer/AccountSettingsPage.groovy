@@ -25,7 +25,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		List<String> billingAddress = [name, houseNumber, streetName, state, postCode, city]
 		return billingAddress
 	}
-	
+
 	public List<String> getShippingAddress() {
 		String firstName = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_firstName']"), 'value')
 		String lastName = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_lastName']"), 'value')
@@ -39,7 +39,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		List<String> shippingAddress = [name, houseNumber, streetName, state, postCode, city]
 		return shippingAddress
 	}
-	
+
 	public List<String> getCustomerInfo() {
 		String firstName = WebUI.getAttribute(xpath("//*[@id='basic_firstName']"), 'value')
 		String lastName = WebUI.getAttribute(xpath("//*[@id='basic_lastName']"), 'value')

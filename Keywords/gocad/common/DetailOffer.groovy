@@ -289,7 +289,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.verifyEqual(actualResult, "true")
 		return this
 	}
-	
+
 	public DetailOffer verifyContentAlertManualCalculateVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='Manually calculated']"))
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))

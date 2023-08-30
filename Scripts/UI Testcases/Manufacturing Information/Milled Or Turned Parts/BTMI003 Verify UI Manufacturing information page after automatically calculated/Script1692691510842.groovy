@@ -24,7 +24,7 @@ String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
 println '>>  Upload file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', fileName)
+Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', partName)
 
 String material
 if (filePDF == "")
@@ -76,12 +76,10 @@ Page.nav(ManufacturingInformationPage).clickCalculate()
 
 println '>> Calculate netPrice value'
 String netPrice = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitPrice,quantityNum)
-
-println '>> Calculate netPrice value'
-String netPrice = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitPrice,quantityNum)
 if (filePDF == ""){
 	println '>> Verify UI after calculated manually of request'
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
+											.clickClosePreviewPartFilePopup()
 											.verifyMaterialValue(material)
 											.verifyQuantityValue(quantityNum)
 											.verifyThreadValue(threadNum)
@@ -101,7 +99,8 @@ if (filePDF == ""){
 else {
 	println '>> Verify UI after calculated manually of request'
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
-											.verifyPDFFileVisibleAfterCalculated(fileName)
+											.clickClosePreviewPartFilePopup()
+											.verifyPDFFileVisibleAfterCalculated(partName)
 											.verifyMaterialValue(material)
 											.verifyQuantityValue(quantityNum)
 											.verifySurfaceTreatmentValue(surfaceTreatment)
@@ -117,8 +116,8 @@ else {
 }
 
 println '>>  Verify can download succesfully'
-Page.nav(ManufacturingInformationPage).clickPartFileToDownload(fileName)
-Page.nav(FileHelper).verifyFileDownloaded(fileName)
+Page.nav(ManufacturingInformationPage).clickPartFileToDownload(partName)
+Page.nav(FileHelper).verifyFileDownloaded(partName)
 
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

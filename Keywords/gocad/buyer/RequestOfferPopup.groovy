@@ -76,7 +76,7 @@ public class RequestOfferPopup extends BasePage<RequestOfferPopup>{
 		WebUI.verifyEqual(actualResult, contentAlert)
 		return this
 	}
-	
+
 	public RequestOfferPopup verifyBillingAddressValue(List<String> billingAddressExpected) {
 		String firstName = WebUI.getAttribute(xpath("//*[@id='billingAddress_firstName']"), 'value')
 		String lastName = WebUI.getAttribute(xpath("//*[@id='billingAddress_lastName']"), 'value')
