@@ -20,6 +20,13 @@ public class ReviewPage extends BasePage<ReviewPage>{
 	def actionView = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]//button[1]")}
 	def actionMore = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]//button[2]")}
 	def contentAlertManually = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
+	def contentAlertAutomatically = "Please check and confirm your order. You can see the bulk pricing when clicking on the information button for each part. You can adapt the quantity here if required."
+	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
+
+	public ReviewPage clickPartFile(String partName) {
+		WebUI.click(fileCol(partName))
+		return this
+	}
 
 	public ReviewPage clickCheckout() {
 		WebUI.click(xpath("//span[text()='Check out']"))
@@ -51,7 +58,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		return this
 	}
 
-	public ManufacturingInformationPage verifyProcessReviewtHighLighted() {
+	public ReviewPage verifyProcessReviewtHighLighted() {
 		String colorTwo = WebUI.getCSSValue(xpath("//div[text()='Review']/parent::div/preceding-sibling::div//*[text()='3']"), "background")
 		String pattern = /(rgb\(\d+,\s*\d+,\s*\d+\))/
 		String rgbValue = CommonUtility.substringUseRegExp(colorTwo, pattern,1)
@@ -60,11 +67,20 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		return this
 	}
 
-	public ManufacturingInformationPage verifyContentAlertManualCalculateVisible() {
+	public ReviewPage verifyContentAlertManualCalculateVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='Manually calculated']"))
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
 		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
 		def expectedResult = contentAlertManually
+		WebUI.verifyEqual(contentAlertActual, expectedResult)
+		return this
+	}
+
+	public ReviewPage verifyContentAlertAutomaticCalculateVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='Automatically calculated']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
+		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
+		def expectedResult = contentAlertAutomatically
 		WebUI.verifyEqual(contentAlertActual, expectedResult)
 		return this
 	}
@@ -227,9 +243,24 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		WebUI.verifyElementVisible(xpath("//span[text()='Request Offer']"))
 		return this
 	}
-	
+
 	public ReviewPage verifyCheckoutButtonVisible(String partName) {
 		WebUI.verifyElementVisible(xpath("//span[text()='Check out']"))
+		return this
+	}
+
+	public ReviewPage verifySurfaceTreatmentSurchargeAndTotalVisible() {
+		List<String> findObject = findTestObjects("//*[text()='Surface Treatment Surcharge']")
+		if (findObject.size() != 0) {
+			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment Surcharge']"))
+			WebUI.mouseOver(xpath("//*[text()='Surface Treatment Surcharge']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='$expectedContentTooltips']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='All Parts Total']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
+		}
+		else {
+			WebUI.verifyElementVisible(xpath("//*[text()='Total:']"))
+		}
 		return this
 	}
 }

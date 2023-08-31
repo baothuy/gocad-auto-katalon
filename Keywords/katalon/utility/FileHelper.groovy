@@ -9,6 +9,8 @@ import org.apache.pdfbox.Loader
 import org.apache.pdfbox.pdmodel.PDDocument
 import org.apache.pdfbox.text.PDFTextStripper
 
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
 
 public class FileHelper {
 	String path;
@@ -33,36 +35,44 @@ public class FileHelper {
 		PDDocument document = Loader.loadPDF(new File(downloadFolderPath))
 		try {
 			// Create a PDFTextStripper object
-		    PDFTextStripper pdfTextStripper = new PDFTextStripper()
-		    // Extract text from the PDF
-		    String extractedText = pdfTextStripper.getText(document)
+			PDFTextStripper pdfTextStripper = new PDFTextStripper()
+			// Extract text from the PDF
+			String extractedText = pdfTextStripper.getText(document)
 			println "extractedText: $extractedText"
-		    return extractedText
-		} 
+			return extractedText
+		}
 		finally { document.close() }
 		return this
 	}
-	
+
 	public FileHelper verifyFileDownloaded(String fileName) {
+		println "fileName: $fileName"
 		// Define the path where the file will be downloaded
 		String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\"
-		String expectedFileName = "$fileName"
 		// Clear the downloaded file before verify
-		Files.deleteIfExists(Paths.get(downloadFolderPath, expectedFileName))
+		Files.deleteIfExists(Paths.get(downloadFolderPath, fileName))
 		// Wait for the file to be downloaded
 		boolean isDownloaded = false
 		int timeoutInSeconds = 60 // Maximum wait time
 		int pollingIntervalInMillis = 1000 // Polling interval
 		long endTime = System.currentTimeMillis() + timeoutInSeconds * 1000
 		while (System.currentTimeMillis() < endTime) {
-			if (Files.exists(Paths.get(downloadFolderPath, expectedFileName))) {
+			if (Files.exists(Paths.get(downloadFolderPath, fileName))) {
 				isDownloaded = true
 				break
 			}
 		}
 		// Verify the download
-		if (isDownloaded) { println "File downloaded successfully." }
-		else { println "File download failed." }
+		if (isDownloaded) { 
+			println "File downloaded successfully."
+			String actualResult = "File downloaded successfully."
+			WebUI.verifyEqual(actualResult, "File downloaded successfully.")
+		}
+		else { 
+			println "File download failed."
+			String actualResult = "File download failed."
+			WebUI.verifyEqual(actualResult, "File downloaded successfully.")
+		}
 		return this
 	}
 }

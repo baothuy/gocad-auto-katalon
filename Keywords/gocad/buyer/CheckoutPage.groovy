@@ -1,9 +1,13 @@
 package gocad.buyer
 
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import katalon.fw.lib.BasePage
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import internal.GlobalVariable
+
+import gocad.common.ManufacturingInformationPage
+import katalon.fw.lib.BasePage
+import katalon.utility.CommonUtility
+
 
 public class CheckoutPage extends BasePage<CheckoutPage>{
 
@@ -15,14 +19,26 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	def CO2EmissionCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[9]")}
 	def actionView = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]")}
 	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]//button")}
+	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
+	def expectedAlertContent = "After the final approval of the offer by the seller, you will receive a confirmation via e-mail"
 
 	public CheckoutPage clickCheckboxAgreeTermsAndConditions() {
-		WebUI.click(xpath('//*[@id="agreeTermConditions"]'))
+		WebUI.click(xpath("//*[@id='agreeTermConditions']"))
+		return this
+	}
+	
+	public CheckoutPage clickFilePDFDownload() {
+		WebUI.click(xpath("//*[text()='Preview Offer']"))
 		return this
 	}
 
 	public CheckoutPage clickPlaceYourOrder() {
-		WebUI.click(xpath('//*[text()="Place your order"]'))
+		WebUI.click(xpath("//*[text()='Place your order']"))
+		return this
+	}
+	
+	public CheckoutPage clickEditAddress() {
+		WebUI.click(xpath("//*[@aria-label='edit']/parent::button"))
 		return this
 	}
 
@@ -40,6 +56,114 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 
 	public CheckoutPage inputPackagingAndShippingComments(String text) {
 		WebUI.setText(xpath("//textarea[@id='shippingComment']"), text)
+		return this
+	}
+
+	public CheckoutPage verifyMaterial(String partName, String expectedResult) {
+		String actualResult = WebUI.getText(materialCol(partName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public CheckoutPage verifyQuantity(String partName, String expectedResult) {
+		String actualResult = WebUI.getText(quantityCol(partName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public CheckoutPage verifyUnitPrice(String partName, String expectedResult) {
+		String actualResult = WebUI.getText(unitPriceCol(partName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public CheckoutPage verifyPartPriceTotal(String partName, String expectedResult) {
+		String actualResult = WebUI.getText(partPriceTotalCol(partName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public CheckoutPage verifyCO2EmissionCol(String partName, String expectedResult) {
+		String actualResult = WebUI.getText(CO2EmissionCol(partName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public CheckoutPage verifyProcessReviewtHighLighted() {
+		String colorTwo = WebUI.getCSSValue(xpath("//div[text()='Checkout']/parent::div/preceding-sibling::div//*[text()='4']"), "background")
+		String pattern = /(rgb\(\d+,\s*\d+,\s*\d+\))/
+		String rgbValue = CommonUtility.substringUseRegExp(colorTwo, pattern,1)
+		String rgbToHex = CommonUtility.rgbToHex(rgbValue)
+		WebUI.verifyEqual(rgbToHex, "#FFCB3D")
+		return this
+	}
+
+	public CheckoutPage verifyUICheckoutVisible(String partName) {
+		//Company name
+		WebUI.verifyElementVisible(xpath("//*[text()='Company Name']"))
+
+		//Billing address
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Full name']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='State']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[1]"))
+
+		//Shipping address
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Full name']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='State']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[1]"))
+
+		//button Edit address
+		WebUI.verifyElementVisible(xpath("//*[@aria-label='edit']/parent::button"))
+
+		//label Automatically calculated
+		WebUI.verifyElementVisible(xpath("//*[text()='Automatically calculated']"))
+
+		//table information of part
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Part name']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Files']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Material']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Quantity']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Unit price']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Part Price Total']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='CO2 Emission']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Action']"))
+		//button view and more
+		WebUI.verifyElementVisible(actionView(partName))
+		WebUI.verifyElementVisible(actionMore(partName))
+
+		//Order summary
+		WebUI.verifyElementVisible(xpath("//*[text()='Order Summary']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Delivery Option']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping options']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Packaging and Shipping Comments']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Total Part Price']"))
+		List<String> findObject = findTestObjects("//*[text()='Surface Treatment Surcharge']")
+		if (findObject.size() != 0) {
+			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment Surcharge']"))
+			WebUI.mouseOver(xpath("//*[text()='Surface Treatment Surcharge']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='$expectedContentTooltips']"))
+		}
+		WebUI.verifyElementVisible(xpath("//*[text()='Express Surcharge']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Packaging Cost']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping costs']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='VAT (19%)']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='GROSS Total']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Preview Offer']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='I agree with the Terms and Conditions and the privacy settings']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Place your order']"))
+		
+		//Content alert
+		String alertContent = WebUI.getText(xpath("//*[@class='ant-alert-description']//li"))
+		WebUI.verifyEqual(alertContent, expectedAlertContent)
 		return this
 	}
 
@@ -93,36 +217,6 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		String city = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[2]"))
 		List<String> billingAddress = [fullName, houseNumber, street, state, zipCode, city]
 		return billingAddress
-	}
-
-	public CheckoutPage verifyMaterial(String partName, String expectedResult) {
-		String actualResult = WebUI.getText(materialCol(partName))
-		WebUI.verifyEqual(actualResult, expectedResult)
-		return this
-	}
-
-	public CheckoutPage verifyQuantity(String partName, String expectedResult) {
-		String actualResult = WebUI.getText(quantityCol(partName))
-		WebUI.verifyEqual(actualResult, expectedResult)
-		return this
-	}
-
-	public CheckoutPage verifyUnitPrice(String partName, String expectedResult) {
-		String actualResult = WebUI.getText(unitPriceCol(partName))
-		WebUI.verifyEqual(actualResult, expectedResult)
-		return this
-	}
-
-	public CheckoutPage verifyPartPriceTotal(String partName, String expectedResult) {
-		String actualResult = WebUI.getText(partPriceTotalCol(partName))
-		WebUI.verifyEqual(actualResult, expectedResult)
-		return this
-	}
-
-	public CheckoutPage verifyCO2EmissionCol(String partName, String expectedResult) {
-		String actualResult = WebUI.getText(CO2EmissionCol(partName))
-		WebUI.verifyEqual(actualResult, expectedResult)
-		return this
 	}
 
 	public List<String> getOrderSummary() {

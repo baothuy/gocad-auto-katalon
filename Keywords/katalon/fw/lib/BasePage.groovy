@@ -114,7 +114,7 @@ public class BasePage <T> extends BaseElement {
 		resetDriver()
 		WebElement el = driver.findElement(getSeleniumByFrom(to))
 		new Actions(driver)
-				.click(el)
+				.doubleClick(el)
 				.sendKeys(Keys.END)
 				.keyDown(Keys.SHIFT)
 				.sendKeys(Keys.HOME)

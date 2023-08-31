@@ -48,7 +48,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath('//span[contains(text(),"Move")]'))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage clickOK() {
 		WebUI.click(xpath('//span[contains(text(),"OK")]'))
 		return this

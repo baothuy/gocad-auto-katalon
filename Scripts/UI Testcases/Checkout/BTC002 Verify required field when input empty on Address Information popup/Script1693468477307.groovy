@@ -1,13 +1,14 @@
 import gocad.buyer.AccountSettingsPage
-import gocad.buyer.DraftPage
+import gocad.buyer.AddressInformationPopup
+import gocad.buyer.CheckoutPage
 import gocad.buyer.ReviewPage
+import gocad.buyer.DraftPage
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
-import gocad.common.ViewPartPopup
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.FileHelper
@@ -89,51 +90,44 @@ String unitPrice = Page.nav(ManufacturingInformationPage).getUnitPriceValue()
 String netPrice = Page.nav(ManufacturingInformationPage).getNetPriceValue()
 Page.nav(ManufacturingInformationPage).clickContinueToOfferOverview()
 
-println '>> Verify UI Visible'
-Page.nav(ReviewPage).verifyImagePartClickable(partName)
-					.verifyContentAlertAutomaticCalculateVisible()
-					.verifyPartNameVisible(partName)
-					.verifyFileVisible(partName)
-					.verifyFileClickable(partName)
-					.verifyMaterialVisible(partName)
-					.verifyQuantityVisible(partName)
-					.verifyUnitPriceVisible(partName)
-					.verifyTotalPartPriceVisible(partName)
-					.verifyCO2EmissionVisible(partName)
-					.verifyActionViewVisible(partName)
-					.verifyActionMoreVisible(partName)
-					.clickMoreOption(partName)
-					.verifyActionCopyVisible(partName)
-					.verifyActionMoveVisible(partName)
-					.verifySurfaceTreatmentSurchargeAndTotalVisible()
-					.verifyCheckoutButtonVisible(partName)
-					
+println '>> click checkout button'
+Page.nav(ReviewPage).clickCheckout()
+	
+println '>> Verify UI are visible'
+Page.nav(CheckoutPage).verifyUICheckoutVisible(partName)
+
 println '>> Verify file part can download successfully'
-Page.nav(ReviewPage).clickPartFile(partName)
-Page.nav(FileHelper).verifyFileDownloaded(partName)
-				
-println '>> Verify value on Review Page show correctly'
-Page.nav(ReviewPage).verifyPartNameValue(partName)
-					.verifyMaterialValue(partName, material)
-					.verifyQuantityValue(partName, quantityNum)
-					.verifyUnitPriceValue(partName, unitPrice)
-					.verifyPartPriceTotalValue(partName, netPrice)
-					.verifyCommentValue(partName, comment)
+Page.nav(CheckoutPage).clickFilePDFDownload()
+Page.nav(FileHelper).verifyFileDownloaded(projectName + ".pdf")
 
-println '>> Verify data on View page show correctly'
-Page.nav(ReviewPage).clickView(partName)
-Page.nav(ViewPartPopup).verifyMaterialValue(material)
-						.verifyQuantityValue(quantityNum)
-						.verifyThreadValue(threadNum)
-						.verifyTolerancesNumberValue(tolerancesNum)
-						.verifyTolerancesToggleValue(tolerancesToggle)
-						.verifySurfaceTreatmentValue(surfaceTreatment)
-						.verifySurfaceQualityValue(quality)
-						.verifyAdditionalCommentsValue(comment)
-						.verifyUnitPriceValue(unitPrice)
-						.verifyNetPriceValue(netPrice)
-						.clickClosePopup()
-
+println '>> Verify file part can download successfully'
+Page.nav(CheckoutPage).clickEditAddress()
+Page.nav(AddressInformationPopup).inputFirstNameBillingAddress("")
+								.inputLastNameBillingAddress("")
+								.inputStreetBillingAddress("")
+								.inputHouseNumberBillingAddress("")
+								.inputZIPCodeBillingAddress("")
+								.inputCityBillingAddress("")
+								.inputFirstNameShippingAddress("")
+								.inputLastNameShippingAddress("")
+								.inputStreetShippingAddress("")
+								.inputHouseNumberShippingAddress("")
+								.inputZIPCodeShippingAddress("")
+								.inputCityShippingAddress("")
+								.verifyShowErrorWhenFirstNameBillingAddressEmpty()
+								.verifyShowErrorWhenLastNameBillingAddressEmpty()
+								.verifyShowErrorWhenHouseNumberBillingAddressEmpty()
+								.verifyShowErrorWhenStreetBillingAddressEmpty()
+								.verifyShowErrorWhenZIPCodeBillingAddressEmpty()
+								.verifyShowErrorWhenCityBillingAddressEmpty()
+								.verifyShowErrorWhenFirstNameShippingAddressEmpty()
+								.verifyShowErrorWhenLastNameShippingAddressEmpty()
+								.verifyShowErrorWhenHouseNumberShippingAddressEmpty()
+								.verifyShowErrorWhenStreetShippingAddressEmpty()
+								.verifyShowErrorWhenZIPCodeShippingAddressEmpty()
+								.verifyShowErrorWhenCityShippingAddressEmpty()
+								.clickCancel()
+								
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickArchiveAction(projectId)
