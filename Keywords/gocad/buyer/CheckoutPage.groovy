@@ -17,7 +17,6 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	def unitPriceCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[6]")}
 	def partPriceTotalCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[7]")}
 	def CO2EmissionCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[9]")}
-	def actionView = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]")}
 	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]//button")}
 	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
 	def expectedAlertContent = "After the final approval of the offer by the seller, you will receive a confirmation via e-mail"
@@ -26,7 +25,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.click(xpath("//*[@id='agreeTermConditions']"))
 		return this
 	}
-	
+
 	public CheckoutPage clickFilePDFDownload() {
 		WebUI.click(xpath("//*[text()='Preview Offer']"))
 		return this
@@ -36,9 +35,24 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.click(xpath("//*[text()='Place your order']"))
 		return this
 	}
-	
+
 	public CheckoutPage clickEditAddress() {
 		WebUI.click(xpath("//*[@aria-label='edit']/parent::button"))
+		return this
+	}
+
+	public CheckoutPage clickMoreOption(String partName) {
+		WebUI.click(actionMore(partName))
+		return this
+	}
+
+	public CheckoutPage clickView() {
+		WebUI.click(xpath("//*[contains(text(),'View')]"))
+		return this
+	}
+
+	public CheckoutPage clickCopy() {
+		WebUI.click(xpath("//*[contains(text(),'Copy')]"))
 		return this
 	}
 
@@ -135,8 +149,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Part Price Total']"))
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='CO2 Emission']"))
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Action']"))
-		//button view and more
-		WebUI.verifyElementVisible(actionView(partName))
+		//button more
 		WebUI.verifyElementVisible(actionMore(partName))
 
 		//Order summary
@@ -160,7 +173,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.verifyElementVisible(xpath("//*[text()='Preview Offer']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='I agree with the Terms and Conditions and the privacy settings']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Place your order']"))
-		
+
 		//Content alert
 		String alertContent = WebUI.getText(xpath("//*[@class='ant-alert-description']//li"))
 		WebUI.verifyEqual(alertContent, expectedAlertContent)
@@ -241,5 +254,30 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	public String getGrossTotal() {
 		String grossTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label"))
 		return grossTotal
+	}
+
+	//Billing Address
+	public CheckoutPage verifyBillingAddress(List<String> listBillingAddressExpected) {
+		String fullName = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Full name']/parent::div/span[2]"))
+		String houseNumber = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[2]"))
+		String street = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[2]"))
+		String state = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='State']/parent::div/span[2]"))
+		String zipCode = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[2]"))
+		String city = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[2]"))
+		List<String> billingAddressActual = [fullName, houseNumber, street, state, zipCode, city]
+		WebUI.verifyEqual(billingAddressActual, listBillingAddressExpected)
+		return this
+	}
+	//Shipping Address
+	public CheckoutPage verifyShippingAddress(List<String> listShippingAddress) {
+		String fullName = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Full name']/parent::div/span[2]"))
+		String houseNumber = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[2]"))
+		String street = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[2]"))
+		String state = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='State']/parent::div/span[2]"))
+		String zipCode = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[2]"))
+		String city = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[2]"))
+		List<String> shippingAddressActual = [fullName, houseNumber, street, state, zipCode, city]
+		WebUI.verifyEqual(shippingAddressActual, listShippingAddress)
+		return this
 	}
 }

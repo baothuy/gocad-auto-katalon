@@ -8,96 +8,96 @@ import katalon.fw.lib.BasePage
 
 
 public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
-	
+
 	//Billing Address
 	public AddressInformationPopup inputFirstNameBillingAddress(String input){
 		clearTextAndSendKeysByActions(id("billingAddress_firstName"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup inputLastNameBillingAddress(String input){
 		clearTextAndSendKeysByActions(id("billingAddress_lastName"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup inputStreetBillingAddress(String input){
 		clearTextAndSendKeysByActions(id("billingAddress_streetName"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup inputHouseNumberBillingAddress(String input){
 		clearTextAndSendKeysByActions(id("billingAddress_houseNumber"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup selectStateBillingAddress(String input){
 		WebUI.click(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"))
-		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
+		WebUI.click(xpath("//*[@id='billingAddress_state_list']/following-sibling::div//div[@title='$input']"))
 		return this
 	}
-	
+
 	public AddressInformationPopup inputZIPCodeBillingAddress(String input){
 		clearTextAndSendKeysByActions(id("billingAddress_postCode"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup inputCityBillingAddress(String input){
 		clearTextAndSendKeysByActions(id("billingAddress_city"), input)
 		return this
 	}
-	
+
 	//Shipping Address
 	public AddressInformationPopup inputFirstNameShippingAddress(String input){
 		clearTextAndSendKeysByActions(id("shippingAddress_firstName"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup inputLastNameShippingAddress(String input){
 		clearTextAndSendKeysByActions(id("shippingAddress_lastName"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup inputStreetShippingAddress(String input){
 		clearTextAndSendKeysByActions(id("shippingAddress_streetName"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup inputHouseNumberShippingAddress(String input){
 		clearTextAndSendKeysByActions(id("shippingAddress_houseNumber"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup selectStateShippingAddress(String input){
 		WebUI.click(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"))
-		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
+		WebUI.click(xpath("//*[@id='shippingAddress_state_list']/following-sibling::div//div[@title='$input']"))
 		return this
 	}
-	
+
 	public AddressInformationPopup inputZIPCodeShippingAddress(String input){
 		clearTextAndSendKeysByActions(id("shippingAddress_postCode"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup inputCityShippingAddress(String input){
 		clearTextAndSendKeysByActions(id("shippingAddress_city"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup clickCheckBoxCloneTheSameAddress() {
 		WebUI.click(xpath("//span[text()='The shipping address is the same as my billing address']/preceding-sibling::span"))
 		return this
 	}
-	
+
 	public AddressInformationPopup clickOK() {
 		WebUI.click(xpath("//span[text()='OK']"))
 		return this
 	}
-	
+
 	public AddressInformationPopup clickCancel() {
 		WebUI.click(xpath("//span[text()='Cancel']"))
 		return this
 	}
-	
+
 	public AddressInformationPopup verifyUIAddressInformationVisible(){
 		//Billing Address
 		WebUI.verifyElementVisible(id("billingAddress_firstName"))
@@ -107,7 +107,7 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		WebUI.verifyElementVisible(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"))
 		WebUI.verifyElementVisible(id("billingAddress_postCode"))
 		WebUI.verifyElementVisible(id("billingAddress_city"))
-		
+
 		//Shiping Address
 		WebUI.verifyElementVisible(id("shippingAddress_firstName"))
 		WebUI.verifyElementVisible(id("shippingAddress_lastName"))
@@ -116,14 +116,14 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		WebUI.verifyElementVisible(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"))
 		WebUI.verifyElementVisible(id("shippingAddress_postCode"))
 		WebUI.verifyElementVisible(id("shippingAddress_city"))
-		
+
 		//button and checkbox
 		WebUI.verifyElementVisible(xpath("//span[text()='The shipping address is the same as my billing address']/preceding-sibling::span"))
 		WebUI.verifyElementVisible(xpath("//span[text()='OK']"))
 		WebUI.verifyElementVisible(xpath("//span[text()='Cancel']"))
 		return this
 	}
-	
+
 	public AddressInformationPopup verifyBillingAddress(List<String> expectedResult) {
 		String firstName = WebUI.getAttribute(id("billingAddress_firstName"), "value")
 		String lastName = WebUI.getAttribute(id("billingAddress_lastName"), "value")
@@ -153,49 +153,49 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		WebUI.verifyEqual(actualShippingAddress, expectedResult)
 		return this
 	}
-	
+
 	public AddressInformationPopup verifyShowErrorWhenFirstNameBillingAddressEmpty() {
 		String firstName = WebUI.getText(xpath("//*[@id='billingAddress_firstName_help']/div"))
 		String expectedResult = "First Name is required."
 		WebUI.verifyEqual(firstName, expectedResult)
 		return this
 	}
-	
+
 	public AddressInformationPopup verifyShowErrorWhenLastNameBillingAddressEmpty() {
 		String lastName = WebUI.getText(xpath("//*[@id='billingAddress_lastName_help']/div"))
 		String expectedResult = "Last Name is required."
 		WebUI.verifyEqual(lastName, expectedResult)
 		return this
 	}
-	
+
 	public AddressInformationPopup verifyShowErrorWhenHouseNumberBillingAddressEmpty() {
 		String houseNumber = WebUI.getText(xpath("//*[@id='billingAddress_houseNumber_help']/div"))
 		String expectedResult = "House number is required."
 		WebUI.verifyEqual(houseNumber, expectedResult)
 		return this
 	}
-	
+
 	public AddressInformationPopup verifyShowErrorWhenStreetBillingAddressEmpty() {
 		String street = WebUI.getText(xpath("//*[@id='billingAddress_streetName_help']/div"))
 		String expectedResult = "Street is required."
 		WebUI.verifyEqual(street, expectedResult)
 		return this
 	}
-	 
+
 	public AddressInformationPopup verifyShowErrorWhenZIPCodeBillingAddressEmpty() {
 		String zipCode = WebUI.getText(xpath("//*[@id='billingAddress_postCode_help']/div"))
 		String expectedResult = "ZIP Code is required."
 		WebUI.verifyEqual(zipCode, expectedResult)
 		return this
 	}
-	 
+
 	public AddressInformationPopup verifyShowErrorWhenCityBillingAddressEmpty() {
 		String city = WebUI.getText(xpath("//*[@id='billingAddress_city_help']/div"))
 		String expectedResult = "City is required."
 		WebUI.verifyEqual(city, expectedResult)
 		return this
 	}
-	
+
 	//Shipping address
 	public AddressInformationPopup verifyShowErrorWhenFirstNameShippingAddressEmpty() {
 		String firstName = WebUI.getText(xpath("//*[@id='shippingAddress_firstName_help']/div"))
@@ -203,35 +203,35 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		WebUI.verifyEqual(firstName, expectedResult)
 		return this
 	}
-	
+
 	public AddressInformationPopup verifyShowErrorWhenLastNameShippingAddressEmpty() {
 		String lastName = WebUI.getText(xpath("//*[@id='shippingAddress_lastName_help']/div"))
 		String expectedResult = "Last Name is required."
 		WebUI.verifyEqual(lastName, expectedResult)
 		return this
 	}
-	
+
 	public AddressInformationPopup verifyShowErrorWhenHouseNumberShippingAddressEmpty() {
 		String houseNumber = WebUI.getText(xpath("//*[@id='shippingAddress_houseNumber_help']/div"))
 		String expectedResult = "House number is required."
 		WebUI.verifyEqual(houseNumber, expectedResult)
 		return this
 	}
-	
+
 	public AddressInformationPopup verifyShowErrorWhenStreetShippingAddressEmpty() {
 		String street = WebUI.getText(xpath("//*[@id='shippingAddress_streetName_help']/div"))
 		String expectedResult = "Street is required."
 		WebUI.verifyEqual(street, expectedResult)
 		return this
 	}
-	 
+
 	public AddressInformationPopup verifyShowErrorWhenZIPCodeShippingAddressEmpty() {
 		String zipCode = WebUI.getText(xpath("//*[@id='shippingAddress_postCode_help']/div"))
 		String expectedResult = "ZIP Code is required."
 		WebUI.verifyEqual(zipCode, expectedResult)
 		return this
 	}
-	 
+
 	public AddressInformationPopup verifyShowErrorWhenCityShippingAddressEmpty() {
 		String city = WebUI.getText(xpath("//*[@id='shippingAddress_city_help']/div"))
 		String expectedResult = "City is required."
