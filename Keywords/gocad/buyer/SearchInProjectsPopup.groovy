@@ -3,6 +3,7 @@ package gocad.buyer
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import katalon.fw.lib.BasePage
+import katalon.utility.CommonUtility
 
 
 
@@ -21,6 +22,7 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 	def statusCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[8]/span/span")}
 	def createAtCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[9]")}
 	def actionCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[10]")}
+	def rowOfProject = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']")}
 	def row = { String row -> return "//div[@class='ant-modal-content']//thead/following::tr[$row]/"}
 
 	public SearchInProjectsPopup inputSearchTextField(String text) {
@@ -44,7 +46,7 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 		return this
 	}
 
-	public SearchInProjectsPopup checkBoxUnread(String check) {
+	public SearchInProjectsPopup clickCheckBoxUnread(String check) {
 		(check == "true") ? WebUI.click(xpath("//input[@id='unread']")) : "false"
 		return this
 	}
@@ -65,12 +67,12 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 	}
 
 	public SearchInProjectsPopup clearSearchStatus() {
-		WebUI.click(xpath("//span[@class='ant-select-clear']"))
+		WebUI.click(xpath("//div[@class='ant-select-selector']/following::span[@class='ant-select-clear']/span[@aria-label='close-circle']"))
 		return this
 	}
 
 	public SearchInProjectsPopup clearSearchDate() {
-		WebUI.click(xpath("//span[@class='ant-picker-clear']"))
+		WebUI.click(xpath("//span[@class='ant-picker-clear']/span[@aria-label='close-circle']"))
 		return this
 	}
 
@@ -88,6 +90,37 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 	public SearchInProjectsPopup verifyProjectNameVisibleInList(String projectId, String expectedProjectName) {
 		String actualProjectName = WebUI.getText(projectNameCol(projectId))
 		WebUI.verifyEqual(actualProjectName, expectedProjectName)
+		return this
+	}
+	
+	public SearchInProjectsPopup verifyFileNameVisibleInList(String projectId, String expectedFileName) {
+		String actualFileName = WebUI.getText(imagePartCol(projectId))
+		WebUI.verifyEqual(actualFileName, expectedFileName)
+		return this
+	}
+	
+	public SearchInProjectsPopup verifyOrderNumberVisibleInList(String projectId, String orderNumber) {
+		String actualOrderNumber = WebUI.getText(orderNumberCol(projectId))
+		WebUI.verifyEqual(actualOrderNumber, orderNumber)
+		return this
+	}
+	
+	public SearchInProjectsPopup verifyStatusVisibleInList(String projectId, String status) {
+		String actualStatus = WebUI.getText(statusCol(projectId))
+		WebUI.verifyEqual(actualStatus, status)
+		return this
+	}
+	
+	public SearchInProjectsPopup verifyDeliveryDateVisibleInList(String projectId, String date) {
+		String actualDate = WebUI.getText(deliveryDateCol(projectId))
+		WebUI.verifyEqual(actualDate, date)
+		return this
+	}
+	
+	public ConfirmedOffersPageOfBuyer verifyHighlightOnList(String projectId) {
+		String backgroundColor = WebUI.getCSSValue(rowOfProject(projectId), 'background-color')
+		String rgbaToHex = CommonUtility.rgbaToHex(backgroundColor)
+		WebUI.verifyEqual(rgbaToHex, "#FFF8E6")
 		return this
 	}
 
