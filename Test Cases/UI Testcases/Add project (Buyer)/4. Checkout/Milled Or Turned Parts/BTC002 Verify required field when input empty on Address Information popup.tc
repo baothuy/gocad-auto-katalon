@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description></description>
    <name>BTC002 Verify required field when input empty on Address Information popup</name>
-   <tag>integration-test,ui</tag>
+   <tag>functional-test,checkout,ui</tag>
    <comment></comment>
    <testCaseGuid>11868b42-b09a-42e1-b04a-4b7a2601b93d</testCaseGuid>
    <variableLinks>

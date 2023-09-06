@@ -28,3 +28,5 @@ println '>> Back to draft page check data on list Draft page'
 Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).verifyProjectName(projectId, projectName)
 					.verifyStatus(projectId, 'Draft')
+					.clickArchiveAction(projectId)
+					

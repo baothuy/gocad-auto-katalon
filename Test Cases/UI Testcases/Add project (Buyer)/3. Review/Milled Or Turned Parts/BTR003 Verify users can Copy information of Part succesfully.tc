@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description></description>
    <name>BTR003 Verify users can Copy information of Part succesfully</name>
-   <tag>integration-test,ui</tag>
+   <tag>functional-test,review,ui</tag>
    <comment></comment>
    <testCaseGuid>033b9f5e-224a-4d78-8e08-f4fe3885666f</testCaseGuid>
    <variableLinks>

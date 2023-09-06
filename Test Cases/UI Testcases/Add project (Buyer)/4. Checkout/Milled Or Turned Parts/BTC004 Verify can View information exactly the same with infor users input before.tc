@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description></description>
    <name>BTC004 Verify can View information exactly the same with infor users input before</name>
-   <tag>integration-test,ui</tag>
+   <tag>functional-test,checkout,ui</tag>
    <comment></comment>
    <testCaseGuid>604e3a3f-b817-4cda-b2bb-a194416fc761</testCaseGuid>
    <variableLinks>

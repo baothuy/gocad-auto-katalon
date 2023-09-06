@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description></description>
    <name>BTC003 Verify Address Information page can update information successfully</name>
-   <tag>integration-test,ui</tag>
+   <tag>functional-test,checkout,ui</tag>
    <comment></comment>
    <testCaseGuid>a6eb2bcf-4b91-489f-bcbb-58ac90f74dd7</testCaseGuid>
    <variableLinks>

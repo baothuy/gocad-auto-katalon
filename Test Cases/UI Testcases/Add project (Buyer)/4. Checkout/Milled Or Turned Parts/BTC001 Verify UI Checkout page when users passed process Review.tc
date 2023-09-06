@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description></description>
    <name>BTC001 Verify UI Checkout page when users passed process Review</name>
-   <tag>integration-test,ui</tag>
+   <tag>functional-test,checkout,ui</tag>
    <comment></comment>
    <testCaseGuid>98a38a51-7049-4eb2-8a6d-f8c782a6694b</testCaseGuid>
    <variableLinks>

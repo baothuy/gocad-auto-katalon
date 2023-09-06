@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description></description>
    <name>BTR004 Verify users can Move information of Part succesfully</name>
-   <tag>integration-test,ui</tag>
+   <tag>functional-test,review,ui</tag>
    <comment></comment>
    <testCaseGuid>d143d145-421c-4808-b2f1-b025c772e0ce</testCaseGuid>
    <variableLinks>

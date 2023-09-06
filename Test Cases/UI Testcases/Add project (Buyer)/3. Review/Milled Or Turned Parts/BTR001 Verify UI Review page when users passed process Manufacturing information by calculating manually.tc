@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description></description>
    <name>BTR001 Verify UI Review page when users passed process Manufacturing information by calculating manually</name>
-   <tag>integration-test,ui</tag>
+   <tag>functional-test,review,ui</tag>
    <comment></comment>
    <testCaseGuid>e5235a06-bb94-4dbb-ab39-5c85bfb8df80</testCaseGuid>
    <variableLinks>
