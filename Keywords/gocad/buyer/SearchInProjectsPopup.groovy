@@ -1,9 +1,12 @@
 package gocad.buyer
 
+import org.openqa.selenium.Keys
+
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
+import katalon.utility.DateTimeUtility
 
 
 
@@ -14,15 +17,16 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 
 	def idCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[1]")}
 	def projectNameCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[2]//a")}
-	def partsCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[3]")}
+	def partsCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[3]/span")}
 	def imagePartCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[4]")}
 	def deliveryDateCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[5]/div")}
 	def orderNumberCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[6]")}
 	def grossTotalCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[7]/div")}
-	def statusCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[8]/span/span")}
+	def statusCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[8]//span[normalize-space(text()) != '']")}
 	def createAtCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[9]")}
 	def actionCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[10]")}
 	def rowOfProject = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']")}
+	def partDetail = { String projectId -> return "//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']//following::div[@class='ant-card-body']/"}
 	def row = { String row -> return "//div[@class='ant-modal-content']//thead/following::tr[$row]/"}
 
 	public SearchInProjectsPopup inputSearchTextField(String text) {
@@ -37,12 +41,12 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 	}
 	//yyyy-MM-dd
 	public SearchInProjectsPopup inputStartDate(String date) {
-		WebUI.sendKeys(xpath("//input[@placeholder='Start date']"), date)
+		WebUI.sendKeys(xpath("//input[@placeholder='Start date']"), date + Keys.RETURN)
 		return this
 	}
 
 	public SearchInProjectsPopup inputEndDate(String date) {
-		WebUI.sendKeys(xpath("//input[@placeholder='End date']"), date)
+		WebUI.sendKeys(xpath("//input[@placeholder='End date']"), date + Keys.RETURN)
 		return this
 	}
 
@@ -67,7 +71,7 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 	}
 
 	public SearchInProjectsPopup clearSearchStatus() {
-		WebUI.click(xpath("//div[@class='ant-select-selector']/following::span[@class='ant-select-clear']/span[@aria-label='close-circle']"))
+		WebUI.click(xpath("//span[@class='ant-select-selection-item-remove']/child::span[@aria-label='close']"))
 		return this
 	}
 
@@ -82,7 +86,7 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 		String deliveryDate = WebUI.getText(xpath(row(rowNumber) + "td[5]/div"))
 		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "td[6]"))
 		String grossTotal = WebUI.getText(xpath(row(rowNumber) + "td[7]/div"))
-		String status = WebUI.getText(xpath(row(rowNumber) + "td[8]/span/span"))
+		String status = WebUI.getText(xpath(row(rowNumber) + "td[8]//span[normalize-space(text()) != '']"))
 		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
 		return dataRow
 	}
@@ -92,32 +96,34 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 		WebUI.verifyEqual(actualProjectName, expectedProjectName)
 		return this
 	}
-	
+
 	public SearchInProjectsPopup verifyFileNameVisibleInList(String projectId, String expectedFileName) {
-		String actualFileName = WebUI.getText(imagePartCol(projectId))
+		WebUI.click(partsCol(projectId))
+		String actualFileName = WebUI.getText(xpath(partDetail(projectId) + "div[2]"))
 		WebUI.verifyEqual(actualFileName, expectedFileName)
 		return this
 	}
-	
+
 	public SearchInProjectsPopup verifyOrderNumberVisibleInList(String projectId, String orderNumber) {
 		String actualOrderNumber = WebUI.getText(orderNumberCol(projectId))
 		WebUI.verifyEqual(actualOrderNumber, orderNumber)
 		return this
 	}
-	
+
 	public SearchInProjectsPopup verifyStatusVisibleInList(String projectId, String status) {
 		String actualStatus = WebUI.getText(statusCol(projectId))
 		WebUI.verifyEqual(actualStatus, status)
 		return this
 	}
-	
+
 	public SearchInProjectsPopup verifyDeliveryDateVisibleInList(String projectId, String date) {
-		String actualDate = WebUI.getText(deliveryDateCol(projectId))
-		WebUI.verifyEqual(actualDate, date)
+		String newDay = DateTimeUtility.changeDateFormat(date, "yyyy-MM-dd", "MM/dd/yyyy")
+		String actualDate = WebUI.getText(deliveryDateCol(projectId)).trim()
+		WebUI.verifyEqual(actualDate, newDay)
 		return this
 	}
-	
-	public ConfirmedOffersPageOfBuyer verifyHighlightOnList(String projectId) {
+
+	public SearchInProjectsPopup verifyHighlightOnList(String projectId) {
 		String backgroundColor = WebUI.getCSSValue(rowOfProject(projectId), 'background-color')
 		String rgbaToHex = CommonUtility.rgbaToHex(backgroundColor)
 		WebUI.verifyEqual(rgbaToHex, "#FFF8E6")
@@ -125,7 +131,7 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 	}
 
 	public SearchInProjectsPopup verifyUIVisible() {
-		WebUI.verifyElementVisible(id("text"))
+		WebUI.verifyElementVisible(xpath("//*[@id='text']"))
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-select-selector']//span[text()='Status']"))
 		WebUI.verifyElementVisible(xpath("//input[@placeholder='Start date']"))
 		WebUI.verifyElementVisible(xpath("//input[@placeholder='End date']"))

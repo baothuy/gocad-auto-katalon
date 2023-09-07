@@ -54,6 +54,11 @@ public class LeftNavBar extends BasePage<LeftNavBar> {
 		return this
 	}
 
+	public LeftNavBar clickArchivedProjects() {
+		WebUI.click(link('Archived Projects'))
+		return this
+	}
+
 	public LeftNavBar clickChangeLanguage() {
 		WebUI.click(xpath('//object[@type="image/svg+xml"]'))
 		return this

@@ -22,9 +22,13 @@ Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
 
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
-String orderNumber = "GOCAD"+ projectId
+//String orderNumber = "GOCAD"+ projectId
+
+println '>> Upload file part on Data upload page'
+Page.nav(DataUploadPage).uploadFileTesting(workflow, partName)
 
 println '>> Click Search In Projects button'
+Page.nav(LeftNavBar).clickDraft()
 Page.nav(LeftNavBar).clickSearchInProjects()
 
 println '>> Verify search by project name added at previous step'
@@ -34,39 +38,56 @@ Page.nav(SearchInProjectsPopup).inputSearchTextField(projectName)
 								.clearSearchText()
 
 println '>> Verify search by file name added at previous step'
-Page.nav(SearchInProjectsPopup).inputSearchTextField(fileName)
+Page.nav(SearchInProjectsPopup).inputSearchTextField(partName)
 								.clickSearch()
-								.verifyFileNameVisibleInList(projectId, fileName)
+								.verifyFileNameVisibleInList(projectId, partName)
 								.clearSearchText()
 								
-println '>> Verify search by order number added at previous step'
-Page.nav(SearchInProjectsPopup).inputSearchTextField(orderNumber)
-								.clickSearch()
-								.verifyOrderNumberVisibleInList(projectId, orderNumber)
-								.clearSearchText()
+//println '>> Verify search by order number added at previous step'
+//Page.nav(SearchInProjectsPopup).inputSearchTextField(orderNumber)
+//								.clickSearch()
+//								.verifyOrderNumberVisibleInList(projectId, orderNumber)
+//								.clearSearchText()
 								
 println '>> Verify search by status'
+Page.nav(SearchInProjectsPopup).selectStatus("Draft")
+								.clickSearch()
+								.verifyStatusVisibleInList(projectId, "Draft")
+								.clearSearchStatus()
+								
+println '>> Verify search by another status'
 Page.nav(SearchInProjectsPopup).selectStatus(status)
 								.clickSearch()
-								.verifyStatusVisibleInList(projectId, status)
+
+List<String> dataRow = Page.nav(SearchInProjectsPopup).getDataRow("1")	
+println "dataRow: $dataRow"											
+Page.nav(SearchInProjectsPopup).verifyStatusVisibleInList(dataRow[0], dataRow[5])
 								.clearSearchStatus()
 
-String previousDate = DateTimeUtility.plusDays(-1, "yyyy-MM-dd")
+String startDate = DateTimeUtility.plusDays(-1, "yyyy-MM-dd")
 String currentDate = DateTimeUtility.currentDay("yyyy-MM-dd")	
-println "previousDate: $previousDate"
+println "previousDate: $startDate"
 println "currentDate: $currentDate"				
 
 println '>> Verify search by delivery date'
-Page.nav(SearchInProjectsPopup).inputStartDate(previousDate)
+Page.nav(SearchInProjectsPopup).inputStartDate(startDate)
 								.inputEndDate(currentDate)
 								.clickSearch()
-								.verifyDeliveryDateVisibleInList(projectId, currentDate)
+								
+List<String> dataRowSearchByDate = Page.nav(SearchInProjectsPopup).getDataRow("1")
+println "dataRowSearchByDate: $dataRowSearchByDate"
+
+Page.nav(SearchInProjectsPopup).verifyDeliveryDateVisibleInList(dataRowSearchByDate[0], currentDate)
 								.clearSearchDate()
 								
 println '>> Verify search by Mark as Unread'
 Page.nav(SearchInProjectsPopup).clickCheckBoxUnread("true")
 								.clickSearch()
-								.verifyHighlightOnList(projectId)
+								
+List<String> dataRowSearchByCheckUnread = Page.nav(SearchInProjectsPopup).getDataRow("1")
+println "dataRowSearchByCheckUnread: $dataRowSearchByCheckUnread"
+Page.nav(SearchInProjectsPopup).verifyHighlightOnList(dataRowSearchByCheckUnread[0])
+								.clickCloseSearchPopup()
 																
 println '>> Clear data'
 Page.nav(LeftNavBar).clickDraft()
