@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTD001 Verify UI on Draft page</name>
+   <tag>functional-test,draft,ui</tag>
+   <comment></comment>
+   <testCaseGuid>d13021e0-12b4-4ade-8112-eae79b6c826c</testCaseGuid>
+</TestCaseEntity>

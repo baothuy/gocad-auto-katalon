@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTRO003 Verify ui Copy page on Detail Offer page</name>
+   <tag>functional-test,detail-offer,ui</tag>
+   <comment></comment>
+   <testCaseGuid>740745c0-fe05-4914-9cb6-89102dbc225d</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e4ad0a98-a344-4947-b2d2-3e187710022f</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'Milled / Turned Parts'</defaultValue>
+      <description></description>
+      <id>e4ad0a98-a344-4947-b2d2-3e187710022f</id>
+      <masked>false</masked>
+      <name>workflow</name>
+   </variable>
+</TestCaseEntity>

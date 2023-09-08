@@ -194,4 +194,30 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 		WebUI.verifyEqual(contentAlertActual, expectedResult)
 		return this
 	}
+	
+	public ViewPartPopup verifyUIViewPopupVisible(String workflow) {
+		// input partname
+		WebUI.verifyElementVisible(xpath("//*[@class='input-inline-api']"))
+		// file download file cad and pdf
+		WebUI.verifyElementVisible(xpath("//*[@class='text-decoration-none']"))
+		if(workflow == "Milled / Turned Parts")
+		{
+			// information part
+			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Thread (Quantity)']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Tolerances and fits with less than 1/10mm or IT 1 - IT 10 (Number)']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Surface Quality']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Tolerance requirement with smaller 1/100mm or IT 1 - IT 5']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))
+		}
+		else if(workflow == "Sheet Metal Part")
+		{
+			
+		}
+		WebUI.verifyElementVisible(xpath("//*[text()='Unit price']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
+		return this
+	}
 }

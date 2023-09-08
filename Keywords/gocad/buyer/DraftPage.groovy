@@ -14,6 +14,8 @@ public class DraftPage extends BasePage<DraftPage>{
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[5]/span")}
 	def actionViewCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//button[1]")}
 	def actionMoreCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//button[2]")}
+	def row = { String row -> return "//thead/following::tr[$row]/"}
+	
 	String contentDraftPage = "The folder Draft shows your projects and part calculations that have not yet been placed as order."
 
 	public DraftPage clickViewAction(String projectId) {
@@ -104,6 +106,7 @@ public class DraftPage extends BasePage<DraftPage>{
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Status']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Created at']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[text()='Action']"))
+		WebUI.verifyElementVisible(xpath("//ul[contains(@class,'ant-table-pagination')]"))
 		return this
 	}
 }

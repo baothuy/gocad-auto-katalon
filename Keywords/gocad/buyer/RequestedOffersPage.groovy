@@ -16,6 +16,8 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 	def grossTotalCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]")}
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//span[2]")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[10]/a")}
+	def row = { String row -> return "//thead/following::tr[$row]/"}
+	def contentRequestedOffersPage = "The folder Requested Offers shows all your projects where you have placed an order or requested a quotation. The current status of the project can be seen in the column \"status\"."
 
 	public RequestedOffersPage clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))
@@ -63,6 +65,34 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 		String status = WebUI.getText(statusCol(projectId))
 		println "status: $status"
 		WebUI.verifyEqual(status, expectedResult)
+		return this
+	}
+	
+	public List<String> getDataRow(String rowNumber) {
+		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
+		String projectName = WebUI.getText(xpath(row(rowNumber) + "td[2]//a"))
+		String deliveryDate = WebUI.getText(xpath(row(rowNumber) + "td[5]/div"))
+		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "td[6]"))
+		String grossTotal = WebUI.getText(xpath(row(rowNumber) + "td[7]/div"))
+		String status = WebUI.getText(xpath(row(rowNumber) + "td[8]//span[normalize-space(text()) != '']"))
+		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
+		return dataRow
+	}
+	
+	public RequestedOffersPage verifyUIVisible() {
+		WebUI.verifyElementVisible(xpath("//h5[text()='Requested Offers']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Requested Offers']/following::i[text()='$contentRequestedOffersPage']"))
+		//header table visible
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[text()='Parts']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Delivery Date']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Order Number']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='GROSS Total']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Status']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Created at']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[text()='Action']"))
+		WebUI.verifyElementVisible(xpath("//ul[contains(@class,'ant-table-pagination')]"))
 		return this
 	}
 }

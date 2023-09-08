@@ -1,15 +1,16 @@
-import gocad.common.AddProjectPopup
+import gocad.buyer.AccountSettingsPage
 import gocad.buyer.ConfirmedOffersPageOfBuyer
-import gocad.common.DataUploadPage
-import gocad.common.ManufacturingInformationPage
 import gocad.buyer.ReceivedOffersPage
 import gocad.buyer.RequestOfferPopup
+import gocad.buyer.RequestedOffersPage
 import gocad.buyer.ReviewPage
-import gocad.common.SelectMaterialPopup
-import gocad.buyer.AccountSettingsPage
+import gocad.common.AddProjectPopup
+import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
+import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
+import gocad.common.SelectMaterialPopup
 import gocad.seller.ConfirmedOffersPageOfSeller
 import gocad.seller.OpenInquiriesPage
 import gocad.seller.SentOffersPage
@@ -103,6 +104,21 @@ List<String> listShippingAddress = Page.nav(DetailOffer).getShippingAddress()
 List<String> tablePart = Page.nav(DetailOffer).getTablePartReview(partName)
 String deliveryDate = listShippingInfo[3]
 
+println '>> Verify data detail offers after buyer requested offer'
+Page.nav(LeftNavBar).clickRequestedOffers()
+
+Page.nav(RequestedOffersPage).verifyProjectName(projectId, projectName)
+							.verifyDeliveryDate(projectId, deliveryDate)
+							.verifyOrderNumber(projectId)
+							.verifyGrossTotal(projectId, orderDate)
+							.verifyStatus(projectId, "Request for quotation")
+							.clickAction(projectId)
+							
+Page.nav(DetailOffer).verifyOrderStatus("Request for quotation")
+						.verifyBillingAddress(listBillingAddress)
+						.verifyShippingAddress(listShippingAddress)
+						.verifyShippingInfo(listShippingInfo)
+
 println '>> Buyer click Logout button'
 Page.nav(LeftNavBar).clickLogout()
 
@@ -118,7 +134,8 @@ Page.nav(OpenInquiriesPage).verifyProjectName(projectId, projectName)
 							.clickAction(projectId)
 
 println '>> Verify value on detail page'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+Page.nav(DetailOffer).verifyOrderStatus("Request for quotation")
+						.verifyBillingAddress(listBillingAddress)
 						.verifyShippingAddress(listShippingAddress)
 						.verifyShippingInfo(listShippingInfo)
 						
@@ -150,7 +167,8 @@ Page.nav(SentOffersPage).verifyProjectName(projectId, projectName)
 						.clickAction(projectId)
 
 println '>> Verify value on detail page Offer adapted'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
+Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
+					.verifyBillingAddress(listBillingAddressChanged)
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(partName, tablePartChanged)
@@ -172,7 +190,8 @@ Page.nav(ReceivedOffersPage).verifyHighlightOnList(projectId)
 							.verifyStatus(projectId, "Offer adapted")
 							.clickAction(projectId)
   
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
+Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
+					 .verifyBillingAddress(listBillingAddressChanged)
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(partName, tablePartChanged)
@@ -216,7 +235,8 @@ println '>> Go confirmed offers deltail of buyer checkout'
 Page.nav(ConfirmedOffersPageOfSeller).clickAction(projectId)
 
 println '>> Verify information show on detail Confirmed Offers of buyer page'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
+Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
+					 .verifyBillingAddress(listBillingAddressChanged)
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(partName, tablePartChanged)

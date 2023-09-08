@@ -2,6 +2,7 @@ package gocad.common
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import gocad.buyer.CheckoutPage
 import katalon.fw.lib.BasePage
 import katalon.utility.DateTimeUtility
 import katalon.utility.FileHelper
@@ -16,10 +17,9 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	def unitPriceCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[6]")}
 	def partPriceTotalCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[7]")}
 	def CO2EmissionCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[9]")}
-	def actionView = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]")}
 	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]//button")}
 	def contentAlertManually = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
-
+	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
 	public DetailOffer clickAcceptAndSendOffer() {
 		WebUI.click(xpath("//span[text()='Accept And Send Offer ']/parent::button"))
 		return this
@@ -71,6 +71,21 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.click(xpath("//*[@aria-label='check']"))
 		return this
 	}
+	
+	public DetailOffer clickMoreAction() {
+		WebUI.click(xpath("//*[@aria-label='more']/parent::button"))
+		return this
+	}
+	
+	public DetailOffer clickViewAction() {
+		WebUI.click(xpath("//*[text()='View']"))
+		return this
+	}
+	
+	public DetailOffer clickCopyAction() {
+		WebUI.click(xpath("//span[@aria-label='copy']/following::span[text()='Copy']"))
+		return this
+	}
 
 	public DetailOffer inputUnitPrice(String unitPrice) {
 		clearTextAndSendKeysByActions(xpath("//*[@class='ant-input-number-input']"), unitPrice)
@@ -78,7 +93,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	}
 
 	public DetailOffer verifyOrderStatus(String expectedResult) {
-		String status = WebUI.getText(xpath("//span[@aria-label='clock-circle']/following-sibling::span"))
+		String status = WebUI.getText(xpath("//h4/following::span/child::span[normalize-space(text()) != '']"))
 		WebUI.verifyEqual(status, expectedResult)
 		return this
 	}
@@ -296,6 +311,79 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
 		def expectedResult = contentAlertManually
 		WebUI.verifyEqual(contentAlertActual, expectedResult)
+		return this
+	}
+	
+	public DetailOffer verifyUIVisible() {
+		//project name
+		WebUI.verifyElementVisible(xpath("//h4"))
+		//status
+		WebUI.verifyElementVisible(xpath("//h4/following::span/child::span[normalize-space(text()) != '']"))
+		//Shipping information
+		WebUI.verifyElementVisible(xpath("//*[text()='Order Number']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Number of parts']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Delivery Option']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Delivery Date']"))
+		//Billing address
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Full Name']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='House number']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Street']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='State']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='ZIP Code']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='City']"))
+
+		//Shipping address
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Full Name']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='House number']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Street']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='ZIP Code']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='City']"))
+
+		//button More, View, Copy
+		WebUI.verifyElementVisible(xpath("//*[@aria-label='more']/parent::button"))
+		WebUI.mouseOver(xpath("//*[@aria-label='more']/parent::button"))
+		WebUI.verifyElementVisible(xpath("//*[text()='View']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Copy']"))
+
+		//label Automatically calculated
+		WebUI.verifyElementVisible(xpath("//*[contains(text(),'calculated')]"))
+
+		//table information of part
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Part name']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Files']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Material']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Quantity']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Unit price']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Part Price Total']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='CO2 Emission']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Action']"))
+
+		//Order summary
+		List<String> findObjectOrder = findTestObjects("//*[text()='Order Summary']")
+		if (findObjectOrder.size() != 0) {
+			WebUI.verifyElementVisible(xpath("//*[text()='Order Summary']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Total Part Price']"))
+			List<String> findObject = findTestObjects("//*[text()='Surface Treatment Surcharge']")
+			if (findObject.size() != 0) {
+				 WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment Surcharge']"))
+			 }
+			WebUI.verifyElementVisible(xpath("//*[text()='Express Surcharge']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Packaging Cost']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Packaging and Shipping Comments']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Shipping costs']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='VAT (19%)']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='GROSS Total']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Preview Offer']"))
+		}
+		//Customer infor
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-space-item']//span[@aria-label='user']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-space-item']//span[@aria-label='mail']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-space-item']//span[@aria-label='phone']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-space-item']//span[@aria-label='home']"))
 		return this
 	}
 }
