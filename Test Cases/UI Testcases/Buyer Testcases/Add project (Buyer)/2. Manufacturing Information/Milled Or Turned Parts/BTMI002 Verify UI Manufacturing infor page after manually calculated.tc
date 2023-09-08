@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>BTMI002 Verify UI Manufacturing information page after manually calculated</name>
+   <name>BTMI002 Verify UI Manufacturing infor page after manually calculated</name>
    <tag>fast-test,manufacturing-information,ui</tag>
    <comment></comment>
    <testCaseGuid>9e522c16-01f5-4dbb-938a-c72db1bdad5d</testCaseGuid>
