@@ -71,17 +71,27 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.click(xpath("//*[@aria-label='check']"))
 		return this
 	}
-	
+
 	public DetailOffer clickMoreAction() {
-		WebUI.click(xpath("//*[@aria-label='more']/parent::button"))
+		WebUI.mouseOver(xpath("//*[@aria-label='more']/parent::button"))
 		return this
 	}
 	
+	public DetailOffer clickDeclineAction() {
+		WebUI.click(xpath("//*[text()='Decline']"))
+		return this
+	}
+	
+	public DetailOffer clickAcceptAction() {
+		WebUI.click(xpath("//*[text()='Accept']"))
+		return this
+	}
+
 	public DetailOffer clickViewAction() {
 		WebUI.click(xpath("//*[text()='View']"))
 		return this
 	}
-	
+
 	public DetailOffer clickCopyAction() {
 		WebUI.click(xpath("//span[@aria-label='copy']/following::span[text()='Copy']"))
 		return this
@@ -314,6 +324,38 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		return this
 	}
 	
+	public DetailOffer verifyAcceptOfferButtonNotVisible() {
+		List<String> findTestObjects = findTestObjects("//*[text()='Accept Offer']")
+		(findTestObjects.size() == 0) ? WebUI.verifyEqual("true","true") : WebUI.verifyEqual("true","false")
+		return this
+	}
+	
+	public DetailOffer verifyAcceptButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='Accept']"))
+		return this
+	}
+	
+	public DetailOffer verifyTextLineThroughVisible() {
+		WebUI.verifyElementVisible(xpath("//*[contains(@class,'text-decoration-line-through')]"))
+		return this
+	}
+	
+	public DetailOffer verifyAcceptOfferButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='Accept Offer']"))
+		return this
+	}
+	
+	public DetailOffer verifyDeclineButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='Decline']"))
+		return this
+	}
+	
+	public DetailOffer verifyTextLineThroughNotVisible() {
+		List<String> findTestObjects = findTestObjects("//*[contains(@class,'text-decoration-line-through')]")
+		 (findTestObjects.size() == 0) ? WebUI.verifyEqual("true","true") : WebUI.verifyEqual("true","false")
+		return this
+	}
+
 	public DetailOffer verifyUIVisible() {
 		//project name
 		WebUI.verifyElementVisible(xpath("//h4"))
@@ -368,8 +410,8 @@ public class DetailOffer extends BasePage<DetailOffer>{
 			WebUI.verifyElementVisible(xpath("//*[text()='Total Part Price']"))
 			List<String> findObject = findTestObjects("//*[text()='Surface Treatment Surcharge']")
 			if (findObject.size() != 0) {
-				 WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment Surcharge']"))
-			 }
+				WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment Surcharge']"))
+			}
 			WebUI.verifyElementVisible(xpath("//*[text()='Express Surcharge']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Packaging Cost']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Packaging and Shipping Comments']"))

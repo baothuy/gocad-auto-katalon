@@ -1,8 +1,8 @@
 import gocad.buyer.RequestedOffersPage
+import gocad.common.CopyPartPopup
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
-import gocad.common.ViewPartPopup
 import katalon.fw.lib.Page
 
 
@@ -23,6 +23,6 @@ Page.nav(RequestedOffersPage).clickAction(projectId)
 
 println '>> Get data first row to go detail offer'
 Page.nav(DetailOffer).clickMoreAction()
-					 .clickViewAction()
+					 .clickCopyAction()
 					 					 
-Page.nav(ViewPartPopup).verifyUIViewPopupVisible(workflow)
+Page.nav(CopyPartPopup).verifyUICopyPopupVisible()

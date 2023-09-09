@@ -67,7 +67,7 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 		WebUI.verifyEqual(status, expectedResult)
 		return this
 	}
-	
+
 	public List<String> getDataRow(String rowNumber) {
 		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
 		String projectName = WebUI.getText(xpath(row(rowNumber) + "td[2]//a"))
@@ -78,7 +78,7 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
 		return dataRow
 	}
-	
+
 	public RequestedOffersPage verifyUIVisible() {
 		WebUI.verifyElementVisible(xpath("//h5[text()='Requested Offers']"))
 		WebUI.verifyElementVisible(xpath("//h5[text()='Requested Offers']/following::i[text()='$contentRequestedOffersPage']"))

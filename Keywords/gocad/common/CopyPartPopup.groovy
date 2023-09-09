@@ -194,13 +194,14 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 		WebUI.verifyEqual(contentAlertActual, expectedResult)
 		return this
 	}
-	
-	public CopyPartPopup verifyUICopyPopupVisible(String workflow) {
+
+	public CopyPartPopup verifyUICopyPopupVisible() {
 		// input partname
 		WebUI.verifyElementVisible(xpath("//*[@class='input-inline-api']"))
 		// file download file cad and pdf
 		WebUI.verifyElementVisible(xpath("//*[@class='text-decoration-none']"))
-		if(workflow == "Milled / Turned Parts")
+		List<String> findTestObject = findTestObjects("//*[text()='Milled / Turned Parts']") 
+		if(findTestObject.size() != 0)
 		{
 			// information part
 			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
@@ -212,9 +213,9 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 			WebUI.verifyElementVisible(xpath("//*[text()='Tolerance requirement with smaller 1/100mm or IT 1 - IT 5']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))
 		}
-		else if(workflow == "Sheet Metal Part")
+		else if(findTestObject.size() == 0)
 		{
-			
+
 		}
 		WebUI.verifyElementVisible(xpath("//*[text()='Unit price']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
