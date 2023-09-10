@@ -36,12 +36,12 @@ public class MySignInPage extends BasePage<MySignInPage> {
 	}
 
 	public MySignInPage inputEmail (String email) {
-		WebUI.sendKeys(id('basic_username'), email)
+		clearTextAndSendKeysByActions(id('basic_username'), email)
 		return this
 	}
 
 	public MySignInPage inputPassword (String password) {
-		WebUI.sendKeys(id('basic_password'), password)
+		clearTextAndSendKeysByActions(id('basic_password'), password)
 		return this
 	}
 

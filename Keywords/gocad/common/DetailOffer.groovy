@@ -76,12 +76,12 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.mouseOver(xpath("//*[@aria-label='more']/parent::button"))
 		return this
 	}
-	
+
 	public DetailOffer clickDeclineAction() {
 		WebUI.click(xpath("//*[text()='Decline']"))
 		return this
 	}
-	
+
 	public DetailOffer clickAcceptAction() {
 		WebUI.click(xpath("//*[text()='Accept']"))
 		return this
@@ -323,36 +323,36 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.verifyEqual(contentAlertActual, expectedResult)
 		return this
 	}
-	
+
 	public DetailOffer verifyAcceptOfferButtonNotVisible() {
 		List<String> findTestObjects = findTestObjects("//*[text()='Accept Offer']")
 		(findTestObjects.size() == 0) ? WebUI.verifyEqual("true","true") : WebUI.verifyEqual("true","false")
 		return this
 	}
-	
+
 	public DetailOffer verifyAcceptButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='Accept']"))
 		return this
 	}
-	
+
 	public DetailOffer verifyTextLineThroughVisible() {
 		WebUI.verifyElementVisible(xpath("//*[contains(@class,'text-decoration-line-through')]"))
 		return this
 	}
-	
+
 	public DetailOffer verifyAcceptOfferButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='Accept Offer']"))
 		return this
 	}
-	
+
 	public DetailOffer verifyDeclineButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='Decline']"))
 		return this
 	}
-	
+
 	public DetailOffer verifyTextLineThroughNotVisible() {
 		List<String> findTestObjects = findTestObjects("//*[contains(@class,'text-decoration-line-through')]")
-		 (findTestObjects.size() == 0) ? WebUI.verifyEqual("true","true") : WebUI.verifyEqual("true","false")
+		(findTestObjects.size() == 0) ? WebUI.verifyEqual("true","true") : WebUI.verifyEqual("true","false")
 		return this
 	}
 
