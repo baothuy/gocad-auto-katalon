@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>BTAS001 Verify UI Account Settings</name>
+   <name>BTAS001 Verify UI Account Settings and updating successfully</name>
    <tag>functional-test,account-settings,ui</tag>
    <comment></comment>
    <testCaseGuid>aff9ee30-7b2f-4f09-b7bf-efba3cd0df6c</testCaseGuid>

@@ -6,38 +6,38 @@ import katalon.fw.lib.BasePage
 
 
 public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
-	
+
 	//Contact
 	public AccountSettingsPage inputFirstNameContact(String input){
 		clearTextAndSendKeysByActions(id("basic_firstName"), input)
 		return this
 	}
-	
+
 	public AccountSettingsPage inputLastNameContact(String input){
 		clearTextAndSendKeysByActions(id("basic_lastName"), input)
 		return this
 	}
-	
+
 	public AccountSettingsPage inputGenderContact(String input){
 		WebUI.click(xpath("//span[text()='$input']"))
 		return this
 	}
-	
+
 	public AccountSettingsPage inputCompanyNameContact(String input){
 		clearTextAndSendKeysByActions(id("basic_companyName"), input)
 		return this
 	}
-	
+
 	public AccountSettingsPage inputPhoneContact(String input){
 		clearTextAndSendKeysByActions(id("basic_phone"), input)
 		return this
 	}
-	
+
 	public AccountSettingsPage inputFaxContact(String input){
 		clearTextAndSendKeysByActions(id("basic_fax"), input)
 		return this
 	}
-	
+
 	//Billing Address
 	public AccountSettingsPage inputFirstNameBillingAddress(String input){
 		clearTextAndSendKeysByActions(id("basic_billingAddress_firstName"), input)
@@ -116,12 +116,12 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		WebUI.click(xpath("//span[text()='Change password']"))
 		return this
 	}
-	
+
 	public AccountSettingsPage clickSaveChangesButton() {
 		WebUI.click(xpath("//span[text()='Save Changes']"))
 		return this
 	}
-	
+
 	public String getCompanyName() {
 		String companyName = WebUI.getAttribute(xpath("//*[@id='basic_companyName']"), 'value')
 		return companyName
@@ -165,7 +165,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		List<String> customerInfo = [name, email, phone, companyName]
 		return customerInfo
 	}
-	
+
 	public AccountSettingsPage verifyToastMessageWhenChangePassword() {
 		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
 		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
@@ -175,8 +175,30 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		WebUI.verifyEqual(actualMessage, expectedMessage)
 		return this
 	}
-	
-	//billing address
+
+	//contact verify error
+	public AccountSettingsPage verifyShowErrorWhenFirstNameContactEmpty() {
+		String firstName = WebUI.getText(xpath("//*[@id='basic_firstName_help']/div"))
+		String expectedResult = "First Name is required."
+		WebUI.verifyEqual(firstName, expectedResult)
+		return this
+	}
+
+	public AccountSettingsPage verifyShowErrorWhenLastNameContactEmpty() {
+		String lastName = WebUI.getText(xpath("//*[@id='basic_lastName_help']/div"))
+		String expectedResult = "Last Name is required."
+		WebUI.verifyEqual(lastName, expectedResult)
+		return this
+	}
+
+	public AccountSettingsPage verifyShowErrorWhenCompanyNameContactEmpty() {
+		String lastName = WebUI.getText(xpath("//*[@id='basic_companyName_help']/div"))
+		String expectedResult = "Last Name is required."
+		WebUI.verifyEqual(lastName, expectedResult)
+		return this
+	}
+
+	//billing address verify error
 	public AccountSettingsPage verifyShowErrorWhenFirstNameBillingAddressEmpty() {
 		String firstName = WebUI.getText(xpath("//*[@id='basic_billingAddress_firstName_help']/div"))
 		String expectedResult = "First Name is required."
@@ -261,14 +283,14 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		WebUI.verifyEqual(city, expectedResult)
 		return this
 	}
-	
+
 	public AccountSettingsPage verifyUIVisible() {
 		//button account
 		WebUI.verifyElementVisible(xpath("//span[text()='Account']"))
 		//contact person
 		WebUI.verifyElementVisible(xpath("//*[text()='Contact person']"))
 		WebUI.verifyElementVisible(xpath("//*[@id='basic_firstName']"))
-		WebUI.verifyElementVisible(xpath("//*[@id='basic_lastName']")) 
+		WebUI.verifyElementVisible(xpath("//*[@id='basic_lastName']"))
 		WebUI.verifyElementVisible(xpath("//span[text()='Change password']"))
 		//contact info
 		WebUI.verifyElementVisible(xpath("//*[text()='Contact info']"))
@@ -299,7 +321,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		WebUI.verifyElementVisible(xpath("//span[text()='Save Changes']"))
 		return this
 	}
-	
+
 	//Billing Address
 	public AccountSettingsPage verifyFirstNameBillingAddressValue(String expectedResult){
 		String actualResult = WebUI.getAttribute(id("basic_billingAddress_firstName"), "value")
@@ -385,45 +407,45 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	//Contact
 	public AccountSettingsPage verifyFirstNameContactValue(String expectedResult){
 		String actualResult = WebUI.getAttribute(id("basic_firstName"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public AccountSettingsPage verifyLastNameContactValue(String expectedResult){
 		String actualResult = WebUI.getAttribute(id("basic_lastName"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public AccountSettingsPage verifyGenderContactValue(String expectedResult){
 		String actualResult = WebUI.getAttribute(xpath("//*[@class='ant-radio-button ant-radio-button-checked']/input"), "value")
 		def titleCaseActualResult = actualResult.split(" ").collect { it.toLowerCase().capitalize() }.join(" ")
 		WebUI.verifyEqual(titleCaseActualResult, expectedResult)
 		return this
 	}
-	
+
 	public AccountSettingsPage verifyCompanyNameContactValue(String expectedResult){
 		String actualResult = WebUI.getAttribute(id("basic_companyName"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public AccountSettingsPage verifyPhoneContactValue(String expectedResult){
 		String actualResult = WebUI.getAttribute(id("basic_phone"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public AccountSettingsPage verifyFaxContactValue(String expectedResult){
 		String actualResult = WebUI.getAttribute(id("basic_fax"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public AccountSettingsPage verifyToastMessageWhenSaveChange() {
 		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
 		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
@@ -433,4 +455,5 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		WebUI.verifyEqual(actualMessage, expectedMessage)
 		return this
 	}
+
 }
