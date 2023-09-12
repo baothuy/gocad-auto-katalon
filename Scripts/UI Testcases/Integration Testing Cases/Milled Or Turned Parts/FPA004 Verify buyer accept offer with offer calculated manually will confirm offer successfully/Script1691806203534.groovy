@@ -168,7 +168,7 @@ Page.nav(SentOffersPage).verifyProjectName(projectId, projectName)
 
 println '>> Verify value on detail page Offer adapted'
 Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
-					.verifyBillingAddress(listBillingAddressChanged)
+					 .verifyBillingAddress(listBillingAddressChanged)
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(partName, tablePartChanged)
@@ -209,7 +209,8 @@ Page.nav(ConfirmedOffersPageOfBuyer).verifyProjectName(projectId, projectName)
 									.clickAction(projectId)
 
 println '>> Verify information show on detail Confirmed Offers of buyer page'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
+Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
+					 .verifyBillingAddress(listBillingAddressChanged)
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(partName, tablePartChanged)

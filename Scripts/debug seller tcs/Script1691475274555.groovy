@@ -1,22 +1,16 @@
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
-import gocad.seller.MyProjectsPage
+import gocad.seller.OpenInquiriesPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
-
-println '>> FPA002 Verify seller accept offers successfully when project larger than Threshold'
-println '>> Random project name'
-def projectName = CommonUtility.generateRandomProjectName(10)
-
-println '>> User buyer signs in to administration page'
+println '>> User buyer signs in page'
 Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
-println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickMyProjects()
+Page.nav(LeftNavBar).clickOpenInquiries()
 
-Page.nav(MyProjectsPage).clickAction('985')
+List<String> abc = Page.nav(OpenInquiriesPage).getDataRow("1")
+println "row: $abc"
 
-Page.nav(ManufacturingInformationPage).inputDeliveryDate(deliveryDate).clickContinueToOfferOverview()
 

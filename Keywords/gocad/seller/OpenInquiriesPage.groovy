@@ -17,6 +17,7 @@ public class OpenInquiriesPage extends BasePage<OpenInquiriesPage>{
 	def netTotalCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[6]")}
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//span[2]")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]/a")}
+	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]/"}
 
 	public OpenInquiriesPage clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))
@@ -71,5 +72,17 @@ public class OpenInquiriesPage extends BasePage<OpenInquiriesPage>{
 		println "status: $status"
 		WebUI.verifyEqual(status, expectedResult)
 		return this
+	}
+	
+	public List<String> getDataRow(String rowNumber) {
+		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
+		String projectName = WebUI.getText(xpath(row(rowNumber) + "td[2]//a"))
+		String companyName = WebUI.getText(xpath(row(rowNumber) + "td[3]"))
+		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "td[4]"))
+		String orderDate = WebUI.getText(xpath(row(rowNumber) + "td[5]"))
+		String NETTotal = WebUI.getText(xpath(row(rowNumber) + "td[6]/div"))
+		String status = WebUI.getText(xpath(row(rowNumber) + "td[7]//span[normalize-space(text()) != '']"))
+		List<String> dataRow = [id, projectName, companyName, orderNumber, orderDate, NETTotal, status]
+		return dataRow
 	}
 }

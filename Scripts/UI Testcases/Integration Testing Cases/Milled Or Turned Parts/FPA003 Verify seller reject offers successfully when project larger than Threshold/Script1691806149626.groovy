@@ -122,7 +122,13 @@ println '>> Seller Login system to check offers of buyer'
 Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>> Seller go detail offers of buyer checkout'
-Page.nav(OpenInquiriesPage).clickAction(projectId)
+Page.nav(OpenInquiriesPage).verifyProjectName(projectId, projectName)
+						 	.verifyCompanyName(projectId, companyName)
+							.verifyOrderNumber(projectId)
+							.verifyOrderDate(projectId, orderDate)
+							.verifyNetTotal(projectId, netTotal)
+							.verifyStatus(projectId, "New request")
+							.clickAction(projectId)
 
 println '>> Seller click accept and send offers to buyer'
 Page.nav(DetailOffer).clickRejectOffer().clickOKConfirmPopup()
@@ -140,7 +146,8 @@ Page.nav(CancelledOffersPageOfSeller).verifyProjectName(projectId, projectName)
 									 .clickAction(projectId)
 
 println '>> Verify detail of offer'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+Page.nav(DetailOffer).verifyOrderStatus("Offer rejected")
+					 .verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)
 					 .verifyTablePartReview(partName, tablePart)
@@ -163,7 +170,8 @@ Page.nav(CancelledOffersPageOfBuyer).verifyHighlightOnList(projectId)
 									.clickAction(projectId)
 
 println '>> Verify information show on detail Confirmed Offers of buyer page'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+Page.nav(DetailOffer).verifyOrderStatus("Offer rejected")
+					 .verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)
 					 .verifyTablePartReview(partName, tablePart)

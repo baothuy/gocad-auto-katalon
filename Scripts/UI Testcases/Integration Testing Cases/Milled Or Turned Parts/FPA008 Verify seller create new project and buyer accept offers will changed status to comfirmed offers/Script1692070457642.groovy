@@ -125,7 +125,8 @@ Page.nav(ReceivedOffersPage).verifyHighlightOnList(projectId)
 							 .verifyStatus(projectId, "Offer adapted")
 							 .clickAction(projectId)
    
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
+					  .verifyBillingAddress(listBillingAddress)
 					  .verifyShippingAddress(listShippingAddress)
 					  .verifyOrderSummary(listOrderSummary)
 					  .clickAcceptOffer()
@@ -141,7 +142,8 @@ Page.nav(ConfirmedOffersPageOfBuyer).verifyProjectName(projectId, projectName)
 									 .clickAction(projectId)
  
 println '>> Verify information show on detail Confirmed Offers of buyer page'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
+					 .verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)
  
@@ -165,6 +167,7 @@ println '>> Go confirmed offers deltail of buyer checkout'
 Page.nav(ConfirmedOffersPageOfSeller).clickAction(projectId)
  
 println '>> Verify information show on detail Confirmed Offers of buyer page'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
+					 .verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)

@@ -125,7 +125,8 @@ Page.nav(ReceivedOffersPage).verifyHighlightOnList(projectId)
 							 .verifyStatus(projectId, "Offer adapted")
 							 .clickAction(projectId)
    
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
+					  .verifyBillingAddress(listBillingAddress)
 					  .verifyShippingAddress(listShippingAddress)
 					  .verifyOrderSummary(listOrderSummary)
 					  .clickRejectOffer()
@@ -141,7 +142,8 @@ Page.nav(CancelledOffersPageOfBuyer).verifyProjectName(projectId, projectName)
 									 .clickAction(projectId)
  
 println '>> Verify information show on detail Cancelled Offers of buyer page'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+Page.nav(DetailOffer).verifyOrderStatus("Offer rejected")
+					 .verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)
  
@@ -165,6 +167,7 @@ println '>> Go Cancelled Offers deltail of buyer checkout'
 Page.nav(CancelledOffersPageOfSeller).clickAction(projectId)
  
 println '>> Verify information show on detail Cancelled Offers of buyer page'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+Page.nav(DetailOffer).verifyOrderStatus("Offer rejected")
+					 .verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STS002 Verify search by project name, cad file name, order number are shown corresponding</name>
+   <tag>functional-test,search-in-projects,ui</tag>
+   <comment></comment>
+   <testCaseGuid>040aa568-3b86-46dd-ad6a-64733bc49d67</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>74ef41bc-5079-4820-8b94-b2208395498f</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>1ce93b7e-4445-4684-bff8-ccf981051c79</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>220f2e7e-b879-4d31-954a-6109a01a7315</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'Milled / Turned Parts'</defaultValue>
+      <description></description>
+      <id>74ef41bc-5079-4820-8b94-b2208395498f</id>
+      <masked>false</masked>
+      <name>workflow</name>
+   </variable>
+   <variable>
+      <defaultValue>'auto_Milling.step'</defaultValue>
+      <description></description>
+      <id>1ce93b7e-4445-4684-bff8-ccf981051c79</id>
+      <masked>false</masked>
+      <name>partName</name>
+   </variable>
+   <variable>
+      <defaultValue>'Order confirmed'</defaultValue>
+      <description></description>
+      <id>220f2e7e-b879-4d31-954a-6109a01a7315</id>
+      <masked>false</masked>
+      <name>status</name>
+   </variable>
+</TestCaseEntity>

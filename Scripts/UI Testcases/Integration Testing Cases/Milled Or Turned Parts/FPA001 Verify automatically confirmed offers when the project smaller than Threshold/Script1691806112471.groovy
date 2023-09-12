@@ -123,7 +123,8 @@ Page.nav(ConfirmedOffersPageOfBuyer).verifyProjectName(projectId, projectName)
 									.clickAction(projectId)
 									
 println '>> Verify detail of offer'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
+					 .verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)
 					 .verifyTablePartReview(partName, tablePart)
@@ -149,7 +150,8 @@ Page.nav(ConfirmedOffersPageOfSeller).verifyHighlightOnList(projectId)
 									 .clickAction(projectId)
 
 println '>>  Verify detail of offer'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
+					 .verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)
 					 .verifyTablePartReview(partName, tablePart)

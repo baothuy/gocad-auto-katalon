@@ -1,4 +1,4 @@
-package gocad.buyer
+package gocad.seller
 
 import org.openqa.selenium.Keys
 
@@ -17,17 +17,14 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 
 	def idCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[1]")}
 	def projectNameCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[2]//a")}
-	def partsCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[3]/span")}
-	def imagePartCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[4]")}
-	def deliveryDateCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[5]/div")}
-	def orderNumberCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[6]")}
-	def grossTotalCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[7]/div")}
-	def statusCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[8]//span[normalize-space(text()) != '']")}
-	def createAtCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[9]")}
-	def actionCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[10]")}
+	def companyNameCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[3]")}
+	def orderNumberCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[4]")}
+	def orderDateCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[5]")}
+	def NETTotalCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[6]/div")}
+	def statusCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[7]//span[normalize-space(text()) != '']")}
+	def actionCol = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']/td[8]/a")}
 	def rowOfProject = { String projectId -> return xpath("//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']")}
-	def partDetail = { String projectId -> return "//div[@class='ant-modal-content']//tr[@data-row-key='project-$projectId']//following::div[@class='ant-card-body']/"}
-	def row = { String row -> return "//div[@class='ant-modal-content']//thead/following::tr[$row]"}
+	def row = { String row -> return "//div[@class='ant-modal-content']//*[@class='ant-table-tbody']/tr[$row]"}
 
 	public SearchInProjectsPopup inputSearchTextField(String text) {
 		WebUI.sendKeys(id("text"), text)
@@ -83,12 +80,18 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 	public List<String> getDataRow(String rowNumber) {
 		String id = WebUI.getText(xpath(row(rowNumber) + "/td[1]"))
 		String projectName = WebUI.getText(xpath(row(rowNumber) + "/td[2]//a"))
-		String deliveryDate = WebUI.getText(xpath(row(rowNumber) + "/td[5]/div"))
-		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "/td[6]"))
-		String grossTotal = WebUI.getText(xpath(row(rowNumber) + "/td[7]/div"))
-		String status = WebUI.getText(xpath(row(rowNumber) + "/td[8]//span[normalize-space(text()) != '']"))
-		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
+		String companyName = WebUI.getText(xpath(row(rowNumber) + "/td[3]"))
+		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "/td[4]"))
+		String orderDate = WebUI.getText(xpath(row(rowNumber) + "/td[5]"))
+		String NETTotal = WebUI.getText(xpath(row(rowNumber) + "/td[6]/div"))
+		String status = WebUI.getText(xpath(row(rowNumber) + "/td[7]//span[normalize-space(text()) != '']"))
+		List<String> dataRow = [id, projectName, companyName, orderNumber, orderDate, NETTotal, status]
 		return dataRow
+	}
+	
+	public SearchInProjectsPopup verifyHaveRowVisibleInList(String rowNumber) {
+		WebUI.verifyElementVisible(xpath(row(rowNumber)))
+		return this
 	}
 
 	public SearchInProjectsPopup verifyProjectNameVisibleInList(String projectId, String expectedProjectName) {
@@ -96,16 +99,10 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 		WebUI.verifyEqual(actualProjectName, expectedProjectName)
 		return this
 	}
-
-	public SearchInProjectsPopup verifyHaveRowVisibleInList(String rowNumber) {
-		WebUI.verifyElementVisible(xpath(row(rowNumber)))
-		return this
-	}
-
-	public SearchInProjectsPopup verifyFileNameVisibleInList(String projectId, String expectedFileName) {
-		WebUI.click(partsCol(projectId))
-		String actualFileName = WebUI.getText(xpath(partDetail(projectId) + "div[2]"))
-		WebUI.verifyEqual(actualFileName, expectedFileName)
+	
+	public SearchInProjectsPopup verifyCompanyNameVisibleInList(String projectId, String expectedCompanyName) {
+		String actualProjectName = WebUI.getText(companyNameCol(projectId))
+		WebUI.verifyEqual(actualProjectName, expectedCompanyName)
 		return this
 	}
 
@@ -114,17 +111,23 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 		WebUI.verifyEqual(actualOrderNumber, orderNumber)
 		return this
 	}
+	
+	public SearchInProjectsPopup verifyOrderDateVisibleInList(String projectId, String date) {
+		String newDay = DateTimeUtility.changeDateFormat(date, "yyyy-MM-dd", "MM/dd/yyyy")
+		String actualDate = WebUI.getText(orderDateCol(projectId)).trim()
+		WebUI.verifyEqual(actualDate, newDay)
+		return this
+	}
+	
+	public SearchInProjectsPopup verifyNETTotalVisibleInList(String projectId, String total) {
+		String actualStatus = WebUI.getText(NETTotalCol(projectId))
+		WebUI.verifyEqual(actualStatus, total)
+		return this
+	}
 
 	public SearchInProjectsPopup verifyStatusVisibleInList(String projectId, String status) {
 		String actualStatus = WebUI.getText(statusCol(projectId))
 		WebUI.verifyEqual(actualStatus, status)
-		return this
-	}
-
-	public SearchInProjectsPopup verifyDeliveryDateVisibleInList(String projectId, String date) {
-		String newDay = DateTimeUtility.changeDateFormat(date, "yyyy-MM-dd", "MM/dd/yyyy")
-		String actualDate = WebUI.getText(deliveryDateCol(projectId)).trim()
-		WebUI.verifyEqual(actualDate, newDay)
 		return this
 	}
 
@@ -146,12 +149,11 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))
-		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[text()='Parts']"))
-		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Delivery Date']"))
+		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Company Name']"))
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Order Number']"))
-		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='GROSS Total']"))
+		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Order date']"))
+		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='NET Total']"))
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Status']"))
-		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Created at']"))
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[text()='Action']"))
 		return this
 	}

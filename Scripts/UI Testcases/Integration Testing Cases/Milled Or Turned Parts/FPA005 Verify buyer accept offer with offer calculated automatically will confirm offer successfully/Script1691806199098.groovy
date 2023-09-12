@@ -126,7 +126,8 @@ Page.nav(RequestedOffersPage).verifyProjectName(projectId, projectName)
 							 .verifyStatus(projectId, "Offer sent")
 							 .clickAction(projectId)
 							 
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+Page.nav(DetailOffer).verifyOrderStatus("Offer sent")
+					 .verifyBillingAddress(listBillingAddress)
  					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)
 					 .verifyTablePartReview(partName, tablePart)
@@ -139,7 +140,13 @@ println '>> Seller Login system to check offers of buyer'
 Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
   
 println '>> Seller go detail offers of buyer checkout'
-Page.nav(OpenInquiriesPage).clickAction(projectId)
+Page.nav(OpenInquiriesPage).verifyProjectName(projectId, projectName)
+						 	.verifyCompanyName(projectId, companyName)
+							.verifyOrderNumber(projectId)
+							.verifyOrderDate(projectId, orderDate)
+							.verifyNetTotal(projectId, netTotal)
+							.verifyStatus(projectId, "New request")
+							.clickAction(projectId)
   
 println '>> Input change unit price'
 Page.nav(DetailOffer).inputUnitPrice(unitPriceChanged).clickAcceptChangeUnitPrice().clickCloseToastMessage()
@@ -168,7 +175,8 @@ Page.nav(SentOffersPage).verifyProjectName(projectId, projectName)
 						 .clickAction(projectId)
  
 println '>> Verify value on detail page'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
+Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
+					 .verifyBillingAddress(listBillingAddressChanged)
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(partName, tablePartChanged)
@@ -190,7 +198,8 @@ Page.nav(ReceivedOffersPage).verifyHighlightOnList(projectId)
 							 .verifyStatus(projectId, "Offer adapted")
 							 .clickAction(projectId)
    
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
+Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
+					  .verifyBillingAddress(listBillingAddressChanged)
 					  .verifyShippingAddress(listShippingAddressChanged)
 					  .verifyOrderSummary(listOrderSummaryChanged)
 					  .verifyTablePartReview(partName, tablePartChanged)
@@ -208,7 +217,8 @@ Page.nav(ConfirmedOffersPageOfBuyer).verifyProjectName(projectId, projectName)
 									 .clickAction(projectId)
  
 println '>> Verify information show on detail Confirmed Offers of buyer page'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
+Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
+					 .verifyBillingAddress(listBillingAddressChanged)
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(partName, tablePartChanged)
@@ -234,7 +244,8 @@ println '>> Go confirmed offers deltail of buyer checkout'
 Page.nav(ConfirmedOffersPageOfSeller).clickAction(projectId)
  
 println '>> Verify information show on detail Confirmed Offers of buyer page'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddressChanged)
+Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
+					 .verifyBillingAddress(listBillingAddressChanged)
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(partName, tablePartChanged)
