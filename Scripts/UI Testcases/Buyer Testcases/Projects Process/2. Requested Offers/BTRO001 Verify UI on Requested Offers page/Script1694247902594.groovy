@@ -21,3 +21,6 @@ String projectId = dataRow[0]
 
 Page.nav(RequestedOffersPage).clickAction(projectId)
 Page.nav(DetailOffer).verifyUIVisible()
+					.verifyViewButtonVisible()
+					.verifyCopyButtonVisible()
+					.verifyContentAlertManuallyVisible("Requested Offers")

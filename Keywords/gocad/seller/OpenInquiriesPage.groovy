@@ -18,6 +18,8 @@ public class OpenInquiriesPage extends BasePage<OpenInquiriesPage>{
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//span[2]")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]/a")}
 	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]/"}
+	def contentPage = "The folder Requested Offers shows all your projects where you have placed an order or requested a quotation. The current status of the project can be seen in the column \"status\"."
+	
 
 	public OpenInquiriesPage clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))
@@ -73,7 +75,7 @@ public class OpenInquiriesPage extends BasePage<OpenInquiriesPage>{
 		WebUI.verifyEqual(status, expectedResult)
 		return this
 	}
-	
+
 	public List<String> getDataRow(String rowNumber) {
 		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
 		String projectName = WebUI.getText(xpath(row(rowNumber) + "td[2]//a"))
@@ -84,5 +86,21 @@ public class OpenInquiriesPage extends BasePage<OpenInquiriesPage>{
 		String status = WebUI.getText(xpath(row(rowNumber) + "td[7]//span[normalize-space(text()) != '']"))
 		List<String> dataRow = [id, projectName, companyName, orderNumber, orderDate, NETTotal, status]
 		return dataRow
+	}
+	
+	public OpenInquiriesPage verifyUIVisible() {
+		WebUI.verifyElementVisible(xpath("//h5[text()='Open inquiries']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Open inquiries']/following::i[text()='$contentPage']"))
+		//header table visible
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Company Name']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Order Number']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Order date']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='NET Total']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Status']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[text()='Action']"))
+		WebUI.verifyElementVisible(xpath("//ul[contains(@class,'ant-table-pagination')]"))
+		return this
 	}
 }

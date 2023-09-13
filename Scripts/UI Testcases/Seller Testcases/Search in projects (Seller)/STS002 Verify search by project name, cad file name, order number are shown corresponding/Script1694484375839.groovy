@@ -6,7 +6,7 @@ import gocad.seller.OpenInquiriesPage
 import katalon.fw.lib.Page
 import katalon.utility.DateTimeUtility
 
-println '>> User buyer signs in page'
+println '>> User seller signs in page'
 Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>> Click Open inquiries menu to find project in list'

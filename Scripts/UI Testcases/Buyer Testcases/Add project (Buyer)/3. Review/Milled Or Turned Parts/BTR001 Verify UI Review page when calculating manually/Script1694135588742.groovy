@@ -149,7 +149,7 @@ Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
 						//.verifyShippingAddress(listShippingAddress)
 						.verifyTablePartReview(partName, tablePart)
 						.verifyOrderStatus("Request for quotation")
-						.verifyContentAlertManualCalculateVisible()
+						.verifyContentAlertManuallyVisible("Requested Offers")
 						.verifyCustomerInfo(listCustomerInfo)
 
 println '>> Verify project show in list Requested Offers Page'

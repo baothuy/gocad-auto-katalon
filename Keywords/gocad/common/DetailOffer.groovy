@@ -18,7 +18,10 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	def partPriceTotalCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[7]")}
 	def CO2EmissionCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[9]")}
 	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]//button")}
-	def contentAlertManually = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
+	def contentRequestedOffersAlertManually = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
+	def contentReceivedOffersAlertManually = "These parts could not be automatically calculated. You have received an offer by your supplier. Please check the offer and approve or decline it."
+	def contentOpenInquiriesAlertManually = "For these parts, your customer has not seen a price and he requested a manual quotation. The reason that for this part no automatic price has been shown to the customer can be e.g. that there are specific tolerances that need to be manually checked. Please check the parts and the automatically calculated price and adpat the price accordingly. You can then send out the offer to your customer by clicking on \"Send offer\"."
+	
 	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
 	public DetailOffer clickAcceptAndSendOffer() {
 		WebUI.click(xpath("//span[text()='Accept And Send Offer ']/parent::button"))
@@ -315,15 +318,6 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		return this
 	}
 
-	public DetailOffer verifyContentAlertManualCalculateVisible() {
-		WebUI.verifyElementVisible(xpath("//*[text()='Manually calculated']"))
-		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
-		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
-		def expectedResult = contentAlertManually
-		WebUI.verifyEqual(contentAlertActual, expectedResult)
-		return this
-	}
-
 	public DetailOffer verifyAcceptOfferButtonNotVisible() {
 		List<String> findTestObjects = findTestObjects("//*[text()='Accept Offer']")
 		(findTestObjects.size() == 0) ? WebUI.verifyEqual("true","true") : WebUI.verifyEqual("true","false")
@@ -345,14 +339,62 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		return this
 	}
 
+	public DetailOffer verifyTextLineThroughNotVisible() {
+		List<String> findTestObjects = findTestObjects("//*[contains(@class,'text-decoration-line-through')]")
+		(findTestObjects.size() == 0) ? WebUI.verifyEqual("true","true") : WebUI.verifyEqual("true","false")
+		return this
+	}
+	
+	public DetailOffer verifyViewButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='View']"))
+		return this
+	}
+	
+	public DetailOffer verifyCopyButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='Copy']"))
+		return this
+	}
+	
 	public DetailOffer verifyDeclineButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='Decline']"))
 		return this
 	}
-
-	public DetailOffer verifyTextLineThroughNotVisible() {
-		List<String> findTestObjects = findTestObjects("//*[contains(@class,'text-decoration-line-through')]")
-		(findTestObjects.size() == 0) ? WebUI.verifyEqual("true","true") : WebUI.verifyEqual("true","false")
+	
+	public DetailOffer verifyRejectOfferButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='Reject Offer']"))
+		return this
+	}
+	
+	public DetailOffer verifyAcceptAndSendOfferButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='Accept And Send Offer ']"))
+		return this
+	}
+	
+	public DetailOffer verifyContentAlertManuallyVisible(String pageName) {
+		List<String> findObject = findTestObjects("//*[@class='ant-alert-message']")
+		if(findObject.size() != 0) {
+			WebUI.verifyElementVisible(xpath("//*[text()='Manually calculated']"))
+			WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
+			String messageAlert = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
+			String actualStatus = WebUI.getText(xpath("//h4/following::span/child::span[normalize-space(text()) != '']"))
+			switch (pageName) {
+				case "Requested Offers":
+					WebUI.verifyEqual(messageAlert, contentRequestedOffersAlertManually)
+					WebUI.verifyEqual(actualStatus, "Request for quotation")
+				break;
+				
+				case "Received Offers":
+					WebUI.verifyEqual(messageAlert, contentReceivedOffersAlertManually)
+					WebUI.verifyEqual(actualStatus, "Offer adapted")
+				break;
+				
+				case "Open Inquiries":
+					WebUI.verifyEqual(messageAlert, contentOpenInquiriesAlertManually)
+					WebUI.verifyEqual(actualStatus, "Request for quotation")
+				break;
+			}
+			
+		}
 		return this
 	}
 
@@ -384,11 +426,9 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='ZIP Code']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='City']"))
 
-		//button More, View, Copy
+		//button More, View
 		WebUI.verifyElementVisible(xpath("//*[@aria-label='more']/parent::button"))
 		WebUI.mouseOver(xpath("//*[@aria-label='more']/parent::button"))
-		WebUI.verifyElementVisible(xpath("//*[text()='View']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Copy']"))
 
 		//label Automatically calculated
 		WebUI.verifyElementVisible(xpath("//*[contains(text(),'calculated')]"))
