@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STAP001 Verify ui data upload page</name>
+   <tag>fast-test,data-upload,ui</tag>
+   <comment></comment>
+   <testCaseGuid>6ec9de36-6c5c-42f5-913b-d3e1efe05796</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>c0ad4bee-542e-4d5f-8da8-bf8b86088cf5</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'auto_Milling.step'</defaultValue>
+      <description></description>
+      <id>c0ad4bee-542e-4d5f-8da8-bf8b86088cf5</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

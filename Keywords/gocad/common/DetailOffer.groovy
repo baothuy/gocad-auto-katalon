@@ -21,8 +21,11 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	def contentRequestedOffersAlertManually = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
 	def contentReceivedOffersAlertManually = "These parts could not be automatically calculated. You have received an offer by your supplier. Please check the offer and approve or decline it."
 	def contentOpenInquiriesAlertManually = "For these parts, your customer has not seen a price and he requested a manual quotation. The reason that for this part no automatic price has been shown to the customer can be e.g. that there are specific tolerances that need to be manually checked. Please check the parts and the automatically calculated price and adpat the price accordingly. You can then send out the offer to your customer by clicking on \"Send offer\"."
-	
+	def contentSentOffersAlertManually = "For these parts, your customer has not seen a price and he requested a manual quotation. The reason that for this part no automatic price has been shown to the customer can be e.g. that there are specific tolerances that need to be manually checked. Please check the parts and the automatically calculated price and adpat the price accordingly. You can then send out the offer to your customer by clicking on \"Send offer\"."
+	def contentConfirmedOffersAlertManually = "For these parts, your customer has not seen a price and he requested a manual quotation. The reason that for this part no automatic price has been shown to the customer can be e.g. that there are specific tolerances that need to be manually checked. Please check the parts and the automatically calculated price and adpat the price accordingly. You can then send out the offer to your customer by clicking on \"Send offer\"."
+	def contentCancelledOffersAlertManually = "For these parts, your customer has not seen a price and he requested a manual quotation. The reason that for this part no automatic price has been shown to the customer can be e.g. that there are specific tolerances that need to be manually checked. Please check the parts and the automatically calculated price and adpat the price accordingly. You can then send out the offer to your customer by clicking on \"Send offer\"."
 	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
+	
 	public DetailOffer clickAcceptAndSendOffer() {
 		WebUI.click(xpath("//span[text()='Accept And Send Offer ']/parent::button"))
 		return this
@@ -392,6 +395,22 @@ public class DetailOffer extends BasePage<DetailOffer>{
 					WebUI.verifyEqual(messageAlert, contentOpenInquiriesAlertManually)
 					WebUI.verifyEqual(actualStatus, "Request for quotation")
 				break;
+				
+				case "Sent Offers":
+					WebUI.verifyEqual(messageAlert, contentSentOffersAlertManually)
+					WebUI.verifyEqual(actualStatus, "Offer adapted")
+				break;
+				
+				case "Confirmed Offers":
+					WebUI.verifyEqual(messageAlert, contentConfirmedOffersAlertManually)
+					WebUI.verifyEqual(actualStatus, "Order confirmed")
+				break;
+				
+				case "Cancelled Offers":
+					WebUI.verifyEqual(messageAlert, contentCancelledOffersAlertManually)
+					WebUI.verifyEqual(actualStatus, "Offer rejected")
+				break;
+			break;
 			}
 			
 		}

@@ -103,7 +103,7 @@ public class LeftNavBar extends BasePage<LeftNavBar> {
 		WebUI.click(link('Account'))
 		return this
 	}
-	
+
 	public String getEmail() {
 		String email = WebUI.getAttribute(xpath("//*[@class='truncate']"), "title")
 		return email

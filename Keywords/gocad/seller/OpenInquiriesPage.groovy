@@ -17,9 +17,8 @@ public class OpenInquiriesPage extends BasePage<OpenInquiriesPage>{
 	def netTotalCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[6]")}
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//span[2]")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]/a")}
-	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]/"}
+	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]"}
 	def contentPage = "The folder Requested Offers shows all your projects where you have placed an order or requested a quotation. The current status of the project can be seen in the column \"status\"."
-	
 
 	public OpenInquiriesPage clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))
@@ -77,17 +76,17 @@ public class OpenInquiriesPage extends BasePage<OpenInquiriesPage>{
 	}
 
 	public List<String> getDataRow(String rowNumber) {
-		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
-		String projectName = WebUI.getText(xpath(row(rowNumber) + "td[2]//a"))
-		String companyName = WebUI.getText(xpath(row(rowNumber) + "td[3]"))
-		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "td[4]"))
-		String orderDate = WebUI.getText(xpath(row(rowNumber) + "td[5]"))
-		String NETTotal = WebUI.getText(xpath(row(rowNumber) + "td[6]/div"))
-		String status = WebUI.getText(xpath(row(rowNumber) + "td[7]//span[normalize-space(text()) != '']"))
+		String id = WebUI.getText(xpath(row(rowNumber) + "/td[1]"))
+		String projectName = WebUI.getText(xpath(row(rowNumber) + "/td[2]//a"))
+		String companyName = WebUI.getText(xpath(row(rowNumber) + "/td[3]"))
+		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "/td[4]"))
+		String orderDate = WebUI.getText(xpath(row(rowNumber) + "/td[5]"))
+		String NETTotal = WebUI.getText(xpath(row(rowNumber) + "/td[6]/div"))
+		String status = WebUI.getText(xpath(row(rowNumber) + "/td[7]//span[normalize-space(text()) != '']"))
 		List<String> dataRow = [id, projectName, companyName, orderNumber, orderDate, NETTotal, status]
 		return dataRow
 	}
-	
+
 	public OpenInquiriesPage verifyUIVisible() {
 		WebUI.verifyElementVisible(xpath("//h5[text()='Open inquiries']"))
 		WebUI.verifyElementVisible(xpath("//h5[text()='Open inquiries']/following::i[text()='$contentPage']"))

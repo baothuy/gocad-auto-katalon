@@ -18,7 +18,7 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[10]/a")}
 	def row = { String row -> return "//thead/following::tr[$row]/"}
 	def contentConfirmedOffersPage = "The folder Confirmed Requests shows all projects that have been approved and are in progress."
-	
+
 	public ConfirmedOffersPageOfBuyer clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))
 		return this
@@ -62,7 +62,7 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 		WebUI.verifyEqual(status, expectedResult)
 		return this
 	}
-	
+
 	public ConfirmedOffersPageOfBuyer verifyUIVisible() {
 		WebUI.verifyElementVisible(xpath("//h5[text()='Confirmed Offers']"))
 		WebUI.verifyElementVisible(xpath("//h5[text()='Confirmed Offers']/following::i[text()='$contentConfirmedOffersPage']"))
@@ -79,7 +79,7 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 		WebUI.verifyElementVisible(xpath("//ul[contains(@class,'ant-table-pagination')]"))
 		return this
 	}
-	
+
 	public List<String> getDataRow(String rowNumber) {
 		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
 		String projectName = WebUI.getText(xpath(row(rowNumber) + "td[2]//a"))

@@ -91,7 +91,7 @@
       <name>partName</name>
    </variable>
    <variable>
-      <defaultValue>'goCAD_milling v4.pdf'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>c1e5fcc0-d227-4a0e-9f7d-9cb640415ca0</id>
       <masked>false</masked>
@@ -154,7 +154,7 @@
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'EN AW-7075 / AlZn5'</defaultValue>
+      <defaultValue>'TECAFLON PTFE natural'</defaultValue>
       <description></description>
       <id>2c02cbb8-c167-4c76-b462-52fd79f1ac44</id>
       <masked>false</masked>

@@ -5,7 +5,7 @@ import katalon.fw.lib.BasePage
 public class SelectMaterialPopup extends BasePage<SelectMaterialPopup>{
 
 	public SelectMaterialPopup clickMaterialGroup(String materialGroup) {
-		WebUI.click(xpath("//span[text()='$materialGroup']"))
+		scrollToAndClick(xpath("//div[@class='ant-space-item']//*[text()='$materialGroup']"))
 		return this
 	}
 

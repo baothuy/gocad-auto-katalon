@@ -1,17 +1,18 @@
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
-import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
-import gocad.buyer.DraftPage
+import gocad.common.ManufacturingInformationPage
+import gocad.seller.MyProjectsPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
-println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+println '>> User Seller signs in to administration page'
+Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
-println '>> User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+println '>> User Seller add project'
+Page.nav(LeftNavBar).clickMyProjects()
+Page.nav(MyProjectsPage).clickAddProject()
 
 println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
@@ -29,8 +30,8 @@ println '>> Verify show error when upload Incompatible File'
 Page.nav(ManufacturingInformationPage).verifyShowErrorIncompatibleFile()
 
 println '>> Back to draft page check data on list Draft page'
-Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).verifyProjectName(projectId, projectName)
+Page.nav(LeftNavBar).clickMyProjects()
+Page.nav(MyProjectsPage).verifyProjectName(projectId, projectName)
 					.verifyStatus(projectId, 'Draft')
 					.clickArchiveAction(projectId)
 					.sleep(1)

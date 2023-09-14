@@ -83,5 +83,5 @@ Page.nav(ManufacturingInformationPage).clickMoreOption()
 									  .clickOK()
 									  
 println '>> After delete will go page Data upload page'
-Page.nav(DataUploadPage).verifyUIDataUploadPage(projectName)
+Page.nav(DataUploadPage).verifyUIDataUploadPageOfBuyer(projectName)
 	

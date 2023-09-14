@@ -145,7 +145,7 @@ String grossTotal = listOrderSummary[7]
 println '>> Seller click accept and send offers to buyer'
 Page.nav(DetailOffer).clickRejectOffer().clickOKConfirmPopup()
 
-println '>> Seller go confirmed offers of buyer checkout'
+println '>> Seller go Cancelled Offers of buyer checkout'
 Page.nav(LeftNavBar).clickCancelledOffers()
 
 println '>> Verify information show on list'
@@ -171,7 +171,7 @@ Page.nav(LeftNavBar).clickLogout()
 println '>> User buyer signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsBuyer().clickSignIn().verifySuccessfullySignInAsBuyer()
 
-println '>> Verify information show on list Confirmed Offers of buyer'
+println '>> Verify information show on list Offer rejected of buyer'
 Page.nav(LeftNavBar).clickCancelledOffers()
 Page.nav(CancelledOffersPageOfBuyer).verifyHighlightOnList(projectId)
 									.verifyProjectName(projectId, projectName)
@@ -181,7 +181,7 @@ Page.nav(CancelledOffersPageOfBuyer).verifyHighlightOnList(projectId)
 									.verifyStatus(projectId, "Offer rejected")
 									.clickAction(projectId)
 
-println '>> Verify information show on detail Confirmed Offers of buyer page'
+println '>> Verify information show on detail Offer rejected of buyer page'
 Page.nav(DetailOffer).verifyOrderStatus("Offer rejected")
 					 .verifyBillingAddress(listBillingAddress)
 					 .verifyShippingAddress(listShippingAddress)

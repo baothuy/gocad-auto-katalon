@@ -88,7 +88,7 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 		List<String> dataRow = [id, projectName, companyName, orderNumber, orderDate, NETTotal, status]
 		return dataRow
 	}
-	
+
 	public SearchInProjectsPopup verifyHaveRowVisibleInList(String rowNumber) {
 		WebUI.verifyElementVisible(xpath(row(rowNumber)))
 		return this
@@ -99,7 +99,7 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 		WebUI.verifyEqual(actualProjectName, expectedProjectName)
 		return this
 	}
-	
+
 	public SearchInProjectsPopup verifyCompanyNameVisibleInList(String projectId, String expectedCompanyName) {
 		String actualProjectName = WebUI.getText(companyNameCol(projectId))
 		WebUI.verifyEqual(actualProjectName, expectedCompanyName)
@@ -111,14 +111,14 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 		WebUI.verifyEqual(actualOrderNumber, orderNumber)
 		return this
 	}
-	
+
 	public SearchInProjectsPopup verifyOrderDateVisibleInList(String projectId, String date) {
 		String newDay = DateTimeUtility.changeDateFormat(date, "yyyy-MM-dd", "MM/dd/yyyy")
 		String actualDate = WebUI.getText(orderDateCol(projectId)).trim()
 		WebUI.verifyEqual(actualDate, newDay)
 		return this
 	}
-	
+
 	public SearchInProjectsPopup verifyNETTotalVisibleInList(String projectId, String total) {
 		String actualStatus = WebUI.getText(NETTotalCol(projectId))
 		WebUI.verifyEqual(actualStatus, total)
