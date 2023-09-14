@@ -2,6 +2,7 @@ package gocad.seller
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import gocad.buyer.DraftPage
 import katalon.fw.lib.BasePage
 
 public class MyProjectsPage extends BasePage<MyProjectsPage>{
@@ -30,6 +31,12 @@ public class MyProjectsPage extends BasePage<MyProjectsPage>{
 	public MyProjectsPage clickArchiveAction(String projectId) {
 		WebUI.click(actionMoreCol(projectId))
 		WebUI.click(xpath("//*[text()='Archive']"))
+		return this
+	}
+	
+	public MyProjectsPage clickCloseToastMessage() {
+		WebUI.waitForElementVisible(xpath("//*[@aria-label='close']/ancestor::a"), 5)
+		WebUI.click(xpath("//*[@aria-label='close']/ancestor::a"))
 		return this
 	}
 
