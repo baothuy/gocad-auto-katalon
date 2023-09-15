@@ -7,7 +7,7 @@ import gocad.common.MySignInPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
-println '>> User Seller signs in to administration page'
+println '>> User Seller signs in page'
 Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>> User Seller add project'
@@ -30,6 +30,10 @@ println '>> Verify UI of the page'
 Page.nav(ManufacturingInformationPage).verifyProcessAddProjectHighLighted()
 										.verifyAddPartButtonVisible()
 										.verifyCalculateButtonVisible()
+										.clickMoreOption()
+										.verifyDeleteButtonVisible()
+										.verifyCopyButtonVisible()
+										.verifyMoveButtonVisible()
 										.verifyAddTechnicalDrawingButtonVisible()
 										.verifyNamePartVisible(partName)
 										.verifyPartImageVisible()
@@ -47,6 +51,7 @@ Page.nav(ManufacturingInformationPage).verifyProcessAddProjectHighLighted()
 										.verifyTolerancesToggleVisible()
 										.verifySurfaceQualitySelectVisible()
 										.verifyCommentInputVisible()
+										.verifyDeliveryDateInputVisible()
 										.verifyContinueToOfferOverviewButtonVisible()
 										
 println '>>  Clear data'

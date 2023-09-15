@@ -299,9 +299,14 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath('//span[text()="Calculate"]/parent::button'))
 		return this
 	}
-
+	
+	public ManufacturingInformationPage verifyMoreButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//*[@aria-label='more']"))
+		return this
+	}
+	
 	public ManufacturingInformationPage verifyDeleteButtonVisible() {
-		WebUI.verifyElementVisible(xpath('//span[contains(text(),"Delete")]/parent::button'))
+		WebUI.verifyElementVisible(xpath('//span[contains(text(),"Delete")]/parent::li'))
 		return this
 	}
 
@@ -372,6 +377,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage verifyPartImageVisible() {
 		WebUI.verifyElementVisible(xpath("//img[@class='ant-image-img']"))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyDeliveryDateInputVisible() {
+		WebUI.verifyElementVisible(id("deliveryDate"))
 		return this
 	}
 

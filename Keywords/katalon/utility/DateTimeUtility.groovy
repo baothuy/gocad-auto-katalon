@@ -63,6 +63,10 @@ public class DateTimeUtility {
 	public static String currentDay(String format = "MMMMM d, YYYY") {
 		plusDays(0, format);
 	}
+	
+	public static String nextWeek(String format = "MMMM d, YYYY") {
+		plusDays(7, format);
+	}
 
 	public static String next30Days(String format = "MMMM d, YYYY") {
 		plusDays(30, format);

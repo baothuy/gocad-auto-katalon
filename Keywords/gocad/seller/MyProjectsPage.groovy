@@ -10,7 +10,7 @@ public class MyProjectsPage extends BasePage<MyProjectsPage>{
 	def rowOfProject = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr")}
 	def projectIdCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[1]")}
 	def projectNameCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[2]")}
-	def partsDropdownCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[3]")}
+	def partsCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[3]/span")}
 	def partsImageCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[4]")}
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[5]//span[normalize-space(text()) != '']")}
 	def createAtCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[6]")}
@@ -33,10 +33,33 @@ public class MyProjectsPage extends BasePage<MyProjectsPage>{
 		WebUI.click(xpath("//*[text()='Archive']"))
 		return this
 	}
-	
+
 	public MyProjectsPage clickCloseToastMessage() {
 		WebUI.waitForElementVisible(xpath("//*[@aria-label='close']/ancestor::a"), 5)
 		WebUI.click(xpath("//*[@aria-label='close']/ancestor::a"))
+		return this
+	}
+	
+	public MyProjectsPage clickDownCirclePartColumn(String projectId) {
+		WebUI.click(partsCol(projectId))
+		return this
+	}
+	
+	public MyProjectsPage verifyPartNameOnDetailPartColumn(String expectedResult) {
+		String partName = WebUI.getText(xpath("//*[@class='ant-card-body']/div[contains(@class,'part-name')]"))
+		WebUI.verifyEqual(partName, expectedResult)
+		return this
+	}
+	
+	public MyProjectsPage verifyMaterialOnDetailPartColumn(String expectedResult) {
+		String material = WebUI.getText(xpath("//*[@class='ant-card-body']/div/label"))
+		WebUI.verifyEqual(material, expectedResult)
+		return this
+	}
+	
+	public MyProjectsPage verifyPriceOnDetailPartColumn(String expectedResult) {
+		String price = WebUI.getText(xpath("//*[@class='ant-card-body']//span[contains(text(),'€')]"))
+		WebUI.verifyEqual(price, expectedResult)
 		return this
 	}
 
