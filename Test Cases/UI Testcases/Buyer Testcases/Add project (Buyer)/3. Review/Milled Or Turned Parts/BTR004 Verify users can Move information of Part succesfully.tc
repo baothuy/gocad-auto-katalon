@@ -125,7 +125,7 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Eloxieren'</defaultValue>
+      <defaultValue>'Sandblasting'</defaultValue>
       <description></description>
       <id>98cd9029-8a5a-41d9-9233-d5fa8b25a2bd</id>
       <masked>false</masked>
@@ -160,7 +160,7 @@
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'EN AW-7075 / AlZn5'</defaultValue>
+      <defaultValue>'TECAFLON PTFE natural'</defaultValue>
       <description></description>
       <id>3101aedb-16cd-4ac1-8086-12d04a26fcca</id>
       <masked>false</masked>
