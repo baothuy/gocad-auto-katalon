@@ -14,7 +14,7 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 	def deliveryDateCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[5]")}
 	def orderNumberCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[6]")}
 	def grossTotalCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]")}
-	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//span[2]")}
+	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//span[normalize-space(text()) != '']")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[10]/a")}
 	def row = { String row -> return "//thead/following::tr[$row]/"}
 	def contentConfirmedOffersPage = "The folder Confirmed Requests shows all projects that have been approved and are in progress."

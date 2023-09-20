@@ -14,7 +14,7 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 	def deliveryDateCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[5]")}
 	def orderNumberCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[6]")}
 	def grossTotalCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]")}
-	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//span[2]")}
+	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//span[normalize-space(text()) != '']")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[10]/a")}
 	def row = { String row -> return "//thead/following::tr[$row]/"}
 	def contentRequestedOffersPage = "The folder Requested Offers shows all your projects where you have placed an order or requested a quotation. The current status of the project can be seen in the column \"status\"."

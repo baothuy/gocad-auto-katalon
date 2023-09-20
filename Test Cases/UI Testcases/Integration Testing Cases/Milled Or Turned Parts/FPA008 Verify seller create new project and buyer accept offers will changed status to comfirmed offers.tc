@@ -21,6 +21,12 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
+      <variableId>88f53dbd-632a-42e2-8b90-63feae111d35</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>8e364813-81f4-4eaa-92dd-762cba92e264</variableId>
    </variableLinks>
    <variableLinks>
@@ -109,11 +115,18 @@
       <name>partName</name>
    </variable>
    <variable>
-      <defaultValue>'goCAD_milling v4.pdf'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>c1e5fcc0-d227-4a0e-9f7d-9cb640415ca0</id>
       <masked>false</masked>
       <name>filePDF</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>88f53dbd-632a-42e2-8b90-63feae111d35</id>
+      <masked>false</masked>
+      <name>provideOwnProduct</name>
    </variable>
    <variable>
       <defaultValue>'2'</defaultValue>
@@ -207,7 +220,7 @@
       <name>packagingAndShippingComments</name>
    </variable>
    <variable>
-      <defaultValue>'truongbaothuy93@gmail.com'</defaultValue>
+      <defaultValue>'buyer@gocad.de'</defaultValue>
       <description></description>
       <id>033aa920-ab95-4026-a265-5854f8491d1a</id>
       <masked>false</masked>

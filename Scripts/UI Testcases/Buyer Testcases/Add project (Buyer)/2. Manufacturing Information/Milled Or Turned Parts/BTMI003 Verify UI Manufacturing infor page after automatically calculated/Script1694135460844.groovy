@@ -47,7 +47,7 @@ if (filePDF == "")
 }
 else
 {
-	Page.nav(ManufacturingInformationPage).uploadFilePDFTesting(filePDF)
+	Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Milled / Turned Parts', filePDF)
 	 String getMaterialName = Page.nav(ManufacturingInformationPage).getMaterialWhenUploadFilePDF()
 	 String getMaterialGroup = Page.nav(ManufacturingInformationPage).getMaterialGroupWhenUploadFilePDF()
 	 

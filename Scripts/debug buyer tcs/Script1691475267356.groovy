@@ -1,8 +1,8 @@
 import gocad.buyer.DraftPage
+import gocad.buyer.ReviewPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
-import gocad.common.SelectMaterialPopup
 import katalon.fw.lib.Page
 
 
@@ -15,14 +15,10 @@ println '>> User buyer signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickViewAction('41')
+Page.nav(DraftPage).clickViewAction('531')
+//Page.nav(ReviewPage).clickManufacturingInformationProcess()
+//Page.nav(ManufacturingInformationPage).clickEdit()
 
-Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
-Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
-material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
-println "material = $material"
-Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
-
-Page.nav(ManufacturingInformationPage).selectSurfaceTreatment(surfaceTreatment)
+Page.nav(ManufacturingInformationPage).clickDeburringCheckbox("true")
 										.sleep(2)
 

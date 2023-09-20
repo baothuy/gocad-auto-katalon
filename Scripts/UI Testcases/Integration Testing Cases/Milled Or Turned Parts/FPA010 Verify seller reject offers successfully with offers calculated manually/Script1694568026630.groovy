@@ -49,7 +49,8 @@ if (filePDF == "")
 	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 	
 	println '>> Input required field'
-	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+	Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
+											.inputQuantity(quantityNum)
 											.inputThread(threadNum)
 											.inputTolerances(tolerancesNum)
 											.clickToggleTolerances(tolerancesToggle)
@@ -59,7 +60,7 @@ if (filePDF == "")
 }
 else
 {
-	Page.nav(ManufacturingInformationPage).uploadFilePDFTesting(filePDF)
+	Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Milled / Turned Parts', filePDF)
 	 String getMaterialName = Page.nav(ManufacturingInformationPage).getMaterialWhenUploadFilePDF()
 	 String getMaterialGroup = Page.nav(ManufacturingInformationPage).getMaterialGroupWhenUploadFilePDF()
 	 
@@ -77,7 +78,8 @@ else
 		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
 	 }
 	 
-	 Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+	 Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
+	 										 .inputQuantity(quantityNum)
 											 .selectSurfaceTreatment(surfaceTreatment)
 											 .selectSurfaceQuality(quality)
 											 .inputComment(comment)

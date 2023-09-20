@@ -14,7 +14,7 @@ public class CancelledOffersPageOfBuyer extends BasePage<CancelledOffersPageOfBu
 	def deliveryDateCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[5]")}
 	def orderNumberCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[6]")}
 	def grossTotalCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]")}
-	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//span[2]")}
+	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//span[normalize-space(text()) != '']")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[10]/a")}
 	def row = { String row -> return "//thead/following::tr[$row]/"}
 	def contentCancelledOffersPage = "The folder Cancelled Orders contains projects which have been cancelled either by you or by us."
@@ -67,7 +67,7 @@ public class CancelledOffersPageOfBuyer extends BasePage<CancelledOffersPageOfBu
 		WebUI.verifyEqual(status, expectedResult)
 		return this
 	}
-	
+
 	public CancelledOffersPageOfBuyer verifyUIVisible() {
 		WebUI.verifyElementVisible(xpath("//h5[text()='Cancelled Offers']"))
 		WebUI.verifyElementVisible(xpath("//h5[text()='Cancelled Offers']/following::i[text()='$contentCancelledOffersPage']"))
@@ -84,7 +84,7 @@ public class CancelledOffersPageOfBuyer extends BasePage<CancelledOffersPageOfBu
 		WebUI.verifyElementVisible(xpath("//ul[contains(@class,'ant-table-pagination')]"))
 		return this
 	}
-	
+
 	public List<String> getDataRow(String rowNumber) {
 		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
 		String projectName = WebUI.getText(xpath(row(rowNumber) + "td[2]//a"))

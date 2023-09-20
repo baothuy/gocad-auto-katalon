@@ -15,11 +15,11 @@ public class SentOffersPage extends BasePage<SentOffersPage>{
 	def orderNumberCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[4]")}
 	def orderDateCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[5]")}
 	def netTotalCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[6]")}
-	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//span[2]")}
+	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//span[normalize-space(text()) != '']")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]/a")}
 	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]/"}
 	def contentPage = "The folder Requested Offers shows all your projects where you have placed an order or requested a quotation. The current status of the project can be seen in the column \"status\"."
- 
+
 
 	public SentOffersPage clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))
@@ -75,7 +75,7 @@ public class SentOffersPage extends BasePage<SentOffersPage>{
 		WebUI.verifyEqual(status, expectedResult)
 		return this
 	}
-	
+
 	public List<String> getDataRow(String rowNumber) {
 		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
 		String projectName = WebUI.getText(xpath(row(rowNumber) + "td[2]//a"))
@@ -87,7 +87,7 @@ public class SentOffersPage extends BasePage<SentOffersPage>{
 		List<String> dataRow = [id, projectName, companyName, orderNumber, orderDate, NETTotal, status]
 		return dataRow
 	}
-	
+
 	public SentOffersPage verifyUIVisible() {
 		WebUI.verifyElementVisible(xpath("//h5[text()='Sent offers']"))
 		WebUI.verifyElementVisible(xpath("//h5[text()='Sent offers']/following::i[text()='$contentPage']"))

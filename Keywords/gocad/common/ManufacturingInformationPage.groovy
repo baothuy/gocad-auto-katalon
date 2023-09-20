@@ -59,13 +59,23 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage clickProvideOwnMaterialCB() {
-		WebUI.click(xpath('//span[text()="Provide own material (From customer)"]'))
+	public ManufacturingInformationPage clickProvideOwnMaterialCB(String value) {
+		String contentClass = WebUI.getAttribute(xpath("//input[@id='materialProvided']/parent::span"), "class")
+		String isChecked = contentClass.contains("checked")
+		boolean isYes = value.equals("true")
+		if(Boolean.parseBoolean(isChecked) != isYes) {
+			WebUI.click(xpath('//span[text()="Provide own material (From customer)"]'))
+		}
 		return this
 	}
 
 	public ManufacturingInformationPage inputQuantity(String number) {
 		clearTextAndSendKeysByActions(xpath('//*[@id="quantity"]'), number)
+		return this
+	}
+	
+	public ManufacturingInformationPage inputThread(String number) {
+		clearTextAndSendKeysByActions(xpath('//*[@id="numberOfThreads"]'), number)
 		return this
 	}
 
@@ -83,11 +93,16 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage uploadFilePDFTesting(String fileName) {
-		WebUI.waitForElementVisible(xpath("//span[@aria-label='delete']/parent::button"), 10)
-		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"
-		WebUI.uploadFile(xpath("//span[@class='ant-upload']/input"), path)
-		waitForElementDisplay(xpath("//label[@title='Thread (Quantity)']/parent::div/following-sibling::div//div[@class='b-robot']/div/*[@class='check']"))
+	public ManufacturingInformationPage uploadFilePDFTesting(String workshop, String fileName) {
+		WebUI.waitForElementClickable(xpath("//span[text()='Calculate']/parent::button"), 15)
+		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"		
+		if (workshop == "Milled / Turned Parts" & fileName != "") {
+			WebUI.uploadFile(xpath("//span[@class='ant-upload']/input"), path)
+			waitForElementDisplay(xpath("//label[@title='Thread (Quantity)']/parent::div/following-sibling::div//div[@class='b-robot']/div/*[@class='check']"))
+		}
+		else if (workshop == "Sheet Metal Part" & fileName != "") {
+			WebUI.uploadFile(xpath("//span[@class='ant-upload']/input"), path)
+		}
 		return this
 	}
 
@@ -119,7 +134,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage clickContinueToOfferOverview() {
-		WebUI.click(xpath('//span[text()="Continue to offer overview "]'))
+		WebUI.click(xpath('//span[text()="Continue to offer overview "]/parent::button'))
 		return this
 	}
 
@@ -129,7 +144,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage clickEdit() {
-		WebUI.click(xpath('//span[text()="Edit"]'))
+		WebUI.click(xpath('//span[text()="Edit"]/parent::button'))
 		return this
 	}
 
@@ -138,11 +153,6 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 	//Data upload > Milled / Turned Parts
-	public ManufacturingInformationPage inputThread(String number) {
-		clearTextAndSendKeysByActions(xpath('//*[@id="numberOfThreads"]'), number)
-		return this
-	}
-
 	public ManufacturingInformationPage inputTolerances(String number) {
 		clearTextAndSendKeysByActions(xpath('//*[@id="numberOfFits"]'), number)
 		return this
@@ -165,6 +175,33 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage inputDeliveryDate(String deliveryDate) {
 		WebUI.sendKeys(xpath("//input[@id='deliveryDate']"), deliveryDate + Keys.RETURN)
+		return this
+	}
+	
+	//Data upload > Sheet Metal Part
+	public ManufacturingInformationPage inputThickness(String number) {
+		clearTextAndSendKeysByActions(xpath('//*[@id="thickness"]'), number)
+		return this
+	}
+	
+	public ManufacturingInformationPage inputCountersink(String number) {
+		clearTextAndSendKeysByActions(xpath('//*[@id="countersink"]'), number)
+		return this
+	}
+	
+	public ManufacturingInformationPage selectRollingDirection(String name) {
+		WebUI.click(xpath("//*[text()='Rolling Direction']/parent::div/following::div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$name']"))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickDeburringCheckbox(String value) {
+		String contentClass = WebUI.getAttribute(xpath("//input[@id='deburring']/parent::span"), "class")
+		String isChecked = contentClass.contains("checked")
+		boolean isYes = value.equals("true")
+		if(Boolean.parseBoolean(isChecked) != isYes) {
+			WebUI.click(xpath('//span[text()="Deburring"]'))
+		}
 		return this
 	}
 

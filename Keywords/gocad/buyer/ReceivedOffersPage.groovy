@@ -14,7 +14,7 @@ public class ReceivedOffersPage extends BasePage<ReceivedOffersPage>{
 	def deliveryDateCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[5]")}
 	def orderNumberCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[6]")}
 	def grossTotalCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]")}
-	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//span[2]")}
+	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//span[normalize-space(text()) != '']")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[10]/a")}
 	def row = { String row -> return "//thead/following::tr[$row]/"}
 	def contentReceivedOffersPage = " The folder Received Orders shows all projects for which you have received an updated offer. It can include projects for which we had to adapt our offer or quotations for a manual request that you have send us."

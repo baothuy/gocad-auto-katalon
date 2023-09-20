@@ -21,6 +21,12 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
+      <variableId>79ba1a93-4ed3-49f0-afd5-fff81be79dfc</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>746db721-5fca-4b54-b023-22c459eb97fd</variableId>
    </variableLinks>
    <variableLinks>
@@ -96,6 +102,13 @@
       <id>ca02cf0e-7716-4f8a-8931-02773bad2ae4</id>
       <masked>false</masked>
       <name>filePDF</name>
+   </variable>
+   <variable>
+      <defaultValue>'false'</defaultValue>
+      <description></description>
+      <id>79ba1a93-4ed3-49f0-afd5-fff81be79dfc</id>
+      <masked>false</masked>
+      <name>provideOwnProduct</name>
    </variable>
    <variable>
       <defaultValue>'150'</defaultValue>
