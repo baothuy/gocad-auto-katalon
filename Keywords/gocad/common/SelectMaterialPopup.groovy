@@ -10,7 +10,7 @@ public class SelectMaterialPopup extends BasePage<SelectMaterialPopup>{
 	}
 
 	public SelectMaterialPopup inputSearchMaterial(String materialName) {
-		WebUI.sendKeys(xpath("//input[@placeholder='Search material']"), materialName)
+		clearTextAndSendKeysByActions(xpath("//input[@placeholder='Search material']"), materialName)
 		return this
 	}
 

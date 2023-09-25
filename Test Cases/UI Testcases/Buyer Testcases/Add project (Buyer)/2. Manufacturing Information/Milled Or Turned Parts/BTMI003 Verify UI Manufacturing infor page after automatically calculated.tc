@@ -125,7 +125,7 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Eloxieren'</defaultValue>
+      <defaultValue>'Sandblasting'</defaultValue>
       <description></description>
       <id>c1925b82-17d8-4356-a73d-5ad013d0f5ce</id>
       <masked>false</masked>
@@ -181,7 +181,7 @@
       <name>shippingOption</name>
    </variable>
    <variable>
-      <defaultValue>'106,82'</defaultValue>
+      <defaultValue>'158,42'</defaultValue>
       <description></description>
       <id>4117b2f1-9182-4aea-bf15-ca672583953e</id>
       <masked>false</masked>

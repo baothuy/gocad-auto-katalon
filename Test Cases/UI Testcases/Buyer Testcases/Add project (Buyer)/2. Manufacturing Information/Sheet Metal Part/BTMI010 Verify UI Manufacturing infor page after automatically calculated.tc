@@ -101,6 +101,12 @@
       <value></value>
       <variableId>3f868299-9f57-4393-bacd-1eec0b4170bf</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>cb651908-fea5-4ebd-8167-e547e55e481a</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'TH334sa_1.dxf'</defaultValue>
       <description></description>
@@ -212,5 +218,12 @@
       <id>3f868299-9f57-4393-bacd-1eec0b4170bf</id>
       <masked>false</masked>
       <name>shippingOption</name>
+   </variable>
+   <variable>
+      <defaultValue>'45,62'</defaultValue>
+      <description></description>
+      <id>cb651908-fea5-4ebd-8167-e547e55e481a</id>
+      <masked>false</masked>
+      <name>unitPrice</name>
    </variable>
 </TestCaseEntity>

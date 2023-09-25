@@ -10,13 +10,11 @@ import katalon.fw.lib.BasePage
 public class CuttingLayersPopup extends BasePage<CuttingLayersPopup>{
 	
 	public CuttingLayersPopup clickLabelNameLayers(String layerName) {
-		WebUI.click(xpath("//a[text()='All layers']"))
 		WebUI.click(xpath("//span[@class='ant-tree-title']//*[normalize-space(text()) = '$layerName']"))
 		return this
 	}
 	
 	public CuttingLayersPopup clickLabelAllLayers() {
-		WebUI.click(xpath("//a[text()='All layers']"))
 		WebUI.click(xpath("//span[@class='ant-tree-title' and text() = 'All layers']"))
 		return this
 	}
@@ -38,6 +36,16 @@ public class CuttingLayersPopup extends BasePage<CuttingLayersPopup>{
 		if(Boolean.parseBoolean(isChecked) != isYes) {
 			WebUI.click(xpath("//span[@class='ant-tree-title' and text() = 'All layers']/ancestor::span/preceding-sibling::span[1]/span"))
 		}
+		return this
+	}
+	
+	public CuttingLayersPopup clickOKButton() {
+		WebUI.click(xpath("//*[text()='OK']"))
+		return this
+	}
+	
+	public CuttingLayersPopup clickCancelButton() {
+		WebUI.click(xpath("//*[text()='Cancel']"))
 		return this
 	}
 }

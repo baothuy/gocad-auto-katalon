@@ -48,6 +48,8 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 
+println '>> Calculate netPrice value'
+String netPrice = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitPrice,quantityNum)
 if (filePDF == ""){
 	println '>> Verify UI after calculated manually of request'
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFileOnSMP()
@@ -68,6 +70,8 @@ if (filePDF == ""){
 											.verifyDeleteButtonVisible()
 											.verifyCopyButtonVisible()
 											.verifyMoveButtonVisible()
+											.verifyUnitPriceValue(unitPrice)
+											.verifyNetPriceValue(netPrice)
 }
 else {
 	println '>> Verify UI after calculated manually of request'
@@ -90,6 +94,8 @@ else {
 											.verifyDeleteButtonVisible()
 											.verifyCopyButtonVisible()
 											.verifyMoveButtonVisible()
+											.verifyUnitPriceValue(unitPrice)
+											.verifyNetPriceValue(netPrice)
 }
 println '>>  Verify can download succesfully'
 Page.nav(ManufacturingInformationPage).clickPartFileToDownload(partName)

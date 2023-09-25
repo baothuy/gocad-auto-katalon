@@ -1,3 +1,4 @@
+import gocad.buyer.CuttingLayersPopup
 import gocad.buyer.DraftPage
 import gocad.buyer.ReviewPage
 import gocad.common.LeftNavBar
@@ -15,38 +16,16 @@ println '>> User buyer signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickViewAction('740')
-//Page.nav(ReviewPage).clickManufacturingInformationProcess()
-//Page.nav(ManufacturingInformationPage).clickEdit()
+Page.nav(DraftPage).clickViewAction('975')
+Page.nav(ReviewPage).clickManufacturingInformationProcess()
+Page.nav(ManufacturingInformationPage).clickEdit()
 
 println '>> Verify UI of the page'
-Page.nav(ManufacturingInformationPage).verifyProcessAddProjectHighLighted()
-										.verifyAddPartButtonVisible()
-										.verifyCalculateButtonVisible()
-										.clickMoreOption()
-										.verifyDeleteButtonVisible()
-										.verifyCopyButtonVisible()
-										.verifyMoveButtonVisible()
-										.verifyAddTechnicalDrawingButtonVisible()
-										.verifyNamePartVisible(partName)
-										.verifyPartImageVisible()
-										.verifyCanPreviewPartFileOnSMP()
-										.clickClosePreviewPartFilePopup()
-										.verifyUnfoldingPreviewVisible(partName)
-										.verifyCanViewUnfoldingPreview(partName)
-										.clickClosePreviewPartFilePopup()
-										.verifyLinkPartVisible(partName)
-										.verifyNameWorkflowVisible('Sheet Metal Part')
-										.verifySelectMaterialVisible()
-										.verifyProvideOwnMaterialCBVisible()
-										.verifyQuantityInputVisible()
-										.verifySurfaceTreatmentSelectVisible()
-										.verifyCuttingLayersVisible(partName)
-										.verifyThreadInputVisible()
-										.verifyThicknessInputVisible(partName)
-										.verifyCountersinkInputVisible()
-										.verifyRollingDirectionSelectVisible()
-										.verifyDeburringCheckboxVisible()
-										.verifyCommentInputVisible()
-										.verifyContinueToOfferOverviewButtonVisible()
+Page.nav(ManufacturingInformationPage).clickSelectLayers()
+
+Page.nav(CuttingLayersPopup).clickLabelAllLayers()
+							//.clickCheckboxAllLayers("false")
+							.clickCheckboxNameLayers("Bemaßung", "false")
+							.sleep(1)
+							.clickOKButton()
 

@@ -24,52 +24,26 @@ println "projectName: $projectName"
 String projectId = Page.nav(DataUploadPage).getIdProject()
 
 println '>>  Upload file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', partName)
+Page.nav(DataUploadPage).uploadFileTesting('Sheet Metal Part', partName)
 
-String material
-if (filePDF == "")
-{
-	println '>> Select material'
-	Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
-	Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
-	material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
-	println "material = $material"
-	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
-	
-	println '>> Input required field'
-	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
-											.inputThread(threadNum)
-											.inputTolerances(tolerancesNum)
-											.clickToggleTolerances(tolerancesToggle)
-											.selectSurfaceTreatment(surfaceTreatment)
-											.selectSurfaceQuality(quality)
-											.inputComment(comment)
-}
-else
-{
-	Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Milled / Turned Parts', filePDF)
-	 String getMaterialName = Page.nav(ManufacturingInformationPage).getMaterialWhenUploadFilePDF()
-	 String getMaterialGroup = Page.nav(ManufacturingInformationPage).getMaterialGroupWhenUploadFilePDF()
-	 
-	 if (getMaterialName == null) {
-		Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
-		Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
-		material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
-		println "material = $material"
-		Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
-	 }
-	 else {
-		Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
-		Page.nav(SelectMaterialPopup).clickMaterialGroup(getMaterialGroup).inputSearchMaterial(getMaterialName)
-		material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(getMaterialName)
-		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
-	 }
-	 
-	 Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
-											 .selectSurfaceTreatment(surfaceTreatment)
-											 .selectSurfaceQuality(quality)
-											 .inputComment(comment)
-}
+println '>> Select material'
+Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
+Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
+String material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
+println "material = $material"
+Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
+
+println '>> Input required field'
+Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', filePDF)
+										.clickProvideOwnMaterialCB(provideOwnProduct)
+										.inputThickness(partName, thicknessNum)
+										.inputQuantity(quantityNum)
+										.selectSurfaceTreatment(surfaceTreatment)
+										.selectRollingDirection(rollingDirection)
+										.clickDeburringCheckbox(deburring)
+										.inputCountersink(countersinkNum)
+										.inputThread(threadNum)
+										.inputComment(comment)
 
 println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()

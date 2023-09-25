@@ -81,18 +81,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 	
-	public ManufacturingInformationPage selectNameLayers(String layerName) {
-		WebUI.click(xpath("//a[text()='All layers']"))
-		WebUI.click(xpath("//span[@class='ant-tree-title']//*[normalize-space(text()) = '$layerName']"))
+	public ManufacturingInformationPage clickSelectLayers() {
+		WebUI.click(xpath("//div[@class='pointer']"))
 		return this
 	}
 	
-	public ManufacturingInformationPage selectAllLayers(String layer) {
-		WebUI.click(xpath("//a[text()='All layers']"))
-		WebUI.click(xpath("//span[@class='ant-tree-title' and text() = 'All layers']"))
-		return this
-	}
-
 	public ManufacturingInformationPage inputCountersink(String number) {
 		clearTextAndSendKeysByActions(xpath('//*[@id="countersink"]'), number)
 		return this
@@ -109,14 +102,18 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage selectSurfaceTreatment(String surfaceTreatment) {
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
 		List<String> surfaceTreatmentObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")
-		println "size:" + surfaceTreatmentObject.size()
 		(surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")) : "Empty"
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
 		return this
 	}
+	
+	public ManufacturingInformationPage RemoveSelectSurfaceTreatment(String surfaceTreatment) {
+		WebUI.click(xpath("//span[contains(@class, 'ant-select-selection-item-content') and text()='$surfaceTreatment']/following::span[@class='ant-select-selection-item-remove']"))
+		return this
+	}
 
 	public ManufacturingInformationPage inputComment(String text) {
-		WebUI.sendKeys(xpath('//*[@id="additionalComments"]'), text)
+		clearTextAndSendKeysByActions(xpath('//*[@id="additionalComments"]'), text)
 		return this
 	}
 
