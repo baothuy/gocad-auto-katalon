@@ -25,7 +25,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	def contentConfirmedOffersAlertManually = "For these parts, your customer has not seen a price and he requested a manual quotation. The reason that for this part no automatic price has been shown to the customer can be e.g. that there are specific tolerances that need to be manually checked. Please check the parts and the automatically calculated price and adpat the price accordingly. You can then send out the offer to your customer by clicking on \"Send offer\"."
 	def contentCancelledOffersAlertManually = "For these parts, your customer has not seen a price and he requested a manual quotation. The reason that for this part no automatic price has been shown to the customer can be e.g. that there are specific tolerances that need to be manually checked. Please check the parts and the automatically calculated price and adpat the price accordingly. You can then send out the offer to your customer by clicking on \"Send offer\"."
 	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
-	
+
 	public DetailOffer clickAcceptAndSendOffer() {
 		WebUI.click(xpath("//span[text()='Accept And Send Offer ']/parent::button"))
 		return this
@@ -347,32 +347,32 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		(findTestObjects.size() == 0) ? WebUI.verifyEqual("true","true") : WebUI.verifyEqual("true","false")
 		return this
 	}
-	
+
 	public DetailOffer verifyViewButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='View']"))
 		return this
 	}
-	
+
 	public DetailOffer verifyCopyButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='Copy']"))
 		return this
 	}
-	
+
 	public DetailOffer verifyDeclineButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='Decline']"))
 		return this
 	}
-	
+
 	public DetailOffer verifyRejectOfferButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='Reject Offer']"))
 		return this
 	}
-	
+
 	public DetailOffer verifyAcceptAndSendOfferButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='Accept And Send Offer ']"))
 		return this
 	}
-	
+
 	public DetailOffer verifyContentAlertManuallyVisible(String pageName) {
 		List<String> findObject = findTestObjects("//*[@class='ant-alert-message']")
 		if(findObject.size() != 0) {
@@ -384,35 +384,35 @@ public class DetailOffer extends BasePage<DetailOffer>{
 				case "Requested Offers":
 					WebUI.verifyEqual(messageAlert, contentRequestedOffersAlertManually)
 					WebUI.verifyEqual(actualStatus, "Request for quotation")
-				break;
-				
+					break;
+
 				case "Received Offers":
 					WebUI.verifyEqual(messageAlert, contentReceivedOffersAlertManually)
 					WebUI.verifyEqual(actualStatus, "Offer adapted")
-				break;
-				
+					break;
+
 				case "Open Inquiries":
 					WebUI.verifyEqual(messageAlert, contentOpenInquiriesAlertManually)
 					WebUI.verifyEqual(actualStatus, "Request for quotation")
-				break;
-				
+					break;
+
 				case "Sent Offers":
 					WebUI.verifyEqual(messageAlert, contentSentOffersAlertManually)
 					WebUI.verifyEqual(actualStatus, "Offer adapted")
-				break;
-				
+					break;
+
 				case "Confirmed Offers":
 					WebUI.verifyEqual(messageAlert, contentConfirmedOffersAlertManually)
 					WebUI.verifyEqual(actualStatus, "Order confirmed")
-				break;
-				
+					break;
+
 				case "Cancelled Offers":
 					WebUI.verifyEqual(messageAlert, contentCancelledOffersAlertManually)
 					WebUI.verifyEqual(actualStatus, "Offer rejected")
-				break;
-			break;
+					break;
+					break;
 			}
-			
+
 		}
 		return this
 	}

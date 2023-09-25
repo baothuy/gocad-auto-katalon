@@ -114,14 +114,14 @@
       <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'rectangle-panel.dxf'</defaultValue>
+      <defaultValue>'file_stp.stp'</defaultValue>
       <description></description>
       <id>78717f81-35f4-4a03-bf31-6b51807c5f2e</id>
       <masked>false</masked>
       <name>partName</name>
    </variable>
    <variable>
-      <defaultValue>'goCAD_milling v4.pdf'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>c1e5fcc0-d227-4a0e-9f7d-9cb640415ca0</id>
       <masked>false</masked>

@@ -119,7 +119,7 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Eloxieren'</defaultValue>
+      <defaultValue>'Sandblasting'</defaultValue>
       <description></description>
       <id>18e40dcd-ff79-4d78-aff3-c39d7494b892</id>
       <masked>false</masked>

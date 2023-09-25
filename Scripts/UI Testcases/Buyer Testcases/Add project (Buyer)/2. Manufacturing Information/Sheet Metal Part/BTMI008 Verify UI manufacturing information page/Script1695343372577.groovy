@@ -1,23 +1,28 @@
 import gocad.buyer.DraftPage
-import gocad.buyer.ReviewPage
+import gocad.common.AddProjectPopup
+import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import katalon.fw.lib.Page
+import katalon.utility.CommonUtility
 
-
-
-println '>> FPA002 Verify seller accept offers successfully when project larger than Threshold'
-println '>> Random project name'
-//def projectName = CommonUtility.generateRandomProjectName(10)
-//
-println '>> User buyer signs in to administration page'
+println '>>  User buyer signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
-Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickViewAction('740')
-//Page.nav(ReviewPage).clickManufacturingInformationProcess()
-//Page.nav(ManufacturingInformationPage).clickEdit()
+println '>>  User buyer add project'
+Page.nav(LeftNavBar).clickAddProject()
+
+println '>>  Random project name'
+def projectName = CommonUtility.generateRandomProjectName(10)
+
+println '>>  Open add project popup and input project name'
+Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+String projectId = Page.nav(DataUploadPage).getIdProject()
+println "projectId: $projectId"
+
+println '>>  Upload file part on Data upload page'
+Page.nav(DataUploadPage).uploadFileTesting('Sheet Metal Part', partName)
 
 println '>> Verify UI of the page'
 Page.nav(ManufacturingInformationPage).verifyProcessAddProjectHighLighted()
@@ -49,4 +54,9 @@ Page.nav(ManufacturingInformationPage).verifyProcessAddProjectHighLighted()
 										.verifyDeburringCheckboxVisible()
 										.verifyCommentInputVisible()
 										.verifyContinueToOfferOverviewButtonVisible()
-
+										
+println '>>  Clear data'
+Page.nav(LeftNavBar).clickDraft()
+Page.nav(DraftPage).clickArchiveAction(projectId)
+					.clickCloseToastMessage()
+										

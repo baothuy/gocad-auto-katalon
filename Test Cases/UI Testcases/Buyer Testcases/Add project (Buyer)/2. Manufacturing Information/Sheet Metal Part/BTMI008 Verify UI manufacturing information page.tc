@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTMI008 Verify UI manufacturing information page</name>
+   <tag>functional-test,manufacturing-information,ui</tag>
+   <comment></comment>
+   <testCaseGuid>4e0a71ea-b033-411d-a19b-809a93a9de91</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>5a283b4f-5a78-45ec-a659-300f46ca49db</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'TH334sa_1.dxf'</defaultValue>
+      <description></description>
+      <id>5a283b4f-5a78-45ec-a659-300f46ca49db</id>
+      <masked>false</masked>
+      <name>partName</name>
+   </variable>
+</TestCaseEntity>

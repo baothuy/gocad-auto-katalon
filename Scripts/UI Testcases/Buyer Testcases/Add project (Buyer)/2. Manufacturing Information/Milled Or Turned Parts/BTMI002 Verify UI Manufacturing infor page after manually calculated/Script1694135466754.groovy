@@ -87,9 +87,9 @@ if (filePDF == ""){
 											.verifySurfaceTreatmentValue(surfaceTreatment)
 											.verifySurfaceQualityValue(quality)
 											.verifyAdditionalCommentsValue(comment)
-											.verifyDeleteButtonVisible()
 											.verifyEditButtonVisible()
 											.clickMoreOption()
+											.verifyDeleteButtonVisible()
 											.verifyCopyButtonVisible()
 											.verifyMoveButtonVisible()
 }
@@ -104,9 +104,9 @@ else {
 											.verifySurfaceTreatmentValue(surfaceTreatment)
 											.verifySurfaceQualityValue(quality)
 											.verifyAdditionalCommentsValue(comment)
-											.verifyDeleteButtonVisible()
 											.verifyEditButtonVisible()
 											.clickMoreOption()
+											.verifyDeleteButtonVisible()
 											.verifyCopyButtonVisible()
 											.verifyMoveButtonVisible()
 }
