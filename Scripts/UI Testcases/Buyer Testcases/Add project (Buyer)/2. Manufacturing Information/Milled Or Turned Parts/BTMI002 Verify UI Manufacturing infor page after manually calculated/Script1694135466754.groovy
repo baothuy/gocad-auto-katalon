@@ -78,7 +78,7 @@ if (filePDF == ""){
 	println '>> Verify UI after calculated manually of request'
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
 											.clickClosePreviewPartFilePopup()
-											.verifyContentAlertManualCalculateVisible()
+											.verifyContentAlertManualCalculateVisible(codeManual)
 											.verifyMaterialValue(material)
 											.verifyQuantityValue(quantityNum)
 											.verifyThreadValue(threadNum)
@@ -97,7 +97,7 @@ else {
 	println '>> Verify UI after calculated manually of request'
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
 											.clickClosePreviewPartFilePopup()
-											.verifyContentAlertManualCalculateVisible()
+											.verifyContentAlertManualCalculateVisible(codeManual)
 											.verifyPDFFileVisibleAfterCalculated(partName)
 											.verifyMaterialValue(material)
 											.verifyQuantityValue(quantityNum)

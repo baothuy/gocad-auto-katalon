@@ -1,8 +1,8 @@
 package gocad.common
 
-import java.nio.file.Files
-import java.nio.file.Paths
-import org.openqa.selenium.WebDriver
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+
+import java.text.DecimalFormat
 
 import org.openqa.selenium.Keys
 
@@ -16,6 +16,15 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	List<String> sheetMetalPartFileAllow = [".dxf", ".dwg"]
 	List<String> milledPartFileAllow = [".step", ".stp"]
+	def commonText = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
+	def contentManualSystemError = "${commonText}\nReason: There is a system error. Please contact the administrator. (SELLER E-Mail)"
+	def contentManualAutomaticCalSettingOff = "${commonText}\nReason: The quotation function is currently disabled. You can request a manual quote here."
+	def contentManualCannotCalPart = "${commonText}\nReason: For this part no calculation could be executed. You can request a manual quote here."
+	def contentManualPriceExceedThreshold = "${commonText}\nReason: This part has exceeded the pricing limits for online order. You can request a manual quote here."
+	def contentManualSmallTolerance = "${commonText}\nReason: This tolerance requirement for this part are too high for online ordering. You can request a manual quote here."	
+	def contentManualCannotManufacturePart = "${commonText}\nReason: Not all process steps to manufacture this part could be identified. You can request a manual quote here."
+	def contentManualCalError = "${commonText}\nReason: A technical error has occured when calculating this part. You can request a manual quote here."
+	
 	public ManufacturingInformationPage clickAddPart() {
 		WebUI.click(xpath('//span[text()=" Add part"]'))
 		return this
@@ -80,12 +89,12 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		clearTextAndSendKeysByActions(xpath('//*[@id="numberOfThreads"]'), number)
 		return this
 	}
-	
+
 	public ManufacturingInformationPage clickSelectLayers() {
 		WebUI.click(xpath("//div[@class='pointer']"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage inputCountersink(String number) {
 		clearTextAndSendKeysByActions(xpath('//*[@id="countersink"]'), number)
 		return this
@@ -93,7 +102,8 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage inputThickness(String partName, String number) {
 		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
-			def isContains = sheetMetalPartFileAllow.contains(sheetMetalPartFileAllow[i])
+			def isContains = partName.contains(sheetMetalPartFileAllow[i])
+			println "isContains: $isContains"
 			if (isContains) clearTextAndSendKeysByActions(xpath('//*[@id="thickness"]'), number)
 		}
 		return this
@@ -106,7 +116,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage RemoveSelectSurfaceTreatment(String surfaceTreatment) {
 		WebUI.click(xpath("//span[contains(@class, 'ant-select-selection-item-content') and text()='$surfaceTreatment']/following::span[@class='ant-select-selection-item-remove']"))
 		return this
@@ -326,9 +336,14 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage verifyCuttingLayersValue(String expectedResult) {
-		String actualResult = WebUI.getText(xpath("//*[text()='Cutting layers']/following-sibling::label")).trim()
-		WebUI.verifyEqual(actualResult, expectedResult)
+	public ManufacturingInformationPage verifyCuttingLayersValue(String partName, String expectedResult) {
+		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
+			def isContains = partName.contains(sheetMetalPartFileAllow[i])
+			if(isContains) {
+				String actualResult = WebUI.getText(xpath("//*[text()='Cutting layers']/following-sibling::label")).trim()
+				WebUI.verifyEqual(actualResult, expectedResult)
+			}
+		}
 		return this
 	}
 
@@ -361,10 +376,24 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public String calculateNetPrice(String unitPrice, String quantity) {
-		def numericValue = unitPrice.replaceAll(/[^\d.,]/, '').replace(',', '.').toDouble()
-		def expectedResult = quantity.toDouble() * numericValue
-		String formattedSum = "${String.format("%.2f", expectedResult)} €"
-		String newExpectedResult = formattedSum.replace('.', ',')
+		String formattedSum
+		String newExpectedResult
+		def decimalFormat = new DecimalFormat("###,##0.00")
+		if(unitPrice.contains("."))
+		{
+			def numericValue = unitPrice.replaceAll(/[^\d.,]/, '').replace('.', '').replace(',', '.').toDouble()
+			println "numericValue contains cham: $numericValue"
+			def expectedResult = quantity.toDouble() * numericValue
+			formattedSum = decimalFormat.format(expectedResult)
+			newExpectedResult = "$formattedSum €"
+		}
+		else {
+			def numericValue = unitPrice.replaceAll(/[^\d.,]/, '').replace(',', '.').toDouble()
+			println "numericValue contains phay: $numericValue"
+			def expectedResult = quantity.toDouble() * numericValue
+			formattedSum = decimalFormat.format(expectedResult).replace('.', ',')
+			newExpectedResult = "$formattedSum €"
+		}
 		return newExpectedResult
 	}
 
@@ -623,11 +652,45 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage verifyContentAlertManualCalculateVisible() {
+	public ManufacturingInformationPage verifyContentAlertManualCalculateVisible(String code) {
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
 		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
-		def expectedResult = "These parts cannot be automatically calculated. All parts that could not automatically be calculated are bundled in this separate list. Please prepare a quote for this request manually and enter it in the text field below \"Unit price\""
-		WebUI.verifyEqual(contentAlertActual, expectedResult)
+		switch (code) {
+			case "SYSTEM_ERROR":
+				def expectedResult = contentManualSystemError  
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+			break;
+			
+			case "AUTOMATIC_CALCULATION_SETTING_OFF":
+				def expectedResult = contentManualAutomaticCalSettingOff 
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+			break;
+			
+			case "CANNOT_CALCULATE_PART":
+				def expectedResult = contentManualCannotCalPart  
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+			break;
+			
+			case "PRICE_EXCEED_THRESHOLD":
+				def expectedResult = contentManualPriceExceedThreshold 
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+			break;
+			
+			case "SMALL_TOLERANCES":
+				def expectedResult = contentManualSmallTolerance
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+			break;
+			
+			case "CANNOT_MANUFACTURE_PART":
+				def expectedResult = contentManualCannotManufacturePart 
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+			break;
+			
+			case "CALCULATION_ERROR":
+				def expectedResult = contentManualCalError 
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+			break;
+		}
 		return this
 	}
 }

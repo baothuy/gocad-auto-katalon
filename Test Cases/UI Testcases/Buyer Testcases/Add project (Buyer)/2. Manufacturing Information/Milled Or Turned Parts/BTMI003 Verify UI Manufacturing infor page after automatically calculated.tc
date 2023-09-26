@@ -5,92 +5,95 @@
    <tag>fast-test,manufacturing-information,ui</tag>
    <comment></comment>
    <testCaseGuid>1c8cfe95-45b1-425e-a562-0b3fe05465d1</testCaseGuid>
+   <testDataLinks>
+      <combinationType>ONE</combinationType>
+      <id>04dacda7-7adf-439f-9611-6f62b477f5c0</id>
+      <iterationEntity>
+         <iterationType>ALL</iterationType>
+         <value></value>
+      </iterationEntity>
+      <testDataId>Data Files/Milled Or Turned Parts/BTMI003</testDataId>
+   </testDataLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>fileName</value>
       <variableId>1dd9e1e8-5025-45b9-93ec-d170f16aef9b</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>filePDF</value>
       <variableId>2c3ec125-0c6e-4ccb-a471-02623cf7f0bf</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>quantityNum</value>
       <variableId>35c0ec59-e361-41c0-85dc-c29ec627d9f3</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>threadNum</value>
       <variableId>74befe32-bc49-48e4-a9e4-956d36040f11</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>tolerancesNum</value>
       <variableId>4d5070f6-95c6-449a-9c2d-1347f35c95c1</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>surfaceTreatment</value>
       <variableId>c1925b82-17d8-4356-a73d-5ad013d0f5ce</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>quality</value>
       <variableId>ab7f6a8d-1fa4-4a4f-8847-83a464ce63a0</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>comment</value>
       <variableId>64015d30-4190-42c6-84ae-ba8e1c966861</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>tolerancesToggle</value>
       <variableId>2abd3043-7712-4726-b467-28eaeb528b24</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>materialGroup</value>
       <variableId>2ced1971-59a6-4048-975c-4c7161dfced7</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>materialName</value>
       <variableId>f0cee842-e2b8-4f14-b6ce-037efe6170e4</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>provideOwnProduct</value>
       <variableId>27d576b3-e2bb-4378-af29-7d77cfcd6a75</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>3bcf595a-78a1-4f55-9b29-63768edeca66</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>unitPrice</value>
       <variableId>4117b2f1-9182-4aea-bf15-ca672583953e</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'auto_Milling.step'</defaultValue>
+      <defaultValue>'step-testing 2.step'</defaultValue>
       <description></description>
       <id>1dd9e1e8-5025-45b9-93ec-d170f16aef9b</id>
       <masked>false</masked>
@@ -174,14 +177,7 @@
       <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>'Standard shipping'</defaultValue>
-      <description></description>
-      <id>3bcf595a-78a1-4f55-9b29-63768edeca66</id>
-      <masked>false</masked>
-      <name>shippingOption</name>
-   </variable>
-   <variable>
-      <defaultValue>'158,42'</defaultValue>
+      <defaultValue>'147,51'</defaultValue>
       <description></description>
       <id>4117b2f1-9182-4aea-bf15-ca672583953e</id>
       <masked>false</masked>

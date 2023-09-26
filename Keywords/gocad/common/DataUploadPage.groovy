@@ -14,6 +14,12 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		return this
 	}
 
+	public DataUploadPage clickNextStepButton() {
+		scrollToAndClick(xpath("//*[@class='file-mapping row']/following-sibling::button"))
+		WebUI.waitForElementPresent(xpath("//*[@for='materialId']"), GlobalVariable.sleepLargeTime)
+		return this
+	}
+
 	public String getIdProject() {
 		WebUI.waitForElementVisible(xpath('//div[text()="Data upload"]'), 5)
 		String url = WebUI.getUrl()
@@ -31,7 +37,6 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"
 		WebUI.uploadFile(xpath("//div[@class='mt-5']//span[@class='ant-upload ant-upload-btn']/input[@type='file']"), path)
 		WebUI.waitForElementPresent(xpath("//*[@for='materialId']"), GlobalVariable.sleepLargeTime)
-		//refreshUntilTextPresent("Quantity", GlobalVariable.sleepLargeTime, GlobalVariable.smallSleepTime)
 		return this
 	}
 
