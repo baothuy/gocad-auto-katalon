@@ -21,12 +21,6 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>022a7870-fae6-4b2b-a8c3-815d2152dfe3</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
       <variableId>8ba539bc-7433-41ed-8653-5b498b6a4535</variableId>
    </variableLinks>
    <variableLinks>
@@ -87,6 +81,12 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
+      <variableId>022a7870-fae6-4b2b-a8c3-815d2152dfe3</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>2172abc3-c1b9-4a3e-b8e0-17db99483bc8</variableId>
    </variableLinks>
    <variableLinks>
@@ -114,13 +114,6 @@
       <id>c309959f-9012-4d31-b438-d72da8f55a0a</id>
       <masked>false</masked>
       <name>filePDF</name>
-   </variable>
-   <variable>
-      <defaultValue>'false'</defaultValue>
-      <description></description>
-      <id>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</id>
-      <masked>false</masked>
-      <name>provideOwnProduct</name>
    </variable>
    <variable>
       <defaultValue>'2'</defaultValue>
@@ -191,6 +184,13 @@
       <id>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</id>
       <masked>false</masked>
       <name>materialName</name>
+   </variable>
+   <variable>
+      <defaultValue>'false'</defaultValue>
+      <description></description>
+      <id>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</id>
+      <masked>false</masked>
+      <name>provideOwnProduct</name>
    </variable>
    <variable>
       <defaultValue>'STANDARD'</defaultValue>

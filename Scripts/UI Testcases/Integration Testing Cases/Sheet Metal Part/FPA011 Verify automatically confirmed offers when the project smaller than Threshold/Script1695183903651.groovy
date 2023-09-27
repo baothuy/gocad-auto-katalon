@@ -63,6 +63,7 @@ Page.nav(ReviewPage).clickCheckout()
 println '>> Select information on checkout page'
 Page.nav(CheckoutPage).selectDeliveryOption(deliveryOption)
 					  .selectShippingOption(shippingOption)
+					  .inputPackagingAndShippingComments(packagingAndShippingComments)
 
 println '>> Get information Checkout page'
 String orderNumber = "GOCAD" + projectId

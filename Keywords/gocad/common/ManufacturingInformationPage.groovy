@@ -21,10 +21,10 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	def contentManualAutomaticCalSettingOff = "${commonText}\nReason: The quotation function is currently disabled. You can request a manual quote here."
 	def contentManualCannotCalPart = "${commonText}\nReason: For this part no calculation could be executed. You can request a manual quote here."
 	def contentManualPriceExceedThreshold = "${commonText}\nReason: This part has exceeded the pricing limits for online order. You can request a manual quote here."
-	def contentManualSmallTolerance = "${commonText}\nReason: This tolerance requirement for this part are too high for online ordering. You can request a manual quote here."	
+	def contentManualSmallTolerance = "${commonText}\nReason: This tolerance requirement for this part are too high for online ordering. You can request a manual quote here."
 	def contentManualCannotManufacturePart = "${commonText}\nReason: Not all process steps to manufacture this part could be identified. You can request a manual quote here."
 	def contentManualCalError = "${commonText}\nReason: A technical error has occured when calculating this part. You can request a manual quote here."
-	
+
 	public ManufacturingInformationPage clickAddPart() {
 		WebUI.click(xpath('//span[text()=" Add part"]'))
 		return this
@@ -657,39 +657,39 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
 		switch (code) {
 			case "SYSTEM_ERROR":
-				def expectedResult = contentManualSystemError  
+				def expectedResult = contentManualSystemError
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
-			break;
-			
+				break;
+
 			case "AUTOMATIC_CALCULATION_SETTING_OFF":
-				def expectedResult = contentManualAutomaticCalSettingOff 
+				def expectedResult = contentManualAutomaticCalSettingOff
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
-			break;
-			
+				break;
+
 			case "CANNOT_CALCULATE_PART":
-				def expectedResult = contentManualCannotCalPart  
+				def expectedResult = contentManualCannotCalPart
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
-			break;
-			
+				break;
+
 			case "PRICE_EXCEED_THRESHOLD":
-				def expectedResult = contentManualPriceExceedThreshold 
+				def expectedResult = contentManualPriceExceedThreshold
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
-			break;
-			
+				break;
+
 			case "SMALL_TOLERANCES":
 				def expectedResult = contentManualSmallTolerance
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
-			break;
-			
+				break;
+
 			case "CANNOT_MANUFACTURE_PART":
-				def expectedResult = contentManualCannotManufacturePart 
+				def expectedResult = contentManualCannotManufacturePart
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
-			break;
-			
+				break;
+
 			case "CALCULATION_ERROR":
-				def expectedResult = contentManualCalError 
+				def expectedResult = contentManualCalError
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
-			break;
+				break;
 		}
 		return this
 	}

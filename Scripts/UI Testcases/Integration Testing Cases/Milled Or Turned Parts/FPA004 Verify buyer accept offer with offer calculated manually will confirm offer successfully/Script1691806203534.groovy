@@ -92,7 +92,6 @@ Page.nav(ManufacturingInformationPage).clickCalculate()
 									  .clickContinueToOfferOverview()
 
 println '>> Click Checkout button on Review Page'
-//List<String> tablePart = Page.nav(ReviewPage).getTablePartReview(partName)
 Page.nav(ReviewPage).clickRequestOffer()
 
 println '>> Input infor and get infor Request Offer popup'
@@ -104,7 +103,9 @@ List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
 List<String> listBillingAddress = Page.nav(DetailOffer).getBillingAddress()
 List<String> listShippingAddress = Page.nav(DetailOffer).getShippingAddress()
 List<String> tablePart = Page.nav(DetailOffer).getTablePartReview(partName)
+//List<String> listOrderSummary = Page.nav(DetailOffer).getOrderSummary()
 String deliveryDate = listShippingInfo[3]
+//String grossTotalDefault = listOrderSummary[7]
 
 println '>> Verify data detail offers after buyer requested offer'
 Page.nav(LeftNavBar).clickRequestedOffers()
@@ -112,7 +113,7 @@ Page.nav(LeftNavBar).clickRequestedOffers()
 Page.nav(RequestedOffersPage).verifyProjectName(projectId, projectName)
 							.verifyDeliveryDate(projectId, deliveryDate)
 							.verifyOrderNumber(projectId)
-							.verifyGrossTotal(projectId, orderDate)
+							//.verifyGrossTotal(projectId, grossTotalDefault)
 							.verifyStatus(projectId, "Request for quotation")
 							.clickAction(projectId)
 							

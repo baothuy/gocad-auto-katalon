@@ -57,6 +57,7 @@ if (filePDF == "")
 											.selectSurfaceTreatment(surfaceTreatment)
 											.selectSurfaceQuality(quality)
 											.inputComment(comment)
+											.inputDeliveryDate(deliveryDate)
 }
 else
 {
@@ -83,6 +84,7 @@ else
 											 .selectSurfaceTreatment(surfaceTreatment)
 											 .selectSurfaceQuality(quality)
 											 .inputComment(comment)
+											 .inputDeliveryDate(deliveryDate)
 }
 
 println '>> click Calculate and move to Review page'
