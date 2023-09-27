@@ -5,106 +5,121 @@
    <tag>integration-test,ui</tag>
    <comment></comment>
    <testCaseGuid>7a081e97-c7fd-48ae-9434-523802fed07f</testCaseGuid>
+   <testDataLinks>
+      <combinationType>ONE</combinationType>
+      <id>fec414d5-8b6a-42d2-999d-c233c2b0894d</id>
+      <iterationEntity>
+         <iterationType>ALL</iterationType>
+         <value></value>
+      </iterationEntity>
+      <testDataId>Data Files/Sheet Metal Part/FPA014-016-020</testDataId>
+   </testDataLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>b2041ed9-a31e-492f-beff-19e8567e0f03</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>fileName</value>
+      <variableId>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>c220e968-76e5-4d83-a838-aff905f586e8</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>filePDF</value>
+      <variableId>c309959f-9012-4d31-b438-d72da8f55a0a</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>46b99686-7283-4622-970a-0cdb3784e11b</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>thicknessNum</value>
+      <variableId>297f10f3-6561-45ef-9b65-b342b95a5f1f</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>5e9aeab1-38fa-4b41-95be-854a8edc41d2</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>quantityNum</value>
+      <variableId>5a487b1a-2dc0-4f54-857d-66e74db09fc5</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>172eff3d-7d1d-421b-b05d-d4d7b0d85ce2</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>surfaceTreatment</value>
+      <variableId>2ca5335a-6b22-4a08-b341-d96e3c83dc9f</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>65d160d6-cb26-4ad3-b57c-608568f03634</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>rollingDirection</value>
+      <variableId>31523c65-a1ea-4be3-9e54-6b1b8674262f</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>6f4b2f18-2f9b-4ae8-840b-dd4b95253885</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>cuttingLayers</value>
+      <variableId>274a8926-a5a3-498d-ac90-ad8df81d4ebf</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>f7f8806a-d672-4e3d-8516-eef3a65fdb96</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>deburring</value>
+      <variableId>92334211-dd7b-4ff4-9017-d7aefabddc39</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>313a2c13-024a-439e-aad3-dffab6055892</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>countersinkNum</value>
+      <variableId>d9ceecd4-f896-4810-9104-43692df248d9</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>5700ca79-ddcf-4f09-88e3-38cbba61ccba</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>threadNum</value>
+      <variableId>d93a4a62-ecad-4141-8c7e-5e81629d891a</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>a0b7f417-a4c5-4cc6-ad59-017aa2575f92</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>comment</value>
+      <variableId>ba29974b-35b4-4f08-a539-615dda58fcf3</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>71b18d2a-fcc3-41bd-a3d4-8852aede6240</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>materialGroup</value>
+      <variableId>499794cd-e3be-4af0-9b39-46d8d0895543</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>a4762679-de57-4aa7-b179-64373a0a1f3f</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>materialName</value>
+      <variableId>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>e5c4883d-9884-4280-b555-a38c6affe5c6</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>provideOwnProduct</value>
+      <variableId>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>a1704931-2edd-45e8-9769-0c182cdce46f</variableId>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>deliveryOption</value>
+      <variableId>68a51f21-edfb-40a8-a2f2-add18c5239b5</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>shippingOption</value>
+      <variableId>3f868299-9f57-4393-bacd-1eec0b4170bf</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>unitPriceChanged</value>
       <variableId>6bd6ae5d-c1da-4520-807a-b1dfbb233f84</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>fec414d5-8b6a-42d2-999d-c233c2b0894d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>packagingAndShippingComments</value>
       <variableId>02c585db-df4a-4d57-a6c1-ccd288e007d0</variableId>
    </variableLinks>
    <variable>
@@ -148,6 +163,13 @@
       <id>31523c65-a1ea-4be3-9e54-6b1b8674262f</id>
       <masked>false</masked>
       <name>rollingDirection</name>
+   </variable>
+   <variable>
+      <defaultValue>'All layers'</defaultValue>
+      <description></description>
+      <id>274a8926-a5a3-498d-ac90-ad8df81d4ebf</id>
+      <masked>false</masked>
+      <name>cuttingLayers</name>
    </variable>
    <variable>
       <defaultValue>'true'</defaultValue>
