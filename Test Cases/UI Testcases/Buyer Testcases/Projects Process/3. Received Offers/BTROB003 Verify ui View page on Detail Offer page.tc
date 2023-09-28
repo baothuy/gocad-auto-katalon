@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTROB003 Verify ui View page on Detail Offer page</name>
+   <tag>functional-test,detail-offer,ui</tag>
+   <comment></comment>
+   <testCaseGuid>e655994e-daea-4d79-abaf-ddb3702884b9</testCaseGuid>
+</TestCaseEntity>

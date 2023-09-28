@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STAP004 Verify can add more than one part to upload file</name>
+   <tag>functional-test,data-upload,ui</tag>
+   <comment></comment>
+   <testCaseGuid>6c1cf8b6-ab1c-4db0-9b79-2fc3dc5f4304</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ad5e1dbb-8e15-4607-9865-e72010182ec5</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>48d84dbe-4fe0-45c6-8073-03d1ab55d742</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>b22d9675-066a-490c-ac15-550557954166</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'auto_Milling.step'</defaultValue>
+      <description></description>
+      <id>ad5e1dbb-8e15-4607-9865-e72010182ec5</id>
+      <masked>false</masked>
+      <name>fileName1</name>
+   </variable>
+   <variable>
+      <defaultValue>'!@#$%^&amp;()_+{}[];\',.~`.step'</defaultValue>
+      <description></description>
+      <id>48d84dbe-4fe0-45c6-8073-03d1ab55d742</id>
+      <masked>false</masked>
+      <name>fileName2</name>
+   </variable>
+   <variable>
+      <defaultValue>'Milled / Turned Parts'</defaultValue>
+      <description></description>
+      <id>b22d9675-066a-490c-ac15-550557954166</id>
+      <masked>false</masked>
+      <name>workflow</name>
+   </variable>
+</TestCaseEntity>

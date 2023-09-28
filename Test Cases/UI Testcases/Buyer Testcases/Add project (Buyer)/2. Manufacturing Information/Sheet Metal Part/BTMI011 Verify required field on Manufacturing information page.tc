@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTMI011 Verify required field on Manufacturing information page</name>
+   <tag>functional-test,manufacturing-information,ui</tag>
+   <comment></comment>
+   <testCaseGuid>9c967c38-38a3-4092-9b10-624819dc29f6</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>601c8187-c673-4d58-9d2b-7bfae88a8b7e</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'TH334sa_1.dxf'</defaultValue>
+      <description></description>
+      <id>601c8187-c673-4d58-9d2b-7bfae88a8b7e</id>
+      <masked>false</masked>
+      <name>partName</name>
+   </variable>
+</TestCaseEntity>

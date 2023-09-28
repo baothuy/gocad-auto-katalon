@@ -30,6 +30,11 @@ public class BasePage <T> extends BaseElement {
 		return driver;
 	}
 
+	protected T quitDriver() {
+		driver.quit();
+		return this;
+	}
+
 	protected T resetDriver() {
 		driver = DriverFactory.getWebDriver()
 	}
@@ -109,7 +114,7 @@ public class BasePage <T> extends BaseElement {
 		resetDriver()
 		WebElement el = driver.findElement(getSeleniumByFrom(to))
 		new Actions(driver)
-				.click(el)
+				.doubleClick(el)
 				.sendKeys(Keys.END)
 				.keyDown(Keys.SHIFT)
 				.sendKeys(Keys.HOME)
@@ -175,6 +180,7 @@ public class BasePage <T> extends BaseElement {
 	}
 
 	protected List<TestObject> findTestObjects(String locator){
+		resetDriver()
 		List<WebElement> els = driver.findElements(By.xpath(locator))
 		List<TestObject> listTO = new ArrayList<>();
 		for (WebElement element: els) {

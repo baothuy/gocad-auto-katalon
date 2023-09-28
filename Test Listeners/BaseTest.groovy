@@ -7,6 +7,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import internal.GlobalVariable
 import katalon.fw.db.PostgreSql
+import katalon.fw.lib.BasePage
 import katalon.fw.lib.Page
 import katalon.utility.DateTimeUtility
 
@@ -16,6 +17,7 @@ class BaseTest {
 	 * Executes before every test case starts.
 	 * @param testCaseContext related information of the executed test case.
 	 */
+	
 	boolean checkPass(TestCaseContext testCaseContext) {
 		return testCaseContext.getTestCaseStatus().equalsIgnoreCase("PASSED")
 	}

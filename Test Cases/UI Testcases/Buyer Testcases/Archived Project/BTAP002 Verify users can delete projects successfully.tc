@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTAP002 Verify users can delete projects successfully</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>d8515c14-11f1-4098-8f0d-7bd79a98c5ab</testCaseGuid>
+</TestCaseEntity>

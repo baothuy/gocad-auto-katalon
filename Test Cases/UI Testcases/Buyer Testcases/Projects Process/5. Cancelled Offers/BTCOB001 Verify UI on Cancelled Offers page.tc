@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCOB001 Verify UI on Cancelled Offers page</name>
+   <tag>functional-test,draft,ui</tag>
+   <comment></comment>
+   <testCaseGuid>2c23743e-d46a-43d3-839c-9ced10dc8645</testCaseGuid>
+</TestCaseEntity>

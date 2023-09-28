@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTUF001 Verify ui data upload page</name>
+   <tag>fast-test,data-upload,ui</tag>
+   <comment></comment>
+   <testCaseGuid>2839170a-36ac-4e2f-b4b1-ca15077d4d40</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ab0963b7-b0c9-4134-8535-3b07ed64ad95</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'auto_Milling.step'</defaultValue>
+      <description></description>
+      <id>ab0963b7-b0c9-4134-8535-3b07ed64ad95</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

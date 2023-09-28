@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTAS002 Verify required field when input empty</name>
+   <tag>functional-test,account-settings,ui</tag>
+   <comment></comment>
+   <testCaseGuid>529bceee-3f86-430e-bed5-a58d748fba7a</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>832b8131-4fcd-4a55-a528-ad177a0e64db</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>832b8131-4fcd-4a55-a528-ad177a0e64db</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>85ca780a-4d59-4ba1-92d8-5bb7f1ae2ad8</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>85ca780a-4d59-4ba1-92d8-5bb7f1ae2ad8</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>85ca780a-4d59-4ba1-92d8-5bb7f1ae2ad8</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>85ca780a-4d59-4ba1-92d8-5bb7f1ae2ad8</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>['Bao', 'Thuy', 'Male', 'Thuy Com', '0784060607', '123456789']</defaultValue>
+      <description></description>
+      <id>8428bb3b-bc7f-4bfe-9213-6be3a5058acc</id>
+      <masked>false</masked>
+      <name>contact</name>
+   </variable>
+   <variable>
+      <defaultValue>['BaoBao', 'ThuyThuy', 'Female', 'Thuy ComThuy Com', '6060604870', '987654321']</defaultValue>
+      <description></description>
+      <id>832b8131-4fcd-4a55-a528-ad177a0e64db</id>
+      <masked>false</masked>
+      <name>contactChanged</name>
+   </variable>
+   <variable>
+      <defaultValue>['Thuy', 'Truong', '0794050505', '359', 'Baden-Wuerttemberg', '73405', 'Andorra']</defaultValue>
+      <description></description>
+      <id>a0f6c4eb-eff1-4ec3-8065-fc8c82dc7809</id>
+      <masked>false</masked>
+      <name>billingAddress</name>
+   </variable>
+   <variable>
+      <defaultValue>['ThuyThuy', 'TruongTruong', '07940505050794050505', '359359', 'Bremen', '7340573', 'AndorraAndorra']</defaultValue>
+      <description></description>
+      <id>dd78951a-4e6f-41e3-815c-7e849874bba6</id>
+      <masked>false</masked>
+      <name>billingAddressChanged</name>
+   </variable>
+   <variable>
+      <defaultValue>['Thuy1', 'Truong2', '07940505055', '3594', 'Bayern', '734056', 'Andorra7']</defaultValue>
+      <description></description>
+      <id>75e91af6-3a5d-4f22-8098-33a1ecd74e1f</id>
+      <masked>false</masked>
+      <name>shippingAddress</name>
+   </variable>
+   <variable>
+      <defaultValue>['Thuy11', 'Truong22', '07940505044', '35933', 'Hamburg', '7340555', 'Andorra66']</defaultValue>
+      <description></description>
+      <id>85ca780a-4d59-4ba1-92d8-5bb7f1ae2ad8</id>
+      <masked>false</masked>
+      <name>shippingAddressChanged</name>
+   </variable>
+</TestCaseEntity>

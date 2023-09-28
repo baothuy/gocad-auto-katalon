@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTRO003 Verify ui Copy page on Detail Offer page</name>
+   <tag>functional-test,detail-offer,ui</tag>
+   <comment></comment>
+   <testCaseGuid>740745c0-fe05-4914-9cb6-89102dbc225d</testCaseGuid>
+</TestCaseEntity>

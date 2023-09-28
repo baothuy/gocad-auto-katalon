@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTROB001 Verify UI on Received Offers page</name>
+   <tag>functional-test,draft,ui</tag>
+   <comment></comment>
+   <testCaseGuid>c8b669d2-0284-465a-a18f-45960ea669a9</testCaseGuid>
+</TestCaseEntity>

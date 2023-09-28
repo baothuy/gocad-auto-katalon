@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STCOB001 Verify UI on Cancelled Offers page</name>
+   <tag>functional-test,draft,ui</tag>
+   <comment></comment>
+   <testCaseGuid>2974808a-25dd-4095-9219-f13d216b76be</testCaseGuid>
+</TestCaseEntity>

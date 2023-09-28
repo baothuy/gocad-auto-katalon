@@ -6,6 +6,11 @@
    <defaultProfile>true</defaultProfile>
    <GlobalVariableEntity>
       <description></description>
+      <initValue>40</initValue>
+      <name>sleepLargeTime</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
       <initValue>15</initValue>
       <name>sleepSomeTime</name>
    </GlobalVariableEntity>
@@ -76,12 +81,12 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'truongbaothuy93@gmail.com'</initValue>
+      <initValue>'buyer@gocad.de'</initValue>
       <name>buyer_mail</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'KzXoJXJYxul3D9DRe4bCdA=='</initValue>
+      <initValue>'tyi43StKpxo='</initValue>
       <name>buyer_pass</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -98,5 +103,10 @@
       <description></description>
       <initValue>''</initValue>
       <name>encodedToken</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Auto Generate Prj'</initValue>
+      <name>prefixName</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

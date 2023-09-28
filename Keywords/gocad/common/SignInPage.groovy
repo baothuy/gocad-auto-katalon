@@ -36,12 +36,12 @@ public class MySignInPage extends BasePage<MySignInPage> {
 	}
 
 	public MySignInPage inputEmail (String email) {
-		WebUI.sendKeys(id('basic_username'), email)
+		clearTextAndSendKeysByActions(id('basic_username'), email)
 		return this
 	}
 
 	public MySignInPage inputPassword (String password) {
-		WebUI.sendKeys(id('basic_password'), password)
+		clearTextAndSendKeysByActions(id('basic_password'), password)
 		return this
 	}
 
@@ -50,10 +50,31 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		return this
 	}
 
-	public MySignInPage verifyAfterInputWrongAccount () {
+	public MySignInPage verifyAfterInputAccount () {
 		WebUI.delay(GlobalVariable.smallSleepTime)
 		String message = WebUI.getText(xpath('//div[@class="alert alert-danger alert-dismissible fade show"]'))
-		WebUI.verifyEqual(message, 'Invalid email or password. Please try again.')
+		String inputExpected = "Invalid email or password. Please try again."
+		WebUI.verifyEqual(message, inputExpected)
+		return this
+	}
+	
+	public MySignInPage verifyShowErrorWhenInputField () {
+		List<String> findObjectEmail = findTestObjects("//*[@id='basic_username_help']/div")
+		List<String> findObjectPassword = findTestObjects("//*[@id='basic_password_help']/div")
+		if (findObjectEmail.size() != 0) {
+			String messageEmail = WebUI.getText(xpath("//*[@id='basic_username_help']/div"))
+			WebUI.verifyEqual(messageEmail, "Email is required.")
+		}
+		else if (findObjectPassword.size() != 0) {
+			String messagePass = WebUI.getText(xpath("//*[@id='basic_password_help']/div"))
+			WebUI.verifyEqual(messagePass, "Password is required.")
+		}
+		return this
+	}
+	
+	public MySignInPage verifyShowErrorWhenInputPassword (String inputExpected) {
+		String message = WebUI.getText(xpath('//*[@id="basic_password_help"]/div'))
+		WebUI.verifyEqual(message, inputExpected)
 		return this
 	}
 
@@ -71,6 +92,27 @@ public class MySignInPage extends BasePage<MySignInPage> {
 
 	public MySignInPage changeLanguage () {
 		WebUI.click(xpath("//button[@class='btn']"))
+		return this
+	}
+
+	public MySignInPage clickRegistrationTab () {
+		WebUI.click(xpath("//*[text()='Registration']"))
+		return this
+	}
+	
+	public MySignInPage verifyUIVisible () {
+		//change language button
+		WebUI.verifyElementVisible(xpath("//button[@class='btn']"))
+		//2 tab login and registration
+		WebUI.verifyElementVisible(xpath("//*[text()='Login']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Registration']"))
+		// 2 field email and password
+		WebUI.verifyElementVisible(id("basic_username"))
+		WebUI.verifyElementVisible(id("basic_password"))
+	    //forgot password link
+		WebUI.verifyElementVisible(xpath("//a[text()='Forgot your password?']"))
+		//sign in button
+		WebUI.verifyElementVisible(byType("submit"))
 		return this
 	}
 }

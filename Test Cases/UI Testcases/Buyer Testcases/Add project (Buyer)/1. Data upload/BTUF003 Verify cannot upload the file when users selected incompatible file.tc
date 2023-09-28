@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTUF003 Verify cannot upload the file when users selected incompatible file</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>128aba78-ad75-4046-b7c4-8aaa3148b161</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d22a2002-dc13-4f26-adc2-49b9e2173fa0</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ed38feed-3aef-49b1-be30-effc77eddbce</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'!@#$%^&amp;()_+{}[];\',.~`.dxf'</defaultValue>
+      <description></description>
+      <id>d22a2002-dc13-4f26-adc2-49b9e2173fa0</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+   <variable>
+      <defaultValue>'Milled / Turned Parts'</defaultValue>
+      <description></description>
+      <id>ed38feed-3aef-49b1-be30-effc77eddbce</id>
+      <masked>false</masked>
+      <name>workflow</name>
+   </variable>
+</TestCaseEntity>

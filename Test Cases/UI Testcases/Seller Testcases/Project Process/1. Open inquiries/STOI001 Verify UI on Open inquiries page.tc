@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STOI001 Verify UI on Open inquiries page</name>
+   <tag>functional-test,draft,ui</tag>
+   <comment></comment>
+   <testCaseGuid>3b514119-a634-4f3d-be93-e86990a7e752</testCaseGuid>
+</TestCaseEntity>

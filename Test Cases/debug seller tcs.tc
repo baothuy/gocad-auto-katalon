@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>debug seller tcs</name>
+   <tag>debug</tag>
+   <comment></comment>
+   <testCaseGuid>3f0969dd-aafb-43f3-9fd5-20663f6915b8</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d6d29550-2b92-4c78-9b13-98d3cead1ff4</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>285b4874-8fc8-4061-b4c4-b0695a6ef6e6</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>fe21634b-eac7-4c09-9ce9-5be8f1d30b19</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'auto_Milling.step'</defaultValue>
+      <description></description>
+      <id>d6d29550-2b92-4c78-9b13-98d3cead1ff4</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+   <variable>
+      <defaultValue>'63'</defaultValue>
+      <description></description>
+      <id>285b4874-8fc8-4061-b4c4-b0695a6ef6e6</id>
+      <masked>false</masked>
+      <name>unitPriceChanged</name>
+   </variable>
+   <variable>
+      <defaultValue>'2023-08-16'</defaultValue>
+      <description></description>
+      <id>fe21634b-eac7-4c09-9ce9-5be8f1d30b19</id>
+      <masked>false</masked>
+      <name>deliveryDate</name>
+   </variable>
+</TestCaseEntity>

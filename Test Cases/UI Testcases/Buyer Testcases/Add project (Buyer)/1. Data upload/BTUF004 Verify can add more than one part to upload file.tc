@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTUF004 Verify can add more than one part to upload file</name>
+   <tag>functional-test,data-upload,ui</tag>
+   <comment></comment>
+   <testCaseGuid>4d97f72d-c7f0-4a54-af6f-4a127849b6e9</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d22a2002-dc13-4f26-adc2-49b9e2173fa0</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d96560db-ce1e-4a48-b913-41f416234bcd</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ed38feed-3aef-49b1-be30-effc77eddbce</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'auto_Milling.step'</defaultValue>
+      <description></description>
+      <id>d22a2002-dc13-4f26-adc2-49b9e2173fa0</id>
+      <masked>false</masked>
+      <name>fileName1</name>
+   </variable>
+   <variable>
+      <defaultValue>'!@#$%^&amp;()_+{}[];\',.~`.step'</defaultValue>
+      <description></description>
+      <id>d96560db-ce1e-4a48-b913-41f416234bcd</id>
+      <masked>false</masked>
+      <name>fileName2</name>
+   </variable>
+   <variable>
+      <defaultValue>'Milled / Turned Parts'</defaultValue>
+      <description></description>
+      <id>ed38feed-3aef-49b1-be30-effc77eddbce</id>
+      <masked>false</masked>
+      <name>workflow</name>
+   </variable>
+</TestCaseEntity>

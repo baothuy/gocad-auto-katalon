@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTS002 Verify search by project name, cad file name, order number are shown corresponding</name>
+   <tag>functional-test,search-in-projects,ui</tag>
+   <comment></comment>
+   <testCaseGuid>1f956a44-cf4e-4062-b7a9-68ac4f8074ee</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>88cd2de7-fc64-4104-8829-7fc039ada7a6</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>293b8b2a-0e4c-49ff-9007-04857bec3179</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e2fe1727-6049-4afb-ada5-79f05f33b2dd</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'Milled / Turned Parts'</defaultValue>
+      <description></description>
+      <id>88cd2de7-fc64-4104-8829-7fc039ada7a6</id>
+      <masked>false</masked>
+      <name>workflow</name>
+   </variable>
+   <variable>
+      <defaultValue>'auto_Milling.step'</defaultValue>
+      <description></description>
+      <id>293b8b2a-0e4c-49ff-9007-04857bec3179</id>
+      <masked>false</masked>
+      <name>partName</name>
+   </variable>
+   <variable>
+      <defaultValue>'Request for quotation'</defaultValue>
+      <description></description>
+      <id>e2fe1727-6049-4afb-ada5-79f05f33b2dd</id>
+      <masked>false</masked>
+      <name>status</name>
+   </variable>
+</TestCaseEntity>
