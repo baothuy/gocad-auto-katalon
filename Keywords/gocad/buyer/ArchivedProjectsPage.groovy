@@ -29,7 +29,7 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 		WebUI.click(xpath("//span[text()='Delete']"))
 		return this
 	}
-	
+
 	public ArchivedProjectsPage clickUnarchiveAction(String projectId) {
 		WebUI.mouseOver(actionMoreCol(projectId))
 		WebUI.click(xpath("//span[text()='Unarchive']"))
@@ -46,7 +46,7 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 		WebUI.click(partsCol(projectId))
 		return this
 	}
-	
+
 	public List<String> getDataRow(String rowNumber) {
 		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
 		String projectName = WebUI.getText(xpath(row(rowNumber) + "td[2]//a"))
@@ -99,12 +99,12 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
 		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
 		def expectedTitle = "Deleted!"
-		def expectedMessage = "The project \'$projectName\' has been deleted."
+		def expectedMessage = "The project has been successfully deleted."
 		WebUI.verifyEqual(actualTitle, expectedTitle)
 		WebUI.verifyEqual(actualMessage, expectedMessage)
 		return this
 	}
-	
+
 	public ArchivedProjectsPage verifyToastMessageWhenUnarchivedProject(String projectName) {
 		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
 		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
