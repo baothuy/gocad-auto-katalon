@@ -9,8 +9,8 @@
       <combinationType>ONE</combinationType>
       <id>38d968eb-1e2b-477c-8165-94c87134eb7c</id>
       <iterationEntity>
-         <iterationType>ALL</iterationType>
-         <value>2-4</value>
+         <iterationType>SPECIFIC</iterationType>
+         <value>4</value>
       </iterationEntity>
       <testDataId>Data Files/Sheet Metal Part/FPA018-019</testDataId>
    </testDataLinks>
