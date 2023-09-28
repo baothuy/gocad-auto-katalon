@@ -129,7 +129,7 @@ println '>> Seller go detail offers of buyer checkout'
 Page.nav(OpenInquiriesPage).verifyProjectName(projectId, projectName)
 						 	.verifyCompanyName(projectId, companyName)
 							.verifyOrderNumber(projectId)
-							//.verifyOrderDate(projectId, orderDate)
+							.verifyOrderDate(projectId, orderDate)
 							.verifyStatus(projectId, "Request for quotation")
 							.clickAction(projectId)
 							
@@ -154,7 +154,7 @@ println '>> Verify information show on list'
 Page.nav(CancelledOffersPageOfSeller).verifyProjectName(projectId, projectName)
 									 .verifyCompanyName(projectId, companyName)
 									 .verifyOrderNumber(projectId)
-									 //.verifyOrderDate(projectId, orderDate)
+									 .verifyOrderDate(projectId, orderDate)
 									 .verifyNetTotal(projectId, netTotal)
 									 .verifyStatus(projectId, "Offer rejected")
 									 .clickAction(projectId)

@@ -163,7 +163,7 @@ Page.nav(ConfirmedOffersPageOfSeller).verifyHighlightOnList(projectId)
 									  .verifyProjectName(projectId, projectName)
 									  .verifyCompanyName(projectId, companyName)
 									  .verifyOrderNumber(projectId)
-									  //.verifyOrderDate(projectId, orderDate)
+									  .verifyOrderDate(projectId, orderDate)
 									  .verifyNetTotal(projectId, netTotal)
 									  .verifyStatus(projectId, "Order confirmed")
  
