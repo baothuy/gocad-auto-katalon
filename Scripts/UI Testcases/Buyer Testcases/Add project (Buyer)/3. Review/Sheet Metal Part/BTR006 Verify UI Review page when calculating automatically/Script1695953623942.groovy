@@ -35,55 +35,29 @@ Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
-println '>> Upload file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', partName)
+println '>>  Upload file part on Data upload page'
+Page.nav(DataUploadPage).uploadFileTesting('Sheet Metal Part', partName)
 
-String material
-if (filePDF == "")
-{
-	println '>> Select material'
-	Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
-	Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
-	material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
-	println "material = $material"
-	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
-	
-	println '>> Input required field'
-	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
-											.inputThread(threadNum)
-											.inputTolerances(tolerancesNum)
-											.clickToggleTolerances(tolerancesToggle)
-											.selectSurfaceTreatment(surfaceTreatment)
-											.selectSurfaceQuality(quality)
-											.inputComment(comment)
-}
-else
-{
-	Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Milled / Turned Parts', filePDF)
-	 String getMaterialName = Page.nav(ManufacturingInformationPage).getMaterialWhenUploadFilePDF()
-	 String getMaterialGroup = Page.nav(ManufacturingInformationPage).getMaterialGroupWhenUploadFilePDF()
-	 
-	 if (getMaterialName == null) {
-		Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
-		Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
-		material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
-		println "material = $material"
-		Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
-	 }
-	 else {
-		Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
-		Page.nav(SelectMaterialPopup).clickMaterialGroup(getMaterialGroup).inputSearchMaterial(getMaterialName)
-		material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(getMaterialName)
-		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
-	 }
-	 
-	 Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
-											 .selectSurfaceTreatment(surfaceTreatment)
-											 .selectSurfaceQuality(quality)
-											 .inputComment(comment)
-}
+println '>> Select material'
+Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
+Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
+String material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
+println "material = $material"
+Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 
-println '>> click Calculate and move to Review page'
+println '>> Input required field'
+Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', filePDF)
+										.clickProvideOwnMaterialCB(provideOwnProduct)
+										.inputThickness(partName, thicknessNum)
+										.inputQuantity(quantityNum)
+										.selectSurfaceTreatment(surfaceTreatment)
+										.selectRollingDirection(rollingDirection)
+										.clickDeburringCheckbox(deburring)
+										.inputCountersink(countersinkNum)
+										.inputThread(threadNum)
+										.inputComment(comment)
+
+println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 String unitPrice = Page.nav(ManufacturingInformationPage).getUnitPriceValue()
 String netPrice = Page.nav(ManufacturingInformationPage).getNetPriceValue()
@@ -99,7 +73,7 @@ Page.nav(ReviewPage).verifyImagePartClickable(partName)
 					.verifyQuantityVisible(partName)
 					.verifyUnitPriceVisible(partName)
 					.verifyTotalPartPriceVisible(partName)
-					.verifyCO2EmissionVisible(partName)
+					.verifyCO2EmissionVisible(partName)					
 					.verifyActionMoreVisible(partName)
 					.clickMoreOption(partName)
 					.verifyActionViewVisible()
@@ -124,12 +98,14 @@ println '>> Verify data on View page show correctly'
 Page.nav(ReviewPage).clickMoreOption(partName)
 					.clickView(partName)
 Page.nav(ViewPartPopup).verifyMaterialValue(material)
-						.verifyQuantityValue(quantityNum)
-						.verifyThreadValue(threadNum)
-						.verifyTolerancesNumberValue(tolerancesNum)
-						.verifyTolerancesToggleValue(tolerancesToggle)
+						.verifyQuantityValue(quantityNum)						
+						.verifyRollingDirectionValue(rollingDirection)
+						.verifyCountersinkValue(countersinkNum)
+						.verifyThicknessValue(partName, thicknessNum)
 						.verifySurfaceTreatmentValue(surfaceTreatment)
-						.verifySurfaceQualityValue(quality)
+						.verifyCuttingLayersValue(cuttingLayers)
+						.verifyDeburringValue(deburring)
+						.verifyThreadCuttingValue(threadNum)
 						.verifyAdditionalCommentsValue(comment)
 						.verifyUnitPriceValue(unitPrice)
 						.verifyNetPriceValue(netPrice)

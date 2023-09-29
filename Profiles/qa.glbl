@@ -114,4 +114,14 @@
       <initValue>'€'</initValue>
       <name>currency</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>['.dxf', '.dwg']</initValue>
+      <name>sheetMetalPartFileAllow</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>['.step', '.stp']</initValue>
+      <name>milledPartFileAllow</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

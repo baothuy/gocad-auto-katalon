@@ -1,19 +1,14 @@
 package gocad.common
 
-import java.nio.file.Files
-import java.nio.file.Paths
-import org.openqa.selenium.WebDriver
-
-import org.openqa.selenium.Keys
-
-import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import internal.GlobalVariable
 import katalon.fw.lib.BasePage
-import katalon.utility.CommonUtility
 
 public class MovePartPopup extends BasePage<MovePartPopup> {
 
+	List<String> sheetMetalPartFileAllow = GlobalVariable.sheetMetalPartFileAllow
+	List<String> milledPartFileAllow = GlobalVariable.milledPartFileAllow
 
 	public MovePartPopup clickImagePart() {
 		WebUI.click(xpath('//img[@class="ant-image-img"]/following-sibling::div/span'))
@@ -40,7 +35,7 @@ public class MovePartPopup extends BasePage<MovePartPopup> {
 		return this
 	}
 
-	public MovePartPopup inputProjectToCopy(String projectName) {
+	public MovePartPopup inputProjectToMove(String projectName) {
 		WebUI.setText(xpath("//*[@class='ant-input-prefix']/following::input[@type='search']"), projectName)
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$projectName']"))
 		return this
@@ -82,6 +77,13 @@ public class MovePartPopup extends BasePage<MovePartPopup> {
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
+	
+	public MovePartPopup verifyThreadCuttingValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Thread Cutting']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
 
 	public MovePartPopup verifyTolerancesNumberValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Tolerances and fits with less than 1/10mm or IT 1 - IT 10 (Number)']/following-sibling::div")).trim()
@@ -101,6 +103,48 @@ public class MovePartPopup extends BasePage<MovePartPopup> {
 		String actualResult = WebUI.getText(xpath("//*[text()='Surface Treatment']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MovePartPopup verifyRollingDirectionValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Rolling Direction']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MovePartPopup verifyCountersinkValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Countersink']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MovePartPopup verifyThicknessValue(String partName, String expectedResult) {
+		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
+			def isContains = partName.contains(sheetMetalPartFileAllow[i])
+			println "isContains: $isContains"
+			if (isContains) {
+				String actualResult = WebUI.getText(xpath("//*[text()='Thickness (mm)']/following-sibling::label")).trim()
+				WebUI.verifyEqual(actualResult, expectedResult)
+				println "actualResult: $actualResult"
+			}
+		}
+		return this
+	}
+	
+	public MovePartPopup verifyCuttingLayersValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Cutting layers']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MovePartPopup verifyDeburringValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Deburring']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		def newExpectedResult = (expectedResult == "true") ? "Yes" : "No"
+		WebUI.verifyEqual(actualResult, newExpectedResult)
 		return this
 	}
 
@@ -169,16 +213,6 @@ public class MovePartPopup extends BasePage<MovePartPopup> {
 
 	public MovePartPopup verifyNameWorkflowVisible(String workflow) {
 		WebUI.verifyElementVisible(xpath("//label[text()='$workflow']"))
-		return this
-	}
-
-	public MovePartPopup verifyToastMessageWhenCopyProject(String fileName, String projectName) {
-		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
-		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
-		def expectedTitle = ""
-		def expectedMessage = "$fileName copied to \"$projectName\""
-		WebUI.verifyEqual(actualTitle, expectedTitle)
-		WebUI.verifyEqual(actualMessage, expectedMessage)
 		return this
 	}
 

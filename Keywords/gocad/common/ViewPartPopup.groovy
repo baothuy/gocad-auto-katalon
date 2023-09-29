@@ -1,19 +1,14 @@
 package gocad.common
 
-import java.nio.file.Files
-import java.nio.file.Paths
-import org.openqa.selenium.WebDriver
-
-import org.openqa.selenium.Keys
-
-import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import internal.GlobalVariable
 import katalon.fw.lib.BasePage
-import katalon.utility.CommonUtility
 
 public class ViewPartPopup extends BasePage<ViewPartPopup> {
 
+	List<String> sheetMetalPartFileAllow = GlobalVariable.sheetMetalPartFileAllow
+	List<String> milledPartFileAllow = GlobalVariable.milledPartFileAllow
 
 	public ViewPartPopup clickImagePart() {
 		WebUI.click(xpath('//img[@class="ant-image-img"]/following-sibling::div/span'))
@@ -82,6 +77,13 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
+	
+	public ViewPartPopup verifyThreadCuttingValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Thread Cutting']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
 
 	public ViewPartPopup verifyTolerancesNumberValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Tolerances and fits with less than 1/10mm or IT 1 - IT 10 (Number)']/following-sibling::div")).trim()
@@ -101,6 +103,48 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 		String actualResult = WebUI.getText(xpath("//*[text()='Surface Treatment']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public ViewPartPopup verifyRollingDirectionValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Rolling Direction']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public ViewPartPopup verifyCountersinkValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Countersink']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public ViewPartPopup verifyThicknessValue(String partName, String expectedResult) {	
+		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
+			def isContains = partName.contains(sheetMetalPartFileAllow[i])
+			println "isContains: $isContains"
+			if (isContains) {
+				String actualResult = WebUI.getText(xpath("//*[text()='Thickness (mm)']/following-sibling::label")).trim()
+				WebUI.verifyEqual(actualResult, expectedResult)
+				println "actualResult: $actualResult"
+			}
+		}
+		return this
+	}
+	
+	public ViewPartPopup verifyCuttingLayersValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Cutting layers']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public ViewPartPopup verifyDeburringValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Deburring']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		def newExpectedResult = (expectedResult == "true") ? "Yes" : "No"
+		WebUI.verifyEqual(actualResult, newExpectedResult)
 		return this
 	}
 

@@ -1,7 +1,5 @@
 package gocad.common
 
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-
 import java.text.DecimalFormat
 
 import org.openqa.selenium.Keys
@@ -9,13 +7,14 @@ import org.openqa.selenium.Keys
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
 
 public class ManufacturingInformationPage extends BasePage<ManufacturingInformationPage> {
 
-	List<String> sheetMetalPartFileAllow = [".dxf", ".dwg"]
-	List<String> milledPartFileAllow = [".step", ".stp"]
+	List<String> sheetMetalPartFileAllow = GlobalVariable.sheetMetalPartFileAllow
+	List<String> milledPartFileAllow = GlobalVariable.milledPartFileAllow
 	def commonText = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
 	def contentManualSystemError = "${commonText}\nReason: There is a system error. Please contact the administrator. (SELLER E-Mail)"
 	def contentManualAutomaticCalSettingOff = "${commonText}\nReason: The quotation function is currently disabled. You can request a manual quote here."

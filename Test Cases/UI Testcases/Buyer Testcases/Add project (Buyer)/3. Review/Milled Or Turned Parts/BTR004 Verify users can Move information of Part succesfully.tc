@@ -90,7 +90,7 @@
       <variableId>af82a926-0d94-4de7-9b4d-8b3c07b17bbc</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'auto_Milling.step'</defaultValue>
+      <defaultValue>'stp-testing.stp'</defaultValue>
       <description></description>
       <id>b3a0d240-e885-4ea7-b7b3-25f7ca5ca93a</id>
       <masked>false</masked>

@@ -1,11 +1,10 @@
-import gocad.buyer.AccountSettingsPage
 import gocad.buyer.DraftPage
 import gocad.buyer.ReviewPage
 import gocad.common.AddProjectPopup
-import gocad.common.CopyPartPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
+import gocad.common.MovePartPopup
 import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
 import katalon.fw.lib.Page
@@ -91,7 +90,7 @@ println '>> Verify UI Visible'
 Page.nav(ReviewPage).clickMoreOption(partName)
 					.clickMovePart()
 					
-Page.nav(CopyPartPopup).verifyMaterialValue(material)
+Page.nav(MovePartPopup).verifyMaterialValue(material)
 					.verifyQuantityValue(quantityNum)
 					.verifyThreadValue(threadNum)
 					.verifyTolerancesNumberValue(tolerancesNum)
@@ -101,11 +100,11 @@ Page.nav(CopyPartPopup).verifyMaterialValue(material)
 					.verifyAdditionalCommentsValue(comment)
 					.verifyUnitPriceValue(unitPrice)
 					.verifyNetPriceValue(netPrice)
-					.inputProjectToCopy(projectName)
+					.inputProjectToMove(projectName)
 					.clickOK()
-					.verifyToastMessageWhenCopyProject(partName, projectName)
 
 println '>>  Clear data'
+Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
 					.clickArchiveAction(projectId2)

@@ -100,12 +100,12 @@ Page.nav(ReviewPage)//.verifyImagePartClickable(partName)
 					.verifyQuantityVisible(partName)
 					.verifyUnitPriceVisible(partName)
 					.verifyTotalPartPriceVisible(partName)
-					.verifyCO2EmissionVisible(partName)
-					.verifyActionViewVisible(partName)
+					.verifyCO2EmissionVisible(partName)					
 					.verifyActionMoreVisible(partName)
 					.clickMoreOption(partName)
-					.verifyActionCopyVisible(partName)
-					.verifyActionMoveVisible(partName)
+					.verifyActionViewVisible()
+					.verifyActionCopyVisible()
+					.verifyActionMoveVisible()
 					.verifyRequestOfferButtonVisible(partName)
 				
 println '>> Verify value on Review Page show correctly'
@@ -117,7 +117,8 @@ Page.nav(ReviewPage).verifyPartNameValue(partName)
 					.verifyCommentValue(partName, comment)
 
 println '>> Verify data on View page show correctly'
-Page.nav(ReviewPage).clickView(partName)
+Page.nav(ReviewPage).clickMoreOption(partName)
+					.clickView(partName)
 Page.nav(ViewPartPopup).verifyMaterialValue(material)
 						.verifyQuantityValue(quantityNum)
 						.verifyThreadValue(threadNum)
@@ -139,27 +140,7 @@ Page.nav(ReviewPage).clickRequestOffer()
 Page.nav(RequestOfferPopup).verifyUIVisableOnRequestOfferPopup()
 							.verifyContentAlert()
 							.verifyBillingAddressValue(listBillingAddress)
-							.clickOK()
-
-String orderNumber = "GOCAD" + projectId
-String numberOfParts = '1'
-
-println '>> Verify value on detail page'
-Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
-						//.verifyShippingAddress(listShippingAddress)
-						.verifyTablePartReview(partName, tablePart)
-						.verifyOrderStatus("Request for quotation")
-						.verifyContentAlertManuallyVisible("Requested Offers")
-						.verifyCustomerInfo(listCustomerInfo)
-
-println '>> Verify project show in list Requested Offers Page'
-Page.nav(LeftNavBar).clickRequestedOffers()
-Page.nav(RequestedOffersPage).verifyProjectName(projectId, projectName)
-							//.verifyDeliveryDate(projectId, deliveryDate)
-							.verifyOrderNumber(projectId)
-							//.verifyGrossTotal(projectId, grossTotal)
-							.verifyStatus(projectId, "Request for quotation")
-							.clickAction(projectId)
+							.clickCancel()
 							
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

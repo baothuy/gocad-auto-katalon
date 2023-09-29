@@ -17,8 +17,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 	def partPriceTotalCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[7]")}
 	def commentCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[8]/span")}
 	def CO2EmissionCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[9]")}
-	def actionView = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]//button[1]")}
-	def actionMore = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]//button[2]")}
+	def actionMore = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]//button")}
 	def contentAlertManually = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
 	def contentAlertAutomatically = "Please check and confirm your order. You can see the bulk pricing when clicking on the information button for each part. You can adapt the quantity here if required."
 	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
@@ -39,7 +38,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 	}
 
 	public ReviewPage clickView(String partName) {
-		WebUI.click(actionView(partName))
+		WebUI.click(xpath('//span[text()="View"]'))
 		return this
 	}
 
@@ -219,8 +218,8 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		return this
 	}
 
-	public ReviewPage verifyActionViewVisible(String partName) {
-		WebUI.verifyElementVisible(actionView(partName))
+	public ReviewPage verifyActionViewVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()='View']"))
 		return this
 	}
 
@@ -229,12 +228,12 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		return this
 	}
 
-	public ReviewPage verifyActionCopyVisible(String partName) {
+	public ReviewPage verifyActionCopyVisible() {
 		WebUI.verifyElementVisible(xpath("//span[text()='Copy']"))
 		return this
 	}
 
-	public ReviewPage verifyActionMoveVisible(String partName) {
+	public ReviewPage verifyActionMoveVisible() {
 		WebUI.verifyElementVisible(xpath("//span[text()='Move']"))
 		return this
 	}
