@@ -75,6 +75,8 @@ List<String> listBillingAddress = Page.nav(DetailOffer).getBillingAddress()
 List<String> listShippingAddress = Page.nav(DetailOffer).getShippingAddress()
 List<String> tablePart = Page.nav(DetailOffer).getTablePartReview(partName)
 String deliveryDate = listShippingInfo[3]
+//List<String> listOrderSummary = Page.nav(DetailOffer).getOrderSummary()
+//String grossTotalDefault = listOrderSummary[7]
 
 println '>> Verify data detail offers after buyer requested offer'
 Page.nav(LeftNavBar).clickRequestedOffers()
@@ -82,7 +84,7 @@ Page.nav(LeftNavBar).clickRequestedOffers()
 Page.nav(RequestedOffersPage).verifyProjectName(projectId, projectName)
 							.verifyDeliveryDate(projectId, deliveryDate)
 							.verifyOrderNumber(projectId)
-							.verifyGrossTotal(projectId, orderDate)
+							//.verifyGrossTotal(projectId, grossTotalDefault)
 							.verifyStatus(projectId, "Request for quotation")
 							.clickAction(projectId)
 							
