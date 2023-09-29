@@ -2,7 +2,7 @@ package gocad.common
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
-import gocad.buyer.CheckoutPage
+import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 import katalon.utility.DateTimeUtility
 import katalon.utility.FileHelper
@@ -192,7 +192,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		List<String> surfaceTreatmentSurchargeObject = findTestObjects("//label[text()='Surface Treatment Surcharge']/following-sibling::label")
 		def surfaceTreatmentSurcharge = (surfaceTreatmentSurchargeObject.size() != 0) ? WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label")) : "Empty"
 		String expressSurchargeValue = WebUI.getText(xpath("//label[text()='Express Surcharge']/following-sibling::label"))
-		String expressSurcharge = expressSurchargeValue == "00.0 €" ? "-- €" : expressSurchargeValue
+		String expressSurcharge = expressSurchargeValue == "00.0 $GlobalVariable.currency" ? "-- $GlobalVariable.currency" : expressSurchargeValue
 		String packagingCost = WebUI.getText(xpath("//label[text()='Packaging Cost']/following-sibling::label"))
 		String shippingCosts = WebUI.getText(xpath("//label[text()='Shipping costs']/following-sibling::label"))
 		String netTotal = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::label"))
@@ -242,7 +242,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label"))
 		String surfaceTreatmentSurcharge = WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label"))
 		String expressSurchargeValue = WebUI.getText(xpath("//label[text()='Express Surcharge']/following-sibling::label"))
-		String expressSurcharge = expressSurchargeValue == "00.0 €" ? "-- €" : expressSurchargeValue
+		String expressSurcharge = expressSurchargeValue == "00.0 $GlobalVariable.currency" ? "-- $GlobalVariable.currency" : expressSurchargeValue
 		String packagingCost = WebUI.getText(xpath("//label[text()='Packaging Cost']/following-sibling::label"))
 		String shippingCosts = WebUI.getText(xpath("//label[text()='Shipping costs']/following-sibling::label"))
 		String netTotal = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::label"))
@@ -298,7 +298,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String quantity = WebUI.getText(quantityCol(partName))
 		List<String> unitPriceObject = findTestObjects("//div[text()='$partName']/ancestor::tr/td[6]//input[@id='unitPrice']")
 		println "unitPriceObject: $unitPriceObject"
-		def unitPrice = (unitPriceObject.size() == 0) ? WebUI.getText(unitPriceCol(partName)) : (WebUI.getAttribute(unitPriceInputCol(partName), "value") + " €")
+		def unitPrice = (unitPriceObject.size() == 0) ? WebUI.getText(unitPriceCol(partName)) : (WebUI.getAttribute(unitPriceInputCol(partName), "value") + " $GlobalVariable.currency")
 		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName))
 		WebUI.mouseOver(xpath("//*[@aria-label='message']"))
 		String comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))

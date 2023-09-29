@@ -99,4 +99,14 @@
       <initValue>''</initValue>
       <name>encodedToken</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Auto Generate Prj'</initValue>
+      <name>prefixName</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'€'</initValue>
+      <name>currency</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
