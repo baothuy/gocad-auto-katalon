@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>BTC005 Verify users can Copy information of Part succesfully</name>
+   <name>BTC005 Verify users can Copy information of Part successfully</name>
    <tag>functional-test,checkout,ui</tag>
    <comment></comment>
    <testCaseGuid>c716ca79-8fa5-45aa-a59c-410a53a35922</testCaseGuid>

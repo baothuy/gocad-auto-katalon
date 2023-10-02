@@ -105,7 +105,7 @@
       <variableId>130b0077-ea59-404e-8fc2-22101702aee4</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'auto_Milling.step'</defaultValue>
+      <defaultValue>'step-testing.step'</defaultValue>
       <description></description>
       <id>4d634512-e555-4faf-aae2-b3e893272a33</id>
       <masked>false</masked>
