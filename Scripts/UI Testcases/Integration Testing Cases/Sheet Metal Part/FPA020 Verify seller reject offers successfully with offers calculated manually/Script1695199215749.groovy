@@ -112,14 +112,20 @@ Page.nav(DetailOffer).verifyOrderStatus("Request for quotation")
 					.verifyBillingAddress(listBillingAddress)
 					.verifyShippingAddress(listShippingAddress)
 					.verifyShippingInfo(listShippingInfo)
-					
-println '>> get Information on Detail page after change unit price'
-List<String> listOrderSummary = Page.nav(DetailOffer).getOrderSummary()
-String netTotal = listOrderSummary[5]
-String grossTotal = listOrderSummary[7]
+
+println '>> Input change unit price'
+Page.nav(DetailOffer).inputUnitPrice(unitPriceChanged).clickAcceptChangeUnitPrice().clickCloseToastMessage()
 
 println '>> Seller click accept and send offers to buyer'
 Page.nav(DetailOffer).clickRejectOffer().clickOKConfirmPopup()
+
+println '>> get Information on Detail page after change unit price'
+List<String> listBillingAddressChanged = Page.nav(DetailOffer).getBillingAddress()
+List<String> listShippingAddressChanged = Page.nav(DetailOffer).getShippingAddress()
+List<String> tablePartChanged = Page.nav(DetailOffer).getTablePartReview(partName)
+List<String> listOrderSummary = Page.nav(DetailOffer).getOrderSummary()
+String netTotal = listOrderSummary[5]
+String grossTotal = listOrderSummary[7]
 
 println '>> Seller go Cancelled Offers of buyer checkout'
 Page.nav(LeftNavBar).clickCancelledOffers()
@@ -135,10 +141,10 @@ Page.nav(CancelledOffersPageOfSeller).verifyProjectName(projectId, projectName)
 
 println '>> Verify detail of offer'
 Page.nav(DetailOffer).verifyOrderStatus("Offer rejected")
-					 .verifyBillingAddress(listBillingAddress)
-					 .verifyShippingAddress(listShippingAddress)
+					 .verifyBillingAddress(listBillingAddressChanged)
+					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummary)
-					 .verifyTablePartReview(partName, tablePart)
+					 .verifyTablePartReview(partName, tablePartChanged)
 					 .verifyShippingInfo(listShippingInfo)
 					 
 println '>> Seller click Logout button'
@@ -159,8 +165,8 @@ Page.nav(CancelledOffersPageOfBuyer).verifyHighlightOnList(projectId)
 
 println '>> Verify information show on detail Offer rejected of buyer page'
 Page.nav(DetailOffer).verifyOrderStatus("Offer rejected")
-					 .verifyBillingAddress(listBillingAddress)
-					 .verifyShippingAddress(listShippingAddress)
+					 .verifyBillingAddress(listBillingAddressChanged)
+					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummary)
-					 .verifyTablePartReview(partName, tablePart)
+					 .verifyTablePartReview(partName, tablePartChanged)
 					 .verifyShippingInfo(listShippingInfo)
