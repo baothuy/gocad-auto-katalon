@@ -62,11 +62,11 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 									.clickContinueToOfferOverview()
-									
-println '>> get Net Price Value'
-String netPrice = Page.nav(ManufacturingInformationPage).getNetPriceValue()
 
 println '>> click checkout button'
+List<String> tablePartReview = Page.nav(ReviewPage).getTablePartReview(partName)
+String unitPrice = tablePartReview[3]
+String netPrice = tablePartReview[4]
 Page.nav(ReviewPage).clickCheckout()
 
 println '>> Verify information Address Information show correctly'
@@ -76,15 +76,17 @@ Page.nav(CheckoutPage).clickMoreOption(partName)
 					  
 println '>> Verify data on View page show correctly'
 Page.nav(CopyPartPopup).verifyMaterialValue(material)
-						  .verifyQuantityValue(quantityNum)
-						  .verifyThreadValue(threadNum)
-						  .verifyTolerancesNumberValue(tolerancesNum)
-						  .verifyTolerancesToggleValue(tolerancesToggle)
-						  .verifySurfaceTreatmentValue(surfaceTreatment)
-						  .verifySurfaceQualityValue(quality)
-						  .verifyAdditionalCommentsValue(comment)
-						  .verifyUnitPriceValue(unitPrice)
-						  .verifyNetPriceValue(netPrice)
+						.verifyQuantityValue(quantityNum)						
+						.verifyRollingDirectionValue(rollingDirection)
+						.verifyCountersinkValue(countersinkNum)
+						.verifyThicknessValue(partName, thicknessNum)
+						.verifySurfaceTreatmentValue(surfaceTreatment)
+						.verifyCuttingLayersValue(cuttingLayers)
+						.verifyDeburringValue(deburring)
+						.verifyThreadCuttingValue(threadNum)
+						.verifyAdditionalCommentsValue(comment)
+						.verifyUnitPriceValue(unitPrice)
+						.verifyNetPriceValue(netPrice)
 						  
 println '>> select project to copy'
 Page.nav(CopyPartPopup).inputProjectToCopy(projectName)

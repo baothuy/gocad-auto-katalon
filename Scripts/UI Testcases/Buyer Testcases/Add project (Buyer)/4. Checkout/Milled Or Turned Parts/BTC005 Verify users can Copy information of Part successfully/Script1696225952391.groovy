@@ -87,12 +87,12 @@ else
 
 println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
-									.clickContinueToOfferOverview()
-									
-println '>> get Net Price Value'
-String netPrice = Page.nav(ManufacturingInformationPage).getNetPriceValue()
+									.clickContinueToOfferOverview()							
 
 println '>> click checkout button'
+List<String> tablePartReview = Page.nav(ReviewPage).getTablePartReview(partName)
+String unitPrice = tablePartReview[3]
+String netPrice = tablePartReview[4]
 Page.nav(ReviewPage).clickCheckout()
 
 println '>> Verify information Address Information show correctly'

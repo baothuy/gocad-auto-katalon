@@ -71,20 +71,8 @@
       <value></value>
       <variableId>42b89dc1-c337-4ef3-a72b-6a2702f00d91</variableId>
    </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>5f38be95-ad45-4bd2-9572-32f635fc7be3</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>5f38be95-ad45-4bd2-9572-32f635fc7be3</variableId>
-   </variableLinks>
    <variable>
-      <defaultValue>'auto_Milling.step'</defaultValue>
+      <defaultValue>'stp-testing 2.stp'</defaultValue>
       <description></description>
       <id>565c0fdb-22f0-43c2-9763-f39d0e3f1797</id>
       <masked>false</masked>
@@ -98,7 +86,7 @@
       <name>filePDF</name>
    </variable>
    <variable>
-      <defaultValue>'150'</defaultValue>
+      <defaultValue>'2'</defaultValue>
       <description></description>
       <id>0414642a-3dce-44a4-9930-a276f30d7753</id>
       <masked>false</masked>
@@ -119,7 +107,7 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Eloxieren'</defaultValue>
+      <defaultValue>'Sandblasting'</defaultValue>
       <description></description>
       <id>ac8b8585-2ce1-4eaa-89cd-55856aba28fe</id>
       <masked>false</masked>
@@ -140,7 +128,7 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'Yes'</defaultValue>
+      <defaultValue>'No'</defaultValue>
       <description></description>
       <id>38f6f83e-31cc-431d-a41a-4b12d27934de</id>
       <masked>false</masked>
@@ -159,19 +147,5 @@
       <id>42b89dc1-c337-4ef3-a72b-6a2702f00d91</id>
       <masked>false</masked>
       <name>materialName</name>
-   </variable>
-   <variable>
-      <defaultValue>['ThuyThuy', 'TruongTruong', '359359', '07940505050794050505', 'Bremen', '7340573405', 'AndorraAndorra']</defaultValue>
-      <description></description>
-      <id>0720117d-9ccc-4bae-be94-1489227fbabc</id>
-      <masked>false</masked>
-      <name>billingAddress</name>
-   </variable>
-   <variable>
-      <defaultValue>['Thuy1', 'Truong2', '3593', '0794050504', 'Hamburg', '734055', 'Andorra6']</defaultValue>
-      <description></description>
-      <id>5f38be95-ad45-4bd2-9572-32f635fc7be3</id>
-      <masked>false</masked>
-      <name>shippingAddress</name>
    </variable>
 </TestCaseEntity>

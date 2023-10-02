@@ -60,6 +60,9 @@ Page.nav(ManufacturingInformationPage).clickCalculate()
 									.clickContinueToOfferOverview()
 
 println '>> click checkout button'
+List<String> tablePartReview = Page.nav(ReviewPage).getTablePartReview(partName)
+String unitPrice = tablePartReview[3]
+String netPrice = tablePartReview[4]
 Page.nav(ReviewPage).clickCheckout()
 
 println '>> Verify information Address Information show correctly'
@@ -69,16 +72,18 @@ Page.nav(CheckoutPage).clickMoreOption(partName)
 					  
 println '>> Verify data on View page show correctly'
 Page.nav(ViewPartPopup).verifyMaterialValue(material)
-						  .verifyQuantityValue(quantityNum)
-						  .verifyThreadValue(threadNum)
-						  .verifyTolerancesNumberValue(tolerancesNum)
-						  .verifyTolerancesToggleValue(tolerancesToggle)
-						  .verifySurfaceTreatmentValue(surfaceTreatment)
-						  .verifySurfaceQualityValue(quality)
-						  .verifyAdditionalCommentsValue(comment)
-						  .verifyUnitPriceValue(unitPrice)
-						  .verifyNetPriceValue(netPrice)
-						  .clickClosePopup()
+						.verifyQuantityValue(quantityNum)						
+						.verifyRollingDirectionValue(rollingDirection)
+						.verifyCountersinkValue(countersinkNum)
+						.verifyThicknessValue(partName, thicknessNum)
+						.verifySurfaceTreatmentValue(surfaceTreatment)
+						.verifyCuttingLayersValue(cuttingLayers)
+						.verifyDeburringValue(deburring)
+						.verifyThreadCuttingValue(threadNum)
+						.verifyAdditionalCommentsValue(comment)
+						.verifyUnitPriceValue(unitPrice)
+						.verifyNetPriceValue(netPrice)
+						.clickClosePopup()
 						  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

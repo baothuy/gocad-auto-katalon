@@ -259,7 +259,17 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 		}
 		else if(findTestObject.size() == 0)
 		{
-
+			// information part
+			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Rolling Direction']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Countersink']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Thickness (mm)']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Cutting layers']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Deburring']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Thread Cutting']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))
 		}
 		WebUI.verifyElementVisible(xpath("//*[text()='Unit price']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
