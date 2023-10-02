@@ -141,7 +141,7 @@
       <variableId>12efad79-3f0c-41ec-a3c1-1b7b0785fee7</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'auto_Milling.step'</defaultValue>
+      <defaultValue>'step-testing 2.step'</defaultValue>
       <description></description>
       <id>15c2abb4-1aa3-4db2-aea7-0d58968cd07d</id>
       <masked>false</masked>
@@ -225,7 +225,7 @@
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'247,04'</defaultValue>
+      <defaultValue>'239,95'</defaultValue>
       <description></description>
       <id>db5bb31b-a8db-426c-a0e2-afdae7799046</id>
       <masked>false</masked>
