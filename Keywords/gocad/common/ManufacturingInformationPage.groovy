@@ -23,7 +23,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	def contentManualSmallTolerance = "${commonText}\nReason: This tolerance requirement for this part are too high for online ordering. You can request a manual quote here."
 	def contentManualCannotManufacturePart = "${commonText}\nReason: Not all process steps to manufacture this part could be identified. You can request a manual quote here."
 	def contentManualCalError = "${commonText}\nReason: A technical error has occured when calculating this part. You can request a manual quote here."
-	
+
 	def contentManualSystemErrorForSeller = "${commonText}\nReason: There is a system error. Please contact the administrator. (support@gocad.de)"
 	def contentManualAutomaticCalSettingOffForSeller = "${commonText}\nReason: The quotation function is currently disabled. You can reactivate it in the \"price and delivery settings\"."
 	def contentManualCannotCalPartForSeller = "${commonText}\nReason: For this part no calculation could be executed. Please contact support@gocad.de."
@@ -564,7 +564,8 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage verifyCanPreviewPartFile() {
 		WebUI.click(xpath('//img[@class="ant-image-img"]/following-sibling::div/span'))
-		waitUntilElementInvisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::div[@class='icon-loading']"), 10)
+		List<String> findObject = findTestObjects("//div[@class='ant-modal-mask']/following::div[@class='icon-loading']")
+		(findObject != 0) ? waitUntilElementInvisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::div[@class='icon-loading']"), 10) : ""
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-body']/*[@class='classmateCloudFrame']"))
 		return this
 	}
@@ -701,7 +702,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		}
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyContentAlertManualCalculateVisibleForSeller(String code) {
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
 		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
