@@ -2,6 +2,7 @@ package gocad.buyer
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 
 
@@ -68,7 +69,7 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 	}
 
 	public ArchivedProjectsPage verifyPriceOnDetailPartColumn(String expectedResult) {
-		String price = WebUI.getText(xpath("//*[@class='ant-card-body']//span[contains(text(),'€')]"))
+		String price = WebUI.getText(xpath("//*[@class='ant-card-body']//span[contains(text(),'$GlobalVariable.currency')]"))
 		WebUI.verifyEqual(price, expectedResult)
 		return this
 	}

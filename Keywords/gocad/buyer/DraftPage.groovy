@@ -53,7 +53,7 @@ public class DraftPage extends BasePage<DraftPage>{
 	}
 
 	public DraftPage verifyPriceOnDetailPartColumn(String expectedResult) {
-		String price = WebUI.getText(xpath("//*[@class='ant-card-body']//*[contains(text(),'€')]"))
+		String price = WebUI.getText(xpath("//*[@class='ant-card-body']//*[contains(text(),'$GlobalVariable.currency')]"))
 		WebUI.verifyEqual(price, expectedResult)
 		return this
 	}
