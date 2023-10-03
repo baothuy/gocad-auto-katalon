@@ -37,7 +37,8 @@ if (filePDF == "")
 	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 	
 	println '>> Input required field'
-	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+	Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
+											.inputQuantity(quantityNum)
 											.inputThread(threadNum)
 											.inputTolerances(tolerancesNum)
 											.clickToggleTolerances(tolerancesToggle)
@@ -65,7 +66,8 @@ else
 		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
 	 }
 	 
-	 Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+	 Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
+	 										.inputQuantity(quantityNum)
 											 .selectSurfaceTreatment(surfaceTreatment)
 											 .selectSurfaceQuality(quality)
 											 .inputComment(comment)

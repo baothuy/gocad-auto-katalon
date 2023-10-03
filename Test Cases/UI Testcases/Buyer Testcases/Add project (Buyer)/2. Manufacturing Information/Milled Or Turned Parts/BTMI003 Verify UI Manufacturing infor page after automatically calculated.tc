@@ -84,7 +84,7 @@
       <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>provideOwnProduct</value>
-      <variableId>27d576b3-e2bb-4378-af29-7d77cfcd6a75</variableId>
+      <variableId>d8b81233-6fb3-4916-ba85-bcdd77ceff9a</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>04dacda7-7adf-439f-9611-6f62b477f5c0</testDataLinkId>
@@ -170,11 +170,11 @@
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'STANDARD'</defaultValue>
+      <defaultValue>'false'</defaultValue>
       <description></description>
-      <id>27d576b3-e2bb-4378-af29-7d77cfcd6a75</id>
+      <id>d8b81233-6fb3-4916-ba85-bcdd77ceff9a</id>
       <masked>false</masked>
-      <name>deliveryOption</name>
+      <name>provideOwnProduct</name>
    </variable>
    <variable>
       <defaultValue>'147,51'</defaultValue>

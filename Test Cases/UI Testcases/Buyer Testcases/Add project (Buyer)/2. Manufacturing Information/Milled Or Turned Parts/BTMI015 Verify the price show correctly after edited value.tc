@@ -12,7 +12,7 @@
          <iterationType>ALL</iterationType>
          <value></value>
       </iterationEntity>
-      <testDataId>Data Files/Sheet Metal Part/BTMI015</testDataId>
+      <testDataId>Data Files/Milled Or Turned Parts/BTMI015</testDataId>
    </testDataLinks>
    <variableLinks>
       <testDataLinkId>c55a61af-1460-4236-9730-8bbb9559ea96</testDataLinkId>

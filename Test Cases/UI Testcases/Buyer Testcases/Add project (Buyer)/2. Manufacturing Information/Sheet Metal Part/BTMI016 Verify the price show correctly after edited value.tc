@@ -9,7 +9,7 @@
       <combinationType>ONE</combinationType>
       <id>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</id>
       <iterationEntity>
-         <iterationType>SPECIFIC</iterationType>
+         <iterationType>ALL</iterationType>
          <value>4</value>
       </iterationEntity>
       <testDataId>Data Files/Sheet Metal Part/BTMI016</testDataId>

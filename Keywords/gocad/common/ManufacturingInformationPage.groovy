@@ -109,7 +109,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage selectSurfaceTreatment(String surfaceTreatment) {
-		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
+		WebUI.click(xpath("//input[@id='surfaceTreatmentIds']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
 		List<String> surfaceTreatmentObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")
 		(surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")) : "Empty"
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
@@ -117,7 +117,8 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage RemoveSelectSurfaceTreatment(String surfaceTreatment) {
-		WebUI.click(xpath("//span[contains(@class, 'ant-select-selection-item-content') and text()='$surfaceTreatment']/following::span[@class='ant-select-selection-item-remove']"))
+		List<String> surfaceTreatmentObject = findTestObjects("//span[contains(@class, 'ant-select-selection-item-content') and text()='$surfaceTreatment']/following::span[@class='ant-select-selection-item-remove']")
+		(surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//span[contains(@class, 'ant-select-selection-item-content') and text()='$surfaceTreatment']/following::span[@class='ant-select-selection-item-remove']")) : ""
 		return this
 	}
 
