@@ -16,13 +16,21 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	List<String> sheetMetalPartFileAllow = GlobalVariable.sheetMetalPartFileAllow
 	List<String> milledPartFileAllow = GlobalVariable.milledPartFileAllow
 	def commonText = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
-	def contentManualSystemError = "${commonText}\nReason: There is a system error. Please contact the administrator. (SELLER E-Mail)"
+	def contentManualSystemError = "${commonText}\nReason: There is a system error. Please contact the administrator. ($GlobalVariable.seller_mail)"
 	def contentManualAutomaticCalSettingOff = "${commonText}\nReason: The quotation function is currently disabled. You can request a manual quote here."
 	def contentManualCannotCalPart = "${commonText}\nReason: For this part no calculation could be executed. You can request a manual quote here."
 	def contentManualPriceExceedThreshold = "${commonText}\nReason: This part has exceeded the pricing limits for online order. You can request a manual quote here."
 	def contentManualSmallTolerance = "${commonText}\nReason: This tolerance requirement for this part are too high for online ordering. You can request a manual quote here."
 	def contentManualCannotManufacturePart = "${commonText}\nReason: Not all process steps to manufacture this part could be identified. You can request a manual quote here."
 	def contentManualCalError = "${commonText}\nReason: A technical error has occured when calculating this part. You can request a manual quote here."
+	
+	def contentManualSystemErrorForSeller = "${commonText}\nReason: There is a system error. Please contact the administrator. (support@gocad.de)"
+	def contentManualAutomaticCalSettingOffForSeller = "${commonText}\nReason: The quotation function is currently disabled. You can reactivate it in the \"price and delivery settings\"."
+	def contentManualCannotCalPartForSeller = "${commonText}\nReason: For this part no calculation could be executed. Please contact support@gocad.de."
+	def contentManualPriceExceedThresholdForSeller = "${commonText}\nReason: The pricing limits should not apply in \"self-calculation\""
+	def contentManualSmallToleranceForSeller = "${commonText}\nReason: This tolerance requirement for this part are very high. The automatic price quote is possible, but a critical check of the processed calculation is necessary."
+	def contentManualCannotManufacturePartForSeller = "${commonText}\nReason: Only for XX % of the part, manufacturing process steps could be identified. Please check the calculation."
+	def contentManualCalErrorForSeller = "${commonText}\nReason: A technical error has occured when calculating this part. Please contact support@gocad.de."
 
 	public ManufacturingInformationPage clickAddPart() {
 		WebUI.click(xpath('//span[text()=" Add part"]'))
@@ -364,7 +372,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage verifyUnitPriceValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim()
 		println "UnitPriceValue: $actualResult"
-		String convertExpectedResult = expectedResult + " €"
+		String convertExpectedResult = expectedResult + " $GlobalVariable.currency"
 		WebUI.verifyEqual(actualResult, convertExpectedResult)
 		return this
 	}
@@ -385,14 +393,14 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 			println "numericValue contains cham: $numericValue"
 			def expectedResult = quantity.toDouble() * numericValue
 			formattedSum = decimalFormat.format(expectedResult)
-			newExpectedResult = "$formattedSum €"
+			newExpectedResult = "$formattedSum $GlobalVariable.currency"
 		}
 		else {
 			def numericValue = unitPrice.replaceAll(/[^\d.,]/, '').replace(',', '.').toDouble()
 			println "numericValue contains phay: $numericValue"
 			def expectedResult = quantity.toDouble() * numericValue
 			formattedSum = decimalFormat.format(expectedResult).replace('.', ',')
-			newExpectedResult = "$formattedSum €"
+			newExpectedResult = "$formattedSum $GlobalVariable.currency"
 		}
 		return newExpectedResult
 	}
@@ -652,7 +660,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage verifyContentAlertManualCalculateVisible(String code) {
+	public ManufacturingInformationPage verifyContentAlertManualCalculateVisibleForBuyer(String code) {
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
 		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
 		switch (code) {
@@ -688,6 +696,48 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 			case "CALCULATION_ERROR":
 				def expectedResult = contentManualCalError
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+		}
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyContentAlertManualCalculateVisibleForSeller(String code) {
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
+		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
+		switch (code) {
+			case "SYSTEM_ERROR":
+				def expectedResult = contentManualSystemErrorForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "AUTOMATIC_CALCULATION_SETTING_OFF":
+				def expectedResult = contentManualAutomaticCalSettingOffForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "CANNOT_CALCULATE_PART":
+				def expectedResult = contentManualCannotCalPartForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "PRICE_EXCEED_THRESHOLD":
+				def expectedResult = contentManualPriceExceedThresholdForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "SMALL_TOLERANCES":
+				def expectedResult = contentManualSmallToleranceForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "CANNOT_MANUFACTURE_PART":
+				def expectedResult = contentManualCannotManufacturePartForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "CALCULATION_ERROR":
+				def expectedResult = contentManualCalErrorForSeller
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
 				break;
 		}

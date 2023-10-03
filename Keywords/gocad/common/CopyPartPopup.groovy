@@ -178,7 +178,7 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 	public String calculateNetPrice(String unitPrice, String quantity) {
 		def numericValue = unitPrice.replaceAll(/[^\d.,]/, '').replace(',', '.').toDouble()
 		def expectedResult = quantity.toDouble() * numericValue
-		String formattedSum = "${String.format("%.2f", expectedResult)} €"
+		String formattedSum = "${String.format("%.2f", expectedResult)} $GlobalVariable.currency"
 		String newExpectedResult = formattedSum.replace('.', ',')
 		return newExpectedResult
 	}

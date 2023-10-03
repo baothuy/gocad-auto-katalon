@@ -37,7 +37,8 @@ if (filePDF == "")
 	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 	
 	println '>> Input required field'
-	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+	Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
+											.inputQuantity(quantityNum)
 											.inputThread(threadNum)
 											.inputTolerances(tolerancesNum)
 											.clickToggleTolerances(tolerancesToggle)
@@ -65,7 +66,8 @@ else
 		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
 	 }
 	 
-	 Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+	 Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
+	 										 .inputQuantity(quantityNum)
 											 .selectSurfaceTreatment(surfaceTreatment)
 											 .selectSurfaceQuality(quality)
 											 .inputComment(comment)
@@ -78,7 +80,7 @@ if (filePDF == ""){
 	println '>> Verify UI after calculated manually of request'
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
 											.clickClosePreviewPartFilePopup()
-											.verifyContentAlertManualCalculateVisible(codeManual)
+											.verifyContentAlertManualCalculateVisibleForBuyer(codeManual)
 											.verifyMaterialValue(material)
 											.verifyQuantityValue(quantityNum)
 											.verifyThreadValue(threadNum)
@@ -97,7 +99,7 @@ else {
 	println '>> Verify UI after calculated manually of request'
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
 											.clickClosePreviewPartFilePopup()
-											.verifyContentAlertManualCalculateVisible(codeManual)
+											.verifyContentAlertManualCalculateVisibleForBuyer(codeManual)
 											.verifyPDFFileVisibleAfterCalculated(partName)
 											.verifyMaterialValue(material)
 											.verifyQuantityValue(quantityNum)
