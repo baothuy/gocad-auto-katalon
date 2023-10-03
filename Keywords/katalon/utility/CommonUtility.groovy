@@ -23,6 +23,16 @@ public class CommonUtility {
 	static public List<String> generateRandomUUIDs(int size) {
 		return IntStream.rangeClosed(1, size).boxed().map{ item -> UUID.randomUUID().toString(); }.collect(Collectors.toList())
 	}
+	
+	static public String mergeRandomEmail(String email, int size) {
+		Random random = new Random()
+		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+		String randomString = "+" + (1..size).collect { characters[random.nextInt(characters.length())] }.join()
+		def (localPart, domainPart) = email.split('@')
+		def emailMerged = "$localPart$randomString@$domainPart"
+		println "emailMerged: $emailMerged"
+		return emailMerged
+	}
 
 	static public String generateRandomProjectName(int size) {
 		Random random = new Random()
