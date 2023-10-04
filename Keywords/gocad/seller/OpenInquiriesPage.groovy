@@ -87,7 +87,7 @@ public class OpenInquiriesPage extends BasePage<OpenInquiriesPage>{
 		List<String> dataRow = [id, projectName, companyName, orderNumber, orderDate, NETTotal, status]
 		return dataRow
 	}
-	
+
 	public List<String> getDataRowByStatus(String status) {
 		String id = WebUI.getText(xpath(rowByStatus(status) + "/td[1]"))
 		String projectName = WebUI.getText(xpath(rowByStatus(status) + "/td[2]//a"))

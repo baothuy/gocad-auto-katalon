@@ -16,7 +16,7 @@ println '>> Verify UI Requested Offers page'
 Page.nav(RequestedOffersPage).verifyUIVisible()
 
 println '>> Get data first row to go detail verify UI'
-List<String> dataRow = Page.nav(RequestedOffersPage).getDataRow("1")
+List<String> dataRow = Page.nav(RequestedOffersPage).getDataRowByStatus(status)
 String projectId = dataRow[0]
 
 Page.nav(RequestedOffersPage).clickAction(projectId)

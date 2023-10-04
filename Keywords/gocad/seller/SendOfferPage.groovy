@@ -7,7 +7,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import katalon.fw.lib.BasePage
 
 public class SendOfferPage extends BasePage<SendOfferPage>{
-	
+
 	def partCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[2]")}
 	def materialCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[4]")}
 	def quantityCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[5]")}
@@ -21,7 +21,7 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 		WebUI.click(xpath('//*[text()="Send Offer"]'))
 		return this
 	}
-	
+
 	public SendOfferPage inputCustomer(String text) {
 		WebUI.setText(xpath("//input[@id='email']"), text)
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-item ant-select-item-option')]//span[text()='$text']"))

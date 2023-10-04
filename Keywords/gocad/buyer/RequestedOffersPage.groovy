@@ -16,7 +16,8 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 	def grossTotalCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]")}
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//span[normalize-space(text()) != '']")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[10]/a")}
-	def row = { String row -> return "//thead/following::tr[$row]/"}
+	def row = { String row -> return "//thead/following::tr[$row]"}
+	def rowByStatus = { String status -> return "(//span[normalize-space(text()) = '$status']/ancestor::tr)[1]"}
 	def contentRequestedOffersPage = "The folder Requested Offers shows all your projects where you have placed an order or requested a quotation. The current status of the project can be seen in the column \"status\"."
 
 	public RequestedOffersPage clickAction(String projectId) {
@@ -69,12 +70,22 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 	}
 
 	public List<String> getDataRow(String rowNumber) {
-		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
-		String projectName = WebUI.getText(xpath(row(rowNumber) + "td[2]//a"))
-		String deliveryDate = WebUI.getText(xpath(row(rowNumber) + "td[5]/div"))
-		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "td[6]"))
-		String grossTotal = WebUI.getText(xpath(row(rowNumber) + "td[7]/div"))
-		String status = WebUI.getText(xpath(row(rowNumber) + "td[8]//span[normalize-space(text()) != '']"))
+		String id = WebUI.getText(xpath(row(rowNumber) + "/td[1]"))
+		String projectName = WebUI.getText(xpath(row(rowNumber) + "/td[2]//a"))
+		String deliveryDate = WebUI.getText(xpath(row(rowNumber) + "/td[5]/div"))
+		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "/td[6]"))
+		String grossTotal = WebUI.getText(xpath(row(rowNumber) + "/td[7]/div"))
+		String status = WebUI.getText(xpath(row(rowNumber) + "/td[8]//span[normalize-space(text()) != '']"))
+		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
+		return dataRow
+	}
+	
+	public List<String> getDataRowByStatus(String status) {
+		String id = WebUI.getText(xpath(rowByStatus(status) + "/td[1]"))
+		String projectName = WebUI.getText(xpath(rowByStatus(status) + "/td[2]//a"))
+		String deliveryDate = WebUI.getText(xpath(rowByStatus(status) + "/td[5]/div"))
+		String orderNumber = WebUI.getText(xpath(rowByStatus(status) + "/td[6]"))
+		String grossTotal = WebUI.getText(xpath(rowByStatus(status) + "/td[7]/div"))
 		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
 		return dataRow
 	}
