@@ -543,7 +543,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++)
 		{
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
-			if (isContains) WebUI.verifyElementVisible(xpath("//*[text()='All layers]"))
+			if (isContains) WebUI.verifyElementVisible(xpath("//*[text()='All layers']"))
 		}
 		return this
 	}
@@ -551,7 +551,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage verifyUnfoldingPreviewVisible(String partName) {
 		for (int i = 0; i < milledPartFileAllow.size(); i++)
 		{
-			def isContains = partName.contains(sheetMetalPartFileAllow[i])
+			def isContains = partName.contains(milledPartFileAllow[i])
 			if (isContains) WebUI.verifyElementVisible(xpath("//*[text()='Unfolding Preview']"))
 		}
 		return this
@@ -592,8 +592,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage clickClosePreviewPartFilePopup() {
-		waitUntilElementVisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"), 10)
-		WebUI.click(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"))
+		List<String> findObject = findTestObjects("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']")
+		if(findObject.size() != 0) { 
+			waitUntilElementVisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"), 10)
+			WebUI.click(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"))
+		}
 		return this
 	}
 
