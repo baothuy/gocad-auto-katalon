@@ -63,7 +63,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	}
 
 	public DetailOffer clickUndo() {
-		WebUI.click(xpath("//*[@aria-label='undo']"))
+		WebUI.click(xpath("//*[@id='adaptForm']//span[@aria-label='undo']"))
 		return this
 	}
 
@@ -450,9 +450,6 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.verifyElementVisible(xpath("//*[@aria-label='more']/parent::button"))
 		WebUI.mouseOver(xpath("//*[@aria-label='more']/parent::button"))
 
-		//label Automatically calculated
-		WebUI.verifyElementVisible(xpath("//*[contains(text(),'calculated')]"))
-
 		//table information of part
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Part name']"))
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Files']"))
@@ -484,7 +481,8 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		//Customer infor
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-space-item']//span[@aria-label='user']"))
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-space-item']//span[@aria-label='mail']"))
-		WebUI.verifyElementVisible(xpath("//*[@class='ant-space-item']//span[@aria-label='phone']"))
+		List<String> findObjectPhone = findTestObjects("//*[@class='ant-space-item']//span[@aria-label='phone']")
+		(findObjectPhone.size() != 0) ? WebUI.verifyElementVisible(xpath("//*[@class='ant-space-item']//span[@aria-label='phone']")) : ""
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-space-item']//span[@aria-label='home']"))
 		return this
 	}

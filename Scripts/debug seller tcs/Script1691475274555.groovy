@@ -10,7 +10,7 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 
 Page.nav(LeftNavBar).clickOpenInquiries()
 
-List<String> abc = Page.nav(OpenInquiriesPage).getDataRow("1")
+List<String> abc = Page.nav(OpenInquiriesPage).getDataRowByStatus("Request for quotation")
 println "row: $abc"
 
 

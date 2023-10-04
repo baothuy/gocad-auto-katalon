@@ -24,6 +24,12 @@ public class CommonUtility {
 		return IntStream.rangeClosed(1, size).boxed().map{ item -> UUID.randomUUID().toString(); }.collect(Collectors.toList())
 	}
 	
+	static public String randomNumber(int size) {
+		def random = new Random()
+		def randomNumber = (random.nextInt(size) + 1).toString()
+		return randomNumber
+	}
+
 	static public String mergeRandomEmail(String email, int size) {
 		Random random = new Random()
 		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"

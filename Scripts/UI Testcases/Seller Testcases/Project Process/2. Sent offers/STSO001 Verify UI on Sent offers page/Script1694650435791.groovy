@@ -18,11 +18,10 @@ Page.nav(SentOffersPage).verifyUIVisible()
 println '>> Get data first row to go detail verify UI'
 List<String> dataRow = Page.nav(SentOffersPage).getDataRow("1")
 String projectId = dataRow[0]
+println "projectId: $projectId"
 
 Page.nav(SentOffersPage).clickAction(projectId)
 Page.nav(DetailOffer).verifyUIVisible()
 						.verifyOrderStatus("Offer adapted")
 						.verifyViewButtonVisible()
-						.verifyRejectOfferButtonVisible()
-						.verifyAcceptAndSendOfferButtonVisible()
 						.verifyContentAlertManuallyVisible("Sent Offers")

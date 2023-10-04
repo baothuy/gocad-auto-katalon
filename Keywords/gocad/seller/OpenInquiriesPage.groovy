@@ -18,6 +18,7 @@ public class OpenInquiriesPage extends BasePage<OpenInquiriesPage>{
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//span[normalize-space(text()) != '']")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]/a")}
 	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]"}
+	def rowByStatus = { String status -> return "(//span[normalize-space(text()) = '$status']/ancestor::tr)[1]"}
 	def contentPage = "The folder Requested Offers shows all your projects where you have placed an order or requested a quotation. The current status of the project can be seen in the column \"status\"."
 
 	public OpenInquiriesPage clickAction(String projectId) {
@@ -83,6 +84,17 @@ public class OpenInquiriesPage extends BasePage<OpenInquiriesPage>{
 		String orderDate = WebUI.getText(xpath(row(rowNumber) + "/td[5]"))
 		String NETTotal = WebUI.getText(xpath(row(rowNumber) + "/td[6]/div"))
 		String status = WebUI.getText(xpath(row(rowNumber) + "/td[7]//span[normalize-space(text()) != '']"))
+		List<String> dataRow = [id, projectName, companyName, orderNumber, orderDate, NETTotal, status]
+		return dataRow
+	}
+	
+	public List<String> getDataRowByStatus(String status) {
+		String id = WebUI.getText(xpath(rowByStatus(status) + "/td[1]"))
+		String projectName = WebUI.getText(xpath(rowByStatus(status) + "/td[2]//a"))
+		String companyName = WebUI.getText(xpath(rowByStatus(status) + "/td[3]"))
+		String orderNumber = WebUI.getText(xpath(rowByStatus(status) + "/td[4]"))
+		String orderDate = WebUI.getText(xpath(rowByStatus(status) + "/td[5]"))
+		String NETTotal = WebUI.getText(xpath(rowByStatus(status) + "/td[6]/div"))
 		List<String> dataRow = [id, projectName, companyName, orderNumber, orderDate, NETTotal, status]
 		return dataRow
 	}
