@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>BTMI014 Verify allow users delete part successfully</name>
+   <name>STMI009 Verify UI Manufacturing infor page after manually calculated</name>
    <tag>fast-test,manufacturing-information,ui</tag>
    <comment></comment>
-   <testCaseGuid>7cee3262-0358-4c0b-b5a2-1150fd944db4</testCaseGuid>
+   <testCaseGuid>5c49db35-a20a-4696-86a0-24b9af20f8b1</testCaseGuid>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
@@ -95,12 +95,6 @@
       <value></value>
       <variableId>68a51f21-edfb-40a8-a2f2-add18c5239b5</variableId>
    </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>3f868299-9f57-4393-bacd-1eec0b4170bf</variableId>
-   </variableLinks>
    <variable>
       <defaultValue>'dxf-testing.dxf'</defaultValue>
       <description></description>
@@ -123,7 +117,7 @@
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
+      <defaultValue>'1000'</defaultValue>
       <description></description>
       <id>297f10f3-6561-45ef-9b65-b342b95a5f1f</id>
       <masked>false</masked>
@@ -200,17 +194,10 @@
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'STANDARD'</defaultValue>
+      <defaultValue>'CALCULATION_ERROR'</defaultValue>
       <description></description>
       <id>68a51f21-edfb-40a8-a2f2-add18c5239b5</id>
       <masked>false</masked>
-      <name>deliveryOption</name>
-   </variable>
-   <variable>
-      <defaultValue>'Standard shipping'</defaultValue>
-      <description></description>
-      <id>3f868299-9f57-4393-bacd-1eec0b4170bf</id>
-      <masked>false</masked>
-      <name>shippingOption</name>
+      <name>codeManual</name>
    </variable>
 </TestCaseEntity>

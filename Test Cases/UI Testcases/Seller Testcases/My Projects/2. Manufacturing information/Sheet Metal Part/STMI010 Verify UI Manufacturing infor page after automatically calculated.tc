@@ -1,177 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>STMI003 Verify UI Manufacturing infor page after automatically calculated</name>
+   <name>STMI010 Verify UI Manufacturing infor page after automatically calculated</name>
    <tag>fast-test,manufacturing-information,ui</tag>
    <comment></comment>
-   <testCaseGuid>1b2d2d70-a0bf-4647-a900-1f541f67a5c0</testCaseGuid>
+   <testCaseGuid>52b999d8-53c8-4b86-a65f-3b3f354fca47</testCaseGuid>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>1dd9e1e8-5025-45b9-93ec-d170f16aef9b</variableId>
+      <variableId>eded7ac6-7f9b-4dea-b7ea-7752da1312d7</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>2c3ec125-0c6e-4ccb-a471-02623cf7f0bf</variableId>
+      <variableId>af8a1691-944b-4d7e-b825-b84e0962e62b</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>35c0ec59-e361-41c0-85dc-c29ec627d9f3</variableId>
+      <variableId>af5f26a0-5ae9-434e-8bc4-50278ba02a1b</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>74befe32-bc49-48e4-a9e4-956d36040f11</variableId>
+      <variableId>2d4de377-0980-4eab-83aa-21ca0f4b2a71</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>4d5070f6-95c6-449a-9c2d-1347f35c95c1</variableId>
+      <variableId>b46cca5f-606f-4be6-9288-31facad6c092</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>c1925b82-17d8-4356-a73d-5ad013d0f5ce</variableId>
+      <variableId>31cee3bb-112c-46f6-98a8-ff49dbf5d47e</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>ab7f6a8d-1fa4-4a4f-8847-83a464ce63a0</variableId>
+      <variableId>cf1cb4f3-8546-4387-8b22-8195912de20b</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>64015d30-4190-42c6-84ae-ba8e1c966861</variableId>
+      <variableId>25d820f3-4ea7-427c-b071-021cd3555947</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>2abd3043-7712-4726-b467-28eaeb528b24</variableId>
+      <variableId>440d5590-0237-4994-a3de-eb0a1efc2f1d</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>2ced1971-59a6-4048-975c-4c7161dfced7</variableId>
+      <variableId>4c38ae6d-6ec2-4576-87a6-a155c34ab5e4</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>f0cee842-e2b8-4f14-b6ce-037efe6170e4</variableId>
+      <variableId>729a5ff2-7721-43a4-889b-9fd6c134a79a</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>d8b81233-6fb3-4916-ba85-bcdd77ceff9a</variableId>
+      <variableId>3cde224e-5a40-4902-8984-0d408d49dd20</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>4117b2f1-9182-4aea-bf15-ca672583953e</variableId>
+      <variableId>0dfcaafa-faa0-4202-a2b7-93aaaacd5867</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>5bd16cc7-8c9d-4501-9af1-c9dbb24af608</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'step-testing 2.step'</defaultValue>
+      <defaultValue>'dxf-testing.dxf'</defaultValue>
       <description></description>
-      <id>1dd9e1e8-5025-45b9-93ec-d170f16aef9b</id>
+      <id>eded7ac6-7f9b-4dea-b7ea-7752da1312d7</id>
       <masked>false</masked>
       <name>partName</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>2c3ec125-0c6e-4ccb-a471-02623cf7f0bf</id>
+      <id>af8a1691-944b-4d7e-b825-b84e0962e62b</id>
       <masked>false</masked>
       <name>filePDF</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
-      <description></description>
-      <id>35c0ec59-e361-41c0-85dc-c29ec627d9f3</id>
-      <masked>false</masked>
-      <name>quantityNum</name>
-   </variable>
-   <variable>
-      <defaultValue>'3'</defaultValue>
-      <description></description>
-      <id>74befe32-bc49-48e4-a9e4-956d36040f11</id>
-      <masked>false</masked>
-      <name>threadNum</name>
-   </variable>
-   <variable>
-      <defaultValue>'4'</defaultValue>
-      <description></description>
-      <id>4d5070f6-95c6-449a-9c2d-1347f35c95c1</id>
-      <masked>false</masked>
-      <name>tolerancesNum</name>
-   </variable>
-   <variable>
-      <defaultValue>'Sandblasting'</defaultValue>
-      <description></description>
-      <id>c1925b82-17d8-4356-a73d-5ad013d0f5ce</id>
-      <masked>false</masked>
-      <name>surfaceTreatment</name>
-   </variable>
-   <variable>
-      <defaultValue>'Ra 0,8 - 1,6 (finely finished); Rz 6,3 - 10'</defaultValue>
-      <description>Ra 3,2 - 25 (roughed); Rz 16 - 100; Ra 1,6 - 3,2 (settled); Rz 10 - 16</description>
-      <id>ab7f6a8d-1fa4-4a4f-8847-83a464ce63a0</id>
-      <masked>false</masked>
-      <name>quality</name>
-   </variable>
-   <variable>
-      <defaultValue>'5'</defaultValue>
-      <description></description>
-      <id>64015d30-4190-42c6-84ae-ba8e1c966861</id>
-      <masked>false</masked>
-      <name>comment</name>
-   </variable>
-   <variable>
-      <defaultValue>'No'</defaultValue>
-      <description></description>
-      <id>2abd3043-7712-4726-b467-28eaeb528b24</id>
-      <masked>false</masked>
-      <name>tolerancesToggle</name>
-   </variable>
-   <variable>
-      <defaultValue>'All'</defaultValue>
-      <description></description>
-      <id>2ced1971-59a6-4048-975c-4c7161dfced7</id>
-      <masked>false</masked>
-      <name>materialGroup</name>
-   </variable>
-   <variable>
-      <defaultValue>'EN AW-7075 / AlZn5'</defaultValue>
-      <description></description>
-      <id>f0cee842-e2b8-4f14-b6ce-037efe6170e4</id>
-      <masked>false</masked>
-      <name>materialName</name>
-   </variable>
-   <variable>
       <defaultValue>'false'</defaultValue>
       <description></description>
-      <id>d8b81233-6fb3-4916-ba85-bcdd77ceff9a</id>
+      <id>af5f26a0-5ae9-434e-8bc4-50278ba02a1b</id>
       <masked>false</masked>
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'155,27'</defaultValue>
+      <defaultValue>'2'</defaultValue>
       <description></description>
-      <id>4117b2f1-9182-4aea-bf15-ca672583953e</id>
+      <id>2d4de377-0980-4eab-83aa-21ca0f4b2a71</id>
       <masked>false</masked>
-      <name>unitPrice</name>
+      <name>thicknessNum</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description></description>
+      <id>b46cca5f-606f-4be6-9288-31facad6c092</id>
+      <masked>false</masked>
+      <name>quantityNum</name>
+   </variable>
+   <variable>
+      <defaultValue>'Painting'</defaultValue>
+      <description></description>
+      <id>31cee3bb-112c-46f6-98a8-ff49dbf5d47e</id>
+      <masked>false</masked>
+      <name>surfaceTreatment</name>
+   </variable>
+   <variable>
+      <defaultValue>'Parallel'</defaultValue>
+      <description>Parallel, Quer, Egal</description>
+      <id>cf1cb4f3-8546-4387-8b22-8195912de20b</id>
+      <masked>false</masked>
+      <name>rollingDirection</name>
+   </variable>
+   <variable>
+      <defaultValue>'All layers'</defaultValue>
+      <description></description>
+      <id>25d820f3-4ea7-427c-b071-021cd3555947</id>
+      <masked>false</masked>
+      <name>cuttingLayers</name>
+   </variable>
+   <variable>
+      <defaultValue>'true'</defaultValue>
+      <description></description>
+      <id>440d5590-0237-4994-a3de-eb0a1efc2f1d</id>
+      <masked>false</masked>
+      <name>deburring</name>
+   </variable>
+   <variable>
+      <defaultValue>'4'</defaultValue>
+      <description></description>
+      <id>4c38ae6d-6ec2-4576-87a6-a155c34ab5e4</id>
+      <masked>false</masked>
+      <name>countersinkNum</name>
+   </variable>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description></description>
+      <id>729a5ff2-7721-43a4-889b-9fd6c134a79a</id>
+      <masked>false</masked>
+      <name>threadNum</name>
+   </variable>
+   <variable>
+      <defaultValue>'6'</defaultValue>
+      <description></description>
+      <id>3cde224e-5a40-4902-8984-0d408d49dd20</id>
+      <masked>false</masked>
+      <name>comment</name>
+   </variable>
+   <variable>
+      <defaultValue>'All'</defaultValue>
+      <description></description>
+      <id>0dfcaafa-faa0-4202-a2b7-93aaaacd5867</id>
+      <masked>false</masked>
+      <name>materialGroup</name>
+   </variable>
+   <variable>
+      <defaultValue>'X14CrMoS17'</defaultValue>
+      <description></description>
+      <id>5bd16cc7-8c9d-4501-9af1-c9dbb24af608</id>
+      <masked>false</masked>
+      <name>materialName</name>
    </variable>
 </TestCaseEntity>

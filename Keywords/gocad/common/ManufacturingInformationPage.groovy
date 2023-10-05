@@ -24,13 +24,14 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	def contentManualCannotManufacturePart = "${commonText}\nReason: Not all process steps to manufacture this part could be identified. You can request a manual quote here."
 	def contentManualCalError = "${commonText}\nReason: A technical error has occured when calculating this part. You can request a manual quote here."
 
-	def contentManualSystemErrorForSeller = "${commonText}\nReason: There is a system error. Please contact the administrator. (support@gocad.de)"
-	def contentManualAutomaticCalSettingOffForSeller = "${commonText}\nReason: The quotation function is currently disabled. You can reactivate it in the \"price and delivery settings\"."
-	def contentManualCannotCalPartForSeller = "${commonText}\nReason: For this part no calculation could be executed. Please contact support@gocad.de."
-	def contentManualPriceExceedThresholdForSeller = "${commonText}\nReason: The pricing limits should not apply in \"self-calculation\""
-	def contentManualSmallToleranceForSeller = "${commonText}\nReason: This tolerance requirement for this part are very high. The automatic price quote is possible, but a critical check of the processed calculation is necessary."
-	def contentManualCannotManufacturePartForSeller = "${commonText}\nReason: Only for XX % of the part, manufacturing process steps could be identified. Please check the calculation."
-	def contentManualCalErrorForSeller = "${commonText}\nReason: A technical error has occured when calculating this part. Please contact support@gocad.de."
+	def commonTextForSeller = "These parts cannot be automatically calculated. Please prepare a quote for this request manually and enter it in the text field below \"Unit price\""
+	def contentManualSystemErrorForSeller = "${commonTextForSeller}\nReason: There is a system error. Please contact the administrator. (support@gocad.de)"
+	def contentManualAutomaticCalSettingOffForSeller = "${commonTextForSeller}\nReason: The quotation function is currently disabled. You can reactivate it in the \"price and delivery settings\"."
+	def contentManualCannotCalPartForSeller = "${commonTextForSeller}\nReason: For this part no calculation could be executed. Please contact support@gocad.de."
+	def contentManualPriceExceedThresholdForSeller = "${commonTextForSeller}\nReason: The pricing limits should not apply in \"self-calculation\""
+	def contentManualSmallToleranceForSeller = "${commonTextForSeller}\nReason: This tolerance requirement for this part are very high. The automatic price quote is possible, but a critical check of the processed calculation is necessary."
+	def contentManualCannotManufacturePartForSeller = "${commonTextForSeller}\nReason: Only for XX % of the part, manufacturing process steps could be identified. Please check the calculation."
+	def contentManualCalErrorForSeller = "${commonTextForSeller}\nReason: A technical error has occured when calculating this part. Please contact support@gocad.de"
 
 	public ManufacturingInformationPage clickAddPart() {
 		WebUI.click(xpath('//span[text()=" Add part"]'))
@@ -253,7 +254,9 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public String getUnitPriceValue() {
-		String unitPrice = WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim()
+		List<String> findObject = findTestObjects("//*[text()='Unit price']/following-sibling::label")
+		def unitPrice = (findObject.size() != 0) ? WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim() : WebUI.getAttribute(xpath("//*[@id='unitPrice']"), "value") 
+		println "unitPrice func: $unitPrice"
 		return unitPrice
 	}
 
@@ -370,8 +373,9 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyUnitPriceValue(String expectedResult) {
-		String actualResult = WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim()
-		println "UnitPriceValue: $actualResult"
+		List<String> findObject = findTestObjects("//*[text()='Unit price']/following-sibling::label")
+		def actualResult = (findObject.size() != 0) ? WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim() : (WebUI.getAttribute(xpath("//*[@id='unitPrice']"), "value") + " $GlobalVariable.currency")
+		println "unitPrice func: $actualResult"
 		String convertExpectedResult = expectedResult + " $GlobalVariable.currency"
 		WebUI.verifyEqual(actualResult, convertExpectedResult)
 		return this
@@ -463,6 +467,21 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath('//span[text()="Continue to offer overview "]'))
 		return this
 	}
+	
+	public ManufacturingInformationPage verifyManufacturingInformationReportButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()=' Manufacturing information']/parent::button"))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyProcessingReportButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()=' Processing report']/parent::button"))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyEmissionReportButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()=' Emission report']/parent::button"))
+		return this
+	}
 
 	public ManufacturingInformationPage verifySurfaceQualitySelectVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='Surface Quality']/parent::div/following::div[@class='ant-select-selector']"))
@@ -485,6 +504,21 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
 			if(isContains) WebUI.verifyElementVisible(xpath('//*[@id="thickness"]'))
 		}
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyCostsReportButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()=' Costs report']/parent::button"))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyUndoButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[@aria-label='undo']/parent::button"))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyAcceptUnitPriceButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[@aria-label='check']/parent::button"))
 		return this
 	}
 
@@ -521,6 +555,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage verifyQuantityInputVisible() {
 		WebUI.verifyElementVisible(xpath('//*[@id="quantity"]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyUnitPriceInputVisible() {
+		WebUI.verifyElementVisible(xpath('//*[@id="unitPrice"]'))
 		return this
 	}
 

@@ -1,25 +1,28 @@
-import gocad.buyer.DraftPage
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.seller.MyProjectsPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
+import katalon.utility.DateTimeUtility
 import katalon.utility.FileHelper
 
-println '>>  User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+println '>> User Seller signs in page'
+Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
-println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+println '>> User Seller add project'
+Page.nav(LeftNavBar).clickMyProjects()
+Page.nav(MyProjectsPage).clickAddProject()
 
-println '>>  Random project name'
+println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
-println '>>  Open add project popup and input project name'
+println '>> Open add project popup and input project name'
 Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
@@ -52,7 +55,7 @@ if (filePDF == ""){
 	println '>> Verify UI after calculated manually of request'
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFileOnSMP()
 											.clickClosePreviewPartFilePopup()
-											.verifyContentAlertManualCalculateVisibleForBuyer(codeManual)
+											.verifyContentAlertManualCalculateVisibleForSeller(codeManual)
 											.verifyMaterialValue(material)
 											.verifyLinkPartVisible(partName)
 											.verifyQuantityValue(quantityNum)
@@ -69,12 +72,17 @@ if (filePDF == ""){
 											.verifyDeleteButtonVisible()
 											.verifyCopyButtonVisible()
 											.verifyMoveButtonVisible()
+											.verifyUnitPriceInputVisible()
+											.verifyUndoButtonVisible()
+											.verifyAcceptUnitPriceButtonVisible()
+											.verifyDeliveryDateInputVisible()
+											.verifyCostsReportButtonVisible()
 }
 else {
 	println '>> Verify UI after calculated manually of request'
 	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFileOnSMP()
 											.clickClosePreviewPartFilePopup()
-											.verifyContentAlertManualCalculateVisibleForBuyer(codeManual)
+											.verifyContentAlertManualCalculateVisibleForSeller(codeManual)
 											.verifyMaterialValue(material)
 											.verifyLinkPartVisible(partName)
 											.verifyPDFFileVisibleAfterCalculated(filePDF)
@@ -92,6 +100,12 @@ else {
 											.verifyDeleteButtonVisible()
 											.verifyCopyButtonVisible()
 											.verifyMoveButtonVisible()
+											.verifyUnitPriceInputVisible()
+											.verifyUndoButtonVisible()
+											.verifyAcceptUnitPriceButtonVisible()
+											.verifyDeliveryDateInputVisible()
+											.verifyCostsReportButtonVisible()
+											
 }
 
 println '>>  Verify can download succesfully'
@@ -99,6 +113,6 @@ Page.nav(ManufacturingInformationPage).clickPartFileToDownload(partName)
 Page.nav(FileHelper).verifyFileDownloaded(partName)
 
 println '>>  Clear data'
-Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickArchiveAction(projectId)
+Page.nav(LeftNavBar).clickMyProjects()
+Page.nav(MyProjectsPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()

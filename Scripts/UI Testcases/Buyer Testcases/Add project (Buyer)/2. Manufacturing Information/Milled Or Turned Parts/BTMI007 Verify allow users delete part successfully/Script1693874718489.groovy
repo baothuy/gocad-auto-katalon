@@ -84,4 +84,8 @@ Page.nav(ManufacturingInformationPage).clickMoreOption()
 									  
 println '>> After delete will go page Data upload page'
 Page.nav(DataUploadPage).verifyUIDataUploadPageOfBuyer(projectName)
+
+println '>>  Clear data'
+Page.nav(DraftPage).clickArchiveAction(projectId)
+					.clickCloseToastMessage()
 	

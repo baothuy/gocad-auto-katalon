@@ -1,8 +1,8 @@
 import gocad.common.AddProjectPopup
-import gocad.common.CopyPartPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
+import gocad.common.MovePartPopup
 import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
 import gocad.seller.MyProjectsPage
@@ -84,12 +84,12 @@ Page.nav(ManufacturingInformationPage).clickCalculate()
 println '>> get Net Price Value'
 String netPrice = Page.nav(ManufacturingInformationPage).getNetPriceValue()
 
-println '>> click Copy button'
+println '>> click Move button'
 Page.nav(ManufacturingInformationPage).clickMoreOption()
 									  .clickMovePart()
 										
-println '>> select project to copy'
-Page.nav(CopyPartPopup).inputProjectToCopy(projectName)
+println '>> select project to move'
+Page.nav(MovePartPopup).inputProjectToMove(projectName)
 						.clickOK()
 
 println '>>  Verify part information after copied to another project'

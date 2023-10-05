@@ -71,24 +71,6 @@
       <value></value>
       <variableId>b629a817-fbbb-4ae0-844c-512b8b385335</variableId>
    </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>039e97da-b810-4fa3-baff-5d53e0c0392f</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>54678d3e-d374-42d9-8ea8-595bed38c6a2</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>4d4714c5-6c96-4af7-9e58-c7c420bc1cd2</variableId>
-   </variableLinks>
    <variable>
       <defaultValue>'auto_Milling.step'</defaultValue>
       <description></description>
@@ -165,26 +147,5 @@
       <id>b629a817-fbbb-4ae0-844c-512b8b385335</id>
       <masked>false</masked>
       <name>materialName</name>
-   </variable>
-   <variable>
-      <defaultValue>'STANDARD'</defaultValue>
-      <description></description>
-      <id>039e97da-b810-4fa3-baff-5d53e0c0392f</id>
-      <masked>false</masked>
-      <name>deliveryOption</name>
-   </variable>
-   <variable>
-      <defaultValue>'Standard shipping'</defaultValue>
-      <description></description>
-      <id>54678d3e-d374-42d9-8ea8-595bed38c6a2</id>
-      <masked>false</masked>
-      <name>shippingOption</name>
-   </variable>
-   <variable>
-      <defaultValue>'96,27'</defaultValue>
-      <description></description>
-      <id>4d4714c5-6c96-4af7-9e58-c7c420bc1cd2</id>
-      <masked>false</masked>
-      <name>unitPrice</name>
    </variable>
 </TestCaseEntity>
