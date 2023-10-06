@@ -70,14 +70,14 @@ Page.nav(MovePartPopup).inputProjectToMove(projectName)
 						.clickOK()
 
 println '>>  Verify part information after copied to another project'
-Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickDownCirclePartColumn(projectId)
+Page.nav(LeftNavBar).clickMyProjects()
+Page.nav(MyProjectsPage).clickDownCirclePartColumn(projectId)
 					.verifyPartNameOnDetailPartColumn(partName)
 					.verifyMaterialOnDetailPartColumn(material)
 					.verifyPriceOnDetailPartColumn(netPrice)
 
 println '>>  Clear data'
-Page.nav(DraftPage).clickArchiveAction(projectId)
+Page.nav(MyProjectsPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
 					.clickArchiveAction(projectId2)
 					.clickCloseToastMessage()

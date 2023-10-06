@@ -35,6 +35,7 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		WebUI.waitForElementVisible(xpath('//*[@class="ant-card-body"]'), 5)
 		WebUI.click(xpath("//p[text()='$workflow']/ancestor::div[@class='ant-card-body']"))
 		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"
+		println "path: $path"
 		WebUI.uploadFile(xpath("//div[@class='mt-5']//span[@class='ant-upload ant-upload-btn']/input[@type='file']"), path)
 		WebUI.waitForElementPresent(xpath("//*[@for='materialId']"), GlobalVariable.sleepLargeTime)
 		return this

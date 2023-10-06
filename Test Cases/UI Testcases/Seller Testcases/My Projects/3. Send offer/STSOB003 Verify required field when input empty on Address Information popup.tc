@@ -1,151 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>STMI005 Verify users can Copy information of Part successfully</name>
-   <tag>fast-test,manufacturing-information,ui</tag>
+   <name>STSOB003 Verify required field when input empty on Address Information popup</name>
+   <tag>functional-test,checkout,ui</tag>
    <comment></comment>
-   <testCaseGuid>4d877d8d-31d3-44c0-b16f-acb86fd662be</testCaseGuid>
+   <testCaseGuid>7a716fef-1bc2-4ef5-91ae-7fa7ac8b8290</testCaseGuid>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>86014dfc-a1f7-47fc-985a-780b19da9fbe</variableId>
+      <variableId>403ef728-bcb7-4d04-a6f6-d526844e9149</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>dc71e498-b378-4849-a89e-29afed5170b1</variableId>
+      <variableId>6d997e09-2fc5-4cf5-9a71-9ed4c519a032</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>40fc9d90-ea3c-466b-9e9c-4f25ce186ccb</variableId>
+      <variableId>d2c97b1b-dfd9-4fb9-834d-99f38a2eed4a</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>0786c354-6e4c-45d2-aa5d-0dead21790b6</variableId>
+      <variableId>2cb23271-a8c1-4e65-8769-f62101c35cab</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>f82f04f8-fb16-4255-896a-c33a54d93f06</variableId>
+      <variableId>3730c033-0fe3-439c-8b14-c4049e1f7c3e</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>1fd18a73-cdc3-450b-905d-5229dfb53ad7</variableId>
+      <variableId>a19b80f8-23e7-4193-835a-f7baba85d2b5</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>ad9faab7-d262-4d74-8c69-fe9977afa9d5</variableId>
+      <variableId>c35cb725-53ba-47de-80a4-0c384645c58e</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>d4d9f845-b71f-4384-b9a2-0045a3ee98b4</variableId>
+      <variableId>ff44d284-78af-4922-b826-3c153ad50969</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>9b066c40-d57b-43c2-8e7f-0b6edf90e500</variableId>
+      <variableId>95fc480d-edbb-4ce9-9632-5262da35bed1</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>4a0460a8-f0ba-4945-9010-c854eea445c6</variableId>
+      <variableId>3239da77-1597-4bfa-b016-a64a8fa6eeb4</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>88c3bb36-2ad5-40ab-a76f-bfca68105405</variableId>
+      <variableId>54c5f1a5-bd65-4b89-859d-4e943b57b9d5</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>5e47671c-8099-42d1-9b9d-95d98b4c6579</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'step-testing.step'</defaultValue>
+      <defaultValue>'ipt-testing.ipt'</defaultValue>
       <description></description>
-      <id>86014dfc-a1f7-47fc-985a-780b19da9fbe</id>
+      <id>403ef728-bcb7-4d04-a6f6-d526844e9149</id>
       <masked>false</masked>
       <name>partName</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>dc71e498-b378-4849-a89e-29afed5170b1</id>
+      <id>6c131a4c-e547-48b5-9156-59bb9636f9a6</id>
       <masked>false</masked>
       <name>filePDF</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
+      <defaultValue>'150'</defaultValue>
       <description></description>
-      <id>40fc9d90-ea3c-466b-9e9c-4f25ce186ccb</id>
+      <id>6d997e09-2fc5-4cf5-9a71-9ed4c519a032</id>
       <masked>false</masked>
       <name>quantityNum</name>
    </variable>
    <variable>
       <defaultValue>'3'</defaultValue>
       <description></description>
-      <id>0786c354-6e4c-45d2-aa5d-0dead21790b6</id>
+      <id>d2c97b1b-dfd9-4fb9-834d-99f38a2eed4a</id>
       <masked>false</masked>
       <name>threadNum</name>
    </variable>
    <variable>
       <defaultValue>'4'</defaultValue>
       <description></description>
-      <id>f82f04f8-fb16-4255-896a-c33a54d93f06</id>
+      <id>2cb23271-a8c1-4e65-8769-f62101c35cab</id>
       <masked>false</masked>
       <name>tolerancesNum</name>
    </variable>
    <variable>
       <defaultValue>'Sandblasting'</defaultValue>
       <description></description>
-      <id>1fd18a73-cdc3-450b-905d-5229dfb53ad7</id>
+      <id>3730c033-0fe3-439c-8b14-c4049e1f7c3e</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
       <defaultValue>'Ra 0,8 - 1,6 (finely finished); Rz 6,3 - 10'</defaultValue>
       <description>Ra 3,2 - 25 (roughed); Rz 16 - 100; Ra 1,6 - 3,2 (settled); Rz 10 - 16</description>
-      <id>ad9faab7-d262-4d74-8c69-fe9977afa9d5</id>
+      <id>a19b80f8-23e7-4193-835a-f7baba85d2b5</id>
       <masked>false</masked>
       <name>quality</name>
    </variable>
    <variable>
       <defaultValue>'5'</defaultValue>
       <description></description>
-      <id>d4d9f845-b71f-4384-b9a2-0045a3ee98b4</id>
+      <id>c35cb725-53ba-47de-80a4-0c384645c58e</id>
       <masked>false</masked>
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'No'</defaultValue>
+      <defaultValue>'Yes'</defaultValue>
       <description></description>
-      <id>9b066c40-d57b-43c2-8e7f-0b6edf90e500</id>
+      <id>ff44d284-78af-4922-b826-3c153ad50969</id>
       <masked>false</masked>
       <name>tolerancesToggle</name>
    </variable>
    <variable>
       <defaultValue>'All'</defaultValue>
       <description></description>
-      <id>4a0460a8-f0ba-4945-9010-c854eea445c6</id>
+      <id>95fc480d-edbb-4ce9-9632-5262da35bed1</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
       <defaultValue>'EN AW-7075 / AlZn5'</defaultValue>
       <description></description>
-      <id>88c3bb36-2ad5-40ab-a76f-bfca68105405</id>
+      <id>3239da77-1597-4bfa-b016-a64a8fa6eeb4</id>
       <masked>false</masked>
       <name>materialName</name>
+   </variable>
+   <variable>
+      <defaultValue>'truongbaothuy93@gmail.com'</defaultValue>
+      <description></description>
+      <id>5e47671c-8099-42d1-9b9d-95d98b4c6579</id>
+      <masked>false</masked>
+      <name>email</name>
    </variable>
 </TestCaseEntity>

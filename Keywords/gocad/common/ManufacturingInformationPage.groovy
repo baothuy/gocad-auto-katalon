@@ -255,7 +255,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public String getUnitPriceValue() {
 		List<String> findObject = findTestObjects("//*[text()='Unit price']/following-sibling::label")
-		def unitPrice = (findObject.size() != 0) ? WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim() : WebUI.getAttribute(xpath("//*[@id='unitPrice']"), "value") 
+		def unitPrice = (findObject.size() != 0) ? WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim() : WebUI.getAttribute(xpath("//*[@id='unitPrice']"), "value")
 		println "unitPrice func: $unitPrice"
 		return unitPrice
 	}
@@ -467,17 +467,17 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath('//span[text()="Continue to offer overview "]'))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyManufacturingInformationReportButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//span[text()=' Manufacturing information']/parent::button"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyProcessingReportButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//span[text()=' Processing report']/parent::button"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyEmissionReportButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//span[text()=' Emission report']/parent::button"))
 		return this
@@ -506,17 +506,17 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		}
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyCostsReportButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//span[text()=' Costs report']/parent::button"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyUndoButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//span[@aria-label='undo']/parent::button"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyAcceptUnitPriceButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//span[@aria-label='check']/parent::button"))
 		return this
@@ -557,7 +557,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath('//*[@id="quantity"]'))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyUnitPriceInputVisible() {
 		WebUI.verifyElementVisible(xpath('//*[@id="unitPrice"]'))
 		return this
@@ -632,7 +632,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage clickClosePreviewPartFilePopup() {
 		List<String> findObject = findTestObjects("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']")
-		if(findObject.size() != 0) { 
+		if(findObject.size() != 0) {
 			waitUntilElementVisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"), 10)
 			WebUI.click(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"))
 		}

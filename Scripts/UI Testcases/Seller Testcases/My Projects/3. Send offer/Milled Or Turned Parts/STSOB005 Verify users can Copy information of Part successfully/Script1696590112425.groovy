@@ -6,13 +6,16 @@ import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
 import gocad.seller.MyProjectsPage
+import gocad.seller.SendOfferPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
+import katalon.utility.DateTimeUtility
+
 
 println '>> User Seller signs in page'
 Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
-println '>>  User buyer add project'
+println '>> User Seller add project'
 Page.nav(LeftNavBar).clickMyProjects()
 Page.nav(MyProjectsPage).clickAddProject()
 
@@ -31,9 +34,12 @@ Page.nav(MyProjectsPage).clickAddProject()
 Page.nav(AddProjectPopup).inputProjectName("$projectName2").clickOKButton()
 println "projectName2: $projectName2"
 String projectId2 = Page.nav(DataUploadPage).getIdProject()
+println "projectId: $projectId"
 
-println '>>  Upload file part on Data upload page'
+println '>> Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', partName)
+
+String deliveryDate = DateTimeUtility.next30Days("yyyy-MM-dd")
 
 String material
 if (filePDF == "")
@@ -53,6 +59,7 @@ if (filePDF == "")
 											.selectSurfaceTreatment(surfaceTreatment)
 											.selectSurfaceQuality(quality)
 											.inputComment(comment)
+											.inputDeliveryDate(deliveryDate)
 }
 else
 {
@@ -78,33 +85,54 @@ else
 											 .selectSurfaceTreatment(surfaceTreatment)
 											 .selectSurfaceQuality(quality)
 											 .inputComment(comment)
+											 .inputDeliveryDate(deliveryDate)
 }
 
-println '>> click Calculate button'
+println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
+									.clickContinueToOfferOverview()
 
-println '>> get Net Price Value'
-String netPrice = Page.nav(ManufacturingInformationPage).getNetPriceValue()
+println '>> click checkout button'
+List<String> tablePartReview = Page.nav(SendOfferPage).getTablePartReview(partName)
+String unitPrice = tablePartReview[3]
+String netPrice = tablePartReview[4]
 
-println '>> click Copy button'
-Page.nav(ManufacturingInformationPage).clickMoreOption()
-									  .clickCopyPart()
-										
+println '>> input email customer'
+Page.nav(SendOfferPage).inputCustomer(email)
+
+//println '>> Verify file part can download successfully'
+//Page.nav(SendOfferPage).clickFilePDFDownload()
+//Page.nav(FileHelper).verifyFileDownloaded(projectName + ".pdf")
+
+println '>> Verify information Address Information show correctly'
+println '>> Click View part information'
+Page.nav(SendOfferPage).clickMoreOption(partName)
+					  .clickCopy()
+					  
+println '>> Verify data on View page show correctly'
+Page.nav(CopyPartPopup).verifyMaterialValue(material)
+						  .verifyQuantityValue(quantityNum)
+						  .verifyThreadValue(threadNum)
+						  .verifyTolerancesNumberValue(tolerancesNum)
+						  .verifyTolerancesToggleValue(tolerancesToggle)
+						  .verifySurfaceTreatmentValue(surfaceTreatment)
+						  .verifySurfaceQualityValue(quality)
+						  .verifyAdditionalCommentsValue(comment)
+						  .verifyUnitPriceValue(unitPrice)
+						  .verifyNetPriceValue(netPrice)
+						  
 println '>> select project to copy'
 Page.nav(CopyPartPopup).inputProjectToCopy(projectName)
 						.clickOK()
 						.verifyToastMessageWhenCopyProject(partName, projectName)
-
+						
 println '>>  Verify part information after copied to another project'
 Page.nav(LeftNavBar).clickMyProjects()
 Page.nav(MyProjectsPage).clickDownCirclePartColumn(projectId)
-					.verifyPartNameOnDetailPartColumn(partName)
-					.verifyMaterialOnDetailPartColumn(material)
-					.verifyPriceOnDetailPartColumn(netPrice)
-
+					  .verifyPartNameOnDetailPartColumn(partName)
+					  .verifyMaterialOnDetailPartColumn(material)
+					  .verifyPriceOnDetailPartColumn(netPrice)
+						  
 println '>>  Clear data'
 Page.nav(MyProjectsPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
-					.clickArchiveAction(projectId2)
-					.clickCloseToastMessage()
-	

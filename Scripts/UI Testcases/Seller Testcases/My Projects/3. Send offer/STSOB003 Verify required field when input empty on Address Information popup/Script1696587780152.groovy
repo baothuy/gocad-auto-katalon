@@ -1,39 +1,40 @@
+import gocad.buyer.AddressInformationPopup
+import gocad.buyer.CheckoutPage
+import gocad.buyer.DraftPage
 import gocad.common.AddProjectPopup
-import gocad.common.CopyPartPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
 import gocad.seller.MyProjectsPage
+import gocad.seller.SendOfferPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
+import katalon.utility.DateTimeUtility
+import katalon.utility.FileHelper
+
 
 println '>> User Seller signs in page'
 Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
-println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickMyProjects()
-Page.nav(MyProjectsPage).clickAddProject()
-
-println '>>  Random project name'
-def projectName = CommonUtility.generateRandomProjectName(10)
-def projectName2 = CommonUtility.generateRandomProjectName(10)
-
-println '>>  Open add project popup and input project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
-println "projectName: $projectName"
-String projectId = Page.nav(DataUploadPage).getIdProject()
-
 println '>> User Seller add project'
 Page.nav(LeftNavBar).clickMyProjects()
 Page.nav(MyProjectsPage).clickAddProject()
-Page.nav(AddProjectPopup).inputProjectName("$projectName2").clickOKButton()
-println "projectName2: $projectName2"
-String projectId2 = Page.nav(DataUploadPage).getIdProject()
 
-println '>>  Upload file part on Data upload page'
+println '>> Random project name'
+def projectName = CommonUtility.generateRandomProjectName(10)
+
+println '>> Open add project popup and input project name'
+Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+
+String projectId = Page.nav(DataUploadPage).getIdProject()
+println "projectId: $projectId"
+
+println '>> Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', partName)
+
+String deliveryDate = DateTimeUtility.next30Days("yyyy-MM-dd")
 
 String material
 if (filePDF == "")
@@ -53,6 +54,7 @@ if (filePDF == "")
 											.selectSurfaceTreatment(surfaceTreatment)
 											.selectSurfaceQuality(quality)
 											.inputComment(comment)
+											.inputDeliveryDate(deliveryDate)
 }
 else
 {
@@ -78,33 +80,40 @@ else
 											 .selectSurfaceTreatment(surfaceTreatment)
 											 .selectSurfaceQuality(quality)
 											 .inputComment(comment)
+											 .inputDeliveryDate(deliveryDate)
 }
 
-println '>> click Calculate button'
+println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
+									.clickContinueToOfferOverview()
+									
+println '>> input email customer'
+Page.nav(SendOfferPage).inputCustomer(email)
 
-println '>> get Net Price Value'
-String netPrice = Page.nav(ManufacturingInformationPage).getNetPriceValue()
+println '>> Verify file part can download successfully'
+Page.nav(SendOfferPage).clickFilePDFDownload()
+Page.nav(FileHelper).verifyFileDownloaded(projectName + ".pdf")
 
-println '>> click Copy button'
-Page.nav(ManufacturingInformationPage).clickMoreOption()
-									  .clickCopyPart()
-										
-println '>> select project to copy'
-Page.nav(CopyPartPopup).inputProjectToCopy(projectName)
-						.clickOK()
-						.verifyToastMessageWhenCopyProject(partName, projectName)
-
-println '>>  Verify part information after copied to another project'
-Page.nav(LeftNavBar).clickMyProjects()
-Page.nav(MyProjectsPage).clickDownCirclePartColumn(projectId)
-					.verifyPartNameOnDetailPartColumn(partName)
-					.verifyMaterialOnDetailPartColumn(material)
-					.verifyPriceOnDetailPartColumn(netPrice)
-
+println '>> Verify file part can download successfully'
+Page.nav(SendOfferPage).clickEditAddress()
+Page.nav(AddressInformationPopup).clickOK()
+								.verifyShowErrorWhenFirstNameBillingAddressEmpty()
+								.verifyShowErrorWhenLastNameBillingAddressEmpty()
+								.verifyShowErrorWhenHouseNumberBillingAddressEmpty()
+								.verifyShowErrorWhenStateBillingAddressEmpty()
+								.verifyShowErrorWhenStreetBillingAddressEmpty()
+								.verifyShowErrorWhenZIPCodeBillingAddressEmpty()
+								.verifyShowErrorWhenCityBillingAddressEmpty()
+								.verifyShowErrorWhenFirstNameShippingAddressEmpty()
+								.verifyShowErrorWhenLastNameShippingAddressEmpty()
+								.verifyShowErrorWhenHouseNumberShippingAddressEmpty()
+								.verifyShowErrorWhenStateShippingAddressEmpty()
+								.verifyShowErrorWhenStreetShippingAddressEmpty()
+								.verifyShowErrorWhenZIPCodeShippingAddressEmpty()
+								.verifyShowErrorWhenCityShippingAddressEmpty()
+								.clickCancel()
+								
 println '>>  Clear data'
+Page.nav(LeftNavBar).clickMyProjects()
 Page.nav(MyProjectsPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
-					.clickArchiveAction(projectId2)
-					.clickCloseToastMessage()
-	

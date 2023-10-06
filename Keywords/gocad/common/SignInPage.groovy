@@ -92,6 +92,7 @@ public class MySignInPage extends BasePage<MySignInPage> {
 
 	public MySignInPage changeLanguage () {
 		WebUI.click(xpath("//button[@class='btn']"))
+		WebUI.click(xpath("//span[text()='English']"))
 		return this
 	}
 

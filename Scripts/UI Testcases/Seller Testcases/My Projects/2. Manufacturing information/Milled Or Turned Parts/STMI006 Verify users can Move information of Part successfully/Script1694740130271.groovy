@@ -14,6 +14,7 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 
 println '>>  User buyer add project'
 Page.nav(LeftNavBar).clickMyProjects()
+Page.nav(MyProjectsPage).clickAddProject()
 
 println '>>  Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)

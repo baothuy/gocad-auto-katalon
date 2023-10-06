@@ -1,99 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>debug seller tcs</name>
-   <tag>debug</tag>
+   <name>STSOB002 Verify Address Information page can update information successfully</name>
+   <tag>functional-test,checkout,ui</tag>
    <comment></comment>
-   <testCaseGuid>3f0969dd-aafb-43f3-9fd5-20663f6915b8</testCaseGuid>
+   <testCaseGuid>e3d5bb0a-7837-4748-813d-b9d210f86ba2</testCaseGuid>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>9a417d28-ad9f-4599-8025-c5c5c99d58ff</variableId>
+      <variableId>0ee50df3-0c9a-4a26-aee3-f9cde318c30e</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>84a13b9b-f276-4724-80bf-b558d3a3f456</variableId>
+      <variableId>2da2a2a6-fe69-4d5f-ae94-7ae969f25e27</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>71a0f345-b01f-4ff7-af72-54c53e25bc4d</variableId>
+      <variableId>812462a4-6b51-4a8d-907c-a9f58d1056d0</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>3f99dee5-8f47-40d2-b77b-599df5e61a83</variableId>
+      <variableId>9b1764a2-35bb-473d-a7dc-205166279e9b</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>06cda63c-ed77-406a-b601-220d19685d58</variableId>
+      <variableId>f4263a27-d9e3-4254-9c64-2664d0198deb</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>afde94de-c3b1-4d77-afae-633dd175efd5</variableId>
+      <variableId>28718e9c-0181-4189-80f0-0bf11c05d2e9</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>726288d9-a949-4e5b-8307-2abb07d05b3a</variableId>
+      <variableId>273b639c-1657-49e4-8b9b-80f05ba7efdd</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>55df43ff-2b7e-43ce-aecb-1fd0f67b8493</variableId>
+      <variableId>50821c7e-6b00-4891-8b02-8a58c2fda4e7</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>d7fbd84e-cc6e-46c3-b82e-6a575cc8f9fc</variableId>
+      <variableId>46910caf-2892-4a1b-b25d-00506d685f08</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>b695202e-9bb6-49d7-add0-2d71e2638689</variableId>
+      <variableId>fc7527d6-805f-46b7-a7b5-a5918ac97384</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>ac963d7f-57f0-4bde-854a-52db02fdb548</variableId>
+      <variableId>54b2c0d3-ae51-4a4b-9314-b283e7297d3c</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
+      <variableId>a731208d-25a1-4347-b2a0-2475e168a219</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
+      <variableId>a731208d-25a1-4347-b2a0-2475e168a219</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
+      <variableId>a731208d-25a1-4347-b2a0-2475e168a219</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
+      <variableId>a731208d-25a1-4347-b2a0-2475e168a219</variableId>
    </variableLinks>
    <variable>
       <defaultValue>'step-testing.step'</defaultValue>
@@ -173,28 +173,28 @@
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>['Thuy', 'Truong', '0794050505', '359', 'Baden-Wuerttemberg', '73405', 'Andorra']</defaultValue>
+      <defaultValue>['Thuy', 'Truong', '0794050505', '359', 'Baden-Wuerttemberg', '73405', 'Andorra', 'Germany']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
       <name>billingAddress</name>
    </variable>
    <variable>
-      <defaultValue>['Thuy1', 'Truong2', '07940505055', '3594', 'Bayern', '734056', 'Andorra7']</defaultValue>
+      <defaultValue>['Thuy1', 'Truong2', '07940505055', '3594', 'Bayern', '734056', 'Andorra7', 'Germany']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
       <name>shippingAddress</name>
    </variable>
    <variable>
-      <defaultValue>['ThuyThuy', 'TruongTruong', '07940505050794050505', '359359', 'Bremen', '7340573', 'AndorraAndorra']</defaultValue>
+      <defaultValue>['ThuyThuy', 'TruongTruong', '07940505050794050505', '359359', 'Bremen', '7340573', 'AndorraAndorra', 'Germany']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
       <name>billingAddressChanged</name>
    </variable>
    <variable>
-      <defaultValue>['Thuy11', 'Truong22', '07940505044', '35933', 'Hamburg', '7340555', 'Andorra66']</defaultValue>
+      <defaultValue>['Thuy11', 'Truong22', '07940505044', '35933', 'Hamburg', '7340555', 'Andorra66', 'Germany']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>

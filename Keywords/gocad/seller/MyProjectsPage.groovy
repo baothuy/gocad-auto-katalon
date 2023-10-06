@@ -39,26 +39,26 @@ public class MyProjectsPage extends BasePage<MyProjectsPage>{
 		WebUI.click(xpath("//*[@aria-label='close']/ancestor::a"))
 		return this
 	}
-	
+
 	public MyProjectsPage clickDownCirclePartColumn(String projectId) {
 		WebUI.click(partsCol(projectId))
 		return this
 	}
-	
+
 	public MyProjectsPage verifyPartNameOnDetailPartColumn(String expectedResult) {
 		String partName = WebUI.getText(xpath("//*[@class='ant-card-body']/div[contains(@class,'part-name')]"))
 		WebUI.verifyEqual(partName, expectedResult)
 		return this
 	}
-	
+
 	public MyProjectsPage verifyMaterialOnDetailPartColumn(String expectedResult) {
 		String material = WebUI.getText(xpath("//*[@class='ant-card-body']/div/label"))
 		WebUI.verifyEqual(material, expectedResult)
 		return this
 	}
-	
+
 	public MyProjectsPage verifyPriceOnDetailPartColumn(String expectedResult) {
-		String price = WebUI.getText(xpath("//*[@class='ant-card-body']//span[contains(text(),'$GlobalVariable.currency')]"))
+		String price = WebUI.getText(xpath("//*[@class='ant-card-body']//*[contains(text(),'$GlobalVariable.currency')]"))
 		WebUI.verifyEqual(price, expectedResult)
 		return this
 	}
