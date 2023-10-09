@@ -229,7 +229,7 @@
       <name>packagingAndShippingComments</name>
    </variable>
    <variable>
-      <defaultValue>'buyer@gocad.de'</defaultValue>
+      <defaultValue>'truongbaothuy93@gmail.com'</defaultValue>
       <description></description>
       <id>033aa920-ab95-4026-a265-5854f8491d1a</id>
       <masked>false</masked>
