@@ -229,7 +229,7 @@
       <name>packagingAndShippingComments</name>
    </variable>
    <variable>
-      <defaultValue>'truongbaothuy93@gmail.com'</defaultValue>
+      <defaultValue>GlobalVariable.buyer_mail</defaultValue>
       <description></description>
       <id>033aa920-ab95-4026-a265-5854f8491d1a</id>
       <masked>false</masked>

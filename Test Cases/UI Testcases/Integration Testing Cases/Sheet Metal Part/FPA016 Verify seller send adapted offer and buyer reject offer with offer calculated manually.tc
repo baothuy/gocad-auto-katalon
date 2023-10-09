@@ -131,14 +131,14 @@
       <name>filePDF</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
+      <defaultValue>'1000'</defaultValue>
       <description></description>
       <id>297f10f3-6561-45ef-9b65-b342b95a5f1f</id>
       <masked>false</masked>
       <name>thicknessNum</name>
    </variable>
    <variable>
-      <defaultValue>'100'</defaultValue>
+      <defaultValue>'2'</defaultValue>
       <description></description>
       <id>5a487b1a-2dc0-4f54-857d-66e74db09fc5</id>
       <masked>false</masked>
