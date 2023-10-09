@@ -25,7 +25,7 @@ public class ConfirmPopup extends BasePage<ConfirmPopup>{
 	}
 	
 	public ConfirmPopup verifyTitleConfirmPopup(String title) {
-		String actualTitle = WebUI.getText(xpath("//*[@class='ant-modal-confirm-title']"))
+		String actualTitle = WebUI.getText(xpath("//*[@class='ant-modal-title']"))
 		WebUI.verifyEqual(actualTitle, title)
 		return this
 	}

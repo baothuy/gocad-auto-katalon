@@ -109,7 +109,7 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 	public ArchivedProjectsPage verifyToastMessageWhenUnarchivedProject(String projectName) {
 		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
 		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
-		def expectedTitle = "Unarchived!"
+		def expectedTitle = "Unarchived"
 		def expectedMessage = "The project \'$projectName\' has been unarchived."
 		WebUI.verifyEqual(actualTitle, expectedTitle)
 		WebUI.verifyEqual(actualMessage, expectedMessage)
@@ -123,7 +123,7 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 	}
 
 	public ArchivedProjectsPage verifyUIVisible() {
-		WebUI.verifyElementVisible(xpath("//h5[text()='Draft']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Archived Projects']"))
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))

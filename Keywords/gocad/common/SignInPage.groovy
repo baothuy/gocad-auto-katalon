@@ -25,8 +25,9 @@ public class MySignInPage extends BasePage<MySignInPage> {
 
 	public MySignInPage enterCredential(String user_name, String password) {
 		WebUI.navigateToUrl(GlobalVariable.myUrl)
+		WebUI.waitForElementPresent(id('basic_username'), 60)
 		WebUI.sendKeys(id('basic_username'), user_name)
-		WebUI.setEncryptedText(id('basic_password'), password)
+		WebUI.sendKeys(id('basic_password'), password)
 		return this
 	}
 
@@ -50,7 +51,7 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		return this
 	}
 
-	public MySignInPage verifyAfterInputAccount () {
+	public MySignInPage verifyAfterInputWrongAccount () {
 		WebUI.delay(GlobalVariable.smallSleepTime)
 		String message = WebUI.getText(xpath('//div[@class="alert alert-danger alert-dismissible fade show"]'))
 		String inputExpected = "Invalid email or password. Please try again."

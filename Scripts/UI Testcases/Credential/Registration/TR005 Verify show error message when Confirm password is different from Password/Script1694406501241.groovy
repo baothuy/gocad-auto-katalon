@@ -10,6 +10,6 @@ Page.nav(RegistrationPage).inputPassword(password)
 							.inputConfirmPassword(confirmPassword)
 							
 println '>> Input empty on Registration page'
-Page.nav(RegistrationPage).verifyShowErrorWhenInputConfirmPassword("Passwords do NOT match")
+Page.nav(RegistrationPage).verifyShowErrorWhenInputConfirmPassword("Confirm password do not match")
 							
 							

@@ -18,7 +18,7 @@ Page.nav(RegistrationPage).inputEmail("")
 println '>> Input empty on Registration page'
 Page.nav(RegistrationPage).verifyShowErrorWhenInputEmail("Email is required.")
 							.verifyShowErrorWhenInputPassword("Password is required.")
-							.verifyShowErrorWhenInputConfirmPassword("Passwords do NOT match")
+							.verifyShowErrorWhenInputConfirmPassword("Confirm password do not match")
 							.verifyShowErrorWhenInputFirstName("First Name is required.")
 							.verifyShowErrorWhenInputLastName("Last Name is required.")
 							.verifyShowErrorWhenInputPhone("Phone is required.")

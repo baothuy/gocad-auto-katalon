@@ -5,7 +5,7 @@ import gocad.common.MySignInPage
 import katalon.fw.lib.Page
 
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(MySignInPage).enterCredential(email, currentPassword).changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>> Click Settings nav menu'
 Page.nav(LeftNavBar).clickSettings()
@@ -24,7 +24,6 @@ println '>> Verify content message after change password'
 Page.nav(AccountSettingsPage).verifyToastMessageWhenChangePassword()
 
 println '>> Get email and logout'
-String email = Page.nav(LeftNavBar).getEmail()
 Page.nav(LeftNavBar).clickLogout()
 
 println '>> Login with old password will show error'

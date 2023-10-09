@@ -17,7 +17,7 @@ println '>> click delete projects'
 Page.nav(ArchivedProjectsPage).clickDeleteAction(dataRow[0])
 							
 println '>> click delete projects'
-Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Confirm")
+Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Delete Order")
 						.verifyContentConfirmPopup("Are you sure to delete this project? The project will not be restored.")
 						.clickOK()
 
