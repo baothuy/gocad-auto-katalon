@@ -117,7 +117,7 @@
       <variableId>eb67cb27-2591-40e1-a26a-88e2fc4f6150</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'TH334sa_1.dxf'</defaultValue>
+      <defaultValue>'dxf-testing.dxf'</defaultValue>
       <description></description>
       <id>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</id>
       <masked>false</masked>
