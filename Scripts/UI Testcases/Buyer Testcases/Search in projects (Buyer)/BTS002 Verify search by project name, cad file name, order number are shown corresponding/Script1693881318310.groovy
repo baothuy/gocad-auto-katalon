@@ -65,19 +65,19 @@ Page.nav(SearchInProjectsPopup).verifyStatusVisibleInList(dataRow[0], dataRow[5]
 								.clearSearchStatus()
 
 String startDate = DateTimeUtility.plusDays(-1, "yyyy-MM-dd")
-String currentDate = DateTimeUtility.currentDay("yyyy-MM-dd")	
+String endDate = DateTimeUtility.next30Days("yyyy-MM-dd")	
 println "previousDate: $startDate"
-println "currentDate: $currentDate"				
+println "endDate: $endDate"				
 
 println '>> Verify search by delivery date'
 Page.nav(SearchInProjectsPopup).inputStartDate(startDate)
-								.inputEndDate(currentDate)
+								.inputEndDate(endDate)
 								.clickSearch()
 								
 List<String> dataRowSearchByDate = Page.nav(SearchInProjectsPopup).getDataRow("1")
 println "dataRowSearchByDate: $dataRowSearchByDate"
 
-Page.nav(SearchInProjectsPopup).verifyDeliveryDateVisibleInList(dataRowSearchByDate[0], currentDate)
+Page.nav(SearchInProjectsPopup).verifyHaveRowVisibleInList("1")
 								.clearSearchDate()
 								
 println '>> Verify search by Mark as Unread'

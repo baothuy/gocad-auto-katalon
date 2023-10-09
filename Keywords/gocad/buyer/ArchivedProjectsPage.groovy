@@ -110,7 +110,7 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
 		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
 		def expectedTitle = "Unarchived"
-		def expectedMessage = "The project \'$projectName\' has been unarchived."
+		def expectedMessage = "The project $projectName has been unarchived."
 		WebUI.verifyEqual(actualTitle, expectedTitle)
 		WebUI.verifyEqual(actualMessage, expectedMessage)
 		return this

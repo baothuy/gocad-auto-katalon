@@ -26,14 +26,16 @@ switch (expectedResult) {
 		println '>> Verify error in field'
 		Page.nav(ChangePasswordPopup).verifyErrorCurrentPasswordField("Current password is required.")
 									 .verifyErrorNewPasswordField("New password is required.")
-									 .verifyErrorConfirmNewPasswordField("Confirm Password is required.")
-									 
+									 .verifyErrorConfirmNewPasswordField("Confirm password is required.")
+	break;		
+							 
 	case "wrongPassword":
-	println '>> Verify error in field'
-	Page.nav(ChangePasswordPopup).verifyErrorCurrentPasswordField("Incorrect password.")
+		println '>> Verify error in field'
+		Page.nav(ChangePasswordPopup).verifyErrorCurrentPasswordField("Current password must contain at least 8 characters, at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character")
+	break;
 	
 	case "notMatch":
-	println '>> Verify error in field'
-	Page.nav(ChangePasswordPopup).verifyErrorConfirmNewPasswordField("Passwords do NOT match")
-							 
+		println '>> Verify error in field'
+		Page.nav(ChangePasswordPopup).verifyErrorConfirmNewPasswordField("Confirm password do not match")
+	break;
 }

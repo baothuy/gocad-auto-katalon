@@ -9,7 +9,7 @@
       <combinationType>ONE</combinationType>
       <id>9b34a0bb-ca86-4ad5-8aab-6b6a3a2af67e</id>
       <iterationEntity>
-         <iterationType>SPECIFIC</iterationType>
+         <iterationType>ALL</iterationType>
          <value>3</value>
       </iterationEntity>
       <testDataId>Data Files/Settings/Change password</testDataId>
