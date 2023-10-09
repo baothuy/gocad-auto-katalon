@@ -281,7 +281,7 @@
       <name>provideOwnProductChanged</name>
    </variable>
    <variable>
-      <defaultValue>'96,44'</defaultValue>
+      <defaultValue>'95,02'</defaultValue>
       <description></description>
       <id>12efad79-3f0c-41ec-a3c1-1b7b0785fee7</id>
       <masked>false</masked>

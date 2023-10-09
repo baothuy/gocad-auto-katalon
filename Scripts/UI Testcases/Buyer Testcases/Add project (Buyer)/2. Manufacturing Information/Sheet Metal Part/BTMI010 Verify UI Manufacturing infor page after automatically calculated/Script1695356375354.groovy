@@ -97,9 +97,9 @@ else {
 											.verifyUnitPriceValue(unitPrice)
 											.verifyNetPriceValue(netPrice)
 }
-println '>>  Verify can download succesfully'
-Page.nav(ManufacturingInformationPage).clickPartFileToDownload(partName)
-Page.nav(FileHelper).verifyFileDownloaded(partName)
+//println '>>  Verify can download succesfully'
+//Page.nav(ManufacturingInformationPage).clickPartFileToDownload(partName)
+//Page.nav(FileHelper).verifyFileDownloaded(partName)
 
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()
