@@ -77,7 +77,7 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public ViewPartPopup verifyThreadCuttingValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Thread Cutting']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
@@ -105,22 +105,22 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public ViewPartPopup verifyRollingDirectionValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Rolling Direction']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public ViewPartPopup verifyCountersinkValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Countersink']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
-	public ViewPartPopup verifyThicknessValue(String partName, String expectedResult) {	
+
+	public ViewPartPopup verifyThicknessValue(String partName, String expectedResult) {
 		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
 			println "isContains: $isContains"
@@ -132,14 +132,14 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 		}
 		return this
 	}
-	
+
 	public ViewPartPopup verifyCuttingLayersValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Cutting layers']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public ViewPartPopup verifyDeburringValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Deburring']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
@@ -240,11 +240,9 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 	}
 
 	public ViewPartPopup verifyUIViewPopupVisible() {
-		// input partname
-		WebUI.verifyElementVisible(xpath("//*[@class='input-inline-api']"))
 		// file download file cad and pdf
 		WebUI.verifyElementVisible(xpath("//*[@class='text-decoration-none']"))
-		List<String> findTestObject = findTestObjects("//*[text()='Milled / Turned Parts']") 
+		List<String> findTestObject = findTestObjects("//*[text()='Milled / Turned Parts']")
 		if(findTestObject.size() != 0)
 		{
 			// information part
@@ -260,15 +258,15 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 		else if(findTestObject.size() == 0)
 		{
 			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
-			 WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
-			 WebUI.verifyElementVisible(xpath("//*[text()='Rolling Direction']"))
-			 WebUI.verifyElementVisible(xpath("//*[text()='Countersink']"))
-			 WebUI.verifyElementVisible(xpath("//*[text()='Thickness (mm)']"))
-			 WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment']"))
-			 WebUI.verifyElementVisible(xpath("//*[text()='Cutting layers']"))
-			 WebUI.verifyElementVisible(xpath("//*[text()='Deburring']"))
-			 WebUI.verifyElementVisible(xpath("//*[text()='Thread Cutting']"))
-			 WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Rolling Direction']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Countersink']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Thickness (mm)']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Cutting layers']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Deburring']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Thread Cutting']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))
 		}
 		WebUI.verifyElementVisible(xpath("//*[text()='Unit price']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))

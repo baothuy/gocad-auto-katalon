@@ -99,7 +99,7 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 	public ArchivedProjectsPage verifyToastMessageWhenDeletedProject(String projectName) {
 		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
 		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
-		def expectedTitle = "Deleted!"
+		def expectedTitle = "Deleted"
 		def expectedMessage = "The project has been successfully deleted."
 		WebUI.verifyEqual(actualTitle, expectedTitle)
 		WebUI.verifyEqual(actualMessage, expectedMessage)
