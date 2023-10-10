@@ -19,7 +19,7 @@ public class CancelledOffersPageOfSeller extends BasePage<CancelledOffersPageOfS
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//span[normalize-space(text()) != '']")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]/a")}
 	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]/"}
-	def contentPage = "The folder Requested Offers shows all your projects where you have placed an order or requested a quotation. The current status of the project can be seen in the column \"status\"."
+	def contentPage = "The folder Cancelled Orders contains projects which have been cancelled either by you or by us."
 
 	public CancelledOffersPageOfSeller clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))

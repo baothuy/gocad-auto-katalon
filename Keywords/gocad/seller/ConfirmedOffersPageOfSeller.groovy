@@ -18,7 +18,7 @@ public class ConfirmedOffersPageOfSeller extends BasePage<ConfirmedOffersPageOfS
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//span[normalize-space(text()) != '']")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]/a")}
 	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]/"}
-	def contentPage = "The folder Requested Offers shows all your projects where you have placed an order or requested a quotation. The current status of the project can be seen in the column \"status\"."
+	def contentPage = "The folder Confirmed Requests shows all projects that have been approved and are in progress."
 
 	public ConfirmedOffersPageOfSeller clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))

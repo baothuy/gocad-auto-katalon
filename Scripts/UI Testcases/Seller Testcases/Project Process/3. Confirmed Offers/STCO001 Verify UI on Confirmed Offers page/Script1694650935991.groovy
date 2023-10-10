@@ -10,7 +10,7 @@ println '>> User seller signs in page'
 Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>> Click search data project added at previous step'
-Page.nav(LeftNavBar).clickSentOffers()
+Page.nav(LeftNavBar).clickConfirmedOffers()
 
 println '>> Verify UI Requested Offers page'
 Page.nav(ConfirmedOffersPageOfSeller).verifyUIVisible()

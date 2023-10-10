@@ -371,7 +371,20 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	}
 
 	public DetailOffer verifyAcceptAndSendOfferButtonVisible() {
-		WebUI.verifyElementVisible(xpath("//*[text()='Accept And Send Offer ']"))
+		List<String> findNumberPrefix = findTestObjects("//span[@class='ant-input-number-prefix']/span[@aria-label='line']")
+		(findNumberPrefix.size() == 0) ? WebUI.verifyElementVisible(xpath("//*[text()='Send Adapted Offer ']")) : WebUI.verifyElementVisible(xpath("//*[text()='Accept And Send Offer ']"))
+		return this
+	}
+	
+	public DetailOffer verifySendAdaptedOfferButtonVisible() {
+		List<String> findNumberPrefix = findTestObjects("//span[@class='ant-input-number-prefix']/span[@aria-label='line']")
+		(findNumberPrefix.size() == 0) ? WebUI.verifyElementVisible(xpath("//*[text()='Send Adapted Offer ']")) : WebUI.verifyElementVisible(xpath("//*[text()='Accept And Send Offer ']"))
+		return this
+	}
+	
+	public DetailOffer verifyResetAdaptButtonVisible() {
+		List<String> findNumberPrefix = findTestObjects("//span[@class='ant-input-number-prefix']/span[@aria-label='line']")
+		(findNumberPrefix.size() == 0) ? WebUI.verifyElementVisible(xpath("//*[text()='Reset Adapt']")) : ""
 		return this
 	}
 
