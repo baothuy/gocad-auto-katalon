@@ -49,6 +49,7 @@ public class FileHelper {
 		println "fileName: $fileName"
 		// Define the path where the file will be downloaded
 		String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\"
+		println "downloadFolderPath: $downloadFolderPath"
 		// Clear the downloaded file before verify
 		Files.deleteIfExists(Paths.get(downloadFolderPath, fileName))
 		// Wait for the file to be downloaded

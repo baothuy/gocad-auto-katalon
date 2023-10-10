@@ -72,7 +72,7 @@
       <variableId>73a7cfb3-47b3-4fd5-ab24-4cd524ee18de</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>' ipt-testing.ipt'</defaultValue>
+      <defaultValue>'ipt-testing.ipt'</defaultValue>
       <description></description>
       <id>5eed0b04-d9c3-4097-afa2-c22bf1370ef7</id>
       <masked>false</masked>
