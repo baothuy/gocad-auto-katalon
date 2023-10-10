@@ -232,7 +232,7 @@
       <name>unitPrice</name>
    </variable>
    <variable>
-      <defaultValue>'4'</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description></description>
       <id>bfc2b684-94b4-434d-abe4-af8357576f79</id>
       <masked>false</masked>
