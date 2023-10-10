@@ -91,23 +91,8 @@ println '>> input email customer'
 Page.nav(SendOfferPage).inputCustomer(email)
 
 println '>> Verify file part can download successfully'
-Page.nav(SendOfferPage).clickEditAddress()
-Page.nav(AddressInformationPopup).clickOK()
-								.verifyShowErrorWhenFirstNameBillingAddressEmpty()
-								.verifyShowErrorWhenLastNameBillingAddressEmpty()
-								.verifyShowErrorWhenHouseNumberBillingAddressEmpty()
-								.verifyShowErrorWhenStateBillingAddressEmpty()
-								.verifyShowErrorWhenStreetBillingAddressEmpty()
-								.verifyShowErrorWhenZIPCodeBillingAddressEmpty()
-								.verifyShowErrorWhenCityBillingAddressEmpty()
-								.verifyShowErrorWhenFirstNameShippingAddressEmpty()
-								.verifyShowErrorWhenLastNameShippingAddressEmpty()
-								.verifyShowErrorWhenHouseNumberShippingAddressEmpty()
-								.verifyShowErrorWhenStateShippingAddressEmpty()
-								.verifyShowErrorWhenStreetShippingAddressEmpty()
-								.verifyShowErrorWhenZIPCodeShippingAddressEmpty()
-								.verifyShowErrorWhenCityShippingAddressEmpty()
-								.clickCancel()
+Page.nav(SendOfferPage).clickFilePDFDownload()
+Page.nav(FileHelper).verifyFileDownloaded(projectName + ".pdf")
 								
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickMyProjects()

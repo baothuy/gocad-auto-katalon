@@ -24,7 +24,7 @@
       <variableId>b22d9675-066a-490c-ac15-550557954166</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'auto_Milling.step'</defaultValue>
+      <defaultValue>'step-testing.step'</defaultValue>
       <description></description>
       <id>ad5e1dbb-8e15-4607-9865-e72010182ec5</id>
       <masked>false</masked>

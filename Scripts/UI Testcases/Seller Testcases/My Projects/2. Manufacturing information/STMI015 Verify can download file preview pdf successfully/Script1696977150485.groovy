@@ -1,6 +1,3 @@
-import gocad.buyer.AddressInformationPopup
-import gocad.buyer.CheckoutPage
-import gocad.buyer.DraftPage
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
@@ -8,12 +5,10 @@ import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
 import gocad.seller.MyProjectsPage
-import gocad.seller.SendOfferPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
 import katalon.utility.FileHelper
-
 
 println '>> User Seller signs in page'
 Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
@@ -31,10 +26,8 @@ Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
-println '>> Upload file part on Data upload page'
+println '>>  Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', partName)
-
-String deliveryDate = DateTimeUtility.next30Days("yyyy-MM-dd")
 
 String material
 if (filePDF == "")
@@ -54,7 +47,6 @@ if (filePDF == "")
 											.selectSurfaceTreatment(surfaceTreatment)
 											.selectSurfaceQuality(quality)
 											.inputComment(comment)
-											.inputDeliveryDate(deliveryDate)
 }
 else
 {
@@ -80,35 +72,17 @@ else
 											 .selectSurfaceTreatment(surfaceTreatment)
 											 .selectSurfaceQuality(quality)
 											 .inputComment(comment)
-											 .inputDeliveryDate(deliveryDate)
 }
 
-println '>> click Calculate and move to Review page'
-Page.nav(ManufacturingInformationPage).clickCalculate()
-									.clickContinueToOfferOverview()
-									
-println '>> input email customer'
-Page.nav(SendOfferPage).inputCustomer(email)
+String deliveryDate = DateTimeUtility.next30Days("yyyy-MM-dd")
+println '>> click Calculate button'
+Page.nav(ManufacturingInformationPage).inputDeliveryDate(deliveryDate)
+										.clickCalculate()
 
-println '>> Verify file part can download successfully'
-Page.nav(SendOfferPage).clickEditAddress()
-Page.nav(AddressInformationPopup).clickOK()
-								.verifyShowErrorWhenFirstNameBillingAddressEmpty()
-								.verifyShowErrorWhenLastNameBillingAddressEmpty()
-								.verifyShowErrorWhenHouseNumberBillingAddressEmpty()
-								.verifyShowErrorWhenStateBillingAddressEmpty()
-								.verifyShowErrorWhenStreetBillingAddressEmpty()
-								.verifyShowErrorWhenZIPCodeBillingAddressEmpty()
-								.verifyShowErrorWhenCityBillingAddressEmpty()
-								.verifyShowErrorWhenFirstNameShippingAddressEmpty()
-								.verifyShowErrorWhenLastNameShippingAddressEmpty()
-								.verifyShowErrorWhenHouseNumberShippingAddressEmpty()
-								.verifyShowErrorWhenStateShippingAddressEmpty()
-								.verifyShowErrorWhenStreetShippingAddressEmpty()
-								.verifyShowErrorWhenZIPCodeShippingAddressEmpty()
-								.verifyShowErrorWhenCityShippingAddressEmpty()
-								.clickCancel()
-								
+println '>>  Verify can download succesfully'
+Page.nav(ManufacturingInformationPage).clickPartFileToDownload(partName)
+Page.nav(FileHelper).verifyFileDownloaded(partName)
+
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickMyProjects()
 Page.nav(MyProjectsPage).clickArchiveAction(projectId)

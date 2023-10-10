@@ -108,10 +108,6 @@ else {
 											
 }
 
-println '>>  Verify can download succesfully'
-Page.nav(ManufacturingInformationPage).clickPartFileToDownload(partName)
-Page.nav(FileHelper).verifyFileDownloaded(partName)
-
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickMyProjects()
 Page.nav(MyProjectsPage).clickArchiveAction(projectId)
