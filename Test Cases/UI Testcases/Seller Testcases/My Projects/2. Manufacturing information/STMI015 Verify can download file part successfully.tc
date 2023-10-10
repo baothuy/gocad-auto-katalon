@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>STMI015 Verify can download file preview pdf successfully</name>
+   <name>STMI015 Verify can download file part successfully</name>
    <tag>fast-test,manufacturing-information,ui</tag>
    <comment></comment>
    <testCaseGuid>c79ebee5-6679-4200-8360-f21e44bb8623</testCaseGuid>
