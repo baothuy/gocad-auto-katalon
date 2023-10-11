@@ -1,4 +1,4 @@
-package gocad.services
+package gocad.services.common
 
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.util.CryptoUtil
