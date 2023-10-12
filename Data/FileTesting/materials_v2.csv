@@ -1,0 +1,248 @@
+IGNORE;MATERIAL_CATEGORY;MATERIAL_GROUP;MATERIAL_NUMBER;MATERIAL_NAME;DENSITY;PRICE_PER_KILO;SYNONYMS
+1;Titanium||Titan;Ti;3.7035;TiCP Grade2;4.51;20.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.2510;100MnCrW4;7.85;1.8;
+1;Tool steel||Werkzeugstahl;VA;1.2842;90MnCrV8;7.9;9.0;
+0;Aluminum||Aluminium;Alu;3.3206;EN AW-6060 / AlMgSi;2.7;9.3;EN AW-6060||AlMgSi0,5||AlMgSi
+0;Aluminum||Aluminium;Alu;3.2315;EN AW-6082 / AlMgSi1;2.7;9.5;EN AW-6082||AlMgSi1
+0;Steel (unalloyed)||Stahl (unlegiert);St;1.0036;S235JRG1;7.85;4.0;
+1;Tool steel||Werkzeugstahl;VA;1.2316;X38CrMo16;7.7;4.49;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0060;E 335;7.85;2.8;
+0;Stainless steel||Edelstahl;VA;1.4404;X2CrNiMo17;7.95;10.0;
+1;Copper||Kupfer;NE-ME;2.0402;CuZn40Pb2;8.44;3.4;
+1;Tool steel||Werkzeugstahl;VA;1.2436;X210CrW12;7.7;4.1;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0333;ST13;7.85;1.0;
+0;Copper||Kupfer;NE-ME;2.1030;CuSn8;8.79;16.0;
+1;Stainless steel||Edelstahl;VA;1.4841;X15CrNiSi25;7.9;3.6;
+1;Steel (alloyed)||Stahl (legiert);VA;1.7147;20MnCr5;7.75;4.0;
+1;Tool steel||Werkzeugstahl;VA;1.2344;X40CrMoV5;7.78;4.0;
+1;Tool steel||Werkzeugstahl;VA;1.2067;102Cr6;7.85;2.23;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.05031;C45;7.87;1.15;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0330;DC01;7.87;0.68;
+1;Stainless steel||Edelstahl;VA;1.4310;X10CrNi18;7.9;26.71;
+0;Stainless steel||Edelstahl;VA;1.4301;X5CrNi18;7.9;9.0;
+1;Aluminum||Aluminium;Alu;3.4345;EN AW-7022 / AlZn5Mg3Cu;2.7;6.32;EN AW-7022||AlZn5Mg3Cu
+0;Aluminum||Aluminium;Alu;3.3547;EN AW-5083 / AlMg4.5Mn0.7;2.7;9.5;EN AW-5083||AlMg4,5Mn||AlMg4,5Mn0,7||AlMg4.5Mn
+0;Aluminum||Aluminium;Alu;3.3535;EN AW-5754 / AlMg3;2.7;9.0;EN AW-5754||AlMg3
+1;Aluminum||Aluminium;Alu;3.1645;AlCu4PbMgMn;2.7;3.83;EN AW-2007
+0;Aluminum||Aluminium;Alu;3.4365;EN AW-7075 / AlZn5;2.7;9.0;AlZn5||EN AW-7075
+1;Copper||Kupfer;NE-ME;2.0321;CuZn37;8.44;8.08;
+1;Cast iron||Guss;GU;5.1305;GJS-400-18;7.0;2.29;
+1;Stainless steel||Edelstahl;VA;1.4016;X6Cr17;7.9;3.21;
+0;Stainless steel||Edelstahl;VA;1.4112;X90CrMoV18;7.9;9.0;X90CrMoV18
+0;Stainless steel||Edelstahl;VA;1.4305;X8CrNiS18;7.9;9.0;X8CrNiS18-9
+1;Aluminum||Aluminium;Alu;3.3214;AlMg1SiCu;2.7;5.5;EN AW-6061
+1;Steel (alloyed)||Stahl (legiert);VA;1.7139;16MnCrS5;7.76;4.0;
+0;Tool steel||Werkzeugstahl;VA;1.2379;X153CrMoV12;7.9;10.0;
+0;Steel (unalloyed)||Stahl (unlegiert);St;1.1730;C45W;7.85;5.0;
+1;Stainless steel||Edelstahl;VA;1.4122;X39CrMo17;7.7;3.83;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.1129;C18D2;7.7;1.9;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0044;S275JR;7.85;1.9;
+0;Stainless steel||Edelstahl;VA;1.4104;X14CrMoS17;7.9;9.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0580;E355;7.85;1.3;
+1;Bronze||Bronze;NE-ME;2.1090;CuSn7Zn4Pb7;8.9;8.04;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0308;E235;7.85;1.3;
+1;Stainless steel||Edelstahl;VA;1.4541;X6CrNiTi18-10;7.9;5.71;
+1;Brass||Messing;NE-ME;2.0090;SF-CuF25;8.94;9.4;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0345;P235GH;7.85;1.6;
+0;Stainless steel||Edelstahl;VA;1.4571;X6CrNiMoTi17;8.0;10.0;
+1;Cast iron||Guss;GU;0.6025;EN-GJL-250;7.1;3.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0254;P235TR1;7.85;1.1;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0576;S355J2H;7.85;0.78;
+1;Non-ferrous metals||Nicht-Eisen-Metalle;NE-ME;2.1061;CuSn11Pb2;8.7;9.62;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0536;E470;7.85;1.3;
+1;Steel (alloyed)||Stahl (legiert);VA;1.5415;16Mo3;7.85;3.0;
+1;Cast iron||Guss;GU;5.3103;GJS-400;7.1;7.98;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.1191;C45E;7.87;1.65;
+0;Steel (alloyed)||Stahl (legiert);VA;1.7225;42CrMo4;7.9;9.0;
+0;Steel (unalloyed)||Stahl (unlegiert);St;1.0501;C35+C;7.87;8.0;
+1;Steel (alloyed)||Stahl (legiert);VA;1.8519;31CrMoV9;7.73;2.73;
+1;Stainless steel||Edelstahl;VA;1.4125;X105CrMo17;7.7;8.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0762;44SMn28;7.85;1.9;
+1;Steel (alloyed)||Stahl (legiert);VA;1.7228;50CrMo4;7.69;1.9;
+0;Brass||Messing;NE-ME;2.0401;CuZn39Pb3;8.9;12.0;
+1;Stainless steel||Edelstahl;VA;1.4057;X17CrNi16;7.9;10.0;
+0;Steel (unalloyed)||Stahl (unlegiert);St;1.0715;11SMn30;7.87;5.0;
+1;Non-ferrous metals||Nicht-Eisen-Metalle;NE-ME;2.0975;CuAl10Fe5Ni5;8.9;12.36;
+1;Stainless steel||Edelstahl;VA;1.40341;X46Cr13;7.7;4.44;
+0;Bronze||Bronze;NE-ME;2.1020;CuSn12;8.8;15.0;
+1;Steel (alloyed)||Stahl (legiert);VA;1.6523;21NiCrMo2;7.75;1.9;
+1;Non-ferrous metals||Nicht-Eisen-Metalle;NE-ME;2.0070;SE-CuF25;8.94;7.0;
+1;Non-ferrous metals||Nicht-Eisen-Metalle;NE-ME;2.1052;CuSn12;8.72;9.87;
+1;Non-ferrous metals||Nicht-Eisen-Metalle;NE-ME;2.1182;CuSn7Pb15;9.1;10.73;
+1;Cast iron||Guss;GU;5.3201;EN-GJS-600-3;7.1;1.84;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0050;E 295;7.87;1.31;
+1;Steel (alloyed)||Stahl (legiert);VA;1.6582;34CrNiMo6;7.73;3.83;
+1;Steel (alloyed)||Stahl (legiert);VA;1.8515;31CrMo12;7.6;2.73;
+1;Steel (alloyed)||Stahl (legiert);VA;1.8550;34CrAlNi7;7.9;3.83;
+1;Tool steel||Werkzeugstahl;VA;1.3501;100Cr2;7.9;2.23;
+1;Tool steel||Werkzeugstahl;VA;1.3505;100Cr6;7.8;2.23;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.1740;C60W;7.85;2.23;
+1;Steel (alloyed)||Stahl (legiert);VA;1.8159;51CrV4;7.9;5.0;
+1;Stainless steel||Edelstahl;VA;1.4439;X2CrNiMoN17;8.02;5.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0727;46S20;7.85;5.19;
+1;Non-ferrous metals||Nicht-Eisen-Metalle;NE-ME;2.0550;CuZn37Mn3Al2PbSi;8.9;8.42;
+1;Aluminum||Aluminium;Alu;3.1325;EN AW-2017A / AlCu4MgSi;2.7;8.0;
+1;Tool steel||Werkzeugstahl;VA;1.2210;115CrV3;7.9;7.11;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0533;ST50-2K;7.87;1.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0831;V1590-65A;7.87;0.74;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0309;DX55D;7.85;1.1;
+1;Aluminum||Aluminium;Alu;3.3241;AlMg3Si;2.7;3.64;
+1;Non-ferrous metals||Nicht-Eisen-Metalle;NE-ME;2.0966;CuAl10Ni5Fe4;7.6;11.28;
+0;Copper||Kupfer;NE-ME;2.0065;CW004A ( Cu-ETP-2.0065);8.9;16.5;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0332;DD11;7.87;0.7;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0421;P355T;7.85;0.74;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0547;S355J0H;7.85;0.78;
+0;Steel (unalloyed)||Stahl (unlegiert);St;1.0577;S355J2;7.85;4.0;
+1;Steel (alloyed)||Stahl (legiert);VA;1.5217;20MnV6;7.85;4.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0531;S355GD;7.85;1.31;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.1830;C85W;7.85;2.8;
+1;Aluminum||Aluminium;Alu;3.0255;Al99,5;2.7;3.83;
+1;Aluminum||Aluminium;Alu;3.2371;AlSi7MgSf;2.66;3.83;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.1213;Cf53;7.69;1.81;
+1;Steel (alloyed)||Stahl (legiert);VA;1.6587;18CrNiMo7-6;8.0;3.5;
+1;Steel (alloyed)||Stahl (legiert);VA;1.8951;S770QL1;7.85;0.85;
+1;Stainless steel||Edelstahl;VA;1.4021;X20Cr13;7.7;3.61;
+1;Tool steel||Werkzeugstahl;VA;1.2311;40CrMnMo7;7.8;3.95;
+0;Steel (alloyed)||Stahl (legiert);VA;1.7131;16MNCr5;7.9;7.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0976;S355MC;7.85;0.73;
+1;Tool steel||Werkzeugstahl;VA;1.2312;40CrMnMoS8-6;7.85;9.0;
+1;Tool steel||Werkzeugstahl;VA;1.2343;X38CrMoV5-1;7.8;4.7;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0579;S355J2C;7.85;0.78;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0037;S235JR;7.85;1.5;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0111;P245NB;7.85;1.3;
+0;Steel (unalloyed)||Stahl (unlegiert);St;1.0038;S235JRG2;7.85;4.0;
+1;Stainless steel||Edelstahl;VA;1.4034;X46Cr13 gehärtet 54HRC;7.8;5.2;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0122;S235JRG2+C;7.85;3.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0553;S355J0+N;7.85;0.78;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.3912;Ni36 Invar;8.15;35.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.3917;Ni42 Invar;8.15;40.0;
+1;Non-ferrous metals||Nicht-Eisen-Metalle;NE-ME;2.4969;NiCr20Co18Ti NIMONIC 90;8.2;17.0;
+0;Titanium||Titan;Ti;3.7164;TiAl6V4 Luftfahrt;4.445;25.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0718;11SMnPb30;7.8;1.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.1141;CK15;7.8;0.7;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.1211;Federdraht C60S;7.85;0.8;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.1248;CK75;7.8;0.85;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0570;St52-3 / S355J2G3;7.8;5.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.5752;15NiCr13;7.8;1.2;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.7142;16MnCrS5Pb;7.8;6.5;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.7709;21CrMoV5;7.8;3.8;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.7102;54SiCr6;7.46;3.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0490;S275N;7.8;1.1;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0398;DD12;7.85;1.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0401;C15;7.85;1.3;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.1274;CK101;7.9;2.5;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.7220;34CrMo4;7.74;2.0;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.0503;C45K gezogen;7.8;1.5;
+1;Steel (unalloyed)||Stahl (unlegiert);St;1.1231;C67S;7.8;1.0;
+1;Stainless steel||Edelstahl;VA;1.4568;X7CrNiAl17-7;7.81;4.0;
+1;Stainless steel||Edelstahl;VA;1.4429;X2CrNiMoN17-13-3;8.0;6.0;
+1;Tool steel||Werkzeugstahl;VA;1.2083;X42Cr13;7.8;3.0;
+1;Stainless steel||Edelstahl;VA;1.4005;X12CrS13;7.7;2.7;
+1;Stainless steel||Edelstahl;VA;1.4035;X45CrS13;7.71;3.0;
+1;Stainless steel||Edelstahl;VA;1.4618;X9CrMnNiCu17-8-5-2;7.8;3.0;
+1;Stainless steel||Edelstahl;VA;1.4028;X30Cr13;7.8;1.5;
+1;Stainless steel||Edelstahl;VA;1.4031;X39Cr13;7.8;2.0;
+1;Stainless steel||Edelstahl;VA;1.4037;X65Cr13;7.8;5.0;
+1;Stainless steel||Edelstahl;VA;1.4105;X4CrMoS18;7.8;3.8;
+1;Stainless steel||Edelstahl;VA;1.4108;X30CrMoN15-1;7.72;6.8;
+0;Stainless steel||Edelstahl;VA;1.4401;X5CrNiMo17-12-2;7.8;10.0;
+1;Stainless steel||Edelstahl;VA;1.4462;X2CrNiMoN22-5-3;7.8;5.5;
+1;Stainless steel||Edelstahl;VA;1.4307;X2CrNi18-9;7.9;3.0;X2CrNi189
+1;Aluminum||Aluminium;Alu;3.4325;AlZn4Mg2Mn;2.75;6.0;
+1;Aluminum||Aluminium;Alu;3.3555;AlMg5;2.64;5.5;EN AW-5019
+1;Aluminum||Aluminium;Alu;3.3315;AlMg1;2.7;3.0;EN AW-5005
+1;Aluminum||Aluminium;Alu;3.2163;AC AlSi9Cu3;2.76;2.5;
+1;Aluminum||Aluminium;Alu;3.1655;AlCuBiPb;2.7;2.5;
+1;Stainless steel||Edelstahl;VA;1.41251;X105CrMo17 gehärtet HRC 55;7.8;9.0;
+0;Plastic||Kunststoff;KU;0.1232;PP-H;0.903;6.85;
+0;Plastic||Kunststoff;KU;0.1202;POM-C weiss;1.39;6.0;
+0;Plastic||Kunststoff;KU;0.2960;PVC-U;1.38;7.58;
+0;Plastic||Kunststoff;KU;0.1701;PEEK;1.32;158.0;
+0;Plastic||Kunststoff;KU;0.14111;PE 1000;0.963;6.82;
+0;Plastic||Kunststoff;KU;0.1411;PA;1.14;13.0;
+1;Aluminum||Aluminium;Alu;3.1646;EN AW-2007 / AlCuMgPb;2.85;7.5;
+0;Plastic||Kunststoff;KU;0.1233;POM-C schwarz;1.39;6.0;
+0;TECADUR / PBT||TECADUR / PBT;KU;0.8111;TECADUR PBT GF30 natural;1.46;28.31;PBT
+0;TECAFLON / PTFE, PVDF||TECAFLON / PTFE, PVDF;KU;0.8112;TECAFLON PTFE natural;2.15;14.41;PTFE
+0;TECAFLON / PTFE, PVDF||TECAFLON / PTFE, PVDF;KU;0.8113;TECAFLON PVDF natural;1.78;62.78;PVDF
+0;TECAFORM / POM||TECAFORM / POM;KU;0.8114;TECAFORM AD AF natural;1.49;55.66;POM AD AF natural
+0;TECAFORM / POM||TECAFORM / POM;KU;0.8115;TECAFORM AD black;1.43;9.59;POM AD black
+0;TECAFORM / POM||TECAFORM / POM;KU;0.8116;TECAFORM AD natural;1.43;9.36;POM AD natural
+0;TECAFORM / POM||TECAFORM / POM;KU;0.8117;TECAFORM AH ELS black;1.41;21.51;POM AH ELS
+0;TECAFORM / POM||TECAFORM / POM;KU;0.8118;TECAFORM AH GF25 natural;1.59;17.73;POM GF 25
+0;TECAFORM / POM||TECAFORM / POM;KU;0.8119;TECAFORM AH ID blue;1.49;24.1;POM AH ID blue
+0;TECAFORM / POM||TECAFORM / POM;KU;0.8120;TECAFORM AH LM white;1.41;14.33;POM AH LM
+0;TECAFORM / POM||TECAFORM / POM;KU;0.8121;TECAFORM AH SD natural;1.35;89.88;POM AH SD
+0;TECAFORM / POM||TECAFORM / POM;KU;0.8122;TECAFORM AH UD blue;1.68;31.24;POM AH UD
+0;TECAFORM / POM||TECAFORM / POM;KU;0.8123;TECAFORM AH black;1.41;7.3;POM AH black
+0;TECAFORM / POM||TECAFORM / POM;KU;0.8124;TECAFORM AH blue;1.41;10.38;POM AH blue
+0;TECAFORM / POM||TECAFORM / POM;KU;0.8125;TECAFORM AH natural;1.41;7.48;POM AH natural
+0;TECAMID / PA||TECAMID / PA;KU;0.8126;TECAMID 12 natural;1.02;25.25;PA 12
+0;TECAMID / PA||TECAMID / PA;KU;0.8127;TECAMID 6 FRT black;1.19;18.26;PA 6 FRT black
+0;TECAMID / PA||TECAMID / PA;KU;0.8128;TECAMID 6 FRT natural;1.19;17.03;PA 6 FRT natural
+0;TECAMID / PA||TECAMID / PA;KU;0.8129;TECAMID 6 GF25 black;1.33;12.03;PA 6 GF25
+0;TECAMID / PA||TECAMID / PA;KU;0.8130;TECAMID 6 GF30 black;1.36;12.14;PA 6 GF 30
+0;TECAMID / PA||TECAMID / PA;KU;0.8131;TECAMID 6 MO black;1.14;8.55;PA 6 MO
+0;TECAMID / PA||TECAMID / PA;KU;0.8132;TECAMID 6 natural;1.14;8.11;PA 6 natural
+0;TECAMID / PA||TECAMID / PA;KU;0.8133;TECAMID 66 CF20 black;1.23;52.8;PA 66 CF20
+0;TECAMID / PA||TECAMID / PA;KU;0.8134;TECAMID 66 GF30 black;1.23;17.71;PA 66 GF30
+0;TECAMID / PA||TECAMID / PA;KU;0.8135;TECAMID 66 GF35 black;1.23;31.3;PA 66 GF35
+0;TECAMID / PA||TECAMID / PA;KU;0.8136;TECAMID 66 GF35 natural;1.4;32.26;PA 66 GF 35 natural
+0;TECAMID / PA||TECAMID / PA;KU;0.8137;TECAMID 66 HI brown;1.15;22.91;PA 66 HI
+0;TECAMID / PA||TECAMID / PA;KU;0.8138;TECAMID 66 MO black;1.15;12.22;PA 66 MO
+0;TECAMID / PA||TECAMID / PA;KU;0.8139;TECAMID 66 natural;1.15;12.11;PA 66 natural
+0;TECAMID / PA||TECAMID / PA;KU;0.8140;TECAMID 66/X GF50 black;1.61;38.89;PA 66 GF50
+0;TECANAT / PC||TECANAT / PC;KU;0.8141;TECANAT GF30 natural;1.42;17.25;PC GF30
+0;TECANAT / PC||TECANAT / PC;KU;0.8142;TECANAT natural;1.42;11.93;PC natural
+0;TECANYL / PPE||TECANYL / PPE;KU;0.8143;TECANYL GF30 natural;1.3;27.84;PPE
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8144;TECAPEEK CF30 black;1.38;140.78;PEEK CF30
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8145;TECAPEEK CMF grey;1.65;213.68;PEEK CMF grey
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8146;TECAPEEK CMF white;1.65;213.67;PEEK CMF white
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8147;TECAPEEK ELS CF30 black;1.38;179.98;PEEK ELS CF30
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8148;TECAPEEK ELS nano black;1.36;220.7;PEEK ELS nano
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8149;TECAPEEK GF30 natural;1.53;126.81;PEEK GF30
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8150;TECAPEEK HT black;1.31;247.84;PEEK HT
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8151;TECAPEEK ID blue;1.49;178.36;PEEK ID
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8152;TECAPEEK MT CF30 black;1.32;208.89;PEEK MT CF30
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8153;TECAPEEK MT CLASSIX white;1.32;425.11;PEEK MT Classic
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8154;TECAPEEK MT XRO ivory;1.32;193.8;PEEK MT XRO
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8155;TECAPEEK MT black;1.32;143.36;PEEK MT black
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8156;TECAPEEK MT blue;1.32;175.36;PEEK MT blue
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8157;TECAPEEK MT green;1.32;172.39;PEEK MT green
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8158;TECAPEEK MT grey;1.32;170.44;PEEK MT grey
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8159;TECAPEEK MT natural;1.32;142.87;PEEK MT natural
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8160;TECAPEEK MT yellow;1.32;179.68;PEEK MT yellow
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8161;TECAPEEK PVX black;1.44;127.91;PEEK PVX
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8162;TECAPEEK SD black;1.71;264.7;PEEK SD
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8163;TECAPEEK ST black;1.32;275.87;PEEK ST
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8164;TECAPEEK TF10 blue;1.35;185.75;PEEK TF
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8165;TECAPEEK black;1.32;103.27;PEEK black
+0;TECAPEEK / PEEK||TECAPEEK / PEEK;KU;0.8166;TECAPEEK natural;1.31;104.25;PEEK natural
+0;TECAPEI / PEI||TECAPEI / PEI;KU;0.8167;TECAPEI natural;1.28;58.16;PEI
+0;TECAPET / PET||TECAPET / PET;KU;0.8168;TECAPET TF grey;1.43;12.86;PET TF
+0;TECAPET / PET||TECAPET / PET;KU;0.8169;TECAPET black;1.39;8.1;PET black
+0;TECAPET / PET||TECAPET / PET;KU;0.8170;TECAPET white;1.36;7.88;PET white
+0;TECAPRO / PP||TECAPRO / PP;KU;0.8171;TECAPRO MT white;0.93;44.09;PP
+0;TECACRAN / ABS||TECACRAN / ABS;KU;0.8172;TECARAN ABS grey;1.04;20.57;ABS
+0;TECASON / PPSU||TECASON / PPSU;KU;0.8173;TECASON P MT black;1.31;70.57;PPSU MT black
+0;TECASON / PPSU||TECASON / PPSU;KU;0.8174;TECASON P MT blue;1.31;89.89;PPSU MT blue
+0;TECASON / PPSU||TECASON / PPSU;KU;0.8175;TECASON P MT brown;1.31;89.5;PPSU MT brown
+0;TECASON / PPSU||TECASON / PPSU;KU;0.8176;TECASON P MT green;1.31;90.02;PPSU MT green
+0;TECASON / PPSU||TECASON / PPSU;KU;0.8177;TECASON P MT grey;1.31;90.05;PPSU MT grey
+0;TECASON / PPSU||TECASON / PPSU;KU;0.8178;TECASON P MT ivory;1.31;90.53;PPSU MT ivory
+0;TECASON / PPSU||TECASON / PPSU;KU;0.8179;TECASON P MT red;1.31;90.04;PPSU MT red
+0;TECASON / PPSU||TECASON / PPSU;KU;0.8180;TECASON P MT yellow;1.31;90.02;PPSU MT yellow
+0;TECASON / PPSU||TECASON / PPSU;KU;0.8181;TECASON S natural;1.31;40.71;PPSU S natural
+0;PA 6 C||PA 6 C;KU;0.8182;TECAST L black;1.14;6.53;PA 6 C L black
+0;PA 6 C||PA 6 C;KU;0.8183;TECAST L natural;1.14;6.26;PA 6 C L natural
+0;PA 6 C||PA 6 C;KU;0.8184;TECAST L yellow;1.14;7.09;PA 6 C L yellow
+0;PA 6 C||PA 6 C;KU;0.8185;TECAST T MO black;1.15;6.17;PA 6 C T MO
+0;PA 6 C||PA 6 C;KU;0.8186;TECAST T blue;1.15;6.61;PA 6 C T blue
+0;PA 6 C||PA 6 C;KU;0.8187;TECAST T natural;1.13;6.13;PA 6 C T natural
+0;PA 6 C||PA 6 C;KU;0.8188;TECARIM 1500 yellow;1.11;38.57;PA 6 C 500
+0;PA 6 C||PA 6 C;KU;0.8189;TECAGLIDE black;1.13;8.95;
+0;PA 6 C||PA 6 C;KU;0.8190;TECAGLIDE green;1.13;8.5;
+0;TECATRON / PPS||TECATRON / PPS;KU;0.8191;TECATRON CMP natural;1.36;33.31;PPS CMP
+0;TECATRON / PPS||TECATRON / PPS;KU;0.8192;TECATRON GF40 black;1.63;60.29;PPS GF40 black
+0;TECATRON / PPS||TECATRON / PPS;KU;0.8193;TECATRON GF40 natural;1.5;64.4;PPS GF40 natural
+0;TECATRON / PPS||TECATRON / PPS;KU;0.8194;TECATRON PVX black;1.5;66.48;PPS PVX

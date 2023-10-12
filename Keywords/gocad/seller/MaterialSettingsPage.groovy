@@ -1,7 +1,10 @@
 package gocad.seller
 
+import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import gocad.common.DataUploadPage
+import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 
 
@@ -27,7 +30,7 @@ public class MaterialSettingsPage extends BasePage<MaterialSettingsPage>{
 	}
 
 	public MaterialSettingsPage clickAcceptChangeSurchargeRawMaterialButton() {
-		WebUI.click(xpath("//span[@aria-label='edit']/parent::button"))
+		WebUI.click(xpath("//span[@aria-label='check']/parent::button"))
 		return this
 	}
 
@@ -42,7 +45,7 @@ public class MaterialSettingsPage extends BasePage<MaterialSettingsPage>{
 	}
 
 	public MaterialSettingsPage clickCSVImportButton() {
-		WebUI.click(xpath("//span[text()=' CSV Import']"))
+		WebUI.click(xpath("//span[text()='  CSV Import']"))
 		return this
 	}
 
@@ -63,6 +66,14 @@ public class MaterialSettingsPage extends BasePage<MaterialSettingsPage>{
 
 	public MaterialSettingsPage inputSurchargeRectangular(String input) {
 		clearTextAndSendKeysByActions(id("lwhsShape"), input)
+		return this
+	}
+	
+	public MaterialSettingsPage uploadFileTesting(String fileName) {
+		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"
+		println "path: $path"
+		WebUI.uploadFile(xpath("//input[@type='file']"), path)
+		WebUI.waitForElementPresent(xpath("//*[@for='materialId']"), GlobalVariable.sleepLargeTime)
 		return this
 	}
 
@@ -125,6 +136,26 @@ public class MaterialSettingsPage extends BasePage<MaterialSettingsPage>{
 
 	public MaterialSettingsPage verifyStatusValue(String materialName, String expectedResult) {
 		String actualResult = WebUI.getText(statusCol(materialName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPage verifyToastMessage(String expectedTitle, String expectedMessage) {
+		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
+		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
+		WebUI.verifyEqual(actualTitle, expectedTitle)
+		WebUI.verifyEqual(actualMessage, expectedMessage)
+		return this
+	}
+	
+	public MaterialSettingsPage verifyShowErrorWhenSurchargeRoundEmpty(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@id='outerDiameterShape_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPage verifyShowErrorWhenSurchargeRectangularEmpty(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@id='lwhsShape_help']/div"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
