@@ -12,12 +12,14 @@ public class MaterialSettingsPage extends BasePage<MaterialSettingsPage>{
 	def idCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[1]")}
 	def materialGroupCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[2]/button")}
 	def cuttingParamsCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[3]")}
-	def name = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[4]")}
-	def number = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[5]")}
-	def density = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[6]")}
-	def pricePerKilo = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[7]")}
-	def status = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[8]//span[normalize-space(text()) != '']")}
-	def editAction = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[9]/button")}
+	def materialNameCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[4]")}
+	def numberCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[5]")}
+	def densityCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[6]")}
+	def pricePerKiloCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[7]")}
+	def statusCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[8]//span[normalize-space(text()) != '']")}
+	def editActionCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[9]/button")}
+	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]"}
+	def rowByStatus = { String status -> return "(//span[normalize-space(text()) = '$status']/ancestor::tr)[1]"}
 
 	public MaterialSettingsPage clickEditSurchargeRawMaterialButton() {
 		WebUI.click(xpath("(//span[@aria-label='edit']/parent::button)[1]"))
@@ -54,13 +56,123 @@ public class MaterialSettingsPage extends BasePage<MaterialSettingsPage>{
 		return this
 	}
 
+	public MaterialSettingsPage inputSurchargeRound(String input) {
+		clearTextAndSendKeysByActions(id("outerDiameterShape"), input)
+		return this
+	}
+
+	public MaterialSettingsPage inputSurchargeRectangular(String input) {
+		clearTextAndSendKeysByActions(id("lwhsShape"), input)
+		return this
+	}
+
 	public MaterialSettingsPage removeContentSearch() {
 		WebUI.click(xpath("//*[@aria-label='close-circle']"))
 		return this
 	}
 
 	public MaterialSettingsPage clickEditButton(String materialName) {
-		WebUI.click(editAction(materialName))
+		WebUI.click(editActionCol(materialName))
+		return this
+	}
+
+	public MaterialSettingsPage verifyMaterialGroupVisibleOnList(String materialName) {
+		WebUI.click(materialGroupCol(materialName))
+		return this
+	}
+
+	public MaterialSettingsPage verifyIdValue(String materialName, String expectedResult) {
+		String actualResult = WebUI.getText(idCol(materialName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public MaterialSettingsPage verifyMaterialGroupValue(String materialName, String expectedResult) {
+		String actualResult = WebUI.getText(materialGroupCol(materialName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public MaterialSettingsPage verifyCuttingParamsValue(String materialName, String expectedResult) {
+		String actualResult = WebUI.getText(cuttingParamsCol(materialName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public MaterialSettingsPage verifyMaterialNameValue(String materialName) {
+		String actualResult = WebUI.getText(materialNameCol(materialName))
+		WebUI.verifyEqual(actualResult, materialName)
+		return this
+	}
+
+	public MaterialSettingsPage verifyNumberValue(String materialName, String expectedResult) {
+		String actualResult = WebUI.getText(numberCol(materialName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public MaterialSettingsPage verifyDensityValue(String materialName, String expectedResult) {
+		String actualResult = WebUI.getText(densityCol(materialName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public MaterialSettingsPage verifyPricePerKiloValue(String materialName, String expectedResult) {
+		String actualResult = WebUI.getText(pricePerKiloCol(materialName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public MaterialSettingsPage verifyStatusValue(String materialName, String expectedResult) {
+		String actualResult = WebUI.getText(statusCol(materialName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public List<String> getDataRow(String rowNumber) {
+		String id = WebUI.getText(xpath(row(rowNumber) + "/td[1]"))
+		String materialGroup = WebUI.getText(xpath(row(rowNumber) + "/td[2]/button"))
+		String cuttingParams = WebUI.getText(xpath(row(rowNumber) + "/td[3]"))
+		String materialName = WebUI.getText(xpath(row(rowNumber) + "/td[4]"))
+		String number = WebUI.getText(xpath(row(rowNumber) + "/td[5]"))
+		String density = WebUI.getText(xpath(row(rowNumber) + "/td[6]"))
+		String pricePerKilo = WebUI.getText(xpath(row(rowNumber) + "/td[7]"))
+		String status = WebUI.getText(xpath(row(rowNumber) + "/td[8]//span[normalize-space(text()) != '']"))
+		List<String> dataRow = [id, materialGroup, cuttingParams, materialName, number, density, pricePerKilo, status]
+		println "dataRow: $dataRow"
+		return dataRow
+	}
+
+	public List<String> getDataRowByStatus(String status) {
+		String id = WebUI.getText(xpath(rowByStatus(status) + "/td[1]"))
+		String materialGroup = WebUI.getText(xpath(rowByStatus(status) + "/td[2]/button"))
+		String cuttingParams = WebUI.getText(xpath(rowByStatus(status) + "/td[3]"))
+		String materialName = WebUI.getText(xpath(rowByStatus(status) + "/td[4]"))
+		String number = WebUI.getText(xpath(rowByStatus(status) + "/td[5]"))
+		String density = WebUI.getText(xpath(rowByStatus(status) + "/td[6]"))
+		String pricePerKilo = WebUI.getText(xpath(rowByStatus(status) + "/td[7]"))
+		List<String> dataRow = [id, materialGroup, cuttingParams, materialName, number, density, pricePerKilo]
+		return dataRow
+	}
+
+	public MaterialSettingsPage verifyUIVisible() {
+		WebUI.verifyElementVisible(xpath("(//span[@aria-label='edit']/parent::button)[1]"))
+		WebUI.verifyElementVisible(xpath("//span[@aria-label='edit']/parent::button"))
+		WebUI.verifyElementVisible(xpath("//span[text()='New Material']"))
+		WebUI.verifyElementVisible(xpath("//span[text()='  CSV Import']"))
+		WebUI.verifyElementVisible(xpath("//span[text()='CSV Export']"))
+		WebUI.verifyElementVisible(xpath("//input[@placeholder='Search material']"))
+		WebUI.verifyElementVisible(id("outerDiameterShape"))
+		WebUI.verifyElementVisible(id("lwhsShape"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Id']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Material Group']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Cutting Params']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Name']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Number']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Density']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Price per Kilo']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Status']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Action']"))
 		return this
 	}
 }

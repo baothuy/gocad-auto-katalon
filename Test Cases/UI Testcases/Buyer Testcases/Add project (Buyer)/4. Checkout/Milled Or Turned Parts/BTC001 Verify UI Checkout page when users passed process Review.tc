@@ -90,7 +90,7 @@
       <variableId>edc5c631-636f-4712-8c17-2280ef4f342f</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'auto_Milling.step'</defaultValue>
+      <defaultValue>'step-testing.step'</defaultValue>
       <description></description>
       <id>42bead61-356a-46f3-850d-9afdd392e572</id>
       <masked>false</masked>
@@ -104,7 +104,7 @@
       <name>filePDF</name>
    </variable>
    <variable>
-      <defaultValue>'150'</defaultValue>
+      <defaultValue>'50'</defaultValue>
       <description></description>
       <id>2a5b1a03-e5a7-4036-8f60-b26bf29d8336</id>
       <masked>false</masked>
@@ -125,7 +125,7 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Eloxieren'</defaultValue>
+      <defaultValue>'Sandblasting'</defaultValue>
       <description></description>
       <id>b48d5e76-54de-47e7-b243-476d3a3f7410</id>
       <masked>false</masked>
@@ -146,7 +146,7 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'Yes'</defaultValue>
+      <defaultValue>'No'</defaultValue>
       <description></description>
       <id>0ae44b5d-fda3-46ed-8b42-a15c654e876c</id>
       <masked>false</masked>

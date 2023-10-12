@@ -82,6 +82,7 @@ Page.nav(CopyPartPopup).verifyMaterialValue(material)
 						.verifyToastMessageWhenCopyProject(partName, projectName)
 
 println '>>  Clear data'
+Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
 					.clickArchiveAction(projectId2)

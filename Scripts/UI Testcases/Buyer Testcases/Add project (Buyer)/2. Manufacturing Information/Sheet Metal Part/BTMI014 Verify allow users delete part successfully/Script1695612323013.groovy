@@ -60,6 +60,7 @@ println '>> After delete will go page Data upload page'
 Page.nav(DataUploadPage).verifyUIDataUploadPageOfBuyer(projectName)
 
 println '>>  Clear data'
+Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
 	

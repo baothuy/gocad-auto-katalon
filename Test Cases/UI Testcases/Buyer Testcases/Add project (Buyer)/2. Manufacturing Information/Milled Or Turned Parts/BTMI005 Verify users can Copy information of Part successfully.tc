@@ -90,7 +90,7 @@
       <variableId>7b844239-bc7c-420a-a917-5b94eeb58be0</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'auto_Milling.step'</defaultValue>
+      <defaultValue>'step-testing.step'</defaultValue>
       <description></description>
       <id>6b9a654a-6c12-4710-bbe3-90ec23b2b5ab</id>
       <masked>false</masked>
@@ -125,7 +125,7 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Eloxieren'</defaultValue>
+      <defaultValue>'Sandblasting'</defaultValue>
       <description></description>
       <id>15755c8c-dc4a-487f-b7b9-7fc5bec00413</id>
       <masked>false</masked>

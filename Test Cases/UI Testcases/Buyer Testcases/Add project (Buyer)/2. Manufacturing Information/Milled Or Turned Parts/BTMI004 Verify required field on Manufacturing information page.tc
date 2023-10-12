@@ -84,14 +84,14 @@
       <variableId>998083b0-8ba2-4753-8759-2a73a89dd91c</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'auto_Milling.step'</defaultValue>
+      <defaultValue>'step-testing.step'</defaultValue>
       <description></description>
       <id>ddcfd144-0b72-4f0b-a6d8-6e5cf82885ec</id>
       <masked>false</masked>
       <name>partName</name>
    </variable>
    <variable>
-      <defaultValue>'goCAD_milling v4.pdf'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>6eda8e53-f621-41ed-91f5-e8fe382dc1db</id>
       <masked>false</masked>
@@ -119,7 +119,7 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Eloxieren'</defaultValue>
+      <defaultValue>'Sandblasting'</defaultValue>
       <description></description>
       <id>55f653b7-f31b-41d2-8973-437aae51a4f1</id>
       <masked>false</masked>
