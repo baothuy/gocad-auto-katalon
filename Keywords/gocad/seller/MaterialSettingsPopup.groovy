@@ -96,43 +96,43 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		clearTextAndSendKeysByActions(id("length"), length)
 		return this
 	}
-	
+
 	public MaterialSettingsPopup verifyShowErrorWhenMaterialGroupEmpty(String expectedResult) {
-		String lastName = WebUI.getText(xpath("//*[@id='basic_groupId_help']/div"))
-		WebUI.verifyEqual(lastName, expectedResult)
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_groupId_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public MaterialSettingsPopup verifyShowErrorWhenNameEmpty(String expectedResult) {
-		String lastName = WebUI.getText(xpath("//*[@id='basic_name_help']/div"))
-		WebUI.verifyEqual(lastName, expectedResult)
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_name_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public MaterialSettingsPopup verifyShowErrorWhenNumberEmpty(String expectedResult) {
-		String lastName = WebUI.getText(xpath("//*[@id='basic_number_help']/div"))
-		WebUI.verifyEqual(lastName, expectedResult)
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_number_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public MaterialSettingsPopup verifyShowErrorWhenDensityEmpty(String expectedResult) {
-		String lastName = WebUI.getText(xpath("//*[@id='basic_density_help']/div"))
-		WebUI.verifyEqual(lastName, expectedResult)
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_density_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public MaterialSettingsPopup verifyShowErrorWhenPricePerKiloEmpty(String expectedResult) {
-		String lastName = WebUI.getText(xpath("//*[@id='basic_pricePerKilo_help']/div"))
-		WebUI.verifyEqual(lastName, expectedResult)
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_pricePerKilo_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public MaterialSettingsPopup verifyShowErrorWhenTypeEmpty(String expectedResult) {
-		String lastName = WebUI.getText(xpath("//*[@id='shapeType_help']/div"))
-		WebUI.verifyEqual(lastName, expectedResult)
+		String actualResult = WebUI.getText(xpath("//*[@id='shapeType_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public MaterialSettingsPopup verifyUIVisible() {
 		WebUI.verifyElementVisible(xpath("//label[text()='Material Group']"))
 		WebUI.verifyElementVisible(xpath("//input[@id='basic_groupId']/parent::span"))

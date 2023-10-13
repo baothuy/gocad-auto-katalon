@@ -19,53 +19,175 @@ public class PriceAndDeliverySettingsMTFPage extends BasePage<PriceAndDeliverySe
 		return this
 	}
 	
-	public PriceAndDeliverySettingsBasicPage inputFactorManual(String input) {
+	public PriceAndDeliverySettingsMTFPage inputFactorManual(String input) {
 		clearTextAndSendKeysByActions(id("basic_factorManual"), input)
 		return this
 	}
 	
-	public PriceAndDeliverySettingsBasicPage inputProgrammingHourRate(String input) {
+	public PriceAndDeliverySettingsMTFPage inputProgrammingHourRate(String input) {
 		clearTextAndSendKeysByActions(id("basic_programmingHourRate"), input)
 		return this
 	}
 	
-	public PriceAndDeliverySettingsBasicPage inputGeneralAdminAdditions(String input) {
+	public PriceAndDeliverySettingsMTFPage inputGeneralAdminAdditions(String input) {
 		clearTextAndSendKeysByActions(id("basic_generalAdminAdditions"), input)
 		return this
 	}
 	
-	public PriceAndDeliverySettingsBasicPage inputGeneralSalesAdditions(String input) {
+	public PriceAndDeliverySettingsMTFPage inputGeneralSalesAdditions(String input) {
 		clearTextAndSendKeysByActions(id("basic_generalSalesAdditions"), input)
 		return this
 	}
 	
-	public PriceAndDeliverySettingsBasicPage inputFaultyPartsRiskAdditions(String input) {
+	public PriceAndDeliverySettingsMTFPage inputFaultyPartsRiskAdditions(String input) {
 		clearTextAndSendKeysByActions(id("basic_faultyPartsRiskAdditions"), input)
 		return this
 	}
 	
-	public PriceAndDeliverySettingsBasicPage inputMarginValue(String input) {
-		clearTextAndSendKeysByActions(id("basic_marginValue"), input)
+	public PriceAndDeliverySettingsMTFPage inputMarginValue(String input) {
+		clearTextAndSendKeysByActions(xpath("//label[@for='basic_marginValue']/parent::div/following::input[@id='basic_marginValue']"), input)
 		return this
 	}
 	
-	public PriceAndDeliverySettingsBasicPage inputMarginSurfaceTreat(String input) {
+	public PriceAndDeliverySettingsMTFPage inputMarginSurfaceTreat(String input) {
 		clearTextAndSendKeysByActions(id("basic_marginSurfaceTreat"), input)
 		return this
 	}
 	
-	public PriceAndDeliverySettingsBasicPage inputRawMaterialAdditions(String input) {
+	public PriceAndDeliverySettingsMTFPage inputRawMaterialAdditions(String input) {
 		clearTextAndSendKeysByActions(id("basic_rawMaterialAdditions"), input)
 		return this
 	}
 	
-	public PriceAndDeliverySettingsBasicPage inputProcessCostAdditions(String input) {
+	public PriceAndDeliverySettingsMTFPage inputProcessCostAdditions(String input) {
 		clearTextAndSendKeysByActions(id("basic_processCostAdditions"), input)
 		return this
 	}
 	
-	public PriceAndDeliverySettingsBasicPage inputInBetweenTemperingCost(String input) {
+	public PriceAndDeliverySettingsMTFPage inputInBetweenTemperingCost(String input) {
 		clearTextAndSendKeysByActions(id("basic_inBetweenTemperingCost"), input)
+		return this
+	}
+	
+	//visible
+	
+	public PriceAndDeliverySettingsMTFPage verifySaveChangesButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()='Save Changes']/parent::button"))
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyPreviewPricesButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()='Preview Prices']/parent::button"))
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyInputFactorManualVisible() {
+		WebUI.verifyElementVisible(id("basic_factorManual"))
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyInputProgrammingHourRateVisible() {
+		WebUI.verifyElementVisible(id("basic_programmingHourRate"))
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyInputGeneralAdminAdditionsVisible() {
+		WebUI.verifyElementVisible(id("basic_generalAdminAdditions"))
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyInputGeneralSalesAdditionsVisible() {
+		WebUI.verifyElementVisible(id("basic_generalSalesAdditions"))
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyInputFaultyPartsRiskAdditionsVisible() {
+		WebUI.verifyElementVisible(id("basic_faultyPartsRiskAdditions"))
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyInputMarginValueVisible() {
+		WebUI.verifyElementVisible(xpath("//label[@for='basic_marginValue']/parent::div/following::input[@id='basic_marginValue']"))
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyInputMarginSurfaceTreatVisible() {
+		WebUI.verifyElementVisible(id("basic_marginSurfaceTreat"))
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyInputRawMaterialAdditionsVisible() {
+		WebUI.verifyElementVisible(id("basic_rawMaterialAdditions"))
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyInputProcessCostAdditionsVisible() {
+		WebUI.verifyElementVisible(id("basic_processCostAdditions"))
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyInputInBetweenTemperingCostVisible() {
+		WebUI.verifyElementVisible(id("basic_inBetweenTemperingCost"))
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyShowErrorWhenFactorManualEmpty(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_factorManual_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyShowErrorWhenProgrammingHourRateEmpty(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_programmingHourRate_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyShowErrorWhenGeneralAdminAdditionsEmpty(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_generalAdminAdditions_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyShowErrorWhenGeneralSalesAdditionsEmpty(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_generalSalesAdditions_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyShowErrorWhenFaultyPartsRiskAdditionsEmpty(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_faultyPartsRiskAdditions_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyShowErrorWhenMarginValueEmpty(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_marginValue_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyShowErrorWhenMarginSurfaceTreatEmpty(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_marginSurfaceTreat_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyShowErrorWhenRawMaterialAdditionsEmpty(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_rawMaterialAdditions_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyShowErrorWhenProcessCostAdditionsEmpty(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_processCostAdditions_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public PriceAndDeliverySettingsMTFPage verifyShowErrorWhenInBetweenTemperingCostEmpty(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@id='basic_inBetweenTemperingCost_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 }
