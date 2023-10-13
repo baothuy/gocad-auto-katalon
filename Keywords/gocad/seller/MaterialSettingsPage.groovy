@@ -53,6 +53,16 @@ public class MaterialSettingsPage extends BasePage<MaterialSettingsPage>{
 		WebUI.click(xpath("//span[text()='CSV Export']"))
 		return this
 	}
+	
+	public MaterialSettingsPage clickMaterialGroupButton(String materialName) {
+		WebUI.click(materialGroupCol(materialName))
+		return this
+	}
+	
+	public MaterialSettingsPage clickMaterialGroupButtonByRow(String rowNumber) {
+		WebUI.click(xpath(row(rowNumber)+ "/td[2]/button"))
+		return this
+	}
 
 	public MaterialSettingsPage inputSearchMaterial(String input) {
 		clearTextAndSendKeysByActions(xpath("//input[@placeholder='Search material']"), input)

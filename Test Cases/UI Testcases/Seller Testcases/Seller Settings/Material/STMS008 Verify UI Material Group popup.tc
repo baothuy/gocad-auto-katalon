@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STMS008 Verify UI Material Group popup</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>edbd61c9-921e-4b26-ab8e-d3d622c93579</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>305dd77d-b70e-4904-80f7-f0197d1d53b0</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'TiCP Grade2'</defaultValue>
+      <description></description>
+      <id>305dd77d-b70e-4904-80f7-f0197d1d53b0</id>
+      <masked>false</masked>
+      <name>materialName</name>
+   </variable>
+</TestCaseEntity>

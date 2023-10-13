@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STMS007 Verify can Import CSV successfully</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>b4398e62-7097-4f5f-aa56-1c4fd35aef00</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>fa1411b0-a9c8-4cf5-a675-bf7694e13deb</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'materials_v2.csv'</defaultValue>
+      <description></description>
+      <id>fa1411b0-a9c8-4cf5-a675-bf7694e13deb</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

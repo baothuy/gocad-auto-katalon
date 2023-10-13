@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STMS004 Verify can create new Material successfully</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>34d5020d-f596-46fa-b237-2879f5837a57</testCaseGuid>
+</TestCaseEntity>

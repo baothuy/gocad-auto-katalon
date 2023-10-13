@@ -27,17 +27,17 @@ public class SurfaceTreatmentsSettingPopup extends BasePage<SurfaceTreatmentsSet
 		WebUI.click(xpath("//span[text()='OK']/parent::button"))
 		return this
 	}
-	
+
 	public SurfaceTreatmentsSettingPopup clickCancelButton() {
 		WebUI.click(xpath("//span[text()='Cancel']/parent::button"))
 		return this
 	}
-	
+
 	public SurfaceTreatmentsSettingPopup clickCloseButton() {
 		WebUI.click(xpath("//button[@aria-label='Close']"))
 		return this
 	}
-	
+
 	public SurfaceTreatmentsSettingPopup selectStatusToggle(String value) {
 		String isChecked = WebUI.getAttribute(id("basic_active"), "aria-checked")
 		boolean isActive = value.equals("Active")
@@ -47,38 +47,130 @@ public class SurfaceTreatmentsSettingPopup extends BasePage<SurfaceTreatmentsSet
 		return this
 	}
 	
+	public SurfaceTreatmentsSettingPopup inputLocalizedNamesEnglish(String input) {
+		clearTextAndSendKeysByActions(id("basic_localizations_0_name"), input)
+		return this
+	}
+	
+	public SurfaceTreatmentsSettingPopup inputLocalizedNamesGerman(String input) {
+		clearTextAndSendKeysByActions(id("basic_localizations_1_name"), input)
+		return this
+	}
+	
+	public SurfaceTreatmentsSettingPopup inputLocalizedNamesItalian(String input) {
+		clearTextAndSendKeysByActions(id("basic_localizations_2_name"), input)
+		return this
+	}
+	
+	public SurfaceTreatmentsSettingPopup inputLocalizedNamesCzech(String input) {
+		clearTextAndSendKeysByActions(id("basic_localizations_3_name"), input)
+		return this
+	}
+
 	public SurfaceTreatmentsSettingPopup inputAbbr(String input) {
 		clearTextAndSendKeysByActions(id("basic_abbr"), input)
 		return this
 	}
-	
+
 	public SurfaceTreatmentsSettingPopup inputPricePerArea(String input) {
 		clearTextAndSendKeysByActions(id("basic_pricePerArea"), input)
 		return this
 	}
-	
+
 	public SurfaceTreatmentsSettingPopup inputPricePerKilo(String input) {
 		clearTextAndSendKeysByActions(id("basic_pricePerKilo"), input)
 		return this
 	}
-	
+
 	public SurfaceTreatmentsSettingPopup inputSetupCost(String input) {
 		clearTextAndSendKeysByActions(id("basic_setupCost"), input)
 		return this
 	}
-	
+
 	public SurfaceTreatmentsSettingPopup inputMinOrder(String input) {
 		clearTextAndSendKeysByActions(id("basic_minOrder"), input)
 		return this
 	}
-	
+
 	public SurfaceTreatmentsSettingPopup inputDeliveryWeek(String input) {
 		clearTextAndSendKeysByActions(id("basic_deliveryWeek"), input)
 		return this
 	}
-	
+
 	public SurfaceTreatmentsSettingPopup inpuTransportationCost(String input) {
 		clearTextAndSendKeysByActions(id("basic_transportationCost"), input)
+		return this
+	}
+	
+	//visible
+	
+	public SurfaceTreatmentsSettingPopup verifyInputLocalizedNamesEnglishVisible() {
+		WebUI.verifyElementVisible(id("basic_localizations_0_name"))
+		return this
+	}
+	
+	public SurfaceTreatmentsSettingPopup verifyInputLocalizedNamesGermanVisible() {
+		WebUI.verifyElementVisible(id("basic_localizations_1_name"))
+		return this
+	}
+	
+	public SurfaceTreatmentsSettingPopup verifyInputLocalizedNamesItalianVisible() {
+		WebUI.verifyElementVisible(id("basic_localizations_2_name"))
+		return this
+	}
+	
+	public SurfaceTreatmentsSettingPopup verifyInputLocalizedNamesCzechVisible() {
+		WebUI.verifyElementVisible(id("basic_localizations_3_name"))
+		return this
+	}
+
+	public SurfaceTreatmentsSettingPopup verifyInputAbbrVisible() {
+		WebUI.verifyElementVisible(id("basic_abbr"))
+		return this
+	}
+
+	public SurfaceTreatmentsSettingPopup verifyInputPricePerAreaVisible() {
+		WebUI.verifyElementVisible(id("basic_pricePerArea"))
+		return this
+	}
+
+	public SurfaceTreatmentsSettingPopup verifyInputPricePerKiloVisible() {
+		WebUI.verifyElementVisible(id("basic_pricePerKilo"))
+		return this
+	}
+
+	public SurfaceTreatmentsSettingPopup verifyInputSetupCostVisible() {
+		WebUI.verifyElementVisible(id("basic_setupCost"))
+		return this
+	}
+
+	public SurfaceTreatmentsSettingPopup verifyInputMinOrderVisible() {
+		WebUI.verifyElementVisible(id("basic_minOrder"))
+		return this
+	}
+
+	public SurfaceTreatmentsSettingPopup verifyInputDeliveryWeekVisible() {
+		WebUI.verifyElementVisible(id("basic_deliveryWeek"))
+		return this
+	}
+
+	public SurfaceTreatmentsSettingPopup verifyInpuTransportationCost() {
+		WebUI.verifyElementVisible(id("basic_transportationCost"))
+		return this
+	}
+	
+	public SurfaceTreatmentsSettingPopup verifySelectStatusToggleVisible() {
+		WebUI.verifyElementVisible(id("basic_active"))
+		return this
+	}
+	
+	public SurfaceTreatmentsSettingPopup verifyOKButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()='OK']/parent::button"))
+		return this
+	}
+	
+	public SurfaceTreatmentsSettingPopup verifyCancelButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()='Cancel']/parent::button"))
 		return this
 	}
 }
