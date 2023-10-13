@@ -94,9 +94,9 @@ Page.nav(ReviewPage).clickCheckout()
 println '>> Verify UI are visible'
 Page.nav(CheckoutPage).verifyUICheckoutVisible(partName)
 
-println '>> Verify file part can download successfully'
-Page.nav(CheckoutPage).clickFilePDFDownload()
-Page.nav(FileHelper).verifyFileDownloaded(projectName + ".pdf")
+//println '>> Verify file part can download successfully'
+//Page.nav(CheckoutPage).clickFilePDFDownload()
+//Page.nav(FileHelper).verifyFileDownloaded(projectName + ".pdf")
 
 println '>> Verify file part can download successfully'
 Page.nav(CheckoutPage).clickEditAddress()

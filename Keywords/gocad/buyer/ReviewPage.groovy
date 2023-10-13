@@ -136,7 +136,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		List<String> findTestObjects = findTestObjects("//*[@aria-label='message']")
 		if (findTestObjects.size() != 0) {
 			WebUI.mouseOver(commentCol(partName))
-			actualResult = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
+			actualResult = WebUI.getText(xpath("//*[@role='tooltip']/div/div"))
 		}
 		else {
 			actualResult = ""

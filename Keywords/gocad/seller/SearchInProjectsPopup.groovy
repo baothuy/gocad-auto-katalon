@@ -48,7 +48,12 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 	}
 
 	public SearchInProjectsPopup clickCheckBoxUnread(String check) {
-		(check == "true") ? WebUI.click(xpath("//input[@id='unread']")) : "false"
+		String text = WebUI.getAttribute(xpath("//*[@id='unread']/parent::span"), "class")
+		String isStatusCheck = text.contains("checked")
+		boolean isChecked = check.equals("checked")
+		if(Boolean.parseBoolean(isStatusCheck) != isChecked) {
+			WebUI.click(xpath("//*[@id='unread']/parent::span"))
+		}
 		return this
 	}
 

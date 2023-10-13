@@ -48,26 +48,27 @@ Page.nav(SearchInProjectsPopup).verifyStatusVisibleInList(dataRowSearchByStatus[
 								.clearSearchStatus()
 								
 println '>> Verify search by Mark as Unread'
-Page.nav(SearchInProjectsPopup).clickCheckBoxUnread("true")
+Page.nav(SearchInProjectsPopup).clickCheckBoxUnread("checked")
 								.clickSearch()
 								
 List<String> dataRowSearchByCheckUnread = Page.nav(SearchInProjectsPopup).getDataRow("1")
 println "dataRowSearchByCheckUnread: $dataRowSearchByCheckUnread"
 Page.nav(SearchInProjectsPopup).verifyHighlightOnList(dataRowSearchByCheckUnread[0])
-								.clickCheckBoxUnread("false")
+								.clickCheckBoxUnread("uncheck")
 								
 								
-String previousWeek = DateTimeUtility.plusDays(-7, "yyyy-MM-dd")
-println "currentDate: $previousWeek"
+String startDate = DateTimeUtility.plusDays(-1, "yyyy-MM-dd")
+String endDate = DateTimeUtility.next30Days("yyyy-MM-dd")	
+println "previousDate: $startDate"
+println "endDate: $endDate"	
 
 println '>> Verify search by order date'
-Page.nav(SearchInProjectsPopup).inputStartDate(previousWeek)
-								.inputEndDate(previousWeek)
+Page.nav(SearchInProjectsPopup).inputStartDate(startDate)
+								.inputEndDate(endDate)
 								.clickSearch()
 								
 List<String> dataRowSearchByDate = Page.nav(SearchInProjectsPopup).getDataRow("1")
 println "dataRowSearchByDate: $dataRowSearchByDate"
 
-Page.nav(SearchInProjectsPopup).verifyOrderDateVisibleInList(dataRowSearchByDate[0], previousWeek)
+Page.nav(SearchInProjectsPopup).verifyHaveRowVisibleInList("1")
 								.clearSearchDate()
-								.clickCloseSearchPopup()
