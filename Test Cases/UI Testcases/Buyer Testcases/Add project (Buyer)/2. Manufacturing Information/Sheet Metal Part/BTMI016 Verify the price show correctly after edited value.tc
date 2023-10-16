@@ -263,7 +263,7 @@
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'45,62'</defaultValue>
+      <defaultValue>'46,83'</defaultValue>
       <description></description>
       <id>4fd82c8a-c287-4f6e-8541-1eb1cfccc9dd</id>
       <masked>false</masked>
@@ -333,7 +333,7 @@
       <name>materialNameChanged</name>
    </variable>
    <variable>
-      <defaultValue>'29,52'</defaultValue>
+      <defaultValue>'51,91'</defaultValue>
       <description></description>
       <id>a66d63e9-ae42-43e8-90d9-d665a2a52eeb</id>
       <masked>false</masked>
