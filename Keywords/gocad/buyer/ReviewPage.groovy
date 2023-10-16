@@ -135,8 +135,8 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		String actualResult
 		List<String> findTestObjects = findTestObjects("//*[@aria-label='message']")
 		if (findTestObjects.size() != 0) {
-			WebUI.mouseOver(commentCol(partName))
-			actualResult = WebUI.getText(xpath("//*[@role='tooltip']/div/div"))
+			WebUI.click(commentCol(partName))
+			actualResult = WebUI.getText(xpath("//*[text()='Additional Comments']/parent::div[@role='tooltip']/div/div"))
 		}
 		else {
 			actualResult = ""
@@ -252,10 +252,11 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		List<String> findObject = findTestObjects("//*[text()='Surface Treatment Surcharge']")
 		if (findObject.size() != 0) {
 			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment Surcharge']"))
-			WebUI.mouseOver(xpath("//*[text()='Surface Treatment Surcharge']"))
+			WebUI.click(xpath("//*[text()='Surface Treatment Surcharge']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='$expectedContentTooltips']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='All Parts Total']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
+			WebUI.click(xpath("//*[text()='NET Total']"))
 		}
 		else {
 			WebUI.verifyElementVisible(xpath("//*[text()='Total:']"))
