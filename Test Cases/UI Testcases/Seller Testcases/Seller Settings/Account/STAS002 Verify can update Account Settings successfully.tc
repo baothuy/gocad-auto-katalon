@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STAS002 Verify can update Account Settings successfully</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>503bf988-fc1e-402c-a417-43f4e9ac6922</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>924414e0-7bf5-4a63-9905-7318118696c7</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>924414e0-7bf5-4a63-9905-7318118696c7</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>['Philipp', 'Sauter', 'Male', 'Testproduzent GmbH', '0784060607', '123456789', 'https://devbu.gocad.de/']</defaultValue>
+      <description></description>
+      <id>924414e0-7bf5-4a63-9905-7318118696c7</id>
+      <masked>false</masked>
+      <name>contact</name>
+   </variable>
+   <variable>
+      <defaultValue>['BaoBao', 'ThuyThuy', 'Female', 'Thuy ComThuy Com', '6060604870', '987654321', 'https://devbu.gocad.de/']</defaultValue>
+      <description></description>
+      <id>924414e0-7bf5-4a63-9905-7318118696c7</id>
+      <masked>false</masked>
+      <name>contactChanged</name>
+   </variable>
+   <variable>
+      <defaultValue>['Philipp', 'Sauter', '80', 'Am Stadtpark', 'Hamburg', '70435', 'Stuttgart']</defaultValue>
+      <description></description>
+      <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
+      <masked>false</masked>
+      <name>billingAddress</name>
+   </variable>
+   <variable>
+      <defaultValue>['ThuyThuy', 'TruongTruong', '07940505050794050505', '359359', 'Bremen', '7340573', 'AndorraAndorra']</defaultValue>
+      <description></description>
+      <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
+      <masked>false</masked>
+      <name>billingAddressChanged</name>
+   </variable>
+   <variable>
+      <defaultValue>['Thuy1', 'Truong2', '07940505055', '3594', 'Bayern', '734056', 'Andorra7']</defaultValue>
+      <description></description>
+      <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
+      <masked>false</masked>
+      <name>shippingAddress</name>
+   </variable>
+   <variable>
+      <defaultValue>['Thuy11', 'Truong22', '07940505044', '35933', 'Hamburg', '7340555', 'Andorra66']</defaultValue>
+      <description></description>
+      <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
+      <masked>false</masked>
+      <name>shippingAddressChanged</name>
+   </variable>
+</TestCaseEntity>

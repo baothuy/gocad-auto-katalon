@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STAS006 Verify required field when input empty</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>78588867-9309-4d55-a594-98193137a70f</testCaseGuid>
+</TestCaseEntity>

@@ -1,23 +1,23 @@
-import gocad.buyer.AccountSettingsPage
-import gocad.buyer.ChangePasswordPopup
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
+import gocad.seller.AccountSettingsLeftNavMenu
+import gocad.seller.AccountSettingsPage
+import gocad.seller.LegalInformationSettingsPage
+import gocad.seller.PaymentDetailsSettingsPage
+import gocad.seller.TermsOfPaymentSettingsPage
 import katalon.fw.lib.Page
 
-println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+println '>> User Seller signs in to administration page'
+Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
-println '>> Click Settings nav menu'
-Page.nav(LeftNavBar).clickSettings()
-
-println '>> Verify UI account settings page'
-Page.nav(AccountSettingsPage).verifyUIVisible()
+println '>> User Seller go to Price And Delivery Settings settings'
+Page.nav(LeftNavBar).clickAccount()
 
 println '>> Input contact information'
 Page.nav(AccountSettingsPage).inputFirstNameContact("")
 							.inputLastNameContact("")
 							.inputCompanyNameContact("")
-
+							
 println '>> Input billing/shipping address information'
 Page.nav(AccountSettingsPage).inputFirstNameBillingAddress("")
 								.inputLastNameBillingAddress("")
@@ -25,7 +25,6 @@ Page.nav(AccountSettingsPage).inputFirstNameBillingAddress("")
 								.inputStreetBillingAddress("")
 								.inputZIPCodeBillingAddress("")
 								.inputCityBillingAddress("")
-								.clickSaveChangesButton()
 								
 println '>> Verify error on account settings page'
 Page.nav(AccountSettingsPage).verifyShowErrorWhenFirstNameContactEmpty()
@@ -37,4 +36,10 @@ Page.nav(AccountSettingsPage).verifyShowErrorWhenFirstNameContactEmpty()
 							.verifyShowErrorWhenStreetBillingAddressEmpty()
 							.verifyShowErrorWhenZIPCodeBillingAddressEmpty()
 							.verifyShowErrorWhenCityBillingAddressEmpty()
-							.sleep(1)
+							.sleep(1)							
+
+Page.nav(AccountSettingsLeftNavMenu).clickTermsOfPayment()
+
+Page.nav(TermsOfPaymentSettingsPage).inputPaymentTarget("")
+									.verifyShowErrorWhenPaymentTargetEmpty()
+									.sleep(1)

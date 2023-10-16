@@ -193,7 +193,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 
 	public AccountSettingsPage verifyShowErrorWhenCompanyNameContactEmpty() {
 		String lastName = WebUI.getText(xpath("//*[@id='basic_companyName_help']/div"))
-		String expectedResult = "Last Name is required."
+		String expectedResult = "Company Name is required."
 		WebUI.verifyEqual(lastName, expectedResult)
 		return this
 	}

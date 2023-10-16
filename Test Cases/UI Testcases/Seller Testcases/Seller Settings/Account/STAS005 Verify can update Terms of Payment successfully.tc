@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STAS005 Verify can update Terms of Payment successfully</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>b2703d4e-d520-45d8-954e-15fe43198004</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>c9fe3b0f-8b17-46d2-bf44-297ed44ef4d0</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'14'</defaultValue>
+      <description></description>
+      <id>c9fe3b0f-8b17-46d2-bf44-297ed44ef4d0</id>
+      <masked>false</masked>
+      <name>paymentTarget</name>
+   </variable>
+</TestCaseEntity>

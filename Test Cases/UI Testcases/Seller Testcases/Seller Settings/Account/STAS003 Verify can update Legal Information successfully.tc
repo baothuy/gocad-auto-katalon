@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STAS003 Verify can update Legal Information successfully</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>73d547e1-ab6f-4e7f-a910-423d1ce679c9</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>c550e1b8-0465-4e4c-b867-929d8716dea7</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>edb104b4-4018-4ccb-9d19-16e848ebd161</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>2bdac4a3-acee-4ea0-8f7b-3a1478da31d3</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>c550e1b8-0465-4e4c-b867-929d8716dea7</id>
+      <masked>false</masked>
+      <name>legal</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>edb104b4-4018-4ccb-9d19-16e848ebd161</id>
+      <masked>false</masked>
+      <name>vatId</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>2bdac4a3-acee-4ea0-8f7b-3a1478da31d3</id>
+      <masked>false</masked>
+      <name>taxNumber</name>
+   </variable>
+</TestCaseEntity>

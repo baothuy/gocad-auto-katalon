@@ -22,24 +22,37 @@ import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 
 public class LegalInformationSettingsPage extends BasePage<LegalInformationSettingsPage>{
-	
+
 	public LegalInformationSettingsPage clickSaveChangesButton() {
 		WebUI.click(xpath("//span[text()='Save Changes']/parent::button"))
 		return this
 	}
-	
+
 	public LegalInformationSettingsPage inputLegal(String input) {
 		clearTextAndSendKeysByActions(id("basic_legal"), input)
 		return this
 	}
-	
+
 	public LegalInformationSettingsPage inputVatId(String input) {
 		clearTextAndSendKeysByActions(id("basic_vatId"), input)
 		return this
 	}
-	
+
 	public LegalInformationSettingsPage inputTaxNumber(String input) {
 		clearTextAndSendKeysByActions(id("basic_taxNumber"), input)
 		return this
 	}
+	
+	public LegalInformationSettingsPage verifyUILegalInformationVisible() {
+		//button Legal Information
+		WebUI.verifyElementVisible(xpath("//span[text()='Legal Information']"))
+		//field input
+		WebUI.verifyElementVisible(id("basic_legal"))
+		WebUI.verifyElementVisible(id("basic_vatId"))
+		WebUI.verifyElementVisible(id("basic_taxNumber"))
+		//button save change
+		WebUI.verifyElementVisible(xpath("//span[text()='Save Changes']"))
+		return this
+	}
+	
 }
