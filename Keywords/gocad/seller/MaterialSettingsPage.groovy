@@ -83,7 +83,7 @@ public class MaterialSettingsPage extends BasePage<MaterialSettingsPage>{
 		def path = RunConfiguration.getProjectDir() + "/Data/FileTesting/$fileName"
 		println "path: $path"
 		WebUI.uploadFile(xpath("//input[@type='file']"), path)
-		WebUI.waitForElementPresent(xpath("//*[@for='materialId']"), GlobalVariable.sleepLargeTime)
+		WebUI.waitForElementNotPresent(xpath("//*[@class='ant-btn-loading-icon']"), GlobalVariable.sleepLargeTime)
 		return this
 	}
 
@@ -168,6 +168,11 @@ public class MaterialSettingsPage extends BasePage<MaterialSettingsPage>{
 		String actualResult = WebUI.getText(xpath("//*[@id='lwhsShape_help']/div"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
+	}
+	
+	public String getMaterialGroup(String materialName) {
+		String materialGroup = WebUI.getText(materialGroupCol(materialName))
+		return materialGroup
 	}
 
 	public List<String> getDataRow(String rowNumber) {

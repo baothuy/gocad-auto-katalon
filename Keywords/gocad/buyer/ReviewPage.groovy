@@ -20,7 +20,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 	def actionMore = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]//button")}
 	def contentAlertManually = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
 	def contentAlertAutomatically = "Please check and confirm your order. You can see the bulk pricing when clicking on the information button for each part. You can adapt the quantity here if required."
-	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
+	def expectedContentTooltips = "Surcharge to fulfill minimum order value of general order as well as special costs for the following surface treatment options (minimum order value and transport costs)"
 
 	public ReviewPage clickPartFile(String partName) {
 		WebUI.click(fileCol(partName))

@@ -14,6 +14,8 @@ Page.nav(LeftNavBar).clickMaterials()
 println '>> Verify UI material settings'
 Page.nav(MaterialSettingsPage).clickMaterialGroupButton(materialName)
 
+String materialGroup = Page.nav(MaterialSettingsPage).getMaterialGroup(materialName)
+
 Page.nav(MaterialGroupPopup).inputLocalizedNamesEnglish(english)
 							.inputLocalizedNamesGerman(german)
 							.inputLocalizedNamesItalian(italian)
@@ -21,4 +23,4 @@ Page.nav(MaterialGroupPopup).inputLocalizedNamesEnglish(english)
 							.inputCuttingParams(cuttingParams)
 							.clickOKButton()
 
-Page.nav(ToastMessage).verifyToastMessage("Updated!", "Material group undefined")
+Page.nav(ToastMessage).verifyToastMessage("Success!", "Material group - $materialGroup")

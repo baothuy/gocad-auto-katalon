@@ -71,7 +71,8 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	}
 
 	public AccountSettingsPage inputCityBillingAddress(String input){
-		clearTextAndSendKeysByActions(id("basic_billingAddress_city"), input)
+		WebUI.click(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']"))
+		WebUI.click(xpath("//*[@id='basic_billingAddress_city_list']/following-sibling::div//div[@title='$input']"))
 		return this
 	}
 
@@ -133,11 +134,11 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		String name = (firstName + " " + lastName).replace(",", "")
 		String streetName = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_streetName']"), 'value')
 		String houseNumber = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_houseNumber']"), 'value')
-		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"), 'title')
+		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[7]//span[@class='ant-select-selection-item']"), 'title')
 		String postCode = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_postCode']"), 'value')
-		String city = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_city']"), 'value')
-		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[9]//span[@class='ant-select-selection-item']"), 'value')
-		List<String> billingAddress = [name, houseNumber, streetName, state, postCode, city]
+		String city = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']"), 'title')
+		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"), 'title')
+		List<String> billingAddress = [name, houseNumber, streetName, state, postCode, city, country]
 		return billingAddress
 	}
 
@@ -147,11 +148,11 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		String name = (firstName + " " + lastName).replace(",", "")
 		String streetName = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_streetName']"), 'value')
 		String houseNumber = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_houseNumber']"), 'value')
-		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"), 'title')
+		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[7]//span[@class='ant-select-selection-item']"), 'title')
 		String postCode = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_postCode']"), 'value')
-		String city = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_city']"), 'value')
-		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[9]//span[@class='ant-select-selection-item']"), 'value')
-		List<String> shippingAddress = [name, houseNumber, streetName, state, postCode, city]
+		String city = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']"), 'title')
+		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"), 'title')
+		List<String> shippingAddress = [name, houseNumber, streetName, state, postCode, city, country]
 		return shippingAddress
 	}
 

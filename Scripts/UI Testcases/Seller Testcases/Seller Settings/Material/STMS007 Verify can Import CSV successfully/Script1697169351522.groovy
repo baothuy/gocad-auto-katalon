@@ -10,7 +10,6 @@ println '>> User Seller go to material settings'
 Page.nav(LeftNavBar).clickMaterials()
 
 println '>> Verify show error when empty'
-Page.nav(MaterialSettingsPage).clickCSVImportButton()
-								.uploadFileTesting(fileName)
-								.verifyToastMessage("Import success!", "Done!")
+Page.nav(MaterialSettingsPage).uploadFileTesting(fileName)
+							  .verifyToastMessage("Import success!", "Done!")
 								

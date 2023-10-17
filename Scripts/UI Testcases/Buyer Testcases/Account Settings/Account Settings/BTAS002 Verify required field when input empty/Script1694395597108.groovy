@@ -24,7 +24,7 @@ Page.nav(AccountSettingsPage).inputFirstNameBillingAddress("")
 								.inputHouseNumberBillingAddress("")
 								.inputStreetBillingAddress("")
 								.inputZIPCodeBillingAddress("")
-								.inputCityBillingAddress("")
+								.selectCityBillingAddress("")
 								.clickSaveChangesButton()
 								
 println '>> Verify error on account settings page'

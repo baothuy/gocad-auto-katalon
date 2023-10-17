@@ -11,7 +11,7 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 println '>> User Seller go to Price And Delivery Settings settings'
 Page.nav(LeftNavBar).clickAccount()
 
-Page.nav(AccountSettingsLeftNavMenu).clickLegalInformation()
+Page.nav(AccountSettingsLeftNavMenu).clickPaymentDetails()
 
 Page.nav(PaymentDetailsSettingsPage).inputBankName(bankName)
 									  .inputIBAN(iban)
