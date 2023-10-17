@@ -51,7 +51,7 @@ Page.nav(ManufacturingInformationPage).verifyProcessAddProjectHighLighted()
 										.verifyThicknessInputVisible(partName)
 										.verifyCountersinkInputVisible()
 										.verifyRollingDirectionSelectVisible()
-										.verifyDeburringCheckboxVisible()
+										.verifyDeburringVisible()
 										.verifyCommentInputVisible()
 										.verifyContinueToOfferOverviewButtonVisible()
 										

@@ -42,7 +42,7 @@ public class LegalInformationSettingsPage extends BasePage<LegalInformationSetti
 		clearTextAndSendKeysByActions(id("basic_taxNumber"), input)
 		return this
 	}
-	
+
 	public LegalInformationSettingsPage verifyUILegalInformationVisible() {
 		//button Legal Information
 		WebUI.verifyElementVisible(xpath("//span[text()='Legal Information']"))
@@ -54,5 +54,4 @@ public class LegalInformationSettingsPage extends BasePage<LegalInformationSetti
 		WebUI.verifyElementVisible(xpath("//span[text()='Save Changes']"))
 		return this
 	}
-	
 }

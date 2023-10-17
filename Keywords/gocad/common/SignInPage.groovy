@@ -58,7 +58,7 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		WebUI.verifyEqual(message, inputExpected)
 		return this
 	}
-	
+
 	public MySignInPage verifyShowErrorWhenInputField () {
 		List<String> findObjectEmail = findTestObjects("//*[@id='basic_username_help']/div")
 		List<String> findObjectPassword = findTestObjects("//*[@id='basic_password_help']/div")
@@ -72,7 +72,7 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		}
 		return this
 	}
-	
+
 	public MySignInPage verifyShowErrorWhenInputPassword (String inputExpected) {
 		String message = WebUI.getText(xpath('//*[@id="basic_password_help"]/div'))
 		WebUI.verifyEqual(message, inputExpected)
@@ -93,7 +93,9 @@ public class MySignInPage extends BasePage<MySignInPage> {
 
 	public MySignInPage changeLanguage () {
 		WebUI.click(xpath("//button[@class='btn']"))
+		WebUI.waitForElementPresent(xpath("//span[text()='English']"), 5)
 		WebUI.click(xpath("//span[text()='English']"))
+		WebUI.delay(1)
 		return this
 	}
 
@@ -101,7 +103,7 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		WebUI.click(xpath("//*[text()='Registration']"))
 		return this
 	}
-	
+
 	public MySignInPage verifyUIVisible () {
 		//change language button
 		WebUI.verifyElementVisible(xpath("//button[@class='btn']"))
@@ -111,7 +113,7 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		// 2 field email and password
 		WebUI.verifyElementVisible(id("basic_username"))
 		WebUI.verifyElementVisible(id("basic_password"))
-	    //forgot password link
+		//forgot password link
 		WebUI.verifyElementVisible(xpath("//a[text()='Forgot your password?']"))
 		//sign in button
 		WebUI.verifyElementVisible(byType("submit"))

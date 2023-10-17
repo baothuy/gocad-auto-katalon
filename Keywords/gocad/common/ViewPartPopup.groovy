@@ -142,9 +142,7 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 
 	public ViewPartPopup verifyDeburringValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Deburring']/following-sibling::label")).trim()
-		println "actualResult: $actualResult"
-		def newExpectedResult = (expectedResult == "true") ? "Yes" : "No"
-		WebUI.verifyEqual(actualResult, newExpectedResult)
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 

@@ -10,7 +10,7 @@
       <id>9784cc6b-b40e-4781-a4a8-4f75fb06d654</id>
       <iterationEntity>
          <iterationType>ALL</iterationType>
-         <value></value>
+         <value>1-1</value>
       </iterationEntity>
       <testDataId>Data Files/Milled Or Turned Parts/FPA002-003-005-007</testDataId>
    </testDataLinks>

@@ -49,7 +49,7 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.inputQuantity(quantityNum)
 										.selectSurfaceTreatment(surfaceTreatment)
 										.selectRollingDirection(rollingDirection)
-										.clickDeburringCheckbox(deburring)
+										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
 										.inputThread(threadNum)
 										.inputComment(comment)

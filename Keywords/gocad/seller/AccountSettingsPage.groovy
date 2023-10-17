@@ -9,7 +9,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		String companyName = WebUI.getAttribute(xpath("//*[@id='basic_companyName']"), 'value')
 		return companyName
 	}
-	
+
 	public AccountSettingsPage clickSaveChangesButton() {
 		WebUI.click(xpath("//span[text()='Save Changes']"))
 		return this
@@ -44,7 +44,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		clearTextAndSendKeysByActions(id("basic_fax"), input)
 		return this
 	}
-	
+
 	public AccountSettingsPage inputWebsiteContact(String input){
 		clearTextAndSendKeysByActions(id("basic_website"), input)
 		return this
@@ -85,7 +85,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		clearTextAndSendKeysByActions(id("basic_billingAddress_city"), input)
 		return this
 	}
-	
+
 	public AccountSettingsPage verifyUIAccountVisible() {
 		//button account
 		WebUI.verifyElementVisible(xpath("//span[text()='Account']"))
@@ -114,7 +114,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		WebUI.verifyElementVisible(xpath("//span[text()='Save Changes']"))
 		return this
 	}
-	
+
 	//Billing Address
 	public AccountSettingsPage verifyFirstNameBillingAddressValue(String expectedResult){
 		String actualResult = WebUI.getAttribute(id("basic_billingAddress_firstName"), "value")
@@ -195,13 +195,13 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public AccountSettingsPage verifyWebsiteContactValue(String expectedResult){
 		String actualResult = WebUI.getAttribute(id("basic_website"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	//contact verify error
 	public AccountSettingsPage verifyShowErrorWhenFirstNameContactEmpty() {
 		String firstName = WebUI.getText(xpath("//*[@id='basic_firstName_help']/div"))
@@ -223,7 +223,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		WebUI.verifyEqual(lastName, expectedResult)
 		return this
 	}
-	
+
 	//billing address verify error
 	public AccountSettingsPage verifyShowErrorWhenFirstNameBillingAddressEmpty() {
 		String firstName = WebUI.getText(xpath("//*[@id='basic_billingAddress_firstName_help']/div"))
@@ -266,5 +266,5 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		WebUI.verifyEqual(city, expectedResult)
 		return this
 	}
-	
+
 }

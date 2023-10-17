@@ -227,13 +227,9 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage clickDeburringCheckbox(String value) {
-		String contentClass = WebUI.getAttribute(xpath("//input[@id='deburring']/parent::span"), "class")
-		String isChecked = contentClass.contains("checked")
-		boolean isYes = value.equals("true")
-		if(Boolean.parseBoolean(isChecked) != isYes) {
-			WebUI.click(xpath('//span[text()="Deburring"]'))
-		}
+	public ManufacturingInformationPage selectDeburring(String value) {
+		WebUI.click(xpath("//*[text()='Deburring']/parent::div/following::div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$value']"))
 		return this
 	}
 
@@ -358,10 +354,9 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage verifyDeburringCheckboxValue(String expectedResult) {
+	public ManufacturingInformationPage verifyDeburringValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Deburring']/following-sibling::label")).trim()
-		String actualResultCompare = (actualResult == "Yes")  ? "true" : "false"
-		WebUI.verifyEqual(actualResultCompare, expectedResult)
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
@@ -533,7 +528,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage verifyDeburringCheckboxVisible() {
+	public ManufacturingInformationPage verifyDeburringVisible() {
 		WebUI.verifyElementVisible(xpath("//input[@id='deburring']/parent::span"))
 		return this
 	}
