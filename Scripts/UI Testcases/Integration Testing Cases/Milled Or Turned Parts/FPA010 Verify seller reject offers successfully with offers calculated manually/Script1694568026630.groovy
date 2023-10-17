@@ -125,7 +125,7 @@ println '>> Buyer click Logout button'
 Page.nav(LeftNavBar).clickLogout()
 
 println '>> Seller Login system to check offers of buyer'
-Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>> Seller go detail offers of buyer checkout'
 Page.nav(OpenInquiriesPage).verifyProjectName(projectId, projectName)
