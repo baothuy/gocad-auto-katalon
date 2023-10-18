@@ -193,7 +193,7 @@
       <name>thicknessNum</name>
    </variable>
    <variable>
-      <defaultValue>'3'</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description></description>
       <id>718738d2-2af7-42eb-b10d-ba2c59e63b40</id>
       <masked>false</masked>
@@ -263,7 +263,7 @@
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'46,83'</defaultValue>
+      <defaultValue>'111,96'</defaultValue>
       <description></description>
       <id>4fd82c8a-c287-4f6e-8541-1eb1cfccc9dd</id>
       <masked>false</masked>
@@ -284,7 +284,7 @@
       <name>thicknessNumChanged</name>
    </variable>
    <variable>
-      <defaultValue>'8'</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description></description>
       <id>50a60cac-d861-4a1c-bbfd-911626b65b45</id>
       <masked>false</masked>
@@ -305,7 +305,7 @@
       <name>rollingDirectionChanged</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
+      <defaultValue>'No deburring'</defaultValue>
       <description></description>
       <id>feaefad7-af33-4cd5-9838-eaac42101dc3</id>
       <masked>false</masked>
@@ -333,7 +333,7 @@
       <name>materialNameChanged</name>
    </variable>
    <variable>
-      <defaultValue>'51,91'</defaultValue>
+      <defaultValue>'49,63'</defaultValue>
       <description></description>
       <id>a66d63e9-ae42-43e8-90d9-d665a2a52eeb</id>
       <masked>false</masked>

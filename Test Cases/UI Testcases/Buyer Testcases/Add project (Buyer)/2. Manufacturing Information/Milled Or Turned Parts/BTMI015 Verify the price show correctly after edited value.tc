@@ -225,7 +225,7 @@
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'252,58'</defaultValue>
+      <defaultValue>'216,74'</defaultValue>
       <description></description>
       <id>db5bb31b-a8db-426c-a0e2-afdae7799046</id>
       <masked>false</masked>

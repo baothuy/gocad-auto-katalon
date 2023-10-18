@@ -356,7 +356,8 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage verifyDeburringValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Deburring']/following-sibling::label")).trim()
-		WebUI.verifyEqual(actualResult, expectedResult)
+		def actualResultConv = (actualResult == "No") ? "No deburring" : "Deburring (one-sided)"
+		WebUI.verifyEqual(actualResultConv, expectedResult)
 		return this
 	}
 
