@@ -83,11 +83,11 @@ public class RequestOfferPopup extends BasePage<RequestOfferPopup>{
 		String name = (firstName + " " + lastName).replace(",", "")
 		String streetName = WebUI.getAttribute(xpath("//*[@id='billingAddress_streetName']"), 'value')
 		String houseNumber = WebUI.getAttribute(xpath("//*[@id='billingAddress_houseNumber']"), 'value')
-		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"), 'title')
+		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[7]//span[@class='ant-select-selection-item']"), 'title')
 		String postCode = WebUI.getAttribute(xpath("//*[@id='billingAddress_postCode']"), 'value')
-		String city = WebUI.getAttribute(xpath("//*[@id='billingAddress_city']"), 'value')
-		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[9]//span[@class='ant-select-selection-item']"), 'value')
-		List<String> billingAddressActual = [name, houseNumber, streetName, state, postCode, city]
+		String city = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']"), 'title')
+		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"), 'title')
+		List<String> billingAddressActual = [name, houseNumber, streetName, state, postCode, city, country]
 		WebUI.verifyEqual(billingAddressActual, billingAddressExpected)
 		return this
 	}
