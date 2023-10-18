@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STM001 Verify can update Machines Settings MT successfully</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>3296884e-1b9e-47ef-85cc-8321a3959512</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ee3abc7e-8c0a-468b-8172-b47b7ef4a193</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'DEB - Deburring'</defaultValue>
+      <description></description>
+      <id>ee3abc7e-8c0a-468b-8172-b47b7ef4a193</id>
+      <masked>false</masked>
+      <name>machineName</name>
+   </variable>
+</TestCaseEntity>
