@@ -46,6 +46,12 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		WebUI.click(xpath("//p[text()='$workflow']/ancestor::div[@class='ant-card-body']"))
 		return this
 	}
+	
+	public DataUploadPage clickCustomDXF() {
+		WebUI.waitForElementVisible(xpath("//*[text()=' Custom DXF']/parent::button"), 5)
+		WebUI.click(xpath("//*[text()=' Custom DXF']/parent::button"))
+		return this
+	}
 
 	public DataUploadPage verifyUIDataUploadPageOfBuyer(String projectName) {
 		WebUI.verifyElementVisible(xpath("//span[text()='$projectName']"))

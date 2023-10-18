@@ -1,7 +1,6 @@
-import gocad.buyer.AddressInformationPopup
-import gocad.buyer.CheckoutPage
+import gocad.buyer.CustomDXFLeftNavMenu
 import gocad.buyer.DraftPage
-import gocad.buyer.ReviewPage
+import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage
 import katalon.fw.lib.Page
@@ -16,55 +15,10 @@ println '>> User buyer signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickViewAction('4571')
-Page.nav(ReviewPage).clickCheckout()
-Page.nav(CheckoutPage).clickEditAddress()
+Page.nav(DraftPage).clickViewAction('4619')
 
-println '>> Input edit information successfully'
-Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddressChanged[0])
-								.inputLastNameBillingAddress(billingAddressChanged[1])
-								.inputHouseNumberBillingAddress(billingAddressChanged[2])
-								.inputStreetBillingAddress(billingAddressChanged[3])
-								.selectCountryBillingAddress(billingAddressChanged[7])
-								.selectStateBillingAddress(billingAddressChanged[4])
-								.inputZIPCodeBillingAddress(billingAddressChanged[5])
-								.selectCityBillingAddress(billingAddressChanged[6])
-								.inputFirstNameShippingAddress(shippingAddressChanged[0])
-								.inputLastNameShippingAddress(shippingAddressChanged[1])
-								.inputHouseNumberShippingAddress(shippingAddressChanged[2])
-								.inputStreetShippingAddress(shippingAddressChanged[3])
-								.selectCountryShippingAddress(shippingAddressChanged[7])
-								.selectStateShippingAddress(shippingAddressChanged[4])
-								.inputZIPCodeShippingAddress(shippingAddressChanged[5])
-								.selectCityShippingAddress(shippingAddressChanged[6])
-								.clickOK()
-List<String> listBillingAddress = [billingAddressChanged[0] + " " + billingAddressChanged[1], billingAddressChanged[2], billingAddressChanged[3], billingAddressChanged[4], billingAddressChanged[5], billingAddressChanged[6]]
-List<String> listShippingAddress = [shippingAddressChanged[0] + " " + shippingAddressChanged[1], shippingAddressChanged[2], shippingAddressChanged[3], shippingAddressChanged[4], shippingAddressChanged[5], shippingAddressChanged[6]]
-Page.nav(CheckoutPage).sleep(1)
-					.refreshPage()
-println '>> Verify after update show correctly on checkout page'
-Page.nav(ReviewPage).clickCheckout()
-Page.nav(CheckoutPage).verifyBillingAddress(listBillingAddress)
-						.verifyShippingAddress(listShippingAddress)
+Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
+						.clickCustomDXF()
 						
-println '>> Click Edit address'
-Page.nav(CheckoutPage).clickEditAddress()
-
-println '>> Re update old information successfully'
-Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddress[0])
-								.inputLastNameBillingAddress(billingAddress[1])
-								.inputStreetBillingAddress(billingAddress[2])
-								.inputHouseNumberBillingAddress(billingAddress[3])
-								.selectCountryBillingAddress(billingAddress[7])
-								.selectStateBillingAddress(billingAddress[4])
-								.inputZIPCodeBillingAddress(billingAddress[5])
-								.selectCityBillingAddress(billingAddress[6])
-								.inputFirstNameShippingAddress(shippingAddress[0])
-								.inputLastNameShippingAddress(shippingAddress[1])
-								.inputStreetShippingAddress(shippingAddress[2])
-								.inputHouseNumberShippingAddress(shippingAddress[3])
-								.selectCountryShippingAddress(shippingAddress[7])
-								.selectStateShippingAddress(shippingAddress[4])
-								.inputZIPCodeShippingAddress(shippingAddress[5])
-								.selectCityShippingAddress(shippingAddress[6])
-								.clickOK()
+Page.nav(CustomDXFLeftNavMenu).clickRectangleGasketShape()
+							  .sleep(3)
