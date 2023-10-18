@@ -11,8 +11,10 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 println '>> User Seller go to Price And Delivery Settings settings'
 Page.nav(LeftNavBar).clickPriceAndDeliverySettings()
 
+println '>> click Sheet Metal Formula'
 Page.nav(PriceAndDeliverySettingsLeftNavMenu).clickSheetMetalFormula()
 
+println '>> input field'
 Page.nav(PriceAndDeliverySettingsSMFPage).inputTransportAdditions(transportAdditions)
 										 .inputDistributionTimeAdditions(distributionTimeAdditions)
 										 .inputPersonalTimeAdditions(personalTimeAdditions)
@@ -24,4 +26,5 @@ Page.nav(PriceAndDeliverySettingsSMFPage).inputTransportAdditions(transportAddit
 										 .inputManufacturingAdditions(manufacturingAdditions)
 										 .clickSaveChangesButton()
 										 
+println '>> verify Toast Message'
 Page.nav(ToastMessage).verifyToastMessage("Update success!", "")

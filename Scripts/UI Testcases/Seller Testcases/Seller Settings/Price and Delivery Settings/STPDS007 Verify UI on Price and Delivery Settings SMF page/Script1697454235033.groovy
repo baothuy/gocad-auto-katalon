@@ -10,8 +10,10 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 println '>> User Seller go to Price And Delivery Settings settings'
 Page.nav(LeftNavBar).clickPriceAndDeliverySettings()
 
+println '>> click Sheet Metal Formula'
 Page.nav(PriceAndDeliverySettingsLeftNavMenu).clickSheetMetalFormula()
 
+println '>> verify UI Visible'
 Page.nav(PriceAndDeliverySettingsSMFPage).verifySaveChangesButtonVisible()
 										 .verifyPreviewPricesButtonVisible()
 										 .verifyInputTransportAdditionsVisible()

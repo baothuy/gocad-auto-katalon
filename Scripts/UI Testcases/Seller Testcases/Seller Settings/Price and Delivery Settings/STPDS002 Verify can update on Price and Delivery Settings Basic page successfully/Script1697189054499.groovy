@@ -24,5 +24,6 @@ Page.nav(PriceAndDeliverySettingsBasicPage).inputDeliveryTimeEconomy(deliveryTim
 										   .inputNumberFreeCalculation(numberFreeCalculation)
 										   .inputOfferValidity(offerValidity)
 										   .clickSaveChangesButton()
-										   
+
+println '>> Verify Toast Message'
 Page.nav(ToastMessage).verifyToastMessage("Update success!", "")										   

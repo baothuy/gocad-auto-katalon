@@ -10,7 +10,7 @@ import katalon.fw.lib.Page
 println '>> User Seller signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
-println '>> User Seller go to Price And Delivery Settings settings'
+println '>> click Account'
 Page.nav(LeftNavBar).clickAccount()
 
 println '>> Input contact information'
@@ -38,8 +38,10 @@ Page.nav(AccountSettingsPage).verifyShowErrorWhenFirstNameContactEmpty()
 							.verifyShowErrorWhenCityBillingAddressEmpty()
 							.sleep(1)							
 
+println '>> click Terms Of Payment'
 Page.nav(AccountSettingsLeftNavMenu).clickTermsOfPayment()
 
+println '>> verify show error'
 Page.nav(TermsOfPaymentSettingsPage).inputPaymentTarget("")
 									.verifyShowErrorWhenPaymentTargetEmpty()
 									.sleep(1)

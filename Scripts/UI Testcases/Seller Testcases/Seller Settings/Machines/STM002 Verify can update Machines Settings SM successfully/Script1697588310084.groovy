@@ -11,10 +11,13 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 println '>> User Seller go to Price And Delivery Settings settings'
 Page.nav(LeftNavBar).clickMachines()
 
+println '>> click Sheet Metal Tab'
 Page.nav(MachineSettingsLeftNavMenu).clickSheetMetalTab()
 
+println '>> click Machine Name and save change'
 Page.nav(MachineSettingsPage).clickMachineName(machineName)
 							 .clickSaveChangesButton()
 							 .sleep(1)
 							 
+println '>> verify Toast Message'
 Page.nav(ToastMessage).verifyToastMessage("Update success!", "")

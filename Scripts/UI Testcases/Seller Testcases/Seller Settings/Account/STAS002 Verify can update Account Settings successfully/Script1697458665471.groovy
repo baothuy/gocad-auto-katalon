@@ -27,7 +27,8 @@ Page.nav(AccountSettingsPage).inputFirstNameBillingAddress(billingAddressChanged
 								.inputZIPCodeBillingAddress(billingAddressChanged[5])
 								.inputCityBillingAddress(billingAddressChanged[6])
 								.clickSaveChangesButton()
-								
+
+println '>> verify Toast Message'
 Page.nav(ToastMessage).verifyToastMessage("Success!", "Updated Account")
 
 Page.nav(AccountSettingsPage).sleep(1)
@@ -68,6 +69,7 @@ Page.nav(AccountSettingsPage).inputFirstNameBillingAddress(billingAddress[0])
 							 .inputZIPCodeBillingAddress(billingAddress[5])
 							 .inputCityBillingAddress(billingAddress[6])
 							 .clickSaveChangesButton()
-							 							 
+							 
+println '>> verify Toast Message'
 Page.nav(ToastMessage).verifyToastMessage("Success!", "Updated Account")
  					  .sleep(1)

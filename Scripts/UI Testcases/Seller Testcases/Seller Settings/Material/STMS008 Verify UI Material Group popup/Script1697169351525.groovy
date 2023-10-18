@@ -10,9 +10,10 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 println '>> User Seller go to material settings'
 Page.nav(LeftNavBar).clickMaterials()
 
-println '>> Verify UI material settings'
+println '>> Click Material Group Button'
 Page.nav(MaterialSettingsPage).clickMaterialGroupButton(materialName)
 
+println '>> Verify UI material group'
 Page.nav(MaterialGroupPopup).verifyInputLocalizedNamesEnglishVisible()
 							.verifyInputLocalizedNamesGermanVisible()
 							.verifyInputLocalizedNamesItalianVisible()

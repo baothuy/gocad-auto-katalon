@@ -11,9 +11,11 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 println '>> User Seller go to surface treatment settings'
 Page.nav(LeftNavBar).clickSurfaceTreatments()
 
+println '>> verify UI Surface Treatments Setting Page'
 Page.nav(SurfaceTreatmentsSettingPage).verifyUIPage()
 										.clickEditButton(method)
 
+println '>> verify UI Surface Treatments Setting Popup'
 Page.nav(SurfaceTreatmentsSettingPopup).verifyInputLocalizedNamesEnglishVisible()
 										.verifyInputLocalizedNamesGermanVisible()
 										.verifyInputLocalizedNamesItalianVisible()

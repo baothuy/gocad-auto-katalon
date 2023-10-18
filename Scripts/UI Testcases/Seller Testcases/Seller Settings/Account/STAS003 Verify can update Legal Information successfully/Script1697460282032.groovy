@@ -8,14 +8,17 @@ import katalon.fw.lib.Page
 println '>> User Seller signs in to administration page'
 Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
-println '>> User Seller go to Price And Delivery Settings settings'
+println '>> click Account'
 Page.nav(LeftNavBar).clickAccount()
 
+println '>> click Legal Information'
 Page.nav(AccountSettingsLeftNavMenu).clickLegalInformation()
 
+println '>> input field'
 Page.nav(LegalInformationSettingsPage).inputLegal(legal)
 									  .inputVatId(vatId)
 									  .inputTaxNumber(taxNumber)
 									  .clickSaveChangesButton()
 									  
+println '>> verify Toast Message'
 Page.nav(ToastMessage).verifyToastMessage("Success!", "Updated Account")

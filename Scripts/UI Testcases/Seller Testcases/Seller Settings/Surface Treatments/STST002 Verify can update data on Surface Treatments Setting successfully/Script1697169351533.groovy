@@ -11,8 +11,10 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 println '>> User Seller go to surface treatment settings'
 Page.nav(LeftNavBar).clickSurfaceTreatments()
 
+println '>> click Edit Button'
 Page.nav(SurfaceTreatmentsSettingPage).clickEditButton(method)
 
+println '>> input field'
 Page.nav(SurfaceTreatmentsSettingPopup).inputLocalizedNamesEnglish(english)
 										.inputLocalizedNamesGerman(german)
 										.inputLocalizedNamesItalian(italian)
@@ -26,5 +28,6 @@ Page.nav(SurfaceTreatmentsSettingPopup).inputLocalizedNamesEnglish(english)
 										.inpuTransportationCost(transportationCost)
 										.selectStatusToggle(status)
 										.clickOKButton()
-										
+
+println '>> verify Toast Message'
 Page.nav(ToastMessage).verifyToastMessage("Update success!", "Surface treatment - Soft annealing")

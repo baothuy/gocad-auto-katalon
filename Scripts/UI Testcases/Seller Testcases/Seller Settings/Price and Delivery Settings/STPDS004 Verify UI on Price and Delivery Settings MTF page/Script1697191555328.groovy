@@ -10,8 +10,10 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 println '>> User Seller go to Price And Delivery Settings settings'
 Page.nav(LeftNavBar).clickPriceAndDeliverySettings()
 
+println '>> click Milling And Turning Formula'
 Page.nav(PriceAndDeliverySettingsLeftNavMenu).clickMillingAndTurningFormula()
-										 
+		
+println '>> verify UI visible'
 Page.nav(PriceAndDeliverySettingsMTFPage).verifyInputFactorManualVisible()
 										 .verifyInputProgrammingHourRateVisible()
 										 .verifyInputGeneralAdminAdditionsVisible()

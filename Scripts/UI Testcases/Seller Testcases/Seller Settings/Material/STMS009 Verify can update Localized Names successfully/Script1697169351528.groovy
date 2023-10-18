@@ -11,16 +11,19 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 println '>> User Seller go to material settings'
 Page.nav(LeftNavBar).clickMaterials()
 
-println '>> Verify UI material settings'
+println '>> click Material Group Button'
 Page.nav(MaterialSettingsPage).clickMaterialGroupButton(materialName)
 
+println '>> get Material Group'
 String materialGroup = Page.nav(MaterialSettingsPage).getMaterialGroup(materialName)
 
+println '>> input field'
 Page.nav(MaterialGroupPopup).inputLocalizedNamesEnglish(english)
 							.inputLocalizedNamesGerman(german)
 							.inputLocalizedNamesItalian(italian)
 							.inputLocalizedNamesCzech(czech)
 							.inputCuttingParams(cuttingParams)
 							.clickOKButton()
-
+							
+println '>> Verify Toast message'
 Page.nav(ToastMessage).verifyToastMessage("Success!", "Material group - $materialGroup")

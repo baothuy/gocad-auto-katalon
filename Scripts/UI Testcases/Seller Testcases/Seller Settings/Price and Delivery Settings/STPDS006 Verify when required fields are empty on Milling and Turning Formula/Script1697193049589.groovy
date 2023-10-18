@@ -11,8 +11,10 @@ Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().
 println '>> User Seller go to Price And Delivery Settings settings'
 Page.nav(LeftNavBar).clickPriceAndDeliverySettings()
 
+println '>> click Milling And Turning Formula'
 Page.nav(PriceAndDeliverySettingsLeftNavMenu).clickMillingAndTurningFormula()
 
+println '>> input field'
 Page.nav(PriceAndDeliverySettingsMTFPage).inputFactorManual(factorManual)
 										 .inputProgrammingHourRate(programmingHourRate)
 										 .inputGeneralAdminAdditions(generalAdminAdditions)
@@ -24,7 +26,8 @@ Page.nav(PriceAndDeliverySettingsMTFPage).inputFactorManual(factorManual)
 										 .inputProcessCostAdditions(processCostAdditions)
 										 .inputInBetweenTemperingCost(inBetweenTemperingCost)
 										 .clickSaveChangesButton()
-										 
+	
+println '>> verify Show Error content'
 Page.nav(PriceAndDeliverySettingsMTFPage).verifyShowErrorWhenFactorManualError("Factor manual is required.")
 										 .verifyShowErrorWhenProgrammingHourRateError("Programming hour rate is required.")
 										 .verifyShowErrorWhenGeneralAdminAdditionsError("General admin additions is required.")
