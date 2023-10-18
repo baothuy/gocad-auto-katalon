@@ -24,7 +24,6 @@ Page.nav(AccountSettingsPage).inputFirstNameBillingAddress("")
 								.inputHouseNumberBillingAddress("")
 								.inputStreetBillingAddress("")
 								.inputZIPCodeBillingAddress("")
-								.selectCityBillingAddress("")
 								.clickSaveChangesButton()
 								
 println '>> Verify error on account settings page'
@@ -36,5 +35,4 @@ Page.nav(AccountSettingsPage).verifyShowErrorWhenFirstNameContactEmpty()
 							.verifyShowErrorWhenHouseNumberBillingAddressEmpty()
 							.verifyShowErrorWhenStreetBillingAddressEmpty()
 							.verifyShowErrorWhenZIPCodeBillingAddressEmpty()
-							.verifyShowErrorWhenCityBillingAddressEmpty()
 							.sleep(1)

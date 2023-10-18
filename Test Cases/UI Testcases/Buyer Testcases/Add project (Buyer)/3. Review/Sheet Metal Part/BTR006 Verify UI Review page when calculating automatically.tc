@@ -152,7 +152,7 @@
       <name>cuttingLayers</name>
    </variable>
    <variable>
-      <defaultValue>'true'</defaultValue>
+      <defaultValue>'No deburring'</defaultValue>
       <description></description>
       <id>92334211-dd7b-4ff4-9017-d7aefabddc39</id>
       <masked>false</masked>
