@@ -77,7 +77,7 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public CopyPartPopup verifyThreadCuttingValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Thread Cutting']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
@@ -105,21 +105,21 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public CopyPartPopup verifyRollingDirectionValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Rolling Direction']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public CopyPartPopup verifyCountersinkValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Countersink']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public CopyPartPopup verifyThicknessValue(String partName, String expectedResult) {
 		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
@@ -132,14 +132,14 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 		}
 		return this
 	}
-	
+
 	public CopyPartPopup verifyCuttingLayersValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Cutting layers']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public CopyPartPopup verifyDeburringValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Deburring']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
@@ -244,7 +244,7 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 		WebUI.verifyElementVisible(xpath("//*[@class='input-inline-api']"))
 		// file download file cad and pdf
 		WebUI.verifyElementVisible(xpath("//*[@class='text-decoration-none']"))
-		List<String> findTestObject = findTestObjects("//*[text()='Milled / Turned Parts']") 
+		List<String> findTestObject = findTestObjects("//*[text()='Milled / Turned Parts']")
 		if(findTestObject.size() != 0)
 		{
 			// information part

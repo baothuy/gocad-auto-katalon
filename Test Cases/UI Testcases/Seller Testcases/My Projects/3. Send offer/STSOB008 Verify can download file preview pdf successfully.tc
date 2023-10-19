@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>STSOB004 Verify can download file preview pdf successfully</name>
+   <name>STSOB008 Verify can download file preview pdf successfully</name>
    <tag>functional-test,checkout,ui</tag>
    <comment></comment>
    <testCaseGuid>5a650b40-76a9-4f44-be7c-d5eaa513bc0c</testCaseGuid>

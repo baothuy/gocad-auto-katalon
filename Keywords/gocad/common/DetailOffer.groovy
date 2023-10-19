@@ -22,8 +22,6 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	def contentReceivedOffersAlertManually = "These parts could not be automatically calculated. You have received an offer by your supplier. Please check the offer and approve or decline it."
 	def contentOpenInquiriesAlertManually = "For these parts, your customer has not seen a price and he requested a manual quotation. The reason that for this part no automatic price has been shown to the customer can be e.g. that there are specific tolerances that need to be manually checked. Please check the parts and the automatically calculated price and adpat the price accordingly. You can then send out the offer to your customer by clicking on \"Send offer\"."
 	def contentSentOffersAlertManually = "For these parts, your customer has not seen a price and he requested a manual quotation. The reason that for this part no automatic price has been shown to the customer can be e.g. that there are specific tolerances that need to be manually checked. Please check the parts and the automatically calculated price and adpat the price accordingly. You can then send out the offer to your customer by clicking on \"Send offer\"."
-	def contentConfirmedOffersAlertManually = "For these parts, your customer has not seen a price and he requested a manual quotation. The reason that for this part no automatic price has been shown to the customer can be e.g. that there are specific tolerances that need to be manually checked. Please check the parts and the automatically calculated price and adpat the price accordingly. You can then send out the offer to your customer by clicking on \"Send offer\"."
-	def contentCancelledOffersAlertManually = "For these parts, your customer has not seen a price and he requested a manual quotation. The reason that for this part no automatic price has been shown to the customer can be e.g. that there are specific tolerances that need to be manually checked. Please check the parts and the automatically calculated price and adpat the price accordingly. You can then send out the offer to your customer by clicking on \"Send offer\"."
 	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
 
 	public DetailOffer clickAcceptAndSendOffer() {
@@ -143,7 +141,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String fullName = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
 		String houseNumber = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))
 		String street = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Street']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String state = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='State']/ancestor::tr/following-sibling::tr[1]/td[1]"))
+		String state = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
 		String zipCode = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
 		String city = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
 		List<String> actualBillingAddress = [fullName, houseNumber, street, state, zipCode, city]
@@ -156,7 +154,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String fullName = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
 		String houseNumber = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))
 		String street = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Street']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String state = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State']/ancestor::tr/following-sibling::tr[1]/td[1]"))
+		String state = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
 		String zipCode = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
 		String city = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
 		List<String> actualShippingAddress = [fullName, houseNumber, street, state, zipCode, city]
@@ -259,7 +257,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String fullName = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
 		String houseNumber = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))
 		String street = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Street']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String state = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='State']/ancestor::tr/following-sibling::tr[1]/td[1]"))
+		String state = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
 		String zipCode = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
 		String city = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
 		List<String> billingAddress = [fullName, houseNumber, street, state, zipCode, city]
@@ -270,7 +268,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String fullName = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
 		String houseNumber = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))
 		String street = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Street']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String state = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State']/ancestor::tr/following-sibling::tr[1]/td[1]"))
+		String state = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
 		String zipCode = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
 		String city = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
 		List<String> billingAddress = [fullName, houseNumber, street, state, zipCode, city]
@@ -415,17 +413,6 @@ public class DetailOffer extends BasePage<DetailOffer>{
 					WebUI.verifyEqual(messageAlert, contentSentOffersAlertManually)
 					WebUI.verifyEqual(actualStatus, "Offer adapted")
 					break;
-
-				case "Confirmed Offers":
-					WebUI.verifyEqual(messageAlert, contentConfirmedOffersAlertManually)
-					WebUI.verifyEqual(actualStatus, "Order confirmed")
-					break;
-
-				case "Cancelled Offers":
-					WebUI.verifyEqual(messageAlert, contentCancelledOffersAlertManually)
-					WebUI.verifyEqual(actualStatus, "Offer rejected")
-					break;
-					break;
 			}
 
 		}
@@ -447,7 +434,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Full Name']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='House number']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Street']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='State']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='ZIP Code']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='City']"))
 
@@ -456,7 +443,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Full Name']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='House number']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Street']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='ZIP Code']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='City']"))
 
@@ -475,7 +462,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Action']"))
 
 		//Order summary
-		List<String> findObjectOrder = findTestObjects("//*[text()='Order Summary']")
+		List<String> findObjectOrder = findTestObjects("//*[text()='Total Part Price']")
 		if (findObjectOrder.size() != 0) {
 			WebUI.verifyElementVisible(xpath("//*[text()='Order Summary']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Total Part Price']"))

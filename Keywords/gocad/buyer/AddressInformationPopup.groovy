@@ -31,16 +31,14 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	}
 
 	public AddressInformationPopup selectStateBillingAddress(String input){
-		List<String> findObject = findTestObjects("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[7]//span[@class='ant-select-selection-item']")
-		(findObject.size() != 0) ? WebUI.click(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[7]//span[@class='ant-select-selection-item']")) : WebUI.click(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']//input[@id='billingAddress_state']/parent::span"))
-		scrollToAndClick(xpath("//*[@id='billingAddress_state_list']/following-sibling::div//div[@title='$input']"))
+		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[7]//input"), input)
+		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
 
 	public AddressInformationPopup selectCountryBillingAddress(String input){
-		List<String> findObject = findTestObjects("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']")
-		(findObject.size() != 0) ? WebUI.click(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']")) : WebUI.click(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']//input[@id='billingAddress_country']/parent::span"))
-		scrollToAndClick(xpath("//*[@id='billingAddress_country_list']/following-sibling::div//div[@title='$input']"))
+		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[6]//input"), input)
+		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
 
@@ -50,9 +48,8 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	}
 
 	public AddressInformationPopup selectCityBillingAddress(String input){
-		List<String> findObject = findTestObjects("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']")
-		(findObject.size() != 0) ? WebUI.click(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']")) : WebUI.click(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']//input[@id='shippingAddress_state']/parent::span"))
-		scrollToAndClick(xpath("//*[@id='billingAddress_city_list']/following-sibling::div//div[@title='$input']"))
+		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//input"), input)
+		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
 
@@ -78,16 +75,14 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	}
 
 	public AddressInformationPopup selectStateShippingAddress(String input){
-		List<String> findObject = findTestObjects("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[7]//span[@class='ant-select-selection-item']")
-		(findObject.size() != 0) ? WebUI.click(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[7]//span[@class='ant-select-selection-item']")) : WebUI.click(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']//input[@id='shippingAddress_state']/parent::span"))
-		scrollToAndClick(xpath("//*[@id='shippingAddress_state_list']/following-sibling::div//div[@title='$input']"))
+		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[7]//input"), input)
+		WebUI.click(xpath("//*[@id='shippingAddress_state_list']/following::*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
 
 	public AddressInformationPopup selectCountryShippingAddress(String input){
-		List<String> findObject = findTestObjects("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']")
-		(findObject.size() != 0) ? WebUI.click(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']")) : WebUI.click(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']//input[@id='shippingAddress_country']/parent::span"))
-		scrollToAndClick(xpath("//*[@id='shippingAddress_country_list']/following-sibling::div//div[@title='$input']"))
+		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[6]//input"), input)
+		WebUI.click(xpath("//*[@id='shippingAddress_country_list']/following::*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
 
@@ -97,9 +92,8 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	}
 
 	public AddressInformationPopup selectCityShippingAddress(String input){
-		List<String> findObject = findTestObjects("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']")
-		(findObject.size() != 0) ? WebUI.click(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']")) : WebUI.click(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']//input[@id='shippingAddress_state']/parent::span"))
-		scrollToAndClick(xpath("//*[@id='shippingAddress_city_list']/following-sibling::div//div[@title='$input']"))
+		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//input"), input)
+		WebUI.click(xpath("//*[@id='shippingAddress_city_list']/following::*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
 

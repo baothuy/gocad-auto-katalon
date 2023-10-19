@@ -161,7 +161,7 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'No'</defaultValue>
+      <defaultValue>'Yes'</defaultValue>
       <description></description>
       <id>ccb66854-c712-4ba8-9b8f-ca34a5dde1cf</id>
       <masked>false</masked>
