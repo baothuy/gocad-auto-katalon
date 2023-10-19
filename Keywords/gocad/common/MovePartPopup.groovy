@@ -77,7 +77,7 @@ public class MovePartPopup extends BasePage<MovePartPopup> {
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public MovePartPopup verifyThreadCuttingValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Thread Cutting']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
@@ -105,21 +105,21 @@ public class MovePartPopup extends BasePage<MovePartPopup> {
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public MovePartPopup verifyRollingDirectionValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Rolling Direction']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public MovePartPopup verifyCountersinkValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Countersink']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public MovePartPopup verifyThicknessValue(String partName, String expectedResult) {
 		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
@@ -132,19 +132,19 @@ public class MovePartPopup extends BasePage<MovePartPopup> {
 		}
 		return this
 	}
-	
+
 	public MovePartPopup verifyCuttingLayersValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Cutting layers']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public MovePartPopup verifyDeburringValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Deburring']/following-sibling::label")).trim()
+		def actualResultCon = (actualResult == "No") ? "No deburring" : "Deburring (one-sided)"
 		println "actualResult: $actualResult"
-		def newExpectedResult = (expectedResult == "true") ? "Yes" : "No"
-		WebUI.verifyEqual(actualResult, newExpectedResult)
+		WebUI.verifyEqual(actualResultCon, expectedResult)
 		return this
 	}
 

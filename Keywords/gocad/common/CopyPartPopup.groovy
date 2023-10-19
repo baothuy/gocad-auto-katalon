@@ -142,9 +142,9 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 
 	public CopyPartPopup verifyDeburringValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Deburring']/following-sibling::label")).trim()
+		def actualResultCon = (actualResult == "No") ? "No deburring" : "Deburring (one-sided)"
 		println "actualResult: $actualResult"
-		def newExpectedResult = (expectedResult == "true") ? "Yes" : "No"
-		WebUI.verifyEqual(actualResult, newExpectedResult)
+		WebUI.verifyEqual(actualResultCon, expectedResult)
 		return this
 	}
 

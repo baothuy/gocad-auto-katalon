@@ -119,19 +119,19 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 
 		//Billing address
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Full name']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Full Name']/parent::div/span[1]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[1]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='State']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='State, Province, or Region']/parent::div/span[1]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[1]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[1]"))
 
 		//Shipping address
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Full name']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Full Name']/parent::div/span[1]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[1]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='State']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='State, Province, or Region']/parent::div/span[1]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[1]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[1]"))
 
