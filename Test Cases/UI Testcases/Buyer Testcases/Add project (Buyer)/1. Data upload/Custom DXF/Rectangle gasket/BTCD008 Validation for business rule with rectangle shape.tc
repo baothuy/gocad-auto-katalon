@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD008 Validation for business rule with rectangle shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>db5ff374-af85-42b2-901f-b91752d8bc04</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>af0520cc-5724-4774-a75a-ff148e7bf459</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'rectangle'</defaultValue>
+      <description></description>
+      <id>af0520cc-5724-4774-a75a-ff148e7bf459</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>
