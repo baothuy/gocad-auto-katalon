@@ -19,6 +19,8 @@ def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>> Open add project popup and input project name'
 Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+String projectId = Page.nav(DataUploadPage).getIdProject()
+println "projectId: $projectId"
 
 println '>> click Workflow'
 Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
