@@ -27,7 +27,7 @@ println '>> click Workflow'
 Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
 						.clickCustomDXF()
 						
-println '>> click Round Shape'
+println '>> click Oval Shape'
 Page.nav(CustomDXFLeftNavMenu).clickOvalGasketShape()
 
 println '>> input field'

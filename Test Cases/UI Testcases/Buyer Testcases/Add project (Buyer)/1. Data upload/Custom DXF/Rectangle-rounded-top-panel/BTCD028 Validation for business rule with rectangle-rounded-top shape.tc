@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD028 Validation for business rule with rectangle-rounded-top shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>37a245e7-6e3f-4aa3-aab8-0db5185ac43e</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>13fa72cb-34b4-4d8d-8cf7-2a462b4144c4</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'oval'</defaultValue>
+      <description></description>
+      <id>13fa72cb-34b4-4d8d-8cf7-2a462b4144c4</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

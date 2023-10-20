@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>BTCD010 Verify can create new file DXF Custom with oval shape successfully</name>
+   <name>BTCD014 Verify can create new file DXF Custom with elongated round shape successfully</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>f5b06355-22fa-42c5-851d-e2c358b108b3</testCaseGuid>
+   <testCaseGuid>9428653b-012a-40d9-a667-638cc0284631</testCaseGuid>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>10851616-dedf-4e9d-a1c3-72e6a0297268</variableId>
+      <variableId>b6b88e5e-462b-4207-97e1-d7927b526053</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>a0d4e833-b0a4-41fb-a2b0-15333b771f88</variableId>
+      <variableId>63bbb5e7-3162-4fe3-b616-c81d8bf56895</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>6b3e63fd-2cdb-4452-9831-1f07c98888b7</variableId>
+      <variableId>5f96707a-d069-442e-a1bc-a5a01d1abcea</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>e820d137-721d-4672-8fb1-a5eea6de788e</variableId>
+      <variableId>ff7dfd59-edd8-4edd-a4f1-7be499a24909</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'oval'</defaultValue>
+      <defaultValue>'elongated'</defaultValue>
       <description></description>
-      <id>10851616-dedf-4e9d-a1c3-72e6a0297268</id>
+      <id>b6b88e5e-462b-4207-97e1-d7927b526053</id>
       <masked>false</masked>
       <name>fileName</name>
    </variable>
    <variable>
       <defaultValue>'250'</defaultValue>
       <description></description>
-      <id>a0d4e833-b0a4-41fb-a2b0-15333b771f88</id>
+      <id>63bbb5e7-3162-4fe3-b616-c81d8bf56895</id>
       <masked>false</masked>
       <name>outerWidth</name>
    </variable>
    <variable>
       <defaultValue>'170'</defaultValue>
       <description></description>
-      <id>6b3e63fd-2cdb-4452-9831-1f07c98888b7</id>
+      <id>5f96707a-d069-442e-a1bc-a5a01d1abcea</id>
       <masked>false</masked>
       <name>outerHeight</name>
    </variable>
    <variable>
       <defaultValue>'50'</defaultValue>
       <description></description>
-      <id>e820d137-721d-4672-8fb1-a5eea6de788e</id>
+      <id>ff7dfd59-edd8-4edd-a4f1-7be499a24909</id>
       <masked>false</masked>
       <name>webThickness</name>
    </variable>

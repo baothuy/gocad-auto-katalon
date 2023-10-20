@@ -1,7 +1,6 @@
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-
 import gocad.buyer.CustomDXFLeftNavMenu
 import gocad.buyer.CustomDXFPage
+import gocad.buyer.DraftPage
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
@@ -35,3 +34,8 @@ Page.nav(CustomDXFPage).verifyInputFileNameVisible()
 					   .verifyInputNumberOfHolesVisible()
 					   .verifyInputDiameterBoltCircleVisible()
 					   .verifyInputDiameterHolesVisible()
+					   
+println '>>  Clear data'
+Page.nav(LeftNavBar).clickDraft()
+Page.nav(DraftPage).clickArchiveAction(projectId)
+					.clickCloseToastMessage()

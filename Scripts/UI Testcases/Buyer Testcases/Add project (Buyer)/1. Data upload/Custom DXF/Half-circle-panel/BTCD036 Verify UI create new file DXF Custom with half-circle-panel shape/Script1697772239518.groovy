@@ -4,7 +4,6 @@ import gocad.buyer.DraftPage
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
-import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
@@ -20,31 +19,20 @@ def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>> Open add project popup and input project name'
 Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
-String projectId = Page.nav(DataUploadPage).getIdProject()
-println "projectId: $projectId"
 
 println '>> click Workflow'
 Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
 						.clickCustomDXF()
 						
-println '>> click Oval Shape'
-Page.nav(CustomDXFLeftNavMenu).clickOvalGasketShape()
+println '>> click Half Circle Panel Shape'
+Page.nav(CustomDXFLeftNavMenu).clickHalfCirclePanelShape()
 
-println '>> input field'
-Page.nav(CustomDXFPage).inputFileName(fileName)
-					   .inputOuterWidth(outerWidth)
-					   .inputOuterHeight(outerHeight)
-					   .inputWebThickness(webThickness)
-					   .clickNextStepButton()
-					   .sleep(1)
-
-println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputFileName("Required")
-					  .verifyErrorWhenInputOuterWidth("Required")
-					  .verifyErrorWhenInputOuterHeight("Required")
-					  .verifyErrorWhenInputWebThickness("Required")
-									  
+println '>> verify UI Visible'
+Page.nav(CustomDXFPage).verifyInputFileNameVisible()
+						.verifyInputWidthVisible()
+						
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
+					   

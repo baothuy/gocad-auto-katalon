@@ -1,10 +1,10 @@
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-
 import gocad.buyer.CustomDXFLeftNavMenu
 import gocad.buyer.CustomDXFPage
+import gocad.buyer.DraftPage
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
+import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
@@ -20,19 +20,26 @@ def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>> Open add project popup and input project name'
 Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+String projectId = Page.nav(DataUploadPage).getIdProject()
+println "projectId: $projectId"
 
 println '>> click Workflow'
 Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
 						.clickCustomDXF()
 						
-println '>> click Round Shape'
-Page.nav(CustomDXFLeftNavMenu).clickRectangleGasketShape()
+println '>> click Half Circle Panel Shape'
+Page.nav(CustomDXFLeftNavMenu).clickHalfCirclePanelShape()
 
-println '>> verify UI Visible'
-Page.nav(CustomDXFPage).verifyInputFileNameVisible()
-					   .verifyInputOuterWidthVisible()
-					   .verifyInputOuterHeightVisible()
-					   .verifyInputInnerWidthVisible()
-					   .verifyInputInnerHeightVisible()
-					   .verifyInputOuterRadiusVisible()
-					   .verifyInputInnerRadiusVisible()
+println '>> input " width (Mm)" smaller than " height (Mm)" and versa'
+Page.nav(CustomDXFPage).inputFileName(fileName)
+					   .inputWidth("")
+					   .clickNextStepButton()
+					   .sleep(1)
+
+println '>> Verify error when empty field'
+Page.nav(CustomDXFPage).verifyErrorWhenInputWidth("Required")		
+									  
+println '>>  Clear data'
+Page.nav(LeftNavBar).clickDraft()
+Page.nav(DraftPage).clickArchiveAction(projectId)
+					.clickCloseToastMessage()

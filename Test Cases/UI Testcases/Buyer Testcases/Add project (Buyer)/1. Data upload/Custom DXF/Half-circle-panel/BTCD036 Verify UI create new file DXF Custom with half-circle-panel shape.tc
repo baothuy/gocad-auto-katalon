@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD036 Verify UI create new file DXF Custom with half-circle-panel shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>5345c611-4aa4-4b9e-9b56-6e847377c981</testCaseGuid>
+</TestCaseEntity>

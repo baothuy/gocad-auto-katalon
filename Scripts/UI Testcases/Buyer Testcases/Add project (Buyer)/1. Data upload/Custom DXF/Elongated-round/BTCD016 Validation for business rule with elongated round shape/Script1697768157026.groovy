@@ -27,22 +27,30 @@ println '>> click Workflow'
 Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
 						.clickCustomDXF()
 						
-println '>> click Oval Shape'
-Page.nav(CustomDXFLeftNavMenu).clickOvalGasketShape()
+println '>> click Elongated Round Shape'
+Page.nav(CustomDXFLeftNavMenu).clickElongatedRoundGasketShape()
 
-println '>> input field'
+println '>> input "Outer width (Mm)" smaller than "Outer height (Mm)" and versa'
 Page.nav(CustomDXFPage).inputFileName(fileName)
-					   .inputOuterWidth(outerWidth)
-					   .inputOuterHeight(outerHeight)
-					   .inputWebThickness(webThickness)
+					   .inputOuterWidth("250")
+					   .inputOuterHeight("300")
+					   .inputWebThickness("50")
 					   .clickNextStepButton()
 					   .sleep(1)
 
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputFileName("Required")
-					  .verifyErrorWhenInputOuterWidth("Required")
-					  .verifyErrorWhenInputOuterHeight("Required")
-					  .verifyErrorWhenInputWebThickness("Required")
+Page.nav(CustomDXFPage).verifyErrorWhenInputOuterHeight("The outer height must be smaller than the outer width.")
+					  
+println '>> input "Web thickness (Mm)" larger than (Outer height (Mm))/2'
+Page.nav(CustomDXFPage).inputFileName(fileName)
+						 .inputOuterWidth("250")
+						 .inputOuterHeight("170")
+						 .inputWebThickness("86")
+						 .clickNextStepButton()
+						 .sleep(1)
+  
+println '>> Verify error when empty field'
+Page.nav(CustomDXFPage).verifyErrorWhenInputWebThickness("The web thickness should less than 85mm")
 									  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

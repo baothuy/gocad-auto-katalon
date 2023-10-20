@@ -1,7 +1,6 @@
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-
 import gocad.buyer.CustomDXFLeftNavMenu
 import gocad.buyer.CustomDXFPage
+import gocad.buyer.DraftPage
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
@@ -25,7 +24,7 @@ println '>> click Workflow'
 Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
 						.clickCustomDXF()
 						
-println '>> click Round Shape'
+println '>> click Oval Shape'
 Page.nav(CustomDXFLeftNavMenu).clickOvalGasketShape()
 
 println '>> verify UI Visible'
@@ -33,4 +32,9 @@ Page.nav(CustomDXFPage).verifyInputFileNameVisible()
 						.verifyInputOuterWidthVisible()
 						.verifyInputOuterHeightVisible()
 					   .verifyInputWebThicknessVisible()
+					   
+println '>>  Clear data'
+Page.nav(LeftNavBar).clickDraft()
+Page.nav(DraftPage).clickArchiveAction(projectId)
+					.clickCloseToastMessage()
 					   

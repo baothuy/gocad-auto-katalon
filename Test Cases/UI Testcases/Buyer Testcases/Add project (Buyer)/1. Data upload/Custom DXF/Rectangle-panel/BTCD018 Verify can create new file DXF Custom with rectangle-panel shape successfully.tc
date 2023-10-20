@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD018 Verify can create new file DXF Custom with rectangle-panel shape successfully</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>daed4bac-e646-4b74-9f47-058b3ae1e42c</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ff1489b8-988c-45bf-8a98-2921730ba0ed</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>8343e83b-750b-4f34-9a2d-9d8471351f31</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>4485b8a9-4e61-4e8c-9465-c69d6b3c5e56</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'elongated'</defaultValue>
+      <description></description>
+      <id>ff1489b8-988c-45bf-8a98-2921730ba0ed</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+   <variable>
+      <defaultValue>'250'</defaultValue>
+      <description></description>
+      <id>8343e83b-750b-4f34-9a2d-9d8471351f31</id>
+      <masked>false</masked>
+      <name>width</name>
+   </variable>
+   <variable>
+      <defaultValue>'170'</defaultValue>
+      <description></description>
+      <id>4485b8a9-4e61-4e8c-9465-c69d6b3c5e56</id>
+      <masked>false</masked>
+      <name>height</name>
+   </variable>
+</TestCaseEntity>

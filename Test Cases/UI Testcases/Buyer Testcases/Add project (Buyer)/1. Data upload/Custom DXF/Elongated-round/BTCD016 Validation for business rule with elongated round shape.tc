@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD016 Validation for business rule with elongated round shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>1f766397-1d01-4212-a094-94cfb11b8ae2</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d5497bf2-d148-4a19-91e2-ff1ece1aeb50</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'oval'</defaultValue>
+      <description></description>
+      <id>d5497bf2-d148-4a19-91e2-ff1ece1aeb50</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

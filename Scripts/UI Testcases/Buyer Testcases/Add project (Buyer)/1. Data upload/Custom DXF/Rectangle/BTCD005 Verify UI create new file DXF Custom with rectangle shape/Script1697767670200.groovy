@@ -4,7 +4,6 @@ import gocad.buyer.DraftPage
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
-import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
@@ -20,35 +19,23 @@ def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>> Open add project popup and input project name'
 Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
-String projectId = Page.nav(DataUploadPage).getIdProject()
-println "projectId: $projectId"
 
 println '>> click Workflow'
 Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
 						.clickCustomDXF()
 						
-println '>> click Round Shape'
+println '>> click Rectangle Shape'
 Page.nav(CustomDXFLeftNavMenu).clickRectangleGasketShape()
 
-println '>> input field'
-Page.nav(CustomDXFPage).inputFileName(fileName)
-					   .inputOuterWidth(outerWidth)
-					   .inputOuterHeight(outerHeight)
-					   .inputInnerWidth(innerWidth)
-					   .inputInnerHeight(innerHeight)
-					   .inputOuterRadius(outerRadius)
-					   .inputInnerRadius(innerRadius)
-					   .sleep(1)
-
-println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputFileName("Required")
-					   .verifyErrorWhenInputOuterWidth("Required")
-					   .verifyErrorWhenInputOuterHeight("Required")
-					   .verifyErrorWhenInputInnerWidth("Required")
-					   .verifyErrorWhenInputInnerHeight("Required")
-					   .verifyErrorWhenInputOuterRadius("Required")
-					   .verifyErrorWhenInputInnerRadius("Required")
-									  
+println '>> verify UI Visible'
+Page.nav(CustomDXFPage).verifyInputFileNameVisible()
+					   .verifyInputOuterWidthVisible()
+					   .verifyInputOuterHeightVisible()
+					   .verifyInputInnerWidthVisible()
+					   .verifyInputInnerHeightVisible()
+					   .verifyInputOuterRadiusVisible()
+					   .verifyInputInnerRadiusVisible()
+					   
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickArchiveAction(projectId)

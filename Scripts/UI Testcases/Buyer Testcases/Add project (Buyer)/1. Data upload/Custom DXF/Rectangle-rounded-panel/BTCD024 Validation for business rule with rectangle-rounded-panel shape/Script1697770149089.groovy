@@ -27,22 +27,29 @@ println '>> click Workflow'
 Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
 						.clickCustomDXF()
 						
-println '>> click Oval Shape'
-Page.nav(CustomDXFLeftNavMenu).clickOvalGasketShape()
+println '>> click Rectangle Rounded Panel Shape'
+Page.nav(CustomDXFLeftNavMenu).clickRectangleRoundedPanelShape()
 
-println '>> input field'
+println '>> input " width (Mm)" smaller than " height (Mm)" and versa'
 Page.nav(CustomDXFPage).inputFileName(fileName)
-					   .inputOuterWidth(outerWidth)
-					   .inputOuterHeight(outerHeight)
-					   .inputWebThickness(webThickness)
+					   .inputWidth("250")
+					   .inputHeight("300")
+					   .inputRadius("71")
 					   .clickNextStepButton()
 					   .sleep(1)
 
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputFileName("Required")
-					  .verifyErrorWhenInputOuterWidth("Required")
-					  .verifyErrorWhenInputOuterHeight("Required")
-					  .verifyErrorWhenInputWebThickness("Required")
+Page.nav(CustomDXFPage).verifyErrorWhenInputHeight("The height must be smaller than or equal the width.")		
+
+println '>> input field  Input "Radius (Mm)" larger than (Height (Mm))/2'
+Page.nav(CustomDXFPage).inputFileName(fileName)
+						.inputWidth("150")
+						.inputHeight("140")
+						.inputRadius("71")
+						.sleep(1)
+	 
+println '>> Verify error when empty field'
+Page.nav(CustomDXFPage).verifyErrorWhenInputInnerRadius("The radius should less than 70mm")
 									  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

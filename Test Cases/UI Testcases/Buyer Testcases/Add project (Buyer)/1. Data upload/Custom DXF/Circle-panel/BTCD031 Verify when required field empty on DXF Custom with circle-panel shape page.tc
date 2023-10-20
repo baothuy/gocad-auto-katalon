@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD031 Verify when required field empty on DXF Custom with circle-panel shape page</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>bad2bff8-d1ee-4ca1-8359-3e3ab30bb40e</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d80a53e1-0b75-455c-a957-1bc9d9c520fb</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'oval'</defaultValue>
+      <description></description>
+      <id>d80a53e1-0b75-455c-a957-1bc9d9c520fb</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

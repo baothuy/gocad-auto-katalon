@@ -27,23 +27,17 @@ println '>> click Workflow'
 Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
 						.clickCustomDXF()
 						
-println '>> click Round Shape'
-Page.nav(CustomDXFLeftNavMenu).clickRectangleGasketShape()
+println '>> click Circle Panel Shape'
+Page.nav(CustomDXFLeftNavMenu).clickCirclePanelShape()
 
-println '>> input field'
+println '>> input " width (Mm)" smaller than " height (Mm)" and versa'
 Page.nav(CustomDXFPage).inputFileName(fileName)
-					   .inputOuterWidth(outerWidth)
-					   .inputOuterHeight(outerHeight)
-					   .inputInnerWidth(innerWidth)
-					   .inputInnerHeight(innerHeight)
-					   .inputOuterRadius(outerRadius)
-					   .inputInnerRadius(innerRadius)
+					   .inputWidth("")
 					   .clickNextStepButton()
 					   .sleep(1)
 
-println '>> Verify create new part custom success'
-Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFileOnSMP()
-									  .clickClosePreviewPartFilePopup()
+println '>> Verify error when empty field'
+Page.nav(CustomDXFPage).verifyErrorWhenInputWidth("Required")		
 									  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

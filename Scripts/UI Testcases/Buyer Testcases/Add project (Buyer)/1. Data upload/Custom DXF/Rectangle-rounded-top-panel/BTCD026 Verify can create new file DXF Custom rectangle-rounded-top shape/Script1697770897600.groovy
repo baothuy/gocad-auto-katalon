@@ -27,22 +27,20 @@ println '>> click Workflow'
 Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
 						.clickCustomDXF()
 						
-println '>> click Oval Shape'
-Page.nav(CustomDXFLeftNavMenu).clickOvalGasketShape()
+println '>> click Rectangle Rounded Top Panel Shape'
+Page.nav(CustomDXFLeftNavMenu).clickRectangleRoundedTopPanelShape()
 
 println '>> input field'
 Page.nav(CustomDXFPage).inputFileName(fileName)
-					   .inputOuterWidth(outerWidth)
-					   .inputOuterHeight(outerHeight)
-					   .inputWebThickness(webThickness)
+					   .inputWidth(width)
+					   .inputHeight(height)
+					   .inputRadius(radius)
 					   .clickNextStepButton()
 					   .sleep(1)
 
-println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputFileName("Required")
-					  .verifyErrorWhenInputOuterWidth("Required")
-					  .verifyErrorWhenInputOuterHeight("Required")
-					  .verifyErrorWhenInputWebThickness("Required")
+println '>> Verify create new part custom success'
+Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFileOnSMP()
+									  .clickClosePreviewPartFilePopup()
 									  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()
