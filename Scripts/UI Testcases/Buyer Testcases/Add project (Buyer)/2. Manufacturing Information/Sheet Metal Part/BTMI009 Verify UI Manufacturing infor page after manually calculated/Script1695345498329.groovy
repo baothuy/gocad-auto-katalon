@@ -85,7 +85,7 @@ else {
 											.verifyThicknessValue(partName, thicknessNum)
 											.verifySurfaceTreatmentValue(surfaceTreatment)
 											.verifyCuttingLayersValue(partName, cuttingLayers)
-											.verifyDeburringCheckboxValue(deburring)
+											.verifyDeburringValue(deburring)
 											.verifyAdditionalCommentsValue(comment)
 											.verifyEditButtonVisible()
 											.clickMoreOption()

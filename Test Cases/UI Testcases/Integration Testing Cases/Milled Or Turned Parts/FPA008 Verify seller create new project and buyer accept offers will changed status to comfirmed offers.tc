@@ -111,9 +111,9 @@
       <variableId>eb4e7d03-33e1-466a-842b-1cb8c157553a</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>53bd19b0-0801-46ea-9aae-320f72d0422a</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>customerEmail</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>033aa920-ab95-4026-a265-5854f8491d1a</variableId>
    </variableLinks>
    <variable>

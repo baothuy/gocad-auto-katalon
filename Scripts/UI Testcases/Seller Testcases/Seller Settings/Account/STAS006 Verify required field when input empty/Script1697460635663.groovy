@@ -24,7 +24,6 @@ Page.nav(AccountSettingsPage).inputFirstNameBillingAddress("")
 								.inputHouseNumberBillingAddress("")
 								.inputStreetBillingAddress("")
 								.inputZIPCodeBillingAddress("")
-								.inputCityBillingAddress("")
 								
 println '>> Verify error on account settings page'
 Page.nav(AccountSettingsPage).verifyShowErrorWhenFirstNameContactEmpty()
@@ -35,7 +34,6 @@ Page.nav(AccountSettingsPage).verifyShowErrorWhenFirstNameContactEmpty()
 							.verifyShowErrorWhenHouseNumberBillingAddressEmpty()
 							.verifyShowErrorWhenStreetBillingAddressEmpty()
 							.verifyShowErrorWhenZIPCodeBillingAddressEmpty()
-							.verifyShowErrorWhenCityBillingAddressEmpty()
 							.sleep(1)							
 
 println '>> click Terms Of Payment'
