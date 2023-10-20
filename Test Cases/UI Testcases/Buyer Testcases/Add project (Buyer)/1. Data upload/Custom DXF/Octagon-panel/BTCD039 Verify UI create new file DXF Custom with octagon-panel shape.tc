@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD039 Verify UI create new file DXF Custom with octagon-panel shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>eb3f792e-26a1-4f54-a75f-87244b26232b</testCaseGuid>
+</TestCaseEntity>

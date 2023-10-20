@@ -59,17 +59,17 @@ public class CustomDXFLeftNavMenu extends BasePage<CustomDXFLeftNavMenu>{
 		return this
 	}
 
-	public CustomDXFLeftNavMenu clickOctagonShape() {
+	public CustomDXFLeftNavMenu clickOctagonPanelShape() {
 		WebUI.click(xpath("//*[@alt='Octagon']"))
 		return this
 	}
 
-	public CustomDXFLeftNavMenu clickTrapezShape() {
+	public CustomDXFLeftNavMenu clickTrapezPanelShape() {
 		WebUI.click(xpath("//*[@alt='Trapez']"))
 		return this
 	}
 
-	public CustomDXFLeftNavMenu clickIsoscelesTrapezoidShape() {
+	public CustomDXFLeftNavMenu clickIsoscelesTrapezoidPanelShape() {
 		WebUI.click(xpath("//*[@alt='Isosceles trapezoid']"))
 		return this
 	}
