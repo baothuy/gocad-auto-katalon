@@ -22,7 +22,7 @@ import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 
 public class CustomerOverviewDetailPage extends BasePage<ConfirmedOffersPageOfSeller>{
-	
+
 	def rowOfProject = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr")}
 	def projectIdCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[1]")}
 	def projectNameCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[2]")}
@@ -34,39 +34,58 @@ public class CustomerOverviewDetailPage extends BasePage<ConfirmedOffersPageOfSe
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]/a")}
 	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]/"}
 	
+	public CustomerOverviewDetailPage clickToggleAutomaticallyCalculation(String value) {
+		String isChecked = WebUI.getAttribute(xpath("//*[@id='calculationEnabled']"), "aria-checked")
+		boolean isYes = value.equals("Yes")
+		if(Boolean.parseBoolean(isChecked) != isYes) {
+			WebUI.click(xpath("//*[@id='calculationEnabled']"))
+		}
+		return this
+	}
+	
+	public CustomerOverviewDetailPage inputDiscount(String input) {
+		clearTextAndSendKeysByActions(id("discount"), input)
+		return this
+	}
+	
+	public CustomerOverviewDetailPage clickSaveButton() {
+		WebUI.click(xpath("//span[text()='Save']/parent::button"))
+		return this
+	}
+
 	public CustomerOverviewDetailPage verifyFullName(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//span[text()='Full Name']/following-sibling::span"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public CustomerOverviewDetailPage verifyDiscount(String expectedResult) {
 		String actualResult = WebUI.getAttribute(id("discount"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public CustomerOverviewDetailPage verifyPartNumber(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//div[@class='ant-space-item']//p[text()='Parts (Number)']/following-sibling::label"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public CustomerOverviewDetailPage verifyOrderTotal(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//div[@class='ant-space-item']//p[text()='Order (Total)']/following-sibling::label"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public CustomerOverviewDetailPage verifyCalculationsNumber(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//div[@class='ant-space-item']//p[text()='Calculations (Number)']/following-sibling::label"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public CustomerOverviewDetailPage verifyUIVisible() {
 		WebUI.verifyElementVisible(xpath("//h3[text()='Customer Detail']"))
-		
+
 		//contact
 		WebUI.verifyElementVisible(xpath("//*[text()='Contact']"))
 		WebUI.verifyElementVisible(xpath("//span[text()='Full Name']"))

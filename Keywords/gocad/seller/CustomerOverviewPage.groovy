@@ -8,7 +8,7 @@ import katalon.fw.lib.BasePage
 
 
 public class CustomerOverviewPage extends BasePage<CustomerOverviewPage>{
-	
+
 	def rowOfCustomerId = { String customerId -> return xpath("//td[text()='$customerId']/parent::tr")}
 	def customerIdCol = { String customerId -> return xpath("//td[text()='$customerId']/parent::tr/td[1]")}
 	def fullNameCol = { String customerId -> return xpath("//td[text()='$customerId']/parent::tr/td[2]")}
@@ -19,12 +19,12 @@ public class CustomerOverviewPage extends BasePage<CustomerOverviewPage>{
 	def registrationDateCol = { String customerId -> return xpath("//td[text()='$customerId']/parent::tr/td[7]")}
 	def actionCol = { String customerId -> return xpath("//td[text()='$customerId']/parent::tr/td[8]/a")}
 	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]/"}
-	
-	public CustomerOverviewPage clickAction(String projectId) {
-		WebUI.click(actionCol(projectId))
+
+	public CustomerOverviewPage clickAction(String customerId) {
+		WebUI.click(actionCol(customerId))
 		return this
 	}
-	
+
 	public List<String> getDataRow(String rowNumber) {
 		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
 		String fullName = WebUI.getText(xpath(row(rowNumber) + "td[2]"))
@@ -36,7 +36,7 @@ public class CustomerOverviewPage extends BasePage<CustomerOverviewPage>{
 		List<String> dataRow = [id, fullName, partNumber, orderTotal, calculation, discount, registrationDate]
 		return dataRow
 	}
-	
+
 	public CustomerOverviewPage verifyUIVisible() {
 		WebUI.verifyElementVisible(xpath("//h3[text()='Customers']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
