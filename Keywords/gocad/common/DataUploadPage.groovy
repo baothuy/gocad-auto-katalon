@@ -60,9 +60,13 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		WebUI.verifyElementVisible(xpath("//div[text()='Review']/parent::div/preceding-sibling::div//*[text()='3']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Checkout']/parent::div/preceding-sibling::div//*[text()='4']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Completed']/parent::div/preceding-sibling::div//*[text()='5']"))
-		WebUI.verifyElementVisible(xpath("//span[@role='img']/*[@data-icon='inbox']"))
-		WebUI.verifyElementVisible(xpath("//p[text()='Upload CAD file']"))
-		WebUI.verifyElementVisible(xpath("//p[text()='You can upload a CAD file. Supported formats are: STEP, JT, SolidWorks, Solid Edge, Autodesk Inventor, Siemens NX, CATIA V5, Creo Parametric']"))
+		WebUI.verifyElementVisible(xpath("//h6[text()='Drag and drop CAD files and Technical drawings here']"))
+		WebUI.verifyElementVisible(xpath("//p[text()='CAD file upload with the following file types: *.stp; *.step']"))
+		WebUI.verifyElementVisible(xpath("//p[text()='Technical Drawing: *.pdf']"))
+		WebUI.verifyElementVisible(xpath("//div[@class='file' and text()='CAD']"))
+		WebUI.verifyElementVisible(xpath("//div[@class='file' and text()='PDF']"))
+		WebUI.verifyElementVisible(xpath("//div[@class='file multiple' and text()='CAD']"))
+		WebUI.verifyElementVisible(xpath("//div[@class='file multiple' and text()='PDF']"))		
 		return this
 	}
 
@@ -72,9 +76,13 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		WebUI.verifyElementVisible(xpath("//div[text()='Manufacturing information']/parent::div/preceding-sibling::div//*[text()='2']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Send offer']/parent::div/preceding-sibling::div//*[text()='3']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Completed']/parent::div/preceding-sibling::div//*[text()='4']"))
-		WebUI.verifyElementVisible(xpath("//span[@role='img']/*[@data-icon='inbox']"))
-		WebUI.verifyElementVisible(xpath("//p[text()='Upload CAD file']"))
-		WebUI.verifyElementVisible(xpath("//p[text()='You can upload a CAD file. Supported formats are: STEP, JT, SolidWorks, Solid Edge, Autodesk Inventor, Siemens NX, CATIA V5, Creo Parametric']"))
+		WebUI.verifyElementVisible(xpath("//h6[text()='Drag and drop CAD files and Technical drawings here']"))
+		WebUI.verifyElementVisible(xpath("//p[text()='CAD file upload with the following file types: *.stp; *.step']"))
+		WebUI.verifyElementVisible(xpath("//p[text()='Technical Drawing: *.pdf']"))
+		WebUI.verifyElementVisible(xpath("//div[@class='file' and text()='CAD']"))
+		WebUI.verifyElementVisible(xpath("//div[@class='file' and text()='PDF']"))
+		WebUI.verifyElementVisible(xpath("//div[@class='file multiple' and text()='CAD']"))
+		WebUI.verifyElementVisible(xpath("//div[@class='file multiple' and text()='PDF']"))
 		return this
 	}
 }
