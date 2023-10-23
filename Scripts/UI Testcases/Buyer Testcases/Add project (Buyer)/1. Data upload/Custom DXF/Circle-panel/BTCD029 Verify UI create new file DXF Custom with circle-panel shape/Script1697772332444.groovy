@@ -31,7 +31,7 @@ Page.nav(CustomDXFLeftNavMenu).clickCirclePanelShape()
 
 println '>> verify UI Visible'
 Page.nav(CustomDXFPage).verifyInputFileNameVisible()
-						.verifyInputWidthVisible()
+						.verifyInputDiameterVisible()
 						
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

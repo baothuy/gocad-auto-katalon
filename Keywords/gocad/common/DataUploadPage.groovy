@@ -48,8 +48,8 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 	}
 	
 	public DataUploadPage clickCustomDXF() {
-		WebUI.waitForElementVisible(xpath("//*[text()=' Custom DXF']/parent::button"), 5)
-		WebUI.click(xpath("//*[text()=' Custom DXF']/parent::button"))
+		WebUI.waitForElementVisible(xpath("//*[text()=' Configure Design']/parent::button"), 5)
+		WebUI.click(xpath("//*[text()=' Configure Design']/parent::button"))
 		return this
 	}
 

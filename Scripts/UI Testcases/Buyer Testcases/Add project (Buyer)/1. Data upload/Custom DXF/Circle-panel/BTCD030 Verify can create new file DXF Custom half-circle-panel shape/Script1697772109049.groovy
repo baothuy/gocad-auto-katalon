@@ -32,7 +32,7 @@ Page.nav(CustomDXFLeftNavMenu).clickCirclePanelShape()
 
 println '>> input field'
 Page.nav(CustomDXFPage).inputFileName(fileName)
-					   .inputWidth(width)
+					   .inputDiameter(diameter)
 					   .clickNextStepButton()
 					   .sleep(1)
 

@@ -32,12 +32,12 @@ Page.nav(CustomDXFLeftNavMenu).clickCirclePanelShape()
 
 println '>> input " width (Mm)" smaller than " height (Mm)" and versa'
 Page.nav(CustomDXFPage).inputFileName(fileName)
-					   .inputWidth("")
+					   .inputDiameter("")
 					   .clickNextStepButton()
 					   .sleep(1)
 
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputWidth("Required")		
+Page.nav(CustomDXFPage).verifyErrorWhenInputDiameter("Required")		
 									  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()
