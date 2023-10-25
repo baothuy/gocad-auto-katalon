@@ -226,6 +226,12 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$name']"))
 		return this
 	}
+	
+	public ManufacturingInformationPage selectLaserMarking(String name) {
+		WebUI.click(xpath("//*[text()='Laser marking']/parent::div/following::div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$name']"))
+		return this
+	}
 
 	public ManufacturingInformationPage selectDeburring(String value) {
 		WebUI.click(xpath("//*[text()='Deburring']/parent::div/following::div[@class='ant-select-selector']"))

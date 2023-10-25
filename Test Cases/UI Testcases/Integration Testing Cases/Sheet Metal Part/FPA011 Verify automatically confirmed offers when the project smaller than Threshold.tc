@@ -51,6 +51,12 @@
       <variableId>31523c65-a1ea-4be3-9e54-6b1b8674262f</variableId>
    </variableLinks>
    <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e5caabff-6263-4264-9e22-21159ba448bc</variableId>
+   </variableLinks>
+   <variableLinks>
       <testDataLinkId>c82c8aa2-0bff-43bf-8657-13cb69e99a28</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>cuttingLayers</value>
@@ -157,6 +163,13 @@
       <id>31523c65-a1ea-4be3-9e54-6b1b8674262f</id>
       <masked>false</masked>
       <name>rollingDirection</name>
+   </variable>
+   <variable>
+      <defaultValue>'No Lasermarking'</defaultValue>
+      <description></description>
+      <id>e5caabff-6263-4264-9e22-21159ba448bc</id>
+      <masked>false</masked>
+      <name>laserMarking</name>
    </variable>
    <variable>
       <defaultValue>'All layers'</defaultValue>

@@ -169,11 +169,11 @@
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'Parallel'</defaultValue>
-      <description>Parallel, Quer, Egal</description>
+      <defaultValue>'No Lasermarking'</defaultValue>
+      <description></description>
       <id>c9ec5603-1759-4db4-8e99-4dd60749805b</id>
       <masked>false</masked>
-      <name>rollingDirection</name>
+      <name>laserMarking</name>
    </variable>
    <variable>
       <defaultValue>'All layers'</defaultValue>

@@ -40,7 +40,7 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.inputThickness(partName, thicknessNum)
 										.inputQuantity(quantityNum)
 										.selectSurfaceTreatment(surfaceTreatment)
-										.selectRollingDirection(rollingDirection)
+										.selectLaserMarking(laserMarking)
 										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
 										.inputThread(threadNum)
