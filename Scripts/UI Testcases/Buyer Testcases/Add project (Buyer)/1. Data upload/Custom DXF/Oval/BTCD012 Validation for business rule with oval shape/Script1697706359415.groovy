@@ -39,7 +39,7 @@ Page.nav(CustomDXFPage).inputFileName(fileName)
 					   .sleep(1)
 
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputOuterHeight("The outer height must be smaller than the outer width.")
+Page.nav(CustomDXFPage).verifyErrorWhenInputOuterHeight("Outer height (mm) must be less than 250")
 					  
 println '>> input "Web thickness (Mm)" larger than (Outer height (Mm))/2'
 Page.nav(CustomDXFPage).inputFileName(fileName)

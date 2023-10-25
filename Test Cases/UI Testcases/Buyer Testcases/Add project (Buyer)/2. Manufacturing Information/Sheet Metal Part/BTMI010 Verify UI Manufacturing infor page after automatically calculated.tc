@@ -81,6 +81,12 @@
       <variableId>d93a4a62-ecad-4141-8c7e-5e81629d891a</variableId>
    </variableLinks>
    <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>12221d51-6b81-442b-99b0-d061bfa96e72</variableId>
+   </variableLinks>
+   <variableLinks>
       <testDataLinkId>b66c25f6-6b4b-4130-96c4-e27c384ab310</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>comment</value>
@@ -161,7 +167,7 @@
       <name>cuttingLayers</name>
    </variable>
    <variable>
-      <defaultValue>'Deburring (one-sided)'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>92334211-dd7b-4ff4-9017-d7aefabddc39</id>
       <masked>false</masked>
@@ -180,6 +186,13 @@
       <id>d93a4a62-ecad-4141-8c7e-5e81629d891a</id>
       <masked>false</masked>
       <name>threadNum</name>
+   </variable>
+   <variable>
+      <defaultValue>'false'</defaultValue>
+      <description></description>
+      <id>12221d51-6b81-442b-99b0-d061bfa96e72</id>
+      <masked>false</masked>
+      <name>partAccordingToTheDrawing</name>
    </variable>
    <variable>
       <defaultValue>'6'</defaultValue>

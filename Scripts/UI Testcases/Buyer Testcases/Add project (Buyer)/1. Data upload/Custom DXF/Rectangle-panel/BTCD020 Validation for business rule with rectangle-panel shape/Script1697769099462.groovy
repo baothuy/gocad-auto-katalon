@@ -38,7 +38,7 @@ Page.nav(CustomDXFPage).inputFileName(fileName)
 					   .sleep(1)
 
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputHeight("The height must be smaller than or equal the width.")			
+Page.nav(CustomDXFPage).verifyErrorWhenInputHeight("Height (mm) must be less than or equal to 250")			
 									  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

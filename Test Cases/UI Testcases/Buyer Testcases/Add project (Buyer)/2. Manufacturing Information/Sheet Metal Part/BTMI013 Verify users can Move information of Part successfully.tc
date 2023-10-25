@@ -75,6 +75,12 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
+      <variableId>6ba494d4-d29d-474a-b935-329f225b56c0</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>ba29974b-35b4-4f08-a539-615dda58fcf3</variableId>
    </variableLinks>
    <variableLinks>
@@ -177,6 +183,13 @@
       <id>d93a4a62-ecad-4141-8c7e-5e81629d891a</id>
       <masked>false</masked>
       <name>threadNum</name>
+   </variable>
+   <variable>
+      <defaultValue>'false'</defaultValue>
+      <description></description>
+      <id>6ba494d4-d29d-474a-b935-329f225b56c0</id>
+      <masked>false</masked>
+      <name>partAccordingToTheDrawing</name>
    </variable>
    <variable>
       <defaultValue>'6'</defaultValue>

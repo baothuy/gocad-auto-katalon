@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>BTCD025 Verify UI create newfile DXF Custom with rectangle-rounded-top</name>
+   <name>BTCD025 Verify UI create new file DXF Custom with rectangle-rounded-top</name>
    <tag></tag>
    <comment></comment>
    <testCaseGuid>310fe778-f0d1-494d-acab-0915151c11cc</testCaseGuid>

@@ -46,6 +46,7 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
 										.inputThread(threadNum)
+										.clickPartAccordingToTheDrawingCB(partAccordingToTheDrawing)
 										.inputComment(comment)
 
 println '>> click Calculate button'
@@ -60,7 +61,7 @@ if (filePDF == ""){
 											.verifyLinkPartVisible(partName)
 											.verifyQuantityValue(quantityNum)
 											.verifyThreadValueOnSMP(threadNum)
-											.verifyRollingDirectionValue(rollingDirection)
+											.verifyLaserMarkingValue(laserMarking)
 											.verifyCountersinkValue(countersinkNum)
 											.verifyThicknessValue(partName, thicknessNum)
 											.verifySurfaceTreatmentValue(surfaceTreatment)
@@ -88,7 +89,7 @@ else {
 											.verifyPDFFileVisibleAfterCalculated(filePDF)
 											.verifyQuantityValue(quantityNum)
 											.verifyThreadValueOnSMP(threadNum)
-											.verifyRollingDirectionValue(rollingDirection)
+											.verifyLaserMarkingValue(laserMarking)
 											.verifyCountersinkValue(countersinkNum)
 											.verifyThicknessValue(partName, thicknessNum)
 											.verifySurfaceTreatmentValue(surfaceTreatment)

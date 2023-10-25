@@ -34,7 +34,7 @@ println '>> input field'
 Page.nav(CustomDXFPage).inputFileName(fileName)
 					   .inputWidth(width)
 					   .inputHeight(height)
-					   .inputRadius(radius)
+					   .inputTopRadius(radius)
 					   .clickNextStepButton()
 					   .sleep(1)
 

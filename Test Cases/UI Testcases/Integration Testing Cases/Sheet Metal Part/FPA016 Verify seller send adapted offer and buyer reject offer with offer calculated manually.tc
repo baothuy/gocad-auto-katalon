@@ -47,7 +47,7 @@
    <variableLinks>
       <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>rollingDirection</value>
+      <value>laserMarking</value>
       <variableId>31523c65-a1ea-4be3-9e54-6b1b8674262f</variableId>
    </variableLinks>
    <variableLinks>
@@ -73,6 +73,12 @@
       <type>DATA_COLUMN</type>
       <value>threadNum</value>
       <variableId>d93a4a62-ecad-4141-8c7e-5e81629d891a</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>partAccordingToTheDrawing</value>
+      <variableId>919df509-b187-43ee-adb1-25239f5e653a</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
@@ -166,7 +172,7 @@
       <name>cuttingLayers</name>
    </variable>
    <variable>
-      <defaultValue>'Deburring (one-sided)'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>92334211-dd7b-4ff4-9017-d7aefabddc39</id>
       <masked>false</masked>
@@ -185,6 +191,13 @@
       <id>d93a4a62-ecad-4141-8c7e-5e81629d891a</id>
       <masked>false</masked>
       <name>threadNum</name>
+   </variable>
+   <variable>
+      <defaultValue>'false'</defaultValue>
+      <description></description>
+      <id>919df509-b187-43ee-adb1-25239f5e653a</id>
+      <masked>false</masked>
+      <name>partAccordingToTheDrawing</name>
    </variable>
    <variable>
       <defaultValue>'6'</defaultValue>

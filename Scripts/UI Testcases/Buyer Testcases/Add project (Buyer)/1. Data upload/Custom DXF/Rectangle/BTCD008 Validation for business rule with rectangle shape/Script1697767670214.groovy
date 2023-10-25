@@ -41,7 +41,7 @@ Page.nav(CustomDXFPage).inputFileName(fileName)
 					   .sleep(1)
 
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputOuterHeight("The outer height must be smaller than the outer width.")
+Page.nav(CustomDXFPage).verifyErrorWhenInputOuterHeight("Outer height (mm) must be less than 150")
 					   
 println '>> input field "Inner width (Mm)" equal or larger than "Outer width (Mm)"'
 Page.nav(CustomDXFPage).inputFileName(fileName)
@@ -54,7 +54,7 @@ Page.nav(CustomDXFPage).inputFileName(fileName)
 					  .sleep(1)
    
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputInnerWidth("The inner width must be smaller than the outer width.")
+Page.nav(CustomDXFPage).verifyErrorWhenInputInnerWidth("Inner width (mm) must be less than 150")
 	
 				  
 println '>> input field "Inner height (Mm)" larger than "Outer height (Mm)"'
@@ -68,7 +68,7 @@ Page.nav(CustomDXFPage).inputFileName(fileName)
 						.sleep(1)
 	 
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputInnerHeight("The inner height must be smaller than the outer height.")
+Page.nav(CustomDXFPage).verifyErrorWhenInputInnerHeight("Inner height (mm) must be less than 140")
 						
 println '>> input field "Outer radius (Mm)" larger than (Outer height (Mm))/2'
 Page.nav(CustomDXFPage).inputFileName(fileName)

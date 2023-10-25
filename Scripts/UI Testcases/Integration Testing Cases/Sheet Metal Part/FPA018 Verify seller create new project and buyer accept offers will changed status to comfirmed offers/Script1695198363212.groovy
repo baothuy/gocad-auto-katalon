@@ -55,7 +55,8 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
 										.inputThread(threadNum)
-										.inputComment(comment)
+										.clickPartAccordingToTheDrawingCB(partAccordingToTheDrawing)
+										.inputComment(comment)										
 										.inputDeliveryDate(deliveryDate)
 
 println '>> click Calculate and move to Review page'

@@ -39,12 +39,12 @@ Page.nav(CustomDXFPage).inputFileName(fileName)
 					   .sleep(1)
 
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputHeight("The height must be smaller than or equal the width.")			
+Page.nav(CustomDXFPage).verifyErrorWhenInputHeight("Height (mm) must be less than or equal to 250")			
 
 println '>> Input "Length of corner (Mm)" larger than (Height (Mm))/2'
 Page.nav(CustomDXFPage).inputFileName(fileName)
 					   .inputWidth("250")
-					   .inputHeight("300")
+					   .inputHeight("150")
 					   .inputCornerLength("151")
 					   .clickNextStepButton()
 					   .sleep(1)

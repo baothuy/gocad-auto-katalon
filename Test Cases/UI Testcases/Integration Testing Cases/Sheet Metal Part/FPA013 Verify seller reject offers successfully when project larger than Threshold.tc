@@ -47,7 +47,7 @@
    <variableLinks>
       <testDataLinkId>d78ec82d-76c5-4e7f-b6a0-774b00112b51</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>rollingDirection</value>
+      <value>laserMarking</value>
       <variableId>31523c65-a1ea-4be3-9e54-6b1b8674262f</variableId>
    </variableLinks>
    <variableLinks>
@@ -73,6 +73,12 @@
       <type>DATA_COLUMN</type>
       <value>threadNum</value>
       <variableId>d93a4a62-ecad-4141-8c7e-5e81629d891a</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>d78ec82d-76c5-4e7f-b6a0-774b00112b51</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>partAccordingToTheDrawing</value>
+      <variableId>2f6ae458-da27-4552-a602-faf0e9ab00c4</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>d78ec82d-76c5-4e7f-b6a0-774b00112b51</testDataLinkId>
@@ -152,7 +158,7 @@
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'Include Lasermarking'</defaultValue>
+      <defaultValue>'No Lasermarking'</defaultValue>
       <description>Parallel, Quer, Egal</description>
       <id>31523c65-a1ea-4be3-9e54-6b1b8674262f</id>
       <masked>false</masked>
@@ -185,6 +191,13 @@
       <id>d93a4a62-ecad-4141-8c7e-5e81629d891a</id>
       <masked>false</masked>
       <name>threadNum</name>
+   </variable>
+   <variable>
+      <defaultValue>'false'</defaultValue>
+      <description></description>
+      <id>2f6ae458-da27-4552-a602-faf0e9ab00c4</id>
+      <masked>false</masked>
+      <name>partAccordingToTheDrawing</name>
    </variable>
    <variable>
       <defaultValue>'6'</defaultValue>

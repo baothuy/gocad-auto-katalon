@@ -116,6 +116,12 @@ public class CustomDXFPage extends BasePage<CustomDXFPage>{
 	}
 
 	//Rectangle rounded top panel (all existed)
+	
+	public CustomDXFPage inputTopRadius(String input) {
+		clearTextAndSendKeysByActions(id("topRadius"), input)
+		return this
+	}
+	
 	//Circle panel
 
 	public CustomDXFPage inputDiameter(String input) {
@@ -245,6 +251,12 @@ public class CustomDXFPage extends BasePage<CustomDXFPage>{
 	}
 
 	//Rectangle rounded top panel (all existed)
+	
+	public CustomDXFPage verifyInputTopRadiusVisible() {
+		WebUI.verifyElementVisible(id("topRadius"))
+		return this
+	}
+	
 	//Circle panel
 
 	public CustomDXFPage verifyInputDiameterVisible() {
@@ -390,6 +402,12 @@ public class CustomDXFPage extends BasePage<CustomDXFPage>{
 	}
 
 	//Rectangle rounded top panel (all existed)
+	
+	public CustomDXFPage verifyErrorWhenInputTopRadius(String expectedResult) {
+		String actualResult = WebUI.getText(id("topRadius_help"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
 	//Circle panel
 
 	public CustomDXFPage verifyErrorWhenInputDiameter(String expectedResult) {

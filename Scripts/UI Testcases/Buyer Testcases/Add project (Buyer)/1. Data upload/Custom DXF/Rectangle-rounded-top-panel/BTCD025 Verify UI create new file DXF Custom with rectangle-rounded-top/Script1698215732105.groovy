@@ -33,7 +33,7 @@ println '>> verify UI Visible'
 Page.nav(CustomDXFPage).verifyInputFileNameVisible()
 						.verifyInputWidthVisible()
 						.verifyInputHeightVisible()
-						.verifyInputRadiusVisible()
+						.verifyInputTopRadiusVisible()
 						
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

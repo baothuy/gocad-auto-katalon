@@ -113,6 +113,13 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 		return this
 	}
 
+	public CopyPartPopup verifyLaserMarkingValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Laser marking']/following-sibling::label")).trim()
+		println "LaserMarkingValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
 	public CopyPartPopup verifyCountersinkValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Countersink']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
@@ -144,6 +151,13 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 		String actualResult = WebUI.getText(xpath("//*[text()='Deburring']/following-sibling::label")).trim()
 		def actualResultCon = (actualResult == "No") ? "No deburring" : "Deburring (one-sided)"
 		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResultCon, expectedResult)
+		return this
+	}
+
+	public CopyPartPopup verifyPartAccordingToTheDrawingValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Part according to the drawing']/following-sibling::label")).trim()
+		def actualResultCon = (actualResult == "No") ? "false" : "true"
 		WebUI.verifyEqual(actualResultCon, expectedResult)
 		return this
 	}

@@ -40,7 +40,7 @@ Page.nav(CustomDXFPage).inputFileName(fileName)
 					   .sleep(1)
 
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputInsideDiameter("The inside diameter must be smaller than the external diameter.")
+Page.nav(CustomDXFPage).verifyErrorWhenInputInsideDiameter("Inside diameter (mm) must be less than 100")
 					   
 println '>> input field'
 Page.nav(CustomDXFPage).inputFileName(fileName)

@@ -12,7 +12,7 @@
       <variableId>13fa72cb-34b4-4d8d-8cf7-2a462b4144c4</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'oval'</defaultValue>
+      <defaultValue>'RectangleRoundedTopPanel'</defaultValue>
       <description></description>
       <id>13fa72cb-34b4-4d8d-8cf7-2a462b4144c4</id>
       <masked>false</masked>

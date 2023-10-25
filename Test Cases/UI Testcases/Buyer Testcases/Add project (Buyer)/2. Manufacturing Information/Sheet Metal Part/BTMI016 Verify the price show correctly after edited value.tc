@@ -53,7 +53,7 @@
    <variableLinks>
       <testDataLinkId>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>rollingDirection</value>
+      <value>laserMarking</value>
       <variableId>98948a84-ece4-4102-8b42-53fc6ac0699d</variableId>
    </variableLinks>
    <variableLinks>
@@ -79,6 +79,12 @@
       <type>DATA_COLUMN</type>
       <value>threadNum</value>
       <variableId>16bbe8e4-500d-4764-a024-61dfeb3e8677</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>partAccordingToTheDrawing</value>
+      <variableId>9adca676-a039-49e4-a8c9-106cf39b21e3</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</testDataLinkId>
@@ -221,7 +227,7 @@
       <name>cuttingLayers</name>
    </variable>
    <variable>
-      <defaultValue>'Deburring (one-sided)'</defaultValue>
+      <defaultValue>'One-sided'</defaultValue>
       <description></description>
       <id>8c5cd1c6-93d2-4e04-abf0-0c8cc774db96</id>
       <masked>false</masked>
@@ -240,6 +246,13 @@
       <id>16bbe8e4-500d-4764-a024-61dfeb3e8677</id>
       <masked>false</masked>
       <name>threadNum</name>
+   </variable>
+   <variable>
+      <defaultValue>'false'</defaultValue>
+      <description></description>
+      <id>9adca676-a039-49e4-a8c9-106cf39b21e3</id>
+      <masked>false</masked>
+      <name>partAccordingToTheDrawing</name>
    </variable>
    <variable>
       <defaultValue>'6'</defaultValue>
@@ -298,11 +311,11 @@
       <name>surfaceTreatmentChanged</name>
    </variable>
    <variable>
-      <defaultValue>'Quer'</defaultValue>
+      <defaultValue>'Include Lasermarking'</defaultValue>
       <description></description>
       <id>3cca0f35-1501-48da-a33f-eb7645352e27</id>
       <masked>false</masked>
-      <name>rollingDirectionChanged</name>
+      <name>laserMarkingChanged</name>
    </variable>
    <variable>
       <defaultValue>'No deburring'</defaultValue>

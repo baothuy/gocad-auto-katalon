@@ -51,7 +51,8 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
 										.inputThread(threadNum)
-										.inputComment(comment)
+										.clickPartAccordingToTheDrawingCB(partAccordingToTheDrawing)
+										.inputComment(comment)										
 										.inputDeliveryDate(deliveryDate)
 
 println '>> click Calculate button'
@@ -71,7 +72,7 @@ Page.nav(SendOfferPage).clickMoreOption(partName)
 println '>> Verify data on View page show correctly'
 Page.nav(ViewPartPopup).verifyMaterialValue(material)
 						.verifyQuantityValue(quantityNum)						
-						.verifyRollingDirectionValue(rollingDirection)
+						.verifyLaserMarkingValue(laserMarking)
 						.verifyCountersinkValue(countersinkNum)
 						.verifyThicknessValue(partName, thicknessNum)
 						.verifySurfaceTreatmentValue(surfaceTreatment)

@@ -87,6 +87,16 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		}
 		return this
 	}
+	
+	public ManufacturingInformationPage clickPartAccordingToTheDrawingCB(String value) {
+		String contentClass = WebUI.getAttribute(xpath("//input[@id='partAccordingToTheDrawing']/parent::span"), "class")
+		String isChecked = contentClass.contains("checked")
+		boolean isYes = value.equals("true")
+		if(Boolean.parseBoolean(isChecked) != isYes) {
+			WebUI.click(xpath('//span[text()="Please manufacture the part according to the drawing"]'))
+		}
+		return this
+	}
 
 	public ManufacturingInformationPage inputQuantity(String number) {
 		clearTextAndSendKeysByActions(xpath('//*[@id="quantity"]'), number)
@@ -226,7 +236,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$name']"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage selectLaserMarking(String name) {
 		WebUI.click(xpath("//*[text()='Laser marking']/parent::div/following::div[@class='ant-select-selector']"))
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$name']"))
@@ -234,8 +244,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage selectDeburring(String value) {
-		WebUI.click(xpath("//*[text()='Deburring']/parent::div/following::div[@class='ant-select-selector']"))
-		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$value']"))
+		if (value != "")
+		{
+			WebUI.click(xpath("//*[text()='Deburring']/parent::div/following::div[@class='ant-select-selector']"))
+			WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$value']"))
+		}
 		return this
 	}
 
@@ -330,6 +343,13 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
+	public ManufacturingInformationPage verifyLaserMarkingValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Laser marking']/following-sibling::label")).trim()
+		println "LaserMarkingValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
 	public ManufacturingInformationPage verifyCountersinkValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Countersink']/following-sibling::label")).trim()
 		println "CountersinkValue: $actualResult"
@@ -362,8 +382,14 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage verifyDeburringValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Deburring']/following-sibling::label")).trim()
-		def actualResultConv = (actualResult == "No") ? "No deburring" : "Deburring (one-sided)"
-		WebUI.verifyEqual(actualResultConv, expectedResult)
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyPartAccordingToTheDrawingValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Part according to the drawing']/following-sibling::label")).trim()
+		def actualResultCon = (actualResult == "No") ? "false" : "true"
+		WebUI.verifyEqual(actualResultCon, expectedResult)
 		return this
 	}
 
