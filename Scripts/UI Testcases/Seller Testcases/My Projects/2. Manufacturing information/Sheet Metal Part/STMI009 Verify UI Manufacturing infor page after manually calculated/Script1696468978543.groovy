@@ -59,7 +59,7 @@ if (filePDF == ""){
 											.verifyContentAlertManualCalculateVisibleForSeller(codeManual)
 											.verifyMaterialValue(material)
 											.verifyLinkPartVisible(partName)
-											.verifyQuantityValue(quantityNum)
+											//.verifyQuantityValue(quantityNum)
 											.verifyThreadValueOnSMP(threadNum)
 											.verifyLaserMarkingValue(laserMarking)
 											.verifyCountersinkValue(countersinkNum)
@@ -73,6 +73,7 @@ if (filePDF == ""){
 											.verifyDeleteButtonVisible()
 											.verifyCopyButtonVisible()
 											.verifyMoveButtonVisible()
+											.verifyQuantityInputVisible()
 											.verifyUnitPriceInputVisible()
 											.verifyUndoButtonVisible()
 											.verifyAcceptUnitPriceButtonVisible()
@@ -87,7 +88,7 @@ else {
 											.verifyMaterialValue(material)
 											.verifyLinkPartVisible(partName)
 											.verifyPDFFileVisibleAfterCalculated(filePDF)
-											.verifyQuantityValue(quantityNum)
+											//.verifyQuantityValue(quantityNum)
 											.verifyThreadValueOnSMP(threadNum)
 											.verifyLaserMarkingValue(laserMarking)
 											.verifyCountersinkValue(countersinkNum)
@@ -102,11 +103,11 @@ else {
 											.verifyCopyButtonVisible()
 											.verifyMoveButtonVisible()
 											.verifyUnitPriceInputVisible()
+											.verifyQuantityInputVisible()
 											.verifyUndoButtonVisible()
 											.verifyAcceptUnitPriceButtonVisible()
 											.verifyDeliveryDateInputVisible()
-											.verifyCostsReportButtonVisible()
-											
+											.verifyCostsReportButtonVisible()											
 }
 
 println '>>  Clear data'

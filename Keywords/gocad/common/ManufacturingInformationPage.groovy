@@ -786,8 +786,8 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyContentAlertManualCalculateVisibleForSeller(String code) {
-		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
-		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
+		WebUI.verifyElementVisible(xpath("//span[@aria-label='info-circle']/following::div[@class='ant-alert-message']"))
+		def contentAlertActual = WebUI.getText(xpath("//span[@aria-label='info-circle']/following::div[@class='ant-alert-message']"))
 		switch (code) {
 			case "SYSTEM_ERROR":
 				def expectedResult = contentManualSystemErrorForSeller

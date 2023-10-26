@@ -42,7 +42,7 @@ println '>> Verify error when empty field'
 Page.nav(CustomDXFPage).verifyErrorWhenInputFileName("Required")
 					  .verifyErrorWhenInputWidth("Required")
 					  .verifyErrorWhenInputHeight("Required")
-					  .verifyErrorWhenInputTopRadius("Required")
+					  .verifyErrorWhenInputRadius("Required")
 									  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

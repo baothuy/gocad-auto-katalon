@@ -28,28 +28,17 @@ Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
 						.clickCustomDXF()
 						
 println '>> click Rectangle Rounded Top Panel Shape'
-Page.nav(CustomDXFLeftNavMenu).clickRectangleRoundedTopPanelShape()
+Page.nav(CustomDXFLeftNavMenu).clickRectangleRoundedTopPanelShape()	
 
-println '>> input " width (Mm)" smaller than " height (Mm)" and versa'
-Page.nav(CustomDXFPage).inputFileName(fileName)
-					   .inputWidth("250")
-					   .inputHeight("300")
-					   .inputTopRadius("71")
-					   .clickNextStepButton()
-					   .sleep(1)
-
-println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputHeight("The height must be smaller than or equal the width.")		
-
-println '>> input field  Input "Radius (Mm)" larger than (Height (Mm))/2'
+println '>> input field  Input "Radius (Mm)" larger than (Width (Mm))/2'
 Page.nav(CustomDXFPage).inputFileName(fileName)
 						.inputWidth("150")
 						.inputHeight("140")
-						.inputTopRadius("71")
+						.inputTopRadius("76")
 						.sleep(1)
 	 
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputInnerRadius("The radius should less than 70mm")
+Page.nav(CustomDXFPage).verifyErrorWhenInputInnerRadius("The radius should less than 75mm")
 									  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

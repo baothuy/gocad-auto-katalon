@@ -52,7 +52,7 @@ Page.nav(CustomDXFPage).inputFileName(fileName)
 						  .sleep(1)
    
 println '>> Error: The diameter bolt circle should great than ${ Inside diameter + Diameter holes }'
-Page.nav(CustomDXFPage).verifyErrorWhenInputDiameterBoltCircle("The diameter bolt circle should great than 191")
+Page.nav(CustomDXFPage).verifyErrorWhenInputDiameterBoltCircle("The diameter bolt circle should great than 191mm")
 						  
 println '>> input field'
 Page.nav(CustomDXFPage).inputFileName(fileName)

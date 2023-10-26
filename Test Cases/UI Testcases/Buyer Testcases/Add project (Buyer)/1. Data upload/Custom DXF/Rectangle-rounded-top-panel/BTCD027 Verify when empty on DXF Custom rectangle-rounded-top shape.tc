@@ -55,6 +55,6 @@
       <description></description>
       <id>95538c46-bcaa-4517-a269-cd48e592dcf1</id>
       <masked>false</masked>
-      <name>webThickness</name>
+      <name>radius</name>
    </variable>
 </TestCaseEntity>

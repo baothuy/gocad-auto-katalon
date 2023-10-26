@@ -9,11 +9,11 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 
 	def rowOfProject = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr")}
 	def projectIdCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[1]")}
-	def projectNameCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[2]")}
+	def projectNameCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[2]//a")}
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[3]//span[normalize-space(text()) != '']")}
 	def actionViewCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[4]//button[1]")}
 	def actionMoreCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[4]//button[2]")}
-	def row = { String row -> return "//thead/tr[$row]/"}
+	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]/"}
 
 	public ArchivedProjectsPage clickViewAction(String projectId) {
 		WebUI.click(actionViewCol(projectId))
@@ -41,7 +41,7 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 	public List<String> getDataRow(String rowNumber) {
 		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
 		String projectName = WebUI.getText(xpath(row(rowNumber) + "td[2]//a"))
-		String status = WebUI.getText(xpath(row(rowNumber) + "td[5]//span[normalize-space(text()) != '']"))
+		String status = WebUI.getText(xpath(row(rowNumber) + "td[3]//span[normalize-space(text()) != '']"))
 		List<String> dataRow = [id, projectName, status]
 		return dataRow
 	}
@@ -86,7 +86,7 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 		return projectName
 	}
 
-	public ArchivedProjectsPage verifyToastMessageWhenDeletedProject(String projectName) {
+	public ArchivedProjectsPage verifyToastMessageWhenDeletedProject() {
 		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
 		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
 		def expectedTitle = "Deleted"

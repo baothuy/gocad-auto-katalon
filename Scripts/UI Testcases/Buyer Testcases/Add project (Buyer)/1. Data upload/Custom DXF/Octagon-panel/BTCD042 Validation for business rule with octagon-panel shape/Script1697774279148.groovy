@@ -45,12 +45,12 @@ println '>> Input "Length of corner (Mm)" larger than (Height (Mm))/2'
 Page.nav(CustomDXFPage).inputFileName(fileName)
 					   .inputWidth("250")
 					   .inputHeight("150")
-					   .inputCornerLength("151")
+					   .inputCornerLength("76")
 					   .clickNextStepButton()
 					   .sleep(1)
 
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputCornerLength("The lenght of the corner should less than 150mm")
+Page.nav(CustomDXFPage).verifyErrorWhenInputCornerLength("The lenght of the corner should less than 75mm")
 									  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()
