@@ -213,7 +213,7 @@
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'No Lasermarking'</defaultValue>
+      <defaultValue>'No'</defaultValue>
       <description>Parallel, Quer, Egal</description>
       <id>98948a84-ece4-4102-8b42-53fc6ac0699d</id>
       <masked>false</masked>

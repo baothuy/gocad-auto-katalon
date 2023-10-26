@@ -387,7 +387,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	}
 
 	public DetailOffer verifyContentAlertManuallyVisible(String pageName) {
-		List<String> findObject = findTestObjects("//span[@aria-label='info-circle']")
+		List<String> findObject = findTestObjects("//h6[text()='Manually calculated']/following-sibling::div/child::span[@aria-label='info-circle']")
 		if(findObject.size() != 0) {
 			WebUI.verifyElementVisible(xpath("//*[text()='Manually calculated']"))
 			WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))

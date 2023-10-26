@@ -555,14 +555,26 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage verifyRollingDirectionSelectVisible() {
+	public ManufacturingInformationPage verifyRollingDirectioVisible() {
 		WebUI.verifyElementClickable(xpath('//*[@id="rollingDirection"]'))
 		WebUI.verifyElementVisible(xpath('//*[@id="rollingDirection"]/parent::span/following::span[@title="Egal"]'))
 		return this
 	}
+	
+	public ManufacturingInformationPage verifyLaserMarkingSelectVisible() {
+		WebUI.verifyElementClickable(xpath('//*[@id="laserMarking"]'))
+		WebUI.verifyElementVisible(xpath('//*[@id="laserMarking"]/parent::span/following::span[@title="No"]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyPartAccordingToTheDrawingCBVisible() {
+		WebUI.verifyElementClickable(xpath('//*[@id="laserMarking"]'))
+		WebUI.verifyElementVisible(xpath("//input[@id='partAccordingToTheDrawing']/parent::span"))
+		return this
+	}
 
 	public ManufacturingInformationPage verifyDeburringVisible() {
-		WebUI.verifyElementVisible(xpath("//input[@id='deburring']/parent::span"))
+		WebUI.verifyElementVisible(xpath("//input[@id='deburringType']/parent::span"))
 		return this
 	}
 
