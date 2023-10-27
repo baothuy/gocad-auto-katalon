@@ -87,7 +87,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		}
 		return this
 	}
-	
+
 	public ManufacturingInformationPage clickPartAccordingToTheDrawingCB(String value) {
 		String contentClass = WebUI.getAttribute(xpath("//input[@id='partAccordingToTheDrawing']/parent::span"), "class")
 		String isChecked = contentClass.contains("checked")
@@ -143,6 +143,18 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage inputComment(String text) {
 		clearTextAndSendKeysByActions(xpath('//*[@id="additionalComments"]'), text)
+		return this
+	}
+	
+	public ManufacturingInformationPage inputBulkPricing(String line, String input) {
+		WebUI.click(xpath("(//*[text()='Bulk pricing']/parent::div//span[@class='text-input-value'])[$line]"))
+		WebUI.doubleClick(xpath("//*[@id='form-inline-quantity_quantity']"))
+		clearTextAndSendKeysByActionsBackSpace(xpath("//*[@id='form-inline-quantity_quantity']"), input)		
+		return this
+	}
+	
+	public ManufacturingInformationPage clickAcceptChangeBulkPricing() {
+		WebUI.click(xpath("//*[@aria-label='check']"))
 		return this
 	}
 
@@ -237,21 +249,27 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage selectLaserMarking(String name) {
+	public ManufacturingInformationPage selectLaserMarking(String value) {
 		WebUI.click(xpath("//*[text()='Laser marking']/parent::div/following::div[@class='ant-select-selector']"))
-		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$name']"))
+		WebUI.click(xpath("//*[@id='laserMarking_list']/following-sibling::div[@class='rc-virtual-list']//div[@title='$value']"))
 		return this
 	}
 
 	public ManufacturingInformationPage selectDeburring(String value) {
 		WebUI.click(xpath("//*[text()='Deburring']/parent::div/following::div[@class='ant-select-selector']"))
-		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$value']"))
+		WebUI.click(xpath("//*[@id='deburringType_list']/following-sibling::div[@class='rc-virtual-list']//div[@title='$value']"))
 		return this
 	}
 
 	public ManufacturingInformationPage verifyPDFFileVisibleAfterCalculated(String fileName) {
 		String href = WebUI.getAttribute(xpath("//a[@class='text-decoration-none' and @title='$fileName']"), "href")
 		WebUI.verifyElementVisible(xpath("//a[@href='$href']"))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyBulkPricingValue(String line, String expectedResult) {
+		String actualResult = WebUI.getText(xpath("(//*[text()='Bulk pricing']/parent::div//span[@class='text-input-value'])[$line]"))
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
@@ -382,7 +400,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyPartAccordingToTheDrawingValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Part according to the drawing']/following-sibling::label")).trim()
 		def actualResultCon = (actualResult == "No") ? "false" : "true"
@@ -557,13 +575,13 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath('//*[@id="rollingDirection"]/parent::span/following::span[@title="Egal"]'))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyLaserMarkingSelectVisible() {
 		WebUI.verifyElementClickable(xpath('//*[@id="laserMarking"]'))
 		WebUI.verifyElementVisible(xpath('//*[@id="laserMarking"]/parent::span/following::span[@title="No"]'))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyPartAccordingToTheDrawingCBVisible() {
 		WebUI.verifyElementClickable(xpath('//*[@id="laserMarking"]'))
 		WebUI.verifyElementVisible(xpath("//input[@id='partAccordingToTheDrawing']/parent::span"))
@@ -695,6 +713,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath("//span[@aria-label='info-circle']"))
 		WebUI.mouseOver(xpath("//span[@aria-label='info-circle']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Please enter the number of threads and tolerances in the component here. For a more detailed description, please refer to the attached graphic on the right.']"))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyBulkPricingVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='Bulk pricing']/parent::div"))
 		return this
 	}
 

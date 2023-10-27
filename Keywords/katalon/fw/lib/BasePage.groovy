@@ -123,6 +123,20 @@ public class BasePage <T> extends BaseElement {
 				.sendKeys(value)
 				.perform()
 	}
+	
+	protected clearTextAndSendKeysByActionsBackSpace(TestObject to, String value) {
+		resetDriver()
+		WebElement el = driver.findElement(getSeleniumByFrom(to))
+		Number countSize = value.size()
+		println "countSize: $countSize"
+		for (int i = 0; i < value.size(); i++) {
+		new Actions(driver)
+				.doubleClick(el)
+				.sendKeys(Keys.BACK_SPACE)
+				.perform()	
+		}
+		WebUI.sendKeys(to, value)
+	}
 
 	protected scrollToAndSendKeys(TestObject to, String value) {
 		WebUI.scrollToElement(to, 0)
