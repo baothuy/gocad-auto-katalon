@@ -38,7 +38,7 @@ Page.nav(CustomDXFPage).inputFileName(fileName)
 						.sleep(1)
 	 
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputInnerRadius("The radius should less than 75mm")
+Page.nav(CustomDXFPage).verifyErrorWhenInputTopRadius("The radius should less than 75mm")
 									  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

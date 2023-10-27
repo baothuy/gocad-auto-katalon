@@ -244,11 +244,8 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage selectDeburring(String value) {
-		if (value != "")
-		{
-			WebUI.click(xpath("//*[text()='Deburring']/parent::div/following::div[@class='ant-select-selector']"))
-			WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$value']"))
-		}
+		WebUI.click(xpath("//*[text()='Deburring']/parent::div/following::div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$value']"))
 		return this
 	}
 

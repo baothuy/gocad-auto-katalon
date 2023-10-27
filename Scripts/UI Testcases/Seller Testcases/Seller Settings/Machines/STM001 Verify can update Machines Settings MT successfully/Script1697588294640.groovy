@@ -16,4 +16,4 @@ Page.nav(MachineSettingsPage).clickMachineName(machineName)
 							 .sleep(1)
 	
 println '>> verify Toast Message'
-Page.nav(ToastMessage).verifyToastMessage("Update failed!", "Something went wrong, please try again!")
+Page.nav(ToastMessage).verifyToastMessage("Update success!", "Machine - Deburring")
