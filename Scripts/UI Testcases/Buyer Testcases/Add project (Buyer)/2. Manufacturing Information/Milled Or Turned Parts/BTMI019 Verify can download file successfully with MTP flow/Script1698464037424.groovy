@@ -67,7 +67,7 @@ else
 	 }
 	 
 	 Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
-	 										.inputQuantity(quantityNum)
+											  .inputQuantity(quantityNum)
 											 .selectSurfaceTreatment(surfaceTreatment)
 											 .selectSurfaceQuality(quality)
 											 .inputComment(comment)
@@ -76,34 +76,14 @@ else
 println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 
-println '>> Calculate netPrice value'
-String netPrice = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitPrice,quantityNum)
+//println '>> Verify PDF File Visible After Calculated'
+//Page.nav(ManufacturingInformationPage).verifyPDFFileVisibleAfterCalculated(partName)
 
-println '>> Verify UI after calculated manually of request'
-Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
-										.clickClosePreviewPartFilePopup()
-										.verifyMaterialValue(material)
-										.verifyQuantityValue(quantityNum)
-										.verifyThreadValue(threadNum)
-										.verifyTolerancesNumberValue(tolerancesNum)
-										.verifyTolerancesToggleValue(tolerancesToggle)
-										.verifySurfaceTreatmentValue(surfaceTreatment)
-										.verifySurfaceQualityValue(quality)
-										.verifyAdditionalCommentsValue(comment)
-										.verifyBulkPricingVisible()
-										.verifyEditButtonVisible()
-										.clickMoreOption()
-										.verifyDeleteButtonVisible()
-										.verifyCopyButtonVisible()
-										.verifyMoveButtonVisible()
-										.verifyUnitPriceValue(unitPrice)
-										.verifyNetPriceValue(netPrice)
-if (filePDF != ""){
-	Page.nav(ManufacturingInformationPage).verifyPDFFileVisibleAfterCalculated(partName)
-}
+println '>>  Verify can download succesfully'
+Page.nav(ManufacturingInformationPage).clickPartFileToDownload(partName)
+Page.nav(FileHelper).verifyFileDownloaded(partName)
 
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
-	

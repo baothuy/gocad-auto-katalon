@@ -49,30 +49,9 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 
-println '>> Verify UI after calculated manually of request'
-Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFileOnSMP()
-										.clickClosePreviewPartFilePopup()
-										.verifyContentAlertManualCalculateVisibleForBuyer(codeManual)
-										.verifyMaterialValue(material)
-										.verifyLinkPartVisible(partName)
-										.verifyQuantityValue(quantityNum)
-										.verifyThreadValueOnSMP(threadNum)
-										.verifyLaserMarkingValue(laserMarking)
-										.verifyCountersinkValue(countersinkNum)
-										.verifyThicknessValue(partName, thicknessNum)
-										.verifySurfaceTreatmentValue(surfaceTreatment)
-										.verifyCuttingLayersValue(partName, cuttingLayers)
-										.verifyDeburringValue(deburring)
-										.verifyAdditionalCommentsValue(comment)
-										.verifyEditButtonVisible()
-										.clickMoreOption()
-										.verifyDeleteButtonVisible()
-										.verifyCopyButtonVisible()
-										.verifyMoveButtonVisible()
-
-if (filePDF != ""){
-	Page.nav(ManufacturingInformationPage).verifyPDFFileVisibleAfterCalculated(filePDF)
-}
+println '>>  Verify can download succesfully'
+Page.nav(ManufacturingInformationPage).clickPartFileToDownload(partName)
+Page.nav(FileHelper).verifyFileDownloaded(partName)
 
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

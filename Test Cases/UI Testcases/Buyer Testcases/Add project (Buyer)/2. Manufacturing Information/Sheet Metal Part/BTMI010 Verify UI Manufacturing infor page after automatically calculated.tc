@@ -53,7 +53,7 @@
    <variableLinks>
       <testDataLinkId>b66c25f6-6b4b-4130-96c4-e27c384ab310</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>rollingDirection</value>
+      <value>laserMarking</value>
       <variableId>31523c65-a1ea-4be3-9e54-6b1b8674262f</variableId>
    </variableLinks>
    <variableLinks>

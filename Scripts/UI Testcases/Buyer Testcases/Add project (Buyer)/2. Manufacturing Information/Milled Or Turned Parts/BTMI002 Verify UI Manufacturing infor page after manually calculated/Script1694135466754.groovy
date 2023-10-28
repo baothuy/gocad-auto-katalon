@@ -76,46 +76,27 @@ else
 println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 
-if (filePDF == ""){
-	println '>> Verify UI after calculated manually of request'
-	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
-											.clickClosePreviewPartFilePopup()
-											.verifyContentAlertManualCalculateVisibleForBuyer(codeManual)
-											.verifyMaterialValue(material)
-											.verifyQuantityValue(quantityNum)
-											.verifyThreadValue(threadNum)
-											.verifyTolerancesNumberValue(tolerancesNum)
-											.verifyTolerancesToggleValue(tolerancesToggle)
-											.verifySurfaceTreatmentValue(surfaceTreatment)
-											.verifySurfaceQualityValue(quality)
-											.verifyAdditionalCommentsValue(comment)
-											.verifyEditButtonVisible()
-											.clickMoreOption()
-											.verifyDeleteButtonVisible()
-											.verifyCopyButtonVisible()
-											.verifyMoveButtonVisible()
-}
-else {
-	println '>> Verify UI after calculated manually of request'
-	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
-											.clickClosePreviewPartFilePopup()
-											.verifyContentAlertManualCalculateVisibleForBuyer(codeManual)
-											.verifyPDFFileVisibleAfterCalculated(partName)
-											.verifyMaterialValue(material)
-											.verifyQuantityValue(quantityNum)
-											.verifySurfaceTreatmentValue(surfaceTreatment)
-											.verifySurfaceQualityValue(quality)
-											.verifyAdditionalCommentsValue(comment)
-											.verifyEditButtonVisible()
-											.clickMoreOption()
-											.verifyDeleteButtonVisible()
-											.verifyCopyButtonVisible()
-											.verifyMoveButtonVisible()
-}
+println '>> Verify UI after calculated manually of request'
+Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
+										.clickClosePreviewPartFilePopup()
+										.verifyContentAlertManualCalculateVisibleForBuyer(codeManual)
+										.verifyMaterialValue(material)
+										.verifyQuantityValue(quantityNum)
+										.verifyThreadValue(threadNum)
+										.verifyTolerancesNumberValue(tolerancesNum)
+										.verifyTolerancesToggleValue(tolerancesToggle)
+										.verifySurfaceTreatmentValue(surfaceTreatment)
+										.verifySurfaceQualityValue(quality)
+										.verifyAdditionalCommentsValue(comment)
+										.verifyEditButtonVisible()
+										.clickMoreOption()
+										.verifyDeleteButtonVisible()
+										.verifyCopyButtonVisible()
+										.verifyMoveButtonVisible()
 
-//println '>>  Verify can download succesfully'
-//Page.nav(ManufacturingInformationPage).clickPartFileToDownload(partName)
-//Page.nav(FileHelper).verifyFileDownloaded(partName)
+if (filePDF != ""){
+	Page.nav(ManufacturingInformationPage).verifyPDFFileVisibleAfterCalculated(partName)
+}
 
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()
