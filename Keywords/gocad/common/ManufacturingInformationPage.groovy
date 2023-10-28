@@ -78,6 +78,21 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
+	public ManufacturingInformationPage clickManufacturingInformationReport() {
+		WebUI.click(xpath("//span[text()=' Manufacturing information']/parent::button"))
+		return this
+	}
+
+	public ManufacturingInformationPage clickProcessingReport() {
+		WebUI.click(xpath("//span[text()=' Processing report']/parent::button"))
+		return this
+	}
+
+	public ManufacturingInformationPage clickEmissionReport() {
+		WebUI.click(xpath("//span[text()=' Emission report']/parent::button"))
+		return this
+	}
+
 	public ManufacturingInformationPage clickProvideOwnMaterialCB(String value) {
 		String contentClass = WebUI.getAttribute(xpath("//input[@id='materialProvided']/parent::span"), "class")
 		String isChecked = contentClass.contains("checked")
@@ -145,14 +160,14 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		clearTextAndSendKeysByActions(xpath('//*[@id="additionalComments"]'), text)
 		return this
 	}
-	
+
 	public ManufacturingInformationPage inputBulkPricing(String line, String input) {
 		WebUI.click(xpath("(//*[text()='Bulk pricing']/parent::div//span[@class='text-input-value'])[$line]"))
 		WebUI.doubleClick(xpath("//*[@id='form-inline-quantity_quantity']"))
-		clearTextAndSendKeysByActionsBackSpace(xpath("//*[@id='form-inline-quantity_quantity']"), input)		
+		clearTextAndSendKeysByActionsBackSpace(xpath("//*[@id='form-inline-quantity_quantity']"), input)
 		return this
 	}
-	
+
 	public ManufacturingInformationPage clickAcceptChangeBulkPricing() {
 		WebUI.click(xpath("//*[@aria-label='check']"))
 		return this
@@ -266,7 +281,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath("//a[@href='$href']"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyBulkPricingValue(String line, String expectedResult) {
 		String actualResult = WebUI.getText(xpath("(//*[text()='Bulk pricing']/parent::div//span[@class='text-input-value'])[$line]"))
 		WebUI.verifyEqual(actualResult, expectedResult)
@@ -715,7 +730,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath("//*[text()='Please enter the number of threads and tolerances in the component here. For a more detailed description, please refer to the attached graphic on the right.']"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyBulkPricingVisible() {
 		WebUI.verifyElementVisible(xpath("//*[text()='Bulk pricing']/parent::div"))
 		return this

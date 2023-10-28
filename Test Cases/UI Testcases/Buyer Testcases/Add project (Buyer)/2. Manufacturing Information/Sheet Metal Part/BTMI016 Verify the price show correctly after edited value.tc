@@ -311,14 +311,14 @@
       <name>surfaceTreatmentChanged</name>
    </variable>
    <variable>
-      <defaultValue>'Include Lasermarking'</defaultValue>
+      <defaultValue>'No'</defaultValue>
       <description></description>
       <id>3cca0f35-1501-48da-a33f-eb7645352e27</id>
       <masked>false</masked>
       <name>laserMarkingChanged</name>
    </variable>
    <variable>
-      <defaultValue>'No deburring'</defaultValue>
+      <defaultValue>'No'</defaultValue>
       <description></description>
       <id>feaefad7-af33-4cd5-9838-eaac42101dc3</id>
       <masked>false</masked>
