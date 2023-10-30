@@ -74,7 +74,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage clickPleaseSelectMaterial() {
-		WebUI.click(xpath('//*[@id="materialId"]/a'))
+		WebUI.click(xpath("//label[@for='materialId']/parent::div/following::a"))
 		return this
 	}
 

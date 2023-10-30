@@ -57,7 +57,7 @@ Page.nav(SearchInProjectsPopup).verifyHighlightOnList(dataRowSearchByCheckUnread
 								.clickCheckBoxUnread("uncheck")
 								
 								
-String startDate = DateTimeUtility.plusDays(-1, "yyyy-MM-dd")
+String startDate = DateTimeUtility.plusDays(-10, "yyyy-MM-dd")
 String endDate = DateTimeUtility.next30Days("yyyy-MM-dd")	
 println "previousDate: $startDate"
 println "endDate: $endDate"	

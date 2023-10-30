@@ -12,7 +12,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 	def partCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[2]")}
 	def fileCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[3]//a")}
 	def materialCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[4]")}
-	def quantityCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[5]//input[@id='quantity']")}
+	def quantityCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[6]//input[@id='quantity']")}
 	def unitPriceCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[6]")}
 	def partPriceTotalCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[7]")}
 	def commentCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[8]/span")}
