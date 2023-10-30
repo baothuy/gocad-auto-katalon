@@ -12,12 +12,13 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	def partCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[2]")}
 	def fileCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[3]//a")}
 	def materialCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[4]")}
-	def quantityCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[5]")}
-	def unitPriceInputCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[6]//input[@id='unitPrice']")}
-	def unitPriceCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[6]")}
-	def partPriceTotalCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[7]")}
-	def CO2EmissionCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[9]")}
-	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]//button")}
+	def thicknessCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[5]")}
+	def quantityCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[6]")}
+	def unitPriceInputCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[7]//input[@id='unitPrice']")}
+	def unitPriceCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[7]")}
+	def partPriceTotalCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[8]")}
+	def CO2EmissionCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]")}
+	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[11]//button")}
 	def contentRequestedOffersAlertManually = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
 	def contentReceivedOffersAlertManually = "These parts could not be automatically calculated. You have received an offer by your supplier. Please check the offer and approve or decline it."
 	def contentOpenInquiriesAlertManually = "For these parts, your customer has not seen a price and he requested a manual quotation. The reason that for this part no automatic price has been shown to the customer can be e.g. that there are specific tolerances that need to be manually checked. Please check the parts and the automatically calculated price and adpat the price accordingly. You can then send out the offer to your customer by clicking on \"Send offer\"."

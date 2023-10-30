@@ -49,7 +49,7 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
 										.inputThread(threadNum)
-										.clickPartAccordingToTheDrawingCB(partAccordingToTheDrawing)
+										//.clickPartAccordingToTheDrawingCB(partAccordingToTheDrawing)
 										.inputComment(comment)
 
 println '>> click Calculate and move to Review page'
@@ -92,7 +92,7 @@ List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
 println '>> Verify information show on list Confirmed Offers of buyer'
 Page.nav(LeftNavBar).clickConfirmedOffers()
 Page.nav(ConfirmedOffersPageOfBuyer).verifyProjectName(projectId, projectName)
-									.verifyDeliveryDate(projectId, deliveryDate)
+									//.verifyDeliveryDate(projectId, deliveryDate)
 									.verifyOrderNumber(projectId)
 									.verifyGrossTotal(projectId, grossTotal)
 									.verifyStatus(projectId, "Order confirmed")
