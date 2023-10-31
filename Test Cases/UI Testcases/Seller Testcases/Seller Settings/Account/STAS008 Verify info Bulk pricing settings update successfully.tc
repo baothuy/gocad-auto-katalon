@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STAS008 Verify info Bulk pricing settings update successfully</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>7a80b41f-96a5-4c00-8dfe-cde878e5abef</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a328015c-7734-4ab6-b4b2-05304d8ee136</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>200225f6-951b-4dcf-acf7-cece786f12d0</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>8c3be1e7-dee2-4961-b1cd-4ddca9b0bc48</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description></description>
+      <id>a328015c-7734-4ab6-b4b2-05304d8ee136</id>
+      <masked>false</masked>
+      <name>quantityRefOne</name>
+   </variable>
+   <variable>
+      <defaultValue>'20'</defaultValue>
+      <description></description>
+      <id>200225f6-951b-4dcf-acf7-cece786f12d0</id>
+      <masked>false</masked>
+      <name>quantityRefTwo</name>
+   </variable>
+   <variable>
+      <defaultValue>'100'</defaultValue>
+      <description></description>
+      <id>8c3be1e7-dee2-4961-b1cd-4ddca9b0bc48</id>
+      <masked>false</masked>
+      <name>quantityRefThree</name>
+   </variable>
+</TestCaseEntity>

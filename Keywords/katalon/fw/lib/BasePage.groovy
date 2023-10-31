@@ -123,17 +123,17 @@ public class BasePage <T> extends BaseElement {
 				.sendKeys(value)
 				.perform()
 	}
-	
-	protected clearTextAndSendKeysByActionsBackSpace(TestObject to, String value) {
+
+	protected clearTextAndSendKeysByActionsBackSpace(TestObject to, String oldValue,String value) {
 		resetDriver()
 		WebElement el = driver.findElement(getSeleniumByFrom(to))
-		Number countSize = value.size()
+		Number countSize = oldValue.size()
 		println "countSize: $countSize"
-		for (int i = 0; i < value.size(); i++) {
-		new Actions(driver)
-				.doubleClick(el)
-				.sendKeys(Keys.BACK_SPACE)
-				.perform()	
+		for (int i = 0; i < oldValue.size(); i++) {
+			new Actions(driver)
+					.doubleClick(el)
+					.sendKeys(Keys.BACK_SPACE)
+					.perform()
 		}
 		WebUI.sendKeys(to, value)
 	}

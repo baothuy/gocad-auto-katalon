@@ -1,39 +1,30 @@
-import gocad.common.BulkPricingPage
-import gocad.buyer.DraftPage
 import gocad.buyer.SettingsLeftNavMenu
 import gocad.common.AddProjectPopup
+import gocad.common.BulkPricingPage
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.seller.AccountSettingsLeftNavMenu
+import gocad.seller.MyProjectsPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
+import katalon.utility.DateTimeUtility
 
+println '>> User Seller signs in page'
+Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
-println '>>  User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+println '>> User Seller add project'
+Page.nav(LeftNavBar).clickMyProjects()
+Page.nav(MyProjectsPage).clickAddProject()
 
-println '>> Click Settings nav menu'
-Page.nav(LeftNavBar).clickSettings()
-
-println '>> Click Bulk Pricing Settings nav menu'
-Page.nav(SettingsLeftNavMenu).clickBulkPricing()
-
-println '>> input Bulk Pricing Settings'
-Page.nav(BulkPricingPage).inputQuantityRefOne(quantityRefOne)
-						 .inputQuantityRefTwo(quantityRefTwo)
-						 .inputQuantityRefThree(quantityRefThree)
-						 .clickSaveChanges()
-
-println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
-
-println '>>  Random project name'
+println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
-println '>>  Open add project popup and input project name'
+println '>> Open add project popup and input project name'
 Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
@@ -51,8 +42,7 @@ if (filePDF == "")
 	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 	
 	println '>> Input required field'
-	Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
-											.inputQuantity(quantityNum)
+	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
 											.inputThread(threadNum)
 											.inputTolerances(tolerancesNum)
 											.clickToggleTolerances(tolerancesToggle)
@@ -80,35 +70,23 @@ else
 		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
 	 }
 	 
-	 Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
-	 										.inputQuantity(quantityNum)
+	 Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
 											 .selectSurfaceTreatment(surfaceTreatment)
 											 .selectSurfaceQuality(quality)
 											 .inputComment(comment)
 }
 
+String deliveryDate = DateTimeUtility.next30Days("yyyy-MM-dd")
 println '>> click Calculate button'
-Page.nav(ManufacturingInformationPage).clickCalculate()
-
-println '>> Verify Bulk Pricing changed the same when updated'
-Page.nav(ManufacturingInformationPage).verifyBulkPricingValue("1", quantityRefOne)
-									  .verifyBulkPricingValue("2", quantityRefTwo)
-									  .verifyBulkPricingValue("3", quantityRefThree)
+Page.nav(ManufacturingInformationPage).inputDeliveryDate(deliveryDate)
+										.clickCalculate()
+										
+println '>> input and verify after update Bulk Pricing'
+Page.nav(ManufacturingInformationPage).inputBulkPricing(lineBulkPricing, quantityBulkPricing)
+									  .clickAcceptChangeBulkPricing()
+									  .verifyBulkPricingValue(lineBulkPricing, quantityBulkPricing)
 
 println '>>  Clear data'
-Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickArchiveAction(projectId)
-					.clickCloseToastMessage()
-					
-println '>> Click Settings nav menu'
-Page.nav(LeftNavBar).clickSettings()
-
-println '>> Click Bulk Pricing Settings nav menu'
-Page.nav(SettingsLeftNavMenu).clickBulkPricing()
-
-println '>> input Bulk Pricing Settings'
-Page.nav(BulkPricingPage).inputQuantityRefOne("5")
-						 .inputQuantityRefTwo("20")
-						 .inputQuantityRefThree("100")
-						 .clickSaveChanges()
-						 .sleep(1)
+Page.nav(LeftNavBar).clickMyProjects()
+Page.nav(MyProjectsPage).clickArchiveAction(projectId)
+					.clickCloseToastMessage()					

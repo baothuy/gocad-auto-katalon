@@ -42,4 +42,9 @@ public class AccountSettingsLeftNavMenu extends BasePage<AccountSettingsLeftNavM
 		WebUI.click(xpath("//span[text()='Terms of Payment']/parent::button"))
 		return this
 	}
+	
+	public AccountSettingsLeftNavMenu clickBulkPricing() {
+		WebUI.click(xpath("//span[text()='Bulk pricing']/parent::button"))
+		return this
+	}
 }

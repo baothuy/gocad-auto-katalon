@@ -1,39 +1,42 @@
-import gocad.common.BulkPricingPage
-import gocad.buyer.DraftPage
 import gocad.buyer.SettingsLeftNavMenu
 import gocad.common.AddProjectPopup
+import gocad.common.BulkPricingPage
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
 import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.seller.AccountSettingsLeftNavMenu
+import gocad.seller.MyProjectsPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
+import katalon.utility.DateTimeUtility
 
+println '>> User Seller signs in page'
+Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
-println '>>  User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+println '>> click Account settings'
+Page.nav(LeftNavBar).clickAccount()
 
-println '>> Click Settings nav menu'
-Page.nav(LeftNavBar).clickSettings()
+println '>> click Legal Information settings'
+Page.nav(AccountSettingsLeftNavMenu).clickBulkPricing()
 
-println '>> Click Bulk Pricing Settings nav menu'
-Page.nav(SettingsLeftNavMenu).clickBulkPricing()
-
-println '>> input Bulk Pricing Settings'
+println '>> input Bulk Pricing Settings value'
 Page.nav(BulkPricingPage).inputQuantityRefOne(quantityRefOne)
 						 .inputQuantityRefTwo(quantityRefTwo)
 						 .inputQuantityRefThree(quantityRefThree)
 						 .clickSaveChanges()
 
-println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+println '>> User Seller add project'
+Page.nav(LeftNavBar).clickMyProjects()
+Page.nav(MyProjectsPage).clickAddProject()
 
-println '>>  Random project name'
+println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
-println '>>  Open add project popup and input project name'
+println '>> Open add project popup and input project name'
 Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
@@ -56,29 +59,29 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.selectLaserMarking(laserMarking)
 										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
-										.inputThread(threadNum)
-										
+										.inputThread(threadNum)										
 										.inputComment(comment)
-
+										
+String deliveryDate = DateTimeUtility.next30Days("yyyy-MM-dd")
 println '>> click Calculate button'
-Page.nav(ManufacturingInformationPage).clickCalculate()
-
-
+Page.nav(ManufacturingInformationPage).inputDeliveryDate(deliveryDate)
+										.clickCalculate()
+										
 println '>> Verify Bulk Pricing changed the same when updated'
 Page.nav(ManufacturingInformationPage).verifyBulkPricingValue("1", quantityRefOne)
 									  .verifyBulkPricingValue("2", quantityRefTwo)
 									  .verifyBulkPricingValue("3", quantityRefThree)
 
 println '>>  Clear data'
-Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickArchiveAction(projectId)
+Page.nav(LeftNavBar).clickMyProjects()
+Page.nav(MyProjectsPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
 					
 println '>> Click Settings nav menu'
-Page.nav(LeftNavBar).clickSettings()
+Page.nav(LeftNavBar).clickAccount()
 
-println '>> Click Bulk Pricing Settings nav menu'
-Page.nav(SettingsLeftNavMenu).clickBulkPricing()
+println '>> click Legal Information settings'
+Page.nav(AccountSettingsLeftNavMenu).clickBulkPricing()
 
 println '>> input Bulk Pricing Settings'
 Page.nav(BulkPricingPage).inputQuantityRefOne("5")
@@ -86,4 +89,3 @@ Page.nav(BulkPricingPage).inputQuantityRefOne("5")
 						 .inputQuantityRefThree("100")
 						 .clickSaveChanges()
 						 .sleep(1)
-	

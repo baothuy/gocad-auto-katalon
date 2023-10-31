@@ -44,7 +44,6 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
 										.inputThread(threadNum)
-										
 										.inputComment(comment)
 
 println '>> click Calculate button'

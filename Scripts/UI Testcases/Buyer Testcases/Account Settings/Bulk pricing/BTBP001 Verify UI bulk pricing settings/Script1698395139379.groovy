@@ -1,4 +1,4 @@
-import gocad.buyer.BulkPricingPage
+import gocad.common.BulkPricingPage
 import gocad.buyer.SettingsLeftNavMenu
 import gocad.common.LeftNavBar
 import gocad.common.MySignInPage

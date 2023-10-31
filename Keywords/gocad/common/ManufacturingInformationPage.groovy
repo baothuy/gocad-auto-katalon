@@ -92,6 +92,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath("//span[text()=' Emission report']/parent::button"))
 		return this
 	}
+	
+	public ManufacturingInformationPage clickCostsReport() {
+		WebUI.click(xpath("//span[text()=' Costs report']/parent::button"))
+		return this
+	}
 
 	public ManufacturingInformationPage clickProvideOwnMaterialCB(String value) {
 		String contentClass = WebUI.getAttribute(xpath("//input[@id='materialProvided']/parent::span"), "class")
@@ -146,7 +151,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath("//input[@id='surfaceTreatmentIds']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
 		List<String> surfaceTreatmentObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")
 		(surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")) : "Empty"
-		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
+		WebUI.click(id("quantity"))
 		return this
 	}
 
@@ -163,8 +168,8 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage inputBulkPricing(String line, String input) {
 		WebUI.click(xpath("(//*[text()='Bulk pricing']/parent::div//span[@class='text-input-value'])[$line]"))
-		WebUI.doubleClick(xpath("//*[@id='form-inline-quantity_quantity']"))
-		clearTextAndSendKeysByActionsBackSpace(xpath("//*[@id='form-inline-quantity_quantity']"), input)
+		String oldValue = WebUI.getAttribute(xpath("//*[@id='form-inline-quantity_quantity']"),"value")
+		clearTextAndSendKeysByActionsBackSpace(xpath("//*[@id='form-inline-quantity_quantity']"), oldValue, input)
 		return this
 	}
 
@@ -265,13 +270,13 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage selectLaserMarking(String value) {
-		WebUI.click(xpath("//*[text()='Laser marking']/parent::div/following::div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[text()='Laser marking']/parent::div/following-sibling::div//div[@class='ant-select-selector']"))
 		WebUI.click(xpath("//*[@id='laserMarking_list']/following-sibling::div[@class='rc-virtual-list']//div[@title='$value']"))
 		return this
 	}
 
 	public ManufacturingInformationPage selectDeburring(String value) {
-		WebUI.click(xpath("//*[text()='Deburring']/parent::div/following::div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[text()='Deburring']/parent::div/following-sibling::div//div[@class='ant-select-selector']"))
 		WebUI.click(xpath("//*[@id='deburringType_list']/following-sibling::div[@class='rc-virtual-list']//div[@title='$value']"))
 		return this
 	}
@@ -594,12 +599,6 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage verifyLaserMarkingSelectVisible() {
 		WebUI.verifyElementClickable(xpath('//*[@id="laserMarking"]'))
 		WebUI.verifyElementVisible(xpath('//*[@id="laserMarking"]/parent::span/following::span[@title="No"]'))
-		return this
-	}
-
-	public ManufacturingInformationPage verifyPartAccordingToTheDrawingCBVisible() {
-		WebUI.verifyElementClickable(xpath('//*[@id="laserMarking"]'))
-		WebUI.verifyElementVisible(xpath("//input[@id='partAccordingToTheDrawing']/parent::span"))
 		return this
 	}
 

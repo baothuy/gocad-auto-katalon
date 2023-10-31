@@ -1,4 +1,4 @@
-import gocad.buyer.BulkPricingPage
+import gocad.common.BulkPricingPage
 import katalon.fw.lib.Page
 
 import gocad.buyer.SettingsLeftNavMenu
