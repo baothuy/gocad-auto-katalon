@@ -49,7 +49,6 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
 										.inputThread(threadNum)
-										//.clickPartAccordingToTheDrawingCB(partAccordingToTheDrawing)
 										.inputComment(comment)
 
 println '>> click Calculate and move to Review page'
@@ -104,6 +103,7 @@ Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
 					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)
 					 .verifyTablePartReview(partName, tablePart)
+					 .verifyThichnessValue(partName, thicknessNum)
 					 .verifyShippingInfo(listShippingInfo)
 						
 println '>>  Buyer click Logout button'
@@ -131,4 +131,5 @@ Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
 					 .verifyShippingAddress(listShippingAddress)
 					 .verifyOrderSummary(listOrderSummary)
 					 .verifyTablePartReview(partName, tablePart)
+					 .verifyThichnessValue(partName, thicknessNum)
 					 .verifyShippingInfo(listShippingInfo)

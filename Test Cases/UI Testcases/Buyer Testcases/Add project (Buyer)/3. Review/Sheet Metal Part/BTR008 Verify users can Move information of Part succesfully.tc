@@ -95,12 +95,6 @@
       <value></value>
       <variableId>cb651908-fea5-4ebd-8167-e547e55e481a</variableId>
    </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>6275d9bf-83db-468c-8607-a26229cf537c</variableId>
-   </variableLinks>
    <variable>
       <defaultValue>'dxf-testing.dxf'</defaultValue>
       <description></description>
@@ -205,12 +199,5 @@
       <id>cb651908-fea5-4ebd-8167-e547e55e481a</id>
       <masked>false</masked>
       <name>unitPrice</name>
-   </variable>
-   <variable>
-      <defaultValue>'false'</defaultValue>
-      <description></description>
-      <id>6275d9bf-83db-468c-8607-a26229cf537c</id>
-      <masked>false</masked>
-      <name>partAccordingToTheDrawing</name>
    </variable>
 </TestCaseEntity>

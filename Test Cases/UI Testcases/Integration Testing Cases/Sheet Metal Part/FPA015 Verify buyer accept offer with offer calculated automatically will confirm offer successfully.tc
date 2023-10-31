@@ -77,12 +77,6 @@
    <variableLinks>
       <testDataLinkId>e3254540-b87f-4ce0-8248-2321758c799d</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>partAccordingToTheDrawing</value>
-      <variableId>0d32086c-c606-44fb-85d8-a64bea6c01f1</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>e3254540-b87f-4ce0-8248-2321758c799d</testDataLinkId>
-      <type>DATA_COLUMN</type>
       <value>comment</value>
       <variableId>ba29974b-35b4-4f08-a539-615dda58fcf3</variableId>
    </variableLinks>
@@ -197,13 +191,6 @@
       <id>d93a4a62-ecad-4141-8c7e-5e81629d891a</id>
       <masked>false</masked>
       <name>threadNum</name>
-   </variable>
-   <variable>
-      <defaultValue>'false'</defaultValue>
-      <description></description>
-      <id>0d32086c-c606-44fb-85d8-a64bea6c01f1</id>
-      <masked>false</masked>
-      <name>partAccordingToTheDrawing</name>
    </variable>
    <variable>
       <defaultValue>'6'</defaultValue>

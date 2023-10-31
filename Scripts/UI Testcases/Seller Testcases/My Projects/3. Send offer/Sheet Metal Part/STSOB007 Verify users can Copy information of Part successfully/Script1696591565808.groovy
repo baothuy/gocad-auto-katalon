@@ -59,7 +59,7 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.inputCountersink(countersinkNum)
 										.inputThread(threadNum)
 										.inputComment(comment)
-										.clickPartAccordingToTheDrawingCB(partAccordingToTheDrawing)
+										
 										.inputDeliveryDate(deliveryDate)
 
 println '>> click Calculate button'

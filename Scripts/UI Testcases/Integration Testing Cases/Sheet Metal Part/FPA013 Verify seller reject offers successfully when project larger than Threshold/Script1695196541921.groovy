@@ -49,8 +49,7 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.selectLaserMarking(laserMarking)
 										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
-										.inputThread(threadNum)
-										.clickPartAccordingToTheDrawingCB(partAccordingToTheDrawing)
+										.inputThread(threadNum)										
 										.inputComment(comment)
 
 println '>> click Calculate and move to Review page'

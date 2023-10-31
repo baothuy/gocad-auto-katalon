@@ -52,7 +52,7 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
 										.inputThread(threadNum)
-										.clickPartAccordingToTheDrawingCB(partAccordingToTheDrawing)
+										
 										.inputComment(comment)
 
 println '>> click Calculate button'
@@ -74,7 +74,6 @@ Page.nav(MovePartPopup).verifyMaterialValue(material)
 						.verifyCuttingLayersValue(cuttingLayers)
 						.verifyDeburringValue(deburring)
 						.verifyThreadCuttingValue(threadNum)
-						.verifyPartAccordingToTheDrawingValue(partAccordingToTheDrawing)
 						.verifyAdditionalCommentsValue(comment)
 						.verifyUnitPriceValue(unitPrice)
 						.verifyNetPriceValue(netPrice)

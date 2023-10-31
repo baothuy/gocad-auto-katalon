@@ -185,6 +185,16 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
+	
+	public DetailOffer verifyThichnessValue(String partName, String expectedResult ) {
+		List<String> findTestObjects = findTestObjects("//*[@class='ant-table-thead']//th[text()='Thickness (mm)']")
+		if (findTestObjects.size() != 0)
+		{
+			String thicknessAct = WebUI.getText(thicknessCol(partName))
+			WebUI.verifyEqual(thicknessAct, expectedResult)
+		}
+		return this
+	}
 
 	public DetailOffer verifyOrderSummary(List<String> expectedResult) {
 		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label"))
