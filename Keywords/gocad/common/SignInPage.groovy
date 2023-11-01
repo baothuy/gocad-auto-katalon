@@ -80,8 +80,7 @@ public class MySignInPage extends BasePage<MySignInPage> {
 	}
 
 	public MySignInPage verifySuccessfullySignInAsSeller () {
-		WebUI.delay(GlobalVariable.smallSleepTime)
-		WebUI.verifyTextPresent('Dashboard', false)
+		WebUI.delay(GlobalVariable.smallSleepTime)		
 		List<String> findObjects = findTestObjects("//a[text()='Open inquiries']")
 		if (findObjects.size() == 0)
 		{
@@ -90,11 +89,20 @@ public class MySignInPage extends BasePage<MySignInPage> {
 			WebUI.click(xpath("//span[text()='English']"))
 			WebUI.delay(1)
 		}
+		WebUI.verifyTextPresent('Dashboard', false)
 		return this
 	}
 
 	public MySignInPage verifySuccessfullySignInAsBuyer () {
-		WebUI.delay(GlobalVariable.smallSleepTime)
+		WebUI.delay(GlobalVariable.smallSleepTime)		
+		List<String> findObjects = findTestObjects("//a[text()='Draft']")
+		if (findObjects.size() == 0)
+		{
+			WebUI.click(xpath("//button[@class='btn']"))
+			WebUI.waitForElementPresent(xpath("//span[text()='English']"), 5)
+			WebUI.click(xpath("//span[text()='English']"))
+			WebUI.delay(1)
+		}
 		WebUI.verifyTextPresent('Draft', false)
 		return this
 	}
