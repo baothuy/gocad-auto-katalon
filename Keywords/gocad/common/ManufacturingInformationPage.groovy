@@ -103,7 +103,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		String isChecked = contentClass.contains("checked")
 		boolean isYes = value.equals("true")
 		if(Boolean.parseBoolean(isChecked) != isYes) {
-			WebUI.click(xpath('//span[text()="Provide own material (From customer)"]'))
+			WebUI.click(xpath('//span[text()="Provide own material"]'))
 		}
 		return this
 	}
@@ -638,7 +638,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifySelectMaterialVisible() {
-		WebUI.verifyElementVisible(xpath('//*[@id="materialId"]/a'))
+		WebUI.verifyElementVisible(xpath("//label[@for='materialId']/parent::div/following::a"))
 		return this
 	}
 

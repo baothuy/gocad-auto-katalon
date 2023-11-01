@@ -51,7 +51,6 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
 										.inputThread(threadNum)
-										
 										.inputComment(comment)										
 										.inputDeliveryDate(deliveryDate)
 

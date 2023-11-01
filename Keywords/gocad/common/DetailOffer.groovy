@@ -307,7 +307,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String partNameCol = WebUI.getText(partCol(partName))
 		String material = WebUI.getText(materialCol(partName))
 		String quantity = WebUI.getText(quantityCol(partName))
-		List<String> unitPriceObject = findTestObjects("//div[text()='$partName']/ancestor::tr/td[6]//input[@id='unitPrice']")
+		List<String> unitPriceObject = findTestObjects("//div[text()='$partName']/ancestor::tr/td[7]//input[@id='unitPrice']")
 		println "unitPriceObject: $unitPriceObject"
 		def unitPrice = (unitPriceObject.size() == 0) ? WebUI.getText(unitPriceCol(partName)) : (WebUI.getAttribute(unitPriceInputCol(partName), "value") + " $GlobalVariable.currency")
 		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName))

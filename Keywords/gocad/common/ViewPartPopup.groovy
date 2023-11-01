@@ -272,7 +272,7 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 		{
 			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Rolling Direction']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Laser marking']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Countersink']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Thickness (mm)']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment']"))
