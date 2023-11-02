@@ -104,7 +104,7 @@
       <name>filePDF</name>
    </variable>
    <variable>
-      <defaultValue>'150'</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description></description>
       <id>356bb81d-8dff-42cc-982d-55e6b9032af8</id>
       <masked>false</masked>

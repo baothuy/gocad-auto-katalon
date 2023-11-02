@@ -89,8 +89,8 @@ public class SentOffersPage extends BasePage<SentOffersPage>{
 	}
 
 	public SentOffersPage verifyUIVisible() {
-		WebUI.verifyElementVisible(xpath("//h5[text()='Sent offers']"))
-		WebUI.verifyElementVisible(xpath("//h5[text()='Sent offers']/following::i[text()='$contentPage']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Sent']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Sent']/following::i[text()='$contentPage']"))
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))

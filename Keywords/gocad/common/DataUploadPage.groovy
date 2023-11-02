@@ -54,7 +54,7 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 	}
 
 	public DataUploadPage verifyUIDataUploadPageOfBuyer(String projectName) {
-		WebUI.verifyElementVisible(xpath("//span[text()='$projectName']"))
+		WebUI.verifyElementVisible(xpath("//label[text()='$projectName']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Data upload']/parent::div/preceding-sibling::div//*[text()='1']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Manufacturing information']/parent::div/preceding-sibling::div//*[text()='2']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Review']/parent::div/preceding-sibling::div//*[text()='3']"))
@@ -71,7 +71,7 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 	}
 
 	public DataUploadPage verifyUIDataUploadPageOfSeller(String projectName) {
-		WebUI.verifyElementVisible(xpath("//span[text()='$projectName']"))
+		WebUI.verifyElementVisible(xpath("//label[text()='$projectName']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Data upload']/parent::div/preceding-sibling::div//*[text()='1']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Manufacturing information']/parent::div/preceding-sibling::div//*[text()='2']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Send offer']/parent::div/preceding-sibling::div//*[text()='3']"))

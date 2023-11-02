@@ -69,8 +69,8 @@ public class ReceivedOffersPage extends BasePage<ReceivedOffersPage>{
 	}
 
 	public ReceivedOffersPage verifyUIVisible() {
-		WebUI.verifyElementVisible(xpath("//h5[text()='Received Offers']"))
-		WebUI.verifyElementVisible(xpath("//h5[text()='Received Offers']/following::i[text()='$contentReceivedOffersPage']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Received']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Received']/following::i[text()='$contentReceivedOffersPage']"))
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))

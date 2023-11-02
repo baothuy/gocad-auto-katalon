@@ -69,8 +69,8 @@ public class CancelledOffersPageOfBuyer extends BasePage<CancelledOffersPageOfBu
 	}
 
 	public CancelledOffersPageOfBuyer verifyUIVisible() {
-		WebUI.verifyElementVisible(xpath("//h5[text()='Cancelled Offers']"))
-		WebUI.verifyElementVisible(xpath("//h5[text()='Cancelled Offers']/following::i[text()='$contentCancelledOffersPage']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Cancelled']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Cancelled']/following::i[text()='$contentCancelledOffersPage']"))
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))

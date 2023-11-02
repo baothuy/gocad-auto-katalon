@@ -90,7 +90,7 @@ public class ManufacturingInformationReport extends BasePage<ManufacturingInform
 		WebUI.verifyElementVisible(xpath("//div[text()='$section']/parent::div//child::div[text()='$machineName']"))
 		return this
 	}
-	
+
 	public ManufacturingInformationReport verifyTimeMachines(String section, String machineName, String expectedResult) {
 		WebUI.getText(xpath("//div[text()='$section']/parent::div//child::div[text()='$machineName']/following-sibling::div[1]"))
 		return this
@@ -100,28 +100,28 @@ public class ManufacturingInformationReport extends BasePage<ManufacturingInform
 		WebUI.verifyElementVisible(xpath("//div[text()='$section']/parent::div//child::div[text()='$materialName']"))
 		return this
 	}
-	
+
 	public ManufacturingInformationReport verifyEditButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//span[text()='Edit']/parent::button"))
 		return this
 	}
-	
+
 	public ManufacturingInformationReport verifyCancelButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//span[text()='Cancel']/parent::button"))
 		return this
 	}
-	
+
 	public ManufacturingInformationReport verifyUnitPriceOnManufacturingReportPage(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Unit price']/ancestor::h5/span"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
-	
+
 	public String getUnitPriceValue() {
 		String unitPrice = WebUI.getText(xpath("//*[text()='Unit price']/ancestor::h5/span"))
 		return unitPrice
 	}
-	
+
 	public ManufacturingInformationReport verifyUICommonVisible() {
 		//title
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-modal-content']//*[text()='Manufacturing information']"))

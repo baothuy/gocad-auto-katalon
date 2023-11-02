@@ -64,8 +64,8 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 	}
 
 	public ConfirmedOffersPageOfBuyer verifyUIVisible() {
-		WebUI.verifyElementVisible(xpath("//h5[text()='Confirmed Offers']"))
-		WebUI.verifyElementVisible(xpath("//h5[text()='Confirmed Offers']/following::i[text()='$contentConfirmedOffersPage']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Confirmed']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Confirmed']/following::i[text()='$contentConfirmedOffersPage']"))
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))

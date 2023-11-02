@@ -83,12 +83,6 @@
    <variableLinks>
       <testDataLinkId>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>partAccordingToTheDrawing</value>
-      <variableId>9adca676-a039-49e4-a8c9-106cf39b21e3</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</testDataLinkId>
-      <type>DATA_COLUMN</type>
       <value>comment</value>
       <variableId>7023f199-2dd0-4eff-8ecd-e8a725253652</variableId>
    </variableLinks>
@@ -137,7 +131,7 @@
    <variableLinks>
       <testDataLinkId>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>rollingDirectionChanged</value>
+      <value>laserMarkingChanged</value>
       <variableId>3cca0f35-1501-48da-a33f-eb7645352e27</variableId>
    </variableLinks>
    <variableLinks>
@@ -246,13 +240,6 @@
       <id>16bbe8e4-500d-4764-a024-61dfeb3e8677</id>
       <masked>false</masked>
       <name>threadNum</name>
-   </variable>
-   <variable>
-      <defaultValue>'false'</defaultValue>
-      <description></description>
-      <id>9adca676-a039-49e4-a8c9-106cf39b21e3</id>
-      <masked>false</masked>
-      <name>partAccordingToTheDrawing</name>
    </variable>
    <variable>
       <defaultValue>'6'</defaultValue>

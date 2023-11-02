@@ -92,7 +92,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath("//span[text()=' Emission report']/parent::button"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage clickCostsReport() {
 		WebUI.click(xpath("//span[text()=' Costs report']/parent::button"))
 		return this
@@ -709,7 +709,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyLinkPartVisible(String fileName) {
-		WebUI.verifyElementVisible(xpath("//span[text()='$fileName']"))
+		WebUI.verifyElementVisible(xpath("//a[text()='$fileName']"))
 		return this
 	}
 

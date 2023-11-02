@@ -5,4 +5,17 @@
    <tag>functional-test,draft,ui</tag>
    <comment></comment>
    <testCaseGuid>3b514119-a634-4f3d-be93-e86990a7e752</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>26cb0466-1669-4089-b957-606934ac09f8</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'New request'</defaultValue>
+      <description></description>
+      <id>26cb0466-1669-4089-b957-606934ac09f8</id>
+      <masked>false</masked>
+      <name>status</name>
+   </variable>
 </TestCaseEntity>

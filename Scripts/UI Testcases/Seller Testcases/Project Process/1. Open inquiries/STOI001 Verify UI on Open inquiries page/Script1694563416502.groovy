@@ -28,6 +28,6 @@ Page.nav(DetailOffer).inputUnitPrice(randNumber).clickAcceptChangeUnitPrice().cl
 					.verifyUIVisible()
 					.verifyViewButtonVisible()
 					.verifyRejectOfferButtonVisible()
-					.verifyResetAdaptButtonVisible()
+					.verifyResetAdaptButtonVisible(dataRow[6])
 					.verifyAcceptAndSendOfferButtonVisible()
 					.verifyContentAlertManuallyVisible("Open Inquiries")
