@@ -5,9 +5,9 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 
-public class MySignInPage extends BasePage<MySignInPage> {
+public class SignInPage extends BasePage<SignInPage> {
 
-	public MySignInPage enterCredentialAsSeller () {
+	public SignInPage enterCredentialAsSeller () {
 		WebUI.navigateToUrl(GlobalVariable.myUrl)
 		WebUI.waitForElementPresent(id('basic_username'), 60)
 		WebUI.sendKeys(id('basic_username'), GlobalVariable.seller_mail)
@@ -15,7 +15,7 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		return this
 	}
 
-	public MySignInPage enterCredentialAsBuyer () {
+	public SignInPage enterCredentialAsBuyer () {
 		WebUI.navigateToUrl(GlobalVariable.myUrl)
 		WebUI.waitForElementPresent(id('basic_username'), 60)
 		WebUI.sendKeys(id('basic_username'), GlobalVariable.buyer_mail)
@@ -23,7 +23,7 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		return this
 	}
 
-	public MySignInPage enterCredential(String user_name, String password) {
+	public SignInPage enterCredential(String user_name, String password) {
 		WebUI.navigateToUrl(GlobalVariable.myUrl)
 		WebUI.waitForElementPresent(id('basic_username'), 60)
 		WebUI.sendKeys(id('basic_username'), user_name)
@@ -31,27 +31,27 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		return this
 	}
 
-	public MySignInPage openBrowser () {
+	public SignInPage openBrowser () {
 		WebUI.navigateToUrl(GlobalVariable.myUrl)
 		return this
 	}
 
-	public MySignInPage inputEmail (String email) {
+	public SignInPage inputEmail (String email) {
 		clearTextAndSendKeysByActions(id('basic_username'), email)
 		return this
 	}
 
-	public MySignInPage inputPassword (String password) {
+	public SignInPage inputPassword (String password) {
 		clearTextAndSendKeysByActions(id('basic_password'), password)
 		return this
 	}
 
-	public MySignInPage clickSignIn () {
+	public SignInPage clickSignIn () {
 		WebUI.click(byType("submit"))
 		return this
 	}
 
-	public MySignInPage verifyAfterInputWrongAccount () {
+	public SignInPage verifyAfterInputWrongAccount () {
 		WebUI.delay(GlobalVariable.smallSleepTime)
 		String message = WebUI.getText(xpath('//div[@class="alert alert-danger alert-dismissible fade show"]'))
 		String inputExpected = "Invalid email or password. Please try again."
@@ -59,7 +59,7 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		return this
 	}
 
-	public MySignInPage verifyShowErrorWhenInputField () {
+	public SignInPage verifyShowErrorWhenInputField () {
 		List<String> findObjectEmail = findTestObjects("//*[@id='basic_username_help']/div")
 		List<String> findObjectPassword = findTestObjects("//*[@id='basic_password_help']/div")
 		if (findObjectEmail.size() != 0) {
@@ -73,13 +73,13 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		return this
 	}
 
-	public MySignInPage verifyShowErrorWhenInputPassword (String inputExpected) {
+	public SignInPage verifyShowErrorWhenInputPassword (String inputExpected) {
 		String message = WebUI.getText(xpath('//*[@id="basic_password_help"]/div'))
 		WebUI.verifyEqual(message, inputExpected)
 		return this
 	}
 
-	public MySignInPage verifySuccessfullySignInAsSeller () {
+	public SignInPage verifySuccessfullySignInAsSeller () {
 		WebUI.delay(GlobalVariable.smallSleepTime)
 		List<String> findObjects = findTestObjects("//a[text()='Open inquiries']")
 		if (findObjects.size() == 0) {
@@ -92,7 +92,7 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		return this
 	}
 
-	public MySignInPage verifySuccessfullySignInAsBuyer () {
+	public SignInPage verifySuccessfullySignInAsBuyer () {
 		WebUI.delay(GlobalVariable.smallSleepTime)
 		List<String> findObjects = findTestObjects("//a[text()='Draft']")
 		if (findObjects.size() == 0) {
@@ -105,7 +105,7 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		return this
 	}
 
-	public MySignInPage changeLanguage () {
+	public SignInPage changeLanguage () {
 		WebUI.click(xpath("//button[@class='btn']"))
 		WebUI.waitForElementPresent(xpath("//span[text()='English']"), 5)
 		WebUI.click(xpath("//span[text()='English']"))
@@ -113,12 +113,12 @@ public class MySignInPage extends BasePage<MySignInPage> {
 		return this
 	}
 
-	public MySignInPage clickRegistrationTab () {
+	public SignInPage clickRegistrationTab () {
 		WebUI.click(xpath("//*[text()='Registration']"))
 		return this
 	}
 
-	public MySignInPage verifyUIVisible () {
+	public SignInPage verifyUIVisible () {
 		//change language button
 		WebUI.verifyElementVisible(xpath("//button[@class='btn']"))
 		//2 tab login and registration

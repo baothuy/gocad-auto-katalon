@@ -5,7 +5,7 @@ import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
 import gocad.seller.MyProjectsPage
 import gocad.seller.SendOfferPage
@@ -16,7 +16,7 @@ import katalon.utility.FileHelper
 
 
 println '>> User Seller signs in page'
-Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>> User Seller add project'
 Page.nav(LeftNavBar).clickMyProjects()

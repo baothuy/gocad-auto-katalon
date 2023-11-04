@@ -3,14 +3,14 @@ import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.FileHelper
 
 println '>>  User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>>  User buyer add project'
 Page.nav(LeftNavBar).clickAddProject()
@@ -98,7 +98,7 @@ println '>> Verify UI after calculated manually of request'
 Page.nav(ManufacturingInformationPage).verifyMaterialValue(material)
 										.verifyQuantityValue(quantityNumChanged)
 										.verifyThreadValueOnSMP(threadNumChanged)
-										.verifyRollingDirectionValue(rollingDirectionChanged)
+										.verifyLaserMarkingValue(laserMarkingChanged)
 										.verifyCountersinkValue(countersinkNumChanged)
 										.verifyThicknessValue(partName, thicknessNumChanged)
 										.verifySurfaceTreatmentValue(surfaceTreatmentChanged)

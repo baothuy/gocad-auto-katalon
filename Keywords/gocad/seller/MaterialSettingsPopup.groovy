@@ -127,8 +127,8 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		return this
 	}
 
-	public MaterialSettingsPopup verifyShowErrorWhenTypeEmpty(String expectedResult) {
-		String actualResult = WebUI.getText(xpath("//*[@id='shapeType_help']/div"))
+	public MaterialSettingsPopup verifyShowErrorWhenThicknessEmpty(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@id='thickness_help']/div"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}

@@ -1,13 +1,13 @@
 import gocad.buyer.DraftPage
 import gocad.seller.SearchInProjectsPopup
 import gocad.common.LeftNavBar
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.seller.OpenInquiriesPage
 import katalon.fw.lib.Page
 import katalon.utility.DateTimeUtility
 
 println '>> User seller signs in page'
-Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>> Click Open inquiries menu to find project in list'
 Page.nav(LeftNavBar).clickOpenInquiries()

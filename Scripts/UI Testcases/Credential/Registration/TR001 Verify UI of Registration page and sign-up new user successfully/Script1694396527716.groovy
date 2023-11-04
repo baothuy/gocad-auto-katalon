@@ -1,10 +1,10 @@
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.common.RegistrationPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
 println '>> User click Registration tab'
-Page.nav(MySignInPage).openBrowser().changeLanguage().clickRegistrationTab()
+Page.nav(SignInPage).openBrowser().changeLanguage().clickRegistrationTab()
 
 String randomEmail = CommonUtility.mergeRandomEmail(email, 5)
 println '>> Verify page Registration UI Visible'

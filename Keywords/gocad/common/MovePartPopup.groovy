@@ -1,5 +1,7 @@
 package gocad.common
 
+import org.openqa.selenium.Keys
+
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import internal.GlobalVariable
@@ -36,8 +38,7 @@ public class MovePartPopup extends BasePage<MovePartPopup> {
 	}
 
 	public MovePartPopup inputProjectToMove(String projectName) {
-		WebUI.setText(xpath("//*[@class='ant-input-prefix']/following::input[@type='search']"), projectName)
-		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$projectName']"))
+		WebUI.sendKeys(xpath("//*[@class='ant-input-prefix']/following::input[@type='search']"), projectName + Keys.ENTER)
 		return this
 	}
 

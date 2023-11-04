@@ -30,7 +30,7 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 		WebUI.click(xpath("//*[@aria-label='edit']/parent::button"))
 		return this
 	}
-	
+
 	public SendOfferPage clickMoreOption(String partName) {
 		WebUI.click(actionMore(partName))
 		return this
@@ -40,7 +40,7 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 		WebUI.click(xpath("//*[contains(text(),'View')]"))
 		return this
 	}
-	
+
 	public SendOfferPage clickCopy() {
 		WebUI.click(xpath("//*[contains(text(),'Copy')]"))
 		return this
@@ -51,7 +51,7 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-item ant-select-item-option')]//span[text()='$text']"))
 		return this
 	}
-	
+
 	public SendOfferPage clickFilePDFDownload() {
 		WebUI.click(xpath("//*[text()='Preview Offer']"))
 		return this
@@ -185,7 +185,7 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 		WebUI.verifyEqual(actualShippingAddress, expectedResult)
 		return this
 	}
-	
+
 	public List<String> getTablePartReview(String partName) {
 		String partNameCol = WebUI.getText(partCol(partName))
 		String material = WebUI.getText(materialCol(partName))

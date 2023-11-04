@@ -7,13 +7,13 @@ import gocad.common.CopyPartPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>> Get company Name on Settings page'
 Page.nav(LeftNavBar).clickSettings()

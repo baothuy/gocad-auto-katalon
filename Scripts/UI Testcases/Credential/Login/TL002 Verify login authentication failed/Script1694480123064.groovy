@@ -1,11 +1,11 @@
 import gocad.common.LeftNavBar
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import internal.GlobalVariable
 import katalon.fw.lib.Page
 
 
 println '>> Login with wrong email or password'
-Page.nav(MySignInPage).openBrowser()
+Page.nav(SignInPage).openBrowser()
 						.changeLanguage()
 						.inputEmail(email)
 						.inputPassword(password)
@@ -15,11 +15,11 @@ switch(inputExpected)
 {
 	case "errorSystem":
 		println '>> Verify when input error email or password'
-		Page.nav(MySignInPage).verifyAfterInputAccount()
+		Page.nav(SignInPage).verifyAfterInputAccount()
 		break;
 	case "errorUI":
 		println '>> Verify when input error email or password'
-		Page.nav(MySignInPage).verifyShowErrorWhenInputField()
+		Page.nav(SignInPage).verifyShowErrorWhenInputField()
 		break;
 }											
 

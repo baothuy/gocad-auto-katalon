@@ -2,7 +2,7 @@ import gocad.buyer.DraftPage
 import gocad.buyer.ReviewPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import katalon.fw.lib.Page
 
 
@@ -12,7 +12,7 @@ println '>> Random project name'
 //def projectName = CommonUtility.generateRandomProjectName(10)
 //
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickViewAction('7162')

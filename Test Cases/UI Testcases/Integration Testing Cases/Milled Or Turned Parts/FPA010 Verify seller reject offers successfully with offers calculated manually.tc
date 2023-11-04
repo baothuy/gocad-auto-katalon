@@ -105,107 +105,107 @@
       <variableId>c0b3b62b-c2f5-4a4e-98e9-58e47b562b45</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'step-testing.step'</defaultValue>
+      <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
-      <id>738f3277-ea92-4165-aa2f-f469883311f9</id>
+      <id>78717f81-35f4-4a03-bf31-6b51807c5f2e</id>
       <masked>false</masked>
       <name>partName</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>ca02cf0e-7716-4f8a-8931-02773bad2ae4</id>
+      <id>c1e5fcc0-d227-4a0e-9f7d-9cb640415ca0</id>
       <masked>false</masked>
       <name>filePDF</name>
    </variable>
    <variable>
       <defaultValue>'2'</defaultValue>
       <description></description>
-      <id>746db721-5fca-4b54-b023-22c459eb97fd</id>
+      <id>8e364813-81f4-4eaa-92dd-762cba92e264</id>
       <masked>false</masked>
       <name>quantityNum</name>
    </variable>
    <variable>
       <defaultValue>'3'</defaultValue>
       <description></description>
-      <id>f357b041-5dbe-4a09-9b0f-21076752c5b2</id>
+      <id>cadcd02a-9a4a-4a73-96a0-9a835a65509b</id>
       <masked>false</masked>
       <name>threadNum</name>
    </variable>
    <variable>
       <defaultValue>'4'</defaultValue>
       <description></description>
-      <id>3cb30fcd-5967-4808-8767-ca3267fc7f41</id>
+      <id>7fd59e68-2070-4b35-917c-741af579cf85</id>
       <masked>false</masked>
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Sandblasting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentMTP</defaultValue>
       <description></description>
-      <id>59dcec87-69b0-4e3f-bdd0-8beafe118edb</id>
+      <id>f06efde4-8b48-4e82-9c09-430fe0543fef</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'Ra 0,8 - 1,6 (finely finished); Rz 6,3 - 10'</defaultValue>
+      <defaultValue>GlobalVariable.quality</defaultValue>
       <description>Ra 3,2 - 25 (roughed); Rz 16 - 100; Ra 1,6 - 3,2 (settled); Rz 10 - 16</description>
-      <id>54c2c89a-80a7-4dd3-a91e-c3ad7b734a25</id>
+      <id>af377a0c-b5de-4d25-ba0f-040df52de71f</id>
       <masked>false</masked>
       <name>quality</name>
    </variable>
    <variable>
       <defaultValue>'5'</defaultValue>
       <description></description>
-      <id>86bcee09-d052-453c-bccc-47d0a57bd6f6</id>
+      <id>1b5414b9-135f-4019-92be-a6c48ade3c11</id>
       <masked>false</masked>
       <name>comment</name>
    </variable>
    <variable>
       <defaultValue>'Yes'</defaultValue>
       <description></description>
-      <id>ccb66854-c712-4ba8-9b8f-ca34a5dde1cf</id>
+      <id>29c96ef6-1888-43ec-957d-261d503503b9</id>
       <masked>false</masked>
       <name>tolerancesToggle</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupMTP</defaultValue>
       <description></description>
-      <id>105ae4aa-1370-4066-9598-9c12c27106f6</id>
+      <id>456ec4f7-0215-4fc4-b16f-466946f5511f</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'EN AW-7075 / AlZn5'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameSMP</defaultValue>
       <description></description>
-      <id>1a5a341b-ddea-4e5d-8397-ab9e426bcce6</id>
+      <id>2c02cbb8-c167-4c76-b462-52fd79f1ac44</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
       <description></description>
-      <id>79ba1a93-4ed3-49f0-afd5-fff81be79dfc</id>
+      <id>65316e39-d770-41ee-abf8-b9c1bac26fa2</id>
       <masked>false</masked>
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'STANDARD'</defaultValue>
+      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
       <description></description>
-      <id>1dcf900a-776d-4a1f-949e-04704b21410e</id>
+      <id>e4167302-c2db-4dfd-9719-7d54247b3f49</id>
       <masked>false</masked>
       <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>'Standard shipping'</defaultValue>
+      <defaultValue>GlobalVariable.shippingOption</defaultValue>
       <description></description>
-      <id>7a9c3edf-ef9c-42d8-83ee-d730e0669c17</id>
+      <id>cb9b750c-6437-4e6d-82fb-de0eb22d6e6a</id>
       <masked>false</masked>
       <name>shippingOption</name>
    </variable>
    <variable>
-      <defaultValue>'58'</defaultValue>
+      <defaultValue>'58,03'</defaultValue>
       <description></description>
-      <id>c0b3b62b-c2f5-4a4e-98e9-58e47b562b45</id>
+      <id>b62c1583-9534-4fd3-8764-8d8799a09f5c</id>
       <masked>false</masked>
       <name>unitPriceChanged</name>
    </variable>

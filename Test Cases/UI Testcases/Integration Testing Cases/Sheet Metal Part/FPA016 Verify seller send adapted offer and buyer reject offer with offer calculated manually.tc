@@ -15,109 +15,115 @@
       <testDataId>Data Files/Sheet Metal Part/FPA014-016-020</testDataId>
    </testDataLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>fileName</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>filePDF</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>c309959f-9012-4d31-b438-d72da8f55a0a</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>thicknessNum</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>297f10f3-6561-45ef-9b65-b342b95a5f1f</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>quantityNum</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>5a487b1a-2dc0-4f54-857d-66e74db09fc5</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>surfaceTreatment</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>2ca5335a-6b22-4a08-b341-d96e3c83dc9f</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>laserMarking</value>
-      <variableId>31523c65-a1ea-4be3-9e54-6b1b8674262f</variableId>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e5caabff-6263-4264-9e22-21159ba448bc</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>cuttingLayers</value>
-      <variableId>d3a7d245-e677-4192-896f-e14b1ef7b080</variableId>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>fea9d141-80e4-4ba2-ad38-ac670c1f71ab</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>deburring</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>92334211-dd7b-4ff4-9017-d7aefabddc39</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>countersinkNum</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>d9ceecd4-f896-4810-9104-43692df248d9</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>threadNum</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>d93a4a62-ecad-4141-8c7e-5e81629d891a</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>comment</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>ba29974b-35b4-4f08-a539-615dda58fcf3</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>materialGroup</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>499794cd-e3be-4af0-9b39-46d8d0895543</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>materialName</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>provideOwnProduct</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>deliveryOption</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>68a51f21-edfb-40a8-a2f2-add18c5239b5</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>shippingOption</value>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>3f868299-9f57-4393-bacd-1eec0b4170bf</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9a67118b-7470-4a59-ac7e-86a92086506e</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>unitPriceChanged</value>
-      <variableId>1a1fc51a-7a17-4def-93b5-027c4a552cd3</variableId>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>b5b32b58-2615-4b35-a59c-2849bfa20e4d</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f330aa7b-2459-47e5-9a40-d8b70fea6db4</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'dxf-testing.dxf'</defaultValue>
+      <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
       <id>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</id>
       <masked>false</masked>
@@ -138,35 +144,35 @@
       <name>thicknessNum</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
+      <defaultValue>'100'</defaultValue>
       <description></description>
       <id>5a487b1a-2dc0-4f54-857d-66e74db09fc5</id>
       <masked>false</masked>
       <name>quantityNum</name>
    </variable>
    <variable>
-      <defaultValue>'Painting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentSMP</defaultValue>
       <description></description>
       <id>2ca5335a-6b22-4a08-b341-d96e3c83dc9f</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'No'</defaultValue>
-      <description>Parallel, Quer, Egal</description>
-      <id>31523c65-a1ea-4be3-9e54-6b1b8674262f</id>
+      <defaultValue>GlobalVariable.laserMarking</defaultValue>
+      <description></description>
+      <id>e5caabff-6263-4264-9e22-21159ba448bc</id>
       <masked>false</masked>
       <name>laserMarking</name>
    </variable>
    <variable>
       <defaultValue>'All layers'</defaultValue>
       <description></description>
-      <id>d3a7d245-e677-4192-896f-e14b1ef7b080</id>
+      <id>fea9d141-80e4-4ba2-ad38-ac670c1f71ab</id>
       <masked>false</masked>
       <name>cuttingLayers</name>
    </variable>
    <variable>
-      <defaultValue>'One-sided'</defaultValue>
+      <defaultValue>GlobalVariable.deburring</defaultValue>
       <description></description>
       <id>92334211-dd7b-4ff4-9017-d7aefabddc39</id>
       <masked>false</masked>
@@ -194,45 +200,52 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupSMP</defaultValue>
       <description></description>
       <id>499794cd-e3be-4af0-9b39-46d8d0895543</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'X14CrMoS17'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameSMP</defaultValue>
       <description></description>
       <id>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
       <description></description>
       <id>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</id>
       <masked>false</masked>
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'STANDARD'</defaultValue>
+      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
       <description></description>
       <id>68a51f21-edfb-40a8-a2f2-add18c5239b5</id>
       <masked>false</masked>
       <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>'Standard shipping'</defaultValue>
+      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
       <description></description>
       <id>3f868299-9f57-4393-bacd-1eec0b4170bf</id>
       <masked>false</masked>
       <name>shippingOption</name>
    </variable>
    <variable>
-      <defaultValue>'58,03'</defaultValue>
+      <defaultValue>'60'</defaultValue>
       <description></description>
-      <id>1a1fc51a-7a17-4def-93b5-027c4a552cd3</id>
+      <id>b5b32b58-2615-4b35-a59c-2849bfa20e4d</id>
       <masked>false</masked>
       <name>unitPriceChanged</name>
+   </variable>
+   <variable>
+      <defaultValue>'abc'</defaultValue>
+      <description></description>
+      <id>f330aa7b-2459-47e5-9a40-d8b70fea6db4</id>
+      <masked>false</masked>
+      <name>packagingAndShippingComments</name>
    </variable>
 </TestCaseEntity>

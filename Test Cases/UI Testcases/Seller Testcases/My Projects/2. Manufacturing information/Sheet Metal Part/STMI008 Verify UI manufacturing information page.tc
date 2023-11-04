@@ -12,7 +12,7 @@
       <variableId>6f6956de-c788-4b1d-ba28-aecb839454f7</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'dxf-testing.dxf'</defaultValue>
+      <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
       <id>6f6956de-c788-4b1d-ba28-aecb839454f7</id>
       <masked>false</masked>

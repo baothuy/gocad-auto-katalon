@@ -8,7 +8,7 @@ import gocad.buyer.ReviewPage
 import gocad.common.SelectMaterialPopup
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.seller.ConfirmedOffersPageOfSeller
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
@@ -19,7 +19,7 @@ println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>>  User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>>  User buyer add project'
 Page.nav(LeftNavBar).clickAddProject()
@@ -110,7 +110,7 @@ println '>>  Buyer click Logout button'
 Page.nav(LeftNavBar).clickLogout()
 
 println '>>  Seller Login system to check offers of buyer'
-Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>>  Seller go confirmed offers of buyer checkout'
 Page.nav(LeftNavBar).clickConfirmedOffers()

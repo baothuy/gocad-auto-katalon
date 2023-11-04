@@ -5,7 +5,7 @@ import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
 import gocad.seller.AccountSettingsPage
 import gocad.seller.ConfirmedOffersPageOfSeller
@@ -20,7 +20,7 @@ println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>>  User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>>  get company name of seller'
 Page.nav(LeftNavBar).clickAccount()
@@ -115,7 +115,7 @@ println '>> Seller click Logout button'
 Page.nav(LeftNavBar).clickLogout()
   
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().clickSignIn().verifySuccessfullySignInAsBuyer()
   
 println '>> Go to Received Offers list page, verify infor and go detail of offers'
 Page.nav(LeftNavBar).clickReceivedOffers()
@@ -155,7 +155,7 @@ println '>> Seller click Logout button'
 Page.nav(LeftNavBar).clickLogout()
   
 println '>> Seller Login system to check offers of buyer'
-Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 					  
 println '>> Verify information show on list'
 Page.nav(LeftNavBar).clickConfirmedOffers()

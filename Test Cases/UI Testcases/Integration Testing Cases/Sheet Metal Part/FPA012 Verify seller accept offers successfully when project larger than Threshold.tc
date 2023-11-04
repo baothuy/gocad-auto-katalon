@@ -9,8 +9,8 @@
       <combinationType>ONE</combinationType>
       <id>58838a52-89a3-40eb-9c98-fa87409d624f</id>
       <iterationEntity>
-         <iterationType>ALL</iterationType>
-         <value>2-4</value>
+         <iterationType>RANGE</iterationType>
+         <value>1-1</value>
       </iterationEntity>
       <testDataId>Data Files/Sheet Metal Part/FPA012-013-015-017</testDataId>
    </testDataLinks>
@@ -117,7 +117,7 @@
       <variableId>17eaebeb-ddc9-4b2b-8e2a-02327462af66</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'dxf-testing.dxf'</defaultValue>
+      <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
       <id>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</id>
       <masked>false</masked>
@@ -138,35 +138,35 @@
       <name>thicknessNum</name>
    </variable>
    <variable>
-      <defaultValue>'100'</defaultValue>
+      <defaultValue>'150'</defaultValue>
       <description></description>
       <id>5a487b1a-2dc0-4f54-857d-66e74db09fc5</id>
       <masked>false</masked>
       <name>quantityNum</name>
    </variable>
    <variable>
-      <defaultValue>'Painting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentSMP</defaultValue>
       <description></description>
       <id>2ca5335a-6b22-4a08-b341-d96e3c83dc9f</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'No'</defaultValue>
-      <description>Parallel, Quer, Egal</description>
-      <id>31523c65-a1ea-4be3-9e54-6b1b8674262f</id>
+      <defaultValue>GlobalVariable.laserMarking</defaultValue>
+      <description></description>
+      <id>e5caabff-6263-4264-9e22-21159ba448bc</id>
       <masked>false</masked>
       <name>laserMarking</name>
    </variable>
    <variable>
       <defaultValue>'All layers'</defaultValue>
       <description></description>
-      <id>86528874-2031-4a7a-b4c7-b4cd6a0c31be</id>
+      <id>fea9d141-80e4-4ba2-ad38-ac670c1f71ab</id>
       <masked>false</masked>
       <name>cuttingLayers</name>
    </variable>
    <variable>
-      <defaultValue>'No'</defaultValue>
+      <defaultValue>GlobalVariable.deburring</defaultValue>
       <description></description>
       <id>92334211-dd7b-4ff4-9017-d7aefabddc39</id>
       <masked>false</masked>
@@ -194,35 +194,35 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupSMP</defaultValue>
       <description></description>
       <id>499794cd-e3be-4af0-9b39-46d8d0895543</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'X14CrMoS17'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameSMP</defaultValue>
       <description></description>
       <id>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
       <description></description>
       <id>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</id>
       <masked>false</masked>
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'STANDARD'</defaultValue>
+      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
       <description></description>
       <id>68a51f21-edfb-40a8-a2f2-add18c5239b5</id>
       <masked>false</masked>
       <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>'Standard shipping'</defaultValue>
+      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
       <description></description>
       <id>3f868299-9f57-4393-bacd-1eec0b4170bf</id>
       <masked>false</masked>
@@ -231,7 +231,7 @@
    <variable>
       <defaultValue>'abc'</defaultValue>
       <description></description>
-      <id>17eaebeb-ddc9-4b2b-8e2a-02327462af66</id>
+      <id>f330aa7b-2459-47e5-9a40-d8b70fea6db4</id>
       <masked>false</masked>
       <name>packagingAndShippingComments</name>
    </variable>

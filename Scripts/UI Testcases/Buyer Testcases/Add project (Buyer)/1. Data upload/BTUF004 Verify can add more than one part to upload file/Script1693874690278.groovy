@@ -2,13 +2,13 @@ import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.buyer.DraftPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
 '1. User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 '2. User buyer add project'
 Page.nav(LeftNavBar).clickAddProject()

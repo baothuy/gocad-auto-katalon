@@ -288,7 +288,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyBulkPricingValue(String line, String expectedResult) {
-		String actualResult = WebUI.getText(xpath("(//*[text()='Bulk pricing']/parent::div//span[@class='text-input-value'])[$line]"))
+		String actualResult = WebUI.getText(xpath("(//*[text()='Bulk pricing']/parent::div//label[@class='text-input-value'])[$line]"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
@@ -633,7 +633,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyProvideOwnMaterialCBVisible() {
-		WebUI.verifyElementVisible(xpath('//span[text()="Provide own material (From customer)"]'))
+		WebUI.verifyElementVisible(xpath('//span[text()="Provide own material"]'))
 		return this
 	}
 
@@ -714,7 +714,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyNamePartVisible(String fileName) {
-		WebUI.verifyElementVisible(xpath("//span[text()='$fileName']"))
+		WebUI.verifyElementVisible(xpath("//a[text()='$fileName']"))
 		return this
 	}
 

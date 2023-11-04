@@ -96,108 +96,101 @@
       <variableId>2c7e583c-ae43-4652-8f65-3233c7a4db46</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'dxf-testing.dxf'</defaultValue>
+      <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
-      <id>1614e284-ceed-4539-b29c-af65d9f28f69</id>
+      <id>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</id>
       <masked>false</masked>
       <name>partName</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>db69c1ae-68c7-4791-acad-215124578efb</id>
+      <id>c309959f-9012-4d31-b438-d72da8f55a0a</id>
       <masked>false</masked>
       <name>filePDF</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
-      <description></description>
-      <id>9a53f847-02ac-4f4d-83f4-745575ed2bb8</id>
-      <masked>false</masked>
-      <name>provideOwnProduct</name>
-   </variable>
-   <variable>
       <defaultValue>'2'</defaultValue>
       <description></description>
-      <id>b38ee73b-4447-4e3a-901f-3be7899a5619</id>
+      <id>297f10f3-6561-45ef-9b65-b342b95a5f1f</id>
       <masked>false</masked>
       <name>thicknessNum</name>
    </variable>
    <variable>
       <defaultValue>'3'</defaultValue>
       <description></description>
-      <id>39ddf255-9083-45c0-abc1-4240d7fbb16f</id>
+      <id>5a487b1a-2dc0-4f54-857d-66e74db09fc5</id>
       <masked>false</masked>
       <name>quantityNum</name>
    </variable>
    <variable>
-      <defaultValue>'Painting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentSMP</defaultValue>
       <description></description>
-      <id>3b6917aa-7625-40b0-a66a-40f01fc2adf9</id>
+      <id>2ca5335a-6b22-4a08-b341-d96e3c83dc9f</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'No'</defaultValue>
-      <description>Parallel, Quer, Egal</description>
-      <id>573cf6ba-1110-4e77-a124-8f023750856e</id>
+      <defaultValue>GlobalVariable.laserMarking</defaultValue>
+      <description></description>
+      <id>e5caabff-6263-4264-9e22-21159ba448bc</id>
       <masked>false</masked>
       <name>laserMarking</name>
    </variable>
    <variable>
       <defaultValue>'All layers'</defaultValue>
       <description></description>
-      <id>b28594de-7799-4dc4-99a4-c0c039ce832f</id>
+      <id>fea9d141-80e4-4ba2-ad38-ac670c1f71ab</id>
       <masked>false</masked>
       <name>cuttingLayers</name>
    </variable>
    <variable>
-      <defaultValue>'No'</defaultValue>
+      <defaultValue>GlobalVariable.deburring</defaultValue>
       <description></description>
-      <id>d12353ea-ee7d-4746-930e-9f4eddab03a2</id>
+      <id>92334211-dd7b-4ff4-9017-d7aefabddc39</id>
       <masked>false</masked>
       <name>deburring</name>
    </variable>
    <variable>
       <defaultValue>'4'</defaultValue>
       <description></description>
-      <id>71ace95e-605f-4c51-8b44-e6db11a375ef</id>
+      <id>d9ceecd4-f896-4810-9104-43692df248d9</id>
       <masked>false</masked>
       <name>countersinkNum</name>
    </variable>
    <variable>
       <defaultValue>'5'</defaultValue>
       <description></description>
-      <id>a21a3f07-1853-4518-b354-8a5e4e2706e3</id>
+      <id>d93a4a62-ecad-4141-8c7e-5e81629d891a</id>
       <masked>false</masked>
       <name>threadNum</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
-      <description></description>
-      <id>d9e667b4-4409-491d-9db4-124bcc39f128</id>
-      <masked>false</masked>
-      <name>partAccordingToTheDrawing</name>
-   </variable>
-   <variable>
       <defaultValue>'6'</defaultValue>
       <description></description>
-      <id>8e71192f-1d19-4e88-a558-eb5ae6c40aea</id>
+      <id>ba29974b-35b4-4f08-a539-615dda58fcf3</id>
       <masked>false</masked>
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupSMP</defaultValue>
       <description></description>
-      <id>80c95586-a220-4f04-9880-8430f69c2115</id>
+      <id>499794cd-e3be-4af0-9b39-46d8d0895543</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'X14CrMoS17'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameSMP</defaultValue>
       <description></description>
-      <id>2c7e583c-ae43-4652-8f65-3233c7a4db46</id>
+      <id>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</id>
       <masked>false</masked>
       <name>materialName</name>
+   </variable>
+   <variable>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
+      <description></description>
+      <id>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</id>
+      <masked>false</masked>
+      <name>provideOwnProduct</name>
    </variable>
 </TestCaseEntity>

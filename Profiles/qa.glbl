@@ -121,7 +121,82 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>['.step', '.stp']</initValue>
+      <initValue>['.step', '.stp', '.ipt']</initValue>
       <name>milledPartFileAllow</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'step-testing.step'</initValue>
+      <name>partNameMTP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'All'</initValue>
+      <name>materialGroupMTP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'EN AW-7075 / AlZn5'</initValue>
+      <name>materialNameMTP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'false'</initValue>
+      <name>provideOwnProduct</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Sandblasting'</initValue>
+      <name>surfaceTreatmentMTP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>filePDF</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Ra 0,8 - 1,6 (finely finished); Rz 6,3 - 10'</initValue>
+      <name>quality</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'STANDARD'</initValue>
+      <name>deliveryOption</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Standard shipping'</initValue>
+      <name>shippingOption</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'dxf-testing.dxf'</initValue>
+      <name>partNameSMP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'All'</initValue>
+      <name>materialGroupSMP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'CuSn8'</initValue>
+      <name>materialNameSMP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'No'</initValue>
+      <name>laserMarking</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'One-sided'</initValue>
+      <name>deburring</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Painting'</initValue>
+      <name>surfaceTreatmentSMP</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

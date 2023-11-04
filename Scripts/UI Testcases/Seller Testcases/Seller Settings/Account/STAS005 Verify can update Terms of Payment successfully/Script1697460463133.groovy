@@ -1,12 +1,12 @@
 import gocad.common.LeftNavBar
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.common.ToastMessage
 import gocad.seller.AccountSettingsLeftNavMenu
 import gocad.seller.TermsOfPaymentSettingsPage
 import katalon.fw.lib.Page
 
 println '>> User Seller signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>> click Account'
 Page.nav(LeftNavBar).clickAccount()
