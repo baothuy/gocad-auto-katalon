@@ -108,7 +108,7 @@
       <variableId>3f868299-9f57-4393-bacd-1eec0b4170bf</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'dxf-testing.dxf'</defaultValue>
+      <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
       <id>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</id>
       <masked>false</masked>
@@ -120,13 +120,6 @@
       <id>c309959f-9012-4d31-b438-d72da8f55a0a</id>
       <masked>false</masked>
       <name>filePDF</name>
-   </variable>
-   <variable>
-      <defaultValue>'false'</defaultValue>
-      <description></description>
-      <id>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</id>
-      <masked>false</masked>
-      <name>provideOwnProduct</name>
    </variable>
    <variable>
       <defaultValue>'2'</defaultValue>
@@ -143,28 +136,28 @@
       <name>quantityNum</name>
    </variable>
    <variable>
-      <defaultValue>'Painting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentSMP</defaultValue>
       <description></description>
       <id>2ca5335a-6b22-4a08-b341-d96e3c83dc9f</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'No'</defaultValue>
-      <description>Parallel, Quer, Egal</description>
-      <id>31523c65-a1ea-4be3-9e54-6b1b8674262f</id>
+      <defaultValue>GlobalVariable.laserMarking</defaultValue>
+      <description></description>
+      <id>e5caabff-6263-4264-9e22-21159ba448bc</id>
       <masked>false</masked>
       <name>laserMarking</name>
    </variable>
    <variable>
       <defaultValue>'All layers'</defaultValue>
       <description></description>
-      <id>010b570b-0929-4fca-8ef6-3cc56cbbd7af</id>
+      <id>fea9d141-80e4-4ba2-ad38-ac670c1f71ab</id>
       <masked>false</masked>
       <name>cuttingLayers</name>
    </variable>
    <variable>
-      <defaultValue>'No'</defaultValue>
+      <defaultValue>GlobalVariable.deburring</defaultValue>
       <description></description>
       <id>92334211-dd7b-4ff4-9017-d7aefabddc39</id>
       <masked>false</masked>
@@ -185,13 +178,6 @@
       <name>threadNum</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
-      <description></description>
-      <id>ec2f9f4b-1b16-4c8a-a59b-bdddd2115b29</id>
-      <masked>false</masked>
-      <name>partAccordingToTheDrawing</name>
-   </variable>
-   <variable>
       <defaultValue>'6'</defaultValue>
       <description></description>
       <id>ba29974b-35b4-4f08-a539-615dda58fcf3</id>
@@ -199,28 +185,35 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupSMP</defaultValue>
       <description></description>
       <id>499794cd-e3be-4af0-9b39-46d8d0895543</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'X14CrMoS17'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameSMP</defaultValue>
       <description></description>
       <id>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'STANDARD'</defaultValue>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
+      <description></description>
+      <id>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</id>
+      <masked>false</masked>
+      <name>provideOwnProduct</name>
+   </variable>
+   <variable>
+      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
       <description></description>
       <id>68a51f21-edfb-40a8-a2f2-add18c5239b5</id>
       <masked>false</masked>
       <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>'Standard shipping'</defaultValue>
+      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
       <description></description>
       <id>3f868299-9f57-4393-bacd-1eec0b4170bf</id>
       <masked>false</masked>

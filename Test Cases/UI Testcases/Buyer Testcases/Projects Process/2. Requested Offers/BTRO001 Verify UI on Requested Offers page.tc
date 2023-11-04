@@ -7,7 +7,7 @@
    <testCaseGuid>53d1cbf1-35ef-4a74-a8ba-c633c1ab0ebe</testCaseGuid>
    <testDataLinks>
       <combinationType>ONE</combinationType>
-      <id>e2fc2eb5-a3b7-422f-82cc-3610021c22cd</id>
+      <id>55c4a0fc-a087-47f2-b7ed-74d8479e47cf</id>
       <iterationEntity>
          <iterationType>ALL</iterationType>
          <value></value>
@@ -15,13 +15,13 @@
       <testDataId>Data Files/Status/Requested Offers</testDataId>
    </testDataLinks>
    <variableLinks>
-      <testDataLinkId>e2fc2eb5-a3b7-422f-82cc-3610021c22cd</testDataLinkId>
+      <testDataLinkId>55c4a0fc-a087-47f2-b7ed-74d8479e47cf</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>status</value>
       <variableId>e6457c3c-ab43-45f9-ae87-946da8044e05</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'Request for quotation'</defaultValue>
+      <defaultValue>'Offer sent'</defaultValue>
       <description></description>
       <id>e6457c3c-ab43-45f9-ae87-946da8044e05</id>
       <masked>false</masked>
