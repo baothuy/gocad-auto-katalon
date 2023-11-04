@@ -141,7 +141,7 @@
       <variableId>12efad79-3f0c-41ec-a3c1-1b7b0785fee7</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'step-testing 2.step'</defaultValue>
+      <defaultValue>'step-testing.step'</defaultValue>
       <description></description>
       <id>15c2abb4-1aa3-4db2-aea7-0d58968cd07d</id>
       <masked>false</masked>

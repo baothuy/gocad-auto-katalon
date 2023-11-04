@@ -50,7 +50,8 @@ if (filePDF == "")
 	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 	
 	println '>> Input required field'
-	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+	Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
+											.inputQuantity(quantityNum)
 											.inputThread(threadNum)
 											.inputTolerances(tolerancesNum)
 											.clickToggleTolerances(tolerancesToggle)
@@ -78,7 +79,8 @@ else
 		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
 	 }
 	 
-	 Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+	 Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
+	 										.inputQuantity(quantityNum)
 											 .selectSurfaceTreatment(surfaceTreatment)
 											 .selectSurfaceQuality(quality)
 											 .inputComment(comment)
@@ -93,10 +95,6 @@ Page.nav(ReviewPage).clickCheckout()
 	
 println '>> Verify UI are visible'
 Page.nav(CheckoutPage).verifyUICheckoutVisible(partName)
-
-//println '>> Verify file part can download successfully'
-//Page.nav(CheckoutPage).clickFilePDFDownload()
-//Page.nav(FileHelper).verifyFileDownloaded(projectName + ".pdf")
 
 println '>> Verify file part can download successfully'
 Page.nav(CheckoutPage).clickEditAddress()

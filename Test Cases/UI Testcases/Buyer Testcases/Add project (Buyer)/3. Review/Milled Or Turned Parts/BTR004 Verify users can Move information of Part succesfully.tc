@@ -90,101 +90,87 @@
       <variableId>af82a926-0d94-4de7-9b4d-8b3c07b17bbc</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'stp-testing.stp'</defaultValue>
+      <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
-      <id>b3a0d240-e885-4ea7-b7b3-25f7ca5ca93a</id>
+      <id>78717f81-35f4-4a03-bf31-6b51807c5f2e</id>
       <masked>false</masked>
       <name>partName</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>af82a926-0d94-4de7-9b4d-8b3c07b17bbc</id>
+      <id>c1e5fcc0-d227-4a0e-9f7d-9cb640415ca0</id>
       <masked>false</masked>
       <name>filePDF</name>
    </variable>
    <variable>
       <defaultValue>'150'</defaultValue>
       <description></description>
-      <id>86ff25f4-2f08-4c57-b1b6-556ea610790e</id>
+      <id>8e364813-81f4-4eaa-92dd-762cba92e264</id>
       <masked>false</masked>
       <name>quantityNum</name>
    </variable>
    <variable>
       <defaultValue>'3'</defaultValue>
       <description></description>
-      <id>2cbe3fc4-2484-443c-974d-13a83af3a895</id>
+      <id>cadcd02a-9a4a-4a73-96a0-9a835a65509b</id>
       <masked>false</masked>
       <name>threadNum</name>
    </variable>
    <variable>
       <defaultValue>'4'</defaultValue>
       <description></description>
-      <id>3cd68a25-ae0f-4ef3-a29f-5519e5c335f0</id>
+      <id>7fd59e68-2070-4b35-917c-741af579cf85</id>
       <masked>false</masked>
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Sandblasting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentMTP</defaultValue>
       <description></description>
-      <id>98cd9029-8a5a-41d9-9233-d5fa8b25a2bd</id>
+      <id>f06efde4-8b48-4e82-9c09-430fe0543fef</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'Ra 0,8 - 1,6 (finely finished); Rz 6,3 - 10'</defaultValue>
+      <defaultValue>GlobalVariable.quality</defaultValue>
       <description>Ra 3,2 - 25 (roughed); Rz 16 - 100; Ra 1,6 - 3,2 (settled); Rz 10 - 16</description>
-      <id>4a80f9d4-9d40-493e-bf77-b55a1b99f690</id>
+      <id>af377a0c-b5de-4d25-ba0f-040df52de71f</id>
       <masked>false</masked>
       <name>quality</name>
    </variable>
    <variable>
       <defaultValue>'5'</defaultValue>
       <description></description>
-      <id>578e6ccf-ad18-4cc6-a03e-75dacdd2cc47</id>
+      <id>1b5414b9-135f-4019-92be-a6c48ade3c11</id>
       <masked>false</masked>
       <name>comment</name>
    </variable>
    <variable>
       <defaultValue>'No'</defaultValue>
       <description></description>
-      <id>62a68b22-830b-4eb0-b5f3-3087343dc0e7</id>
+      <id>29c96ef6-1888-43ec-957d-261d503503b9</id>
       <masked>false</masked>
       <name>tolerancesToggle</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupMTP</defaultValue>
       <description></description>
-      <id>a446fd98-74d3-48a5-8330-a55acb54a675</id>
+      <id>456ec4f7-0215-4fc4-b16f-466946f5511f</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'TECAFLON PTFE natural'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameMTP</defaultValue>
       <description></description>
-      <id>3101aedb-16cd-4ac1-8086-12d04a26fcca</id>
+      <id>2c02cbb8-c167-4c76-b462-52fd79f1ac44</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'STANDARD'</defaultValue>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
       <description></description>
-      <id>06a905c2-5956-487b-8207-31dc001327c5</id>
+      <id>65316e39-d770-41ee-abf8-b9c1bac26fa2</id>
       <masked>false</masked>
-      <name>deliveryOption</name>
-   </variable>
-   <variable>
-      <defaultValue>'Standard shipping'</defaultValue>
-      <description></description>
-      <id>6097d122-7604-46c8-8eeb-ca9c9a0a76f9</id>
-      <masked>false</masked>
-      <name>shippingOption</name>
-   </variable>
-   <variable>
-      <defaultValue>'58,03'</defaultValue>
-      <description></description>
-      <id>d3c7bbf7-805d-4ff3-9472-97fd6746c309</id>
-      <masked>false</masked>
-      <name>unitPriceChanged</name>
+      <name>provideOwnProduct</name>
    </variable>
 </TestCaseEntity>

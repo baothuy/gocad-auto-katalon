@@ -181,7 +181,7 @@
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>GlobalVariable.materialNameSMP</defaultValue>
+      <defaultValue>GlobalVariable.materialNameMTP</defaultValue>
       <description></description>
       <id>2c02cbb8-c167-4c76-b462-52fd79f1ac44</id>
       <masked>false</masked>

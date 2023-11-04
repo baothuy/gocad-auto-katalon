@@ -96,7 +96,7 @@
       <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'step-testing.step'</defaultValue>
+      <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
       <id>9a417d28-ad9f-4599-8025-c5c5c99d58ff</id>
       <masked>false</masked>
@@ -131,14 +131,14 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Sandblasting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentMTP</defaultValue>
       <description></description>
       <id>afde94de-c3b1-4d77-afae-633dd175efd5</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'Ra 0,8 - 1,6 (finely finished); Rz 6,3 - 10'</defaultValue>
+      <defaultValue>GlobalVariable.quality</defaultValue>
       <description>Ra 3,2 - 25 (roughed); Rz 16 - 100; Ra 1,6 - 3,2 (settled); Rz 10 - 16</description>
       <id>726288d9-a949-4e5b-8307-2abb07d05b3a</id>
       <masked>false</masked>
@@ -159,14 +159,14 @@
       <name>tolerancesToggle</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupMTP</defaultValue>
       <description></description>
       <id>b695202e-9bb6-49d7-add0-2d71e2638689</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'EN AW-7075 / AlZn5'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameMTP</defaultValue>
       <description></description>
       <id>ac963d7f-57f0-4bde-854a-52db02fdb548</id>
       <masked>false</masked>
