@@ -138,11 +138,14 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage inputThickness(String partName, String number) {
+	public ManufacturingInformationPage selectThickness(String partName, String value) {
 		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
 			println "isContains: $isContains"
-			if (isContains) clearTextAndSendKeysByActions(xpath('//*[@id="thickness"]'), number)
+			if (isContains) {
+				WebUI.click(xpath("//*[text()='Thickness']/parent::div/following-sibling::div//div[@class='ant-select-selector']"))
+				WebUI.click(xpath("//*[@id='thickness_list']/following-sibling::div[@class='rc-virtual-list']//div[text()='$value']"))
+			}
 		}
 		return this
 	}
@@ -766,6 +769,13 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage verifyErrorWhenCountersinkEmpty() {
 		def errorEmpty = WebUI.getText(xpath("//*[text()='Countersink']/parent::div/following::div[@id='countersink_help']/div"))
 		def expectedResult = "Countersink is required."
+		WebUI.verifyEqual(errorEmpty, expectedResult)
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyErrorWhenThicknessEmpty() {
+		def errorEmpty = WebUI.getText(xpath("//*[text()='Thickness']/parent::div/following::div[@id='thickness_help']/div"))
+		def expectedResult = "Thickness is required."
 		WebUI.verifyEqual(errorEmpty, expectedResult)
 		return this
 	}

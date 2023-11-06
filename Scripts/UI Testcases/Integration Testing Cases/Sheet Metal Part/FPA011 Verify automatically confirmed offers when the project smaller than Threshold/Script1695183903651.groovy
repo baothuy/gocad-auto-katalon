@@ -42,7 +42,7 @@ Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 println '>> Input required field'
 Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', filePDF)
 										.clickProvideOwnMaterialCB(provideOwnProduct)
-										.inputThickness(partName, thicknessNum)
+										.selectThickness(partName, thicknessNum)
 										.inputQuantity(quantityNum)
 										.selectSurfaceTreatment(surfaceTreatment)
 										.selectLaserMarking(laserMarking)

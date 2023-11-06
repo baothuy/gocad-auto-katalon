@@ -27,13 +27,13 @@ Page.nav(DataUploadPage).uploadFileTesting('Sheet Metal Part', partName)
 println '>> Input required field is empty and verify'
 Page.nav(ManufacturingInformationPage).inputQuantity(' ')
 									  .inputThread(' ')
-									  .inputThickness(partName, ' ')
 									  .inputCountersink(' ')
 									  .clickCalculate()
 									  .verifyErrorWhenQuantityEmpty()
 									  .verifyErrorWhenMaterialEmpty()
 									  .verifyErrorWhenThreadCuttingEmpty()
 									  .verifyErrorWhenCountersinkEmpty()
+									  .verifyErrorWhenThicknessEmpty()
 									  
 println '>>  User buyer add project'
 Page.nav(LeftNavBar).clickDraft()

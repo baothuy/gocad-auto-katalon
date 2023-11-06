@@ -15,13 +15,10 @@ println '>> User buyer signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickViewAction('7162')
+Page.nav(DraftPage).clickViewAction('10501')
 
-Page.nav(ReviewPage).clickManufacturingInformationProcess()
+//Page.nav(ReviewPage).clickManufacturingInformationProcess()
 
 println '>> input and verify after update Bulk Pricing'
-Page.nav(ManufacturingInformationPage).inputBulkPricing("3", "160")
-									  .sleep(1)
-									  .clickAcceptChangeBulkPricing()
-									  .verifyBulkPricingValue("3", "160")
+Page.nav(ManufacturingInformationPage).selectThickness(partName, "1").sleep(1)
 						

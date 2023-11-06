@@ -96,7 +96,7 @@
       <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'step-testing.step'</defaultValue>
+      <defaultValue>'dxf-testing.dxf'</defaultValue>
       <description></description>
       <id>9a417d28-ad9f-4599-8025-c5c5c99d58ff</id>
       <masked>false</masked>
