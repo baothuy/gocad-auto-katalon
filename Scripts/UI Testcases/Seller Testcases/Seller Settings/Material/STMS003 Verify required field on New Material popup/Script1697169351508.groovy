@@ -23,4 +23,4 @@ Page.nav(MaterialSettingsPopup).verifyShowErrorWhenMaterialGroupEmpty('Material 
 								.verifyShowErrorWhenDensityEmpty('Density is required.')
 								.verifyShowErrorWhenPricePerKiloEmpty('Price per Kilo is required.')
 								.clickAddNewButton()
-								.verifyShowErrorWhenThicknessEmpty('Thickness (mm) is required.')
+								.verifyShowErrorWhenThicknessEmpty('Thickness is required.')
