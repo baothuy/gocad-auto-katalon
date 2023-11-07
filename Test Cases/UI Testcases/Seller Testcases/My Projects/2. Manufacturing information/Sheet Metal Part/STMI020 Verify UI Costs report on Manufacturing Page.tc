@@ -124,7 +124,7 @@
       <name>thicknessNum</name>
    </variable>
    <variable>
-      <defaultValue>'3'</defaultValue>
+      <defaultValue>'10'</defaultValue>
       <description></description>
       <id>fcc9a33a-fc79-4553-b090-ad7337f2e967</id>
       <masked>false</masked>

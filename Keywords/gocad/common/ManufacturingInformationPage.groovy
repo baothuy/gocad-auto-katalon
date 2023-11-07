@@ -170,7 +170,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage inputBulkPricing(String line, String input) {
-		WebUI.click(xpath("(//*[text()='Bulk pricing']/parent::div//span[@class='text-input-value'])[$line]"))
+		WebUI.click(xpath("(//div[@class='ant-card-body']//*[@class='text-input-value'])[$line]"))
 		String oldValue = WebUI.getAttribute(xpath("//*[@id='form-inline-quantity_quantity']"),"value")
 		clearTextAndSendKeysByActionsBackSpace(xpath("//*[@id='form-inline-quantity_quantity']"), oldValue, input)
 		return this
@@ -301,7 +301,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyBulkPricingValue(String line, String expectedResult) {
-		String actualResult = WebUI.getText(xpath("(//*[text()='Bulk pricing']/parent::div//label[@class='text-input-value'])[$line]"))
+		String actualResult = WebUI.getText(xpath("(//div[@class='ant-card-body']//*[@class='text-input-value'])[$line]")).trim()
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
@@ -581,7 +581,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++)
 		{
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
-			if(isContains) WebUI.verifyElementVisible(xpath('//*[@id="thickness"]'))
+			if(isContains) WebUI.verifyElementPresent(id("thickness"), 5)
 		}
 		return this
 	}

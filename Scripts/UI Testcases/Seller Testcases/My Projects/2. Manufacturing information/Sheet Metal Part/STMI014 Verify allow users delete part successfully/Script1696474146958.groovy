@@ -56,6 +56,7 @@ println '>> click Delete button'
 Page.nav(ManufacturingInformationPage).clickMoreOption()
 									  .clickDeletePart()
 									  .clickOK()
+									  .sleep(2)
 									  
 println '>> After delete will go page Data upload page'
 Page.nav(DataUploadPage).verifyUIDataUploadPageOfSeller(projectName)

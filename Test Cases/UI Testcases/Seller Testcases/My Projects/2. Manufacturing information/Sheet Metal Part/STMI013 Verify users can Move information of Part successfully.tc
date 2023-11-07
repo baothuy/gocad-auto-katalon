@@ -9,91 +9,85 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>6bba7ea6-e80c-4673-ad76-e616abf8e09f</variableId>
+      <variableId>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>d70418e9-38bf-48a9-84bf-c148adba1359</variableId>
+      <variableId>c309959f-9012-4d31-b438-d72da8f55a0a</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>1cd4141f-0b73-40f9-80f3-127afab7bef0</variableId>
+      <variableId>297f10f3-6561-45ef-9b65-b342b95a5f1f</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>25b4100f-b179-45a7-b8bf-6c2b1f2c0226</variableId>
+      <variableId>5a487b1a-2dc0-4f54-857d-66e74db09fc5</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>d8510cef-953b-401b-a047-a654fb6a9f1a</variableId>
+      <variableId>2ca5335a-6b22-4a08-b341-d96e3c83dc9f</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>f86bc4d1-8c63-4bc2-b275-12d0e2a5442e</variableId>
+      <variableId>e5caabff-6263-4264-9e22-21159ba448bc</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>9371044c-0228-425b-8077-d5ed4cee350b</variableId>
+      <variableId>fea9d141-80e4-4ba2-ad38-ac670c1f71ab</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>b0f50f41-1105-42ba-9cf8-856e9f001020</variableId>
+      <variableId>92334211-dd7b-4ff4-9017-d7aefabddc39</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>d2a6b0fb-c4c2-46f7-a996-60e57302a010</variableId>
+      <variableId>d9ceecd4-f896-4810-9104-43692df248d9</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>1922f870-db3b-4d0d-a79b-55412926a85f</variableId>
+      <variableId>d93a4a62-ecad-4141-8c7e-5e81629d891a</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>e72d6abe-ab22-4419-bfe9-859837a7487f</variableId>
+      <variableId>ba29974b-35b4-4f08-a539-615dda58fcf3</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>ea4b5fd0-5c83-4574-aa4b-d9cd1f24d38b</variableId>
+      <variableId>499794cd-e3be-4af0-9b39-46d8d0895543</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>ccb0b999-998d-46a4-b123-2e4d64a6908e</variableId>
+      <variableId>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>4916cddc-b6d0-403f-bfcd-8c17a5938557</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>55f04dbe-1ec3-415d-8c04-090cf12d7ce3</variableId>
+      <variableId>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</variableId>
    </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameSMP</defaultValue>
@@ -117,7 +111,7 @@
       <name>thicknessNum</name>
    </variable>
    <variable>
-      <defaultValue>'3'</defaultValue>
+      <defaultValue>'10'</defaultValue>
       <description></description>
       <id>5a487b1a-2dc0-4f54-857d-66e74db09fc5</id>
       <masked>false</masked>

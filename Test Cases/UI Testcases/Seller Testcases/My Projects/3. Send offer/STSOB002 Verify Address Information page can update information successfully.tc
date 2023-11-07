@@ -75,6 +75,12 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
+      <variableId>7dcd9420-f789-4b7f-bd77-9f0efe1f92e2</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>a731208d-25a1-4347-b2a0-2475e168a219</variableId>
    </variableLinks>
    <variableLinks>
@@ -171,6 +177,13 @@
       <id>ac963d7f-57f0-4bde-854a-52db02fdb548</id>
       <masked>false</masked>
       <name>materialName</name>
+   </variable>
+   <variable>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
+      <description></description>
+      <id>7dcd9420-f789-4b7f-bd77-9f0efe1f92e2</id>
+      <masked>false</masked>
+      <name>provideOwnProduct</name>
    </variable>
    <variable>
       <defaultValue>['Thuy', 'Truong', '0794050505', '359', 'Baden-Württemberg', '73405', 'Abstatt', 'Germany']</defaultValue>

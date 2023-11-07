@@ -128,6 +128,12 @@
       <value></value>
       <variableId>96e2649b-0e31-4d49-b205-3a90ea1c3d0b</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f8bb74cb-ee1c-44ea-8031-dce4f027b01a</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
@@ -260,5 +266,12 @@
       <id>96e2649b-0e31-4d49-b205-3a90ea1c3d0b</id>
       <masked>false</masked>
       <name>customerEmail</name>
+   </variable>
+   <variable>
+      <defaultValue>'2024-11-22'</defaultValue>
+      <description></description>
+      <id>f8bb74cb-ee1c-44ea-8031-dce4f027b01a</id>
+      <masked>false</masked>
+      <name>deliveryDate</name>
    </variable>
 </TestCaseEntity>

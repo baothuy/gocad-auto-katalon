@@ -59,11 +59,12 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.inputCountersink(countersinkNum)
 										.inputThread(threadNum)
 										.inputComment(comment)
-										
 										.inputDeliveryDate(deliveryDate)
 
 println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
+									.inputUnitPrice(unitPrice)
+									.clickAcceptChangeUnitPricing()
 									.clickContinueToOfferOverview()
 
 println '>> click checkout button'

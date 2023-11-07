@@ -58,7 +58,8 @@ public class MyProjectsPage extends BasePage<MyProjectsPage>{
 	}
 
 	public MyProjectsPage verifyPriceOnDetailPartColumn(String expectedResult) {
-		String price = WebUI.getText(xpath("//*[@class='ant-card-body']//*[contains(text(),'$GlobalVariable.currency')]"))
+		//String price = WebUI.getText(xpath("//*[@class='ant-card-body']//*[contains(text(),'$GlobalVariable.currency')]"))
+		String price = WebUI.getText(xpath("//*[@class='ant-card-body']//span[normalize-space(text()) != '']")).trim()
 		WebUI.verifyEqual(price, expectedResult)
 		return this
 	}
