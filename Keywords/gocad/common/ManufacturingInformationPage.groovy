@@ -410,7 +410,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
 			println "isContains: $isContains"
 			if (isContains) {
-				String actualResult = WebUI.getText(xpath("//*[@class='ant-modal-content']//*[text()='Thickness']/parent::p")).trim()
+				String actualResult = WebUI.getText(xpath("//*[text()='Thickness']/parent::p")).trim()
 				def pattern = /(\d+(?:\.\d+)?)/
 				String newActualResult = CommonUtility.substringUseRegExp(actualResult,pattern,0)
 				WebUI.verifyEqual(newActualResult, expectedResult)
