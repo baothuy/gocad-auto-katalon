@@ -180,6 +180,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath("//*[@aria-label='check']"))
 		return this
 	}
+	
+	public ManufacturingInformationPage clickAcceptChangeUnitPricing() {
+		WebUI.click(xpath("//*[@aria-label='check']"))
+		return this
+	}
 
 	public ManufacturingInformationPage uploadFilePDFTesting(String workshop, String fileName) {
 		WebUI.waitForElementClickable(xpath("//span[text()='Calculate']/parent::button"), 15)
@@ -218,6 +223,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage clickAddTechnicalDrawing() {
 		WebUI.click(xpath('//button[@title="Add technical drawing"]'))
+		return this
+	}
+	
+	public ManufacturingInformationPage inputUnitPrice(String text) {
+		clearTextAndSendKeysByActions(xpath('//*[@id="unitPrice"]'), text)
 		return this
 	}
 
@@ -398,10 +408,13 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage verifyThicknessValue(String partName, String expectedResult) {
 		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
-			if(isContains) {
-				String actualResult = WebUI.getText(xpath("//*[text()='Thickness (mm)']/following-sibling::label")).trim()
-				println "ThicknessValue: $actualResult"
-				WebUI.verifyEqual(actualResult, expectedResult)
+			println "isContains: $isContains"
+			if (isContains) {
+				String actualResult = WebUI.getText(xpath("//*[@class='ant-modal-content']//*[text()='Thickness']/parent::p")).trim()
+				def pattern = /(\d+(?:\.\d+)?)/
+				String newActualResult = CommonUtility.substringUseRegExp(actualResult,pattern,0)
+				WebUI.verifyEqual(newActualResult, expectedResult)
+				println "Thickness: $newActualResult"
 			}
 		}
 		return this

@@ -1,13 +1,12 @@
 package gocad.common
 
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-
 import org.openqa.selenium.Keys
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import internal.GlobalVariable
 import katalon.fw.lib.BasePage
+import katalon.utility.CommonUtility
 
 public class CopyPartPopup extends BasePage<CopyPartPopup> {
 
@@ -135,9 +134,11 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
 			println "isContains: $isContains"
 			if (isContains) {
-				String actualResult = WebUI.getText(xpath("//*[text()='Thickness (mm)']/following-sibling::label")).trim()
-				WebUI.verifyEqual(actualResult, expectedResult)
-				println "actualResult: $actualResult"
+				String actualResult = WebUI.getText(xpath("//*[@class='ant-modal-content']//*[text()='Thickness']/parent::p")).trim()
+				def pattern = /(\d+(?:\.\d+)?)/
+				String newActualResult = CommonUtility.substringUseRegExp(actualResult,pattern,0)
+				WebUI.verifyEqual(newActualResult, expectedResult)
+				println "newActualResult: $newActualResult"
 			}
 		}
 		return this

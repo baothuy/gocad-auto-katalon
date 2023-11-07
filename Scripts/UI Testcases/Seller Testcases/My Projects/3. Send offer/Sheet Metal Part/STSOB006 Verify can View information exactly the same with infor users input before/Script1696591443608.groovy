@@ -56,6 +56,8 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 
 println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
+									.inputUnitPrice(unitPrice)
+									.clickAcceptChangeUnitPricing()
 									.clickContinueToOfferOverview()
 
 println '>> get data table Part button'
