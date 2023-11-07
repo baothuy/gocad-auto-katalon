@@ -128,7 +128,7 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 	}
 
 	public MaterialSettingsPopup verifyShowErrorWhenThicknessEmpty(String expectedResult) {
-		String actualResult = WebUI.getText(xpath("//*[@id='thickness_help']/div"))
+		String actualResult = WebUI.getText(xpath("//*[@id='value_help']/div"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
