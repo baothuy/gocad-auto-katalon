@@ -1,7 +1,7 @@
+import gocad.buyer.CheckoutPage
 import gocad.buyer.DraftPage
 import gocad.buyer.ReviewPage
 import gocad.common.LeftNavBar
-import gocad.common.ManufacturingInformationPage
 import gocad.common.SignInPage
 import katalon.fw.lib.Page
 
@@ -15,10 +15,15 @@ println '>> User buyer signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickViewAction('10501')
+Page.nav(DraftPage).clickViewAction('11204')
 
 //Page.nav(ReviewPage).clickManufacturingInformationProcess()
 
-println '>> input and verify after update Bulk Pricing'
-Page.nav(ManufacturingInformationPage).selectThickness(partName, "1").sleep(1)
+//println '>> input and verify after update Bulk Pricing'
+//Page.nav(ManufacturingInformationPage).selectThickness(partName, "1").sleep(1)
+
+Page.nav(ReviewPage).clickCheckout()
+
+String abc = Page.nav(CheckoutPage).getDeliveryDate()
+println "abc: $abc"
 						
