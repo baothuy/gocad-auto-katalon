@@ -2,7 +2,6 @@ package katalon.utility
 
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
-import java.time.LocalDate
 
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
@@ -10,7 +9,49 @@ import org.joda.time.format.DateTimeFormatter
 
 
 public class DateTimeUtility {
-
+	
+	// Define your list of holiday dates in the format "MM/dd/yyyy"
+	
+	def static isHoliday(date) {
+		def holidays = ["12/25/2023", "12/26/2023", "01/01/2024", "01/06/2024", "03/29/2024", "04/01/2024", "05/01/2024", "05/09/2024", "05/20/2024", "05/30/2024", "10/03/2024", "11/01/2024", "12/25/2024", "12/26/2024"]	
+		def dateFormat = new SimpleDateFormat("MM/dd/yyyy")
+		def formattedDate = dateFormat.format(date)
+	
+		// Check if the formatted date is in the list of holidays
+		return formattedDate in holidays
+	}
+	
+	public static String getDeliveryWorkingDate(int workingDaysToAdd) {	
+		def currentDate = new Date()
+		// Create a Calendar instance and set it to the current date
+		def calendar = Calendar.getInstance()
+		calendar.time = currentDate		
+		
+		// Loop to add working days
+		while (workingDaysToAdd > 0) {
+			// Add one day to the current date
+			calendar.add(Calendar.DAY_OF_MONTH, 1)
+			def nextDate = calendar.time
+			println "nextDate: $nextDate"
+			// Check if the next date is a weekend (Saturday or Sunday) or a holiday
+			if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY ||
+				calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY ||
+				isHoliday(nextDate)) {
+				continue  // Skip weekends and holidays
+			}
+			workingDaysToAdd--
+		}
+		// Get the calculated delivery date
+		def deliveryDate = calendar.time
+		
+		// Format the delivery date in your desired format
+		def dateFormat = new SimpleDateFormat("MM/dd/yyyy")
+		def formattedDeliveryDate = dateFormat.format(deliveryDate)
+		
+		println("Delivery Date: $formattedDeliveryDate")
+		return formattedDeliveryDate
+	}
+	
 	public String getCurrentDateTime(String format = "MM/dd/YYYY") {
 		Date date = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat(format);
@@ -63,7 +104,7 @@ public class DateTimeUtility {
 	public static String currentDay(String format = "MMMMM d, YYYY") {
 		plusDays(0, format);
 	}
-	
+
 	public static String nextWeek(String format = "MMMM d, YYYY") {
 		plusDays(7, format);
 	}

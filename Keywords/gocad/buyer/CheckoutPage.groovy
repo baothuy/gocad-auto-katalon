@@ -1,6 +1,7 @@
 package gocad.buyer
 
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import katalon.fw.lib.BasePage
@@ -182,10 +183,9 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	public String getDeliveryDate() {
 		String deliveryOption = WebUI.getText(xpath("//input[@id='deliveryOption']/parent::span/following-sibling::span"))
 		def dateMatch = (deliveryOption =~ /-(\s*(\d+)\s*)/)
-		def extractedDays = (dateMatch[0][2]) as int
-		println "extractedDays: $extractedDays"
-		String deliveryDate = DateTimeUtility.changeDateFormat(DateTimeUtility.getDateTimeFromCurrent(extractedDays), "yyyy-MM-dd'T'HH:mm:ss.SSS", "MM/dd/yyyy")
-		println "deliveryDate: $deliveryDate"
+		def extractedNumberWorkingDays = (dateMatch[0][2]) as int
+		println "extractedDays: $extractedNumberWorkingDays"
+		String deliveryDate = DateTimeUtility.getDeliveryWorkingDate(extractedNumberWorkingDays)
 		return deliveryDate
 	}
 

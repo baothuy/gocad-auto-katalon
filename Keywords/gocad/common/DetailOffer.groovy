@@ -134,7 +134,8 @@ public class DetailOffer extends BasePage<DetailOffer>{
 
 	public DetailOffer verifyDeliveryDate(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//p[text()='Delivery Date']/parent::div"))
-		WebUI.verifyEqual(actualResult, expectedResult)
+		String newActualResult  = DateTimeUtility.changeDateFormat(actualResult)
+		WebUI.verifyEqual(newActualResult, expectedResult)
 		return this
 	}
 

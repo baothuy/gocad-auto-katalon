@@ -15,7 +15,7 @@ println '>> User buyer signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickViewAction('11204')
+Page.nav(DraftPage).clickViewAction('11486')
 
 //Page.nav(ReviewPage).clickManufacturingInformationProcess()
 

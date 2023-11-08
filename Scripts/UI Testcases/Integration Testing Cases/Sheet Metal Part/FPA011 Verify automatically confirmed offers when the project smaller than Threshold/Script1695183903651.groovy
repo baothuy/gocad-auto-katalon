@@ -91,7 +91,7 @@ List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
 println '>> Verify information show on list Confirmed Offers of buyer'
 Page.nav(LeftNavBar).clickConfirmedOffers()
 Page.nav(ConfirmedOffersPageOfBuyer).verifyProjectName(projectId, projectName)
-									//.verifyDeliveryDate(projectId, deliveryDate)
+									.verifyDeliveryDate(projectId, deliveryDate)
 									.verifyOrderNumber(projectId)
 									.verifyGrossTotal(projectId, grossTotal)
 									.verifyStatus(projectId, "Order confirmed")
