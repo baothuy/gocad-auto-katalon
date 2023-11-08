@@ -190,8 +190,8 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 		String partNameCol = WebUI.getText(partCol(partName))
 		String material = WebUI.getText(materialCol(partName))
 		String quantity = WebUI.getAttribute(quantityCol(partName), "value")
-		String unitPrice = WebUI.getText(unitPriceCol(partName))
-		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName))
+		String unitPrice = WebUI.getText(unitPriceCol(partName)).trim()
+		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName)).trim()
 		List<String> findTestObjects = findTestObjects("//*[@aria-label='message']")
 		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
 		String comment
