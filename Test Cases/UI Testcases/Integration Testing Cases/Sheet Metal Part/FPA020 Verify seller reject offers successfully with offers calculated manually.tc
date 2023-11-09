@@ -48,7 +48,13 @@
       <testDataLinkId>6f03ee1c-9655-4fc0-b2a0-38ff89002737</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>laserMarking</value>
-      <variableId>31523c65-a1ea-4be3-9e54-6b1b8674262f</variableId>
+      <variableId>e5caabff-6263-4264-9e22-21159ba448bc</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>6f03ee1c-9655-4fc0-b2a0-38ff89002737</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>cuttingLayers</value>
+      <variableId>fea9d141-80e4-4ba2-ad38-ac670c1f71ab</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>6f03ee1c-9655-4fc0-b2a0-38ff89002737</testDataLinkId>
@@ -105,10 +111,16 @@
       <variableId>3f868299-9f57-4393-bacd-1eec0b4170bf</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>d77e46ea-1954-4504-b85d-f8cbda9f80e7</variableId>
+      <testDataLinkId>6f03ee1c-9655-4fc0-b2a0-38ff89002737</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>unitPriceChanged</value>
+      <variableId>b5b32b58-2615-4b35-a59c-2849bfa20e4d</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>6f03ee1c-9655-4fc0-b2a0-38ff89002737</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>packagingAndShippingComments</value>
+      <variableId>f330aa7b-2459-47e5-9a40-d8b70fea6db4</variableId>
    </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameSMP</defaultValue>
@@ -216,7 +228,7 @@
       <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
+      <defaultValue>GlobalVariable.shippingOption</defaultValue>
       <description></description>
       <id>3f868299-9f57-4393-bacd-1eec0b4170bf</id>
       <masked>false</masked>

@@ -256,7 +256,7 @@
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'X14CrMoS17'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameSMP</defaultValue>
       <description></description>
       <id>5ff6c868-c261-4ab7-91e7-490776ac735a</id>
       <masked>false</masked>
@@ -326,7 +326,7 @@
       <name>threadNumChanged</name>
    </variable>
    <variable>
-      <defaultValue>'16MNCr5'</defaultValue>
+      <defaultValue>'CuSn8'</defaultValue>
       <description></description>
       <id>0a49abcd-fc3c-4224-afec-6c105cfd7529</id>
       <masked>false</masked>

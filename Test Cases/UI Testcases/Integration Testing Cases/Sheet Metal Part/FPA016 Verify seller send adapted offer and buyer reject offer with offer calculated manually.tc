@@ -228,7 +228,7 @@
       <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
+      <defaultValue>GlobalVariable.shippingOption</defaultValue>
       <description></description>
       <id>3f868299-9f57-4393-bacd-1eec0b4170bf</id>
       <masked>false</masked>
