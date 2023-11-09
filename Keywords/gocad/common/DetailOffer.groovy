@@ -1,11 +1,15 @@
 package gocad.common
 
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import internal.GlobalVariable
 import katalon.fw.lib.BasePage
+import katalon.fw.lib.Page
 import katalon.utility.DateTimeUtility
 import katalon.utility.FileHelper
+import katalon.utility.FunctionCommon
 
 public class DetailOffer extends BasePage<DetailOffer>{
 
@@ -140,48 +144,21 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	}
 
 	public DetailOffer verifyBillingAddress(List<String> expectedResult) {
-		String fullName = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String houseNumber = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String street = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Street']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String state = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String zipCode = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String city = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		List<String> actualBillingAddress = [fullName, houseNumber, street, state, zipCode, city]
+		List<String> actualBillingAddress = Page.nav(FunctionCommon).getBillingAddress()
 		println "actualBillingAddress: $actualBillingAddress"
 		WebUI.verifyEqual(actualBillingAddress, expectedResult)
 		return this
 	}
 
 	public DetailOffer verifyShippingAddress(List<String> expectedResult) {
-		String fullName = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String houseNumber = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String street = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Street']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String state = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String zipCode = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String city = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		List<String> actualShippingAddress = [fullName, houseNumber, street, state, zipCode, city]
+		List<String> actualShippingAddress = Page.nav(FunctionCommon).getShippingAddress()
 		println "actualShippingAddress: $actualShippingAddress"
 		WebUI.verifyEqual(actualShippingAddress, expectedResult)
 		return this
 	}
 
 	public DetailOffer verifyTablePartReview(String partName, List<String> expectedResult ) {
-		String partNameCol = WebUI.getText(partCol(partName))
-		String material = WebUI.getText(materialCol(partName))
-		String quantity = WebUI.getText(quantityCol(partName))
-		String unitPrice = WebUI.getText(unitPriceCol(partName))
-		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName))
-		List<String> findTestObjects = findTestObjects("//*[@aria-label='message']")
-		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
-		String comment
-		if (findTestObjects.size() != 0) {
-			WebUI.mouseOver(xpath("//*[@aria-label='message']"))
-			comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
-		}
-		else {
-			comment = ""
-		}
-		List<String> actualResult = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
+		List<String> actualResult = Page.nav(FunctionCommon).getTablePartReview(partName)
 		println "tablePart info: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
@@ -197,17 +174,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	}
 
 	public DetailOffer verifyOrderSummary(List<String> expectedResult) {
-		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label"))
-		List<String> surfaceTreatmentSurchargeObject = findTestObjects("//label[text()='Surface Treatment Surcharge']/following-sibling::label")
-		def surfaceTreatmentSurcharge = (surfaceTreatmentSurchargeObject.size() != 0) ? WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label")) : "Empty"
-		String expressSurchargeValue = WebUI.getText(xpath("//label[text()='Express Surcharge']/following-sibling::label"))
-		String expressSurcharge = expressSurchargeValue == "00.0 $GlobalVariable.currency" ? "-- $GlobalVariable.currency" : expressSurchargeValue
-		String packagingCost = WebUI.getText(xpath("//label[text()='Packaging Cost']/following-sibling::label"))
-		String shippingCosts = WebUI.getText(xpath("//label[text()='Shipping costs']/following-sibling::label"))
-		String netTotal = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::label"))
-		String vat = WebUI.getText(xpath("//label[text()='VAT (19%)']/following-sibling::label"))
-		String grossTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label"))
-		List<String> orderSummary = [totalPartPrice, surfaceTreatmentSurcharge, expressSurcharge, packagingCost, shippingCosts, netTotal, vat, grossTotal]
+		List<String> orderSummary = Page.nav(FunctionCommon).getOrderSummary()
 		println "orderSummary: $orderSummary"
 		WebUI.verifyEqual(orderSummary, expectedResult)
 		return this
@@ -249,41 +216,19 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	}
 
 	public List<String> getOrderSummary() {
-		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label"))
-		List<String> surfaceTreatmentSurchargeObject = findTestObjects("//label[text()='Surface Treatment Surcharge']/following-sibling::label")
-		def surfaceTreatmentSurcharge = (surfaceTreatmentSurchargeObject.size() != 0) ? WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label")) : "Empty"
-		String expressSurchargeValue = WebUI.getText(xpath("//label[text()='Express Surcharge']/following-sibling::label"))
-		String expressSurcharge = expressSurchargeValue == "00.0 $GlobalVariable.currency" ? "-- $GlobalVariable.currency" : expressSurchargeValue
-		String packagingCost = WebUI.getText(xpath("//label[text()='Packaging Cost']/following-sibling::label"))
-		String shippingCosts = WebUI.getText(xpath("//label[text()='Shipping costs']/following-sibling::label"))
-		String netTotal = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::label"))
-		String vat = WebUI.getText(xpath("//label[text()='VAT (19%)']/following-sibling::label"))
-		String grossTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label"))
-		List<String> orderSummary = [totalPartPrice, surfaceTreatmentSurcharge, expressSurcharge, packagingCost, shippingCosts, netTotal, vat, grossTotal]
+		List<String> orderSummary = Page.nav(FunctionCommon).getOrderSummary()
 		return orderSummary
 	}
 
 	//Billing Address
 	public List<String> getBillingAddress() {
-		String fullName = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String houseNumber = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String street = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Street']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String state = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String zipCode = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String city = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		List<String> billingAddress = [fullName, houseNumber, street, state, zipCode, city]
+		List<String> billingAddress = Page.nav(FunctionCommon).getBillingAddress()
 		return billingAddress
 	}
 	//Shipping Address
 	public List<String> getShippingAddress() {
-		String fullName = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String houseNumber = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String street = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Street']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String state = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String zipCode = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String city = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		List<String> billingAddress = [fullName, houseNumber, street, state, zipCode, city]
-		return billingAddress
+		List<String> shippingAddress = Page.nav(FunctionCommon).getShippingAddress()
+		return shippingAddress
 	}
 
 	public List<String> getShippingInfo() {
@@ -304,19 +249,9 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	}
 
 	public List<String> getTablePartReview(String partName) {
-		String partNameCol = WebUI.getText(partCol(partName))
-		String material = WebUI.getText(materialCol(partName))
-		String quantity = WebUI.getText(quantityCol(partName))
-		List<String> unitPriceObject = findTestObjects("//div[text()='$partName']/ancestor::tr/td[7]//input[@id='unitPrice']")
-		println "unitPriceObject: $unitPriceObject"
-		def unitPrice = (unitPriceObject.size() == 0) ? WebUI.getText(unitPriceCol(partName)) : (WebUI.getAttribute(unitPriceInputCol(partName), "value") + " $GlobalVariable.currency")
-		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName))
-		WebUI.mouseOver(xpath("//*[@aria-label='message']"))
-		String comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
-		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
-		List<String> result = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
-		println "getTablePartReview: $result"
-		return result
+		List<String> actualResult = Page.nav(FunctionCommon).getTablePartReview(partName)
+		println "getTablePartReview: $actualResult"
+		return actualResult
 	}
 
 	public DetailOffer verifyPDFPreviewOffer(String fileName, String expectedText) {
