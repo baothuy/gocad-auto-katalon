@@ -12,16 +12,15 @@ import katalon.fw.lib.BasePage
 
 public class FunctionCommon extends BasePage<FunctionCommon>{
 	
-	def partCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[2]")}
-	def fileCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[3]//a")}
-	def materialCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[4]")}
-	def thicknessCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[5]")}
-	def quantityCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[6]")}
-	def unitPriceInputCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[7]//input[@id='unitPrice']")}
-	def unitPriceCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[7]")}
-	def partPriceTotalCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[8]")}
-	def CO2EmissionCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]")}
-	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[11]//button")}
+	def partCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[2]"}
+	def fileCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[3]//a"}
+	def materialCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[4]"}
+	def thicknessCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[5]"}
+	def quantityCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[6]"}
+	def unitPriceCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[7]"}
+	def partPriceTotalCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[8]"}
+	def CO2EmissionCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[10]"}
+	def actionMore = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[11]//button"}
 	
 	//Billing Address
 	public List<String> getBillingAddress() {
@@ -64,31 +63,28 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 	}
 	
 	public List<String> getTablePartReview(String partName) {
-		String partNameCol = WebUI.getText(partCol(partName))
-		String material = WebUI.getText(materialCol(partName))
+		String partNameCol = WebUI.getText(xpath(partCol(partName)))
+		String material = WebUI.getText(xpath(materialCol(partName)))
+		String thickness = WebUI.getText(xpath(thicknessCol(partName)))
 		List<String> findQuanTestObjects = findTestObjects("//input[@id='quantity']")
 		String quantity
-		if (findQuanTestObjects.size() != 0) {
-			quantity = WebUI.getAttribute(xpath("//div[text()='$partName']/ancestor::tr/td[6]//input[@id='quantity']"), "value")
-		}
-		else {
-			quantity = WebUI.getText(quantityCol(partName))
-		}
-		println "quantity: abc $quantity"
-		String unitPrice = WebUI.getText(unitPriceCol(partName))
-		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName))
+		if (findQuanTestObjects.size() != 0) { quantity = WebUI.getAttribute(xpath(quantityCol(partName) + "//input[@id='quantity']"), "value")}
+		else { quantity = WebUI.getText(xpath(quantityCol(partName)))}
+		String unitPrice
+		List<String> findUnitTestObjects = findTestObjects("//input[@id='unitPrice']")
+		if (findUnitTestObjects.size() != 0) { unitPrice = WebUI.getAttribute(xpath(unitPriceCol(partName) + "//input[@id='unitPrice']"), "value") + " $GlobalVariable.currency"}
+		else { unitPrice = WebUI.getText(xpath(unitPriceCol(partName)))}
+		String totalPartPrice = WebUI.getText(xpath(partPriceTotalCol(partName)))
 		List<String> findTestObjects = findTestObjects("//*[@aria-label='message']")
-		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
+		String CO2Emission = WebUI.getText(xpath(CO2EmissionCol(partName)))
 		String comment
 		println "findTestObjects: $findTestObjects"
 		if (findTestObjects.size() != 0) {
 			WebUI.mouseOver(xpath("//*[@aria-label='message']"))
 			comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
 		}
-		else {
-			comment = ""
-		}
-		List<String> actualResult = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
+		else { comment = ""}
+		List<String> actualResult = [partNameCol, material, thickness, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
 		return actualResult
 	}
 	
