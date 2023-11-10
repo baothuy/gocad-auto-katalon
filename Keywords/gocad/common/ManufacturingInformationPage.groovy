@@ -489,7 +489,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyShowErrorIncompatibleFile() {
-		WebUI.verifyElementVisible(xpath("//div[text()='There is problem when calculating the request. Please contact the admin.']"))
+		WebUI.verifyElementPresent(xpath("//*[@aria-label='codepen']"), 5)
 		return this
 	}
 

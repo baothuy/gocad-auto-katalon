@@ -242,11 +242,10 @@ public class ReviewPage extends BasePage<ReviewPage>{
 			WebUI.click(xpath("//*[text()='Surface Treatment Surcharge']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='$expectedContentTooltips']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Total Part Price']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
-			WebUI.click(xpath("//*[text()='NET Total']"))
+			WebUI.click(xpath("//*[text()='Total Part Price']"))
 		}
 		else {
-			WebUI.verifyElementVisible(xpath("//*[text()='Total:']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Total Part Price']"))
 		}
 		return this
 	}

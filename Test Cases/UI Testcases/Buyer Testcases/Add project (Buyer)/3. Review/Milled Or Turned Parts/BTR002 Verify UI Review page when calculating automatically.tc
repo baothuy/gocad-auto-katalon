@@ -92,7 +92,7 @@
       <name>filePDF</name>
    </variable>
    <variable>
-      <defaultValue>'150'</defaultValue>
+      <defaultValue>'50'</defaultValue>
       <description></description>
       <id>8e364813-81f4-4eaa-92dd-762cba92e264</id>
       <masked>false</masked>
