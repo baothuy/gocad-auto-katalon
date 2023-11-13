@@ -15,10 +15,16 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 	def orderNumberCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[6]")}
 	def grossTotalCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]")}
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//span[normalize-space(text()) != '']")}
-	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[10]/a")}
+	def paymentStatusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[9]//button")}
+	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[11]/a")}
 	def row = { String row -> return "//thead/following::tr[$row]/"}
 	def contentConfirmedOffersPage = "The folder Confirmed Requests shows all projects that have been approved and are in progress."
 
+	public ConfirmedOffersPageOfBuyer clickPayButton(String projectId) {
+		WebUI.click(paymentStatusCol(projectId))
+		return this
+	}
+	
 	public ConfirmedOffersPageOfBuyer clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))
 		return this

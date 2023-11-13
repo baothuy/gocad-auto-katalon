@@ -1,14 +1,15 @@
 import gocad.buyer.CheckoutPage
 import gocad.buyer.CompletedCheckoutPage
 import gocad.buyer.ConfirmedOffersPageOfBuyer
+import gocad.buyer.PaymentMethodPopup
 import gocad.buyer.ReviewPage
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.common.SignInPage
 import gocad.seller.ConfirmedOffersPageOfSeller
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
@@ -110,6 +111,9 @@ String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
 println '>> Click Checkout button on Checkout Page'
 Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
 					  .clickPlaceYourOrder()
+	
+println '>> Appear Payment Method Popup'
+Page.nav(PaymentMethodPopup).clickClosePopup()
 					  
 println '>> Click back to project to get shipping info'
 Page.nav(CompletedCheckoutPage).clickBackToProject()

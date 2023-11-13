@@ -95,6 +95,30 @@
       <value></value>
       <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>0baa10b2-b62a-4303-8e0c-3ce4c66c845d</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>b248e37d-03da-44b1-8ab1-0673aba66fc8</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f15bff58-2e19-4897-9ef8-50d61c498218</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a428484b-9342-4981-bdf2-d3e1e54c720b</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'dxf-testing.dxf'</defaultValue>
       <description></description>
@@ -199,5 +223,33 @@
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
       <name>shippingAddressChanged</name>
+   </variable>
+   <variable>
+      <defaultValue>'4242424242424242'</defaultValue>
+      <description></description>
+      <id>0baa10b2-b62a-4303-8e0c-3ce4c66c845d</id>
+      <masked>false</masked>
+      <name>cardNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'123'</defaultValue>
+      <description></description>
+      <id>b248e37d-03da-44b1-8ab1-0673aba66fc8</id>
+      <masked>false</masked>
+      <name>cardCvc</name>
+   </variable>
+   <variable>
+      <defaultValue>'12/25'</defaultValue>
+      <description></description>
+      <id>f15bff58-2e19-4897-9ef8-50d61c498218</id>
+      <masked>false</masked>
+      <name>cardExpiry</name>
+   </variable>
+   <variable>
+      <defaultValue>'Truong Bao Thuy'</defaultValue>
+      <description></description>
+      <id>a428484b-9342-4981-bdf2-d3e1e54c720b</id>
+      <masked>false</masked>
+      <name>billingName</name>
    </variable>
 </TestCaseEntity>
