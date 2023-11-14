@@ -8,6 +8,11 @@ public class SelectMaterialPopup extends BasePage<SelectMaterialPopup>{
 		scrollToAndClick(xpath("//div[@class='ant-space-item']//*[text()='$materialGroup']"))
 		return this
 	}
+	
+	public SelectMaterialPopup clickThickness(String thickness) {
+		scrollToAndClick(xpath("//div[contains(@class,'filter-thickness')]//span[text()='$thickness mm']"))
+		return this
+	}
 
 	public SelectMaterialPopup inputSearchMaterial(String materialName) {
 		clearTextAndSendKeysByActions(xpath("//input[@placeholder='Search material']"), materialName)
@@ -20,7 +25,7 @@ public class SelectMaterialPopup extends BasePage<SelectMaterialPopup>{
 	}
 
 	public SelectMaterialPopup selectMaterialName(String materialName) {
-		WebUI.click(xpath("//div[text()='$materialName']/parent::div[@class='row material-item']"))
+		WebUI.click(xpath("//div[@class='material-list']//div[text()='$materialName']/parent::div[@class='row material-item']"))
 		return this
 	}
 
