@@ -102,7 +102,7 @@
       <variableId>1e41ea67-8100-466e-9adf-ee2b45b56514</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'step-testing 2.step'</defaultValue>
+      <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
       <id>cae00173-aa6a-49ac-ad4d-2f4b4cf1f7b5</id>
       <masked>false</masked>
@@ -144,7 +144,7 @@
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'Ra 0,8 - 1,6 (finely finished); Rz 6,3 - 10'</defaultValue>
+      <defaultValue>GlobalVariable.quality</defaultValue>
       <description>Ra 3,2 - 25 (roughed); Rz 16 - 100; Ra 1,6 - 3,2 (settled); Rz 10 - 16</description>
       <id>a7ecbc77-60cd-4980-8edf-484f733ac1be</id>
       <masked>false</masked>
@@ -165,21 +165,21 @@
       <name>tolerancesToggle</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupMTP</defaultValue>
       <description></description>
       <id>2b5e080b-1ed8-48b5-9c8e-5be4850394ce</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'EN AW-7075 / AlZn5'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameMTP</defaultValue>
       <description></description>
       <id>daa45949-7e8d-4c45-b8b5-fde848e9f5bd</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
       <description></description>
       <id>48bc597d-0355-4862-a89e-bf21bfb3517b</id>
       <masked>false</masked>
