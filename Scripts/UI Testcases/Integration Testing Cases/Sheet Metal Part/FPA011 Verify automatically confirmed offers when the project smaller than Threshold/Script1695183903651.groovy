@@ -86,7 +86,12 @@ Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
 					  .clickPlaceYourOrder()
 					  
 println '>> Appear Payment Method Popup'
-Page.nav(PaymentMethodPopup).clickClosePopup()
+Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
+							.inputCardExpiry(cardExpiry)
+							.inputCardCvc(cardCvc)
+							.inputBillingName(billingName)
+							.clickPayButton()
+							.sleep(2)
 					  
 println '>> Click back to project to get shipping info'
 Page.nav(CompletedCheckoutPage).clickBackToProject()

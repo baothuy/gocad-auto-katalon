@@ -16,7 +16,7 @@ println '>> User buyer signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 Page.nav(LeftNavBar).clickConfirmedOffers()
-Page.nav(ConfirmedOffersPageOfBuyer).clickPayButton('12558')
+Page.nav(ConfirmedOffersPageOfBuyer).clickPayButton('13880')
 
 //Page.nav(ReviewPage).clickManufacturingInformationProcess()
 
@@ -32,4 +32,6 @@ Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
 							.inputCardCvc(cardCvc)
 							.inputCardExpiry(cardExpiry)
 							.inputBillingName(billingName)
+							.clickPayButton()
+							.sleep(2)
 						

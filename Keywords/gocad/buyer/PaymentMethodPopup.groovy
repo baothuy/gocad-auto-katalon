@@ -43,6 +43,15 @@ public class PaymentMethodPopup extends BasePage<PaymentMethodPopup>{
 		return this
 	}
 	
+	public PaymentMethodPopup clickPayButton() {
+		WebUI.switchToFrame(xpath("//*[@name='embedded-checkout']"), 5)
+		waitUntilElementVisibleWithWebDriverWait(xpath("//*[@class='SubmitButton-TextContainer']/parent::button"), 5)
+		scrollToAndClick(xpath("//*[@class='SubmitButton-TextContainer']/parent::button"))
+		WebUI.waitForElementNotPresent(xpath("//*[@name='embedded-checkout']"), 50)
+		WebUI.switchToDefaultContent()
+		return this
+	}
+	
 	public PaymentMethodPopup clickClosePopup() {
 		WebUI.click(xpath("//*[@aria-label='close']/parent::span"))
 		return this
