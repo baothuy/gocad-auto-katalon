@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>debug buyer tcs</name>
-   <tag>debug</tag>
+   <name>BTC009 Verify input invalid field on Payment Method popup</name>
+   <tag>integration-test,ui</tag>
    <comment></comment>
-   <testCaseGuid>29384b2f-968f-487e-93b8-23e65423e745</testCaseGuid>
+   <testCaseGuid>3ee9cc63-4113-4eb0-8511-64bf26180934</testCaseGuid>
    <testDataLinks>
       <combinationType>ONE</combinationType>
-      <id>919439f9-c694-4a51-9145-f94176da1b76</id>
+      <id>d96361fe-1302-4ae7-b4fd-46c87683aba5</id>
       <iterationEntity>
          <iterationType>ALL</iterationType>
          <value></value>
@@ -18,259 +18,246 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>9a417d28-ad9f-4599-8025-c5c5c99d58ff</variableId>
+      <variableId>02da5a16-0bef-42ef-b797-a753e4260be1</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>84a13b9b-f276-4724-80bf-b558d3a3f456</variableId>
+      <variableId>e0ed427c-1d0d-440c-8a2e-da8f6e6892ba</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>71a0f345-b01f-4ff7-af72-54c53e25bc4d</variableId>
+      <variableId>53868f5a-b18c-4da4-9f89-bca607893055</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>3f99dee5-8f47-40d2-b77b-599df5e61a83</variableId>
+      <variableId>1c906b8f-58ef-49fd-91c2-d15501eee880</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>06cda63c-ed77-406a-b601-220d19685d58</variableId>
+      <variableId>2573c610-ac6e-41f0-b316-cf0c3838c2e8</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>afde94de-c3b1-4d77-afae-633dd175efd5</variableId>
+      <variableId>136cb324-7be9-4f4e-b9f8-3c7e38c4a568</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>726288d9-a949-4e5b-8307-2abb07d05b3a</variableId>
+      <variableId>bd70ea99-8f88-4dde-b376-02e8d59eb0c4</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>55df43ff-2b7e-43ce-aecb-1fd0f67b8493</variableId>
+      <variableId>c14ea717-9a8d-4223-aad5-a05d59c0f036</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>d7fbd84e-cc6e-46c3-b82e-6a575cc8f9fc</variableId>
+      <variableId>ee75e659-cdc1-438c-b71a-7cb21efd81e4</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>b695202e-9bb6-49d7-add0-2d71e2638689</variableId>
+      <variableId>8126b6ad-7d9f-429b-8632-4b7d5080508c</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>ac963d7f-57f0-4bde-854a-52db02fdb548</variableId>
+      <variableId>a586b248-ba3e-42d9-a809-d8d3d0a24fb5</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
+      <variableId>a6ad1167-4c26-4719-af5d-9f19a5f46ee9</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
+      <variableId>384e1d59-e26d-4e0e-b937-61d148b2cc4e</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
+      <variableId>d8981ae2-91af-4b03-9ec1-421b229e8e02</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>919439f9-c694-4a51-9145-f94176da1b76</testDataLinkId>
+      <testDataLinkId>d96361fe-1302-4ae7-b4fd-46c87683aba5</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>cardNumber</value>
-      <variableId>0baa10b2-b62a-4303-8e0c-3ce4c66c845d</variableId>
+      <variableId>5291d3e3-4dfc-42dc-9d9e-cafe5bd7f6e4</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>919439f9-c694-4a51-9145-f94176da1b76</testDataLinkId>
+      <testDataLinkId>d96361fe-1302-4ae7-b4fd-46c87683aba5</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>cardCvc</value>
-      <variableId>b248e37d-03da-44b1-8ab1-0673aba66fc8</variableId>
+      <variableId>cc1c4fa6-afcf-42ce-81d1-046d28e5ef4a</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>919439f9-c694-4a51-9145-f94176da1b76</testDataLinkId>
+      <testDataLinkId>d96361fe-1302-4ae7-b4fd-46c87683aba5</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>cardExpiry</value>
-      <variableId>f15bff58-2e19-4897-9ef8-50d61c498218</variableId>
+      <variableId>0255ba68-ad74-4c40-9aa0-e4f988469f68</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>919439f9-c694-4a51-9145-f94176da1b76</testDataLinkId>
+      <testDataLinkId>d96361fe-1302-4ae7-b4fd-46c87683aba5</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>billingName</value>
-      <variableId>a428484b-9342-4981-bdf2-d3e1e54c720b</variableId>
+      <variableId>6b883251-6dd5-41d6-ba65-21c3a602a5fc</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>919439f9-c694-4a51-9145-f94176da1b76</testDataLinkId>
+      <testDataLinkId>d96361fe-1302-4ae7-b4fd-46c87683aba5</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>expectedResult</value>
-      <variableId>8c314873-242e-4584-897c-e23d1c9c0902</variableId>
+      <variableId>08f7de2c-5c2b-4861-a970-ff5f4aaf9074</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'dxf-testing.dxf'</defaultValue>
+      <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
-      <id>9a417d28-ad9f-4599-8025-c5c5c99d58ff</id>
+      <id>02da5a16-0bef-42ef-b797-a753e4260be1</id>
       <masked>false</masked>
       <name>partName</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>84a13b9b-f276-4724-80bf-b558d3a3f456</id>
+      <id>e0ed427c-1d0d-440c-8a2e-da8f6e6892ba</id>
       <masked>false</masked>
       <name>filePDF</name>
    </variable>
    <variable>
-      <defaultValue>'50'</defaultValue>
+      <defaultValue>'2'</defaultValue>
       <description></description>
-      <id>71a0f345-b01f-4ff7-af72-54c53e25bc4d</id>
+      <id>53868f5a-b18c-4da4-9f89-bca607893055</id>
       <masked>false</masked>
       <name>quantityNum</name>
    </variable>
    <variable>
       <defaultValue>'3'</defaultValue>
       <description></description>
-      <id>3f99dee5-8f47-40d2-b77b-599df5e61a83</id>
+      <id>1c906b8f-58ef-49fd-91c2-d15501eee880</id>
       <masked>false</masked>
       <name>threadNum</name>
    </variable>
    <variable>
       <defaultValue>'4'</defaultValue>
       <description></description>
-      <id>06cda63c-ed77-406a-b601-220d19685d58</id>
+      <id>2573c610-ac6e-41f0-b316-cf0c3838c2e8</id>
       <masked>false</masked>
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Sandblasting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentMTP</defaultValue>
       <description></description>
-      <id>afde94de-c3b1-4d77-afae-633dd175efd5</id>
+      <id>136cb324-7be9-4f4e-b9f8-3c7e38c4a568</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'Ra 0,8 - 1,6 (finely finished); Rz 6,3 - 10'</defaultValue>
+      <defaultValue>GlobalVariable.quality</defaultValue>
       <description>Ra 3,2 - 25 (roughed); Rz 16 - 100; Ra 1,6 - 3,2 (settled); Rz 10 - 16</description>
-      <id>726288d9-a949-4e5b-8307-2abb07d05b3a</id>
+      <id>bd70ea99-8f88-4dde-b376-02e8d59eb0c4</id>
       <masked>false</masked>
       <name>quality</name>
    </variable>
    <variable>
       <defaultValue>'5'</defaultValue>
       <description></description>
-      <id>55df43ff-2b7e-43ce-aecb-1fd0f67b8493</id>
+      <id>c14ea717-9a8d-4223-aad5-a05d59c0f036</id>
       <masked>false</masked>
       <name>comment</name>
    </variable>
    <variable>
       <defaultValue>'No'</defaultValue>
       <description></description>
-      <id>d7fbd84e-cc6e-46c3-b82e-6a575cc8f9fc</id>
+      <id>ee75e659-cdc1-438c-b71a-7cb21efd81e4</id>
       <masked>false</masked>
       <name>tolerancesToggle</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupMTP</defaultValue>
       <description></description>
-      <id>b695202e-9bb6-49d7-add0-2d71e2638689</id>
+      <id>8126b6ad-7d9f-429b-8632-4b7d5080508c</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'EN AW-7075 / AlZn5'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameMTP</defaultValue>
       <description></description>
-      <id>ac963d7f-57f0-4bde-854a-52db02fdb548</id>
+      <id>a586b248-ba3e-42d9-a809-d8d3d0a24fb5</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>['Thuy', 'Truong', '0794050505', '359', 'Bavaria', '73405', 'Abenberg', 'Germany']</defaultValue>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
       <description></description>
-      <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
+      <id>a6ad1167-4c26-4719-af5d-9f19a5f46ee9</id>
       <masked>false</masked>
-      <name>billingAddress</name>
+      <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>['Thuy1', 'Truong2', '07940505055', '3594', 'Berlin', '734056', 'Adlershof', 'Germany']</defaultValue>
+      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
       <description></description>
-      <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
+      <id>384e1d59-e26d-4e0e-b937-61d148b2cc4e</id>
       <masked>false</masked>
-      <name>shippingAddress</name>
+      <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>['ThuyThuy', 'TruongTruong', '07940505050794050505', '359359', 'Baden-Württemberg', '7340573', 'Achern', 'Germany']</defaultValue>
+      <defaultValue>GlobalVariable.shippingOption</defaultValue>
       <description></description>
-      <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
+      <id>d8981ae2-91af-4b03-9ec1-421b229e8e02</id>
       <masked>false</masked>
-      <name>billingAddressChanged</name>
-   </variable>
-   <variable>
-      <defaultValue>['Thuy11', 'Truong22', '07940505044', '35933', 'Berlin', '7340555', 'Adlershof', 'Germany']</defaultValue>
-      <description></description>
-      <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
-      <masked>false</masked>
-      <name>shippingAddressChanged</name>
+      <name>shippingOption</name>
    </variable>
    <variable>
       <defaultValue>'4242424242424242'</defaultValue>
       <description></description>
-      <id>0baa10b2-b62a-4303-8e0c-3ce4c66c845d</id>
+      <id>5291d3e3-4dfc-42dc-9d9e-cafe5bd7f6e4</id>
       <masked>false</masked>
       <name>cardNumber</name>
    </variable>
    <variable>
       <defaultValue>'123'</defaultValue>
       <description></description>
-      <id>b248e37d-03da-44b1-8ab1-0673aba66fc8</id>
+      <id>cc1c4fa6-afcf-42ce-81d1-046d28e5ef4a</id>
       <masked>false</masked>
       <name>cardCvc</name>
    </variable>
    <variable>
       <defaultValue>'12/25'</defaultValue>
       <description></description>
-      <id>f15bff58-2e19-4897-9ef8-50d61c498218</id>
+      <id>0255ba68-ad74-4c40-9aa0-e4f988469f68</id>
       <masked>false</masked>
       <name>cardExpiry</name>
    </variable>
    <variable>
       <defaultValue>'Truong Bao Thuy'</defaultValue>
       <description></description>
-      <id>a428484b-9342-4981-bdf2-d3e1e54c720b</id>
+      <id>6b883251-6dd5-41d6-ba65-21c3a602a5fc</id>
       <masked>false</masked>
       <name>billingName</name>
    </variable>
    <variable>
       <defaultValue>'incorrect_cvc'</defaultValue>
       <description></description>
-      <id>8c314873-242e-4584-897c-e23d1c9c0902</id>
+      <id>08f7de2c-5c2b-4861-a970-ff5f4aaf9074</id>
       <masked>false</masked>
       <name>expectedResult</name>
    </variable>

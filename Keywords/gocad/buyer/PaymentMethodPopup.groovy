@@ -56,4 +56,49 @@ public class PaymentMethodPopup extends BasePage<PaymentMethodPopup>{
 		WebUI.click(xpath("//*[@aria-label='close']/parent::span"))
 		return this
 	}
+	
+	public PaymentMethodPopup verifyErrorCardInform(String expectedResult) {
+		WebUI.switchToFrame(xpath("//*[@name='embedded-checkout']"), 5)
+		waitUntilElementVisibleWithWebDriverWait(xpath("//*[@class='FormFieldGroup']//*[contains(@role, 'alert')]"), 10)
+		String actualResult = WebUI.getText(xpath("//*[@class='FormFieldGroup']//*[contains(@role, 'alert')]"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		WebUI.switchToDefaultContent()
+		return this
+	}
+	
+	public PaymentMethodPopup verifyErrorConfirmPayment(String expectedResult) {
+		WebUI.switchToFrame(xpath("//*[@name='embedded-checkout']"), 5)
+		String actualResult = WebUI.getText(xpath("//*[contains(@class,'ConfirmPaymentButton-Error')]"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		WebUI.switchToDefaultContent()
+		return this
+	}
+	
+	public PaymentMethodPopup verifyCardNumberEmpty() {
+		WebUI.switchToFrame(xpath("//*[@name='embedded-checkout']"), 5)
+		WebUI.verifyElementPresent(xpath("//*[@id='cardNumber' and contains(@class, 'Input--empty')]"), 5)
+		WebUI.switchToDefaultContent()
+		return this
+	}
+	
+	public PaymentMethodPopup verifyExpiryDateEmpty() {
+		WebUI.switchToFrame(xpath("//*[@name='embedded-checkout']"), 5)
+		WebUI.verifyElementPresent(xpath("//*[@id='cardExpiry' and contains(@class, 'Input--empty')]"), 5)
+		WebUI.switchToDefaultContent()
+		return this
+	}
+	
+	public PaymentMethodPopup verifyCardCvcEmpty() {
+		WebUI.switchToFrame(xpath("//*[@name='embedded-checkout']"), 5)
+		WebUI.verifyElementPresent(xpath("//*[@id='cardCvc' and contains(@class, 'Input--empty')]"), 5)
+		WebUI.switchToDefaultContent()
+		return this
+	}
+	
+	public PaymentMethodPopup verifyBillingNameEmpty() {
+		WebUI.switchToFrame(xpath("//*[@name='embedded-checkout']"), 5)
+		WebUI.verifyElementPresent(xpath("//*[@id='billingName' and contains(@class, 'Input--empty')]"), 5)
+		WebUI.switchToDefaultContent()
+		return this
+	}
 }

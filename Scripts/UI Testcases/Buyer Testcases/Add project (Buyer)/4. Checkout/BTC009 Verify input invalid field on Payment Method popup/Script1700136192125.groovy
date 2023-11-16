@@ -118,52 +118,58 @@ Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
 							.inputCardCvc(cardCvc)
 							.inputBillingName(billingName)
 							.clickPayButton()
-							.sleep(2)
-					  
-println '>> Click back to project to get shipping info'
-Page.nav(CompletedCheckoutPage).clickBackToProject()
-List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
+							.sleep(5)					  
 
-println '>> Verify information show on list Confirmed Offers of buyer'
-Page.nav(LeftNavBar).clickConfirmedOffers()
-Page.nav(ConfirmedOffersPageOfBuyer).verifyProjectName(projectId, projectName)
-									.verifyDeliveryDate(projectId, deliveryDate)
-									.verifyOrderNumber(projectId)
-									.verifyGrossTotal(projectId, grossTotal)
-									.verifyStatus(projectId, "Order confirmed")
-									.clickAction(projectId)
-									
-println '>> Verify detail of offer'
-Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
-					 .verifyBillingAddress(listBillingAddress)
-					 .verifyShippingAddress(listShippingAddress)
-					 .verifyOrderSummary(listOrderSummary)
-					 .verifyTablePartReview(partName, tablePart)
-					 .verifyShippingInfo(listShippingInfo)
-						
-println '>>  Buyer click Logout button'
-Page.nav(LeftNavBar).clickLogout()
-
-println '>>  Seller Login system to check offers of buyer'
-Page.nav(SignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
-
-println '>>  Seller go confirmed offers of buyer checkout'
-Page.nav(LeftNavBar).clickConfirmedOffers()
-
-println '>>  Verify information show on list'
-Page.nav(ConfirmedOffersPageOfSeller).verifyHighlightOnList(projectId)
-									 .verifyProjectName(projectId, projectName)
-									 .verifyCompanyName(projectId, companyName)
-									 .verifyOrderNumber(projectId)
-									 .verifyOrderDate(projectId, orderDate)
-									 .verifyNetTotal(projectId, netTotal)
-									 .verifyStatus(projectId, "Order confirmed")
-									 .clickAction(projectId)
-
-println '>>  Verify detail of offer'
-Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
-					 .verifyBillingAddress(listBillingAddress)
-					 .verifyShippingAddress(listShippingAddress)
-					 .verifyOrderSummary(listOrderSummary)
-					 .verifyTablePartReview(partName, tablePart)
-					 .verifyShippingInfo(listShippingInfo)
+switch (expectedResult) {
+	
+	case "incorrect_cvc":
+	println '>> Verify error'
+	Page.nav(PaymentMethodPopup).verifyErrorCardInform("Your card's security code is incorrect.")
+	break;	
+	
+	case "expired_card":
+	println '>> Verify error'
+	Page.nav(PaymentMethodPopup).verifyErrorCardInform("Your card has expired.")
+	break;
+	
+	case "processing_error":
+	println '>> Verify error'
+	Page.nav(PaymentMethodPopup).verifyErrorConfirmPayment("An error occurred while processing your payment. Try again later or with a different payment method.")
+	break;
+	
+	case "incorrect_number":
+	println '>> Verify error'
+	Page.nav(PaymentMethodPopup).verifyErrorCardInform("Your card number is invalid.")
+	break;
+	
+	case "insufficient_funds":
+	println '>> Verify error'
+	Page.nav(PaymentMethodPopup).verifyErrorCardInform("Your credit card was declined because of insufficient funds. Try paying with a debit card instead.")
+	break;
+	
+	case "decline_after_attaching":
+	println '>> Verify error'
+	Page.nav(PaymentMethodPopup).verifyErrorCardInform("Your credit card was declined. Try paying with a debit card instead.")
+	break;
+	
+	case "missing_cardNumber":
+	println '>> Verify error'
+	Page.nav(PaymentMethodPopup).verifyCardNumberEmpty()
+	break;
+	
+	case "missing_expiry":
+	println '>> Verify error'
+	Page.nav(PaymentMethodPopup).verifyExpiryDateEmpty()
+	break;
+	
+	case "missing_cvc":
+	println '>> Verify error'
+	Page.nav(PaymentMethodPopup).verifyCardCvcEmpty()
+	break;
+	
+	case "missing_billingName":
+	println '>> Verify error'
+	Page.nav(PaymentMethodPopup).verifyBillingNameEmpty()
+	break;
+							 
+}

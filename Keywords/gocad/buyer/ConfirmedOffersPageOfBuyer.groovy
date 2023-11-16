@@ -18,13 +18,14 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 	def paymentStatusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[9]//button")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[11]/a")}
 	def row = { String row -> return "//thead/following::tr[$row]/"}
+	def rowByPaymentStatusButton = "(//*[text()='Pay']/parent::button/ancestor::tr)[1]"
 	def contentConfirmedOffersPage = "The folder Confirmed Requests shows all projects that have been approved and are in progress."
 
 	public ConfirmedOffersPageOfBuyer clickPayButton(String projectId) {
 		WebUI.click(paymentStatusCol(projectId))
 		return this
 	}
-	
+
 	public ConfirmedOffersPageOfBuyer clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))
 		return this
@@ -93,6 +94,17 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "td[6]"))
 		String grossTotal = WebUI.getText(xpath(row(rowNumber) + "td[7]/div"))
 		String status = WebUI.getText(xpath(row(rowNumber) + "td[8]//span[normalize-space(text()) != '']"))
+		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
+		return dataRow
+	}
+	
+	public List<String> getDataRowByPaymentStatus() {
+		String id = WebUI.getText(xpath(rowByPaymentStatusButton + "/td[1]"))
+		String projectName = WebUI.getText(xpath(rowByPaymentStatusButton + "/td[2]//a"))
+		String deliveryDate = WebUI.getText(xpath(rowByPaymentStatusButton + "/td[5]/div"))
+		String orderNumber = WebUI.getText(xpath(rowByPaymentStatusButton + "/td[6]"))
+		String grossTotal = WebUI.getText(xpath(rowByPaymentStatusButton + "/td[7]/div"))
+		String status = WebUI.getText(xpath(rowByPaymentStatusButton + "/td[8]//span[normalize-space(text()) != '']"))
 		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
 		return dataRow
 	}

@@ -27,13 +27,15 @@ switch (expectedResult) {
 		Page.nav(ChangePasswordPopup).verifyErrorCurrentPasswordField("Current password is required.")
 									 .verifyErrorNewPasswordField("New password is required.")
 									 .verifyErrorConfirmNewPasswordField("Confirm Password is required.")
-									 
+	break;
+	
 	case "wrongPassword":
 	println '>> Verify error in field'
 	Page.nav(ChangePasswordPopup).verifyErrorCurrentPasswordField("Incorrect password.")
+	break;
 	
 	case "notMatch":
 	println '>> Verify error in field'
 	Page.nav(ChangePasswordPopup).verifyErrorConfirmNewPasswordField("Passwords do NOT match")
-							 
+	break;
 }
