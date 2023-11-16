@@ -196,4 +196,32 @@
       <masked>false</masked>
       <name>shippingOption</name>
    </variable>
+   <variable>
+      <defaultValue>'4242424242424242'</defaultValue>
+      <description></description>
+      <id>f9a68087-c59b-4a3d-9aec-9bb8f4a54ec8</id>
+      <masked>false</masked>
+      <name>cardNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'123'</defaultValue>
+      <description></description>
+      <id>dc41be2d-1b88-426a-bfab-da3f6345c191</id>
+      <masked>false</masked>
+      <name>cardCvc</name>
+   </variable>
+   <variable>
+      <defaultValue>'12/25'</defaultValue>
+      <description></description>
+      <id>a4e74975-a41c-49d1-8432-75bca6d53cd2</id>
+      <masked>false</masked>
+      <name>cardExpiry</name>
+   </variable>
+   <variable>
+      <defaultValue>'Truong Bao Thuy'</defaultValue>
+      <description></description>
+      <id>1959c516-0e3c-4b64-b55f-ac88459b0551</id>
+      <masked>false</masked>
+      <name>billingName</name>
+   </variable>
 </TestCaseEntity>

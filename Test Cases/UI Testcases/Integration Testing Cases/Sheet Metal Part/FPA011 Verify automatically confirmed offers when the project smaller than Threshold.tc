@@ -116,6 +116,30 @@
       <value>packagingAndShippingComments</value>
       <variableId>f330aa7b-2459-47e5-9a40-d8b70fea6db4</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f9a68087-c59b-4a3d-9aec-9bb8f4a54ec8</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>dc41be2d-1b88-426a-bfab-da3f6345c191</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a4e74975-a41c-49d1-8432-75bca6d53cd2</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>1959c516-0e3c-4b64-b55f-ac88459b0551</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>

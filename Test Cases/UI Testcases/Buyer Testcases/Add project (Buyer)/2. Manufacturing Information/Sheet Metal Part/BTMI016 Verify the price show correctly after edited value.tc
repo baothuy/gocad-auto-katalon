@@ -249,7 +249,7 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupSMP</defaultValue>
       <description></description>
       <id>4718bf14-c98c-454c-b5b2-86ec51228c04</id>
       <masked>false</masked>

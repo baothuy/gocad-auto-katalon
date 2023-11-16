@@ -203,7 +203,7 @@
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'90,20'</defaultValue>
+      <defaultValue>'99,71'</defaultValue>
       <description></description>
       <id>6bd48507-3117-4547-9a27-bbe831b4e136</id>
       <masked>false</masked>
