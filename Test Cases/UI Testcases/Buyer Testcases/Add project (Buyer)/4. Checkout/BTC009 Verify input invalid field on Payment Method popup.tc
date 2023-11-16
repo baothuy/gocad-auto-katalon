@@ -227,7 +227,7 @@
       <name>shippingOption</name>
    </variable>
    <variable>
-      <defaultValue>'4242424242424242'</defaultValue>
+      <defaultValue>'4000000000000127'</defaultValue>
       <description></description>
       <id>5291d3e3-4dfc-42dc-9d9e-cafe5bd7f6e4</id>
       <masked>false</masked>
