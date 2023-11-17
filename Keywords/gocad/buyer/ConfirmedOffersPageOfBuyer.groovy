@@ -97,7 +97,7 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
 		return dataRow
 	}
-	
+
 	public List<String> getDataRowByPaymentStatus() {
 		String id = WebUI.getText(xpath(rowByPaymentStatusButton + "/td[1]"))
 		String projectName = WebUI.getText(xpath(rowByPaymentStatusButton + "/td[2]//a"))

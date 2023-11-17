@@ -117,6 +117,7 @@ Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
 							.inputCardExpiry(cardExpiry)
 							.inputCardCvc(cardCvc)
 							.inputBillingName(billingName)
+							.selectCountry(country)
 							.clickPayButton()
 							.sleep(2)
 					  

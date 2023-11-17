@@ -164,4 +164,14 @@
       <initValue>'Painting'</initValue>
       <name>surfaceTreatmentSMP</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Copper'</initValue>
+      <name>materialGroupSMP2</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'CuSn8'</initValue>
+      <name>materialNameSMP2</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

@@ -140,6 +140,12 @@
       <value></value>
       <variableId>1959c516-0e3c-4b64-b55f-ac88459b0551</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>0b1b0fab-4da4-4cfe-ac11-fd05b0699514</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
@@ -286,5 +292,12 @@
       <id>1959c516-0e3c-4b64-b55f-ac88459b0551</id>
       <masked>false</masked>
       <name>billingName</name>
+   </variable>
+   <variable>
+      <defaultValue>'Vietnam'</defaultValue>
+      <description></description>
+      <id>0b1b0fab-4da4-4cfe-ac11-fd05b0699514</id>
+      <masked>false</masked>
+      <name>country</name>
    </variable>
 </TestCaseEntity>
