@@ -173,14 +173,14 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>GlobalVariable.materialGroupSMP</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupSMP2</defaultValue>
       <description></description>
       <id>499794cd-e3be-4af0-9b39-46d8d0895543</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>GlobalVariable.materialNameSMP</defaultValue>
+      <defaultValue>GlobalVariable.materialNameSMP2</defaultValue>
       <description></description>
       <id>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</id>
       <masked>false</masked>
