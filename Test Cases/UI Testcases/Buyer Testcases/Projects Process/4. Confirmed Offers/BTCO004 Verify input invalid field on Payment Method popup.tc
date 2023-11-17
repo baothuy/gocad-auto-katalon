@@ -125,6 +125,12 @@
    <variableLinks>
       <testDataLinkId>f487f3b4-68f5-452d-bc31-70b569f05161</testDataLinkId>
       <type>DATA_COLUMN</type>
+      <value>country</value>
+      <variableId>1f5d6384-c498-4fea-813a-d540b9082f9b</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>f487f3b4-68f5-452d-bc31-70b569f05161</testDataLinkId>
+      <type>DATA_COLUMN</type>
       <value>expectedResult</value>
       <variableId>08f7de2c-5c2b-4861-a970-ff5f4aaf9074</variableId>
    </variableLinks>
@@ -253,6 +259,13 @@
       <id>6b883251-6dd5-41d6-ba65-21c3a602a5fc</id>
       <masked>false</masked>
       <name>billingName</name>
+   </variable>
+   <variable>
+      <defaultValue>'Vietnam'</defaultValue>
+      <description></description>
+      <id>1f5d6384-c498-4fea-813a-d540b9082f9b</id>
+      <masked>false</masked>
+      <name>country</name>
    </variable>
    <variable>
       <defaultValue>'incorrect_cvc'</defaultValue>
