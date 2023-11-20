@@ -153,6 +153,12 @@
       <variableId>c46509bc-49fc-42f9-98e7-8a3bf1950ef9</variableId>
    </variableLinks>
    <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>de596766-ad36-4843-af53-1c869e4291e4</variableId>
+   </variableLinks>
+   <variableLinks>
       <testDataLinkId>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>materialNameChanged</value>
@@ -186,7 +192,7 @@
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description></description>
       <id>9bde58c0-c79d-4555-9daf-96c53031bb67</id>
       <masked>false</masked>
@@ -277,7 +283,7 @@
       <name>provideOwnProductChanged</name>
    </variable>
    <variable>
-      <defaultValue>'4'</defaultValue>
+      <defaultValue>'2'</defaultValue>
       <description></description>
       <id>f6e5417a-3c84-4ff4-8c47-580a30aba5e0</id>
       <masked>false</masked>
@@ -324,6 +330,13 @@
       <id>c46509bc-49fc-42f9-98e7-8a3bf1950ef9</id>
       <masked>false</masked>
       <name>threadNumChanged</name>
+   </variable>
+   <variable>
+      <defaultValue>'Copper'</defaultValue>
+      <description></description>
+      <id>de596766-ad36-4843-af53-1c869e4291e4</id>
+      <masked>false</masked>
+      <name>materialGroupChanged</name>
    </variable>
    <variable>
       <defaultValue>'CuSn8'</defaultValue>

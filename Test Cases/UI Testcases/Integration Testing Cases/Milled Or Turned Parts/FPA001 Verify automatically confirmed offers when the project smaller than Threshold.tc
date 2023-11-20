@@ -122,6 +122,12 @@
       <value></value>
       <variableId>1959c516-0e3c-4b64-b55f-ac88459b0551</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>87fe96f3-9667-4eb2-b096-0b9669a32b1b</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
@@ -247,5 +253,12 @@
       <id>1959c516-0e3c-4b64-b55f-ac88459b0551</id>
       <masked>false</masked>
       <name>billingName</name>
+   </variable>
+   <variable>
+      <defaultValue>'Vietnam'</defaultValue>
+      <description></description>
+      <id>87fe96f3-9667-4eb2-b096-0b9669a32b1b</id>
+      <masked>false</masked>
+      <name>country</name>
    </variable>
 </TestCaseEntity>

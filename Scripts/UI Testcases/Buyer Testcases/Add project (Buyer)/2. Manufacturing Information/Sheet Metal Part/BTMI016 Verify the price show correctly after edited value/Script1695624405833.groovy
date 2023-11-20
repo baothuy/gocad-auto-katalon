@@ -70,7 +70,7 @@ Page.nav(ManufacturingInformationPage).clickEdit()
 																				
 println '>> Select material'
 Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
-Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialNameChanged)
+Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroupChanged).inputSearchMaterial(materialNameChanged)
 material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialNameChanged)
 println "material = $material"
 Page.nav(SelectMaterialPopup).selectMaterialName(materialNameChanged)
