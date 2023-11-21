@@ -64,7 +64,7 @@ Page.nav(CustomDXFPage).inputFileName(fileName)
 						.sleep(1)
 	 
 println '>> Error: The diameter bolt circle should beetween ${ External diameter - Diameter holes }'
-Page.nav(CustomDXFPage).verifyErrorWhenInputDiameterBoltCircle("The diameter bolt circle should beetween 195mm - 245mm")					
+Page.nav(CustomDXFPage).verifyErrorWhenInputDiameterBoltCircle("The diameter bolt circle should between 195mm - 245mm")					
 									  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

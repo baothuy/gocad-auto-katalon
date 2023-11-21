@@ -50,7 +50,7 @@ Page.nav(CustomDXFPage).inputFileName(fileName)
 					   .sleep(1)
 
 println '>> Verify error when empty field'
-Page.nav(CustomDXFPage).verifyErrorWhenInputCornerLength("The lenght of the corner should less than 75mm")
+Page.nav(CustomDXFPage).verifyErrorWhenInputCornerLength("The length of the corner should be less than or equal 75mm")
 									  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()
