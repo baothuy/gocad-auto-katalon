@@ -151,7 +151,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage selectSurfaceTreatment(String surfaceTreatment) {
-		WebUI.click(xpath("//input[@id='rc_select_1']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
+		WebUI.click(xpath("//input[@id='surfaceTreatmentIds']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
 		List<String> surfaceTreatmentObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")
 		(surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")) : "Empty"
 		WebUI.click(id("additionalComments"))
