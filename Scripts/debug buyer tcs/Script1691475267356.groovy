@@ -1,8 +1,6 @@
 import gocad.buyer.CheckoutPage
-import gocad.buyer.ConfirmedOffersPageOfBuyer
-import gocad.buyer.PaymentMethodPopup
+import gocad.buyer.DraftPage
 import gocad.buyer.ReviewPage
-import gocad.common.LeftNavBar
 import gocad.common.SignInPage
 import katalon.fw.lib.Page
 
@@ -15,26 +13,15 @@ println '>> Random project name'
 println '>> User buyer signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
-Page.nav(LeftNavBar).clickConfirmedOffers()
-List<String> dataRow = Page.nav(ConfirmedOffersPageOfBuyer).getDataRowByPaymentStatus()
-String projectId = dataRow[0]
-Page.nav(ConfirmedOffersPageOfBuyer).clickPayButton(projectId)
+//Page.nav(LeftNavBar).clickConfirmedOffers()
+//List<String> dataRow = Page.nav(ConfirmedOffersPageOfBuyer).getDataRowByPaymentStatus()
+//String projectId = dataRow[0]
+//Page.nav(ConfirmedOffersPageOfBuyer).clickPayButton(projectId)
 
-//Page.nav(ReviewPage).clickManufacturingInformationProcess()
+Page.nav(DraftPage).clickViewAction('15986')
 
-//println '>> input and verify after update Bulk Pricing'
-//Page.nav(ManufacturingInformationPage).selectThickness(partName, "1").sleep(1)
+Page.nav(ReviewPage).clickCheckout()
 
-//Page.nav(ReviewPage).clickCheckout()
+Page.nav(CheckoutPage).verifySurchargeForMinimumOrderValue('26,40 €', '42,49 €')
 
-//Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
-//									.clickPlaceYourOrder()
-
-Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
-							.inputCardCvc(cardCvc)
-							.inputCardExpiry(cardExpiry)
-							.inputBillingName(billingName)
-							.selectCountry(country)
-							.clickPayButton()
-							.sleep(10)
 						

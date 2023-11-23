@@ -180,7 +180,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath("//*[@aria-label='check']"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage clickAcceptChangeUnitPricing() {
 		WebUI.click(xpath("//*[@aria-label='check']"))
 		return this
@@ -225,7 +225,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath('//button[@title="Add technical drawing"]'))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage inputUnitPrice(String text) {
 		clearTextAndSendKeysByActions(xpath('//*[@id="unitPrice"]'), text)
 		return this
@@ -473,14 +473,12 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		if(unitPrice.contains("."))
 		{
 			def numericValue = unitPrice.replaceAll(/[^\d.,]/, '').replace('.', '').replace(',', '.').toDouble()
-			println "numericValue contains cham: $numericValue"
 			def expectedResult = quantity.toDouble() * numericValue
 			formattedSum = decimalFormat.format(expectedResult)
 			newExpectedResult = "$formattedSum $GlobalVariable.currency"
 		}
 		else {
 			def numericValue = unitPrice.replaceAll(/[^\d.,]/, '').replace(',', '.').toDouble()
-			println "numericValue contains phay: $numericValue"
 			def expectedResult = quantity.toDouble() * numericValue
 			formattedSum = decimalFormat.format(expectedResult).replace('.', ',')
 			newExpectedResult = "$formattedSum $GlobalVariable.currency"
@@ -785,7 +783,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyEqual(errorEmpty, expectedResult)
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyErrorWhenThicknessEmpty() {
 		def errorEmpty = WebUI.getText(xpath("//*[text()='Thickness']/parent::div/following::div[@id='thickness_help']/div"))
 		def expectedResult = "Thickness is required."
