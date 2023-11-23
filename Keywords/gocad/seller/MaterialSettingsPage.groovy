@@ -34,6 +34,16 @@ public class MaterialSettingsPage extends BasePage<MaterialSettingsPage>{
 		WebUI.click(editActionCol(materialName))
 		return this
 	}
+	
+	public MaterialSettingsPage clickMoreButton(String materialName) {
+		WebUI.click(moreActionCol(materialName))
+		return this
+	}
+	
+	public MaterialSettingsPage clickDeleteButton() {
+		WebUI.click(xpath("//*[text()='Delete']"))
+		return this
+	}
 
 	public MaterialSettingsPage clickAcceptChangeSurchargeRawMaterialButton() {
 		WebUI.click(xpath("//span[@aria-label='check']/parent::button"))

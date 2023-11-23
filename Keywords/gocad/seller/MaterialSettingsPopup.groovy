@@ -36,7 +36,7 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		WebUI.click(xpath("//input[@id='basic_groupId']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
 		List<String> materialGroupObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$materialGroup']/parent::div")
 		(materialGroupObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$materialGroup']/parent::div")) : "Empty"
-		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
+		//WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
 		return this
 	}
 
@@ -55,8 +55,8 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		return this
 	}
 
-	public MaterialSettingsPopup inputPricePerKilo(String density) {
-		clearTextAndSendKeysByActions(id("basic_pricePerKilo"), density)
+	public MaterialSettingsPopup inputPricePerKilo(String value) {
+		clearTextAndSendKeysByActions(id("basic_pricePerKilo"), value)
 		return this
 	}
 
