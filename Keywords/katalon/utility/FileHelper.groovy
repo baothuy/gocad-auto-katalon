@@ -22,7 +22,10 @@ public class FileHelper {
 	private static String readFile(String fileName) {
 		try {
 			//String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\"
-			String downloadFolderPath = "C:\\katalon\\studio\\configuration\\resources\\tools\\TestOps\\downloads"
+			//windown
+			//String downloadFolderPath = "C:\\katalon\\studio\\configuration\\resources\\tools\\TestOps\\downloads"
+			//linux
+			String downloadFolderPath = "/opt/katalonstudio/configuration/resources/tools/TestOps/downloads"
 			return FileUtils.readFileToString(new File(downloadFolderPath + fileName), StandardCharsets.UTF_8);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -51,7 +54,7 @@ public class FileHelper {
 		println "fileName: $fileName"
 		// Define the path where the file will be downloaded
 		//String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\"
-		String downloadFolderPath = "C:\\katalon\\studio\\configuration\\resources\\tools\\TestOps\\downloads"
+		String downloadFolderPath = "/opt/katalonstudio/configuration/resources/tools/TestOps/downloads"
 		println "downloadFolderPath: $downloadFolderPath"
 		// Clear the downloaded file before verify
 		Files.deleteIfExists(Paths.get(downloadFolderPath, fileName))
