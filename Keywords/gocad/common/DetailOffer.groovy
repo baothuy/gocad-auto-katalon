@@ -28,6 +28,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	def contentOpenInquiriesAlertManually = "For these parts, your customer has not seen a price and he requested a manual quotation. The reason that for this part no automatic price has been shown to the customer can be e.g. that there are specific tolerances that need to be manually checked. Please check the parts and the automatically calculated price and adapt the price accordingly. You can then send out the offer to your customer by clicking on \"Send offer\"."
 	def contentSentOffersAlertManually = ""
 	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
+	def tooltipsSurchargeMinimumPrice = "In our shop, the minimum order value is 80 € (250 € for FAST delivery) on the overall basket size, excluding packaging and delivery cost."
 
 	public DetailOffer clickAcceptAndSendOffer() {
 		WebUI.click(xpath("//span[text()='Accept And Send Offer ']/parent::button"))
@@ -184,6 +185,12 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String actualSurcharge = WebUI.getText(xpath("//label[text()='Surcharge for minimum order value']/following-sibling::label"))
 		String expectedSurcharge = 80 - totalPartPrice - surfaceTreatmentPrice
 		WebUI.verifyEqual(actualSurcharge, expectedSurcharge)
+		return this
+	}
+	
+	public DetailOffer verifySurchargeTooltipsVisible() {
+		WebUI.mouseOver(xpath("//label[text()='Surcharge for minimum order value']/span"))
+		WebUI.verifyElementVisible(xpath("//*[text()='$tooltipsSurchargeMinimumPrice']"))
 		return this
 	}
 	

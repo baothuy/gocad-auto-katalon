@@ -8,6 +8,8 @@ import org.apache.commons.io.FileUtils
 import org.apache.pdfbox.Loader
 import org.apache.pdfbox.pdmodel.PDDocument
 import org.apache.pdfbox.text.PDFTextStripper
+import org.openqa.selenium.chrome.ChromeDriver
+import org.openqa.selenium.chrome.ChromeOptions
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
@@ -53,8 +55,8 @@ public class FileHelper {
 	public FileHelper verifyFileDownloaded(String fileName) {
 		println "fileName: $fileName"
 		// Define the path where the file will be downloaded
-		//String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\"
-		String downloadFolderPath = "/opt/katalonstudio/configuration/resources/tools/TestOps/downloads"
+		String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\"
+		//String downloadFolderPath = "/opt/katalonstudio/configuration/resources/tools/TestOps/downloads"
 		println "downloadFolderPath: $downloadFolderPath"
 		// Clear the downloaded file before verify
 		Files.deleteIfExists(Paths.get(downloadFolderPath, fileName))

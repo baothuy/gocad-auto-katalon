@@ -86,7 +86,8 @@ String surfaceTreatmentSurcharge = Page.nav(ReviewPage).getSurfaceTreatmentSurch
 Page.nav(ReviewPage).clickCheckout()
 
 println '>> Verify information Address Information show correctly'
-Page.nav(CheckoutPage).verifySurchargeForMinimumOrderValue(netPrice, surfaceTreatmentSurcharge)					  
+Page.nav(CheckoutPage).verifySurchargeTooltipsVisible()	
+						.verifySurchargeForMinimumOrderValue(netPrice, surfaceTreatmentSurcharge)			  
 						  
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

@@ -25,6 +25,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[11]//button")}
 	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
 	def expectedAlertContent = "After the final approval of the offer by the seller, you will receive a confirmation via e-mail"
+	def tooltipsSurchargeMinimumPrice = "In our shop, the minimum order value is 80 € (250 € for FAST delivery) on the overall basket size, excluding packaging and delivery cost."
 
 	public CheckoutPage clickCheckboxAgreeTermsAndConditions() {
 		WebUI.click(xpath("//*[@id='agreeTermConditions']"))
@@ -254,15 +255,21 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.verifyEqual(actualShippingAddress, expectedResult)
 		return this
 	}
-	
+
 	public CheckoutPage verifySurchargeForMinimumOrderValue(String totalPartPrice, String surfaceTreatmentPrice) {
 		String actualSurcharge = WebUI.getText(xpath("//label[text()='Surcharge for minimum order value']/following-sibling::label"))
 		def decimalFormat = new DecimalFormat("###,##0.00")
 		def numberTotalPartPrice = totalPartPrice.replace(" $GlobalVariable.currency", "").replaceAll(/[^\d.,]/, '').replace('.', '').replace(',', '.').toDouble()
 		def numberSurfaceTreatmentPrice = surfaceTreatmentPrice.replace(" $GlobalVariable.currency", "").replaceAll(/[^\d.,]/, '').replace('.', '').replace(',', '.').toDouble()
-		def expectedSurcharge = 80 - numberTotalPartPrice - numberSurfaceTreatmentPrice		
+		def expectedSurcharge = 80 - numberTotalPartPrice - numberSurfaceTreatmentPrice
 		String convertExpectedSurcharge = decimalFormat.format(expectedSurcharge).replace('.', ',') + " $GlobalVariable.currency"
 		WebUI.verifyEqual(actualSurcharge, convertExpectedSurcharge)
+		return this
+	}
+	
+	public CheckoutPage verifySurchargeTooltipsVisible() {
+		WebUI.mouseOver(xpath("//label[text()='Surcharge for minimum order value']/span"))
+		WebUI.verifyElementVisible(xpath("//*[text()='$tooltipsSurchargeMinimumPrice']"))
 		return this
 	}
 }
