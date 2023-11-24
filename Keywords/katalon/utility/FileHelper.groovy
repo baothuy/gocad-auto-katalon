@@ -21,7 +21,8 @@ public class FileHelper {
 
 	private static String readFile(String fileName) {
 		try {
-			String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\"
+			//String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\"
+			String downloadFolderPath = "C:\\katalon\\studio\\configuration\\resources\\tools\\TestOps\\downloads"
 			return FileUtils.readFileToString(new File(downloadFolderPath + fileName), StandardCharsets.UTF_8);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -31,7 +32,8 @@ public class FileHelper {
 
 	public static String readDetailContentFile(String fileName) {
 		// Define the path where the file will be downloaded
-		String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\" + fileName
+		//String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\" + fileName
+		String downloadFolderPath = "C:\\katalon\\studio\\configuration\\resources\\tools\\TestOps\\downloads" + fileName
 		PDDocument document = Loader.loadPDF(new File(downloadFolderPath))
 		try {
 			// Create a PDFTextStripper object
@@ -48,7 +50,8 @@ public class FileHelper {
 	public FileHelper verifyFileDownloaded(String fileName) {
 		println "fileName: $fileName"
 		// Define the path where the file will be downloaded
-		String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\"
+		//String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\"
+		String downloadFolderPath = "C:\\katalon\\studio\\configuration\\resources\\tools\\TestOps\\downloads"
 		println "downloadFolderPath: $downloadFolderPath"
 		// Clear the downloaded file before verify
 		Files.deleteIfExists(Paths.get(downloadFolderPath, fileName))

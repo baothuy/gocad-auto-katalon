@@ -5,4 +5,52 @@
    <tag></tag>
    <comment></comment>
    <testCaseGuid>34d5020d-f596-46fa-b237-2879f5837a57</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>1961d014-c4b5-4de3-a5eb-830e0d419746</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'Plastic'</defaultValue>
+      <description></description>
+      <id>89e8fab7-b712-40db-9b94-b4fd1926bd3d</id>
+      <masked>false</masked>
+      <name>materialGroup</name>
+   </variable>
+   <variable>
+      <defaultValue>'Glass Plastic'</defaultValue>
+      <description></description>
+      <id>831d19f3-577a-4007-80fa-02ebd157f803</id>
+      <masked>false</masked>
+      <name>materialName</name>
+   </variable>
+   <variable>
+      <defaultValue>'1.0036'</defaultValue>
+      <description></description>
+      <id>11e57b14-8dad-4c67-a190-776af18fd9a7</id>
+      <masked>false</masked>
+      <name>number</name>
+   </variable>
+   <variable>
+      <defaultValue>'2,3'</defaultValue>
+      <description></description>
+      <id>45b54791-c7ee-4086-a851-46d2b1b7e5bd</id>
+      <masked>false</masked>
+      <name>density</name>
+   </variable>
+   <variable>
+      <defaultValue>'1,2'</defaultValue>
+      <description></description>
+      <id>36e3504c-0506-45ab-9996-934495232178</id>
+      <masked>false</masked>
+      <name>pricePerKilo</name>
+   </variable>
+   <variable>
+      <defaultValue>'Inactive'</defaultValue>
+      <description></description>
+      <id>395319bd-2ea1-4d6a-8b8a-7cd233a6f412</id>
+      <masked>false</masked>
+      <name>status</name>
+   </variable>
 </TestCaseEntity>
