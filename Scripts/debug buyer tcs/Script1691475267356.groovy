@@ -1,6 +1,8 @@
 import gocad.buyer.CheckoutPage
-import gocad.buyer.DraftPage
+import gocad.buyer.ConfirmedOffersPageOfBuyer
+import gocad.buyer.PaymentMethodPopup
 import gocad.buyer.ReviewPage
+import gocad.common.LeftNavBar
 import gocad.common.SignInPage
 import katalon.fw.lib.Page
 import katalon.utility.FileHelper
@@ -15,16 +17,18 @@ println '>> Random project name'
 println '>> User buyer signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
+Page.nav(LeftNavBar).clickConfirmedOffers()
+
 println '>>  User buyer add project'
-Page.nav(DraftPage).clickViewAction('16838')
+Page.nav(ConfirmedOffersPageOfBuyer).clickPayButton('16855')
 
-Page.nav(ReviewPage).clickCheckout()
-
-Page.nav(CheckoutPage).clickPreviewOfferToDownload()
-
-String projectName = 'Auto Generate Prj kXrASs5vnB'
-
-Page.nav(FileHelper).verifyFileDownloaded(projectName +'.pdf')
-
+println '>> Appear Payment Method Popup'
+Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
+							.inputCardExpiry(cardExpiry)
+							.inputCardCvc(cardCvc)
+							.inputBillingName(billingName)
+							.selectCountry(country)
+							.clickPayButton()
+							.sleep(2)
 
 						

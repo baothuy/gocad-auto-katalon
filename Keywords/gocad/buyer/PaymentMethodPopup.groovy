@@ -10,28 +10,28 @@ public class PaymentMethodPopup extends BasePage<PaymentMethodPopup>{
 
 	public PaymentMethodPopup inputCardNumber(String text) {
 		WebUI.switchToFrame(xpath("//*[@name='embedded-checkout']"), 5)
-		WebUI.setText(id("cardNumber"), text)
+		clearTextAndSendKeys(id("cardNumber"), text)
 		WebUI.switchToDefaultContent()
 		return this
 	}
 
 	public PaymentMethodPopup inputCardExpiry(String text) {
 		WebUI.switchToFrame(xpath("//*[@name='embedded-checkout']"), 5)
-		WebUI.setText(id("cardExpiry"), text)
+		clearTextAndSendKeys(id("cardExpiry"), text)
 		WebUI.switchToDefaultContent()
 		return this
 	}
 
 	public PaymentMethodPopup inputCardCvc(String text) {
 		WebUI.switchToFrame(xpath("//*[@name='embedded-checkout']"), 5)
-		WebUI.setText(id("cardCvc"), text)
+		clearTextAndSendKeys(id("cardCvc"), text)
 		WebUI.switchToDefaultContent()
 		return this
 	}
 
 	public PaymentMethodPopup inputBillingName(String text) {
 		WebUI.switchToFrame(xpath("//*[@name='embedded-checkout']"), 5)
-		WebUI.setText(id("billingName"), text)
+		clearTextAndSendKeys(id("billingName"), text)
 		WebUI.switchToDefaultContent()
 		return this
 	}
