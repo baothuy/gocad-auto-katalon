@@ -28,7 +28,7 @@ String projectId = Page.nav(DataUploadPage).getIdProject()
 println '>> User Seller add project'
 Page.nav(LeftNavBar).clickMyProjects()
 Page.nav(MyProjectsPage).clickAddProject()
-Page.nav(AddProjectPopup).inputProjectName("$projectName2").clickOKButton()
+Page.nav(DataUploadPage).clickEditProjectName(projectName2)
 println "projectName2: $projectName2"
 String projectId2 = Page.nav(DataUploadPage).getIdProject()
 
