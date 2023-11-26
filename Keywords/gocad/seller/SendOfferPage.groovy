@@ -52,7 +52,7 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 		return this
 	}
 
-	public SendOfferPage clickFilePDFDownload() {
+	public SendOfferPage clickPreviewOfferToDownload() {
 		WebUI.click(xpath("//*[text()='Preview Offer']"))
 		return this
 	}

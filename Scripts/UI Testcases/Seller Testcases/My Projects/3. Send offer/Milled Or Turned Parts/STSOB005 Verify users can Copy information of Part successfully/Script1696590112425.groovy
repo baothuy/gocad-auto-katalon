@@ -103,7 +103,7 @@ println '>> input email customer'
 Page.nav(SendOfferPage).inputCustomer(email)
 
 //println '>> Verify file part can download successfully'
-//Page.nav(SendOfferPage).clickFilePDFDownload()
+//Page.nav(SendOfferPage).clickPreviewOfferToDownload()
 //Page.nav(FileHelper).verifyFileDownloaded(projectName + ".pdf")
 
 println '>> Verify information Address Information show correctly'

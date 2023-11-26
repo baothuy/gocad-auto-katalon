@@ -32,7 +32,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		return this
 	}
 
-	public CheckoutPage clickFilePDFDownload() {
+	public CheckoutPage clickPreviewOfferToDownload() {
 		WebUI.click(xpath("//*[text()='Preview Offer']"))
 		return this
 	}
