@@ -31,7 +31,7 @@ Page.nav(LeftNavBar).clickMyProjects()
 Page.nav(MyProjectsPage).clickAddProject()
 
 println '>>  Open add project popup and add new project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+Page.nav(DataUploadPage).clickEditProjectName(projectName)
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 

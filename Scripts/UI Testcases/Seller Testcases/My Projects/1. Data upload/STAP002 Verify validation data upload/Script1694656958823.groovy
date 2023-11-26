@@ -17,7 +17,7 @@ println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>> Open add project popup and input project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+Page.nav(DataUploadPage).clickEditProjectName(projectName)
 
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"

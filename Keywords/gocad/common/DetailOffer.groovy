@@ -180,20 +180,20 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.verifyEqual(orderSummary, expectedResult)
 		return this
 	}
-	
+
 	public DetailOffer verifySurchargeForMinimumOrderValue(String totalPartPrice, String surfaceTreatmentPrice) {
 		String actualSurcharge = WebUI.getText(xpath("//label[text()='Surcharge for minimum order value']/following-sibling::label"))
 		String expectedSurcharge = 80 - totalPartPrice - surfaceTreatmentPrice
 		WebUI.verifyEqual(actualSurcharge, expectedSurcharge)
 		return this
 	}
-	
+
 	public DetailOffer verifySurchargeTooltipsVisible() {
 		WebUI.mouseOver(xpath("//label[text()='Surcharge for minimum order value']/span"))
 		WebUI.verifyElementVisible(xpath("//*[text()='$tooltipsSurchargeMinimumPrice']"))
 		return this
 	}
-	
+
 	public DetailOffer verifyPaidStampVisible() {
 		WebUI.verifyElementVisible(xpath("//div[@class='paid-stamp']"))
 		return this

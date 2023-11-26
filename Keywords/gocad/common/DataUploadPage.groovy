@@ -46,10 +46,17 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		WebUI.click(xpath("//p[text()='$workflow']/ancestor::div[@class='ant-card-body']"))
 		return this
 	}
-	
+
 	public DataUploadPage clickCustomDXF() {
 		WebUI.waitForElementVisible(xpath("//*[text()=' Configure Design']/parent::button"), 5)
 		WebUI.click(xpath("//*[text()=' Configure Design']/parent::button"))
+		return this
+	}
+
+	public DataUploadPage clickEditProjectName(String projectName) {
+		WebUI.click(xpath("//*[@class='input-inline-api']//span[@aria-label='edit']"))
+		clearTextAndSendKeysByActions(xpath("//*[@class='input-inline-api']//input"), projectName)
+		WebUI.click(xpath("//*[@class='ant-space-item']//*[@aria-label='check']/parent::button"))
 		return this
 	}
 

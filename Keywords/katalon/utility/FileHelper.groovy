@@ -23,11 +23,7 @@ public class FileHelper {
 
 	private static String readFile(String fileName) {
 		try {
-			//String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\"
-			//windown
-			//String downloadFolderPath = "C:\\katalon\\studio\\configuration\\resources\\tools\\TestOps\\downloads"
-			//linux
-			String downloadFolderPath = "/opt/katalonstudio/configuration/resources/tools/TestOps/downloads"
+			String downloadFolderPath = getDownloadLocationPath()
 			return FileUtils.readFileToString(new File(downloadFolderPath + fileName), StandardCharsets.UTF_8);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -36,27 +32,24 @@ public class FileHelper {
 	}
 
 	public static String readDetailContentFile(String fileName) {
-		// Define the path where the file will be downloaded
-		//String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\" + fileName
-		String downloadFolderPath = "C:\\katalon\\studio\\configuration\\resources\\tools\\TestOps\\downloads" + fileName
+		String downloadFolderPath = getDownloadLocationPath() + fileName
 		PDDocument document = Loader.loadPDF(new File(downloadFolderPath))
 		try {
-			// Create a PDFTextStripper object
 			PDFTextStripper pdfTextStripper = new PDFTextStripper()
-			// Extract text from the PDF
 			String extractedText = pdfTextStripper.getText(document)
 			println "extractedText: $extractedText"
 			return extractedText
 		}
-		finally { document.close() }
+		finally {
+			document.close()
+		}
 		return this
 	}
 
 	public FileHelper verifyFileDownloaded(String fileName) {
 		println "fileName: $fileName"
 		// Define the path where the file will be downloaded
-		String downloadFolderPath = System.getProperty("user.home") + "\\Downloads\\"
-		//String downloadFolderPath = "/opt/katalonstudio/configuration/resources/tools/TestOps/downloads"
+		String downloadFolderPath = getDownloadLocationPath()
 		println "downloadFolderPath: $downloadFolderPath"
 		// Clear the downloaded file before verify
 		Files.deleteIfExists(Paths.get(downloadFolderPath, fileName))
@@ -72,16 +65,20 @@ public class FileHelper {
 			}
 		}
 		// Verify the download
-		if (isDownloaded) { 
+		if (isDownloaded) {
 			println "File downloaded successfully."
 			String actualResult = "File downloaded successfully."
 			WebUI.verifyEqual(actualResult, "File downloaded successfully.")
 		}
-		else { 
+		else {
 			println "File download failed."
 			String actualResult = "File download failed."
 			WebUI.verifyEqual(actualResult, "File downloaded successfully.")
 		}
 		return this
+	}
+
+	public static String getDownloadLocationPath() {
+		return System.getProperty("user.home") + "${File.separator}Downloads${File.separator}"
 	}
 }

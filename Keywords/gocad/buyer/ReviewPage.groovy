@@ -159,7 +159,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
 		return CO2Emission
 	}
-	
+
 	public String getSurfaceTreatmentSurchargeValue() {
 		String surfaceTreatmentSurcharge = WebUI.getText(xpath("//*[text()='Surface Treatment Surcharge']/parent::div/label[2]"))
 		return surfaceTreatmentSurcharge

@@ -16,7 +16,7 @@ println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>> Open add project popup and input project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+Page.nav(DataUploadPage).clickEditProjectName(projectName)
 
 println '>> Verify ui data upload page'
 Page.nav(DataUploadPage).verifyUIDataUploadPageOfBuyer(projectName)

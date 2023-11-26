@@ -266,7 +266,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.verifyEqual(actualSurcharge, convertExpectedSurcharge)
 		return this
 	}
-	
+
 	public CheckoutPage verifySurchargeTooltipsVisible() {
 		WebUI.mouseOver(xpath("//label[text()='Surcharge for minimum order value']/span"))
 		WebUI.verifyElementVisible(xpath("//*[text()='$tooltipsSurchargeMinimumPrice']"))
