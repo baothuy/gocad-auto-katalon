@@ -297,7 +297,7 @@
       <name>quantityNumChanged</name>
    </variable>
    <variable>
-      <defaultValue>'Soft annealing'</defaultValue>
+      <defaultValue>'Glass bead blasting'</defaultValue>
       <description></description>
       <id>2c579221-5fbf-48fb-baf5-36d84bfd50be</id>
       <masked>false</masked>
