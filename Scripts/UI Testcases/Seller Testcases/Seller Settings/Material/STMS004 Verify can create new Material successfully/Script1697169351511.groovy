@@ -21,18 +21,24 @@ Page.nav(MaterialSettingsPopup).selectMaterialGroup(materialGroup)
 								.inputNumber(number)
 								.inputDensity(density)
 								.inputPricePerKilo(pricePerKilo)
+								.selectCompliances(compliances)
 								.selectStatusToggle(status)
 								.clickOKButton()
-
-Page.nav(ToastMessage)//.verifyToastMessage("Success!", materialGroup + " - " + materialName)
+								
+println '>> Verify create New material Success'
+Page.nav(ToastMessage).verifyToastMessage("Success!", "Material" + " - " + materialName)
 						.clickCloseToastMessage()
 
 Page.nav(MaterialSettingsPopup).clickCloseButton()
 
+Page.nav(MaterialSettingsPage).inputSearchMaterial(materialName)
+
 Page.nav(MaterialSettingsPage).clickMoreButton(materialName)
 								.clickDeleteButton()
 
-Page.nav(ConfirmPopup).clickOK()
+Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Delete Order")
+						.verifyContentConfirmPopup("Are you sure to delete this material? The material will not be restored.")
+						.clickOK()
 
-Page.nav(ToastMessage)//.verifyToastMessage("Success!", materialGroup + " - " + materialName)
+Page.nav(ToastMessage).verifyToastMessage("Deleted", "Deleted successfully.")
 						.clickCloseToastMessage()

@@ -76,6 +76,14 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
 		return this
 	}
+	
+	public MaterialSettingsPopup selectCompliances(String compliances) {
+		WebUI.click(xpath("//input[@id='basic_complianceIds']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
+		List<String> shapeTypeObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$compliances']/parent::div")
+		(shapeTypeObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$compliances']/parent::div")) : "Empty"
+		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
+		return this
+	}
 
 	public MaterialSettingsPopup inputDiameter(String diameter) {
 		clearTextAndSendKeysByActions(id("diameter"), diameter)

@@ -9,7 +9,43 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>1961d014-c4b5-4de3-a5eb-830e0d419746</variableId>
+      <variableId>89e8fab7-b712-40db-9b94-b4fd1926bd3d</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>831d19f3-577a-4007-80fa-02ebd157f803</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>11e57b14-8dad-4c67-a190-776af18fd9a7</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>45b54791-c7ee-4086-a851-46d2b1b7e5bd</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>36e3504c-0506-45ab-9996-934495232178</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>497c024e-fd43-476b-a118-1db11b9ba9a2</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>395319bd-2ea1-4d6a-8b8a-7cd233a6f412</variableId>
    </variableLinks>
    <variable>
       <defaultValue>'Plastic'</defaultValue>
@@ -26,28 +62,35 @@
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'1.0036'</defaultValue>
+      <defaultValue>'3.0036'</defaultValue>
       <description></description>
       <id>11e57b14-8dad-4c67-a190-776af18fd9a7</id>
       <masked>false</masked>
       <name>number</name>
    </variable>
    <variable>
-      <defaultValue>'2,3'</defaultValue>
+      <defaultValue>'1.3'</defaultValue>
       <description></description>
       <id>45b54791-c7ee-4086-a851-46d2b1b7e5bd</id>
       <masked>false</masked>
       <name>density</name>
    </variable>
    <variable>
-      <defaultValue>'1,2'</defaultValue>
+      <defaultValue>'2.6'</defaultValue>
       <description></description>
       <id>36e3504c-0506-45ab-9996-934495232178</id>
       <masked>false</masked>
       <name>pricePerKilo</name>
    </variable>
    <variable>
-      <defaultValue>'Inactive'</defaultValue>
+      <defaultValue>'No laser'</defaultValue>
+      <description></description>
+      <id>497c024e-fd43-476b-a118-1db11b9ba9a2</id>
+      <masked>false</masked>
+      <name>compliances</name>
+   </variable>
+   <variable>
+      <defaultValue>'Active'</defaultValue>
       <description></description>
       <id>395319bd-2ea1-4d6a-8b8a-7cd233a6f412</id>
       <masked>false</masked>
