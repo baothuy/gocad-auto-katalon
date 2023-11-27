@@ -121,8 +121,8 @@ Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
 							.clickPayButton()
 							.sleep(2)
 					  
-println '>> Click back to project to get shipping info'
-Page.nav(CompletedCheckoutPage).clickBackToProject()
+println '>> Back to project detail to get shipping info'
+//Page.nav(CompletedCheckoutPage).clickBackToProject()
 List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
 
 println '>> Verify information show on list Confirmed Offers of buyer'
