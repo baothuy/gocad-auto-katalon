@@ -1,8 +1,8 @@
 import gocad.buyer.DraftPage
-import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
+import gocad.common.SelectMaterialPopup
 import gocad.common.SignInPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
@@ -24,7 +24,7 @@ println "projectId: $projectId"
 println '>>  Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting('Sheet Metal Part', partName)
 
-println '>> Input required field is empty and verify'
+println '>> 1. Cases input required field is empty and verify'
 Page.nav(ManufacturingInformationPage).inputQuantity(' ')
 									  .inputThread(' ')
 									  .inputCountersink(' ')
@@ -35,7 +35,30 @@ Page.nav(ManufacturingInformationPage).inputQuantity(' ')
 									  .verifyErrorWhenCountersinkEmpty()
 									  .verifyErrorWhenThicknessEmpty()
 									  
-println '>>  User buyer add project'
+println '>> 2. When selected Laser marking is Yes then <Add technical drawing> is required field'
+Page.nav(ManufacturingInformationPage).refreshPage()
+println '>> Select material'
+Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
+Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
+Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
+
+Page.nav(ManufacturingInformationPage).selectLaserMarking(laserMarking)
+										.clickCalculate()
+										.verifyErrorBelowAddTechnicalDrawing("Required")
+										
+										
+println '>> 3. When selected Surface Treatment is Powder coating then <Add technical drawing> is required field'
+Page.nav(ManufacturingInformationPage).refreshPage()
+println '>> Select material'
+Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
+Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
+Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
+
+Page.nav(ManufacturingInformationPage).selectSurfaceTreatment(surfaceTreatment)
+										.clickCalculate()
+										.verifyErrorBelowAddTechnicalDrawing("Required")
+									  
+println '>>  User buyer add project '
 Page.nav(LeftNavBar).clickDraft()
 
 println '>>  Clear data'

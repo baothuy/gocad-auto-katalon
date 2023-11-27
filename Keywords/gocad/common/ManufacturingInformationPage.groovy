@@ -797,6 +797,12 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyEqual(errorEmpty, expectedResult)
 		return this
 	}
+	
+	public ManufacturingInformationPage verifyErrorBelowAddTechnicalDrawing(String expectedResult) {
+		def errorEmpty = WebUI.getText(xpath("//*[@class='pt-2']/div[@class='helper-text']"))
+		WebUI.verifyEqual(errorEmpty, expectedResult)
+		return this
+	}
 
 	public ManufacturingInformationPage verifyContentAlertManualCalculateVisibleForBuyer(String code) {
 		WebUI.verifyElementVisible(xpath("//span[@aria-label='info-circle']/following::div[@class='ant-alert-message']"))
