@@ -54,6 +54,7 @@ Page.nav(ManufacturingInformationPage).verifyProcessAddProjectHighLighted()
 										.verifyDeburringVisible()
 										.verifyCommentInputVisible()
 										.verifyContinueToOfferOverviewButtonVisible()
+										.verifyAlertSMPVisible()
 										
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

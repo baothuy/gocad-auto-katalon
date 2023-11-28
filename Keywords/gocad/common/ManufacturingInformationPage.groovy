@@ -32,6 +32,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	def contentManualSmallToleranceForSeller = "${commonTextForSeller}\nReason: This tolerance requirement for this part are very high. The automatic price quote is possible, but a critical check of the processed calculation is necessary."
 	def contentManualCannotManufacturePartForSeller = "${commonTextForSeller}\nReason: Only for XX % of the part, manufacturing process steps could be identified. Please check the calculation."
 	def contentManualCalErrorForSeller = "${commonTextForSeller}\nReason: A technical error has occured when calculating this part. Please contact support@gocad.de"
+	def contentAlert = "All parts will be manufactured according to industry norms. If there are specifics for the manufacturing process, that need to be considered, please upload a PDF-drawing to the affected part."
 
 	public ManufacturingInformationPage clickAddPart() {
 		WebUI.click(xpath('//span[text()=" Add part"]'))
@@ -297,6 +298,12 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage verifyPDFFileVisibleAfterCalculated(String fileName) {
 		String href = WebUI.getAttribute(xpath("//a[@class='text-decoration-none' and @title='$fileName']"), "href")
 		WebUI.verifyElementVisible(xpath("//a[@href='$href']"))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyAlertSMPVisible() {
+		String actualContent = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
+		WebUI.verifyEqual(actualContent, contentAlert)
 		return this
 	}
 
@@ -797,7 +804,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyEqual(errorEmpty, expectedResult)
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyErrorBelowAddTechnicalDrawing(String expectedResult) {
 		def errorEmpty = WebUI.getText(xpath("//*[@class='pt-2']/div[@class='helper-text']"))
 		WebUI.verifyEqual(errorEmpty, expectedResult)
