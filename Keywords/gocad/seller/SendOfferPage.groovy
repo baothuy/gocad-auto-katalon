@@ -22,7 +22,7 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 	def expectedAlertContent = "After the final approval of the offer by the seller, you will receive a confirmation via e-mail"
 
 	public SendOfferPage clickSendOffer() {
-		WebUI.click(xpath('//*[text()="Send Offer"]'))
+		scrollToAndClick(xpath('//*[text()="Send Offer"]'))
 		return this
 	}
 
