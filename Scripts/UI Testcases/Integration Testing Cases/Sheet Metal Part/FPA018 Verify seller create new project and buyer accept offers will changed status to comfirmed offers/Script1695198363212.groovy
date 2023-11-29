@@ -1,12 +1,12 @@
 import gocad.buyer.ConfirmedOffersPageOfBuyer
 import gocad.buyer.ReceivedOffersPage
-import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
+import gocad.common.InboxChat
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.common.SignInPage
 import gocad.seller.AccountSettingsPage
 import gocad.seller.ConfirmedOffersPageOfSeller
 import gocad.seller.MyProjectsPage
@@ -80,6 +80,7 @@ List<String> listShippingAddress = Page.nav(SendOfferPage).getShippingAddress()
 String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
 
 println '>> Click Checkout button on Checkout Page'
+Page.nav(InboxChat).closeInboxChatWhenVisible()
 Page.nav(SendOfferPage).clickSendOffer()
 
 println '>> Seller click Logout button'
