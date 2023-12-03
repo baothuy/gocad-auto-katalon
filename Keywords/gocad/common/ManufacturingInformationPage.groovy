@@ -155,7 +155,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath("//input[@id='surfaceTreatmentIds']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
 		List<String> surfaceTreatmentObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")
 		(surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")) : "Empty"
-		WebUI.click(id("additionalComments"))
+		WebUI.click(xpath("//span[@class='ant-steps-icon']/span[text()='2']"))
 		return this
 	}
 
@@ -223,7 +223,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage clickAddTechnicalDrawing() {
-		WebUI.click(xpath('//button[@title="Add technical drawing"]'))
+		WebUI.click(xpath('//button[@title="Upload technical drawing"]'))
 		return this
 	}
 
@@ -232,8 +232,8 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage clickContinueToOfferOverview() {
-		WebUI.click(xpath('//span[text()="Continue to offer overview "]/parent::button'))
+	public ManufacturingInformationPage clickReview() {
+		WebUI.click(xpath('//span[text()="Review "]/parent::button'))
 		return this
 	}
 
@@ -300,7 +300,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath("//a[@href='$href']"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyAlertSMPVisible() {
 		String actualContent = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
 		WebUI.verifyEqual(actualContent, contentAlert)
@@ -547,8 +547,8 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage verifyContinueToOfferOverviewButtonVisible() {
-		WebUI.verifyElementVisible(xpath('//span[text()="Continue to offer overview "]'))
+	public ManufacturingInformationPage verifyReviewButtonVisible() {
+		WebUI.verifyElementVisible(xpath('//span[text()="Review "]'))
 		return this
 	}
 

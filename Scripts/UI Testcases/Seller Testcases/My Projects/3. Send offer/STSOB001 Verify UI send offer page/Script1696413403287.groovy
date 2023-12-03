@@ -82,7 +82,7 @@ else
 
 println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()								
-									.clickContinueToOfferOverview()
+									.clickReview()
 
 println '>> click checkout button'
 Page.nav(SendOfferPage).verifyUISendOfferPageVisible(partName)

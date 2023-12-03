@@ -87,7 +87,7 @@ else
 
 println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
-									.clickContinueToOfferOverview()
+									.clickReview()
 									
 println '>> input email customer'
 Page.nav(SendOfferPage).inputCustomer(email)

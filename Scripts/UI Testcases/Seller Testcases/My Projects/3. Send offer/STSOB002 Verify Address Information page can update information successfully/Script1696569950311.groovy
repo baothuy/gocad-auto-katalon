@@ -85,7 +85,7 @@ else
 
 println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
-									.clickContinueToOfferOverview()
+									.clickReview()
 
 println '>> Verify information Address Information show correctly'
 println '>> Click Edit address'
@@ -114,7 +114,7 @@ List<String> listShippingAddress = [shippingAddressChanged[0] + " " + shippingAd
 Page.nav(SendOfferPage).sleep(1)
 					.refreshPage()
 println '>> Verify after update show correctly on checkout page'
-Page.nav(ManufacturingInformationPage).clickContinueToOfferOverview()
+Page.nav(ManufacturingInformationPage).clickReview()
 Page.nav(SendOfferPage).verifyBillingAddress(listBillingAddress)
 						.verifyShippingAddress(listShippingAddress)
 						

@@ -15,7 +15,7 @@ Page.nav(LeftNavBar).clickMyProjects()
 
 Page.nav(MyProjectsPage).clickViewAction("2830")
 
-Page.nav(ManufacturingInformationPage).clickContinueToOfferOverview()
+Page.nav(ManufacturingInformationPage).clickReview()
 
 
 

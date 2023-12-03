@@ -87,7 +87,7 @@ else
 
 println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
-									.clickContinueToOfferOverview()
+									.clickReview()
 
 println '>> Verify file part can download successfully'
 Page.nav(SendOfferPage).clickEditAddress()

@@ -52,7 +52,7 @@ Page.nav(ManufacturingInformationPage).verifyProcessAddProjectHighLighted()
 										.verifySurfaceQualitySelectVisible()
 										.verifyCommentInputVisible()
 										.verifyDeliveryDateInputVisible()
-										.verifyContinueToOfferOverviewButtonVisible()
+										.verifyReviewButtonVisible()
 										
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickMyProjects()

@@ -49,7 +49,7 @@ Page.nav(ManufacturingInformationPage).verifyProcessAddProjectHighLighted()
 										.verifyTolerancesToggleVisible()
 										.verifySurfaceQualitySelectVisible()
 										.verifyCommentInputVisible()
-										.verifyContinueToOfferOverviewButtonVisible()
+										.verifyReviewButtonVisible()
 										
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

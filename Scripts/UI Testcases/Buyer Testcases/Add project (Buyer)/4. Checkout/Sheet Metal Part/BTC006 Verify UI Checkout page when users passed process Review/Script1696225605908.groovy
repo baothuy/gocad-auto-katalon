@@ -59,7 +59,7 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 
 println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
-									.clickContinueToOfferOverview()
+									.clickReview()
 
 println '>> click checkout button'
 Page.nav(ReviewPage).clickCheckout()

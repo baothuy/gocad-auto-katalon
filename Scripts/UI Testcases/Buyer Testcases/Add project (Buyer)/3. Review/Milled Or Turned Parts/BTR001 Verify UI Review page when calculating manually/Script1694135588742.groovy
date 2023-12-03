@@ -89,7 +89,7 @@ println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 String unitPrice = Page.nav(ManufacturingInformationPage).getUnitPriceValue()
 String netPrice = Page.nav(ManufacturingInformationPage).getNetPriceValue()
-Page.nav(ManufacturingInformationPage).clickContinueToOfferOverview()
+Page.nav(ManufacturingInformationPage).clickReview()
 
 println '>> Verify UI Visible'
 Page.nav(ReviewPage)//.verifyImagePartClickable(partName)

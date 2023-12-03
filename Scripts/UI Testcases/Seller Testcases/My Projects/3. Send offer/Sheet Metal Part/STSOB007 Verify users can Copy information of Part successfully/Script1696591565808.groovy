@@ -65,7 +65,7 @@ println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 									.inputUnitPrice(unitPrice)
 									.clickAcceptChangeUnitPricing()
-									.clickContinueToOfferOverview()
+									.clickReview()
 
 println '>> click checkout button'
 List<String> tablePartReview = Page.nav(SendOfferPage).getTablePartReview(partName)

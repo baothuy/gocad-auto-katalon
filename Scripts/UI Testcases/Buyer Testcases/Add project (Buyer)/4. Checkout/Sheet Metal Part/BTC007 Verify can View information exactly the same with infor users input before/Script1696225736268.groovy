@@ -58,7 +58,7 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 
 println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
-									.clickContinueToOfferOverview()
+									.clickReview()
 
 println '>> click checkout button'
 List<String> tablePartReview = Page.nav(ReviewPage).getTablePartReview(partName)

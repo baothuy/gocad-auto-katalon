@@ -53,7 +53,7 @@ Page.nav(ManufacturingInformationPage).verifyProcessAddProjectHighLighted()
 										.verifyLaserMarkingSelectVisible()
 										.verifyDeburringVisible()
 										.verifyCommentInputVisible()
-										.verifyContinueToOfferOverviewButtonVisible()
+										.verifyReviewButtonVisible()
 										.verifyAlertSMPVisible()
 										
 println '>>  Clear data'
