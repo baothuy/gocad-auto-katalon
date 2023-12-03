@@ -499,7 +499,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyProcessAddProjectHighLighted() {
-		String colorTwo = WebUI.getCSSValue(xpath("//div[text()='Manufacturing information']/parent::div/preceding-sibling::div//*[text()='2']"), "background")
+		String colorTwo = WebUI.getCSSValue(xpath("//div[text()='Manufacturing']/parent::div/preceding-sibling::div//*[text()='2']"), "background")
 		String pattern = /(rgb\(\d+,\s*\d+,\s*\d+\))/
 		String rgbValue = CommonUtility.substringUseRegExp(colorTwo, pattern,1)
 		String rgbToHex = CommonUtility.rgbToHex(rgbValue)
