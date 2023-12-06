@@ -1,3 +1,5 @@
+import gocad.buyer.CustomDXFLeftNavMenu
+import gocad.buyer.CustomDXFPage
 import gocad.buyer.DraftPage
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
@@ -56,6 +58,33 @@ Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 
 Page.nav(ManufacturingInformationPage).selectSurfaceTreatment(surfaceTreatment)
 										.clickCalculate()
+										.verifyErrorBelowAddTechnicalDrawing("Required")
+										
+println '>> 4. When added by Configure Design have <Number of holes (pcs)> the Upload technical drawing is required field'
+Page.nav(ManufacturingInformationPage).refreshPage()
+println '>> Remove old part'
+Page.nav(ManufacturingInformationPage).clickMoreOption().clickDeletePart().clickOK()
+
+println '>> click Workflow'
+Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
+						.clickCustomDXF()
+						
+println '>> click Circle Panel Shape'
+Page.nav(CustomDXFLeftNavMenu).clickCirclePanelShape()
+
+println '>> input field'
+Page.nav(CustomDXFPage).inputFileName(fileName)
+					   .inputDiameter(diameter)
+					   .inputNumberOfHoles(numberOfHoles)
+					   .clickNextStepButton()
+					   .sleep(1)
+					   
+println '>> Select material'
+Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
+Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
+Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
+
+Page.nav(ManufacturingInformationPage).clickCalculate()
 										.verifyErrorBelowAddTechnicalDrawing("Required")
 									  
 println '>>  User buyer add project '

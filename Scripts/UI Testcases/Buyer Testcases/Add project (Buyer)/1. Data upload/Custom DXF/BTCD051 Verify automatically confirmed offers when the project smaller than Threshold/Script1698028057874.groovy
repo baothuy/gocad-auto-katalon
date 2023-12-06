@@ -3,14 +3,14 @@ import gocad.buyer.CompletedCheckoutPage
 import gocad.buyer.ConfirmedOffersPageOfBuyer
 import gocad.buyer.CustomDXFLeftNavMenu
 import gocad.buyer.CustomDXFPage
+import gocad.buyer.PaymentMethodPopup
 import gocad.buyer.ReviewPage
-import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.common.SignInPage
 import gocad.seller.ConfirmedOffersPageOfSeller
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
@@ -41,6 +41,7 @@ Page.nav(CustomDXFLeftNavMenu).clickCirclePanelShape()
 println '>> input field'
 Page.nav(CustomDXFPage).inputFileName(fileName)
 					   .inputDiameter(diameter)
+					   .inputNumberOfHoles(numberOfHoles)
 					   .clickNextStepButton()
 					   .sleep(1)
 
@@ -61,12 +62,36 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
 										.inputThread(threadNum)
-										
 										.inputComment(comment)
 
 println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 									  .clickReview()
+									  
+println '>> Verify UI after calculated manually of request'
+Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFileOnSMP()
+										  .clickClosePreviewPartFilePopup()
+										  .verifyMaterialValue(material)
+										  .verifyLinkPartVisible(partName)
+										  .verifyQuantityValue(quantityNum)
+										  .verifyThreadValueOnSMP(threadNum)
+										  .verifyLaserMarkingValue(laserMarking)
+										  .verifyCountersinkValue(countersinkNum)
+										  .verifyThicknessValue(partName, thicknessNum)
+										  .verifySurfaceTreatmentValue(surfaceTreatment)
+										  .verifyCuttingLayersValue(partName, cuttingLayers)
+										  .verifyDeburringValue(deburring)
+										  .verifyAdditionalCommentsValue(comment)
+										  .verifyBulkPricingVisible()
+										  .verifyEditButtonVisible()
+										  .clickMoreOption()
+										  .verifyDeleteButtonVisible()
+										  .verifyCopyButtonVisible()
+										  .verifyMoveButtonVisible()
+										  .verifyUnitPriceValue(unitPrice)
+																			  
+println '>> click Move to Review page'
+Page.nav(ManufacturingInformationPage).clickReview()
 
 println '>> Click get infor and Checkout button on Review Page'
 List<String> tablePart = Page.nav(ReviewPage).getTablePartReview(partName)
@@ -96,6 +121,15 @@ String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
 println '>> Click Checkout button on Checkout Page'
 Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
 					  .clickPlaceYourOrder()
+					  
+println '>> Appear Payment Method Popup'
+Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
+							  .inputCardExpiry(cardExpiry)
+							  .inputCardCvc(cardCvc)
+							  .inputBillingName(billingName)
+							  .selectCountry(country)
+							  .clickPayButton()
+							  .sleep(2)
 					  
 println '>> Click back to project to get shipping info'
 Page.nav(CompletedCheckoutPage).clickBackToProject()

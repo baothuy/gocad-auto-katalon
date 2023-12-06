@@ -35,6 +35,24 @@
       <value></value>
       <variableId>017fe08f-fc1c-4161-984e-fbfd72f666fc</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a8bc0473-ba5a-43ff-937a-2492c6a45eb7</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>6bd5bba0-efa0-48fa-bd67-677d8d5ec99c</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>b7267d52-1c6a-4b1e-bf0c-0493a7f904d1</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
@@ -69,5 +87,26 @@
       <id>017fe08f-fc1c-4161-984e-fbfd72f666fc</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
+   </variable>
+   <variable>
+      <defaultValue>'circle-panel'</defaultValue>
+      <description></description>
+      <id>a8bc0473-ba5a-43ff-937a-2492c6a45eb7</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+   <variable>
+      <defaultValue>'250'</defaultValue>
+      <description></description>
+      <id>6bd5bba0-efa0-48fa-bd67-677d8d5ec99c</id>
+      <masked>false</masked>
+      <name>diameter</name>
+   </variable>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description></description>
+      <id>b7267d52-1c6a-4b1e-bf0c-0493a7f904d1</id>
+      <masked>false</masked>
+      <name>numberOfHoles</name>
    </variable>
 </TestCaseEntity>
