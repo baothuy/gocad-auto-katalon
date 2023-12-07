@@ -12,10 +12,11 @@ public class MyProjectsPage extends BasePage<MyProjectsPage>{
 	def projectNameCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[2]")}
 	def partsCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[3]/span")}
 	def partsImageCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[4]")}
-	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[5]//span[normalize-space(text()) != '']")}
-	def createAtCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[6]")}
-	def actionViewCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//button[1]")}
-	def actionMoreCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//button[2]")}
+	def createByCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[5]")}
+	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[6]//span[normalize-space(text()) != '']")}
+	def createAtCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]")}
+	def actionViewCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//button[1]")}
+	def actionMoreCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//button[2]")}
 	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]"}
 
 	public MyProjectsPage clickAddProject() {
@@ -98,7 +99,7 @@ public class MyProjectsPage extends BasePage<MyProjectsPage>{
 	public List<String> getDataRow(String rowNumber) {
 		String id = WebUI.getText(xpath(row(rowNumber) + "/td[1]"))
 		String projectName = WebUI.getText(xpath(row(rowNumber) + "/td[2]"))
-		String status = WebUI.getText(xpath(row(rowNumber) + "/td[5]//span[normalize-space(text()) != '']"))
+		String status = WebUI.getText(xpath(row(rowNumber) + "/td[6]//span[normalize-space(text()) != '']"))
 		List<String> dataRow = [id, projectName, status]
 		return dataRow
 	}

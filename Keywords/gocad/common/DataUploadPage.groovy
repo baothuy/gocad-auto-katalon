@@ -27,7 +27,6 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		// Extract the number using regular expressions
 		def number = url =~ /\d+/
 		String extractedNumber = Integer.parseInt(number[0]).toString()
-		println "Number: " + extractedNumber
 		return extractedNumber
 	}
 

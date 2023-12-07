@@ -19,9 +19,10 @@ public class MaterialSettingsPage extends BasePage<MaterialSettingsPage>{
 	def numberCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[5]")}
 	def densityCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[6]")}
 	def pricePerKiloCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[7]")}
-	def statusCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[8]//span[normalize-space(text()) != '']")}
-	def editActionCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[9]//span[text()=' Edit']")}
-	def moreActionCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[9]//button[2]")}
+	def shopTypeCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[8]")}
+	def statusCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[9]//span[normalize-space(text()) != '']")}
+	def editActionCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[10]//span[text()=' Edit']")}
+	def moreActionCol = { String materialName -> return xpath("//*[text()='$materialName']/parent::tr/td[10]//button[2]")}
 	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]"}
 	def rowByStatus = { String status -> return "(//span[normalize-space(text()) = '$status']/ancestor::tr)[1]"}
 
@@ -159,6 +160,12 @@ public class MaterialSettingsPage extends BasePage<MaterialSettingsPage>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
+	
+	public MaterialSettingsPage verifyShopTypeValue(String materialName, String expectedResult) {
+		String actualResult = WebUI.getText(shopTypeCol(materialName))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
 
 	public MaterialSettingsPage verifyStatusValue(String materialName, String expectedResult) {
 		String actualResult = WebUI.getText(statusCol(materialName))
@@ -199,8 +206,9 @@ public class MaterialSettingsPage extends BasePage<MaterialSettingsPage>{
 		String number = WebUI.getText(xpath(row(rowNumber) + "/td[5]"))
 		String density = WebUI.getText(xpath(row(rowNumber) + "/td[6]"))
 		String pricePerKilo = WebUI.getText(xpath(row(rowNumber) + "/td[7]"))
-		String status = WebUI.getText(xpath(row(rowNumber) + "/td[8]//span[normalize-space(text()) != '']"))
-		List<String> dataRow = [id, materialGroup, cuttingParams, materialName, number, density, pricePerKilo, status]
+		String shopType = WebUI.getText(xpath(row(rowNumber) + "/td[8]"))
+		String status = WebUI.getText(xpath(row(rowNumber) + "/td[9]//span[normalize-space(text()) != '']"))
+		List<String> dataRow = [id, materialGroup, cuttingParams, materialName, number, density, pricePerKilo, shopType, status]
 		println "dataRow: $dataRow"
 		return dataRow
 	}
