@@ -500,16 +500,19 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyProcessAddProjectHighLighted() {
-		String colorTwo = WebUI.getCSSValue(xpath("//div[text()='Manufacturing']/parent::div/preceding-sibling::div//*[text()='2']"), "background")
-		String pattern = /(rgb\(\d+,\s*\d+,\s*\d+\))/
+		String colorTwo = WebUI.getCSSValue(xpath("//div[text()='Manufacturing']/parent::div/preceding-sibling::div//*[text()='2']/parent::span"), "color")
+		println "colorTwo: $colorTwo"
+		String pattern = /(rgba\(\d+,\s*\d+,\s*\d+,\s*\d+\))/
 		String rgbValue = CommonUtility.substringUseRegExp(colorTwo, pattern,1)
+		println "rgbValue: $rgbValue"
 		String rgbToHex = CommonUtility.rgbToHex(rgbValue)
+		println "rgbToHex: $rgbToHex"
 		WebUI.verifyEqual(rgbToHex, "#FFCB3D")
 		return this
 	}
 
 	public ManufacturingInformationPage verifyAddTechnicalDrawingButtonVisible() {
-		WebUI.verifyElementVisible(xpath('//button[@title="Add technical drawing"]'))
+		WebUI.verifyElementVisible(xpath('//button[@title="Upload technical drawing"]'))
 		return this
 	}
 

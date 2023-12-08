@@ -1,4 +1,4 @@
-package katalon.utility
+package external.services
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -33,7 +33,7 @@ import io.restassured.path.json.JsonPath;
 
 
 public class GMail {
-	private static final String APPLICATION_NAME = "NaveenAutomationLabs";
+	private static final String APPLICATION_NAME = "gocad-automation-katalon";
 	private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();;
 	private static final String USER_ID = "me";
 	/**

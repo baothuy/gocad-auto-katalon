@@ -68,8 +68,8 @@ public class CommonUtility {
 	}
 
 	static public String rgbToHex(String rgb) {
-		// Remove "rgb(" and ")" and split the values
-		String[] rgbValues = rgb.replaceAll("rgb\\(|\\)", "").split(",\\s*")
+		// Remove "rgba(" and ")" and split the values
+		String[] rgbValues = rgb.replaceAll("rgba\\(|\\)", "").split(",\\s*")
 
 		// Convert each value to hexadecimal
 		String hex = "#"
