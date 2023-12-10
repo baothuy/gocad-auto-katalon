@@ -218,12 +218,12 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 
 	//Billing Address
 	public List<String> getBillingAddress() {
-		List<String> billingAddress = Page.nav(FunctionCommon).getBillingAddress()
+		List<String> billingAddress = Page.nav(FunctionCommon).getBillingAddressCheckoutPage()
 		return billingAddress
 	}
 	//Shipping Address
 	public List<String> getShippingAddress() {
-		List<String> shippingAddress = Page.nav(FunctionCommon).getShippingAddress()
+		List<String> shippingAddress = Page.nav(FunctionCommon).getShippingAddressCheckoutPage()
 		return shippingAddress
 	}
 
