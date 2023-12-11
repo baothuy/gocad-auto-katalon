@@ -45,7 +45,37 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
+      <variableId>2338a498-2f44-4e2d-97c8-1f6309e1a6f0</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>395319bd-2ea1-4d6a-8b8a-7cd233a6f412</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>91cdff41-7f6e-487e-843d-164e114d6f9e</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>53c8434a-f35d-4fca-bb81-9f28f77ae93e</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>cd5458d2-a23e-4a95-9efa-c7464e019f05</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>0faf4701-d280-4093-9bcc-731d24ae80e8</variableId>
    </variableLinks>
    <variable>
       <defaultValue>'Plastic'</defaultValue>
@@ -90,10 +120,45 @@
       <name>compliances</name>
    </variable>
    <variable>
+      <defaultValue>'Both'</defaultValue>
+      <description></description>
+      <id>2338a498-2f44-4e2d-97c8-1f6309e1a6f0</id>
+      <masked>false</masked>
+      <name>shopType</name>
+   </variable>
+   <variable>
       <defaultValue>'Active'</defaultValue>
       <description></description>
       <id>395319bd-2ea1-4d6a-8b8a-7cd233a6f412</id>
       <masked>false</masked>
       <name>status</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description></description>
+      <id>91cdff41-7f6e-487e-843d-164e114d6f9e</id>
+      <masked>false</masked>
+      <name>thickness</name>
+   </variable>
+   <variable>
+      <defaultValue>'ROUND'</defaultValue>
+      <description></description>
+      <id>53c8434a-f35d-4fca-bb81-9f28f77ae93e</id>
+      <masked>false</masked>
+      <name>shapeType</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description></description>
+      <id>cd5458d2-a23e-4a95-9efa-c7464e019f05</id>
+      <masked>false</masked>
+      <name>diameter</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description></description>
+      <id>0faf4701-d280-4093-9bcc-731d24ae80e8</id>
+      <masked>false</masked>
+      <name>height</name>
    </variable>
 </TestCaseEntity>

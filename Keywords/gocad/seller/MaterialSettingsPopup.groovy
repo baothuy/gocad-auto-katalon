@@ -69,11 +69,10 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		return this
 	}
 
-	public MaterialSettingsPopup selectShapeType(String type) {
-		WebUI.click(xpath("//input[@id='shapeType']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
-		List<String> shapeTypeObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$type']/parent::div")
-		(shapeTypeObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$type']/parent::div")) : "Empty"
-		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
+	public MaterialSettingsPopup selectShopType(String type) {
+		WebUI.click(xpath("//input[@id='basic_shopType']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
+		List<String> shopTypeObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$type']/parent::div")
+		(shopTypeObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$type']/parent::div")) : "Empty"
 		return this
 	}
 	
@@ -81,7 +80,12 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		WebUI.click(xpath("//input[@id='basic_complianceIds']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
 		List<String> shapeTypeObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$compliances']/parent::div")
 		(shapeTypeObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$compliances']/parent::div")) : "Empty"
-		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
+		WebUI.click(id("basic_name"))
+		return this
+	}
+	
+	public MaterialSettingsPopup inputThickness(String thickness) {
+		clearTextAndSendKeysByActions(xpath("//p[text()='Thickness']/following-sibling::form//input"), thickness)
 		return this
 	}
 
@@ -102,6 +106,23 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 
 	public MaterialSettingsPopup inputLength(String length) {
 		clearTextAndSendKeysByActions(id("length"), length)
+		return this
+	}
+	
+	public MaterialSettingsPopup clickAddNewThickness(String thickness) {
+		WebUI.click(xpath("//p[text()='Thickness']/following-sibling::form//span[text()='Add New']"))
+		return this
+	}
+	
+	public MaterialSettingsPopup selectShapeType(String type) {
+		WebUI.click(xpath("//input[@id='shapeType']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
+		List<String> shapeTypeObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$type']/parent::div")
+		(shapeTypeObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$type']/parent::div")) : "Empty"
+		return this
+	}
+	
+	public MaterialSettingsPopup clickAddNewRawMaterial() {
+		WebUI.click(xpath("//p[text()='Raw Material']/following-sibling::form//span[text()='Add New']"))
 		return this
 	}
 
@@ -137,6 +158,30 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 
 	public MaterialSettingsPopup verifyShowErrorWhenThicknessEmpty(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[@id='value_help']/div"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyThicknessValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//th[text()='Thickness']/ancestor::thead/following-sibling::tbody//td[1]"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyTypeValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//th[text()='Type']/ancestor::thead/following-sibling::tbody//td[1]"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyDiameterValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//th[text()='Diameter']/ancestor::thead/following-sibling::tbody//td[2]"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyHeightValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//th[text()='Height']/ancestor::thead/following-sibling::tbody//td[3]"))
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
