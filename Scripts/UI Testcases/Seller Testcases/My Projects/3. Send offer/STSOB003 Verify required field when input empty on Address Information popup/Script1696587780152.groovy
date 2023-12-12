@@ -90,9 +90,8 @@ Page.nav(ManufacturingInformationPage).clickCalculate()
 									.clickReview()
 
 println '>> Verify file part can download successfully'
-Page.nav(SendOfferPage).clickEditAddress()
-Page.nav(AddressInformationPopup).clickOK()
-								.verifyShowErrorWhenFirstNameBillingAddressEmpty()
+Page.nav(SendOfferPage).clickSendOffer()
+Page.nav(AddressInformationPopup).verifyShowErrorWhenFirstNameBillingAddressEmpty()
 								.verifyShowErrorWhenLastNameBillingAddressEmpty()
 								.verifyShowErrorWhenHouseNumberBillingAddressEmpty()
 								.verifyShowErrorWhenStreetBillingAddressEmpty()
@@ -102,7 +101,6 @@ Page.nav(AddressInformationPopup).clickOK()
 								.verifyShowErrorWhenHouseNumberShippingAddressEmpty()
 								.verifyShowErrorWhenStreetShippingAddressEmpty()
 								.verifyShowErrorWhenZIPCodeShippingAddressEmpty()
-								.clickCancel()
 								
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickMyProjects()

@@ -1,17 +1,19 @@
 import gocad.buyer.AccountSettingsPage
 import gocad.buyer.AddressInformationPopup
 import gocad.buyer.CheckoutPage
-import gocad.buyer.ReviewPage
+import gocad.buyer.CompletedCheckoutPage
 import gocad.buyer.DraftPage
-import gocad.common.AddProjectPopup
+import gocad.buyer.PaymentMethodPopup
+import gocad.buyer.ReviewPage
 import gocad.common.DataUploadPage
+import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.common.SignInPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
-import katalon.utility.FileHelper
+
 
 
 println '>> FPA004 Verify buyer accept offer with offer calculated manually will confirm offer successfully'
@@ -89,9 +91,6 @@ println '>> click checkout button'
 Page.nav(ReviewPage).clickCheckout()
 
 println '>> Verify information Address Information show correctly'
-println '>> Click Edit address'
-Page.nav(CheckoutPage).clickEditAddress()
-
 println '>> Input edit information successfully'
 Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddressChanged[0])
 								.inputLastNameBillingAddress(billingAddressChanged[1])
@@ -108,40 +107,24 @@ Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddressCha
 								.selectCountryShippingAddress(shippingAddressChanged[7])
 								.selectStateShippingAddress(shippingAddressChanged[4])
 								.inputZIPCodeShippingAddress(shippingAddressChanged[5])
-								.selectCityShippingAddress(shippingAddressChanged[6])								
-								.clickOK()
+								.selectCityShippingAddress(shippingAddressChanged[6])		
+														
+println '>> Click Checkout button on Checkout Page'
+Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
+					  .clickPlaceYourOrder()
+					  
+println '>> Appear Payment Method Popup'
+Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
+							.inputCardExpiry(cardExpiry)
+							.inputCardCvc(cardCvc)
+							.inputBillingName(billingName)
+							.selectCountry(country)
+							.clickPayButton()
+							.sleep(2)
+							
 List<String> listBillingAddress = [billingAddressChanged[0] + " " + billingAddressChanged[1], billingAddressChanged[2], billingAddressChanged[3], billingAddressChanged[4], billingAddressChanged[5], billingAddressChanged[6]]
 List<String> listShippingAddress = [shippingAddressChanged[0] + " " + shippingAddressChanged[1], shippingAddressChanged[2], shippingAddressChanged[3], shippingAddressChanged[4], shippingAddressChanged[5], shippingAddressChanged[6]]
-Page.nav(CheckoutPage).sleep(1)
-					.refreshPage()
-println '>> Verify after update show correctly on checkout page'
-Page.nav(ReviewPage).clickCheckout()
-Page.nav(CheckoutPage).verifyBillingAddress(listBillingAddress)
-						.verifyShippingAddress(listShippingAddress)
-						
-println '>> Click Edit address'
-Page.nav(CheckoutPage).clickEditAddress()
 
-println '>> Re update old information successfully'
-Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddress[0])
-								.inputLastNameBillingAddress(billingAddress[1])
-								.inputStreetBillingAddress(billingAddress[2])
-								.inputHouseNumberBillingAddress(billingAddress[3])
-								.selectCountryBillingAddress(billingAddress[7])
-								.selectStateBillingAddress(billingAddress[4])
-								.inputZIPCodeBillingAddress(billingAddress[5])
-								.selectCityBillingAddress(billingAddress[6])
-								.inputFirstNameShippingAddress(shippingAddress[0])
-								.inputLastNameShippingAddress(shippingAddress[1])
-								.inputStreetShippingAddress(shippingAddress[2])
-								.inputHouseNumberShippingAddress(shippingAddress[3])
-								.selectCountryShippingAddress(shippingAddress[7])
-								.selectStateShippingAddress(shippingAddress[4])
-								.inputZIPCodeShippingAddress(shippingAddress[5])
-								.selectCityShippingAddress(shippingAddress[6])
-								.clickOK()
-								
-println '>>  Clear data'
-Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickArchiveAction(projectId)
-					.clickCloseToastMessage()
+println '>> Verify after update show correctly on checkout page'
+Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+						.verifyShippingAddress(listShippingAddress)												

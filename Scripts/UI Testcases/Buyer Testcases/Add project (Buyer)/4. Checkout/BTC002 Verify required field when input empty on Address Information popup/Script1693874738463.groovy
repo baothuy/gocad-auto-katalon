@@ -97,7 +97,6 @@ println '>> Verify UI are visible'
 Page.nav(CheckoutPage).verifyUICheckoutVisible(partName)
 
 println '>> Verify file part can download successfully'
-Page.nav(CheckoutPage).clickEditAddress()
 Page.nav(AddressInformationPopup).inputFirstNameBillingAddress("")
 								.inputLastNameBillingAddress("")
 								.inputStreetBillingAddress("")
@@ -108,7 +107,9 @@ Page.nav(AddressInformationPopup).inputFirstNameBillingAddress("")
 								.inputStreetShippingAddress("")
 								.inputHouseNumberShippingAddress("")
 								.inputZIPCodeShippingAddress("")
-								.verifyShowErrorWhenFirstNameBillingAddressEmpty()
+								
+Page.nav(CheckoutPage).clickPlaceYourOrder()
+Page.nav(AddressInformationPopup).verifyShowErrorWhenFirstNameBillingAddressEmpty()
 								.verifyShowErrorWhenLastNameBillingAddressEmpty()
 								.verifyShowErrorWhenHouseNumberBillingAddressEmpty()
 								.verifyShowErrorWhenStreetBillingAddressEmpty()
@@ -118,8 +119,7 @@ Page.nav(AddressInformationPopup).inputFirstNameBillingAddress("")
 								.verifyShowErrorWhenHouseNumberShippingAddressEmpty()
 								.verifyShowErrorWhenStreetShippingAddressEmpty()
 								.verifyShowErrorWhenZIPCodeShippingAddressEmpty()
-								.clickCancel()
-								
+
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickArchiveAction(projectId)

@@ -1,11 +1,11 @@
 import gocad.buyer.AddressInformationPopup
-import gocad.buyer.ReviewPage
-import gocad.common.AddProjectPopup
+import gocad.buyer.CompletedCheckoutPage
 import gocad.common.DataUploadPage
+import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.common.SignInPage
 import gocad.seller.MyProjectsPage
 import gocad.seller.SendOfferPage
 import katalon.fw.lib.Page
@@ -89,7 +89,7 @@ Page.nav(ManufacturingInformationPage).clickCalculate()
 
 println '>> Verify information Address Information show correctly'
 println '>> Click Edit address'
-Page.nav(SendOfferPage).clickEditAddress()
+Page.nav(SendOfferPage).inputCustomer(email)
 
 println '>> Input edit information successfully'
 Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddressChanged[0])
@@ -108,37 +108,15 @@ Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddressCha
 								.selectStateShippingAddress(shippingAddressChanged[4])
 								.inputZIPCodeShippingAddress(shippingAddressChanged[5])
 								.selectCityShippingAddress(shippingAddressChanged[6])								
-								.clickOK()
+
+Page.nav(SendOfferPage).clickSendOffer()
 List<String> listBillingAddress = [billingAddressChanged[0] + " " + billingAddressChanged[1], billingAddressChanged[2], billingAddressChanged[3], billingAddressChanged[4], billingAddressChanged[5], billingAddressChanged[6]]
 List<String> listShippingAddress = [shippingAddressChanged[0] + " " + shippingAddressChanged[1], shippingAddressChanged[2], shippingAddressChanged[3], shippingAddressChanged[4], shippingAddressChanged[5], shippingAddressChanged[6]]
-Page.nav(SendOfferPage).sleep(1)
-					.refreshPage()
-println '>> Verify after update show correctly on checkout page'
-Page.nav(ManufacturingInformationPage).clickReview()
-Page.nav(SendOfferPage).verifyBillingAddress(listBillingAddress)
-						.verifyShippingAddress(listShippingAddress)
-						
-println '>> Click Edit address'
-Page.nav(SendOfferPage).clickEditAddress()
 
-println '>> Re update old information successfully'
-Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddress[0])
-								.inputLastNameBillingAddress(billingAddress[1])
-								.inputStreetBillingAddress(billingAddress[2])
-								.inputHouseNumberBillingAddress(billingAddress[3])
-								.selectCountryBillingAddress(billingAddress[7])
-								.selectStateBillingAddress(billingAddress[4])
-								.inputZIPCodeBillingAddress(billingAddress[5])
-								.selectCityBillingAddress(billingAddress[6])
-								.inputFirstNameShippingAddress(shippingAddress[0])
-								.inputLastNameShippingAddress(shippingAddress[1])
-								.inputStreetShippingAddress(shippingAddress[2])
-								.inputHouseNumberShippingAddress(shippingAddress[3])
-								.selectCountryShippingAddress(shippingAddress[7])
-								.selectStateShippingAddress(shippingAddress[4])
-								.inputZIPCodeShippingAddress(shippingAddress[5])
-								.selectCityShippingAddress(shippingAddress[6])
-								.clickOK()
+println '>> Verify after update show correctly on checkout page'
+Page.nav(CompletedCheckoutPage).clickBackToProject()
+Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
+						.verifyShippingAddress(listShippingAddress)
 								
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickMyProjects()
