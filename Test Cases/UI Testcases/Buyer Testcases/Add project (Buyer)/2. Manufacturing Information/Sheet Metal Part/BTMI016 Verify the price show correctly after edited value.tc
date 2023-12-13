@@ -153,9 +153,9 @@
       <variableId>c46509bc-49fc-42f9-98e7-8a3bf1950ef9</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>materialGroupChanged</value>
       <variableId>de596766-ad36-4843-af53-1c869e4291e4</variableId>
    </variableLinks>
    <variableLinks>
