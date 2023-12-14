@@ -17,7 +17,8 @@ public class CustomerOverviewPage extends BasePage<CustomerOverviewPage>{
 	def calculationCol = { String customerId -> return xpath("//td[text()='$customerId']/parent::tr/td[5]")}
 	def discountCol = { String customerId -> return xpath("//td[text()='$customerId']/parent::tr/td[6]")}
 	def registrationDateCol = { String customerId -> return xpath("//td[text()='$customerId']/parent::tr/td[7]")}
-	def actionCol = { String customerId -> return xpath("//td[text()='$customerId']/parent::tr/td[8]/a")}
+	def loginEnabledCol = { String customerId -> return xpath("//td[text()='$customerId']/parent::tr/td[8]/span")}
+	def actionCol = { String customerId -> return xpath("//td[text()='$customerId']/parent::tr/td[9]/a")}
 	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]/"}
 
 	public CustomerOverviewPage clickAction(String customerId) {

@@ -202,25 +202,29 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 
 		//Billing address
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Full Name']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='State, Province, or Region']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_firstName']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_lastName']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_houseNumber']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_streetName']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_state']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_country']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_postCode']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_city']"))
 
 		//Shipping address
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Full Name']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='State, Province, or Region']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_firstName']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_lastName']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_houseNumber']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_streetName']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_state']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_country']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_postCode']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_city']"))	
 
-		//button Edit address
-		WebUI.verifyElementVisible(xpath("//*[@aria-label='edit']/parent::button"))
-
+		//checkbox address
+		WebUI.verifyElementVisible(xpath("//span[text()='The shipping address is the same as my billing address']"))
+		
 		//table information of part
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Part name']"))
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Files']"))

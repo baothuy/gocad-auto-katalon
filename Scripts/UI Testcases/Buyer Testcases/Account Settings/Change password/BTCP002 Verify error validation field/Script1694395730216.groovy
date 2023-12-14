@@ -31,7 +31,7 @@ switch (expectedResult) {
 							 
 	case "wrongPassword":
 		println '>> Verify error in field'
-		Page.nav(ChangePasswordPopup).verifyErrorCurrentPasswordField("Current password must contain at least 8 characters, at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character")
+		Page.nav(ChangePasswordPopup).verifyErrorCurrentPasswordField("Current password must contain at least 8 characters, at least 1 uppercase letter, 1 lowercase letter")
 	break;
 	
 	case "notMatch":
