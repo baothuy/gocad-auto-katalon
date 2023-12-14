@@ -217,9 +217,18 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return newGetMaterialGroup
 	}
 
-	public ManufacturingInformationPage clickCalculate() {
-		WebUI.click(xpath('//span[text()="Calculate"]/parent::button'))
-		WebUI.waitForElementVisible(xpath("//label[text()='Unit price']"), 10)
+	public ManufacturingInformationPage clickCalculate() {	
+		List<String> objectSave = findTestObjects("//span[text()='Save']/parent::button")
+		if (objectSave.size() == 0)
+		{
+			WebUI.click(xpath('//span[text()="Calculate"]/parent::button'))
+			WebUI.waitForElementVisible(xpath("//label[text()='Unit price']"), 10)
+		}
+		else
+		{
+			WebUI.click(xpath("//span[text()='Save']/parent::button"))
+			WebUI.waitForElementVisible(xpath("//label[text()='Unit price']"), 10)
+		}
 		return this
 	}
 
