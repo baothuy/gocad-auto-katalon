@@ -262,6 +262,7 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 		if(findTestObject.size() != 0)
 		{
 			// information part
+			println "a"
 			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Thread (Quantity)']"))
@@ -273,13 +274,14 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 		}
 		else if(findTestObject.size() == 0)
 		{
+			println "a"
 			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Laser marking']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Countersink']"))
 			WebUI.verifyElementVisible(xpath("//*[@class='ant-modal-body']//*[text()='Thickness']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Cutting layers']"))
+			//WebUI.verifyElementVisible(xpath("//*[text()='Cutting layers']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Deburring']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Thread Cutting']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))

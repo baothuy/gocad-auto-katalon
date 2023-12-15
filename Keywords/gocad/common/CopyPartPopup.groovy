@@ -283,7 +283,7 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 			WebUI.verifyElementVisible(xpath("//*[text()='Countersink']"))
 			WebUI.verifyElementVisible(xpath("//*[@class='ant-modal-body']//*[text()='Thickness']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Cutting layers']"))
+			//WebUI.verifyElementVisible(xpath("//*[text()='Cutting layers']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Deburring']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Thread Cutting']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))

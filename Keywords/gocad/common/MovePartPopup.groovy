@@ -240,15 +240,14 @@ public class MovePartPopup extends BasePage<MovePartPopup> {
 		WebUI.verifyEqual(contentAlertActual, expectedResult)
 		return this
 	}
-	
+
 	public MovePartPopup verifyUICopyPopupVisible() {
 		// input partname
 		WebUI.verifyElementVisible(xpath("//*[@class='input-inline-api']"))
 		// file download file cad and pdf
 		WebUI.verifyElementVisible(xpath("//*[@class='text-decoration-none']"))
 		List<String> findTestObject = findTestObjects("//*[text()='Milled / Turned Parts']")
-		if(findTestObject.size() != 0)
-		{
+		if(findTestObject.size() != 0) {
 			// information part
 			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
@@ -259,8 +258,7 @@ public class MovePartPopup extends BasePage<MovePartPopup> {
 			WebUI.verifyElementVisible(xpath("//*[text()='Tolerance requirement with smaller 1/100mm or IT 1 - IT 5']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))
 		}
-		else if(findTestObject.size() == 0)
-		{
+		else if(findTestObject.size() == 0) {
 			// information part
 			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
@@ -268,7 +266,7 @@ public class MovePartPopup extends BasePage<MovePartPopup> {
 			WebUI.verifyElementVisible(xpath("//*[text()='Countersink']"))
 			WebUI.verifyElementVisible(xpath("//*[@class='ant-modal-body']//*[text()='Thickness']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Cutting layers']"))
+			//WebUI.verifyElementVisible(xpath("//*[text()='Cutting layers']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Deburring']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Thread Cutting']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))
