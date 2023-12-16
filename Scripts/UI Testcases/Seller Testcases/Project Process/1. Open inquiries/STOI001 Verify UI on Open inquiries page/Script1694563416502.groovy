@@ -15,9 +15,11 @@ Page.nav(LeftNavBar).clickOpenInquiries()
 
 println '>> Verify UI Requested Offers page'
 Page.nav(OpenInquiriesPage).verifyUIVisible()
+							.clickPaginationOption("50")
+							.sleep(5)
 
 println '>> Get data first row to go detail verify UI'
-List<String> dataRow = Page.nav(OpenInquiriesPage).getDataRow("1")
+List<String> dataRow = Page.nav(OpenInquiriesPage).getDataRowByStatus(status)
 String projectId = dataRow[0]
 
 String randNumber =  CommonUtility.randomNumber(100)

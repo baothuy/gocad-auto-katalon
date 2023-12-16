@@ -5,10 +5,19 @@
    <tag>functional-test,draft,ui</tag>
    <comment></comment>
    <testCaseGuid>3b514119-a634-4f3d-be93-e86990a7e752</testCaseGuid>
+   <testDataLinks>
+      <combinationType>ONE</combinationType>
+      <id>43eac603-07d8-4595-bcf5-4d80c794a1d7</id>
+      <iterationEntity>
+         <iterationType>ALL</iterationType>
+         <value></value>
+      </iterationEntity>
+      <testDataId>Data Files/Status/Open inquiries</testDataId>
+   </testDataLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>43eac603-07d8-4595-bcf5-4d80c794a1d7</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>status</value>
       <variableId>26cb0466-1669-4089-b957-606934ac09f8</variableId>
    </variableLinks>
    <variable>

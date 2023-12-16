@@ -14,6 +14,9 @@ Page.nav(LeftNavBar).clickRequestedOffers()
 
 println '>> Verify UI Requested Offers page'
 Page.nav(RequestedOffersPage).verifyUIVisible()
+							.clickPaginationOption("50")
+							.sleep(5)
+							
 
 println '>> Get data first row to go detail verify UI'
 List<String> dataRow = Page.nav(RequestedOffersPage).getDataRowByStatus(status)

@@ -217,15 +217,13 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return newGetMaterialGroup
 	}
 
-	public ManufacturingInformationPage clickCalculate() {	
+	public ManufacturingInformationPage clickCalculate() {
 		List<String> objectSave = findTestObjects("//span[text()='Save']/parent::button")
-		if (objectSave.size() == 0)
-		{
+		if (objectSave.size() == 0) {
 			WebUI.click(xpath('//span[text()="Calculate"]/parent::button'))
 			WebUI.waitForElementVisible(xpath("//label[text()='Unit price']"), 10)
 		}
-		else
-		{
+		else {
 			WebUI.click(xpath("//span[text()='Save']/parent::button"))
 			WebUI.waitForElementVisible(xpath("//label[text()='Unit price']"), 10)
 		}
@@ -487,8 +485,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		String formattedSum
 		String newExpectedResult
 		def decimalFormat = new DecimalFormat("###,##0.00")
-		if(unitPrice.contains("."))
-		{
+		if(unitPrice.contains(".")) {
 			def numericValue = unitPrice.replaceAll(/[^\d.,]/, '').replace('.', '').replace(',', '.').toDouble()
 			def expectedResult = quantity.toDouble() * numericValue
 			formattedSum = decimalFormat.format(expectedResult)
@@ -596,8 +593,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyThicknessInputVisible(String partName) {
-		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++)
-		{
+		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
 			if(isContains) WebUI.verifyElementPresent(id("thickness"), 5)
 		}
@@ -682,8 +678,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyCuttingLayersVisible(String partName) {
-		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++)
-		{
+		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
 			if (isContains) WebUI.verifyElementVisible(xpath("//*[text()='All layers']"))
 		}
@@ -691,8 +686,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyUnfoldingPreviewVisible(String partName) {
-		for (int i = 0; i < milledPartFileAllow.size(); i++)
-		{
+		for (int i = 0; i < milledPartFileAllow.size(); i++) {
 			def isContains = partName.contains(milledPartFileAllow[i])
 			if (isContains) WebUI.verifyElementVisible(xpath("//*[text()='Unfolding Preview']"))
 		}
@@ -713,11 +707,9 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyCanViewUnfoldingPreview(String partName) {
-		for (int i = 0; i < milledPartFileAllow.size(); i++)
-		{
+		for (int i = 0; i < milledPartFileAllow.size(); i++) {
 			def isContains = partName.contains(milledPartFileAllow[i])
-			if(isContains)
-			{
+			if(isContains) {
 				WebUI.click(xpath("//*[text()='Unfolding Preview']"))
 				waitUntilElementInvisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::div[@class='icon-loading']"), 10)
 				WebUI.verifyElementPresent(xpath("//div[@class='ant-modal-body']"),5)

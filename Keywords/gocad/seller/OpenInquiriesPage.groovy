@@ -2,6 +2,7 @@ package gocad.seller
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import gocad.buyer.RequestedOffersPage
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
 
@@ -23,6 +24,12 @@ public class OpenInquiriesPage extends BasePage<OpenInquiriesPage>{
 
 	public OpenInquiriesPage clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))
+		return this
+	}
+	
+	public OpenInquiriesPage clickPaginationOption(String numberPage) {
+		WebUI.click(xpath("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[@class='ant-pagination-options']//following::div[@class='rc-virtual-list']//div[text()='$numberPage / page']"))
 		return this
 	}
 

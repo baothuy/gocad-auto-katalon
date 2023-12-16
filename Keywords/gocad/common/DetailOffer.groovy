@@ -205,7 +205,12 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		List<String> testObjPhone = findTestObjects("//*[text()='Customer Info']/ancestor::div[@class='ant-card-head']/following-sibling::div//span[@aria-label='phone']/following-sibling::label")
 		def phone = (testObjPhone.size() != 0) ? WebUI.getText(xpath("//*[text()='Customer Info']/ancestor::div[@class='ant-card-head']/following-sibling::div//span[@aria-label='phone']/following-sibling::label")) : ""
 		String companyName = WebUI.getText(xpath("//*[text()='Customer Info']/ancestor::div[@class='ant-card-head']/following-sibling::div//span[@aria-label='home']/following-sibling::label"))
-		List<String> customerInfo = [nameCostumer, email, phone, companyName]
+		List<String> customerInfo = [
+			nameCostumer,
+			email,
+			phone,
+			companyName
+		]
 		println "customerInfo: $customerInfo"
 		WebUI.verifyEqual(customerInfo, expectedResult)
 		return this
@@ -227,7 +232,15 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		List<String> shippingOptionsObject = findTestObjects("//div[@class='text-muted']")
 		def shippingOptions = (shippingOptionsObject.size() != 0) ? WebUI.getText(xpath("//div[@class='text-muted']")) : "Standard shipping"
 
-		List<String> shippingInfo = [orderNumber, numberOfPart, deliveryOption, formatDeliveryDate, packagingAndShippingComments, shippingOptions, shippingOptionsContent]
+		List<String> shippingInfo = [
+			orderNumber,
+			numberOfPart,
+			deliveryOption,
+			formatDeliveryDate,
+			packagingAndShippingComments,
+			shippingOptions,
+			shippingOptionsContent
+		]
 
 		println "shippingInfo: $shippingInfo"
 		WebUI.verifyEqual(shippingInfo, expectedResult)
@@ -262,7 +275,15 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		def shippingOptionsContent = (findShippingOptionsContentObject.size() != 0) ? WebUI.getText(xpath("//p[text()='Shipping options']/following-sibling::label")) : "Empty"
 		List<String> findShippingOptionsObject = findTestObjects("//div[@class='text-muted']")
 		def shippingOptions = (findShippingOptionsObject.size() != 0) ? WebUI.getText(xpath("//div[@class='text-muted']")) : "Standard shipping"
-		List<String> shippingInfo = [orderNumber, numberOfPart, deliveryOption, formatDeliveryDate, packagingAndShippingComments, shippingOptions, shippingOptionsContent]
+		List<String> shippingInfo = [
+			orderNumber,
+			numberOfPart,
+			deliveryOption,
+			formatDeliveryDate,
+			packagingAndShippingComments,
+			shippingOptions,
+			shippingOptionsContent
+		]
 		println "final get shippingInfo: $shippingInfo"
 		return shippingInfo
 	}
@@ -346,8 +367,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	}
 
 	public DetailOffer verifyResetAdaptButtonVisible(String status) {
-		if(status == "New request")
-		{
+		if(status == "New request") {
 			List<String> findNumberPrefix = findTestObjects("//span[@class='ant-input-number-prefix']/span[contains(@aria-label, 'arrow')]")
 			(findNumberPrefix.size() != 0) ? WebUI.verifyElementVisible(xpath("//*[text()='Reset Adapt']")) : ""
 		}
@@ -382,7 +402,6 @@ public class DetailOffer extends BasePage<DetailOffer>{
 					WebUI.verifyEqual(actualStatus, "Offer adapted")
 					break;
 			}
-
 		}
 		return this
 	}
