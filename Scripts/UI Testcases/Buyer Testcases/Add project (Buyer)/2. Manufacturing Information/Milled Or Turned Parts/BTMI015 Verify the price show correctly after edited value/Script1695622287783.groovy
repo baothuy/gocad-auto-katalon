@@ -88,7 +88,7 @@ Page.nav(ManufacturingInformationPage).verifyMaterialValue(material)
 										.verifyUnitPriceValue(unitPrice)
 										.verifyNetPriceValue(netPrice)
 
-println '>>  Verify can download succesfully'
+println '>>  Click edit'
 Page.nav(ManufacturingInformationPage).clickEdit()
 
 if (filePDF == "")
@@ -106,6 +106,7 @@ if (filePDF == "")
 												.inputThread(threadNumChanged)
 												.inputTolerances(tolerancesNumChanged)
 												.clickToggleTolerances(tolerancesToggle)
+												.removeSelectSurfaceTreatment(surfaceTreatment)
 												.selectSurfaceTreatment(surfaceTreatmentChanged)
 												.selectSurfaceQuality(qualityChanged)
 												.inputComment(comment)
@@ -132,7 +133,7 @@ else
 	 
 	 Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProductChanged)
 	 										.inputQuantity(quantityNumChanged)
-	 										.RemoveSelectSurfaceTreatment(surfaceTreatment)
+	 										.removeSelectSurfaceTreatment(surfaceTreatment)
 											 .selectSurfaceTreatment(surfaceTreatmentChanged)
 											 .selectSurfaceQuality(qualityChanged)
 											 .inputComment(comment)

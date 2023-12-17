@@ -160,7 +160,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage RemoveSelectSurfaceTreatment(String surfaceTreatment) {
+	public ManufacturingInformationPage removeSelectSurfaceTreatment(String surfaceTreatment) {
 		List<String> surfaceTreatmentObject = findTestObjects("//span[contains(@class, 'ant-select-selection-item-content') and text()='$surfaceTreatment']/following::span[@class='ant-select-selection-item-remove']")
 		(surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//span[contains(@class, 'ant-select-selection-item-content') and text()='$surfaceTreatment']/following::span[@class='ant-select-selection-item-remove']")) : ""
 		return this

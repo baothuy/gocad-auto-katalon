@@ -80,7 +80,7 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 										.clickProvideOwnMaterialCB(provideOwnProductChanged)
 										.selectThickness(partName, thicknessNumChanged)
 										.inputQuantity(quantityNumChanged)
-										.RemoveSelectSurfaceTreatment(surfaceTreatment)
+										.removeSelectSurfaceTreatment(surfaceTreatment)
 										.selectSurfaceTreatment(surfaceTreatmentChanged)
 										.selectLaserMarking(laserMarkingChanged)
 										.selectDeburring(deburringChanged)
