@@ -15,7 +15,7 @@ switch(inputExpected)
 {
 	case "errorSystem":
 		println '>> Verify when input error email or password'
-		Page.nav(SignInPage).verifyAfterInputAccount()
+		Page.nav(SignInPage).verifyAfterInputWrongAccount()
 		break;
 	case "errorUI":
 		println '>> Verify when input error email or password'

@@ -161,7 +161,8 @@ public class ReviewPage extends BasePage<ReviewPage>{
 	}
 
 	public String getSurfaceTreatmentSurchargeValue() {
-		String surfaceTreatmentSurcharge = WebUI.getText(xpath("//*[text()='Surface Treatment Surcharge']/parent::div/label[2]"))
+		List<String> findTestObjects = findTestObjects("//*[text()='Surface Treatment Surcharge']/parent::div/label[2]")
+		String surfaceTreatmentSurcharge = (findTestObjects.size() != 0 ) ? WebUI.getText(xpath("//*[text()='Surface Treatment Surcharge']/parent::div/label[2]")) : ""
 		return surfaceTreatmentSurcharge
 	}
 

@@ -264,7 +264,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		String actualSurcharge = WebUI.getText(xpath("//label[text()='Surcharge for minimum order value']/following-sibling::label"))
 		def decimalFormat = new DecimalFormat("###,##0.00")
 		def numberTotalPartPrice = totalPartPrice.replace(" $GlobalVariable.currency", "").replaceAll(/[^\d.,]/, '').replace('.', '').replace(',', '.').toDouble()
-		def numberSurfaceTreatmentPrice = surfaceTreatmentPrice.replace(" $GlobalVariable.currency", "").replaceAll(/[^\d.,]/, '').replace('.', '').replace(',', '.').toDouble()
+		def numberSurfaceTreatmentPrice = (surfaceTreatmentPrice == "") ? "0".toDouble() : surfaceTreatmentPrice.replace(" $GlobalVariable.currency", "").replaceAll(/[^\d.,]/, '').replace('.', '').replace(',', '.').toDouble()
 		def expectedSurcharge = 80 - numberTotalPartPrice - numberSurfaceTreatmentPrice
 		String convertExpectedSurcharge = decimalFormat.format(expectedSurcharge).replace('.', ',') + " $GlobalVariable.currency"
 		WebUI.verifyEqual(actualSurcharge, convertExpectedSurcharge)
