@@ -106,11 +106,7 @@ Page.nav(ReviewPage).verifyImagePartClickable(partName)
 					.verifyActionCopyVisible()
 					.verifyActionMoveVisible()
 					.verifySurfaceTreatmentSurchargeAndTotalVisible()
-					.verifyCheckoutButtonVisible(partName)
-					
-//println '>> Verify file part can download successfully'
-//Page.nav(ReviewPage).clickPartFile(partName)
-//Page.nav(FileHelper).verifyFileDownloaded(partName)
+					.verifyCheckoutButtonVisible(partName)				
 				
 println '>> Verify value on Review Page show correctly'
 Page.nav(ReviewPage).verifyPartNameValue(partName)
