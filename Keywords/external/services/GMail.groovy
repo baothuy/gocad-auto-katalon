@@ -28,6 +28,7 @@ import com.google.api.services.gmail.GmailScopes;
 import com.google.api.services.gmail.model.ListMessagesResponse;
 import com.google.api.services.gmail.model.Message;
 import com.google.api.services.gmail.model.Thread;
+import com.kms.katalon.core.configuration.RunConfiguration
 
 import io.restassured.path.json.JsonPath;
 
@@ -42,14 +43,16 @@ public class GMail {
 	 */
 	private static final List<String> SCOPES = Collections.singletonList(GmailScopes.MAIL_GOOGLE_COM);
 	private static final String CREDENTIALS_FILE_PATH =
-	System.getProperty("user.dir") +
+	//System.getProperty("user.dir") +
+	RunConfiguration.getProjectDir() + "${File.separator}Data${File.separator}Credential" +
 	File.separator + "src" +
 	File.separator + "main" +
 	File.separator + "resources" +
 	File.separator + "credentials" +
 	File.separator + "credentials_new.json";
 
-	private static final String TOKENS_DIRECTORY_PATH = System.getProperty("user.dir") +
+	//private static final String TOKENS_DIRECTORY_PATH = System.getProperty("user.dir") +
+	private static final String TOKENS_DIRECTORY_PATH = RunConfiguration.getProjectDir() + "${File.separator}Data${File.separator}Credential" +
 	File.separator + "src" +
 	File.separator + "main" +
 	File.separator + "resources" +
