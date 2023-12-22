@@ -178,7 +178,6 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.verifyElementVisible(xpath("//*[text()='Packaging Cost']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping costs']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='VAT (19%)']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='GROSS Total']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Preview Offer']"))
 		WebUI.verifyElementPresent(xpath("//*[@id='agreeTermConditions']"),5)
@@ -216,7 +215,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	}
 
 	public String getCompanyName() {
-		String companyName = WebUI.getText(xpath("//*[text()='Company Name']/ancestor::div[@class='row']/div[2]"))
+		String companyName = WebUI.getText(xpath("//*[text()='Company Name']/ancestor::div[@class='row mb-2']/div[2]"))
 		return companyName
 	}
 

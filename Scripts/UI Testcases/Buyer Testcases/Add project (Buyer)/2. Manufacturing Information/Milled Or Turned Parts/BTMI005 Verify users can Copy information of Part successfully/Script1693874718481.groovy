@@ -13,7 +13,7 @@ println '>>  User buyer signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 println '>>  Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
@@ -25,7 +25,7 @@ println "projectName: $projectName"
 String projectId = Page.nav(DataUploadPage).getIdProject()
 
 println '>>  User buyer add another project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 Page.nav(DataUploadPage).clickEditProjectName(projectName2)
 println "projectName2: $projectName2"
 String projectId2 = Page.nav(DataUploadPage).getIdProject()

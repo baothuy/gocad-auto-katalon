@@ -12,7 +12,7 @@ println '>> User buyer signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>> User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)

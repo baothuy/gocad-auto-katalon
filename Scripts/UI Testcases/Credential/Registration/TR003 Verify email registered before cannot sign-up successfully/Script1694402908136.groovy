@@ -13,6 +13,7 @@ Page.nav(RegistrationPage).inputEmail(email)
 							.inputLastName(lastName)
 							.inputPhone(phone)
 							.inputCompanyName(companyName)
+							.inputVatNumber(vatNumber)
 							.clickRegistrationButton()
 							
 println '>> Input empty on Registration page'

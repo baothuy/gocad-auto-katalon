@@ -28,7 +28,7 @@ List<String> listShippingAddress = Page.nav(AccountSettingsPage).getShippingAddr
 List<String> listCustomerInfo = Page.nav(AccountSettingsPage).getCustomerInfo()
 
 println '>> User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 println '>> Open add project popup and add new project name'
 Page.nav(DataUploadPage).clickEditProjectName(projectName)

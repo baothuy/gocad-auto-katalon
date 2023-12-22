@@ -23,6 +23,7 @@ Page.nav(RegistrationPage).verifyShowErrorWhenInputEmail("Email is required.")
 							.verifyShowErrorWhenInputLastName("Last Name is required.")
 							.verifyShowErrorWhenInputPhone("Phone is required.")
 							.verifyShowErrorWhenInputCompanyName("Company Name is required.")
+							.verifyShowErrorWhenInputVatNumber("VAT Number is required.")
 							.sleep(1)
 							
 							

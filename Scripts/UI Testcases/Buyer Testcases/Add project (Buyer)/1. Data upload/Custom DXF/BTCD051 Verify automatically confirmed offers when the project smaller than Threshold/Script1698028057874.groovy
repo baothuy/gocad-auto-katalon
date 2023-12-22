@@ -24,7 +24,7 @@ println '>>  User buyer signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 println '>>  Open add project popup and add new project name'
 Page.nav(DataUploadPage).clickEditProjectName(projectName)

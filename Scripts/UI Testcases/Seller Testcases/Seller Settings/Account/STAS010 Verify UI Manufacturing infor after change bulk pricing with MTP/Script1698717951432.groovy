@@ -29,7 +29,7 @@ Page.nav(BulkPricingPage).inputQuantityRefOne(quantityRefOne)
 
 println '>> User Seller add project'
 Page.nav(LeftNavBar).clickMyProjects()
-Page.nav(MyProjectsPage).clickAddProject()
+Page.nav(MyProjectsPage).clickNewProject()
 
 println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)

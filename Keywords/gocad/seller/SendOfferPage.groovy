@@ -78,7 +78,7 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 	}
 
 	public String getCompanyName() {
-		String companyName = WebUI.getText(xpath("//*[text()='Company Name']/ancestor::div[@class='row']/div[4]"))
+		String companyName = WebUI.getText(xpath("//*[text()='Company Name']/ancestor::div[@class='row mb-2']/div[2]"))
 		return companyName
 	}
 
@@ -124,16 +124,7 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 	}
 
 	public List<String> getOrderSummary() {
-		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label"))
-		List<String> surfaceTreatmentSurchargeObject = findTestObjects("//label[text()='Surface Treatment Surcharge']/following-sibling::label")
-		def surfaceTreatmentSurcharge = (surfaceTreatmentSurchargeObject.size() != 0) ? WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label")) : "Empty"
-		String expressSurcharge = WebUI.getText(xpath("//label[text()='Express Surcharge']/following-sibling::label"))
-		String packagingCost = WebUI.getText(xpath("//label[text()='Packaging Cost']/following-sibling::label"))
-		String shippingCosts = WebUI.getText(xpath("//label[text()='Shipping costs']/following-sibling::label"))
-		String netTotal = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::label"))
-		String vat = WebUI.getText(xpath("//label[text()='VAT (19%)']/following-sibling::label"))
-		String grossTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label"))
-		List<String> orderSummary = [totalPartPrice, surfaceTreatmentSurcharge, expressSurcharge, packagingCost, shippingCosts, netTotal, vat, grossTotal]
+		List<String> orderSummary = Page.nav(FunctionCommon).getOrderSummary()
 		return orderSummary
 	}
 
@@ -148,26 +139,14 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 	}
 
 	public SendOfferPage verifyBillingAddress(List<String> expectedResult) {
-		String fullName = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String houseNumber = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String street = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Street']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String state = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String zipCode = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String city = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		List<String> actualBillingAddress = [fullName, houseNumber, street, state, zipCode, city]
+		List<String> actualBillingAddress = Page.nav(FunctionCommon).getBillingAddress()
 		println "actualBillingAddress: $actualBillingAddress"
 		WebUI.verifyEqual(actualBillingAddress, expectedResult)
 		return this
 	}
 
 	public SendOfferPage verifyShippingAddress(List<String> expectedResult) {
-		String fullName = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String houseNumber = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String street = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Street']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String state = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String zipCode = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String city = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		List<String> actualShippingAddress = [fullName, houseNumber, street, state, zipCode, city]
+		List<String> actualShippingAddress = Page.nav(FunctionCommon).getShippingAddress()
 		println "actualShippingAddress: $actualShippingAddress"
 		WebUI.verifyEqual(actualShippingAddress, expectedResult)
 		return this
@@ -190,7 +169,15 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 		else {
 			comment = ""
 		}
-		List<String> actualResult = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
+		List<String> actualResult = [
+			partNameCol,
+			material,
+			quantity,
+			unitPrice,
+			totalPartPrice,
+			comment,
+			CO2Emission
+		]
 		println "getTablePartReview: $actualResult"
 		return actualResult
 	}
@@ -220,11 +207,11 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_state']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_country']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_postCode']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_city']"))	
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_city']"))
 
 		//checkbox address
 		WebUI.verifyElementVisible(xpath("//span[text()='The shipping address is the same as my billing address']"))
-		
+
 		//table information of part
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Part name']"))
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Files']"))
@@ -252,7 +239,6 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 		WebUI.verifyElementVisible(xpath("//*[text()='Packaging Cost']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping costs']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='VAT (19%)']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='GROSS Total']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Preview Offer']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Send Offer']"))

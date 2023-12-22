@@ -19,8 +19,8 @@ public class MyProjectsPage extends BasePage<MyProjectsPage>{
 	def actionMoreCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//button[2]")}
 	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]"}
 
-	public MyProjectsPage clickAddProject() {
-		WebUI.click(xpath("//span[text()=' Add Project']/parent::button"))
+	public MyProjectsPage clickNewProject() {
+		WebUI.click(xpath("//span[text()=' New Project']/parent::button"))
 		return this
 	}
 
@@ -62,8 +62,12 @@ public class MyProjectsPage extends BasePage<MyProjectsPage>{
 		//String price = WebUI.getText(xpath("//*[@class='ant-card-body']//*[contains(text(),'$GlobalVariable.currency')]"))
 		List<String> findObject = findTestObjects("//*[@class='ant-card-body']//*[contains(text(),'$GlobalVariable.currency')]")
 		String price
-		if (findObject.size() != 0) { price = WebUI.getText(xpath("//*[@class='ant-card-body']//*[contains(text(),'$GlobalVariable.currency')]")) }
-		else { price = WebUI.getText(xpath("//*[@class='ant-card-body']//span[normalize-space(text()) != '']")).trim() }
+		if (findObject.size() != 0) {
+			price = WebUI.getText(xpath("//*[@class='ant-card-body']//*[contains(text(),'$GlobalVariable.currency')]"))
+		}
+		else {
+			price = WebUI.getText(xpath("//*[@class='ant-card-body']//span[normalize-space(text()) != '']")).trim()
+		}
 		WebUI.verifyEqual(price, expectedResult)
 		return this
 	}

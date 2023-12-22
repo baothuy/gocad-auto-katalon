@@ -462,7 +462,6 @@ public class DetailOffer extends BasePage<DetailOffer>{
 			WebUI.verifyElementVisible(xpath("//*[text()='Packaging and Shipping Comments']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Shipping costs']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='VAT (19%)']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='GROSS Total']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Preview Offer']"))
 		}

@@ -14,7 +14,7 @@ Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().ve
 
 println '>>  User buyer add project'
 Page.nav(LeftNavBar).clickMyProjects()
-Page.nav(MyProjectsPage).clickAddProject()
+Page.nav(MyProjectsPage).clickNewProject()
 
 println '>>  Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
@@ -27,7 +27,7 @@ String projectId = Page.nav(DataUploadPage).getIdProject()
 
 println '>> User Seller add project'
 Page.nav(LeftNavBar).clickMyProjects()
-Page.nav(MyProjectsPage).clickAddProject()
+Page.nav(MyProjectsPage).clickNewProject()
 Page.nav(DataUploadPage).clickEditProjectName(projectName2)
 println "projectName2: $projectName2"
 String projectId2 = Page.nav(DataUploadPage).getIdProject()

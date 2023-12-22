@@ -28,7 +28,7 @@ Page.nav(LeftNavBar).clickSettings()
 String companyName = Page.nav(AccountSettingsPage).getCompanyName()
 
 println '>> User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 println '>> Open add project popup and add new project name'
 Page.nav(DataUploadPage).clickEditProjectName(projectName)

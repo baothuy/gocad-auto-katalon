@@ -11,7 +11,7 @@ import katalon.utility.CommonUtility
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 '2. User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 '3. Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)

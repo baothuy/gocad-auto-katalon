@@ -16,8 +16,10 @@ Page.nav(RegistrationPage).verifyUIVisible()
 							.inputLastName(lastName)
 							.inputPhone(phone)
 							.inputCompanyName(companyName)
+							.inputVatNumber(vatNumber)
 							.clickRegistrationButton()
 							.verifyRegisterSuccessfully()
+							
 
 
 							
