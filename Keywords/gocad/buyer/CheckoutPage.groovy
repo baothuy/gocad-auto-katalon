@@ -142,7 +142,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_state']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_country']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_postCode']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_city']"))				
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_city']"))
 
 		//checkbox address
 		WebUI.verifyElementVisible(xpath("//span[text()='The shipping address is the same as my billing address']"))
@@ -178,6 +178,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.verifyElementVisible(xpath("//*[text()='Packaging Cost']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping costs']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='summary-price']//*[contains(text(),'VAT')]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='GROSS Total']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Preview Offer']"))
 		WebUI.verifyElementPresent(xpath("//*[@id='agreeTermConditions']"),5)

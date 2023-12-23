@@ -26,8 +26,12 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 	}
 	
 	public RequestedOffersPage clickPaginationOption(String numberPage) {
-		WebUI.click(xpath("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']"))
-		WebUI.click(xpath("//*[@class='ant-pagination-options']//following::div[@class='rc-virtual-list']//div[text()='$numberPage / page']"))
+		List<String> findObj = findTestObjects("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']")
+		if (findObj.size() != 0)
+		{
+			WebUI.click(xpath("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']"))
+			WebUI.click(xpath("//*[@class='ant-pagination-options']//following::div[@class='rc-virtual-list']//div[text()='$numberPage / page']"))
+		}
 		return this
 	}
 

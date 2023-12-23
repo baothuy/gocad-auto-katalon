@@ -14,7 +14,7 @@ Page.nav(LeftNavBar).clickRequestedOffers()
 
 println '>> Verify UI Requested Offers page'
 Page.nav(RequestedOffersPage).verifyUIVisible()
-							.clickPaginationOption("50")
+							.clickPaginationOption(numberPage)
 							.sleep(5)
 							
 

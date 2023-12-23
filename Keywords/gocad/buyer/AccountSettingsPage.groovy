@@ -37,6 +37,12 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		clearTextAndSendKeysByActions(id("basic_fax"), input)
 		return this
 	}
+	
+	//Addition infor
+	public AccountSettingsPage inputVATNumber(String input){
+		clearTextAndSendKeysByActions(id("basic_vatId"), input)
+		return this
+	}
 
 	//Billing Address
 	public AccountSettingsPage inputFirstNameBillingAddress(String input){

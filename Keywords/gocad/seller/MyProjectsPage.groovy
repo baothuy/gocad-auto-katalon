@@ -110,7 +110,7 @@ public class MyProjectsPage extends BasePage<MyProjectsPage>{
 
 	public MyProjectsPage verifyUIVisible() {
 		WebUI.verifyElementVisible(xpath("//h4[text()='My Projects']"))
-		WebUI.verifyElementVisible(xpath("//*[text()=' Add Project']/parent::button"))
+		WebUI.verifyElementVisible(xpath("//*[text()=' New Project']/parent::button"))
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))

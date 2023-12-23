@@ -20,6 +20,10 @@ Page.nav(AccountSettingsPage).inputFirstNameContact(contactChanged[0])
 							.inputCompanyNameContact(contactChanged[3])
 							.inputPhoneContact(contactChanged[4])
 							.inputFaxContact(contactChanged[5])
+							
+							
+println '>> Input additional information'
+Page.nav(AccountSettingsPage).inputVATNumber(vatNumberChanged)
 
 println '>> Input billing/shipping address information'
 Page.nav(AccountSettingsPage).inputFirstNameBillingAddress(billingAddressChanged[0])
@@ -77,6 +81,9 @@ Page.nav(AccountSettingsPage).inputFirstNameContact(contact[0])
 							.inputCompanyNameContact(contact[3])
 							.inputPhoneContact(contact[4])
 							.inputFaxContact(contact[5])
+							
+println '>> Input old data additional information'
+Page.nav(AccountSettingsPage).inputVATNumber(vatNumber)
 							
 println '>> Input old data billing/shipping address information'
 Page.nav(AccountSettingsPage).inputFirstNameBillingAddress(billingAddress[0])

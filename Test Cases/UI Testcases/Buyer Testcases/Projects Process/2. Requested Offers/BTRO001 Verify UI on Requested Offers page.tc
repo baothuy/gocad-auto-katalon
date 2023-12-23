@@ -20,11 +20,24 @@
       <value>status</value>
       <variableId>e6457c3c-ab43-45f9-ae87-946da8044e05</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>cf14def4-a296-46c5-a55e-e7574974c2ee</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'Offer sent'</defaultValue>
       <description></description>
       <id>e6457c3c-ab43-45f9-ae87-946da8044e05</id>
       <masked>false</masked>
       <name>status</name>
+   </variable>
+   <variable>
+      <defaultValue>'10'</defaultValue>
+      <description></description>
+      <id>cf14def4-a296-46c5-a55e-e7574974c2ee</id>
+      <masked>false</masked>
+      <name>numberPage</name>
    </variable>
 </TestCaseEntity>
