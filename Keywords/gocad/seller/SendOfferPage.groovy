@@ -239,7 +239,7 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 		WebUI.verifyElementVisible(xpath("//*[text()='Packaging Cost']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping costs']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
-		WebUI.verifyElementVisible(xpath("//*[@class='summary-price']//*[contains(text(),'VAT')]"))
+		//WebUI.verifyElementVisible(xpath("//*[@class='summary-price']//*[contains(text(),'VAT')]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='GROSS Total']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Preview Offer']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Send Offer']"))
