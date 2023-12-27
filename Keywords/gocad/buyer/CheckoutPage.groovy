@@ -119,8 +119,8 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	}
 
 	public CheckoutPage verifyUICheckoutVisible(String partName) {
-		//Company name
-		WebUI.verifyElementVisible(xpath("//*[text()='Company Name']"))
+		//Company
+		WebUI.verifyElementVisible(xpath("//*[text()='Company']"))
 
 		//Billing address
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']"))
@@ -216,7 +216,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	}
 
 	public String getCompanyName() {
-		String companyName = WebUI.getText(xpath("//*[text()='Company Name']/ancestor::div[@class='row mb-2']/div[2]"))
+		String companyName = WebUI.getText(xpath("//*[text()='Company']/ancestor::div[@class='row mb-2']/div[2]"))
 		return companyName
 	}
 

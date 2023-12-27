@@ -78,7 +78,7 @@ public class SendOfferPage extends BasePage<SendOfferPage>{
 	}
 
 	public String getCompanyName() {
-		String companyName = WebUI.getText(xpath("//*[text()='Company Name']/ancestor::div[@class='row mb-2']/div[2]"))
+		String companyName = WebUI.getText(xpath("//*[text()='Company']/ancestor::div[@class='row mb-2']/div[2]"))
 		return companyName
 	}
 

@@ -154,7 +154,7 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))
-		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Company Name']"))
+		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Company']"))
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Order Number']"))
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Order date']"))
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='NET Total']"))

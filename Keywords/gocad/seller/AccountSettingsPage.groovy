@@ -220,21 +220,21 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	//contact verify error
 	public AccountSettingsPage verifyShowErrorWhenFirstNameContactEmpty() {
 		String firstName = WebUI.getText(xpath("//*[@id='basic_firstName_help']/div"))
-		String expectedResult = "First Name is required."
+		String expectedResult = "Firstname is required."
 		WebUI.verifyEqual(firstName, expectedResult)
 		return this
 	}
 
 	public AccountSettingsPage verifyShowErrorWhenLastNameContactEmpty() {
 		String lastName = WebUI.getText(xpath("//*[@id='basic_lastName_help']/div"))
-		String expectedResult = "Last Name is required."
+		String expectedResult = "Lastname is required."
 		WebUI.verifyEqual(lastName, expectedResult)
 		return this
 	}
 
 	public AccountSettingsPage verifyShowErrorWhenCompanyNameContactEmpty() {
 		String lastName = WebUI.getText(xpath("//*[@id='basic_companyName_help']/div"))
-		String expectedResult = "Company Name is required."
+		String expectedResult = "Company is required."
 		WebUI.verifyEqual(lastName, expectedResult)
 		return this
 	}

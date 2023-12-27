@@ -89,8 +89,8 @@ public class CustomerOverviewDetailPage extends BasePage<ConfirmedOffersPageOfSe
 		//contact
 		WebUI.verifyElementVisible(xpath("//*[text()='Contact']"))
 		WebUI.verifyElementVisible(xpath("//span[text()='Full Name']"))
-		WebUI.verifyElementVisible(xpath("//span[text()='Email']"))
-		WebUI.verifyElementVisible(xpath("//span[text()='Company Name']"))
+		WebUI.verifyElementVisible(xpath("//span[text()='E-mail']"))
+		WebUI.verifyElementVisible(xpath("//span[text()='Company']"))
 		WebUI.verifyElementVisible(xpath("//span[text()='Phone']"))
 		//Billing address
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']"))
