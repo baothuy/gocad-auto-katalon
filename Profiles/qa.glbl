@@ -41,7 +41,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'https://test.gocad.de/'</initValue>
+      <initValue>'https://devbu.gocad.de/'</initValue>
       <name>myUrl</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
