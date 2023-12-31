@@ -46,7 +46,6 @@ public class DateTimeUtility {
 			// Add one day to the current date
 			calendar.add(Calendar.DAY_OF_MONTH, 1)
 			def nextDate = calendar.time
-			println "nextDate: $nextDate"
 			// Check if the next date is a weekend (Saturday or Sunday) or a holiday
 			if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY ||
 			calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY ||
@@ -61,7 +60,6 @@ public class DateTimeUtility {
 		// Format the delivery date in your desired format
 		def dateFormat = new SimpleDateFormat("MM/dd/yyyy")
 		def formattedDeliveryDate = dateFormat.format(deliveryDate)
-
 		println("Delivery Date: $formattedDeliveryDate")
 		return formattedDeliveryDate
 	}

@@ -14,6 +14,7 @@ import gocad.seller.SendOfferPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
+import internal.GlobalVariable
 
 println '>> FPA008 Verify seller create new project and buyer accept offers will changed status to comfirmed offers'
 println '>> Random project name'
@@ -97,7 +98,7 @@ Page.nav(SendOfferPage).inputCustomer(customerEmail)
 						.inputPackagingAndShippingComments(packagingAndShippingComments)
 									  
 println '>> Get information Checkout page'
-String orderNumber = "GOCAD" + projectId
+String orderNumber = GlobalVariable.prefixOrderNumber + projectId
 String numberOfParts = '1'
 String packagingAndShippingComments = Page.nav(SendOfferPage).getPackagingAndShippingComments()
 String shippingOption = Page.nav(SendOfferPage).getShippingOptions()

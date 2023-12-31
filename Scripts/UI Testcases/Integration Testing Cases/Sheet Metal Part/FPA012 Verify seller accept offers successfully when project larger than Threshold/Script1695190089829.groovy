@@ -14,6 +14,7 @@ import gocad.seller.OpenInquiriesPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
+import internal.GlobalVariable
 
 println '>> FPA002 Verify seller accept offers successfully when project larger than Threshold'
 println '>> Random project name'
@@ -67,7 +68,7 @@ Page.nav(CheckoutPage).selectDeliveryOption(deliveryOption)
 					  .inputPackagingAndShippingComments(packagingAndShippingComments)
 
 println '>> Get information Checkout page'
-String orderNumber = "GOCAD" + projectId
+String orderNumber = GlobalVariable.prefixOrderNumber + projectId
 String numberOfParts = '1'
 String deliveryOption = Page.nav(CheckoutPage).getDeliveryOption()
 String deliveryDate = Page.nav(CheckoutPage).getDeliveryDate()
@@ -79,7 +80,6 @@ String grossTotal = Page.nav(CheckoutPage).getGrossTotal()
 List<String> listOrderSummary = Page.nav(CheckoutPage).getOrderSummary()
 List<String> listBillingAddress = Page.nav(CheckoutPage).getBillingAddress()
 List<String> listShippingAddress = Page.nav(CheckoutPage).getShippingAddress()
-//List<String> listShippingInfo = [orderNumber, numberOfParts, deliveryOption, deliveryDate, packagingAndShippingComments, shippingOption]
 String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
 
 println '>> Click Checkout button on Checkout Page'

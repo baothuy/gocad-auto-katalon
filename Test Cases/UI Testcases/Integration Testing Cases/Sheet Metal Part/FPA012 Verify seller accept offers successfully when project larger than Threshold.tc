@@ -9,7 +9,7 @@
       <combinationType>ONE</combinationType>
       <id>58838a52-89a3-40eb-9c98-fa87409d624f</id>
       <iterationEntity>
-         <iterationType>RANGE</iterationType>
+         <iterationType>ALL</iterationType>
          <value>1-1</value>
       </iterationEntity>
       <testDataId>Data Files/Sheet Metal Part/FPA012-013-015-017</testDataId>

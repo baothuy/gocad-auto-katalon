@@ -22,7 +22,7 @@ Page.nav(DataUploadPage).clickEditProjectName(projectName)
 
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
-//String orderNumber = "GOCAD"+ projectId
+//String orderNumber = GlobalVariable.prefixOrderNumber+ projectId
 
 println '>> Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting(workflow, partName)

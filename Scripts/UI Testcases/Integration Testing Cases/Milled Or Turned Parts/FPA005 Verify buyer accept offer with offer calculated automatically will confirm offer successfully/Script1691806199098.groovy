@@ -17,6 +17,7 @@ import gocad.seller.SentOffersPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
+import internal.GlobalVariable
 
 println '>> FPA005 Verify buyer accept offer with offer calculated automatically will confirm offer successfully'
 println '>> Random project name'
@@ -97,7 +98,7 @@ Page.nav(CheckoutPage).selectDeliveryOption(deliveryOption)
 					  .inputPackagingAndShippingComments(packagingAndShippingComments)
 
 println '>> Get information Checkout page'
-String orderNumber = "GOCAD" + projectId
+String orderNumber = GlobalVariable.prefixOrderNumber + projectId
 String numberOfParts = '1'
 String deliveryOption = Page.nav(CheckoutPage).getDeliveryOption()
 String deliveryDate = Page.nav(CheckoutPage).getDeliveryDate()

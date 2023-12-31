@@ -64,7 +64,7 @@ public class SignInPage extends BasePage<SignInPage> {
 		List<String> findObjectPassword = findTestObjects("//*[@id='basic_password_help']/div")
 		if (findObjectEmail.size() != 0) {
 			String messageEmail = WebUI.getText(xpath("//*[@id='basic_username_help']/div"))
-			WebUI.verifyEqual(messageEmail, "Email is required.")
+			WebUI.verifyEqual(messageEmail, "E-mail is required.")
 		}
 		else if (findObjectPassword.size() != 0) {
 			String messagePass = WebUI.getText(xpath("//*[@id='basic_password_help']/div"))

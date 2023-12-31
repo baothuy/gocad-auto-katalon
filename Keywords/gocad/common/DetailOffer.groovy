@@ -120,7 +120,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 
 	public DetailOffer verifyOrderNumber(String projectId) {
 		String actualResult = WebUI.getText(xpath("//p[text()='Order Number']/parent::div"))
-		String expectedResult = "GOCAD"+ projectId
+		String expectedResult = GlobalVariable.prefixOrderNumber+ projectId
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}

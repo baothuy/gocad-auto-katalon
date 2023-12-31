@@ -254,6 +254,8 @@ IGNORE;MATERIAL_CATEGORY;MATERIAL_GROUP;MATERIAL_NUMBER;MATERIAL_NAME;DENSITY;PR
 0;TECAFLON / PTFE, PVDF||TECAFLON / PTFE, PVDF||||;KU;2.3;glasic;2.3;1.2;;BOTH
 1;Aluminum||Aluminium||Alluminio||alluminio;Alu;3.4345;EN AW-7022 / AlZn5Mg3Cu;2.7;6.32;EN AW-7022||AlZn5Mg3Cu;BOTH
 0;Plastic||Kunststoff||||;KU;0.1232;PP-H;0.903;6.85;;BOTH
-0;TECAFLON / PTFE, PVDF||TECAFLON / PTFE, PVDF||||;KU;1;abc;2.0;3.0;;BOTH
 1;Plastic||Kunststoff||||;KU;3.1234A;Test New Material;2.7;50.0;;BOTH
+0;TECAFLON / PTFE, PVDF||TECAFLON / PTFE, PVDF||||;KU;1;abc;2.0;3.0;;BOTH
 0;Plastic||Kunststoff||||;KU;0.1;abc;2.0;3.0;;BOTH
+1;Plastic||Kunststoff||||;KU;0.5123;PMMA / Acrylglas;1.18;14.1;;BOTH
+0;Plastic||Kunststoff||||;KU;3.0036;Glass Plastic;1.3;2.6;;BOTH

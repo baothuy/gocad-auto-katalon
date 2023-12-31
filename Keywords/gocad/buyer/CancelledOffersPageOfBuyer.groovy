@@ -4,6 +4,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
+import internal.GlobalVariable
 
 
 public class CancelledOffersPageOfBuyer extends BasePage<CancelledOffersPageOfBuyer>{
@@ -47,7 +48,7 @@ public class CancelledOffersPageOfBuyer extends BasePage<CancelledOffersPageOfBu
 
 	public CancelledOffersPageOfBuyer verifyOrderNumber(String projectId) {
 		String orderNumber = WebUI.getText(orderNumberCol(projectId))
-		String expectedResult = "GOCAD"+ projectId
+		String expectedResult = GlobalVariable.prefixOrderNumber + projectId
 		println "orderNumber: $orderNumber"
 		WebUI.verifyEqual(orderNumber, expectedResult)
 		return this
