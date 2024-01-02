@@ -242,14 +242,14 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	//billing address verify error
 	public AccountSettingsPage verifyShowErrorWhenFirstNameBillingAddressEmpty() {
 		String firstName = WebUI.getText(xpath("//*[@id='basic_billingAddress_firstName_help']/div"))
-		String expectedResult = "First Name is required."
+		String expectedResult = "Firstname is required."
 		WebUI.verifyEqual(firstName, expectedResult)
 		return this
 	}
 
 	public AccountSettingsPage verifyShowErrorWhenLastNameBillingAddressEmpty() {
 		String lastName = WebUI.getText(xpath("//*[@id='basic_billingAddress_lastName_help']/div"))
-		String expectedResult = "Last Name is required."
+		String expectedResult = "Lastname is required."
 		WebUI.verifyEqual(lastName, expectedResult)
 		return this
 	}
