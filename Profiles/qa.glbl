@@ -176,7 +176,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'GOCAD0'</initValue>
+      <initValue>'GOCAD'</initValue>
       <name>prefixOrderNumber</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>
