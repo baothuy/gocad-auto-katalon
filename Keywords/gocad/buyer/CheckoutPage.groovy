@@ -25,7 +25,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[11]//button")}
 	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
 	def expectedAlertContent = "After the final approval of the offer by the seller, you will receive a confirmation via e-mail"
-	def tooltipsSurchargeMinimumPrice = "In our shop, the minimum order value is 80 € (250 € for FAST delivery) on the overall basket size, excluding packaging and delivery cost."
+	def tooltipsSurchargeMinimumPrice = "In our shop, the minimum order value is 80 $GlobalVariable.currency (250 $GlobalVariable.currency for FAST delivery) on the overall basket size, excluding packaging and delivery cost."
 
 	public CheckoutPage clickCheckboxAgreeTermsAndConditions() {
 		WebUI.click(xpath("//*[@id='agreeTermConditions']"))

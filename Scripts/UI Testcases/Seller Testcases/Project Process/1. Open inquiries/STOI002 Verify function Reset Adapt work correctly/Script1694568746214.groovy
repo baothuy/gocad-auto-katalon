@@ -27,5 +27,5 @@ Page.nav(DetailOffer).inputUnitPrice(unitPriceChanged)
 						.clickAcceptChangeUnitPrice()
 						.clickCloseToastMessage()
 						.clickResetAdapt()
-						//.clickCloseToastMessage()
+						.clickCloseToastMessage()
 						

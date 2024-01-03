@@ -93,6 +93,11 @@ public class LeftNavBar extends BasePage<LeftNavBar> {
 		WebUI.click(link('Surface Treatments'))
 		return this
 	}
+	
+	public LeftNavBar clickCompliances() {
+		WebUI.click(link('Compliances'))
+		return this
+	}
 
 	public LeftNavBar clickPriceAndDeliverySettings() {
 		WebUI.click(link('Price and Delivery Settings'))
