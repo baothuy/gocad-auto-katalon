@@ -47,7 +47,7 @@
    <variableLinks>
       <testDataLinkId>d7a703fb-a060-40a7-b6bd-0bee3aa28ce9</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>surfaceTreatment</value>
+      <value>compliances</value>
       <variableId>f06efde4-8b48-4e82-9c09-430fe0543fef</variableId>
    </variableLinks>
    <variableLinks>
@@ -61,12 +61,6 @@
       <type>DATA_COLUMN</type>
       <value>comment</value>
       <variableId>1b5414b9-135f-4019-92be-a6c48ade3c11</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>d7a703fb-a060-40a7-b6bd-0bee3aa28ce9</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>tolerancesToggle</value>
-      <variableId>29c96ef6-1888-43ec-957d-261d503503b9</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>d7a703fb-a060-40a7-b6bd-0bee3aa28ce9</testDataLinkId>
@@ -140,11 +134,11 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>GlobalVariable.surfaceTreatmentMTP</defaultValue>
+      <defaultValue>GlobalVariable.compliances</defaultValue>
       <description></description>
       <id>f06efde4-8b48-4e82-9c09-430fe0543fef</id>
       <masked>false</masked>
-      <name>surfaceTreatment</name>
+      <name>compliances</name>
    </variable>
    <variable>
       <defaultValue>GlobalVariable.quality</defaultValue>
@@ -159,13 +153,6 @@
       <id>1b5414b9-135f-4019-92be-a6c48ade3c11</id>
       <masked>false</masked>
       <name>comment</name>
-   </variable>
-   <variable>
-      <defaultValue>'Yes'</defaultValue>
-      <description></description>
-      <id>29c96ef6-1888-43ec-957d-261d503503b9</id>
-      <masked>false</masked>
-      <name>tolerancesToggle</name>
    </variable>
    <variable>
       <defaultValue>GlobalVariable.materialGroupMTP</defaultValue>

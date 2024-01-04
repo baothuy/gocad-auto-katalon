@@ -111,7 +111,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'New Compliances'</initValue>
+      <initValue>''</initValue>
       <name>compliances</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>

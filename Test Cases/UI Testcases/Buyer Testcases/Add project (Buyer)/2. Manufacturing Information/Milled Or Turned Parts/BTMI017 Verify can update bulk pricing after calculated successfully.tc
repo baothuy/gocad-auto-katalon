@@ -125,11 +125,11 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>GlobalVariable.surfaceTreatmentMTP</defaultValue>
+      <defaultValue>GlobalVariable.compliances</defaultValue>
       <description></description>
       <id>f06efde4-8b48-4e82-9c09-430fe0543fef</id>
       <masked>false</masked>
-      <name>surfaceTreatment</name>
+      <name>compliances</name>
    </variable>
    <variable>
       <defaultValue>GlobalVariable.quality</defaultValue>

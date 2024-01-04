@@ -47,7 +47,7 @@ if (filePDF == "")
 	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 	
 	println '>> Input required field'
-	Page.nav(ManufacturingInformationPage).inputFieldMTPShop(provideOwnProduct, quantityNum, threadNum, tolerancesNum, tolerancesToggle, surfaceTreatment, quality, comment)
+	Page.nav(ManufacturingInformationPage).inputFieldMTPShop(quantityNum, threadNum, tolerancesNum, compliances, quality, comment)
 											.inputDeliveryDate(deliveryDate)
 }
 else
@@ -70,11 +70,7 @@ else
 		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
 	 }
 	 
-	 Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
-	 										.inputQuantity(quantityNum)
-											 .selectSurfaceTreatment(surfaceTreatment)
-											 .selectSurfaceQuality(quality)
-											 .inputComment(comment)
+	 Page.nav(ManufacturingInformationPage).inputFieldMTPShop(quantityNum, "", "", compliances, quality, comment)
 											 .inputDeliveryDate(deliveryDate)
 }
 

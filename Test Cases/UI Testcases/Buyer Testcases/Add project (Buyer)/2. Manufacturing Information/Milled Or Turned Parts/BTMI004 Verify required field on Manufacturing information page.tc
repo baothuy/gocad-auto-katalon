@@ -39,12 +39,6 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>f06efde4-8b48-4e82-9c09-430fe0543fef</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
       <variableId>af377a0c-b5de-4d25-ba0f-040df52de71f</variableId>
    </variableLinks>
    <variableLinks>
@@ -123,13 +117,6 @@
       <id>7fd59e68-2070-4b35-917c-741af579cf85</id>
       <masked>false</masked>
       <name>tolerancesNum</name>
-   </variable>
-   <variable>
-      <defaultValue>GlobalVariable.surfaceTreatmentMTP</defaultValue>
-      <description></description>
-      <id>f06efde4-8b48-4e82-9c09-430fe0543fef</id>
-      <masked>false</masked>
-      <name>surfaceTreatment</name>
    </variable>
    <variable>
       <defaultValue>GlobalVariable.quality</defaultValue>
