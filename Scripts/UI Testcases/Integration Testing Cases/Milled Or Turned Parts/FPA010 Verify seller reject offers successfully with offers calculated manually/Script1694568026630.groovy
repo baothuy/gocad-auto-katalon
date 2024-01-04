@@ -71,11 +71,7 @@ else
 		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
 	 }
 	 
-	 Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
-	 										 .inputQuantity(quantityNum)
-											 .selectSurfaceTreatment(surfaceTreatment)
-											 .selectSurfaceQuality(quality)
-											 .inputComment(comment)
+	 Page.nav(ManufacturingInformationPage).inputFieldMTPShop(quantityNum, "", "", compliances, quality, comment)
 }
 
 println '>> click Calculate and move to Review page'
