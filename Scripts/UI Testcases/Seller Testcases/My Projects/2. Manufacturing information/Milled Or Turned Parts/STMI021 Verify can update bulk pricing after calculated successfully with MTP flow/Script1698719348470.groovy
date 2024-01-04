@@ -42,14 +42,7 @@ if (filePDF == "")
 	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 	
 	println '>> Input required field'
-	Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
-											.inputQuantity(quantityNum)
-											.inputThread(threadNum)
-											.inputTolerances(tolerancesNum)
-											.clickToggleTolerances(tolerancesToggle)
-											.selectSurfaceTreatment(surfaceTreatment)
-											.selectSurfaceQuality(quality)
-											.inputComment(comment)
+	Page.nav(ManufacturingInformationPage).inputFieldMTPShop(provideOwnProduct, quantityNum, threadNum, tolerancesNum, tolerancesToggle, surfaceTreatment, quality, comment)
 }
 else
 {
