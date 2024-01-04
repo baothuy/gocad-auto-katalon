@@ -35,8 +35,9 @@ public class SelectMaterialPopup extends BasePage<SelectMaterialPopup>{
 	}
 
 	public String getMaterialAndNumber(String materialName) {
-		String numberPart = WebUI.getText(xpath("//div[text()='$materialName']/parent::div[@class='row material-item']/div[4]"))
-		String material = materialName +"/"+ numberPart
+//		String numberPart = WebUI.getText(xpath("//div[text()='$materialName']/parent::div[@class='row material-item']/div[4]"))
+//		String material = materialName +"/"+ numberPart
+		String material = materialName
 		return material
 	}
 

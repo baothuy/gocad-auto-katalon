@@ -53,7 +53,11 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 
 	public DataUploadPage clickWorkflow(String workflow) {
 		WebUI.waitForElementVisible(xpath('//*[@class="ant-card-body"]'), 5)
-		WebUI.click(xpath("//p[text()='$workflow']/ancestor::div[@class='ant-card-body']"))
+		List<String> findTypeObject = findTestObjects("//p[text()='$workflow']/ancestor::div[@class='ant-card-body']")
+		if (findTypeObject.size() != 0)
+		{
+			WebUI.click(xpath("//p[text()='$workflow']/ancestor::div[@class='ant-card-body']"))
+		}
 		return this
 	}
 

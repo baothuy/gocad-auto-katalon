@@ -155,7 +155,14 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.click(xpath("//input[@id='surfaceTreatmentIds']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
 		List<String> surfaceTreatmentObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")
 		(surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")) : "Empty"
-		//WebUI.click(xpath("//span[@class='ant-steps-icon']/span[text()='2']"))
+		WebUI.click(xpath("//div[text()='Manufacturing']/ancestor::div[@class='ant-steps-item-container']"))
+		return this
+	}
+
+	public ManufacturingInformationPage selectFurtherConfirmitiesRequested(String compliances) {
+		WebUI.click(xpath("//input[@id='requestedComplianceIds']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
+		List<String> requestedComplianceObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$compliances']/parent::div")
+		(requestedComplianceObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$compliances']/parent::div")) : "Empty"
 		WebUI.click(xpath("//div[text()='Manufacturing']/ancestor::div[@class='ant-steps-item-container']"))
 		return this
 	}
@@ -163,6 +170,12 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage removeSelectSurfaceTreatment(String surfaceTreatment) {
 		List<String> surfaceTreatmentObject = findTestObjects("//span[contains(@class, 'ant-select-selection-item-content') and text()='$surfaceTreatment']/following::span[@class='ant-select-selection-item-remove']")
 		(surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//span[contains(@class, 'ant-select-selection-item-content') and text()='$surfaceTreatment']/following::span[@class='ant-select-selection-item-remove']")) : ""
+		return this
+	}
+
+	public ManufacturingInformationPage removeSelectFurtherConfirmitiesRequested(String compliances) {
+		List<String> surfaceTreatmentObject = findTestObjects("//span[contains(@class, 'ant-select-selection-item-content') and text()='$compliances']/following::span[@class='ant-select-selection-item-remove']")
+		(surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//span[contains(@class, 'ant-select-selection-item-content') and text()='$compliances']/following::span[@class='ant-select-selection-item-remove']")) : ""
 		return this
 	}
 
@@ -200,31 +213,29 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		}
 		return this
 	}
-	
-	public ManufacturingInformationPage inputFieldSMPShop(String provideOwnProduct, String partName, String thicknessNum, 
-		String quantityNum, String surfaceTreatment, String laserMarking, String deburring, String countersinkNum, String threadNum, String comment) {
+
+	public ManufacturingInformationPage inputFieldSMPShop(String provideOwnProduct, String partName, String thicknessNum,
+			String quantityNum, String surfaceTreatment, String laserMarking, String deburring, String countersinkNum, String threadNum, String comment) {
 		clickProvideOwnMaterialCB(provideOwnProduct)
-		.selectThickness(partName, thicknessNum)
-		.inputQuantity(quantityNum)
-		.selectSurfaceTreatment(surfaceTreatment)
-		.selectLaserMarking(laserMarking)
-		.selectDeburring(deburring)
-		.inputCountersink(countersinkNum)
-		.inputThread(threadNum)
-		.inputComment(comment)
+				.selectThickness(partName, thicknessNum)
+				.inputQuantity(quantityNum)
+				.selectSurfaceTreatment(surfaceTreatment)
+				.selectLaserMarking(laserMarking)
+				.selectDeburring(deburring)
+				.inputCountersink(countersinkNum)
+				.inputThread(threadNum)
+				.inputComment(comment)
 		return this
 	}
-	
-	public ManufacturingInformationPage inputFieldMTPShop(String provideOwnProduct, String quantityNum, String threadNum, 
-		String tolerancesNum, String tolerancesToggle,String surfaceTreatment, String quality, String comment) {
-		clickProvideOwnMaterialCB(provideOwnProduct)
-		.inputQuantity(quantityNum)
-		.inputThread(threadNum)
-		.inputTolerances(tolerancesNum)
-		.clickToggleTolerances(tolerancesToggle)
-		.selectSurfaceTreatment(surfaceTreatment)
-		.selectSurfaceQuality(quality)
-		.inputComment(comment)
+
+	public ManufacturingInformationPage inputFieldMTPShop(String quantityNum, String threadNum,
+			String tolerancesNum,String compliances, String quality, String comment) {
+		inputQuantity(quantityNum)
+				.inputThread(threadNum)
+				.inputTolerances(tolerancesNum)
+				.selectFurtherConfirmitiesRequested(compliances)
+				.selectSurfaceQuality(quality)
+				.inputComment(comment)
 		return this
 	}
 
@@ -372,6 +383,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage verifyMaterialValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Material']/following-sibling::div")).trim()
+		actualResult = CommonUtility.substringUseRegExp(actualResult, "/([A-Za-z]+[0-9]+)/", 0)
 		println "MaterialValue: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this

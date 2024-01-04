@@ -47,7 +47,7 @@
    <variableLinks>
       <testDataLinkId>4c007e34-e89c-4fb0-9985-e16a836f8375</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>surfaceTreatment</value>
+      <value>compliances</value>
       <variableId>f06efde4-8b48-4e82-9c09-430fe0543fef</variableId>
    </variableLinks>
    <variableLinks>
@@ -65,12 +65,6 @@
    <variableLinks>
       <testDataLinkId>4c007e34-e89c-4fb0-9985-e16a836f8375</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>tolerancesToggle</value>
-      <variableId>29c96ef6-1888-43ec-957d-261d503503b9</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>4c007e34-e89c-4fb0-9985-e16a836f8375</testDataLinkId>
-      <type>DATA_COLUMN</type>
       <value>materialGroup</value>
       <variableId>456ec4f7-0215-4fc4-b16f-466946f5511f</variableId>
    </variableLinks>
@@ -79,12 +73,6 @@
       <type>DATA_COLUMN</type>
       <value>materialName</value>
       <variableId>2c02cbb8-c167-4c76-b462-52fd79f1ac44</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>4c007e34-e89c-4fb0-9985-e16a836f8375</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>provideOwnProduct</value>
-      <variableId>65316e39-d770-41ee-abf8-b9c1bac26fa2</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>4c007e34-e89c-4fb0-9985-e16a836f8375</testDataLinkId>
@@ -164,11 +152,11 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>GlobalVariable.surfaceTreatmentMTP</defaultValue>
+      <defaultValue>GlobalVariable.compliances</defaultValue>
       <description></description>
       <id>f06efde4-8b48-4e82-9c09-430fe0543fef</id>
       <masked>false</masked>
-      <name>surfaceTreatment</name>
+      <name>compliances</name>
    </variable>
    <variable>
       <defaultValue>GlobalVariable.quality</defaultValue>
@@ -185,13 +173,6 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'No'</defaultValue>
-      <description></description>
-      <id>29c96ef6-1888-43ec-957d-261d503503b9</id>
-      <masked>false</masked>
-      <name>tolerancesToggle</name>
-   </variable>
-   <variable>
       <defaultValue>GlobalVariable.materialGroupMTP</defaultValue>
       <description></description>
       <id>456ec4f7-0215-4fc4-b16f-466946f5511f</id>
@@ -204,13 +185,6 @@
       <id>2c02cbb8-c167-4c76-b462-52fd79f1ac44</id>
       <masked>false</masked>
       <name>materialName</name>
-   </variable>
-   <variable>
-      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
-      <description></description>
-      <id>65316e39-d770-41ee-abf8-b9c1bac26fa2</id>
-      <masked>false</masked>
-      <name>provideOwnProduct</name>
    </variable>
    <variable>
       <defaultValue>GlobalVariable.deliveryOption</defaultValue>
