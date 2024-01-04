@@ -200,6 +200,33 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		}
 		return this
 	}
+	
+	public ManufacturingInformationPage inputFieldSMPShop(String provideOwnProduct, String partName, String thicknessNum, 
+		String quantityNum, String surfaceTreatment, String laserMarking, String deburring, String countersinkNum, String threadNum, String comment) {
+		clickProvideOwnMaterialCB(provideOwnProduct)
+		.selectThickness(partName, thicknessNum)
+		.inputQuantity(quantityNum)
+		.selectSurfaceTreatment(surfaceTreatment)
+		.selectLaserMarking(laserMarking)
+		.selectDeburring(deburring)
+		.inputCountersink(countersinkNum)
+		.inputThread(threadNum)
+		.inputComment(comment)
+		return this
+	}
+	
+	public ManufacturingInformationPage inputFieldMTPShop(String provideOwnProduct, String quantityNum, String threadNum, 
+		String tolerancesNum, String tolerancesToggle,String surfaceTreatment, String quality, String comment) {
+		clickProvideOwnMaterialCB(provideOwnProduct)
+		.inputQuantity(quantityNum)
+		.inputThread(threadNum)
+		.inputTolerances(tolerancesNum)
+		.clickToggleTolerances(tolerancesToggle)
+		.selectSurfaceTreatment(surfaceTreatment)
+		.selectSurfaceQuality(quality)
+		.inputComment(comment)
+		return this
+	}
 
 	public String getMaterialWhenUploadFilePDF() {
 		String material = WebUI.getText(xpath("//div[@id='materialId']/a"))
