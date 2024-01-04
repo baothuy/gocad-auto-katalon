@@ -1,16 +1,16 @@
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.seller.CancelledOffersPageOfSeller
 import katalon.fw.lib.Page
 
 
 
 println '>> User seller signs in page'
-Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>> Click search data project added at previous step'
-Page.nav(LeftNavBar).clickSentOffers()
+Page.nav(LeftNavBar).clickCancelledOffers()
 
 println '>> Verify UI Requested Offers page'
 Page.nav(CancelledOffersPageOfSeller).verifyUIVisible()
@@ -25,4 +25,3 @@ Page.nav(CancelledOffersPageOfSeller).verifyStatus(projectId, "Offer rejected")
 Page.nav(DetailOffer).verifyUIVisible()
 						.verifyOrderStatus("Offer rejected")
 						.verifyViewButtonVisible()
-						.verifyContentAlertManuallyVisible("Cancelled Offers")

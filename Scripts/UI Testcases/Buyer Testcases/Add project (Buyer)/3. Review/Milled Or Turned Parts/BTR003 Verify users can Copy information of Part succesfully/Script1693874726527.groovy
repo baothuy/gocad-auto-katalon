@@ -6,30 +6,30 @@ import gocad.common.CopyPartPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
 
 println '>>  User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 println '>>  Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 def projectName2 = CommonUtility.generateRandomProjectName(10)
 
-println '>>  Open add project popup and input project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+println '>>  Click edit project name and input project name'
+Page.nav(DataUploadPage).clickEditProjectName(projectName)
 println "projectName: $projectName"
 String projectId = Page.nav(DataUploadPage).getIdProject()
 
 println '>>  User buyer add another project'
-Page.nav(LeftNavBar).clickAddProject()
-Page.nav(AddProjectPopup).inputProjectName("$projectName2").clickOKButton()
+Page.nav(LeftNavBar).clickNewProject()
+Page.nav(DataUploadPage).clickEditProjectName(projectName2)
 println "projectName2: $projectName2"
 String projectId2 = Page.nav(DataUploadPage).getIdProject()
 
@@ -85,7 +85,7 @@ println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 String unitPrice = Page.nav(ManufacturingInformationPage).getUnitPriceValue()
 String netPrice = Page.nav(ManufacturingInformationPage).getNetPriceValue()
-Page.nav(ManufacturingInformationPage).clickContinueToOfferOverview()
+Page.nav(ManufacturingInformationPage).clickReview()
 
 println '>> Verify UI Visible'
 Page.nav(ReviewPage).clickMoreOption(partName)
@@ -106,6 +106,7 @@ Page.nav(CopyPartPopup).verifyMaterialValue(material)
 					.verifyToastMessageWhenCopyProject(partName, projectName)
 
 println '>>  Clear data'
+Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
 					.clickArchiveAction(projectId2)

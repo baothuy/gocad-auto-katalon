@@ -4,6 +4,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
+import internal.GlobalVariable
 
 
 public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
@@ -16,11 +17,22 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 	def grossTotalCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]")}
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]//span[normalize-space(text()) != '']")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[10]/a")}
-	def row = { String row -> return "//thead/following::tr[$row]/"}
+	def row = { String row -> return "//thead/following::tr[$row]"}
+	def rowByStatus = { String status -> return "(//span[normalize-space(text()) = '$status']/ancestor::tr)[1]"}
 	def contentRequestedOffersPage = "The folder Requested Offers shows all your projects where you have placed an order or requested a quotation. The current status of the project can be seen in the column \"status\"."
 
 	public RequestedOffersPage clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))
+		return this
+	}
+	
+	public RequestedOffersPage clickPaginationOption(String numberPage) {
+		List<String> findObj = findTestObjects("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']")
+		if (findObj.size() != 0)
+		{
+			WebUI.click(xpath("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']"))
+			WebUI.click(xpath("//*[@class='ant-pagination-options']//following::div[@class='rc-virtual-list']//div[text()='$numberPage / page']"))
+		}
 		return this
 	}
 
@@ -47,7 +59,7 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 
 	public RequestedOffersPage verifyOrderNumber(String projectId) {
 		String orderNumber = WebUI.getText(orderNumberCol(projectId))
-		String expectedResult = "GOCAD"+ projectId
+		String expectedResult = GlobalVariable.prefixOrderNumber+ projectId
 		println "orderNumber: $orderNumber"
 		WebUI.verifyEqual(orderNumber, expectedResult)
 		return this
@@ -69,19 +81,29 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 	}
 
 	public List<String> getDataRow(String rowNumber) {
-		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
-		String projectName = WebUI.getText(xpath(row(rowNumber) + "td[2]//a"))
-		String deliveryDate = WebUI.getText(xpath(row(rowNumber) + "td[5]/div"))
-		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "td[6]"))
-		String grossTotal = WebUI.getText(xpath(row(rowNumber) + "td[7]/div"))
-		String status = WebUI.getText(xpath(row(rowNumber) + "td[8]//span[normalize-space(text()) != '']"))
+		String id = WebUI.getText(xpath(row(rowNumber) + "/td[1]"))
+		String projectName = WebUI.getText(xpath(row(rowNumber) + "/td[2]//a"))
+		String deliveryDate = WebUI.getText(xpath(row(rowNumber) + "/td[5]/div"))
+		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "/td[6]"))
+		String grossTotal = WebUI.getText(xpath(row(rowNumber) + "/td[7]/div"))
+		String status = WebUI.getText(xpath(row(rowNumber) + "/td[8]//span[normalize-space(text()) != '']"))
+		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
+		return dataRow
+	}
+	
+	public List<String> getDataRowByStatus(String status) {
+		String id = WebUI.getText(xpath(rowByStatus(status) + "/td[1]"))
+		String projectName = WebUI.getText(xpath(rowByStatus(status) + "/td[2]//a"))
+		String deliveryDate = WebUI.getText(xpath(rowByStatus(status) + "/td[5]/div"))
+		String orderNumber = WebUI.getText(xpath(rowByStatus(status) + "/td[6]"))
+		String grossTotal = WebUI.getText(xpath(rowByStatus(status) + "/td[7]/div"))
 		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
 		return dataRow
 	}
 
 	public RequestedOffersPage verifyUIVisible() {
-		WebUI.verifyElementVisible(xpath("//h5[text()='Requested Offers']"))
-		WebUI.verifyElementVisible(xpath("//h5[text()='Requested Offers']/following::i[text()='$contentRequestedOffersPage']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Requested']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Requested']/following::i[text()='$contentRequestedOffersPage']"))
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))

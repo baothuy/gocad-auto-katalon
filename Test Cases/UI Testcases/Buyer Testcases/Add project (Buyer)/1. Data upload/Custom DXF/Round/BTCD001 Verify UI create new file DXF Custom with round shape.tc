@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD001 Verify UI create new file DXF Custom with round shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>a7d37b11-2b9a-4c43-86cd-4549e9ac9eda</testCaseGuid>
+</TestCaseEntity>

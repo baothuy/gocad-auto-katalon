@@ -1,11 +1,11 @@
 import gocad.buyer.AccountSettingsPage
 import gocad.buyer.ChangePasswordPopup
 import gocad.common.LeftNavBar
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import katalon.fw.lib.Page
 
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredential(email, currentPassword).changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>> Click Settings nav menu'
 Page.nav(LeftNavBar).clickSettings()
@@ -24,17 +24,16 @@ println '>> Verify content message after change password'
 Page.nav(AccountSettingsPage).verifyToastMessageWhenChangePassword()
 
 println '>> Get email and logout'
-String email = Page.nav(LeftNavBar).getEmail()
 Page.nav(LeftNavBar).clickLogout()
 
 println '>> Login with old password will show error'
-Page.nav(MySignInPage).inputEmail(email)
+Page.nav(SignInPage).inputEmail(email)
 						.inputPassword(currentPassword)
 						.clickSignIn()
 						.verifyAfterInputWrongAccount()
 						
 println '>> Login with new password will sign in successfully'
-Page.nav(MySignInPage).inputEmail(email)
+Page.nav(SignInPage).inputEmail(email)
 						.inputPassword(newPassword)
 						.clickSignIn()
 						

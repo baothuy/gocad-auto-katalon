@@ -1,32 +1,32 @@
 import gocad.buyer.DraftPage
 import gocad.common.AddProjectPopup
-import gocad.common.CopyPartPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
+import gocad.common.MovePartPopup
+import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
 println '>>  User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 println '>>  Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 def projectName2 = CommonUtility.generateRandomProjectName(10)
 
-println '>>  Open add project popup and input project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+println '>>  Click edit project name and input project name'
+Page.nav(DataUploadPage).clickEditProjectName(projectName)
 println "projectName: $projectName"
 String projectId = Page.nav(DataUploadPage).getIdProject()
 
 println '>>  User buyer add another project'
-Page.nav(LeftNavBar).clickAddProject()
-Page.nav(AddProjectPopup).inputProjectName("$projectName2").clickOKButton()
+Page.nav(LeftNavBar).clickNewProject()
+Page.nav(DataUploadPage).clickEditProjectName(projectName2)
 println "projectName2: $projectName2"
 String projectId2 = Page.nav(DataUploadPage).getIdProject()
 
@@ -84,12 +84,12 @@ Page.nav(ManufacturingInformationPage).clickCalculate()
 println '>> get Net Price Value'
 String netPrice = Page.nav(ManufacturingInformationPage).getNetPriceValue()
 
-println '>> click Copy button'
+println '>> click move button'
 Page.nav(ManufacturingInformationPage).clickMoreOption()
 									  .clickMovePart()
 										
-println '>> select project to copy'
-Page.nav(CopyPartPopup).inputProjectToCopy(projectName)
+println '>> select project to move'
+Page.nav(MovePartPopup).inputProjectToMove(projectName)
 						.clickOK()
 
 println '>>  Verify part information after copied to another project'

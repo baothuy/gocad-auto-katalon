@@ -1,31 +1,33 @@
 import gocad.buyer.CheckoutPage
 import gocad.buyer.CompletedCheckoutPage
 import gocad.buyer.ConfirmedOffersPageOfBuyer
+import gocad.buyer.PaymentMethodPopup
 import gocad.buyer.ReviewPage
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.common.SignInPage
 import gocad.seller.ConfirmedOffersPageOfSeller
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
+import internal.GlobalVariable
 
 println '>> FPA001 Verify automatically confirmed offers when the project smaller than Threshold'
 println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>>  User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 println '>>  Open add project popup and add new project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+Page.nav(DataUploadPage).clickEditProjectName(projectName)
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
@@ -81,7 +83,7 @@ else
 
 println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
-									  .clickContinueToOfferOverview()
+									  .clickReview()
 
 println '>> Click get infor and Checkout button on Review Page'
 List<String> tablePart = Page.nav(ReviewPage).getTablePartReview(partName)
@@ -93,7 +95,7 @@ Page.nav(CheckoutPage).selectDeliveryOption(deliveryOption)
 					  .selectShippingOption(shippingOption)
 
 println '>> Get information Checkout page'
-String orderNumber = "GOCAD" + projectId
+String orderNumber = GlobalVariable.prefixOrderNumber + projectId
 String numberOfParts = '1'
 String deliveryOption = Page.nav(CheckoutPage).getDeliveryOption()
 String deliveryDate = Page.nav(CheckoutPage).getDeliveryDate()
@@ -110,9 +112,18 @@ String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
 println '>> Click Checkout button on Checkout Page'
 Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
 					  .clickPlaceYourOrder()
+	
+println '>> Appear Payment Method Popup'
+Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
+							.inputCardExpiry(cardExpiry)
+							.inputCardCvc(cardCvc)
+							.inputBillingName(billingName)
+							.selectCountry(country)
+							.clickPayButton()
+							.sleep(2)
 					  
-println '>> Click back to project to get shipping info'
-Page.nav(CompletedCheckoutPage).clickBackToProject()
+println '>> Back to project detail to get shipping info'
+//Page.nav(CompletedCheckoutPage).clickBackToProject()
 List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
 
 println '>> Verify information show on list Confirmed Offers of buyer'
@@ -136,7 +147,7 @@ println '>>  Buyer click Logout button'
 Page.nav(LeftNavBar).clickLogout()
 
 println '>>  Seller Login system to check offers of buyer'
-Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>>  Seller go confirmed offers of buyer checkout'
 Page.nav(LeftNavBar).clickConfirmedOffers()
@@ -146,7 +157,7 @@ Page.nav(ConfirmedOffersPageOfSeller).verifyHighlightOnList(projectId)
 									 .verifyProjectName(projectId, projectName)
 									 .verifyCompanyName(projectId, companyName)
 									 .verifyOrderNumber(projectId)
-									 //.verifyOrderDate(projectId, orderDate)
+									 .verifyOrderDate(projectId, orderDate)
 									 .verifyNetTotal(projectId, netTotal)
 									 .verifyStatus(projectId, "Order confirmed")
 									 .clickAction(projectId)
@@ -158,3 +169,4 @@ Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
 					 .verifyOrderSummary(listOrderSummary)
 					 .verifyTablePartReview(partName, tablePart)
 					 .verifyShippingInfo(listShippingInfo)
+					 .verifyPaidStampVisible()

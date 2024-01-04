@@ -4,9 +4,10 @@
    <name>gocad-automation-katalon</name>
    <tag></tag>
    <UUID>52a04ec7-d9ff-4705-9fdd-6bbfb02f169b</UUID>
+   <freeLicense>false</freeLicense>
    <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
-   <projectFileLocation>Automation Project/gocad-automation-katalon.prj</projectFileLocation>
+   <projectFileLocation>D:\Automation Project\gocad-automation-katalon\gocad-automation-katalon.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>

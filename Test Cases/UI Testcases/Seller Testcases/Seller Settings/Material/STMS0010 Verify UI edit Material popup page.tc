@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STMS0010 Verify UI edit Material popup page</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>6e9bc98c-296b-428b-bed1-8846dca2d418</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>3f34d65d-3b62-45a7-8784-f5a4c1f4819a</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'TiCP Grade2'</defaultValue>
+      <description></description>
+      <id>3f34d65d-3b62-45a7-8784-f5a4c1f4819a</id>
+      <masked>false</masked>
+      <name>materialName</name>
+   </variable>
+</TestCaseEntity>

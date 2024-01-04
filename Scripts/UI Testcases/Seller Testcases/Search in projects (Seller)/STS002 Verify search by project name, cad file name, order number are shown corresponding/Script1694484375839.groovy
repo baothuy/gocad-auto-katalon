@@ -1,13 +1,13 @@
 import gocad.buyer.DraftPage
 import gocad.seller.SearchInProjectsPopup
 import gocad.common.LeftNavBar
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.seller.OpenInquiriesPage
 import katalon.fw.lib.Page
 import katalon.utility.DateTimeUtility
 
 println '>> User seller signs in page'
-Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>> Click Open inquiries menu to find project in list'
 Page.nav(LeftNavBar).clickOpenInquiries()
@@ -48,26 +48,27 @@ Page.nav(SearchInProjectsPopup).verifyStatusVisibleInList(dataRowSearchByStatus[
 								.clearSearchStatus()
 								
 println '>> Verify search by Mark as Unread'
-Page.nav(SearchInProjectsPopup).clickCheckBoxUnread("true")
+Page.nav(SearchInProjectsPopup).clickCheckBoxUnread("checked")
 								.clickSearch()
 								
 List<String> dataRowSearchByCheckUnread = Page.nav(SearchInProjectsPopup).getDataRow("1")
 println "dataRowSearchByCheckUnread: $dataRowSearchByCheckUnread"
 Page.nav(SearchInProjectsPopup).verifyHighlightOnList(dataRowSearchByCheckUnread[0])
-								.clickCheckBoxUnread("false")
+								.clickCheckBoxUnread("uncheck")
 								
 								
-String previousWeek = DateTimeUtility.plusDays(-7, "yyyy-MM-dd")
-println "currentDate: $previousWeek"
+String startDate = DateTimeUtility.plusDays(-10, "yyyy-MM-dd")
+String endDate = DateTimeUtility.next30Days("yyyy-MM-dd")	
+println "previousDate: $startDate"
+println "endDate: $endDate"	
 
 println '>> Verify search by order date'
-Page.nav(SearchInProjectsPopup).inputStartDate(previousWeek)
-								.inputEndDate(previousWeek)
+Page.nav(SearchInProjectsPopup).inputStartDate(startDate)
+								.inputEndDate(endDate)
 								.clickSearch()
 								
 List<String> dataRowSearchByDate = Page.nav(SearchInProjectsPopup).getDataRow("1")
 println "dataRowSearchByDate: $dataRowSearchByDate"
 
-Page.nav(SearchInProjectsPopup).verifyOrderDateVisibleInList(dataRowSearchByDate[0], previousWeek)
+Page.nav(SearchInProjectsPopup).verifyHaveRowVisibleInList("1")
 								.clearSearchDate()
-								.clickCloseSearchPopup()

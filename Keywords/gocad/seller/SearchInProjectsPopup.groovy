@@ -48,7 +48,12 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 	}
 
 	public SearchInProjectsPopup clickCheckBoxUnread(String check) {
-		(check == "true") ? WebUI.click(xpath("//input[@id='unread']")) : "false"
+		String text = WebUI.getAttribute(xpath("//*[@id='unread']/parent::span"), "class")
+		String isStatusCheck = text.contains("checked")
+		boolean isChecked = check.equals("checked")
+		if(Boolean.parseBoolean(isStatusCheck) != isChecked) {
+			WebUI.click(xpath("//*[@id='unread']/parent::span"))
+		}
 		return this
 	}
 
@@ -149,7 +154,7 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))
-		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Company Name']"))
+		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Company']"))
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Order Number']"))
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='Order date']"))
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-content']//thead[@class='ant-table-thead']/tr/th[@aria-label='NET Total']"))

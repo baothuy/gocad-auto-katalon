@@ -9,7 +9,7 @@
       <combinationType>ONE</combinationType>
       <id>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</id>
       <iterationEntity>
-         <iterationType>SPECIFIC</iterationType>
+         <iterationType>ALL</iterationType>
          <value>4</value>
       </iterationEntity>
       <testDataId>Data Files/Sheet Metal Part/BTMI016</testDataId>
@@ -53,7 +53,7 @@
    <variableLinks>
       <testDataLinkId>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>rollingDirection</value>
+      <value>laserMarking</value>
       <variableId>98948a84-ece4-4102-8b42-53fc6ac0699d</variableId>
    </variableLinks>
    <variableLinks>
@@ -131,7 +131,7 @@
    <variableLinks>
       <testDataLinkId>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>rollingDirectionChanged</value>
+      <value>laserMarkingChanged</value>
       <variableId>3cca0f35-1501-48da-a33f-eb7645352e27</variableId>
    </variableLinks>
    <variableLinks>
@@ -151,6 +151,12 @@
       <type>DATA_COLUMN</type>
       <value>threadNumChanged</value>
       <variableId>c46509bc-49fc-42f9-98e7-8a3bf1950ef9</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>materialGroupChanged</value>
+      <variableId>de596766-ad36-4843-af53-1c869e4291e4</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>9a0c2e8d-5d84-429d-bff0-a0c895925f9c</testDataLinkId>
@@ -186,14 +192,14 @@
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description></description>
       <id>9bde58c0-c79d-4555-9daf-96c53031bb67</id>
       <masked>false</masked>
       <name>thicknessNum</name>
    </variable>
    <variable>
-      <defaultValue>'3'</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description></description>
       <id>718738d2-2af7-42eb-b10d-ba2c59e63b40</id>
       <masked>false</masked>
@@ -207,11 +213,11 @@
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'Parallel'</defaultValue>
+      <defaultValue>'No'</defaultValue>
       <description>Parallel, Quer, Egal</description>
       <id>98948a84-ece4-4102-8b42-53fc6ac0699d</id>
       <masked>false</masked>
-      <name>rollingDirection</name>
+      <name>laserMarking</name>
    </variable>
    <variable>
       <defaultValue>'All layers'</defaultValue>
@@ -221,7 +227,7 @@
       <name>cuttingLayers</name>
    </variable>
    <variable>
-      <defaultValue>'true'</defaultValue>
+      <defaultValue>'One-sided'</defaultValue>
       <description></description>
       <id>8c5cd1c6-93d2-4e04-abf0-0c8cc774db96</id>
       <masked>false</masked>
@@ -249,21 +255,21 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupSMP</defaultValue>
       <description></description>
       <id>4718bf14-c98c-454c-b5b2-86ec51228c04</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'X14CrMoS17'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameSMP</defaultValue>
       <description></description>
       <id>5ff6c868-c261-4ab7-91e7-490776ac735a</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'45,62'</defaultValue>
+      <defaultValue>'89,85'</defaultValue>
       <description></description>
       <id>4fd82c8a-c287-4f6e-8541-1eb1cfccc9dd</id>
       <masked>false</masked>
@@ -277,35 +283,35 @@
       <name>provideOwnProductChanged</name>
    </variable>
    <variable>
-      <defaultValue>'4'</defaultValue>
+      <defaultValue>'2'</defaultValue>
       <description></description>
       <id>f6e5417a-3c84-4ff4-8c47-580a30aba5e0</id>
       <masked>false</masked>
       <name>thicknessNumChanged</name>
    </variable>
    <variable>
-      <defaultValue>'8'</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description></description>
       <id>50a60cac-d861-4a1c-bbfd-911626b65b45</id>
       <masked>false</masked>
       <name>quantityNumChanged</name>
    </variable>
    <variable>
-      <defaultValue>'Soft annealing'</defaultValue>
+      <defaultValue>'Glass bead blasting'</defaultValue>
       <description></description>
       <id>2c579221-5fbf-48fb-baf5-36d84bfd50be</id>
       <masked>false</masked>
       <name>surfaceTreatmentChanged</name>
    </variable>
    <variable>
-      <defaultValue>'Quer'</defaultValue>
+      <defaultValue>'No'</defaultValue>
       <description></description>
       <id>3cca0f35-1501-48da-a33f-eb7645352e27</id>
       <masked>false</masked>
-      <name>rollingDirectionChanged</name>
+      <name>laserMarkingChanged</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
+      <defaultValue>'No'</defaultValue>
       <description></description>
       <id>feaefad7-af33-4cd5-9838-eaac42101dc3</id>
       <masked>false</masked>
@@ -326,14 +332,21 @@
       <name>threadNumChanged</name>
    </variable>
    <variable>
-      <defaultValue>'16MNCr5'</defaultValue>
+      <defaultValue>'Copper'</defaultValue>
+      <description></description>
+      <id>de596766-ad36-4843-af53-1c869e4291e4</id>
+      <masked>false</masked>
+      <name>materialGroupChanged</name>
+   </variable>
+   <variable>
+      <defaultValue>'CuSn8'</defaultValue>
       <description></description>
       <id>0a49abcd-fc3c-4224-afec-6c105cfd7529</id>
       <masked>false</masked>
       <name>materialNameChanged</name>
    </variable>
    <variable>
-      <defaultValue>'29,52'</defaultValue>
+      <defaultValue>'49,63'</defaultValue>
       <description></description>
       <id>a66d63e9-ae42-43e8-90d9-d665a2a52eeb</id>
       <masked>false</masked>

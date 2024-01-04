@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTBP001 Verify UI bulk pricing settings</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>05ab4dd1-6291-48ac-aee9-03d6dd023352</testCaseGuid>
+</TestCaseEntity>

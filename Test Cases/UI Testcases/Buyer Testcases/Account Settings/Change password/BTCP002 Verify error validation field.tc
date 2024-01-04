@@ -7,33 +7,33 @@
    <testCaseGuid>22d9e524-edc9-4f04-a4dd-d5d56602227c</testCaseGuid>
    <testDataLinks>
       <combinationType>ONE</combinationType>
-      <id>9b34a0bb-ca86-4ad5-8aab-6b6a3a2af67e</id>
+      <id>0292330d-d91c-409d-bcfc-eac9fc603e5a</id>
       <iterationEntity>
-         <iterationType>SPECIFIC</iterationType>
-         <value>3</value>
+         <iterationType>ALL</iterationType>
+         <value></value>
       </iterationEntity>
-      <testDataId>Data Files/Settings/Change password</testDataId>
+      <testDataId>Data Files/Data Settings/Change password</testDataId>
    </testDataLinks>
    <variableLinks>
-      <testDataLinkId>9b34a0bb-ca86-4ad5-8aab-6b6a3a2af67e</testDataLinkId>
+      <testDataLinkId>0292330d-d91c-409d-bcfc-eac9fc603e5a</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>currentPassword</value>
       <variableId>700c7cf1-7509-477c-95f1-64738dab33e6</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9b34a0bb-ca86-4ad5-8aab-6b6a3a2af67e</testDataLinkId>
+      <testDataLinkId>0292330d-d91c-409d-bcfc-eac9fc603e5a</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>newPassword</value>
       <variableId>11ff8d6c-cb5f-49d1-ab79-1b0b83abdfdb</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9b34a0bb-ca86-4ad5-8aab-6b6a3a2af67e</testDataLinkId>
+      <testDataLinkId>0292330d-d91c-409d-bcfc-eac9fc603e5a</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>confirmPassword</value>
       <variableId>3475ddd4-eb3b-48ba-9734-0ea816d76564</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>9b34a0bb-ca86-4ad5-8aab-6b6a3a2af67e</testDataLinkId>
+      <testDataLinkId>0292330d-d91c-409d-bcfc-eac9fc603e5a</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>expectedResult</value>
       <variableId>36d67b91-8d92-4b97-b7b6-a46fa1d32a0b</variableId>

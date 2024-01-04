@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD035 Validation for business rule with ellipse-panel shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>4e98b0f2-b7c8-4876-bad2-6e8a7705a0f6</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d2fac798-d107-40ad-a8c9-566702f7e0f5</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'ellipse'</defaultValue>
+      <description></description>
+      <id>d2fac798-d107-40ad-a8c9-566702f7e0f5</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

@@ -1,10 +1,12 @@
-import gocad.buyer.CuttingLayersPopup
-import gocad.buyer.DraftPage
-import gocad.common.DataUploadPage
+import gocad.buyer.CheckoutPage
+import gocad.buyer.ConfirmedOffersPageOfBuyer
+import gocad.buyer.PaymentMethodPopup
+import gocad.buyer.ReviewPage
 import gocad.common.LeftNavBar
-import gocad.common.MySignInPage
-import gocad.common.ManufacturingInformationPage
+import gocad.common.SignInPage
 import katalon.fw.lib.Page
+import katalon.utility.FileHelper
+
 
 
 
@@ -13,14 +15,20 @@ println '>> Random project name'
 //def projectName = CommonUtility.generateRandomProjectName(10)
 //
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
-Page.nav(LeftNavBar).clickDraft()
-Page.nav(DraftPage).clickViewAction('1033')
-//Page.nav(ReviewPage).clickManufacturingInformationProcess()
-//Page.nav(ManufacturingInformationPage).clickEdit()
+Page.nav(LeftNavBar).clickConfirmedOffers()
 
-println '>>  Upload file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTesting('Sheet Metal Part', partName)
+println '>>  User buyer add project'
+Page.nav(ConfirmedOffersPageOfBuyer).clickPayButton('16855')
 
-Page.nav(ManufacturingInformationPage).verifyAddPartButtonVisible()
+println '>> Appear Payment Method Popup'
+Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
+							.inputCardExpiry(cardExpiry)
+							.inputCardCvc(cardCvc)
+							.inputBillingName(billingName)
+							.selectCountry(country)
+							.clickPayButton()
+							.sleep(2)
+
+						

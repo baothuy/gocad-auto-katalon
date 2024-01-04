@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD042 Validation for business rule with octagon-panel shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>6696c976-458a-467c-b702-49a2e5f7809d</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f94b2049-d266-43da-81ab-72a91ba4543a</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'ellipse'</defaultValue>
+      <description></description>
+      <id>f94b2049-d266-43da-81ab-72a91ba4543a</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

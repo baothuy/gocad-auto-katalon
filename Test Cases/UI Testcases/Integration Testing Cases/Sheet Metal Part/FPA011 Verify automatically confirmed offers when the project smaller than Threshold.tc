@@ -47,8 +47,8 @@
    <variableLinks>
       <testDataLinkId>c82c8aa2-0bff-43bf-8657-13cb69e99a28</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>rollingDirection</value>
-      <variableId>31523c65-a1ea-4be3-9e54-6b1b8674262f</variableId>
+      <value>laserMarking</value>
+      <variableId>e5caabff-6263-4264-9e22-21159ba448bc</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>c82c8aa2-0bff-43bf-8657-13cb69e99a28</testDataLinkId>
@@ -116,8 +116,38 @@
       <value>packagingAndShippingComments</value>
       <variableId>f330aa7b-2459-47e5-9a40-d8b70fea6db4</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f9a68087-c59b-4a3d-9aec-9bb8f4a54ec8</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>dc41be2d-1b88-426a-bfab-da3f6345c191</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a4e74975-a41c-49d1-8432-75bca6d53cd2</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>1959c516-0e3c-4b64-b55f-ac88459b0551</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>0b1b0fab-4da4-4cfe-ac11-fd05b0699514</variableId>
+   </variableLinks>
    <variable>
-      <defaultValue>'dxf-testing.dxf'</defaultValue>
+      <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
       <id>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</id>
       <masked>false</masked>
@@ -138,25 +168,25 @@
       <name>thicknessNum</name>
    </variable>
    <variable>
-      <defaultValue>'3'</defaultValue>
+      <defaultValue>'5'</defaultValue>
       <description></description>
       <id>5a487b1a-2dc0-4f54-857d-66e74db09fc5</id>
       <masked>false</masked>
       <name>quantityNum</name>
    </variable>
    <variable>
-      <defaultValue>'Painting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentSMP</defaultValue>
       <description></description>
       <id>2ca5335a-6b22-4a08-b341-d96e3c83dc9f</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'Parallel'</defaultValue>
-      <description>Parallel, Quer, Egal</description>
-      <id>31523c65-a1ea-4be3-9e54-6b1b8674262f</id>
+      <defaultValue>GlobalVariable.laserMarking</defaultValue>
+      <description></description>
+      <id>e5caabff-6263-4264-9e22-21159ba448bc</id>
       <masked>false</masked>
-      <name>rollingDirection</name>
+      <name>laserMarking</name>
    </variable>
    <variable>
       <defaultValue>'All layers'</defaultValue>
@@ -166,7 +196,7 @@
       <name>cuttingLayers</name>
    </variable>
    <variable>
-      <defaultValue>'true'</defaultValue>
+      <defaultValue>GlobalVariable.deburring</defaultValue>
       <description></description>
       <id>92334211-dd7b-4ff4-9017-d7aefabddc39</id>
       <masked>false</masked>
@@ -194,35 +224,35 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupSMP</defaultValue>
       <description></description>
       <id>499794cd-e3be-4af0-9b39-46d8d0895543</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'X14CrMoS17'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameSMP</defaultValue>
       <description></description>
       <id>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
       <description></description>
       <id>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</id>
       <masked>false</masked>
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'STANDARD'</defaultValue>
+      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
       <description></description>
       <id>68a51f21-edfb-40a8-a2f2-add18c5239b5</id>
       <masked>false</masked>
       <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>'Standard shipping'</defaultValue>
+      <defaultValue>GlobalVariable.shippingOption</defaultValue>
       <description></description>
       <id>3f868299-9f57-4393-bacd-1eec0b4170bf</id>
       <masked>false</masked>
@@ -234,5 +264,40 @@
       <id>f330aa7b-2459-47e5-9a40-d8b70fea6db4</id>
       <masked>false</masked>
       <name>packagingAndShippingComments</name>
+   </variable>
+   <variable>
+      <defaultValue>'4242424242424242'</defaultValue>
+      <description></description>
+      <id>f9a68087-c59b-4a3d-9aec-9bb8f4a54ec8</id>
+      <masked>false</masked>
+      <name>cardNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'123'</defaultValue>
+      <description></description>
+      <id>dc41be2d-1b88-426a-bfab-da3f6345c191</id>
+      <masked>false</masked>
+      <name>cardCvc</name>
+   </variable>
+   <variable>
+      <defaultValue>'12/25'</defaultValue>
+      <description></description>
+      <id>a4e74975-a41c-49d1-8432-75bca6d53cd2</id>
+      <masked>false</masked>
+      <name>cardExpiry</name>
+   </variable>
+   <variable>
+      <defaultValue>'Truong Bao Thuy'</defaultValue>
+      <description></description>
+      <id>1959c516-0e3c-4b64-b55f-ac88459b0551</id>
+      <masked>false</masked>
+      <name>billingName</name>
+   </variable>
+   <variable>
+      <defaultValue>'Vietnam'</defaultValue>
+      <description></description>
+      <id>0b1b0fab-4da4-4cfe-ac11-fd05b0699514</id>
+      <masked>false</masked>
+      <name>country</name>
    </variable>
 </TestCaseEntity>

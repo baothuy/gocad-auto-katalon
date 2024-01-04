@@ -4,6 +4,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
+import internal.GlobalVariable
 
 
 public class ConfirmedOffersPageOfSeller extends BasePage<ConfirmedOffersPageOfSeller>{
@@ -16,9 +17,9 @@ public class ConfirmedOffersPageOfSeller extends BasePage<ConfirmedOffersPageOfS
 	def orderDateCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[5]")}
 	def netTotalCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[6]")}
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//span[normalize-space(text()) != '']")}
-	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]/a")}
+	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[9]/a")}
 	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]/"}
-	def contentPage = "The folder Requested Offers shows all your projects where you have placed an order or requested a quotation. The current status of the project can be seen in the column \"status\"."
+	def contentPage = "The folder Confirmed Requests shows all projects that have been approved and are in progress."
 
 	public ConfirmedOffersPageOfSeller clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))
@@ -48,7 +49,7 @@ public class ConfirmedOffersPageOfSeller extends BasePage<ConfirmedOffersPageOfS
 
 	public ConfirmedOffersPageOfSeller verifyOrderNumber(String projectId) {
 		String orderNumber = WebUI.getText(orderNumberCol(projectId))
-		String expectedResult = "GOCAD"+ projectId
+		String expectedResult = GlobalVariable.prefixOrderNumber+ projectId
 		println "orderNumber: $orderNumber"
 		WebUI.verifyEqual(orderNumber, expectedResult)
 		return this
@@ -88,12 +89,12 @@ public class ConfirmedOffersPageOfSeller extends BasePage<ConfirmedOffersPageOfS
 	}
 
 	public ConfirmedOffersPageOfSeller verifyUIVisible() {
-		WebUI.verifyElementVisible(xpath("//h5[text()='Confirmed Offers']"))
-		WebUI.verifyElementVisible(xpath("//h5[text()='Confirmed Offers']/following::i[text()='$contentPage']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Confirmed']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Confirmed']/following::i[text()='$contentPage']"))
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))
-		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Company Name']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Company']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Order Number']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Order date']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='NET Total']"))

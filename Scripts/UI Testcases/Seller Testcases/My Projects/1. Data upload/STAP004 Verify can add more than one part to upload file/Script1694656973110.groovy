@@ -1,24 +1,24 @@
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.common.ManufacturingInformationPage
 import gocad.seller.MyProjectsPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 
 println '>> User Seller signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>> User Seller add project'
 Page.nav(LeftNavBar).clickMyProjects()
-Page.nav(MyProjectsPage).clickAddProject()
+Page.nav(MyProjectsPage).clickNewProject()
 
 println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>> Open add project popup and input project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+Page.nav(DataUploadPage).clickEditProjectName(projectName)
 
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"

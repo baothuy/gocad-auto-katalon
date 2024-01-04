@@ -31,7 +31,7 @@
       <name>workflow</name>
    </variable>
    <variable>
-      <defaultValue>'auto_Milling.step'</defaultValue>
+      <defaultValue>'step-testing.step'</defaultValue>
       <description></description>
       <id>293b8b2a-0e4c-49ff-9007-04857bec3179</id>
       <masked>false</masked>

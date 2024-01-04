@@ -4,7 +4,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
-
+import internal.GlobalVariable
 
 public class ReceivedOffersPage extends BasePage<ReceivedOffersPage>{
 
@@ -47,7 +47,7 @@ public class ReceivedOffersPage extends BasePage<ReceivedOffersPage>{
 
 	public ReceivedOffersPage verifyOrderNumber(String projectId) {
 		String orderNumber = WebUI.getText(orderNumberCol(projectId))
-		String expectedResult = "GOCAD"+ projectId
+		String expectedResult = GlobalVariable.prefixOrderNumber+ projectId
 		println "orderNumber: $orderNumber"
 		WebUI.verifyEqual(orderNumber, expectedResult)
 		return this
@@ -69,8 +69,8 @@ public class ReceivedOffersPage extends BasePage<ReceivedOffersPage>{
 	}
 
 	public ReceivedOffersPage verifyUIVisible() {
-		WebUI.verifyElementVisible(xpath("//h5[text()='Received Offers']"))
-		WebUI.verifyElementVisible(xpath("//h5[text()='Received Offers']/following::i[text()='$contentReceivedOffersPage']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Received']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Received']/following::i[text()='$contentReceivedOffersPage']"))
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))

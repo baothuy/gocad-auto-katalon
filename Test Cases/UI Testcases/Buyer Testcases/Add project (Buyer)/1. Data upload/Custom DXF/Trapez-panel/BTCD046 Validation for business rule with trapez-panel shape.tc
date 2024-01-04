@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD046 Validation for business rule with trapez-panel shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>f97b85df-b22a-4d6b-8e42-c9cac49c542f</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>4fcf0625-9a0a-46ec-9f3b-3341c512f76a</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'trapez-panel'</defaultValue>
+      <description></description>
+      <id>4fcf0625-9a0a-46ec-9f3b-3341c512f76a</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

@@ -1,11 +1,11 @@
 import gocad.buyer.AccountSettingsPage
 import gocad.buyer.ChangePasswordPopup
 import gocad.common.LeftNavBar
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import katalon.fw.lib.Page
 
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>> Click Settings nav menu'
 Page.nav(LeftNavBar).clickSettings()
@@ -28,14 +28,14 @@ Page.nav(AccountSettingsPage).inputFirstNameBillingAddress(billingAddressChanged
 								.inputStreetBillingAddress(billingAddressChanged[3])
 								.selectStateBillingAddress(billingAddressChanged[4])
 								.inputZIPCodeBillingAddress(billingAddressChanged[5])
-								.inputCityBillingAddress(billingAddressChanged[6])
+								.selectCityBillingAddress(billingAddressChanged[6])
 								.inputFirstNameShippingAddress(shippingAddressChanged[0])
 								.inputLastNameShippingAddress(shippingAddressChanged[1])
 								.inputHouseNumberShippingAddress(shippingAddressChanged[2])
 								.inputStreetShippingAddress(shippingAddressChanged[3])
 								.selectStateShippingAddress(shippingAddressChanged[4])
 								.inputZIPCodeShippingAddress(shippingAddressChanged[5])
-								.inputCityShippingAddress(shippingAddressChanged[6])
+								.selectCityShippingAddress(shippingAddressChanged[6])
 								.clickSaveChangesButton()
 								.verifyToastMessageWhenSaveChange()
 								
@@ -81,14 +81,14 @@ Page.nav(AccountSettingsPage).inputFirstNameBillingAddress(billingAddress[0])
 								.inputStreetBillingAddress(billingAddress[3])
 								.selectStateBillingAddress(billingAddress[4])
 								.inputZIPCodeBillingAddress(billingAddress[5])
-								.inputCityBillingAddress(billingAddress[6])
+								.selectCityBillingAddress(billingAddress[6])
 								.inputFirstNameShippingAddress(shippingAddress[0])
 								.inputLastNameShippingAddress(shippingAddress[1])
 								.inputHouseNumberShippingAddress(shippingAddress[2])
 								.inputStreetShippingAddress(shippingAddress[3])
 								.selectStateShippingAddress(shippingAddress[4])
 								.inputZIPCodeShippingAddress(shippingAddress[5])
-								.inputCityShippingAddress(shippingAddress[6])
+								.selectCityShippingAddress(shippingAddress[6])
 								.clickSaveChangesButton()
 								.verifyToastMessageWhenSaveChange()
 								.sleep(1)

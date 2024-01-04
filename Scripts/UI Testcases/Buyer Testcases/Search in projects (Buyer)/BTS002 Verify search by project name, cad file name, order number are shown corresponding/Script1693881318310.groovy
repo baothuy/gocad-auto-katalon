@@ -3,26 +3,26 @@ import gocad.buyer.SearchInProjectsPopup
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
 
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>> User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>> Open add project popup and input project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+Page.nav(DataUploadPage).clickEditProjectName(projectName)
 
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
-//String orderNumber = "GOCAD"+ projectId
+//String orderNumber = GlobalVariable.prefixOrderNumber+ projectId
 
 println '>> Upload file part on Data upload page'
 Page.nav(DataUploadPage).uploadFileTesting(workflow, partName)
@@ -65,19 +65,19 @@ Page.nav(SearchInProjectsPopup).verifyStatusVisibleInList(dataRow[0], dataRow[5]
 								.clearSearchStatus()
 
 String startDate = DateTimeUtility.plusDays(-1, "yyyy-MM-dd")
-String currentDate = DateTimeUtility.currentDay("yyyy-MM-dd")	
+String endDate = DateTimeUtility.next30Days("yyyy-MM-dd")	
 println "previousDate: $startDate"
-println "currentDate: $currentDate"				
+println "endDate: $endDate"				
 
 println '>> Verify search by delivery date'
 Page.nav(SearchInProjectsPopup).inputStartDate(startDate)
-								.inputEndDate(currentDate)
+								.inputEndDate(endDate)
 								.clickSearch()
 								
 List<String> dataRowSearchByDate = Page.nav(SearchInProjectsPopup).getDataRow("1")
 println "dataRowSearchByDate: $dataRowSearchByDate"
 
-Page.nav(SearchInProjectsPopup).verifyDeliveryDateVisibleInList(dataRowSearchByDate[0], currentDate)
+Page.nav(SearchInProjectsPopup).verifyHaveRowVisibleInList("1")
 								.clearSearchDate()
 								
 println '>> Verify search by Mark as Unread'

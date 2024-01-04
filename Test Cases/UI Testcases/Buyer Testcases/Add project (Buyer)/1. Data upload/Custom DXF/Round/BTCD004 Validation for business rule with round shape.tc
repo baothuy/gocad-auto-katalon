@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD004 Validation for business rule with round shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>4036abb2-6414-4ca4-97a8-6b309fa06534</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>4efe95db-6a00-48c3-87ad-969ec9f7c514</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'round'</defaultValue>
+      <description></description>
+      <id>4efe95db-6a00-48c3-87ad-969ec9f7c514</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

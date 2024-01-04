@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD012 Validation for business rule with oval shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>d5148866-62b8-4d8c-97a5-94bd47083ad0</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>2fae80c4-81a2-4f36-8633-76053d9ab34d</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'oval'</defaultValue>
+      <description></description>
+      <id>2fae80c4-81a2-4f36-8633-76053d9ab34d</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

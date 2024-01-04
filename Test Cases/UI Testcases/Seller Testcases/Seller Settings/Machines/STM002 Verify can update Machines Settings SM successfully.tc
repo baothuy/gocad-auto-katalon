@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STM002 Verify can update Machines Settings SM successfully</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>96ff26ee-6700-4b32-a16a-4042574a5d8a</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>db46f4e7-2451-4e3b-9639-94529f32b549</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'Cutting Machine'</defaultValue>
+      <description></description>
+      <id>db46f4e7-2451-4e3b-9639-94529f32b549</id>
+      <masked>false</masked>
+      <name>machineName</name>
+   </variable>
+</TestCaseEntity>

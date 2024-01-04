@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD038 Verify when empty on DXF Custom with half-circle-panel shape page</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>2185625f-b3d5-43ac-911e-b670cf0af4a6</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>0630d94c-ff79-48e5-8bef-8f81093dd662</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'oval'</defaultValue>
+      <description></description>
+      <id>0630d94c-ff79-48e5-8bef-8f81093dd662</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

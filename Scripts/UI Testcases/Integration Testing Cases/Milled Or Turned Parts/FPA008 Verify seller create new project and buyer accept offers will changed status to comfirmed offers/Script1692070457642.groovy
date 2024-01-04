@@ -5,7 +5,7 @@ import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
 import gocad.seller.AccountSettingsPage
 import gocad.seller.ConfirmedOffersPageOfSeller
@@ -14,13 +14,14 @@ import gocad.seller.SendOfferPage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
+import internal.GlobalVariable
 
 println '>> FPA008 Verify seller create new project and buyer accept offers will changed status to comfirmed offers'
 println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>>  User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>>  get company name of seller'
 Page.nav(LeftNavBar).clickAccount()
@@ -28,10 +29,10 @@ String companyName = Page.nav(AccountSettingsPage).getCompanyName()
 
 Page.nav(LeftNavBar).clickMyProjects()
 
-Page.nav(MyProjectsPage).clickAddProject()
+Page.nav(MyProjectsPage).clickNewProject()
 
 println '>>  Open add project popup and add new project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+Page.nav(DataUploadPage).clickEditProjectName(projectName)
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
@@ -89,7 +90,7 @@ else
 
 println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
-									  .clickContinueToOfferOverview()
+									  .clickReview()
 									  
 println '>> Select information on checkout page'
 Page.nav(SendOfferPage).inputCustomer(customerEmail)
@@ -97,7 +98,7 @@ Page.nav(SendOfferPage).inputCustomer(customerEmail)
 						.inputPackagingAndShippingComments(packagingAndShippingComments)
 									  
 println '>> Get information Checkout page'
-String orderNumber = "GOCAD" + projectId
+String orderNumber = GlobalVariable.prefixOrderNumber + projectId
 String numberOfParts = '1'
 String packagingAndShippingComments = Page.nav(SendOfferPage).getPackagingAndShippingComments()
 String shippingOption = Page.nav(SendOfferPage).getShippingOptions()
@@ -115,7 +116,7 @@ println '>> Seller click Logout button'
 Page.nav(LeftNavBar).clickLogout()
   
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().clickSignIn().verifySuccessfullySignInAsBuyer()
   
 println '>> Go to Received Offers list page, verify infor and go detail of offers'
 Page.nav(LeftNavBar).clickReceivedOffers()
@@ -155,7 +156,7 @@ println '>> Seller click Logout button'
 Page.nav(LeftNavBar).clickLogout()
   
 println '>> Seller Login system to check offers of buyer'
-Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 					  
 println '>> Verify information show on list'
 Page.nav(LeftNavBar).clickConfirmedOffers()
@@ -163,7 +164,7 @@ Page.nav(ConfirmedOffersPageOfSeller).verifyHighlightOnList(projectId)
 									  .verifyProjectName(projectId, projectName)
 									  .verifyCompanyName(projectId, companyName)
 									  .verifyOrderNumber(projectId)
-									  //.verifyOrderDate(projectId, orderDate)
+									  .verifyOrderDate(projectId, orderDate)
 									  .verifyNetTotal(projectId, netTotal)
 									  .verifyStatus(projectId, "Order confirmed")
  

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD050 Validation for business rule with iso-trapez-panel shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>9b90558b-4c45-49eb-aa06-061f075174ac</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>3da89d31-981b-45ae-a542-4e6a952e194a</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'iso-trapez-panel'</defaultValue>
+      <description></description>
+      <id>3da89d31-981b-45ae-a542-4e6a952e194a</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

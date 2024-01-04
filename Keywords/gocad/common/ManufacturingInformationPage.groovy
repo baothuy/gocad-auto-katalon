@@ -1,7 +1,5 @@
 package gocad.common
 
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-
 import java.text.DecimalFormat
 
 import org.openqa.selenium.Keys
@@ -9,21 +7,32 @@ import org.openqa.selenium.Keys
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
 
 public class ManufacturingInformationPage extends BasePage<ManufacturingInformationPage> {
 
-	List<String> sheetMetalPartFileAllow = [".dxf", ".dwg"]
-	List<String> milledPartFileAllow = [".step", ".stp"]
+	List<String> sheetMetalPartFileAllow = GlobalVariable.sheetMetalPartFileAllow
+	List<String> milledPartFileAllow = GlobalVariable.milledPartFileAllow
 	def commonText = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
-	def contentManualSystemError = "${commonText}\nReason: There is a system error. Please contact the administrator. (SELLER E-Mail)"
+	def contentManualSystemError = "${commonText}\nReason: There is a system error. Please contact the administrator. ($GlobalVariable.seller_mail)"
 	def contentManualAutomaticCalSettingOff = "${commonText}\nReason: The quotation function is currently disabled. You can request a manual quote here."
 	def contentManualCannotCalPart = "${commonText}\nReason: For this part no calculation could be executed. You can request a manual quote here."
 	def contentManualPriceExceedThreshold = "${commonText}\nReason: This part has exceeded the pricing limits for online order. You can request a manual quote here."
 	def contentManualSmallTolerance = "${commonText}\nReason: This tolerance requirement for this part are too high for online ordering. You can request a manual quote here."
 	def contentManualCannotManufacturePart = "${commonText}\nReason: Not all process steps to manufacture this part could be identified. You can request a manual quote here."
 	def contentManualCalError = "${commonText}\nReason: A technical error has occured when calculating this part. You can request a manual quote here."
+
+	def commonTextForSeller = "These parts cannot be automatically calculated. Please prepare a quote for this request manually and enter it in the text field below \"Unit price\""
+	def contentManualSystemErrorForSeller = "${commonTextForSeller}\nReason: There is a system error. Please contact the administrator. (support@gocad.de)"
+	def contentManualAutomaticCalSettingOffForSeller = "${commonTextForSeller}\nReason: The quotation function is currently disabled. You can reactivate it in the \"price and delivery settings\"."
+	def contentManualCannotCalPartForSeller = "${commonTextForSeller}\nReason: For this part no calculation could be executed. Please contact support@gocad.de."
+	def contentManualPriceExceedThresholdForSeller = "${commonTextForSeller}\nReason: The pricing limits should not apply in \"self-calculation\""
+	def contentManualSmallToleranceForSeller = "${commonTextForSeller}\nReason: This tolerance requirement for this part are very high. The automatic price quote is possible, but a critical check of the processed calculation is necessary."
+	def contentManualCannotManufacturePartForSeller = "${commonTextForSeller}\nReason: Only for XX % of the part, manufacturing process steps could be identified. Please check the calculation."
+	def contentManualCalErrorForSeller = "${commonTextForSeller}\nReason: A technical error has occured when calculating this part. Please contact support@gocad.de"
+	def contentAlert = "All parts will be manufactured according to industry norms. If there are specifics for the manufacturing process, that need to be considered, please upload a PDF-drawing to the affected part."
 
 	public ManufacturingInformationPage clickAddPart() {
 		WebUI.click(xpath('//span[text()=" Add part"]'))
@@ -66,7 +75,27 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage clickPleaseSelectMaterial() {
-		WebUI.click(xpath('//*[@id="materialId"]/a'))
+		WebUI.click(xpath("//label[@for='materialId']/parent::div/following::a"))
+		return this
+	}
+
+	public ManufacturingInformationPage clickManufacturingInformationReport() {
+		WebUI.click(xpath("//span[text()=' Manufacturing information']/parent::button"))
+		return this
+	}
+
+	public ManufacturingInformationPage clickProcessingReport() {
+		WebUI.click(xpath("//span[text()=' Processing report']/parent::button"))
+		return this
+	}
+
+	public ManufacturingInformationPage clickEmissionReport() {
+		WebUI.click(xpath("//span[text()=' Emission report']/parent::button"))
+		return this
+	}
+
+	public ManufacturingInformationPage clickCostsReport() {
+		WebUI.click(xpath("//span[text()=' Costs report']/parent::button"))
 		return this
 	}
 
@@ -75,7 +104,17 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		String isChecked = contentClass.contains("checked")
 		boolean isYes = value.equals("true")
 		if(Boolean.parseBoolean(isChecked) != isYes) {
-			WebUI.click(xpath('//span[text()="Provide own material (From customer)"]'))
+			WebUI.click(xpath('//span[text()="Provide own material"]'))
+		}
+		return this
+	}
+
+	public ManufacturingInformationPage clickPartAccordingToTheDrawingCB(String value) {
+		String contentClass = WebUI.getAttribute(xpath("//input[@id='partAccordingToTheDrawing']/parent::span"), "class")
+		String isChecked = contentClass.contains("checked")
+		boolean isYes = value.equals("true")
+		if(Boolean.parseBoolean(isChecked) != isYes) {
+			WebUI.click(xpath('//span[text()="Please manufacture the part according to the drawing"]'))
 		}
 		return this
 	}
@@ -100,30 +139,52 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage inputThickness(String partName, String number) {
+	public ManufacturingInformationPage selectThickness(String partName, String value) {
 		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
 			println "isContains: $isContains"
-			if (isContains) clearTextAndSendKeysByActions(xpath('//*[@id="thickness"]'), number)
+			if (isContains) {
+				WebUI.click(xpath("//*[text()='Thickness']/parent::div/following-sibling::div//div[@class='ant-select-selector']"))
+				WebUI.click(xpath("//*[@id='thickness_list']/following-sibling::div[@class='rc-virtual-list']//div[text()='$value']"))
+			}
 		}
 		return this
 	}
 
 	public ManufacturingInformationPage selectSurfaceTreatment(String surfaceTreatment) {
-		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
+		WebUI.click(xpath("//input[@id='surfaceTreatmentIds']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
 		List<String> surfaceTreatmentObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")
 		(surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$surfaceTreatment']/parent::div")) : "Empty"
-		WebUI.click(xpath("//div[contains(@class, 'ant-select-in-form-item')]"))
+		//WebUI.click(xpath("//span[@class='ant-steps-icon']/span[text()='2']"))
+		WebUI.click(xpath("//div[text()='Manufacturing']/ancestor::div[@class='ant-steps-item-container']"))
 		return this
 	}
 
-	public ManufacturingInformationPage RemoveSelectSurfaceTreatment(String surfaceTreatment) {
-		WebUI.click(xpath("//span[contains(@class, 'ant-select-selection-item-content') and text()='$surfaceTreatment']/following::span[@class='ant-select-selection-item-remove']"))
+	public ManufacturingInformationPage removeSelectSurfaceTreatment(String surfaceTreatment) {
+		List<String> surfaceTreatmentObject = findTestObjects("//span[contains(@class, 'ant-select-selection-item-content') and text()='$surfaceTreatment']/following::span[@class='ant-select-selection-item-remove']")
+		(surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//span[contains(@class, 'ant-select-selection-item-content') and text()='$surfaceTreatment']/following::span[@class='ant-select-selection-item-remove']")) : ""
 		return this
 	}
 
 	public ManufacturingInformationPage inputComment(String text) {
 		clearTextAndSendKeysByActions(xpath('//*[@id="additionalComments"]'), text)
+		return this
+	}
+
+	public ManufacturingInformationPage inputBulkPricing(String line, String input) {
+		WebUI.click(xpath("(//div[@class='ant-card-body']//*[@class='text-input-value'])[$line]"))
+		String oldValue = WebUI.getAttribute(xpath("//*[@id='form-inline-quantity_quantity']"),"value")
+		clearTextAndSendKeysByActionsBackSpace(xpath("//*[@id='form-inline-quantity_quantity']"), oldValue, input)
+		return this
+	}
+
+	public ManufacturingInformationPage clickAcceptChangeBulkPricing() {
+		WebUI.click(xpath("//*[@aria-label='check']"))
+		return this
+	}
+
+	public ManufacturingInformationPage clickAcceptChangeUnitPricing() {
+		WebUI.click(xpath("//*[@aria-label='check']"))
 		return this
 	}
 
@@ -157,18 +218,30 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage clickCalculate() {
-		WebUI.click(xpath('//span[text()="Calculate"]/parent::button'))
-		WebUI.waitForElementVisible(xpath("//label[text()='Unit price']"), 10)
+		List<String> objectSave = findTestObjects("//span[text()='Save']/parent::button")
+		if (objectSave.size() == 0) {
+			WebUI.click(xpath('//span[text()="Calculate"]/parent::button'))
+			WebUI.waitForElementVisible(xpath("//label[text()='Unit price']"), 10)
+		}
+		else {
+			WebUI.click(xpath("//span[text()='Save']/parent::button"))
+			WebUI.waitForElementVisible(xpath("//label[text()='Unit price']"), 10)
+		}
 		return this
 	}
 
 	public ManufacturingInformationPage clickAddTechnicalDrawing() {
-		WebUI.click(xpath('//button[@title="Add technical drawing"]'))
+		WebUI.click(xpath('//button[@title="Upload technical drawing"]'))
 		return this
 	}
 
-	public ManufacturingInformationPage clickContinueToOfferOverview() {
-		WebUI.click(xpath('//span[text()="Continue to offer overview "]/parent::button'))
+	public ManufacturingInformationPage inputUnitPrice(String text) {
+		clearTextAndSendKeysByActions(xpath('//*[@id="unitPrice"]'), text)
+		return this
+	}
+
+	public ManufacturingInformationPage clickReview() {
+		WebUI.click(xpath('//span[text()="Review "]/parent::button'))
 		return this
 	}
 
@@ -218,19 +291,33 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage clickDeburringCheckbox(String value) {
-		String contentClass = WebUI.getAttribute(xpath("//input[@id='deburring']/parent::span"), "class")
-		String isChecked = contentClass.contains("checked")
-		boolean isYes = value.equals("true")
-		if(Boolean.parseBoolean(isChecked) != isYes) {
-			WebUI.click(xpath('//span[text()="Deburring"]'))
-		}
+	public ManufacturingInformationPage selectLaserMarking(String value) {
+		WebUI.click(xpath("//*[text()='Laser marking']/parent::div/following-sibling::div//div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[@id='laserMarking_list']/following-sibling::div[@class='rc-virtual-list']//div[@title='$value']"))
+		return this
+	}
+
+	public ManufacturingInformationPage selectDeburring(String value) {
+		WebUI.click(xpath("//*[text()='Deburring']/parent::div/following-sibling::div//div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[@id='deburringType_list']/following-sibling::div[@class='rc-virtual-list']//div[@title='$value']"))
 		return this
 	}
 
 	public ManufacturingInformationPage verifyPDFFileVisibleAfterCalculated(String fileName) {
 		String href = WebUI.getAttribute(xpath("//a[@class='text-decoration-none' and @title='$fileName']"), "href")
 		WebUI.verifyElementVisible(xpath("//a[@href='$href']"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyAlertSMPVisible() {
+		String actualContent = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
+		WebUI.verifyEqual(actualContent, contentAlert)
+		return this
+	}
+
+	public ManufacturingInformationPage verifyBulkPricingValue(String line, String expectedResult) {
+		String actualResult = WebUI.getText(xpath("(//div[@class='ant-card-body']//*[@class='text-input-value'])[$line]")).trim()
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
@@ -245,7 +332,9 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public String getUnitPriceValue() {
-		String unitPrice = WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim()
+		List<String> findObject = findTestObjects("//*[text()='Unit price']/following-sibling::label")
+		def unitPrice = (findObject.size() != 0) ? WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim() : WebUI.getAttribute(xpath("//*[@id='unitPrice']"), "value")
+		println "unitPrice func: $unitPrice"
 		return unitPrice
 	}
 
@@ -298,8 +387,9 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage verifySurfaceTreatmentValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Surface Treatment']/following-sibling::label")).trim()
-		println "verifySurfaceTreatmentValue: $actualResult"
-		WebUI.verifyEqual(actualResult, expectedResult)
+		String conActualResult = (actualResult == "None") ? "" : actualResult
+		println "verifySurfaceTreatmentValue: $conActualResult"
+		WebUI.verifyEqual(conActualResult, expectedResult)
 		return this
 	}
 
@@ -317,6 +407,13 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
+	public ManufacturingInformationPage verifyLaserMarkingValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Laser marking']/following-sibling::label")).trim()
+		println "LaserMarkingValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
 	public ManufacturingInformationPage verifyCountersinkValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Countersink']/following-sibling::label")).trim()
 		println "CountersinkValue: $actualResult"
@@ -327,10 +424,13 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	public ManufacturingInformationPage verifyThicknessValue(String partName, String expectedResult) {
 		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
-			if(isContains) {
-				String actualResult = WebUI.getText(xpath("//*[text()='Thickness (mm)']/following-sibling::label")).trim()
-				println "ThicknessValue: $actualResult"
-				WebUI.verifyEqual(actualResult, expectedResult)
+			println "isContains: $isContains"
+			if (isContains) {
+				String actualResult = WebUI.getText(xpath("//*[text()='Thickness']/parent::p")).trim()
+				def pattern = /(\d+(?:\.\d+)?)/
+				String newActualResult = CommonUtility.substringUseRegExp(actualResult,pattern,0)
+				WebUI.verifyEqual(newActualResult, expectedResult)
+				println "Thickness: $newActualResult"
 			}
 		}
 		return this
@@ -347,10 +447,16 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage verifyDeburringCheckboxValue(String expectedResult) {
+	public ManufacturingInformationPage verifyDeburringValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Deburring']/following-sibling::label")).trim()
-		String actualResultCompare = (actualResult == "Yes")  ? "true" : "false"
-		WebUI.verifyEqual(actualResultCompare, expectedResult)
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public ManufacturingInformationPage verifyPartAccordingToTheDrawingValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Part according to the drawing']/following-sibling::label")).trim()
+		def actualResultCon = (actualResult == "No") ? "false" : "true"
+		WebUI.verifyEqual(actualResultCon, expectedResult)
 		return this
 	}
 
@@ -362,9 +468,10 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyUnitPriceValue(String expectedResult) {
-		String actualResult = WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim()
-		println "UnitPriceValue: $actualResult"
-		String convertExpectedResult = expectedResult + " €"
+		List<String> findObject = findTestObjects("//*[text()='Unit price']/following-sibling::label")
+		def actualResult = (findObject.size() != 0) ? WebUI.getText(xpath("//*[text()='Unit price']/following-sibling::label")).trim() : (WebUI.getAttribute(xpath("//*[@id='unitPrice']"), "value") + " $GlobalVariable.currency")
+		println "unitPrice func: $actualResult"
+		String convertExpectedResult = expectedResult + " $GlobalVariable.currency"
 		WebUI.verifyEqual(actualResult, convertExpectedResult)
 		return this
 	}
@@ -379,40 +486,40 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		String formattedSum
 		String newExpectedResult
 		def decimalFormat = new DecimalFormat("###,##0.00")
-		if(unitPrice.contains("."))
-		{
+		if(unitPrice.contains(".")) {
 			def numericValue = unitPrice.replaceAll(/[^\d.,]/, '').replace('.', '').replace(',', '.').toDouble()
-			println "numericValue contains cham: $numericValue"
 			def expectedResult = quantity.toDouble() * numericValue
 			formattedSum = decimalFormat.format(expectedResult)
-			newExpectedResult = "$formattedSum €"
+			newExpectedResult = "$formattedSum $GlobalVariable.currency"
 		}
 		else {
 			def numericValue = unitPrice.replaceAll(/[^\d.,]/, '').replace(',', '.').toDouble()
-			println "numericValue contains phay: $numericValue"
 			def expectedResult = quantity.toDouble() * numericValue
 			formattedSum = decimalFormat.format(expectedResult).replace('.', ',')
-			newExpectedResult = "$formattedSum €"
+			newExpectedResult = "$formattedSum $GlobalVariable.currency"
 		}
 		return newExpectedResult
 	}
 
 	public ManufacturingInformationPage verifyShowErrorIncompatibleFile() {
-		WebUI.verifyElementVisible(xpath("//div[text()='There is problem when calculating the request. Please contact the admin.']"))
+		WebUI.verifyElementPresent(xpath("//*[@aria-label='codepen']"), 5)
 		return this
 	}
 
 	public ManufacturingInformationPage verifyProcessAddProjectHighLighted() {
-		String colorTwo = WebUI.getCSSValue(xpath("//div[text()='Manufacturing information']/parent::div/preceding-sibling::div//*[text()='2']"), "background")
-		String pattern = /(rgb\(\d+,\s*\d+,\s*\d+\))/
+		String colorTwo = WebUI.getCSSValue(xpath("//div[text()='Manufacturing']/parent::div/preceding-sibling::div//*[text()='2']/parent::span"), "color")
+		println "colorTwo: $colorTwo"
+		String pattern = /(rgba\(\d+,\s*\d+,\s*\d+,\s*\d+\))/
 		String rgbValue = CommonUtility.substringUseRegExp(colorTwo, pattern,1)
+		println "rgbValue: $rgbValue"
 		String rgbToHex = CommonUtility.rgbToHex(rgbValue)
+		println "rgbToHex: $rgbToHex"
 		WebUI.verifyEqual(rgbToHex, "#FFCB3D")
 		return this
 	}
 
 	public ManufacturingInformationPage verifyAddTechnicalDrawingButtonVisible() {
-		WebUI.verifyElementVisible(xpath('//button[@title="Add technical drawing"]'))
+		WebUI.verifyElementVisible(xpath('//button[@title="Upload technical drawing"]'))
 		return this
 	}
 
@@ -451,8 +558,23 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage verifyContinueToOfferOverviewButtonVisible() {
-		WebUI.verifyElementVisible(xpath('//span[text()="Continue to offer overview "]'))
+	public ManufacturingInformationPage verifyReviewButtonVisible() {
+		WebUI.verifyElementVisible(xpath('//span[text()="Review "]'))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyManufacturingInformationReportButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()=' Manufacturing information']/parent::button"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyProcessingReportButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()=' Processing report']/parent::button"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyEmissionReportButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()=' Emission report']/parent::button"))
 		return this
 	}
 
@@ -472,11 +594,25 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyThicknessInputVisible(String partName) {
-		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++)
-		{
+		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
-			if(isContains) WebUI.verifyElementVisible(xpath('//*[@id="thickness"]'))
+			if(isContains) WebUI.verifyElementPresent(id("thickness"), 5)
 		}
+		return this
+	}
+
+	public ManufacturingInformationPage verifyCostsReportButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()=' Costs report']/parent::button"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyUndoButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[@aria-label='undo']/parent::button"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyAcceptUnitPriceButtonVisible() {
+		WebUI.verifyElementVisible(xpath("//span[@aria-label='check']/parent::button"))
 		return this
 	}
 
@@ -485,14 +621,20 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage verifyRollingDirectionSelectVisible() {
+	public ManufacturingInformationPage verifyRollingDirectioVisible() {
 		WebUI.verifyElementClickable(xpath('//*[@id="rollingDirection"]'))
 		WebUI.verifyElementVisible(xpath('//*[@id="rollingDirection"]/parent::span/following::span[@title="Egal"]'))
 		return this
 	}
 
-	public ManufacturingInformationPage verifyDeburringCheckboxVisible() {
-		WebUI.verifyElementVisible(xpath("//input[@id='deburring']/parent::span"))
+	public ManufacturingInformationPage verifyLaserMarkingSelectVisible() {
+		WebUI.verifyElementClickable(xpath('//*[@id="laserMarking"]'))
+		WebUI.verifyElementVisible(xpath('//*[@id="laserMarking"]/parent::span/following::span[@title="No"]'))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyDeburringVisible() {
+		WebUI.verifyElementVisible(xpath("//input[@id='deburringType']/parent::span"))
 		return this
 	}
 
@@ -516,13 +658,18 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
+	public ManufacturingInformationPage verifyUnitPriceInputVisible() {
+		WebUI.verifyElementVisible(xpath('//*[@id="unitPrice"]'))
+		return this
+	}
+
 	public ManufacturingInformationPage verifyProvideOwnMaterialCBVisible() {
-		WebUI.verifyElementVisible(xpath('//span[text()="Provide own material (From customer)"]'))
+		WebUI.verifyElementVisible(xpath('//span[text()="Provide own material"]'))
 		return this
 	}
 
 	public ManufacturingInformationPage verifySelectMaterialVisible() {
-		WebUI.verifyElementVisible(xpath('//*[@id="materialId"]/a'))
+		WebUI.verifyElementVisible(xpath("//label[@for='materialId']/parent::div/following::a"))
 		return this
 	}
 
@@ -532,18 +679,16 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage verifyCuttingLayersVisible(String partName) {
-		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++)
-		{
+		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
 			def isContains = partName.contains(sheetMetalPartFileAllow[i])
-			if (isContains) WebUI.verifyElementVisible(xpath("//*[text()='All layers]"))
+			if (isContains) WebUI.verifyElementVisible(xpath("//*[text()='All layers']"))
 		}
 		return this
 	}
 
 	public ManufacturingInformationPage verifyUnfoldingPreviewVisible(String partName) {
-		for (int i = 0; i < milledPartFileAllow.size(); i++)
-		{
-			def isContains = partName.contains(sheetMetalPartFileAllow[i])
+		for (int i = 0; i < milledPartFileAllow.size(); i++) {
+			def isContains = partName.contains(milledPartFileAllow[i])
 			if (isContains) WebUI.verifyElementVisible(xpath("//*[text()='Unfolding Preview']"))
 		}
 		return this
@@ -556,17 +701,16 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage verifyCanPreviewPartFile() {
 		WebUI.click(xpath('//img[@class="ant-image-img"]/following-sibling::div/span'))
-		waitUntilElementInvisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::div[@class='icon-loading']"), 10)
+		List<String> findObject = findTestObjects("//div[@class='ant-modal-mask']/following::div[@class='icon-loading']")
+		(findObject != 0) ? waitUntilElementInvisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::div[@class='icon-loading']"), 10) : ""
 		WebUI.verifyElementVisible(xpath("//div[@class='ant-modal-body']/*[@class='classmateCloudFrame']"))
 		return this
 	}
 
 	public ManufacturingInformationPage verifyCanViewUnfoldingPreview(String partName) {
-		for (int i = 0; i < milledPartFileAllow.size(); i++)
-		{
+		for (int i = 0; i < milledPartFileAllow.size(); i++) {
 			def isContains = partName.contains(milledPartFileAllow[i])
-			if(isContains)
-			{
+			if(isContains) {
 				WebUI.click(xpath("//*[text()='Unfolding Preview']"))
 				waitUntilElementInvisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::div[@class='icon-loading']"), 10)
 				WebUI.verifyElementPresent(xpath("//div[@class='ant-modal-body']"),5)
@@ -583,18 +727,21 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage clickClosePreviewPartFilePopup() {
-		waitUntilElementVisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"), 10)
-		WebUI.click(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"))
+		List<String> findObject = findTestObjects("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']")
+		if(findObject.size() != 0) {
+			waitUntilElementVisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"), 10)
+			WebUI.click(xpath("//div[@class='ant-modal-mask']/following::button[@class='ant-modal-close']"))
+		}
 		return this
 	}
 
 	public ManufacturingInformationPage verifyLinkPartVisible(String fileName) {
-		WebUI.verifyElementVisible(xpath("//span[text()='$fileName']"))
+		WebUI.verifyElementVisible(xpath("//a[text()='$fileName']"))
 		return this
 	}
 
 	public ManufacturingInformationPage verifyNamePartVisible(String fileName) {
-		WebUI.verifyElementVisible(xpath("//span[text()='$fileName']"))
+		WebUI.verifyElementVisible(xpath("//a[text()='$fileName']"))
 		return this
 	}
 
@@ -607,6 +754,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath("//span[@aria-label='info-circle']"))
 		WebUI.mouseOver(xpath("//span[@aria-label='info-circle']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Please enter the number of threads and tolerances in the component here. For a more detailed description, please refer to the attached graphic on the right.']"))
+		return this
+	}
+
+	public ManufacturingInformationPage verifyBulkPricingVisible() {
+		WebUI.verifyElementVisible(xpath("//*[text()='Bulk pricing']/parent::div"))
 		return this
 	}
 
@@ -645,6 +797,13 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
+	public ManufacturingInformationPage verifyErrorWhenThicknessEmpty() {
+		def errorEmpty = WebUI.getText(xpath("//*[text()='Thickness']/parent::div/following::div[@id='thickness_help']/div"))
+		def expectedResult = "Thickness is required."
+		WebUI.verifyEqual(errorEmpty, expectedResult)
+		return this
+	}
+
 	public ManufacturingInformationPage verifyErrorWhenTolerancesEmpty() {
 		def errorEmpty = WebUI.getText(xpath("//*[text()='Tolerances / fits (Number)']/parent::div/following::div[@id='numberOfFits_help']/div"))
 		def expectedResult = "Tolerances / fits (Number) is required."
@@ -652,9 +811,15 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage verifyContentAlertManualCalculateVisible(String code) {
-		WebUI.verifyElementVisible(xpath("//*[@class='ant-alert-message']"))
-		def contentAlertActual = WebUI.getText(xpath("//*[@class='ant-alert-message']"))
+	public ManufacturingInformationPage verifyErrorBelowAddTechnicalDrawing(String expectedResult) {
+		def errorEmpty = WebUI.getText(xpath("//*[@class='pt-2']/div[@class='helper-text']"))
+		WebUI.verifyEqual(errorEmpty, expectedResult)
+		return this
+	}
+
+	public ManufacturingInformationPage verifyContentAlertManualCalculateVisibleForBuyer(String code) {
+		WebUI.verifyElementVisible(xpath("//span[@aria-label='info-circle']/following::div[@class='ant-alert-message']"))
+		def contentAlertActual = WebUI.getText(xpath("//span[@aria-label='info-circle']/following::div[@class='ant-alert-message']"))
 		switch (code) {
 			case "SYSTEM_ERROR":
 				def expectedResult = contentManualSystemError
@@ -688,6 +853,48 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 			case "CALCULATION_ERROR":
 				def expectedResult = contentManualCalError
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+		}
+		return this
+	}
+
+	public ManufacturingInformationPage verifyContentAlertManualCalculateVisibleForSeller(String code) {
+		WebUI.verifyElementVisible(xpath("//span[@aria-label='info-circle']/following::div[@class='ant-alert-message']"))
+		def contentAlertActual = WebUI.getText(xpath("//span[@aria-label='info-circle']/following::div[@class='ant-alert-message']"))
+		switch (code) {
+			case "SYSTEM_ERROR":
+				def expectedResult = contentManualSystemErrorForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "AUTOMATIC_CALCULATION_SETTING_OFF":
+				def expectedResult = contentManualAutomaticCalSettingOffForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "CANNOT_CALCULATE_PART":
+				def expectedResult = contentManualCannotCalPartForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "PRICE_EXCEED_THRESHOLD":
+				def expectedResult = contentManualPriceExceedThresholdForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "SMALL_TOLERANCES":
+				def expectedResult = contentManualSmallToleranceForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "CANNOT_MANUFACTURE_PART":
+				def expectedResult = contentManualCannotManufacturePartForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "CALCULATION_ERROR":
+				def expectedResult = contentManualCalErrorForSeller
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
 				break;
 		}

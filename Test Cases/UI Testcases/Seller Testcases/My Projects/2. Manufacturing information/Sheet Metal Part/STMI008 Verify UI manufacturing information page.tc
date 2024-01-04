@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STMI008 Verify UI manufacturing information page</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>46984537-3a20-4d57-8515-d367c1319ea4</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>6f6956de-c788-4b1d-ba28-aecb839454f7</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>GlobalVariable.partNameSMP</defaultValue>
+      <description></description>
+      <id>6f6956de-c788-4b1d-ba28-aecb839454f7</id>
+      <masked>false</masked>
+      <name>partName</name>
+   </variable>
+</TestCaseEntity>

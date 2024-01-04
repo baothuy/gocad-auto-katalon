@@ -6,7 +6,7 @@ import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
 import gocad.common.ViewPartPopup
 import katalon.fw.lib.Page
@@ -19,17 +19,17 @@ println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>> Get company Name on Settings page'
 Page.nav(LeftNavBar).clickSettings()
 String companyName = Page.nav(AccountSettingsPage).getCompanyName()
 
 println '>> User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 println '>> Open add project popup and add new project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+Page.nav(DataUploadPage).clickEditProjectName(projectName)
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
@@ -47,7 +47,8 @@ if (filePDF == "")
 	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 	
 	println '>> Input required field'
-	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+	Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
+											.inputQuantity(quantityNum)
 											.inputThread(threadNum)
 											.inputTolerances(tolerancesNum)
 											.clickToggleTolerances(tolerancesToggle)
@@ -75,17 +76,21 @@ else
 		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
 	 }
 	 
-	 Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
-											 .selectSurfaceTreatment(surfaceTreatment)
-											 .selectSurfaceQuality(quality)
-											 .inputComment(comment)
+	 Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
+	 										.inputQuantity(quantityNum)
+											.selectSurfaceTreatment(surfaceTreatment)
+											.selectSurfaceQuality(quality)
+											.inputComment(comment)
 }
 
 println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
-									.clickContinueToOfferOverview()
+									.clickReview()
 
 println '>> click checkout button'
+List<String> tablePartReview = Page.nav(ReviewPage).getTablePartReview(partName)
+String unitPrice = tablePartReview[4]
+String netPrice = tablePartReview[5]
 Page.nav(ReviewPage).clickCheckout()
 
 println '>> Verify information Address Information show correctly'

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STAS004 Verify can update Payment Details successfully</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>e897a4d1-ddf8-44bf-aaee-f0ca98bf8ffc</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d30fcb3c-393a-499a-8328-f1e9721fa835</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ca9e8eb5-753d-4369-93b9-56e2df541861</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>00092516-e309-4bfa-aa92-b7675230fa36</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description></description>
+      <id>d30fcb3c-393a-499a-8328-f1e9721fa835</id>
+      <masked>false</masked>
+      <name>bankName</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description></description>
+      <id>ca9e8eb5-753d-4369-93b9-56e2df541861</id>
+      <masked>false</masked>
+      <name>iban</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description></description>
+      <id>00092516-e309-4bfa-aa92-b7675230fa36</id>
+      <masked>false</masked>
+      <name>bic</name>
+   </variable>
+</TestCaseEntity>

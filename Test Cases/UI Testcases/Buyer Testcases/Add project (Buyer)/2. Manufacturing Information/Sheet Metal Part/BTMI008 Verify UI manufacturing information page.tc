@@ -12,7 +12,7 @@
       <variableId>5a283b4f-5a78-45ec-a659-300f46ca49db</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'TH334sa_1.dxf'</defaultValue>
+      <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
       <id>5a283b4f-5a78-45ec-a659-300f46ca49db</id>
       <masked>false</masked>

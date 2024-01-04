@@ -2,31 +2,37 @@ package gocad.buyer
 
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
+import java.text.DecimalFormat
+
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
-import gocad.common.ManufacturingInformationPage
+import internal.GlobalVariable
 import katalon.fw.lib.BasePage
+import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
+import katalon.utility.DateTimeUtility
+import katalon.utility.FunctionCommon
 
 
 public class CheckoutPage extends BasePage<CheckoutPage>{
 
 	def partCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[2]")}
 	def materialCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[4]")}
-	def quantityCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[5]")}
-	def unitPriceCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[6]")}
-	def partPriceTotalCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[7]")}
-	def CO2EmissionCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[9]")}
-	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]//button")}
+	def quantityCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[6]")}
+	def unitPriceCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[7]")}
+	def partPriceTotalCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[8]")}
+	def CO2EmissionCol = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[10]")}
+	def actionMore = { String partName -> return xpath("//div[text()='$partName']/ancestor::tr/td[11]//button")}
 	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
 	def expectedAlertContent = "After the final approval of the offer by the seller, you will receive a confirmation via e-mail"
+	def tooltipsSurchargeMinimumPrice = "In our shop, the minimum order value is 80 $GlobalVariable.currency (250 $GlobalVariable.currency for FAST delivery) on the overall basket size, excluding packaging and delivery cost."
 
 	public CheckoutPage clickCheckboxAgreeTermsAndConditions() {
 		WebUI.click(xpath("//*[@id='agreeTermConditions']"))
 		return this
 	}
 
-	public CheckoutPage clickFilePDFDownload() {
+	public CheckoutPage clickPreviewOfferToDownload() {
 		WebUI.click(xpath("//*[text()='Preview Offer']"))
 		return this
 	}
@@ -113,29 +119,33 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	}
 
 	public CheckoutPage verifyUICheckoutVisible(String partName) {
-		//Company name
-		WebUI.verifyElementVisible(xpath("//*[text()='Company Name']"))
+		//Company
+		WebUI.verifyElementVisible(xpath("//*[text()='Company']"))
 
 		//Billing address
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Full name']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='State']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_firstName']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_lastName']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_houseNumber']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_streetName']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_state']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_country']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_postCode']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_city']"))
 
 		//Shipping address
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Full name']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='State']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[1]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_firstName']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_lastName']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_houseNumber']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_streetName']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_state']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_country']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_postCode']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_city']"))
 
-		//button Edit address
-		WebUI.verifyElementVisible(xpath("//*[@aria-label='edit']/parent::button"))
+		//checkbox address
+		WebUI.verifyElementVisible(xpath("//span[text()='The shipping address is the same as my billing address']"))
 
 		//label Automatically calculated
 		WebUI.verifyElementVisible(xpath("//*[text()='Automatically calculated']"))
@@ -168,11 +178,11 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.verifyElementVisible(xpath("//*[text()='Packaging Cost']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping costs']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='VAT (19%)']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='summary-price']//*[contains(text(),'VAT')]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='GROSS Total']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Preview Offer']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='I agree with the Terms and Conditions and the privacy settings']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Place your order']"))
+		WebUI.verifyElementPresent(xpath("//*[@id='agreeTermConditions']"),5)
+		WebUI.verifyElementPresent(xpath("//*[text()='Place your order']"),5)
 
 		//Content alert
 		String alertContent = WebUI.getText(xpath("//*[@class='ant-alert-description']//li"))
@@ -182,10 +192,11 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 
 	public String getDeliveryDate() {
 		String deliveryOption = WebUI.getText(xpath("//input[@id='deliveryOption']/parent::span/following-sibling::span"))
-		String regex = "\\d{2}/\\d{2}/\\d{4}"
-		def dateMatch = deliveryOption =~ regex
-		String extractedDate = dateMatch[0]
-		return extractedDate
+		def dateMatch = (deliveryOption =~ /-(\s*(\d+)\s*)/)
+		def extractedNumberWorkingDays = (dateMatch[0][2]) as int
+		println "extractedDays: $extractedNumberWorkingDays"
+		String deliveryDate = DateTimeUtility.getDeliveryWorkingDate(extractedNumberWorkingDays)
+		return deliveryDate
 	}
 
 	public String getDeliveryOption() {
@@ -205,44 +216,23 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 	}
 
 	public String getCompanyName() {
-		String companyName = WebUI.getText(xpath("//*[text()='Company Name']/ancestor::div[@class='row']/div[2]"))
+		String companyName = WebUI.getText(xpath("//*[text()='Company']/ancestor::div[@class='row mb-2']/div[2]"))
 		return companyName
 	}
 
 	//Billing Address
 	public List<String> getBillingAddress() {
-		String fullName = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Full name']/parent::div/span[2]"))
-		String houseNumber = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[2]"))
-		String street = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[2]"))
-		String state = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='State']/parent::div/span[2]"))
-		String zipCode = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[2]"))
-		String city = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[2]"))
-		List<String> billingAddress = [fullName, houseNumber, street, state, zipCode, city]
+		List<String> billingAddress = Page.nav(FunctionCommon).getBillingAddressCheckoutPage()
 		return billingAddress
 	}
 	//Shipping Address
 	public List<String> getShippingAddress() {
-		String fullName = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Full name']/parent::div/span[2]"))
-		String houseNumber = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[2]"))
-		String street = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[2]"))
-		String state = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='State']/parent::div/span[2]"))
-		String zipCode = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[2]"))
-		String city = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[2]"))
-		List<String> billingAddress = [fullName, houseNumber, street, state, zipCode, city]
-		return billingAddress
+		List<String> shippingAddress = Page.nav(FunctionCommon).getShippingAddressCheckoutPage()
+		return shippingAddress
 	}
 
 	public List<String> getOrderSummary() {
-		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label"))
-		List<String> surfaceTreatmentSurchargeObject = findTestObjects("//label[text()='Surface Treatment Surcharge']/following-sibling::label")
-		def surfaceTreatmentSurcharge = (surfaceTreatmentSurchargeObject.size() != 0) ? WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label")) : "Empty"
-		String expressSurcharge = WebUI.getText(xpath("//label[text()='Express Surcharge']/following-sibling::label"))
-		String packagingCost = WebUI.getText(xpath("//label[text()='Packaging Cost']/following-sibling::label"))
-		String shippingCosts = WebUI.getText(xpath("//label[text()='Shipping costs']/following-sibling::label"))
-		String netTotal = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::label"))
-		String vat = WebUI.getText(xpath("//label[text()='VAT (19%)']/following-sibling::label"))
-		String grossTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label"))
-		List<String> orderSummary = [totalPartPrice, surfaceTreatmentSurcharge, expressSurcharge, packagingCost, shippingCosts, netTotal, vat, grossTotal]
+		List<String> orderSummary = Page.nav(FunctionCommon).getOrderSummary()
 		return orderSummary
 	}
 
@@ -256,28 +246,34 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		return grossTotal
 	}
 
-	//Billing Address
-	public CheckoutPage verifyBillingAddress(List<String> listBillingAddressExpected) {
-		String fullName = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Full name']/parent::div/span[2]"))
-		String houseNumber = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[2]"))
-		String street = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[2]"))
-		String state = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='State']/parent::div/span[2]"))
-		String zipCode = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[2]"))
-		String city = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[2]"))
-		List<String> billingAddressActual = [fullName, houseNumber, street, state, zipCode, city]
-		WebUI.verifyEqual(billingAddressActual, listBillingAddressExpected)
+	public CheckoutPage verifyBillingAddress(List<String> expectedResult) {
+		List<String> actualBillingAddress = Page.nav(FunctionCommon).getBillingAddress()
+		println "actualBillingAddress: $actualBillingAddress"
+		WebUI.verifyEqual(actualBillingAddress, expectedResult)
 		return this
 	}
-	//Shipping Address
-	public CheckoutPage verifyShippingAddress(List<String> listShippingAddress) {
-		String fullName = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Full name']/parent::div/span[2]"))
-		String houseNumber = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='House number']/parent::div/span[2]"))
-		String street = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='Street']/parent::div/span[2]"))
-		String state = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='State']/parent::div/span[2]"))
-		String zipCode = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='ZIP Code']/parent::div/span[2]"))
-		String city = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following::div[1]//*[text()='City']/parent::div/span[2]"))
-		List<String> shippingAddressActual = [fullName, houseNumber, street, state, zipCode, city]
-		WebUI.verifyEqual(shippingAddressActual, listShippingAddress)
+
+	public CheckoutPage verifyShippingAddress(List<String> expectedResult) {
+		List<String> actualShippingAddress = Page.nav(FunctionCommon).getShippingAddress()
+		println "actualShippingAddress: $actualShippingAddress"
+		WebUI.verifyEqual(actualShippingAddress, expectedResult)
+		return this
+	}
+
+	public CheckoutPage verifySurchargeForMinimumOrderValue(String totalPartPrice, String surfaceTreatmentPrice) {
+		String actualSurcharge = WebUI.getText(xpath("//label[text()='Surcharge for minimum order value']/following-sibling::label"))
+		def decimalFormat = new DecimalFormat("###,##0.00")
+		def numberTotalPartPrice = totalPartPrice.replace(" $GlobalVariable.currency", "").replaceAll(/[^\d.,]/, '').replace('.', '').replace(',', '.').toDouble()
+		def numberSurfaceTreatmentPrice = (surfaceTreatmentPrice == "") ? "0".toDouble() : surfaceTreatmentPrice.replace(" $GlobalVariable.currency", "").replaceAll(/[^\d.,]/, '').replace('.', '').replace(',', '.').toDouble()
+		def expectedSurcharge = 80 - numberTotalPartPrice - numberSurfaceTreatmentPrice
+		String convertExpectedSurcharge = decimalFormat.format(expectedSurcharge).replace('.', ',') + " $GlobalVariable.currency"
+		WebUI.verifyEqual(actualSurcharge, convertExpectedSurcharge)
+		return this
+	}
+
+	public CheckoutPage verifySurchargeTooltipsVisible() {
+		WebUI.mouseOver(xpath("//label[text()='Surcharge for minimum order value']/span"))
+		WebUI.verifyElementVisible(xpath("//*[text()='$tooltipsSurchargeMinimumPrice']"))
 		return this
 	}
 }

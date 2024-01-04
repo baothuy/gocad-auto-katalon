@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STMI011 Verify required field on Manufacturing information page</name>
+   <tag>functional-test,manufacturing-information,ui</tag>
+   <comment></comment>
+   <testCaseGuid>1b9f72dd-586c-485e-996b-8d9f7303eb5a</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>8ac17425-da53-4e54-a994-dedf9cd5acee</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'dxf-testing.dxf'</defaultValue>
+      <description></description>
+      <id>8ac17425-da53-4e54-a994-dedf9cd5acee</id>
+      <masked>false</masked>
+      <name>partName</name>
+   </variable>
+</TestCaseEntity>

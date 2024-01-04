@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STMS003 Verify required field on New Material popup</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>d26a1c17-764a-48b5-bc82-5881932d352e</testCaseGuid>
+</TestCaseEntity>

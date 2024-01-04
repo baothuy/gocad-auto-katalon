@@ -1,16 +1,21 @@
+import gocad.buyer.AddressInformationPopup
+import gocad.buyer.ReviewPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
-import gocad.seller.OpenInquiriesPage
+import gocad.common.SignInPage
+import gocad.seller.MyProjectsPage
+import gocad.seller.SendOfferPage
 import katalon.fw.lib.Page
-import katalon.utility.CommonUtility
+
 
 println '>> User buyer signs in page'
-Page.nav(MySignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
-Page.nav(LeftNavBar).clickOpenInquiries()
+Page.nav(LeftNavBar).clickMyProjects()
 
-List<String> abc = Page.nav(OpenInquiriesPage).getDataRow("1")
-println "row: $abc"
+Page.nav(MyProjectsPage).clickViewAction("2830")
+
+Page.nav(ManufacturingInformationPage).clickReview()
+
 
 

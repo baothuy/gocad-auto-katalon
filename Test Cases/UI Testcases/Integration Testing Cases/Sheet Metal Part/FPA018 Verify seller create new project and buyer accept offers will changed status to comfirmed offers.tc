@@ -47,14 +47,14 @@
    <variableLinks>
       <testDataLinkId>e312bd31-4ed6-4723-9a7a-708ed74d7aa6</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>rollingDirection</value>
-      <variableId>31523c65-a1ea-4be3-9e54-6b1b8674262f</variableId>
+      <value>laserMarking</value>
+      <variableId>e5caabff-6263-4264-9e22-21159ba448bc</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>e312bd31-4ed6-4723-9a7a-708ed74d7aa6</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>cuttingLayers</value>
-      <variableId>58348a39-9040-40ac-a905-2157c54508da</variableId>
+      <variableId>fea9d141-80e4-4ba2-ad38-ac670c1f71ab</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>e312bd31-4ed6-4723-9a7a-708ed74d7aa6</testDataLinkId>
@@ -101,12 +101,6 @@
    <variableLinks>
       <testDataLinkId>e312bd31-4ed6-4723-9a7a-708ed74d7aa6</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>deliveryDate</value>
-      <variableId>c82209d1-4862-41d4-bbc8-657200f93915</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>e312bd31-4ed6-4723-9a7a-708ed74d7aa6</testDataLinkId>
-      <type>DATA_COLUMN</type>
       <value>deliveryOption</value>
       <variableId>68a51f21-edfb-40a8-a2f2-add18c5239b5</variableId>
    </variableLinks>
@@ -117,19 +111,31 @@
       <variableId>3f868299-9f57-4393-bacd-1eec0b4170bf</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>e312bd31-4ed6-4723-9a7a-708ed74d7aa6</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>packagingAndShippingComments</value>
-      <variableId>1a1fc51a-7a17-4def-93b5-027c4a552cd3</variableId>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>b5b32b58-2615-4b35-a59c-2849bfa20e4d</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f330aa7b-2459-47e5-9a40-d8b70fea6db4</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>96e2649b-0e31-4d49-b205-3a90ea1c3d0b</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>e312bd31-4ed6-4723-9a7a-708ed74d7aa6</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>customerEmail</value>
-      <variableId>d56640e1-239f-46c1-a811-a8894ef73198</variableId>
+      <value>deliveryDate</value>
+      <variableId>f8bb74cb-ee1c-44ea-8031-dce4f027b01a</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'TH334sa_1.dxf'</defaultValue>
+      <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
       <id>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</id>
       <masked>false</masked>
@@ -157,28 +163,28 @@
       <name>quantityNum</name>
    </variable>
    <variable>
-      <defaultValue>'Painting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentSMP</defaultValue>
       <description></description>
       <id>2ca5335a-6b22-4a08-b341-d96e3c83dc9f</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'Parallel'</defaultValue>
-      <description>Parallel, Quer, Egal</description>
-      <id>31523c65-a1ea-4be3-9e54-6b1b8674262f</id>
+      <defaultValue>GlobalVariable.laserMarking</defaultValue>
+      <description></description>
+      <id>e5caabff-6263-4264-9e22-21159ba448bc</id>
       <masked>false</masked>
-      <name>rollingDirection</name>
+      <name>laserMarking</name>
    </variable>
    <variable>
       <defaultValue>'All layers'</defaultValue>
       <description></description>
-      <id>58348a39-9040-40ac-a905-2157c54508da</id>
+      <id>fea9d141-80e4-4ba2-ad38-ac670c1f71ab</id>
       <masked>false</masked>
       <name>cuttingLayers</name>
    </variable>
    <variable>
-      <defaultValue>'true'</defaultValue>
+      <defaultValue>GlobalVariable.deburring</defaultValue>
       <description></description>
       <id>92334211-dd7b-4ff4-9017-d7aefabddc39</id>
       <masked>false</masked>
@@ -206,59 +212,66 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupSMP</defaultValue>
       <description></description>
       <id>499794cd-e3be-4af0-9b39-46d8d0895543</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'X14CrMoS17'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameSMP</defaultValue>
       <description></description>
       <id>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
       <description></description>
       <id>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</id>
       <masked>false</masked>
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'2024-08-16'</defaultValue>
-      <description>yyyy-mm-dd</description>
-      <id>c82209d1-4862-41d4-bbc8-657200f93915</id>
-      <masked>false</masked>
-      <name>deliveryDate</name>
-   </variable>
-   <variable>
-      <defaultValue>'STANDARD'</defaultValue>
+      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
       <description></description>
       <id>68a51f21-edfb-40a8-a2f2-add18c5239b5</id>
       <masked>false</masked>
       <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>'Standard shipping'</defaultValue>
+      <defaultValue>GlobalVariable.shippingOption</defaultValue>
       <description></description>
       <id>3f868299-9f57-4393-bacd-1eec0b4170bf</id>
       <masked>false</masked>
       <name>shippingOption</name>
    </variable>
    <variable>
-      <defaultValue>'packagingAndShippingComments'</defaultValue>
+      <defaultValue>'60'</defaultValue>
       <description></description>
-      <id>1a1fc51a-7a17-4def-93b5-027c4a552cd3</id>
+      <id>b5b32b58-2615-4b35-a59c-2849bfa20e4d</id>
+      <masked>false</masked>
+      <name>unitPriceChanged</name>
+   </variable>
+   <variable>
+      <defaultValue>'abc'</defaultValue>
+      <description></description>
+      <id>f330aa7b-2459-47e5-9a40-d8b70fea6db4</id>
       <masked>false</masked>
       <name>packagingAndShippingComments</name>
    </variable>
    <variable>
-      <defaultValue>'buyer@gocad.de'</defaultValue>
+      <defaultValue>GlobalVariable.buyer_mail</defaultValue>
       <description></description>
-      <id>d56640e1-239f-46c1-a811-a8894ef73198</id>
+      <id>96e2649b-0e31-4d49-b205-3a90ea1c3d0b</id>
       <masked>false</masked>
       <name>customerEmail</name>
+   </variable>
+   <variable>
+      <defaultValue>'2024-11-22'</defaultValue>
+      <description></description>
+      <id>f8bb74cb-ee1c-44ea-8031-dce4f027b01a</id>
+      <masked>false</masked>
+      <name>deliveryDate</name>
    </variable>
 </TestCaseEntity>

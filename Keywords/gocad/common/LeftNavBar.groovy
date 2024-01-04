@@ -4,8 +4,8 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import katalon.fw.lib.BasePage
 
 public class LeftNavBar extends BasePage<LeftNavBar> {
-	public LeftNavBar clickAddProject() {
-		WebUI.click(xpath('//span[text()=" Add Project"]'))
+	public LeftNavBar clickNewProject() {
+		WebUI.click(xpath('//span[text()=" New Project"]'))
 		return this
 	}
 
@@ -20,12 +20,12 @@ public class LeftNavBar extends BasePage<LeftNavBar> {
 	}
 
 	public LeftNavBar clickRequestedOffers() {
-		WebUI.click(xpath('//a[text()="Requested Offers"]'))
+		WebUI.click(xpath('//a[text()="Requested"]'))
 		return this
 	}
 
 	public LeftNavBar clickReceivedOffers() {
-		WebUI.click(xpath('//a[text()="Received Offers"]'))
+		WebUI.click(xpath('//a[text()="Received"]'))
 		return this
 	}
 
@@ -35,17 +35,17 @@ public class LeftNavBar extends BasePage<LeftNavBar> {
 	}
 
 	public LeftNavBar clickSentOffers() {
-		WebUI.click(xpath('//a[text()="Sent offers"]'))
+		WebUI.click(xpath('//a[text()="Sent"]'))
 		return this
 	}
 
 	public LeftNavBar clickConfirmedOffers() {
-		WebUI.click(xpath('//a[text()="Confirmed Offers"]'))
+		WebUI.click(xpath('//a[text()="Confirmed"]'))
 		return this
 	}
 
 	public LeftNavBar clickCancelledOffers() {
-		WebUI.click(xpath('//a[text()="Cancelled Offers"]'))
+		WebUI.click(xpath('//a[text()="Cancelled"]'))
 		return this
 	}
 
@@ -91,6 +91,11 @@ public class LeftNavBar extends BasePage<LeftNavBar> {
 
 	public LeftNavBar clickSurfaceTreatments() {
 		WebUI.click(link('Surface Treatments'))
+		return this
+	}
+	
+	public LeftNavBar clickCompliances() {
+		WebUI.click(link('Compliances'))
 		return this
 	}
 

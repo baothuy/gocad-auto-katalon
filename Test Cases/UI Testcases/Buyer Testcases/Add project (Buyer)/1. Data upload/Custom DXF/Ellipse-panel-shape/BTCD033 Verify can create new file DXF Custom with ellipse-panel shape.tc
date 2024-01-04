@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD033 Verify can create new file DXF Custom with ellipse-panel shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>140e0a97-6cde-4213-8b22-9a142d95fd0c</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>8ef1da12-3725-496c-b35f-bab9a5258357</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>b7170e71-01b5-43f2-80fd-4887ac537ee1</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d6884541-b874-4853-af8e-68a0890a4668</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'elongated'</defaultValue>
+      <description></description>
+      <id>8ef1da12-3725-496c-b35f-bab9a5258357</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+   <variable>
+      <defaultValue>'250'</defaultValue>
+      <description></description>
+      <id>b7170e71-01b5-43f2-80fd-4887ac537ee1</id>
+      <masked>false</masked>
+      <name>width</name>
+   </variable>
+   <variable>
+      <defaultValue>'170'</defaultValue>
+      <description></description>
+      <id>d6884541-b874-4853-af8e-68a0890a4668</id>
+      <masked>false</masked>
+      <name>height</name>
+   </variable>
+</TestCaseEntity>

@@ -8,6 +8,11 @@ public class SelectMaterialPopup extends BasePage<SelectMaterialPopup>{
 		scrollToAndClick(xpath("//div[@class='ant-space-item']//*[text()='$materialGroup']"))
 		return this
 	}
+	
+	public SelectMaterialPopup clickThickness(String thickness) {
+		scrollToAndClick(xpath("//div[contains(@class,'filter-thickness')]//span[text()='$thickness mm']"))
+		return this
+	}
 
 	public SelectMaterialPopup inputSearchMaterial(String materialName) {
 		clearTextAndSendKeysByActions(xpath("//input[@placeholder='Search material']"), materialName)
@@ -20,17 +25,17 @@ public class SelectMaterialPopup extends BasePage<SelectMaterialPopup>{
 	}
 
 	public SelectMaterialPopup selectMaterialName(String materialName) {
-		WebUI.click(xpath("//div[contains(text(),'$materialName')]/parent::div[@class='row material-item']"))
+		WebUI.click(xpath("//div[@class='material-list']//div[text()='$materialName']/parent::div[@class='row material-item']"))
 		return this
 	}
 
 	public String getNumberPartCol(String materialName) {
-		String numberPart = WebUI.getText(xpath("//div[contains(text(),'$materialName')]/parent::div[@class='row material-item']/div[2]"))
+		String numberPart = WebUI.getText(xpath("//div[text()='$materialName']/parent::div[@class='row material-item']/div[4]"))
 		return numberPart
 	}
 
 	public String getMaterialAndNumber(String materialName) {
-		String numberPart = WebUI.getText(xpath("//div[contains(text(),'$materialName')]/parent::div[@class='row material-item']/div[2]"))
+		String numberPart = WebUI.getText(xpath("//div[text()='$materialName']/parent::div[@class='row material-item']/div[4]"))
 		String material = materialName +"/"+ numberPart
 		return material
 	}

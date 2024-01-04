@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STPDS004 Verify UI on Price and Delivery Settings MTF page</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>0b0dd11e-3a0c-4571-accd-158a26e5e51d</testCaseGuid>
+</TestCaseEntity>

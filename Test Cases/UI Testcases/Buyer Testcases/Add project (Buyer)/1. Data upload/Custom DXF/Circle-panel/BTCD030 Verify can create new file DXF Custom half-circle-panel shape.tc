@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD030 Verify can create new file DXF Custom half-circle-panel shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>5ad6e9a1-110b-4604-bf78-a5949769e6e4</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>1e91ebde-8d50-4e1c-ad4c-441c891c0d7b</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>800ed25d-9dde-4495-bfa9-c6795bae6f30</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'rectangle-rounded-panel'</defaultValue>
+      <description></description>
+      <id>1e91ebde-8d50-4e1c-ad4c-441c891c0d7b</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+   <variable>
+      <defaultValue>'250'</defaultValue>
+      <description></description>
+      <id>800ed25d-9dde-4495-bfa9-c6795bae6f30</id>
+      <masked>false</masked>
+      <name>diameter</name>
+   </variable>
+</TestCaseEntity>

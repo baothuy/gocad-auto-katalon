@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STMS009 Verify can update Localized Names successfully</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>63aef9c3-744c-4a3e-ad4b-3073ef073236</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a3a89222-349c-4548-b02d-9197255d94f1</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>7ef6242f-b5bb-4469-8e09-7f9ba93194e8</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>46e2d40d-8e36-4c45-bd44-fe22d0eae62c</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>80091030-0e8f-4287-b0c5-d7415f49d46e</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>1505ed4e-9a31-47be-b2ec-b2f2c6148f55</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>2d1887e9-6469-447a-828d-448e6ab65cde</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'90MnCrV8'</defaultValue>
+      <description></description>
+      <id>a3a89222-349c-4548-b02d-9197255d94f1</id>
+      <masked>false</masked>
+      <name>materialName</name>
+   </variable>
+   <variable>
+      <defaultValue>'Tool steel'</defaultValue>
+      <description></description>
+      <id>7ef6242f-b5bb-4469-8e09-7f9ba93194e8</id>
+      <masked>false</masked>
+      <name>english</name>
+   </variable>
+   <variable>
+      <defaultValue>'Werkzeugstahl'</defaultValue>
+      <description></description>
+      <id>46e2d40d-8e36-4c45-bd44-fe22d0eae62c</id>
+      <masked>false</masked>
+      <name>german</name>
+   </variable>
+   <variable>
+      <defaultValue>'Acciaio per utensili'</defaultValue>
+      <description></description>
+      <id>80091030-0e8f-4287-b0c5-d7415f49d46e</id>
+      <masked>false</masked>
+      <name>italian</name>
+   </variable>
+   <variable>
+      <defaultValue>'Nástrojová ocel'</defaultValue>
+      <description></description>
+      <id>1505ed4e-9a31-47be-b2ec-b2f2c6148f55</id>
+      <masked>false</masked>
+      <name>czech</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description></description>
+      <id>2d1887e9-6469-447a-828d-448e6ab65cde</id>
+      <masked>false</masked>
+      <name>cuttingParams</name>
+   </variable>
+</TestCaseEntity>

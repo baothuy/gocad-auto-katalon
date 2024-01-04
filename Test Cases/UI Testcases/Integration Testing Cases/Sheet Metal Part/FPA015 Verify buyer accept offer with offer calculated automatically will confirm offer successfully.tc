@@ -47,14 +47,14 @@
    <variableLinks>
       <testDataLinkId>e3254540-b87f-4ce0-8248-2321758c799d</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>rollingDirection</value>
-      <variableId>31523c65-a1ea-4be3-9e54-6b1b8674262f</variableId>
+      <value>laserMarking</value>
+      <variableId>e5caabff-6263-4264-9e22-21159ba448bc</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>e3254540-b87f-4ce0-8248-2321758c799d</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>cuttingLayers</value>
-      <variableId>dab44c8c-1ca7-4176-a845-157a916902a6</variableId>
+      <variableId>fea9d141-80e4-4ba2-ad38-ac670c1f71ab</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>e3254540-b87f-4ce0-8248-2321758c799d</testDataLinkId>
@@ -114,16 +114,16 @@
       <testDataLinkId>e3254540-b87f-4ce0-8248-2321758c799d</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>unitPriceChanged</value>
-      <variableId>1a1fc51a-7a17-4def-93b5-027c4a552cd3</variableId>
+      <variableId>b5b32b58-2615-4b35-a59c-2849bfa20e4d</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>e3254540-b87f-4ce0-8248-2321758c799d</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>packagingAndShippingComments</value>
-      <variableId>e2afa0d5-ba7d-4c33-9ef9-b708f32a8383</variableId>
+      <variableId>f330aa7b-2459-47e5-9a40-d8b70fea6db4</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'TH334sa_1.dxf'</defaultValue>
+      <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
       <id>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</id>
       <masked>false</masked>
@@ -144,35 +144,35 @@
       <name>thicknessNum</name>
    </variable>
    <variable>
-      <defaultValue>'100'</defaultValue>
+      <defaultValue>'50'</defaultValue>
       <description></description>
       <id>5a487b1a-2dc0-4f54-857d-66e74db09fc5</id>
       <masked>false</masked>
       <name>quantityNum</name>
    </variable>
    <variable>
-      <defaultValue>'Painting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentSMP</defaultValue>
       <description></description>
       <id>2ca5335a-6b22-4a08-b341-d96e3c83dc9f</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'Parallel'</defaultValue>
-      <description>Parallel, Quer, Egal</description>
-      <id>31523c65-a1ea-4be3-9e54-6b1b8674262f</id>
+      <defaultValue>GlobalVariable.laserMarking</defaultValue>
+      <description></description>
+      <id>e5caabff-6263-4264-9e22-21159ba448bc</id>
       <masked>false</masked>
-      <name>rollingDirection</name>
+      <name>laserMarking</name>
    </variable>
    <variable>
       <defaultValue>'All layers'</defaultValue>
       <description></description>
-      <id>dab44c8c-1ca7-4176-a845-157a916902a6</id>
+      <id>fea9d141-80e4-4ba2-ad38-ac670c1f71ab</id>
       <masked>false</masked>
       <name>cuttingLayers</name>
    </variable>
    <variable>
-      <defaultValue>'true'</defaultValue>
+      <defaultValue>GlobalVariable.deburring</defaultValue>
       <description></description>
       <id>92334211-dd7b-4ff4-9017-d7aefabddc39</id>
       <masked>false</masked>
@@ -200,51 +200,51 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupSMP</defaultValue>
       <description></description>
       <id>499794cd-e3be-4af0-9b39-46d8d0895543</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'X14CrMoS17'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameSMP</defaultValue>
       <description></description>
       <id>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
       <description></description>
       <id>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</id>
       <masked>false</masked>
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'STANDARD'</defaultValue>
+      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
       <description></description>
       <id>68a51f21-edfb-40a8-a2f2-add18c5239b5</id>
       <masked>false</masked>
       <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>'Standard shipping'</defaultValue>
+      <defaultValue>GlobalVariable.shippingOption</defaultValue>
       <description></description>
       <id>3f868299-9f57-4393-bacd-1eec0b4170bf</id>
       <masked>false</masked>
       <name>shippingOption</name>
    </variable>
    <variable>
-      <defaultValue>'58,03'</defaultValue>
+      <defaultValue>'60'</defaultValue>
       <description></description>
-      <id>1a1fc51a-7a17-4def-93b5-027c4a552cd3</id>
+      <id>b5b32b58-2615-4b35-a59c-2849bfa20e4d</id>
       <masked>false</masked>
       <name>unitPriceChanged</name>
    </variable>
    <variable>
       <defaultValue>'abc'</defaultValue>
       <description></description>
-      <id>e2afa0d5-ba7d-4c33-9ef9-b708f32a8383</id>
+      <id>f330aa7b-2459-47e5-9a40-d8b70fea6db4</id>
       <masked>false</masked>
       <name>packagingAndShippingComments</name>
    </variable>

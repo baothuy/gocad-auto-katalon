@@ -61,52 +61,122 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>''</initValue>
-      <name>tsStartTime</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>''</initValue>
-      <name>tsName</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>''</initValue>
-      <name>tcStartTime</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>''</initValue>
-      <name>tcName</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>'buyer@gocad.de'</initValue>
+      <initValue>'thuyautomation0@gmail.com'</initValue>
       <name>buyer_mail</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'tyi43StKpxo='</initValue>
+      <initValue>'KzXoJXJYxul3D9DRe4bCdA=='</initValue>
       <name>buyer_pass</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>''</initValue>
-      <name>buyerBasicToken</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>''</initValue>
-      <name>currentTestCaseName</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>''</initValue>
-      <name>encodedToken</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
       <initValue>'Auto Generate Prj'</initValue>
       <name>prefixName</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'€'</initValue>
+      <name>currency</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>['.dxf', '.dwg']</initValue>
+      <name>sheetMetalPartFileAllow</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>['.step', '.stp', '.ipt']</initValue>
+      <name>milledPartFileAllow</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'step-testing.step'</initValue>
+      <name>partNameMTP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Aluminum'</initValue>
+      <name>materialGroupMTP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'EN AW-7075 / AlZn5'</initValue>
+      <name>materialNameMTP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'false'</initValue>
+      <name>provideOwnProduct</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Sandblasting'</initValue>
+      <name>surfaceTreatmentMTP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>filePDF</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Ra 0,8 - 1,6 (finely finished); Rz 6,3 - 10'</initValue>
+      <name>quality</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'STANDARD'</initValue>
+      <name>deliveryOption</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Standard shipping'</initValue>
+      <name>shippingOption</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'dxf-testing.dxf'</initValue>
+      <name>partNameSMP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Stainless steel'</initValue>
+      <name>materialGroupSMP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'X2CrNiMo17'</initValue>
+      <name>materialNameSMP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'No'</initValue>
+      <name>laserMarking</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'One-sided'</initValue>
+      <name>deburring</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Painting'</initValue>
+      <name>surfaceTreatmentSMP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Rubber'</initValue>
+      <name>materialGroupSMP2</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'EPDM 65 Premium'</initValue>
+      <name>materialNameSMP2</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'GOCAD'</initValue>
+      <name>prefixOrderNumber</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

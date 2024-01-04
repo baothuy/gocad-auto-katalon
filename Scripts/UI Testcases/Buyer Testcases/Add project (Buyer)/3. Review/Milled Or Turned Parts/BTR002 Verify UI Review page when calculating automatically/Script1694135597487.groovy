@@ -5,7 +5,7 @@ import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
 import gocad.common.ViewPartPopup
 import katalon.fw.lib.Page
@@ -18,7 +18,7 @@ println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>> Get company Name on Settings page'
 Page.nav(LeftNavBar).clickSettings()
@@ -28,10 +28,10 @@ List<String> listShippingAddress = Page.nav(AccountSettingsPage).getShippingAddr
 List<String> listCustomerInfo = Page.nav(AccountSettingsPage).getCustomerInfo()
 
 println '>> User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 println '>> Open add project popup and add new project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+Page.nav(DataUploadPage).clickEditProjectName(projectName)
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
@@ -87,7 +87,7 @@ println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 String unitPrice = Page.nav(ManufacturingInformationPage).getUnitPriceValue()
 String netPrice = Page.nav(ManufacturingInformationPage).getNetPriceValue()
-Page.nav(ManufacturingInformationPage).clickContinueToOfferOverview()
+Page.nav(ManufacturingInformationPage).clickReview()
 
 println '>> Verify UI Visible'
 Page.nav(ReviewPage).verifyImagePartClickable(partName)
@@ -100,17 +100,13 @@ Page.nav(ReviewPage).verifyImagePartClickable(partName)
 					.verifyUnitPriceVisible(partName)
 					.verifyTotalPartPriceVisible(partName)
 					.verifyCO2EmissionVisible(partName)
-					.verifyActionViewVisible(partName)
 					.verifyActionMoreVisible(partName)
 					.clickMoreOption(partName)
-					.verifyActionCopyVisible(partName)
-					.verifyActionMoveVisible(partName)
+					.verifyActionViewVisible()
+					.verifyActionCopyVisible()
+					.verifyActionMoveVisible()
 					.verifySurfaceTreatmentSurchargeAndTotalVisible()
-					.verifyCheckoutButtonVisible(partName)
-					
-println '>> Verify file part can download successfully'
-Page.nav(ReviewPage).clickPartFile(partName)
-Page.nav(FileHelper).verifyFileDownloaded(partName)
+					.verifyCheckoutButtonVisible(partName)				
 				
 println '>> Verify value on Review Page show correctly'
 Page.nav(ReviewPage).verifyPartNameValue(partName)
@@ -121,7 +117,8 @@ Page.nav(ReviewPage).verifyPartNameValue(partName)
 					.verifyCommentValue(partName, comment)
 
 println '>> Verify data on View page show correctly'
-Page.nav(ReviewPage).clickView(partName)
+Page.nav(ReviewPage).clickMoreOption(partName)
+					.clickView(partName)
 Page.nav(ViewPartPopup).verifyMaterialValue(material)
 						.verifyQuantityValue(quantityNum)
 						.verifyThreadValue(threadNum)

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTCD024 Validation for business rule with rectangle-rounded-panel shape</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>5fb040fe-1830-4c00-80af-363e14ec6f87</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>b445b513-c124-49a0-bdc3-7db909dbeaeb</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'oval'</defaultValue>
+      <description></description>
+      <id>b445b513-c124-49a0-bdc3-7db909dbeaeb</id>
+      <masked>false</masked>
+      <name>fileName</name>
+   </variable>
+</TestCaseEntity>

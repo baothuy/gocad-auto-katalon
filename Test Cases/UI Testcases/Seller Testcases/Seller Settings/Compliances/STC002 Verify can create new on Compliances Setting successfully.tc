@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STC002 Verify can create new on Compliances Setting successfully</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>12332413-9c23-4e98-a476-568b3d9e0056</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ce522228-5206-4a25-aef8-fffa915a7652</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'Auto compliances'</defaultValue>
+      <description></description>
+      <id>ce522228-5206-4a25-aef8-fffa915a7652</id>
+      <masked>false</masked>
+      <name>name</name>
+   </variable>
+</TestCaseEntity>

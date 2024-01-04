@@ -2,13 +2,13 @@ import gocad.buyer.CancelledOffersPageOfBuyer
 import gocad.buyer.RequestedOffersPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import katalon.fw.lib.Page
 
 
 
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>> User go to Cancelled Offers page'
 Page.nav(LeftNavBar).clickCancelledOffers()

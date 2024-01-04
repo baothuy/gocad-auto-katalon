@@ -1,10 +1,13 @@
 package gocad.buyer
 
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
-import gocad.common.ManufacturingInformationPage
 import katalon.fw.lib.BasePage
+import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
+import katalon.utility.FunctionCommon
 
 public class ReviewPage extends BasePage<ReviewPage>{
 
@@ -12,13 +15,13 @@ public class ReviewPage extends BasePage<ReviewPage>{
 	def partCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[2]")}
 	def fileCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[3]//a")}
 	def materialCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[4]")}
-	def quantityCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[5]//input[@id='quantity']")}
-	def unitPriceCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[6]")}
-	def partPriceTotalCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[7]")}
-	def commentCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[8]/span")}
-	def CO2EmissionCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[9]")}
-	def actionView = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]//button[1]")}
-	def actionMore = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]//button[2]")}
+	def thicknessCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[5]")}
+	def quantityCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[6]//input[@id='quantity']")}
+	def unitPriceCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[7]")}
+	def partPriceTotalCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[8]")}
+	def commentCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[9]/span")}
+	def CO2EmissionCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]")}
+	def actionMore = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[11]//button")}
 	def contentAlertManually = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
 	def contentAlertAutomatically = "Please check and confirm your order. You can see the bulk pricing when clicking on the information button for each part. You can adapt the quantity here if required."
 	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
@@ -39,7 +42,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 	}
 
 	public ReviewPage clickView(String partName) {
-		WebUI.click(actionView(partName))
+		WebUI.click(xpath('//span[text()="View"]'))
 		return this
 	}
 
@@ -136,8 +139,8 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		String actualResult
 		List<String> findTestObjects = findTestObjects("//*[@aria-label='message']")
 		if (findTestObjects.size() != 0) {
-			WebUI.mouseOver(commentCol(partName))
-			actualResult = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
+			WebUI.click(commentCol(partName))
+			actualResult = WebUI.getText(xpath("//*[text()='Additional Comments']/parent::div[@role='tooltip']/div/div"))
 		}
 		else {
 			actualResult = ""
@@ -157,25 +160,14 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		return CO2Emission
 	}
 
+	public String getSurfaceTreatmentSurchargeValue() {
+		List<String> findTestObjects = findTestObjects("//*[text()='Surface Treatment Surcharge']/parent::div/label[2]")
+		String surfaceTreatmentSurcharge = (findTestObjects.size() != 0 ) ? WebUI.getText(xpath("//*[text()='Surface Treatment Surcharge']/parent::div/label[2]")) : ""
+		return surfaceTreatmentSurcharge
+	}
+
 	public List<String> getTablePartReview(String partName) {
-		String partNameCol = WebUI.getText(partCol(partName))
-		String material = WebUI.getText(materialCol(partName))
-		String quantity = WebUI.getAttribute(quantityCol(partName), "value")
-		String unitPrice = WebUI.getText(unitPriceCol(partName))
-		String totalPartPrice = WebUI.getText(partPriceTotalCol(partName))
-		List<String> findTestObjects = findTestObjects("//*[@aria-label='message']")
-		String CO2Emission = WebUI.getText(CO2EmissionCol(partName))
-		String comment
-		println "findTestObjects: $findTestObjects"
-		if (findTestObjects.size() != 0) {
-			WebUI.mouseOver(xpath("//*[@aria-label='message']"))
-			comment = WebUI.getText(xpath("//*[@role='tooltip']/div[2]/div"))
-		}
-		else {
-			comment = ""
-		}
-		List<String> actualResult = [partNameCol, material, quantity, unitPrice, totalPartPrice, comment, CO2Emission]
-		println "getTablePartReview: $actualResult"
+		List<String> actualResult = Page.nav(FunctionCommon).getTablePartReview(partName)
 		return actualResult
 	}
 
@@ -219,8 +211,8 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		return this
 	}
 
-	public ReviewPage verifyActionViewVisible(String partName) {
-		WebUI.verifyElementVisible(actionView(partName))
+	public ReviewPage verifyActionViewVisible() {
+		WebUI.verifyElementVisible(xpath("//span[text()='View']"))
 		return this
 	}
 
@@ -229,12 +221,12 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		return this
 	}
 
-	public ReviewPage verifyActionCopyVisible(String partName) {
+	public ReviewPage verifyActionCopyVisible() {
 		WebUI.verifyElementVisible(xpath("//span[text()='Copy']"))
 		return this
 	}
 
-	public ReviewPage verifyActionMoveVisible(String partName) {
+	public ReviewPage verifyActionMoveVisible() {
 		WebUI.verifyElementVisible(xpath("//span[text()='Move']"))
 		return this
 	}
@@ -253,13 +245,13 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		List<String> findObject = findTestObjects("//*[text()='Surface Treatment Surcharge']")
 		if (findObject.size() != 0) {
 			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment Surcharge']"))
-			WebUI.mouseOver(xpath("//*[text()='Surface Treatment Surcharge']"))
+			WebUI.click(xpath("//*[text()='Surface Treatment Surcharge']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='$expectedContentTooltips']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='All Parts Total']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Total Part Price']"))
+			WebUI.click(xpath("//*[text()='Total Part Price']"))
 		}
 		else {
-			WebUI.verifyElementVisible(xpath("//*[text()='Total:']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Total Part Price']"))
 		}
 		return this
 	}

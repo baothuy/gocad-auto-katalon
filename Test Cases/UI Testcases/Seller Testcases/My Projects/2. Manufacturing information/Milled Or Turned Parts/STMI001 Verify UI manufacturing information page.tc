@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STMI001 Verify UI manufacturing information page</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>8d6a5b0d-1856-44fb-917b-b11f46a33b7e</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>78717f81-35f4-4a03-bf31-6b51807c5f2e</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>GlobalVariable.partNameMTP</defaultValue>
+      <description></description>
+      <id>78717f81-35f4-4a03-bf31-6b51807c5f2e</id>
+      <masked>false</masked>
+      <name>partName</name>
+   </variable>
+</TestCaseEntity>

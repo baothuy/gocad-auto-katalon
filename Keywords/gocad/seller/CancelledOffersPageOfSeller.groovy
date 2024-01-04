@@ -2,7 +2,7 @@ package gocad.seller
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
-import gocad.buyer.ConfirmedOffersPageOfBuyer
+import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
 
@@ -19,7 +19,7 @@ public class CancelledOffersPageOfSeller extends BasePage<CancelledOffersPageOfS
 	def statusCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[7]//span[normalize-space(text()) != '']")}
 	def actionCol = { String projectId -> return xpath("//td[text()='$projectId']/parent::tr/td[8]/a")}
 	def row = { String row -> return "//*[@class='ant-table-tbody']/tr[$row]/"}
-	def contentPage = "The folder Requested Offers shows all your projects where you have placed an order or requested a quotation. The current status of the project can be seen in the column \"status\"."
+	def contentPage = "The folder Cancelled Orders contains projects which have been cancelled either by you or by us."
 
 	public CancelledOffersPageOfSeller clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))
@@ -49,7 +49,7 @@ public class CancelledOffersPageOfSeller extends BasePage<CancelledOffersPageOfS
 
 	public CancelledOffersPageOfSeller verifyOrderNumber(String projectId) {
 		String orderNumber = WebUI.getText(orderNumberCol(projectId))
-		String expectedResult = "GOCAD"+ projectId
+		String expectedResult = GlobalVariable.prefixOrderNumber+ projectId
 		println "orderNumber: $orderNumber"
 		WebUI.verifyEqual(orderNumber, expectedResult)
 		return this
@@ -89,12 +89,12 @@ public class CancelledOffersPageOfSeller extends BasePage<CancelledOffersPageOfS
 	}
 
 	public CancelledOffersPageOfSeller verifyUIVisible() {
-		WebUI.verifyElementVisible(xpath("//h5[text()='Cancelled Offers']"))
-		WebUI.verifyElementVisible(xpath("//h5[text()='Cancelled Offers']/following::i[text()='$contentPage']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Cancelled']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Cancelled']/following::i[text()='$contentPage']"))
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))
-		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Company Name']"))
+		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Company']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Order Number']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Order date']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='NET Total']"))

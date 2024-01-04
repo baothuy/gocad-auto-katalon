@@ -2,6 +2,7 @@ package gocad.buyer
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 
 
@@ -68,7 +69,7 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 	}
 
 	public ArchivedProjectsPage verifyPriceOnDetailPartColumn(String expectedResult) {
-		String price = WebUI.getText(xpath("//*[@class='ant-card-body']//span[contains(text(),'€')]"))
+		String price = WebUI.getText(xpath("//*[@class='ant-card-body']//span[contains(text(),'$GlobalVariable.currency')]"))
 		WebUI.verifyEqual(price, expectedResult)
 		return this
 	}
@@ -98,8 +99,8 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 	public ArchivedProjectsPage verifyToastMessageWhenDeletedProject(String projectName) {
 		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
 		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
-		def expectedTitle = "Deleted!"
-		def expectedMessage = "The project has been successfully deleted."
+		def expectedTitle = "Deleted"
+		def expectedMessage = "Deleted successfully."
 		WebUI.verifyEqual(actualTitle, expectedTitle)
 		WebUI.verifyEqual(actualMessage, expectedMessage)
 		return this
@@ -108,8 +109,8 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 	public ArchivedProjectsPage verifyToastMessageWhenUnarchivedProject(String projectName) {
 		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
 		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
-		def expectedTitle = "Unarchived!"
-		def expectedMessage = "The project \'$projectName\' has been unarchived."
+		def expectedTitle = "Unarchived"
+		def expectedMessage = "The project $projectName has been unarchived."
 		WebUI.verifyEqual(actualTitle, expectedTitle)
 		WebUI.verifyEqual(actualMessage, expectedMessage)
 		return this
@@ -122,7 +123,7 @@ public class ArchivedProjectsPage extends BasePage<ArchivedProjectsPage>{
 	}
 
 	public ArchivedProjectsPage verifyUIVisible() {
-		WebUI.verifyElementVisible(xpath("//h5[text()='Draft']"))
+		WebUI.verifyElementVisible(xpath("//h5[text()='Archived Projects']"))
 		//header table visible
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Id']"))
 		WebUI.verifyElementVisible(xpath("//thead[@class='ant-table-thead']/tr/th[@aria-label='Project Name']"))

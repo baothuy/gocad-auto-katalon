@@ -3,23 +3,23 @@ import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.FileHelper
 
 println '>>  User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>>  User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 println '>>  Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
-println '>>  Open add project popup and input project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+println '>>  Click edit project name and input project name'
+Page.nav(DataUploadPage).clickEditProjectName(projectName)
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
@@ -37,7 +37,8 @@ if (filePDF == "")
 	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 	
 	println '>> Input required field'
-	Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+	Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
+											.inputQuantity(quantityNum)
 											.inputThread(threadNum)
 											.inputTolerances(tolerancesNum)
 											.clickToggleTolerances(tolerancesToggle)
@@ -65,7 +66,8 @@ else
 		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
 	 }
 	 
-	 Page.nav(ManufacturingInformationPage).inputQuantity(quantityNum)
+	 Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProduct)
+	 										.inputQuantity(quantityNum)
 											 .selectSurfaceTreatment(surfaceTreatment)
 											 .selectSurfaceQuality(quality)
 											 .inputComment(comment)
@@ -76,48 +78,29 @@ Page.nav(ManufacturingInformationPage).clickCalculate()
 
 println '>> Calculate netPrice value'
 String netPrice = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitPrice,quantityNum)
-if (filePDF == ""){
-	println '>> Verify UI after calculated manually of request'
-	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
-											.clickClosePreviewPartFilePopup()
-											.verifyMaterialValue(material)
-											.verifyQuantityValue(quantityNum)
-											.verifyThreadValue(threadNum)
-											.verifyTolerancesNumberValue(tolerancesNum)
-											.verifyTolerancesToggleValue(tolerancesToggle)
-											.verifySurfaceTreatmentValue(surfaceTreatment)
-											.verifySurfaceQualityValue(quality)
-											.verifyAdditionalCommentsValue(comment)											
-											.verifyEditButtonVisible()
-											.clickMoreOption()
-											.verifyDeleteButtonVisible()
-											.verifyCopyButtonVisible()
-											.verifyMoveButtonVisible()
-											.verifyUnitPriceValue(unitPrice)
-											.verifyNetPriceValue(netPrice)
-}
-else {
-	println '>> Verify UI after calculated manually of request'
-	Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
-											.clickClosePreviewPartFilePopup()
-											.verifyPDFFileVisibleAfterCalculated(partName)
-											.verifyMaterialValue(material)
-											.verifyQuantityValue(quantityNum)
-											.verifySurfaceTreatmentValue(surfaceTreatment)
-											.verifySurfaceQualityValue(quality)
-											.verifyAdditionalCommentsValue(comment)											
-											.verifyEditButtonVisible()
-											.clickMoreOption()
-											.verifyDeleteButtonVisible()
-											.verifyCopyButtonVisible()
-											.verifyMoveButtonVisible()
-											.verifyUnitPriceValue(unitPrice)
-											.verifyNetPriceValue(netPrice)
-}
 
-println '>>  Verify can download succesfully'
-Page.nav(ManufacturingInformationPage).clickPartFileToDownload(partName)
-Page.nav(FileHelper).verifyFileDownloaded(partName)
+println '>> Verify UI after calculated manually of request'
+Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFile()
+										.clickClosePreviewPartFilePopup()
+										.verifyMaterialValue(material)
+										.verifyQuantityValue(quantityNum)
+										.verifyThreadValue(threadNum)
+										.verifyTolerancesNumberValue(tolerancesNum)
+										.verifyTolerancesToggleValue(tolerancesToggle)
+										.verifySurfaceTreatmentValue(surfaceTreatment)
+										.verifySurfaceQualityValue(quality)
+										.verifyAdditionalCommentsValue(comment)
+										.verifyBulkPricingVisible()
+										.verifyEditButtonVisible()
+										.clickMoreOption()
+										.verifyDeleteButtonVisible()
+										.verifyCopyButtonVisible()
+										.verifyMoveButtonVisible()
+										.verifyUnitPriceValue(unitPrice)
+										.verifyNetPriceValue(netPrice)
+if (filePDF != ""){
+	Page.nav(ManufacturingInformationPage).verifyPDFFileVisibleAfterCalculated(partName)
+}
 
 println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()

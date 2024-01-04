@@ -1,19 +1,15 @@
 package gocad.common
 
-import java.nio.file.Files
-import java.nio.file.Paths
-import org.openqa.selenium.WebDriver
-
-import org.openqa.selenium.Keys
-
-import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
 
 public class ViewPartPopup extends BasePage<ViewPartPopup> {
 
+	List<String> sheetMetalPartFileAllow = GlobalVariable.sheetMetalPartFileAllow
+	List<String> milledPartFileAllow = GlobalVariable.milledPartFileAllow
 
 	public ViewPartPopup clickImagePart() {
 		WebUI.click(xpath('//img[@class="ant-image-img"]/following-sibling::div/span'))
@@ -83,6 +79,13 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 		return this
 	}
 
+	public ViewPartPopup verifyThreadCuttingValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Thread Cutting']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
 	public ViewPartPopup verifyTolerancesNumberValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Tolerances and fits with less than 1/10mm or IT 1 - IT 10 (Number)']/following-sibling::div")).trim()
 		println "actualResult: $actualResult"
@@ -101,6 +104,63 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 		String actualResult = WebUI.getText(xpath("//*[text()='Surface Treatment']/following-sibling::label")).trim()
 		println "actualResult: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public ViewPartPopup verifyRollingDirectionValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Rolling Direction']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public ViewPartPopup verifyLaserMarkingValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Laser marking']/following-sibling::label")).trim()
+		println "LaserMarkingValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public ViewPartPopup verifyCountersinkValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Countersink']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public ViewPartPopup verifyThicknessValue(String partName, String expectedResult) {
+		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
+			def isContains = partName.contains(sheetMetalPartFileAllow[i])
+			println "isContains: $isContains"
+			if (isContains) {
+				String actualResult = WebUI.getText(xpath("//*[@class='ant-modal-content']//*[text()='Thickness']/parent::p")).trim()
+				def pattern = /(\d+(?:\.\d+)?)/
+				String newActualResult = CommonUtility.substringUseRegExp(actualResult,pattern,0)
+				WebUI.verifyEqual(newActualResult, expectedResult)
+				println "newActualResult: $newActualResult"
+			}
+		}
+		return this
+	}
+
+	public ViewPartPopup verifyCuttingLayersValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Cutting layers']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public ViewPartPopup verifyDeburringValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Deburring']/following-sibling::label")).trim()
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public ViewPartPopup verifyPartAccordingToTheDrawingValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[text()='Part according to the drawing']/following-sibling::label")).trim()
+		def actualResultCon = (actualResult == "No") ? "false" : "true"
+		WebUI.verifyEqual(actualResultCon, expectedResult)
 		return this
 	}
 
@@ -134,7 +194,7 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 	public String calculateNetPrice(String unitPrice, String quantity) {
 		def numericValue = unitPrice.replaceAll(/[^\d.,]/, '').replace(',', '.').toDouble()
 		def expectedResult = quantity.toDouble() * numericValue
-		String formattedSum = "${String.format("%.2f", expectedResult)} €"
+		String formattedSum = "${String.format("%.2f", expectedResult)} $GlobalVariable.currency"
 		String newExpectedResult = formattedSum.replace('.', ',')
 		return newExpectedResult
 	}
@@ -196,14 +256,13 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 	}
 
 	public ViewPartPopup verifyUIViewPopupVisible() {
-		// input partname
-		WebUI.verifyElementVisible(xpath("//*[@class='input-inline-api']"))
 		// file download file cad and pdf
 		WebUI.verifyElementVisible(xpath("//*[@class='text-decoration-none']"))
-		List<String> findTestObject = findTestObjects("//*[text()='Milled / Turned Parts']") 
+		List<String> findTestObject = findTestObjects("//*[text()='Milled / Turned Parts']")
 		if(findTestObject.size() != 0)
 		{
 			// information part
+			println "a"
 			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Thread (Quantity)']"))
@@ -215,7 +274,17 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 		}
 		else if(findTestObject.size() == 0)
 		{
-
+			println "a"
+			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Laser marking']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Countersink']"))
+			WebUI.verifyElementVisible(xpath("//*[@class='ant-modal-body']//*[text()='Thickness']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment']"))
+			//WebUI.verifyElementVisible(xpath("//*[text()='Cutting layers']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Deburring']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Thread Cutting']"))
+			WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))
 		}
 		WebUI.verifyElementVisible(xpath("//*[text()='Unit price']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))

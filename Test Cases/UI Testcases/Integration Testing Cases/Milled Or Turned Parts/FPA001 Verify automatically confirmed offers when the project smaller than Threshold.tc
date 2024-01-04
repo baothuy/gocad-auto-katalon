@@ -10,7 +10,7 @@
       <id>4c007e34-e89c-4fb0-9985-e16a836f8375</id>
       <iterationEntity>
          <iterationType>ALL</iterationType>
-         <value>3</value>
+         <value>1-1</value>
       </iterationEntity>
       <testDataId>Data Files/Milled Or Turned Parts/FPA001</testDataId>
    </testDataLinks>
@@ -98,8 +98,38 @@
       <value>shippingOption</value>
       <variableId>cb9b750c-6437-4e6d-82fb-de0eb22d6e6a</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f9a68087-c59b-4a3d-9aec-9bb8f4a54ec8</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>dc41be2d-1b88-426a-bfab-da3f6345c191</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a4e74975-a41c-49d1-8432-75bca6d53cd2</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>1959c516-0e3c-4b64-b55f-ac88459b0551</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>87fe96f3-9667-4eb2-b096-0b9669a32b1b</variableId>
+   </variableLinks>
    <variable>
-      <defaultValue>'auto_Milling.step'</defaultValue>
+      <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
       <id>78717f81-35f4-4a03-bf31-6b51807c5f2e</id>
       <masked>false</masked>
@@ -134,14 +164,14 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Sandblasting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentMTP</defaultValue>
       <description></description>
       <id>f06efde4-8b48-4e82-9c09-430fe0543fef</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'Ra 0,8 - 1,6 (finely finished); Rz 6,3 - 10'</defaultValue>
+      <defaultValue>GlobalVariable.quality</defaultValue>
       <description>Ra 3,2 - 25 (roughed); Rz 16 - 100; Ra 1,6 - 3,2 (settled); Rz 10 - 16</description>
       <id>af377a0c-b5de-4d25-ba0f-040df52de71f</id>
       <masked>false</masked>
@@ -162,38 +192,73 @@
       <name>tolerancesToggle</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupMTP</defaultValue>
       <description></description>
       <id>456ec4f7-0215-4fc4-b16f-466946f5511f</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'TECAFLON PTFE natural'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameMTP</defaultValue>
       <description></description>
       <id>2c02cbb8-c167-4c76-b462-52fd79f1ac44</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
       <description></description>
       <id>65316e39-d770-41ee-abf8-b9c1bac26fa2</id>
       <masked>false</masked>
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'STANDARD'</defaultValue>
+      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
       <description></description>
       <id>e4167302-c2db-4dfd-9719-7d54247b3f49</id>
       <masked>false</masked>
       <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>'Standard shipping'</defaultValue>
+      <defaultValue>GlobalVariable.shippingOption</defaultValue>
       <description></description>
       <id>cb9b750c-6437-4e6d-82fb-de0eb22d6e6a</id>
       <masked>false</masked>
       <name>shippingOption</name>
+   </variable>
+   <variable>
+      <defaultValue>'4242424242424242'</defaultValue>
+      <description></description>
+      <id>f9a68087-c59b-4a3d-9aec-9bb8f4a54ec8</id>
+      <masked>false</masked>
+      <name>cardNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'123'</defaultValue>
+      <description></description>
+      <id>dc41be2d-1b88-426a-bfab-da3f6345c191</id>
+      <masked>false</masked>
+      <name>cardCvc</name>
+   </variable>
+   <variable>
+      <defaultValue>'12/25'</defaultValue>
+      <description></description>
+      <id>a4e74975-a41c-49d1-8432-75bca6d53cd2</id>
+      <masked>false</masked>
+      <name>cardExpiry</name>
+   </variable>
+   <variable>
+      <defaultValue>'Truong Bao Thuy'</defaultValue>
+      <description></description>
+      <id>1959c516-0e3c-4b64-b55f-ac88459b0551</id>
+      <masked>false</masked>
+      <name>billingName</name>
+   </variable>
+   <variable>
+      <defaultValue>'Vietnam'</defaultValue>
+      <description></description>
+      <id>87fe96f3-9667-4eb2-b096-0b9669a32b1b</id>
+      <masked>false</masked>
+      <name>country</name>
    </variable>
 </TestCaseEntity>

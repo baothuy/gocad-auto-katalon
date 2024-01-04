@@ -9,7 +9,7 @@ import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.MySignInPage
+import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
 import gocad.seller.ConfirmedOffersPageOfSeller
 import gocad.seller.OpenInquiriesPage
@@ -23,17 +23,17 @@ println '>> Random project name'
 def projectName = CommonUtility.generateRandomProjectName(10)
 
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>> Get company Name on Settings page'
 Page.nav(LeftNavBar).clickSettings()
 String companyName = Page.nav(AccountSettingsPage).getCompanyName()
 
 println '>> User buyer add project'
-Page.nav(LeftNavBar).clickAddProject()
+Page.nav(LeftNavBar).clickNewProject()
 
 println '>> Open add project popup and add new project name'
-Page.nav(AddProjectPopup).inputProjectName("$projectName").clickOKButton()
+Page.nav(DataUploadPage).clickEditProjectName(projectName)
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
@@ -50,18 +50,18 @@ Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 println '>> Input required field'
 Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', filePDF)
 										.clickProvideOwnMaterialCB(provideOwnProduct)
-										.inputThickness(partName, thicknessNum)
+										.selectThickness(partName, thicknessNum)
 										.inputQuantity(quantityNum)
 										.selectSurfaceTreatment(surfaceTreatment)
-										.selectRollingDirection(rollingDirection)
-										.clickDeburringCheckbox(deburring)
+										.selectLaserMarking(laserMarking)
+										.selectDeburring(deburring)
 										.inputCountersink(countersinkNum)
-										.inputThread(threadNum)
+										.inputThread(threadNum)										
 										.inputComment(comment)
 
 println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
-									  .clickContinueToOfferOverview()
+									  .clickReview()
 
 println '>> Click Checkout button on Review Page'
 //List<String> tablePart = Page.nav(ReviewPage).getTablePartReview(partName)
@@ -99,7 +99,7 @@ println '>> Buyer click Logout button'
 Page.nav(LeftNavBar).clickLogout()
 
 println '>> Seller Login system to check offers of buyer'
-Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
 
 println '>> Seller go detail offers of buyer checkout'
 Page.nav(OpenInquiriesPage).verifyProjectName(projectId, projectName)
@@ -154,7 +154,7 @@ println '>> Seller click Logout button'
 Page.nav(LeftNavBar).clickLogout()
  
 println '>> User buyer signs in to administration page'
-Page.nav(MySignInPage).enterCredentialAsBuyer().clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).enterCredentialAsBuyer().clickSignIn().verifySuccessfullySignInAsBuyer()
  
 println '>> Go to Received Offers list page, verify infor and go detail of offers'
 Page.nav(LeftNavBar).clickReceivedOffers()
@@ -196,7 +196,7 @@ println '>> Seller click Logout button'
 Page.nav(LeftNavBar).clickLogout()
  
 println '>> Seller Login system to check offers of buyer'
-Page.nav(MySignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
+Page.nav(SignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullySignInAsSeller()
 					 
 println '>> Verify information show on list'
 Page.nav(LeftNavBar).clickConfirmedOffers()
