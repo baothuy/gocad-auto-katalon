@@ -40,7 +40,7 @@ Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 
 println '>> Input required field'
 Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', filePDF)
-										.inputFieldSMPShop(provideOwnProduct, partName, thicknessNum, quantityNum, surfaceTreatment, laserMarking, deburring, countersinkNum, threadNum, comment)
+							.inputFieldSMPShop(provideOwnProduct, partName, thicknessNum, quantityNum, surfaceTreatment, laserMarking, deburring, countersinkNum, threadNum, comment)
 
 										
 String deliveryDate = DateTimeUtility.next30Days("yyyy-MM-dd")
