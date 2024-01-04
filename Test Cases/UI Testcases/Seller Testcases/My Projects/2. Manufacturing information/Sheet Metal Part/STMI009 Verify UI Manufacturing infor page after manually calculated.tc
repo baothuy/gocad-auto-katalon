@@ -124,7 +124,7 @@
       <name>quantityNum</name>
    </variable>
    <variable>
-      <defaultValue>GlobalVariable.surfaceTreatmentSMP</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>2ca5335a-6b22-4a08-b341-d96e3c83dc9f</id>
       <masked>false</masked>

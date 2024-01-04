@@ -9,12 +9,6 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>6c78e809-018d-4b3f-968b-2c69cd36ab2f</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
       <variableId>088331ac-1fde-4038-8ff5-04876bd28729</variableId>
    </variableLinks>
    <variableLinks>
@@ -35,13 +29,6 @@
       <value></value>
       <variableId>fe63c756-a19d-4146-a003-546b912084ac</variableId>
    </variableLinks>
-   <variable>
-      <defaultValue>'8'</defaultValue>
-      <description></description>
-      <id>6c78e809-018d-4b3f-968b-2c69cd36ab2f</id>
-      <masked>false</masked>
-      <name>customerId</name>
-   </variable>
    <variable>
       <defaultValue>'10'</defaultValue>
       <description></description>

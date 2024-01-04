@@ -166,12 +166,12 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Copper'</initValue>
+      <initValue>'Rubber'</initValue>
       <name>materialGroupSMP2</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'CuSn8'</initValue>
+      <initValue>'EPDM 65 Premium'</initValue>
       <name>materialNameSMP2</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>

@@ -12,6 +12,8 @@ println '>> Click search data project added at previous step'
 Page.nav(LeftNavBar).clickCustomerOverview()
 
 println '>> Verify UI Requested Offers page'
+List<String> dataRow = Page.nav(CustomerOverviewPage).getDataRow("1")
+String customerId = dataRow[0]
 Page.nav(CustomerOverviewPage).clickAction(customerId)
 
 Page.nav(CustomerOverviewDetailPage).inputDiscount(discountChanged)
