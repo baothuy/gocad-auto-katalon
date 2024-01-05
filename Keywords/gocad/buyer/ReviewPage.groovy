@@ -8,6 +8,7 @@ import katalon.fw.lib.BasePage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.FunctionCommon
+import internal.GlobalVariable
 
 public class ReviewPage extends BasePage<ReviewPage>{
 
@@ -66,7 +67,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		String pattern = /(rgb\(\d+,\s*\d+,\s*\d+\))/
 		String rgbValue = CommonUtility.substringUseRegExp(colorTwo, pattern,1)
 		String rgbToHex = CommonUtility.rgbToHex(rgbValue)
-		WebUI.verifyEqual(rgbToHex, "#FFCB3D")
+		WebUI.verifyEqual(rgbToHex, GlobalVariable.highlightColor)
 		return this
 	}
 

@@ -179,4 +179,9 @@
       <initValue>''</initValue>
       <name>prefixOrderNumber</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'#115DD5'</initValue>
+      <name>highlightColor</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
