@@ -114,7 +114,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		String pattern = /(rgb\(\d+,\s*\d+,\s*\d+\))/
 		String rgbValue = CommonUtility.substringUseRegExp(colorTwo, pattern,1)
 		String rgbToHex = CommonUtility.rgbToHex(rgbValue)
-		WebUI.verifyEqual(rgbToHex, "#FFCB3D")
+		WebUI.verifyEqual(rgbToHex, GlobalVariable.highlightColor)
 		return this
 	}
 
