@@ -67,7 +67,7 @@ public class ReviewPage extends BasePage<ReviewPage>{
 		String pattern = /(rgb\(\d+,\s*\d+,\s*\d+\))/
 		String rgbValue = CommonUtility.substringUseRegExp(colorTwo, pattern,1)
 		String rgbToHex = CommonUtility.rgbToHex(rgbValue)
-		WebUI.verifyEqual(rgbToHex, GlobalVariable.highlightColor)
+		WebUI.verifyEqual(rgbToHex, GlobalVariable.highlightProcessColor)
 		return this
 	}
 

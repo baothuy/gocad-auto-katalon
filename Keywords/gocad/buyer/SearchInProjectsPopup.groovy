@@ -131,7 +131,7 @@ public class SearchInProjectsPopup extends BasePage<SearchInProjectsPopup>{
 	public SearchInProjectsPopup verifyHighlightOnList(String projectId) {
 		String backgroundColor = WebUI.getCSSValue(rowOfProject(projectId), 'background-color')
 		String rgbaToHex = CommonUtility.rgbaToHex(backgroundColor)
-		WebUI.verifyEqual(rgbaToHex, "#FFF8E6")
+		WebUI.verifyEqual(rgbaToHex, GlobalVariable.highlightListColor)
 		return this
 	}
 

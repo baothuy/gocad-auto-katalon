@@ -182,6 +182,11 @@
    <GlobalVariableEntity>
       <description></description>
       <initValue>'#115DD5'</initValue>
-      <name>highlightColor</name>
+      <name>highlightProcessColor</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'#FFF6F2'</initValue>
+      <name>highlightListColor</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

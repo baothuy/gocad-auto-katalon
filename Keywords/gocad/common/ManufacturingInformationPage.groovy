@@ -553,7 +553,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		println "rgbValue: $rgbValue"
 		String rgbToHex = CommonUtility.rgbToHex(rgbValue)
 		println "rgbToHex: $rgbToHex"
-		WebUI.verifyEqual(rgbToHex, GlobalVariable.highlightColor)
+		WebUI.verifyEqual(rgbToHex, GlobalVariable.highlightProcessColor)
 		return this
 	}
 

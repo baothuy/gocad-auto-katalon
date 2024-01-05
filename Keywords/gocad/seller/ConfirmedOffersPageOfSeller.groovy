@@ -30,7 +30,7 @@ public class ConfirmedOffersPageOfSeller extends BasePage<ConfirmedOffersPageOfS
 		String backgroundColor = WebUI.getCSSValue(rowOfProject(projectId), 'background-color')
 		String rgbaToHex = CommonUtility.rgbaToHex(backgroundColor)
 		println "colorActual: $rgbaToHex"
-		WebUI.verifyEqual(rgbaToHex, "#FFF8E6")
+		WebUI.verifyEqual(rgbaToHex, GlobalVariable.highlightListColor)
 		return this
 	}
 
