@@ -179,4 +179,14 @@
       <initValue>'GOCAD'</initValue>
       <name>prefixOrderNumber</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'#FFCB3D'</initValue>
+      <name>highlightProcessColor</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'#FFF8E6'</initValue>
+      <name>highlightListColor</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

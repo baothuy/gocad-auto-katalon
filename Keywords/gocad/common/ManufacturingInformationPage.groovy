@@ -200,31 +200,31 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		}
 		return this
 	}
-	
-	public ManufacturingInformationPage inputFieldSMPShop(String provideOwnProduct, String partName, String thicknessNum, 
-		String quantityNum, String surfaceTreatment, String laserMarking, String deburring, String countersinkNum, String threadNum, String comment) {
+
+	public ManufacturingInformationPage inputFieldSMPShop(String provideOwnProduct, String partName, String thicknessNum,
+			String quantityNum, String surfaceTreatment, String laserMarking, String deburring, String countersinkNum, String threadNum, String comment) {
 		clickProvideOwnMaterialCB(provideOwnProduct)
-		.selectThickness(partName, thicknessNum)
-		.inputQuantity(quantityNum)
-		.selectSurfaceTreatment(surfaceTreatment)
-		.selectLaserMarking(laserMarking)
-		.selectDeburring(deburring)
-		.inputCountersink(countersinkNum)
-		.inputThread(threadNum)
-		.inputComment(comment)
+				.selectThickness(partName, thicknessNum)
+				.inputQuantity(quantityNum)
+				.selectSurfaceTreatment(surfaceTreatment)
+				.selectLaserMarking(laserMarking)
+				.selectDeburring(deburring)
+				.inputCountersink(countersinkNum)
+				.inputThread(threadNum)
+				.inputComment(comment)
 		return this
 	}
-	
-	public ManufacturingInformationPage inputFieldMTPShop(String provideOwnProduct, String quantityNum, String threadNum, 
-		String tolerancesNum, String tolerancesToggle,String surfaceTreatment, String quality, String comment) {
+
+	public ManufacturingInformationPage inputFieldMTPShop(String provideOwnProduct, String quantityNum, String threadNum,
+			String tolerancesNum, String tolerancesToggle,String surfaceTreatment, String quality, String comment) {
 		clickProvideOwnMaterialCB(provideOwnProduct)
-		.inputQuantity(quantityNum)
-		.inputThread(threadNum)
-		.inputTolerances(tolerancesNum)
-		.clickToggleTolerances(tolerancesToggle)
-		.selectSurfaceTreatment(surfaceTreatment)
-		.selectSurfaceQuality(quality)
-		.inputComment(comment)
+				.inputQuantity(quantityNum)
+				.inputThread(threadNum)
+				.inputTolerances(tolerancesNum)
+				.clickToggleTolerances(tolerancesToggle)
+				.selectSurfaceTreatment(surfaceTreatment)
+				.selectSurfaceQuality(quality)
+				.inputComment(comment)
 		return this
 	}
 
@@ -541,7 +541,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		println "rgbValue: $rgbValue"
 		String rgbToHex = CommonUtility.rgbToHex(rgbValue)
 		println "rgbToHex: $rgbToHex"
-		WebUI.verifyEqual(rgbToHex, GlobalVariable.highlightColor)
+		WebUI.verifyEqual(rgbToHex, GlobalVariable.highlightProcessColor)
 		return this
 	}
 
