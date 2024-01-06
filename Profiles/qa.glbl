@@ -96,7 +96,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Aluminium'</initValue>
+      <initValue>'Aluminum'</initValue>
       <name>materialGroupMTP</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
