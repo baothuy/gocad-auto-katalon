@@ -68,28 +68,28 @@
       <name>contactChanged</name>
    </variable>
    <variable>
-      <defaultValue>['Thuy', 'Truong', '0794050505', '359', 'Bavaria', '73405', 'Abenberg', 'Germany']</defaultValue>
+      <defaultValue>['Thuy', 'Truong', 'thuyautomation0@gmail.com', '0794060606', '359', '0794050505', 'Germany', 'Bavaria', 'Abenberg', '72405']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
       <name>billingAddress</name>
    </variable>
    <variable>
-      <defaultValue>['Thuy1', 'Truong2', '07940505055', '3594', 'Berlin', '734056', 'Adlershof', 'Germany']</defaultValue>
+      <defaultValue>['Thuy1', 'Truong2', 'truongbaothuy93@gmail.com', '07940606066', '3594', '07940505055', 'Germany', 'Berlin', 'Adlershof', '734056']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
       <name>shippingAddress</name>
    </variable>
    <variable>
-      <defaultValue>['ThuyThuy', 'TruongTruong', '07940505050794050505', '359359', 'Baden-Württemberg', '7340573', 'Achern', 'Germany']</defaultValue>
+      <defaultValue>['ThuyThuy', 'TruongTruong', 'thuyautomation1@gmail.com', '07940606067', '3596', '07940505057', 'Germany', 'Bremen', 'Bremerhaven', '724057']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
       <name>billingAddressChanged</name>
    </variable>
    <variable>
-      <defaultValue>['Thuy11', 'Truong22', '07940505044', '35933', 'Hamburg', '7340555', 'Altona', 'Germany']</defaultValue>
+      <defaultValue>['Thuy11', 'Truong22', 'truongbaothuy934@gmail.com', '07940606067', '3598', '07940505059', 'Germany', 'Hamburg', 'Altona', '7340568']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>

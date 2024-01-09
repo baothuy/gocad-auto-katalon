@@ -27,18 +27,24 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 		String firstName = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_firstName']"), "value")
 		String lastName = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_lastName']"), "value")
 		String fullName = firstName + " " + lastName
+		String email = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_email']"), "value")
+		String phone = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_phone']"), "value")
 		String houseNumber = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_houseNumber']"), "value")
 		String street = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_streetName']"), "value")
+		String country = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_country']/parent::span/following-sibling::span"), "title")
 		String state = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_state']"), "value")
 		String zipCode = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_postCode']"), "value")
 		String city = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_city']"), "value")
 		List<String> billingAddress = [
 			fullName,
-			houseNumber,
+			email,
+			phone,
 			street,
+			houseNumber,
+			country,
 			state,
-			zipCode,
-			city
+			city,
+			zipCode
 		]
 		return billingAddress
 	}
@@ -48,18 +54,24 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 		String firstName = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_firstName']"), "value")
 		String lastName = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_lastName']"), "value")
 		String fullName = firstName + " " + lastName
+		String email = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_email']"), "value")
+		String phone = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_phone']"), "value")
 		String houseNumber = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_houseNumber']"), "value")
 		String street = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_streetName']"), "value")
+		String country = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_country']/parent::span/following-sibling::span"), "title")
 		String state = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_state']"), "value")
 		String zipCode = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_postCode']"), "value")
 		String city = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_city']"), "value")
 		List<String> shippingAddress = [
 			fullName,
-			houseNumber,
+			email,
+			phone,
 			street,
+			houseNumber,
+			country,
 			state,
-			zipCode,
-			city
+			city,
+			zipCode
 		]
 		return shippingAddress
 	}
@@ -72,13 +84,19 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 		String state = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
 		String zipCode = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
 		String city = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
+		String country = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Country']/ancestor::tr/following-sibling::tr[1]/td[1]"))
+		String email = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='E-mail']/ancestor::tr/following-sibling::tr[1]/td[2]"))
+		String phone = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Phone']/ancestor::tr/following-sibling::tr[1]/td[3]"))
 		List<String> billingAddress = [
 			fullName,
-			houseNumber,
+			email,
+			phone,
 			street,
+			houseNumber,
+			country,
 			state,
-			zipCode,
-			city
+			city,
+			zipCode
 		]
 		return billingAddress
 	}
@@ -91,13 +109,74 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 		String state = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
 		String zipCode = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
 		String city = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
+		String country = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Country']/ancestor::tr/following-sibling::tr[1]/td[1]"))
+		String email = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='E-mail']/ancestor::tr/following-sibling::tr[1]/td[2]"))
+		String phone = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Phone']/ancestor::tr/following-sibling::tr[1]/td[3]"))
 		List<String> billingAddress = [
 			fullName,
-			houseNumber,
+			email,
+			phone,
 			street,
+			houseNumber,
+			country,
 			state,
-			zipCode,
-			city
+			city,
+			zipCode
+		]
+		return billingAddress
+	}
+
+	//Account Settings
+	//Billing address
+	public List<String> getBillingAddressAccountSettings() {
+		String firstName = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_firstName']"), 'value')
+		String lastName = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_lastName']"), 'value')
+		String name = (firstName + " " + lastName).replace(",", "")
+		String email = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_email']"), 'value')
+		String phone = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_phone']"), 'value')
+		String streetName = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_streetName']"), 'value')
+		String houseNumber = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_houseNumber']"), 'value')
+		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']"), 'title')
+		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[9]//input"), 'value')
+		String city = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[10]//input"), 'value')
+		String postCode = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_postCode']"), 'value')
+		List<String> billingAddress = [
+			name,
+			email,
+			phone,
+			streetName,
+			houseNumber,
+			country,
+			state,
+			city,
+			postCode
+		]
+		return billingAddress
+	}
+
+	//Shipping address
+	public List<String> getShippingAddressAccountSettings() {
+		String firstName = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_firstName']"), 'value')
+		String lastName = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_lastName']"), 'value')
+		String name = (firstName + " " + lastName).replace(",", "")
+		String email = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_email']"), 'value')
+		String phone = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_phone']"), 'value')
+		String streetName = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_streetName']"), 'value')
+		String houseNumber = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_houseNumber']"), 'value')
+		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']"), 'title')
+		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[9]//input"), 'value')
+		String city = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[10]//input"), 'value')
+		String postCode = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_postCode']"), 'value')
+		List<String> billingAddress = [
+			name,
+			email,
+			phone,
+			streetName,
+			houseNumber,
+			country,
+			state,
+			city,
+			postCode
 		]
 		return billingAddress
 	}
