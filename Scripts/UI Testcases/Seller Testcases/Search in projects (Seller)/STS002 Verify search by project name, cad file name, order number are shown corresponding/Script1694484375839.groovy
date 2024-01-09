@@ -1,8 +1,7 @@
-import gocad.buyer.DraftPage
-import gocad.seller.SearchInProjectsPopup
 import gocad.common.LeftNavBar
 import gocad.common.SignInPage
 import gocad.seller.OpenInquiriesPage
+import gocad.seller.SearchInProjectsPopup
 import katalon.fw.lib.Page
 import katalon.utility.DateTimeUtility
 
