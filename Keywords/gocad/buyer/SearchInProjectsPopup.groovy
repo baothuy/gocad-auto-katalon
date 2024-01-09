@@ -4,6 +4,7 @@ import org.openqa.selenium.Keys
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
