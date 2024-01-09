@@ -77,6 +77,12 @@
       <value></value>
       <variableId>0faf4701-d280-4093-9bcc-731d24ae80e8</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>7ce23eef-8af1-4df8-826e-6d63cb855836</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'Plastic'</defaultValue>
       <description></description>
@@ -85,14 +91,14 @@
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'Glass Plastic'</defaultValue>
+      <defaultValue>'Auto Glass Plastic'</defaultValue>
       <description></description>
       <id>831d19f3-577a-4007-80fa-02ebd157f803</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'3.0036'</defaultValue>
+      <defaultValue>'2.0361'</defaultValue>
       <description></description>
       <id>11e57b14-8dad-4c67-a190-776af18fd9a7</id>
       <masked>false</masked>
@@ -160,5 +166,12 @@
       <id>0faf4701-d280-4093-9bcc-731d24ae80e8</id>
       <masked>false</masked>
       <name>height</name>
+   </variable>
+   <variable>
+      <defaultValue>'4'</defaultValue>
+      <description></description>
+      <id>7ce23eef-8af1-4df8-826e-6d63cb855836</id>
+      <masked>false</masked>
+      <name>pricePerKiloThickness</name>
    </variable>
 </TestCaseEntity>

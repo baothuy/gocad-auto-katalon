@@ -32,6 +32,7 @@ Page.nav(ToastMessage).verifyToastMessage("Success!", "Material" + " - " + mater
 						
 println '>> Verify create thickness material success'
 Page.nav(MaterialSettingsPopup).inputThickness(thickness)
+								.inputPricePerKiloInThickness(pricePerKiloThickness)
 								.clickAddNewThickness()
 								.verifyThicknessValue(thickness)
 								

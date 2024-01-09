@@ -88,6 +88,11 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		clearTextAndSendKeysByActions(xpath("//p[text()='Thickness']/following-sibling::form//input"), thickness)
 		return this
 	}
+	
+	public MaterialSettingsPopup inputPricePerKiloInThickness(String value) {
+		clearTextAndSendKeysByActions(xpath("//label[@for='pricePerKilo']/parent::div/following::input"), value)
+		return this
+	}
 
 	public MaterialSettingsPopup inputDiameter(String diameter) {
 		clearTextAndSendKeysByActions(id("diameter"), diameter)
