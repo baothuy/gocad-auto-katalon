@@ -24,5 +24,6 @@ Page.nav(CompliancesSettingsPage).clickMoreButton(name)
 Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Delete Compliance")
 						.verifyContentConfirmPopup("Are you sure to delete this compliance? The compliance will not be restored.")
 						.clickOK()
+						.sleep(2)
 						
 Page.nav(ToastMessage).verifyToastMessage("Deleted","Deleted successfully.")
