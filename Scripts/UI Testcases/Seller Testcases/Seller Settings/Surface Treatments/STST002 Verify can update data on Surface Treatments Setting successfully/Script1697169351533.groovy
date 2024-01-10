@@ -15,8 +15,8 @@ println '>> click Edit Button'
 Page.nav(SurfaceTreatmentsSettingPage).clickEditButton(method)
 
 println '>> input field'
-Page.nav(SurfaceTreatmentsSettingPopup).inputLocalizedNamesEnglish(english)
-										.inputLocalizedNamesGerman(german)
+Page.nav(SurfaceTreatmentsSettingPopup).inputLocalizedNamesGerman(german)
+										.inputLocalizedNamesEnglish(englishChanged)
 										.inputLocalizedNamesItalian(italian)
 										.inputLocalizedNamesCzech(czech)
 										.inputAbbr(abbr)
@@ -31,3 +31,16 @@ Page.nav(SurfaceTreatmentsSettingPopup).inputLocalizedNamesEnglish(english)
 
 println '>> verify Toast Message'
 Page.nav(ToastMessage).verifyToastMessage("Update success!", "Surface treatment - Soft annealing")
+						.refreshPage()
+						.sleep(2)
+						
+println '>> verify data after updated'
+//Page.nav(SurfaceTreatmentsSettingPage).verifyAfterDataUpdated(abbr, method, pricePerArea, pricePerKilo, setupCost, minOrder, deliveryWeek)
+Page.nav(SurfaceTreatmentsSettingPage).verifyMethodValue(englishChanged)
+
+println '>> click Edit Button'
+Page.nav(SurfaceTreatmentsSettingPage).clickEditButton(method)
+
+println '>> input field again'
+Page.nav(SurfaceTreatmentsSettingPopup).inputLocalizedNamesEnglish(method)
+										.clickOKButton()
