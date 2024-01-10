@@ -47,12 +47,12 @@ public class SurfaceTreatmentsSettingPopup extends BasePage<SurfaceTreatmentsSet
 		return this
 	}
 	
-	public SurfaceTreatmentsSettingPopup inputLocalizedNamesEnglish(String input) {
+	public SurfaceTreatmentsSettingPopup inputLocalizedNamesGerman(String input) {
 		clearTextAndSendKeysByActions(id("basic_localizations_0_name"), input)
 		return this
 	}
 	
-	public SurfaceTreatmentsSettingPopup inputLocalizedNamesGerman(String input) {
+	public SurfaceTreatmentsSettingPopup inputLocalizedNamesEnglish(String input) {
 		clearTextAndSendKeysByActions(id("basic_localizations_1_name"), input)
 		return this
 	}
@@ -104,12 +104,12 @@ public class SurfaceTreatmentsSettingPopup extends BasePage<SurfaceTreatmentsSet
 	
 	//visible
 	
-	public SurfaceTreatmentsSettingPopup verifyInputLocalizedNamesEnglishVisible() {
+	public SurfaceTreatmentsSettingPopup verifyInputLocalizedNamesGermanVisible() {
 		WebUI.verifyElementVisible(id("basic_localizations_0_name"))
 		return this
 	}
 	
-	public SurfaceTreatmentsSettingPopup verifyInputLocalizedNamesGermanVisible() {
+	public SurfaceTreatmentsSettingPopup verifyInputLocalizedNamesEnglishVisible() {
 		WebUI.verifyElementVisible(id("basic_localizations_1_name"))
 		return this
 	}

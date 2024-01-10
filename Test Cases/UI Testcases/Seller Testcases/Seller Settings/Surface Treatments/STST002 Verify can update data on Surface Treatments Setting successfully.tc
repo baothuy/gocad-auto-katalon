@@ -91,11 +91,11 @@
       <name>method</name>
    </variable>
    <variable>
-      <defaultValue>'Soft annealing'</defaultValue>
+      <defaultValue>'Soft annealing abc'</defaultValue>
       <description></description>
       <id>ee50727b-88b6-441e-b888-6d3d1f7cc121</id>
       <masked>false</masked>
-      <name>english</name>
+      <name>englishChanged</name>
    </variable>
    <variable>
       <defaultValue>'Weichglühen'</defaultValue>
