@@ -9,8 +9,8 @@
       <combinationType>ONE</combinationType>
       <id>d47095ba-29a8-41ef-8af7-8030445e8ae0</id>
       <iterationEntity>
-         <iterationType>RANGE</iterationType>
-         <value>2-3</value>
+         <iterationType>ALL</iterationType>
+         <value>3</value>
       </iterationEntity>
       <testDataId>Data Files/Milled Or Turned Parts/FPA002-003-005-007</testDataId>
    </testDataLinks>
