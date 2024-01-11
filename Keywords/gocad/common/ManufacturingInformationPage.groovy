@@ -229,11 +229,10 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	}
 
 	public ManufacturingInformationPage inputFieldMTPShop(String quantityNum, String threadNum,
-			String tolerancesNum,String compliances, String quality, String comment) {
-		inputQuantity(quantityNum)
+			String tolerancesNum, String quality, String comment) {
+				inputQuantity(quantityNum)
 				.inputThread(threadNum)
 				.inputTolerances(tolerancesNum)
-				.selectFurtherConfirmitiesRequested(compliances)
 				.selectSurfaceQuality(quality)
 				.inputComment(comment)
 		return this

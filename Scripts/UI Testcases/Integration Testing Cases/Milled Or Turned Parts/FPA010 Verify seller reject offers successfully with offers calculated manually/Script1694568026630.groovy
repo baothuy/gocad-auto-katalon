@@ -49,7 +49,7 @@ if (filePDF == "")
 	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 	
 	println '>> Input required field'
-	Page.nav(ManufacturingInformationPage).inputFieldMTPShop(quantityNum, threadNum, tolerancesNum, compliances, quality, comment)
+	Page.nav(ManufacturingInformationPage).inputFieldMTPShop(quantityNum, threadNum, tolerancesNum, quality, comment)
 }
 else
 {
@@ -71,7 +71,7 @@ else
 		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
 	 }
 	 
-	 Page.nav(ManufacturingInformationPage).inputFieldMTPShop(quantityNum, "", "", compliances, quality, comment)
+	 Page.nav(ManufacturingInformationPage).inputFieldMTPShop(quantityNum, "", "", quality, comment)
 }
 
 println '>> click Calculate and move to Review page'

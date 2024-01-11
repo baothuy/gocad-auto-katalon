@@ -12,15 +12,15 @@ import katalon.fw.lib.BasePage
 
 public class FunctionCommon extends BasePage<FunctionCommon>{
 
-	def partCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[2]"}
-	def fileCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[3]//a"}
-	def materialCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[4]"}
-	def thicknessCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[5]"}
-	def quantityCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[6]"}
-	def unitPriceCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[7]"}
-	def partPriceTotalCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[8]"}
-	def CO2EmissionCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[10]"}
-	def actionMore = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[11]//button"}
+	def partCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[1]"}
+	def fileCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[2]//a"}
+	def materialCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[3]"}
+	def thicknessCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[4]"}
+	def quantityCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[5]"}
+	def unitPriceCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[6]"}
+	def partPriceTotalCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[7]"}
+	def CO2EmissionCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[9]"}
+	def actionMore = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[10]//button"}
 
 	//Billing Address
 	public List<String> getBillingAddressCheckoutPage() {
@@ -209,7 +209,7 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 	public List<String> getTablePartReview(String partName) {
 		String partNameCol = WebUI.getText(xpath(partCol(partName)))
 		String material = WebUI.getText(xpath(materialCol(partName)))
-		String thickness = WebUI.getText(xpath(thicknessCol(partName)))
+		//String thickness = WebUI.getText(xpath(thicknessCol(partName)))
 		List<String> findQuanTestObjects = findTestObjects("//input[@id='quantity']")
 		String quantity
 		if (findQuanTestObjects.size() != 0) {
@@ -241,7 +241,6 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 		List<String> actualResult = [
 			partNameCol,
 			material,
-			thickness,
 			quantity,
 			unitPrice,
 			totalPartPrice,

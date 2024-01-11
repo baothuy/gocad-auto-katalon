@@ -36,12 +36,12 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'e1V7F5cNMHE='</initValue>
+      <initValue>'gErsMkbMyRcUlA5todApqQ=='</initValue>
       <name>seller_pass</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'https://gm-plastx.gocad.de/'</initValue>
+      <initValue>'https://ensingerplastics.gocad.de/'</initValue>
       <name>myUrl</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -96,12 +96,12 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Aluminum'</initValue>
+      <initValue>'TECADUR / PBT'</initValue>
       <name>materialGroupMTP</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'EN AW-6060 / AlMgSi'</initValue>
+      <initValue>'TECADUR PBT GF30 natural'</initValue>
       <name>materialNameMTP</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -176,17 +176,17 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>''</initValue>
+      <initValue>'EP-Web'</initValue>
       <name>prefixOrderNumber</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'#115DD5'</initValue>
+      <initValue>'#125687'</initValue>
       <name>highlightProcessColor</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'#FFF6F2'</initValue>
+      <initValue>'#F2FEDC'</initValue>
       <name>highlightListColor</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>
