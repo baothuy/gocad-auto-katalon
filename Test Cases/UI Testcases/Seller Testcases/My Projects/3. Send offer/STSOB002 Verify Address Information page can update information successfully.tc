@@ -187,14 +187,14 @@
       <name>email</name>
    </variable>
    <variable>
-      <defaultValue>['ThuyThuy', 'TruongTruong', '07940505050794050505', '359359', 'Bremen', '7340573', 'Bremerhaven', 'Germany']</defaultValue>
+      <defaultValue>['ThuyThuy', 'TruongTruong', 'thuyautomation1@gmail.com', '07940606067', '3596', '07940505057', 'Germany', 'Bremen', 'Bremerhaven', '724057']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
       <name>billingAddressChanged</name>
    </variable>
    <variable>
-      <defaultValue>['Thuy11', 'Truong22', '07940505044', '35933', 'Hamburg', '7340555', 'Bergstedt', 'Germany']</defaultValue>
+      <defaultValue>['Thuy11', 'Truong22', 'truongbaothuy934@gmail.com', '07940606067', '3598', '07940505059', 'Germany', 'Hamburg', 'Altona', '7340568']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
