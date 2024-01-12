@@ -45,16 +45,7 @@ Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
 
 println '>> Input required field'
 Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', filePDF)
-										.clickProvideOwnMaterialCB(provideOwnProduct)
-										.selectThickness(partName, thicknessNum)
-										.inputQuantity(quantityNum)
-										.selectSurfaceTreatment(surfaceTreatment)
-										.selectLaserMarking(laserMarking)
-										.selectDeburring(deburring)
-										.inputCountersink(countersinkNum)
-										.inputThread(threadNum)
-										
-										.inputComment(comment)
+							.inputFieldSMPShop(provideOwnProduct, partName, thicknessNum, quantityNum, surfaceTreatment, laserMarking, deburring, countersinkNum, threadNum, comment)
 
 println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
