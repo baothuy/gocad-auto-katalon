@@ -260,34 +260,14 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 		// input partname
 		WebUI.verifyElementVisible(xpath("//*[@class='input-inline-api']"))
 		// file download file cad and pdf
-		WebUI.verifyElementVisible(xpath("//*[@class='text-decoration-none']"))
-		List<String> findTestObject = findTestObjects("//*[text()='Milled / Turned Parts']")
-		if(findTestObject.size() != 0)
-		{
-			// information part
-			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Thread (Quantity)']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Tolerances and fits with less than 1/10mm or IT 1 - IT 10 (Number)']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Surface Quality']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Tolerance requirement with smaller 1/100mm or IT 1 - IT 5']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))
-		}
-		else if(findTestObject.size() == 0)
-		{
-			// information part
-			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Laser marking']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Countersink']"))
-			WebUI.verifyElementVisible(xpath("//*[@class='ant-modal-body']//*[text()='Thickness']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Surface Treatment']"))
-			//WebUI.verifyElementVisible(xpath("//*[text()='Cutting layers']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Deburring']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Thread Cutting']"))
-			WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))
-		}
+		WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Thread (Quantity)']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Tolerances and fits with less than 1/10mm or IT 1 - IT 10 (Number)']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Surface Quality']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Unit price']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Unit price']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
 		//input project name and button
