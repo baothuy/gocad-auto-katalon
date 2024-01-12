@@ -230,7 +230,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage inputFieldMTPShop(String quantityNum, String threadNum,
 			String tolerancesNum, String quality, String comment) {
-				inputQuantity(quantityNum)
+		inputQuantity(quantityNum)
 				.inputThread(threadNum)
 				.inputTolerances(tolerancesNum)
 				.selectSurfaceQuality(quality)

@@ -117,7 +117,7 @@
       <variableId>c1c397f0-6262-4a31-b9f2-0c24ca7bb571</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>GlobalVariable.partNameSMP</defaultValue>
+      <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
       <id>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</id>
       <masked>false</masked>
