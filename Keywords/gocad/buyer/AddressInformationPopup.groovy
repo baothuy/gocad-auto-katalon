@@ -19,6 +19,16 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		clearTextAndSendKeysByActions(id("billingAddress_lastName"), input)
 		return this
 	}
+	
+	public AddressInformationPopup inputEmailBillingAddress(String input){
+		clearTextAndSendKeysByActions(id("billingAddress_email"), input)
+		return this
+	}
+	
+	public AddressInformationPopup inputPhoneBillingAddress(String input){
+		clearTextAndSendKeysByActions(id("billingAddress_phone"), input)
+		return this
+	}
 
 	public AddressInformationPopup inputStreetBillingAddress(String input){
 		clearTextAndSendKeysByActions(id("billingAddress_streetName"), input)
@@ -31,13 +41,15 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	}
 
 	public AddressInformationPopup selectStateBillingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[7]//input"), input)
+		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[9]//input"), input)
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
 
 	public AddressInformationPopup selectCountryBillingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[6]//input"), input)
+		List<String> findObject = findTestObjects("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']")
+		(findObject.size() != 0) ? WebUI.click(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']")) : WebUI.click(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']//input[@id='billingAddress_country']/parent::span"))
+		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//input"), input)
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
@@ -48,7 +60,7 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	}
 
 	public AddressInformationPopup selectCityBillingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//input"), input)
+		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[10]//input"), input)
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
@@ -63,6 +75,16 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		clearTextAndSendKeysByActions(id("shippingAddress_lastName"), input)
 		return this
 	}
+	
+	public AddressInformationPopup inputEmailShippingAddress(String input){
+		clearTextAndSendKeysByActions(id("shippingAddress_email"), input)
+		return this
+	}
+	
+	public AddressInformationPopup inputPhoneShippingAddress(String input){
+		clearTextAndSendKeysByActions(id("shippingAddress_phone"), input)
+		return this
+	}
 
 	public AddressInformationPopup inputStreetShippingAddress(String input){
 		clearTextAndSendKeysByActions(id("shippingAddress_streetName"), input)
@@ -75,13 +97,15 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	}
 
 	public AddressInformationPopup selectStateShippingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[7]//input"), input)
+		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[9]//input"), input)
 		WebUI.click(xpath("//*[@id='shippingAddress_state_list']/following::*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
 
 	public AddressInformationPopup selectCountryShippingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[6]//input"), input)
+		List<String> findObject = findTestObjects("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']")
+		(findObject.size() != 0) ? WebUI.click(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']")) : WebUI.click(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']//input[@id='billingAddress_country']/parent::span"))
+		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//input"), input)
 		WebUI.click(xpath("//*[@id='shippingAddress_country_list']/following::*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
@@ -92,7 +116,7 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	}
 
 	public AddressInformationPopup selectCityShippingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//input"), input)
+		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[10]//input"), input)
 		WebUI.click(xpath("//*[@id='shippingAddress_city_list']/following::*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
@@ -147,7 +171,14 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"), "title")
 		String zipCode = WebUI.getAttribute(id("billingAddress_postCode"), "value")
 		String city = WebUI.getAttribute(id("billingAddress_city"), "value")
-		List<String> actualBillingAddress = [name, houseNumber, street, state, zipCode, city]
+		List<String> actualBillingAddress = [
+			name,
+			houseNumber,
+			street,
+			state,
+			zipCode,
+			city
+		]
 		println "actualBillingAddress: $actualBillingAddress"
 		WebUI.verifyEqual(actualBillingAddress, expectedResult)
 		return this
@@ -162,7 +193,14 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"), "title")
 		String zipCode = WebUI.getAttribute(id("shippingAddress_postCode"), "value")
 		String city = WebUI.getAttribute(id("shippingAddress_city"), "value")
-		List<String> actualShippingAddress = [name, houseNumber, street, state, zipCode, city]
+		List<String> actualShippingAddress = [
+			name,
+			houseNumber,
+			street,
+			state,
+			zipCode,
+			city
+		]
 		println "actualShippingAddress: $actualShippingAddress"
 		WebUI.verifyEqual(actualShippingAddress, expectedResult)
 		return this
@@ -188,7 +226,7 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		WebUI.verifyEqual(houseNumber, expectedResult)
 		return this
 	}
-	
+
 	public AddressInformationPopup verifyShowErrorWhenStateBillingAddressEmpty() {
 		String houseNumber = WebUI.getText(xpath("//*[@id='billingAddress_state_help']/div"))
 		String expectedResult = "State is required."
@@ -238,7 +276,7 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		WebUI.verifyEqual(houseNumber, expectedResult)
 		return this
 	}
-	
+
 	public AddressInformationPopup verifyShowErrorWhenStateShippingAddressEmpty() {
 		String houseNumber = WebUI.getText(xpath("//*[@id='shippingAddress_state_help']/div"))
 		String expectedResult = "State is required."
