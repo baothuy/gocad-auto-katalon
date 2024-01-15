@@ -98,7 +98,7 @@
       <name>filePDF</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
+      <defaultValue>'200'</defaultValue>
       <description></description>
       <id>8e364813-81f4-4eaa-92dd-762cba92e264</id>
       <masked>false</masked>
@@ -168,7 +168,7 @@
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'SMALL_TOLERANCES'</defaultValue>
+      <defaultValue>'PRICE_EXCEED_THRESHOLD'</defaultValue>
       <description></description>
       <id>cdfcea39-f447-4aba-a17f-c56030d10ad7</id>
       <masked>false</masked>
