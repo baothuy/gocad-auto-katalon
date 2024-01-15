@@ -16,13 +16,13 @@ public class ReviewPage extends BasePage<ReviewPage>{
 	def partCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[2]")}
 	def fileCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[3]//a")}
 	def materialCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[4]")}
-	def thicknessCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[5]")}
-	def quantityCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[6]//input[@id='quantity']")}
-	def unitPriceCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[7]")}
-	def partPriceTotalCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[8]")}
-	def commentCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[9]/span")}
-	def CO2EmissionCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]")}
-	def actionMore = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[11]//button")}
+	//def thicknessCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[5]")}
+	def quantityCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[5]//input[@id='quantity']")}
+	def unitPriceCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[6]")}
+	def partPriceTotalCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[7]")}
+	def commentCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[8]/span")}
+	def CO2EmissionCol = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[9]")}
+	def actionMore = { String partName -> return xpath("//*[text()='$partName']/ancestor::tr/td[10]//button")}
 	def contentAlertManually = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
 	def contentAlertAutomatically = "Please check and confirm your order. You can see the bulk pricing when clicking on the information button for each part. You can adapt the quantity here if required."
 	def expectedContentTooltips = "Surchage to fulfill minimum order value and transport costs for surface treatment"
