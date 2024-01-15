@@ -3,6 +3,8 @@ package gocad.buyer
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import katalon.fw.lib.BasePage
+import katalon.fw.lib.Page
+import katalon.utility.FunctionCommon
 
 
 public class RequestOfferPopup extends BasePage<RequestOfferPopup>{
@@ -78,16 +80,7 @@ public class RequestOfferPopup extends BasePage<RequestOfferPopup>{
 	}
 
 	public RequestOfferPopup verifyBillingAddressValue(List<String> billingAddressExpected) {
-		String firstName = WebUI.getAttribute(xpath("//*[@id='billingAddress_firstName']"), 'value')
-		String lastName = WebUI.getAttribute(xpath("//*[@id='billingAddress_lastName']"), 'value')
-		String name = (firstName + " " + lastName).replace(",", "")
-		String streetName = WebUI.getAttribute(xpath("//*[@id='billingAddress_streetName']"), 'value')
-		String houseNumber = WebUI.getAttribute(xpath("//*[@id='billingAddress_houseNumber']"), 'value')
-		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[7]//input"), 'value')
-		String postCode = WebUI.getAttribute(xpath("//*[@id='billingAddress_postCode']"), 'value')
-		String city = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//input"), 'value')
-		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"), 'title')
-		List<String> billingAddressActual = [name, houseNumber, streetName, state, postCode, city, country]
+		List<String> billingAddressActual = Page.nav(FunctionCommon).getShippingAddressRequestOfferPopup()
 		WebUI.verifyEqual(billingAddressActual, billingAddressExpected)
 		return this
 	}

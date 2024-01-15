@@ -180,6 +180,34 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 		]
 		return billingAddress
 	}
+	
+	//Request Offer
+	//Shipping address
+	public List<String> getShippingAddressRequestOfferPopup() {
+		String firstName = WebUI.getAttribute(xpath("//*[@id='billingAddress_firstName']"), 'value')
+		String lastName = WebUI.getAttribute(xpath("//*[@id='billingAddress_lastName']"), 'value')
+		String name = (firstName + " " + lastName).replace(",", "")
+		String email = WebUI.getAttribute(xpath("//*[@id='billingAddress_email']"), 'value')
+		String phone = WebUI.getAttribute(xpath("//*[@id='billingAddress_phone']"), 'value')
+		String streetName = WebUI.getAttribute(xpath("//*[@id='billingAddress_streetName']"), 'value')
+		String houseNumber = WebUI.getAttribute(xpath("//*[@id='billingAddress_houseNumber']"), 'value')
+		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']"), 'title')
+		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[9]//input"), 'value')
+		String city = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[10]//input"), 'value')
+		String postCode = WebUI.getAttribute(xpath("//*[@id='billingAddress_postCode']"), 'value')
+		List<String> billingAddress = [
+			name,
+			email,
+			phone,
+			streetName,
+			houseNumber,
+			country,
+			state,
+			city,
+			postCode
+		]
+		return billingAddress
+	}
 
 	//Order Summary
 	public List<String> getOrderSummary() {
