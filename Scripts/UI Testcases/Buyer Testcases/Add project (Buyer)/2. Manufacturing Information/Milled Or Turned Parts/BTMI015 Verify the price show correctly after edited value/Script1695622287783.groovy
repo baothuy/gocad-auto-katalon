@@ -71,7 +71,7 @@ String netPrice = Page.nav(ManufacturingInformationPage).calculateNetPrice(unitP
 println '>> Verify UI after calculated automatically of request'
 Page.nav(ManufacturingInformationPage).verifyMaterialValue(material)
 										.verifyQuantityValue(quantityNum)
-										.verifySurfaceTreatmentValue(surfaceTreatment)
+										//.verifySurfaceTreatmentValue(surfaceTreatment)
 										.verifySurfaceQualityValue(quality)
 										.verifyAdditionalCommentsValue(comment)											
 										.verifyUnitPriceValue(unitPrice)

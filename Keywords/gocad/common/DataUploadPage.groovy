@@ -82,7 +82,7 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		WebUI.verifyElementVisible(xpath("//div[text()='Checkout']/ancestor::div[@class='ant-steps-item-container']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Completed']/ancestor::div[@class='ant-steps-item-container']"))
 		WebUI.verifyElementVisible(xpath("//h6[text()='Drag and drop CAD files and Technical drawings here']"))
-		WebUI.verifyElementVisible(xpath("//p[text()='CAD file upload with the following file types: *.stp; *.step; *.dxf; *.dwg']"))
+		WebUI.verifyElementVisible(xpath("//p[text()='CAD file upload with the following file types: STEP, JT, SolidWorks, Solid Edge, Autodesk Inventor, Siemens NX, CATIA V5, Creo Parametric"))
 		WebUI.verifyElementVisible(xpath("//p[text()='Technical Drawing: *.pdf']"))
 		WebUI.verifyElementVisible(xpath("//div[contains(@class,'files-desciption')]"))
 		return this
@@ -95,7 +95,7 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		WebUI.verifyElementVisible(xpath("//div[text()='Send offer']/ancestor::div[@class='ant-steps-item-container']"))
 		WebUI.verifyElementVisible(xpath("//div[text()='Completed']/ancestor::div[@class='ant-steps-item-container']"))
 		WebUI.verifyElementVisible(xpath("//h6[text()='Drag and drop CAD files and Technical drawings here']"))
-		WebUI.verifyElementVisible(xpath("//p[text()='CAD file upload with the following file types: *.stp; *.step; *.dxf; *.dwg']"))
+		WebUI.verifyElementVisible(xpath("//p[text()='CAD file upload with the following file types: STEP, JT, SolidWorks, Solid Edge, Autodesk Inventor, Siemens NX, CATIA V5, Creo Parametric"))
 		WebUI.verifyElementVisible(xpath("//p[text()='Technical Drawing: *.pdf']"))
 		WebUI.verifyElementVisible(xpath("//div[contains(@class,'files-desciption')]"))
 		return this

@@ -3,7 +3,7 @@ package gocad.seller
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import katalon.fw.lib.BasePage
-
+import internal.GlobalVariable
 
 
 
@@ -41,7 +41,7 @@ public class ManufacturingInformationReport extends BasePage<ManufacturingInform
 	}
 
 	public ManufacturingInformationReport inputSetup3AxisMillingMachine(String input) {
-		clearTextAndSendKeysByActions(id("basic_setup_M3M_adaptTr"), input)
+		clearTextAndSendKeysByActions(id("basic_setup_M3S_adaptTr"), input)
 		return this
 	}
 
@@ -51,7 +51,7 @@ public class ManufacturingInformationReport extends BasePage<ManufacturingInform
 	}
 
 	public ManufacturingInformationReport inputProgramming3AxisMillingMachine(String input) {
-		clearTextAndSendKeysByActions(id("basic_programming_M3M_adaptTime"), input)
+		clearTextAndSendKeysByActions(id("basic_programming_M3S_adaptTime"), input)
 		return this
 	}
 
@@ -66,7 +66,7 @@ public class ManufacturingInformationReport extends BasePage<ManufacturingInform
 	}
 
 	public ManufacturingInformationReport inputProcess3AxisMillingMachine(String input) {
-		clearTextAndSendKeysByActions(id("basic_process_M3M_adaptTe"), input)
+		clearTextAndSendKeysByActions(id("basic_process_M3S_adaptTe"), input)
 		return this
 	}
 
@@ -113,7 +113,7 @@ public class ManufacturingInformationReport extends BasePage<ManufacturingInform
 
 	public ManufacturingInformationReport verifyUnitPriceOnManufacturingReportPage(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Unit price']/ancestor::h5/span"))
-		WebUI.verifyEqual(actualResult, expectedResult)
+		WebUI.verifyEqual(actualResult, expectedResult + " " + GlobalVariable.currency)
 		return this
 	}
 

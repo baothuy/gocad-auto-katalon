@@ -114,6 +114,8 @@ public class ReviewPage extends BasePage<ReviewPage>{
 
 	public ReviewPage verifyMaterialValue(String partName, String expectedResult) {
 		String actualResult = WebUI.getText(materialCol(partName))
+		def pattern = /^(.*?)\/[0-9.]+$/
+		actualResult = CommonUtility.substringUseRegExp(actualResult, pattern, 1)
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}

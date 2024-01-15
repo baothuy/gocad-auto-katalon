@@ -382,7 +382,8 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 	public ManufacturingInformationPage verifyMaterialValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Material']/following-sibling::div")).trim()
-		actualResult = CommonUtility.substringUseRegExp(actualResult, "/([A-Za-z]+[0-9]+)/", 0)
+		def pattern = /^(.*?)\/[0-9.]+$/
+		actualResult = CommonUtility.substringUseRegExp(actualResult, pattern, 1)
 		println "MaterialValue: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this

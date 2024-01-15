@@ -75,25 +75,7 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>2100edc3-28e8-4531-a168-600376d1393a</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>8fe96944-b70e-4a1a-b3ce-508210414cb3</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
       <variableId>0de56d9a-bc2d-49e0-84dc-3dff7982bec8</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>951c6458-a077-4c17-8eb6-33f4100f14e3</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
@@ -105,25 +87,7 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>d5a81ef8-5f03-498c-a21f-70eff4a7c444</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>b0caf050-bfea-408f-9545-44960eb3a9f0</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
       <variableId>fcc7bf7e-6a9d-4585-ac00-0b054cfe6db7</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>053a1960-57ca-4099-9775-66fb02096cbc</variableId>
    </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameMTP</defaultValue>
@@ -203,32 +167,11 @@
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'6'</defaultValue>
-      <description></description>
-      <id>2100edc3-28e8-4531-a168-600376d1393a</id>
-      <masked>false</masked>
-      <name>setupSaw</name>
-   </variable>
-   <variable>
-      <defaultValue>'1'</defaultValue>
-      <description></description>
-      <id>8fe96944-b70e-4a1a-b3ce-508210414cb3</id>
-      <masked>false</masked>
-      <name>setupInterimDeburring</name>
-   </variable>
-   <variable>
       <defaultValue>'45.91'</defaultValue>
       <description></description>
       <id>0de56d9a-bc2d-49e0-84dc-3dff7982bec8</id>
       <masked>false</masked>
       <name>setup3AxisMillingMachine</name>
-   </variable>
-   <variable>
-      <defaultValue>'21'</defaultValue>
-      <description></description>
-      <id>951c6458-a077-4c17-8eb6-33f4100f14e3</id>
-      <masked>false</masked>
-      <name>setupRoundingMachine</name>
    </variable>
    <variable>
       <defaultValue>'29.5'</defaultValue>
@@ -238,31 +181,10 @@
       <name>programming3AxisMillingMachine</name>
    </variable>
    <variable>
-      <defaultValue>'1.54'</defaultValue>
-      <description></description>
-      <id>d5a81ef8-5f03-498c-a21f-70eff4a7c444</id>
-      <masked>false</masked>
-      <name>processSaw</name>
-   </variable>
-   <variable>
-      <defaultValue>'1.17'</defaultValue>
-      <description></description>
-      <id>b0caf050-bfea-408f-9545-44960eb3a9f0</id>
-      <masked>false</masked>
-      <name>processInterimDeburring</name>
-   </variable>
-   <variable>
       <defaultValue>'35.55'</defaultValue>
       <description></description>
       <id>fcc7bf7e-6a9d-4585-ac00-0b054cfe6db7</id>
       <masked>false</masked>
       <name>process3AxisMillingMachine</name>
-   </variable>
-   <variable>
-      <defaultValue>'1.73'</defaultValue>
-      <description></description>
-      <id>053a1960-57ca-4099-9775-66fb02096cbc</id>
-      <masked>false</masked>
-      <name>processRoundingMachine</name>
    </variable>
 </TestCaseEntity>

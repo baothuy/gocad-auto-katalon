@@ -62,6 +62,8 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 	public CopyPartPopup verifyMaterialValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Material']/following-sibling::div")).trim()
 		println "actualResult: $actualResult"
+		def pattern = /^(.*?)\/[0-9.]+$/
+		actualResult = CommonUtility.substringUseRegExp(actualResult, pattern, 1)
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}

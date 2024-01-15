@@ -61,7 +61,9 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 	public ViewPartPopup verifyMaterialValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Material']/following-sibling::div")).trim()
 		println "actualResult: $actualResult"
-		WebUI.verifyEqual(actualResult, expectedResult)
+		def pattern = /^(.*?)\/[0-9.]+$/
+		String newActualResult = CommonUtility.substringUseRegExp(actualResult, pattern, 1)
+		WebUI.verifyEqual(newActualResult, expectedResult)
 		return this
 	}
 
