@@ -23,6 +23,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	def contentManualSmallTolerance = "${commonText}\nReason: This tolerance requirement for this part are too high for online ordering. You can request a manual quote here."
 	def contentManualCannotManufacturePart = "${commonText}\nReason: Not all process steps to manufacture this part could be identified. You can request a manual quote here."
 	def contentManualCalError = "${commonText}\nReason: A technical error has occured when calculating this part. You can request a manual quote here."
+	def contentCompliancesCalErrorForBuyer = "${commonText}\nReason: Please note that the calculation will be performed manually due to your request for additional compliances."
 
 	def commonTextForSeller = "These parts cannot be automatically calculated. Please prepare a quote for this request manually and enter it in the text field below \"Unit price\""
 	def contentManualSystemErrorForSeller = "${commonTextForSeller}\nReason: There is a system error. Please contact the administrator. (support@gocad.de)"
@@ -33,7 +34,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	def contentManualCannotManufacturePartForSeller = "${commonTextForSeller}\nReason: Only for XX % of the part, manufacturing process steps could be identified. Please check the calculation."
 	def contentManualCalErrorForSeller = "${commonTextForSeller}\nReason: A technical error has occured when calculating this part. Please contact support@gocad.de"
 	def contentAlert = "All parts will be manufactured according to industry norms. If there are specifics for the manufacturing process, that need to be considered, please upload a PDF-drawing to the affected part."
-
+	def contentCompliancesCalErrorForSeller = "${commonTextForSeller}\nReason: Please note that the calculation will be performed manually due to your request for additional compliances."
 	public ManufacturingInformationPage clickAddPart() {
 		WebUI.click(xpath('//span[text()=" Add part"]'))
 		return this
@@ -228,9 +229,10 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		return this
 	}
 
-	public ManufacturingInformationPage inputFieldMTPShop(String quantityNum, String threadNum,
+	public ManufacturingInformationPage inputFieldMTPShop(String quantityNum, String compliances, String threadNum,
 			String tolerancesNum, String quality, String comment) {
 				inputQuantity(quantityNum)
+				.selectFurtherConfirmitiesRequested(compliances)
 				.inputThread(threadNum)
 				.inputTolerances(tolerancesNum)
 				.selectSurfaceQuality(quality)
@@ -899,13 +901,18 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 				def expectedResult = contentManualCalError
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
 				break;
+				
+			case "COMPLIANCES_ERROR":
+				def expectedResult = contentCompliancesCalErrorForBuyer
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
 		}
 		return this
 	}
 
 	public ManufacturingInformationPage verifyContentAlertManualCalculateVisibleForSeller(String code) {
-		WebUI.verifyElementVisible(xpath("//span[@aria-label='info-circle']/following::div[@class='ant-alert-message']"))
-		def contentAlertActual = WebUI.getText(xpath("//span[@aria-label='info-circle']/following::div[@class='ant-alert-message']"))
+		WebUI.verifyElementVisible(xpath("//span[@aria-label='info-circle']/following::div[@class='ant-alert-message'][2]"))
+		def contentAlertActual = WebUI.getText(xpath("//span[@aria-label='info-circle']/following::div[@class='ant-alert-message'][2]"))
 		switch (code) {
 			case "SYSTEM_ERROR":
 				def expectedResult = contentManualSystemErrorForSeller
@@ -939,6 +946,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 			case "CALCULATION_ERROR":
 				def expectedResult = contentManualCalErrorForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+				
+			case "COMPLIANCES_ERROR":
+				def expectedResult = contentCompliancesCalErrorForSeller
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
 				break;
 		}

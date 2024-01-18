@@ -98,7 +98,7 @@
       <name>filePDF</name>
    </variable>
    <variable>
-      <defaultValue>'200'</defaultValue>
+      <defaultValue>'2'</defaultValue>
       <description></description>
       <id>8e364813-81f4-4eaa-92dd-762cba92e264</id>
       <masked>false</masked>
@@ -119,7 +119,7 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>GlobalVariable.compliances</defaultValue>
+      <defaultValue>'FDA Compliant resin'</defaultValue>
       <description></description>
       <id>f06efde4-8b48-4e82-9c09-430fe0543fef</id>
       <masked>false</masked>
@@ -168,7 +168,7 @@
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'PRICE_EXCEED_THRESHOLD'</defaultValue>
+      <defaultValue>'COMPLIANCES_ERROR'</defaultValue>
       <description></description>
       <id>cdfcea39-f447-4aba-a17f-c56030d10ad7</id>
       <masked>false</masked>
