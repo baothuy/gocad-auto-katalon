@@ -191,14 +191,14 @@
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>['ThuyThuy', 'TruongTruong', '07940505050794050505', '359359', 'Baden-Württemberg', '7340573', 'Achern', 'Germany']</defaultValue>
+      <defaultValue>['ThuyThuy', 'TruongTruong', '07940505050794050505', '359359', 'Baden-Württemberg', '7340573', 'Achern', 'Deutschland']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
       <name>billingAddressChanged</name>
    </variable>
    <variable>
-      <defaultValue>['Thuy11', 'Truong22', '07940505044', '35933', 'Hamburg', '7340555', 'Altona', 'Germany']</defaultValue>
+      <defaultValue>['Thuy11', 'Truong22', '07940505044', '35933', 'Hamburg', '7340555', 'Altona', 'Deutschland']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
