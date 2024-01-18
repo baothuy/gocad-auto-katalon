@@ -47,12 +47,6 @@
    <variableLinks>
       <testDataLinkId>c55a61af-1460-4236-9730-8bbb9559ea96</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>surfaceTreatment</value>
-      <variableId>5dbaa02b-c552-40fd-bd77-a2ffa6407386</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>c55a61af-1460-4236-9730-8bbb9559ea96</testDataLinkId>
-      <type>DATA_COLUMN</type>
       <value>quality</value>
       <variableId>e6c41f8e-df97-4583-82c8-f2b8df89437f</variableId>
    </variableLinks>
@@ -65,12 +59,6 @@
    <variableLinks>
       <testDataLinkId>c55a61af-1460-4236-9730-8bbb9559ea96</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>tolerancesToggle</value>
-      <variableId>73315601-8f9c-49bd-8a9d-6133386eabb2</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>c55a61af-1460-4236-9730-8bbb9559ea96</testDataLinkId>
-      <type>DATA_COLUMN</type>
       <value>materialGroup</value>
       <variableId>b8dc4ca7-7582-4dd5-9808-3babdc268585</variableId>
    </variableLinks>
@@ -79,12 +67,6 @@
       <type>DATA_COLUMN</type>
       <value>materialName</value>
       <variableId>1d0e0f5c-6c91-4090-bb8e-a8151f041490</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>c55a61af-1460-4236-9730-8bbb9559ea96</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>provideOwnProduct</value>
-      <variableId>465b561e-ef68-4a59-a32f-5533bf42d456</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>c55a61af-1460-4236-9730-8bbb9559ea96</testDataLinkId>
@@ -109,12 +91,6 @@
       <type>DATA_COLUMN</type>
       <value>tolerancesNumChanged</value>
       <variableId>a35aa15b-1fb4-4d87-a691-a9299891f494</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>c55a61af-1460-4236-9730-8bbb9559ea96</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>surfaceTreatmentChanged</value>
-      <variableId>c2361b41-1692-4f5a-8cf0-62aafd420594</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>c55a61af-1460-4236-9730-8bbb9559ea96</testDataLinkId>
@@ -182,13 +158,6 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Sandblasting'</defaultValue>
-      <description></description>
-      <id>5dbaa02b-c552-40fd-bd77-a2ffa6407386</id>
-      <masked>false</masked>
-      <name>surfaceTreatment</name>
-   </variable>
-   <variable>
       <defaultValue>'Ra 0,8 - 1,6 (finely finished); Rz 6,3 - 10'</defaultValue>
       <description>Ra 3,2 - 25 (roughed); Rz 16 - 100; Ra 1,6 - 3,2 (settled); Rz 10 - 16</description>
       <id>e6c41f8e-df97-4583-82c8-f2b8df89437f</id>
@@ -203,13 +172,6 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'No'</defaultValue>
-      <description></description>
-      <id>73315601-8f9c-49bd-8a9d-6133386eabb2</id>
-      <masked>false</masked>
-      <name>tolerancesToggle</name>
-   </variable>
-   <variable>
       <defaultValue>GlobalVariable.materialGroupMTP</defaultValue>
       <description></description>
       <id>b8dc4ca7-7582-4dd5-9808-3babdc268585</id>
@@ -222,13 +184,6 @@
       <id>1d0e0f5c-6c91-4090-bb8e-a8151f041490</id>
       <masked>false</masked>
       <name>materialName</name>
-   </variable>
-   <variable>
-      <defaultValue>'false'</defaultValue>
-      <description></description>
-      <id>465b561e-ef68-4a59-a32f-5533bf42d456</id>
-      <masked>false</masked>
-      <name>provideOwnProduct</name>
    </variable>
    <variable>
       <defaultValue>'142,24'</defaultValue>
@@ -257,13 +212,6 @@
       <id>a35aa15b-1fb4-4d87-a691-a9299891f494</id>
       <masked>false</masked>
       <name>tolerancesNumChanged</name>
-   </variable>
-   <variable>
-      <defaultValue>'Grinding'</defaultValue>
-      <description></description>
-      <id>c2361b41-1692-4f5a-8cf0-62aafd420594</id>
-      <masked>false</masked>
-      <name>surfaceTreatmentChanged</name>
    </variable>
    <variable>
       <defaultValue>'Ra 3,2 - 25 (roughed); Rz 16 - 100'</defaultValue>

@@ -90,15 +90,8 @@ if (filePDF == "")
 		Page.nav(SelectMaterialPopup).selectMaterialName(materialNameChanged)
 		
 		println '>> Input required field'
-		Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProductChanged)
-												.inputQuantity(quantityNumChanged)
-												.inputThread(threadNumChanged)
-												.inputTolerances(tolerancesNumChanged)
-												.clickToggleTolerances(tolerancesToggle)
-												.removeSelectSurfaceTreatment(surfaceTreatment)
-												.selectSurfaceTreatment(surfaceTreatmentChanged)
-												.selectSurfaceQuality(qualityChanged)
-												.inputComment(comment)
+		Page.nav(ManufacturingInformationPage).inputFieldMTPShop(quantityNumChanged, threadNumChanged, tolerancesNumChanged, qualityChanged, comment)
+
 }
 else
 {
@@ -120,12 +113,8 @@ else
 		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
 	 }
 	 
-	 Page.nav(ManufacturingInformationPage).clickProvideOwnMaterialCB(provideOwnProductChanged)
-	 										.inputQuantity(quantityNumChanged)
-	 										.removeSelectSurfaceTreatment(surfaceTreatment)
-											 .selectSurfaceTreatment(surfaceTreatmentChanged)
-											 .selectSurfaceQuality(qualityChanged)
-											 .inputComment(comment)
+	 Page.nav(ManufacturingInformationPage).inputFieldMTPShop(quantityNumChanged, "", "", qualityChanged, comment)
+	 
 }
 
 println '>> click Calculate button'
