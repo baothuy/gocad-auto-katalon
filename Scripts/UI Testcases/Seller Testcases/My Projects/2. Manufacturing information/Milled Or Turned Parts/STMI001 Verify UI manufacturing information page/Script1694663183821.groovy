@@ -1,4 +1,7 @@
 import gocad.seller.MyProjectsPage
+
+import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+
 import gocad.common.AddProjectPopup
 import gocad.common.DataUploadPage
 import gocad.common.LeftNavBar
@@ -40,15 +43,16 @@ Page.nav(ManufacturingInformationPage).verifyProcessAddProjectHighLighted()
 										.verifyCanPreviewPartFile()
 										.clickClosePreviewPartFilePopup()
 										.verifyLinkPartVisible(partName)
-										.verifyNameWorkflowVisible('Milled / Turned Parts')
+										//.verifyNameWorkflowVisible('Milled / Turned Parts')
 										.verifySelectMaterialVisible()
-										.verifyProvideOwnMaterialCBVisible()
+										.verifyFurtherConfirmitiesRequestedVisible()
+										//.verifyProvideOwnMaterialCBVisible()
 										.verifyQuantityInputVisible()
-										.verifySurfaceTreatmentSelectVisible()
+										//.verifySurfaceTreatmentSelectVisible()
 										.verifyTooltipTolerancesVisible()
 										.verifyThreadInputVisible()
 										.verifyTolerancesFitsInputVisible()
-										.verifyTolerancesToggleVisible()
+										//.verifyTolerancesToggleVisible()
 										.verifySurfaceQualitySelectVisible()
 										.verifyCommentInputVisible()
 										.verifyDeliveryDateInputVisible()

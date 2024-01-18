@@ -711,6 +711,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath("//label[@for='materialId']/parent::div/following::a"))
 		return this
 	}
+	
+	public ManufacturingInformationPage verifyFurtherConfirmitiesRequestedVisible() {
+		WebUI.verifyElementVisible(xpath("//input[@id='requestedComplianceIds']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
+		return this
+	}
 
 	public ManufacturingInformationPage verifyPartImageVisible() {
 		WebUI.verifyElementVisible(xpath("//img[@class='ant-image-img']"))
