@@ -41,6 +41,12 @@
    <variableLinks>
       <testDataLinkId>81e6ab1b-3b0f-40f1-b36f-440c265f5036</testDataLinkId>
       <type>DATA_COLUMN</type>
+      <value>compliances</value>
+      <variableId>2ac2bcdb-e557-4d8a-8537-81f094ae8717</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>81e6ab1b-3b0f-40f1-b36f-440c265f5036</testDataLinkId>
+      <type>DATA_COLUMN</type>
       <value>tolerancesNum</value>
       <variableId>7fd59e68-2070-4b35-917c-741af579cf85</variableId>
    </variableLinks>
@@ -119,6 +125,13 @@
       <id>cadcd02a-9a4a-4a73-96a0-9a835a65509b</id>
       <masked>false</masked>
       <name>threadNum</name>
+   </variable>
+   <variable>
+      <defaultValue>'FDA Compliant resin'</defaultValue>
+      <description></description>
+      <id>2ac2bcdb-e557-4d8a-8537-81f094ae8717</id>
+      <masked>false</masked>
+      <name>compliances</name>
    </variable>
    <variable>
       <defaultValue>'4'</defaultValue>
