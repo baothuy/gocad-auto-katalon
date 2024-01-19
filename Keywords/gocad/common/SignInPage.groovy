@@ -114,7 +114,7 @@ public class SignInPage extends BasePage<SignInPage> {
 	}
 
 	public SignInPage clickRegistrationTab () {
-		WebUI.click(xpath("//*[text()='Registration']"))
+		WebUI.click(xpath("//span[text()='Registration']/parent::button"))
 		return this
 	}
 

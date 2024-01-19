@@ -219,7 +219,8 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 		String packagingCost = WebUI.getText(xpath("//label[text()='Packaging Cost']/following-sibling::label"))
 		String shippingCosts = WebUI.getText(xpath("//label[text()='Shipping costs']/following-sibling::label"))
 		String netTotal = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::label"))
-		String vat = WebUI.getText(xpath("//*[contains(@class,'summary-price')]//*[contains(text(),'VAT')]/following-sibling::label"))
+		List<String> vatObject = findTestObjects("//*[contains(@class,'summary-price')]//*[contains(text(),'VAT')]/following-sibling::label")
+		def vat = (vatObject.size() != 0) ? WebUI.getText(xpath("//*[contains(@class,'summary-price')]//*[contains(text(),'VAT')]/following-sibling::label")) : "-- $GlobalVariable.currency"
 		String grossTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label"))
 		List<String> orderSummary = [
 			totalPartPrice,
