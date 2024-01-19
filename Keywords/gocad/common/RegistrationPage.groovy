@@ -41,9 +41,16 @@ public class RegistrationPage extends BasePage<RegistrationPage>{
 		clearTextAndSendKeysByActions(id("basic_companyName"), input)
 		return this
 	}
-	
+
 	public RegistrationPage inputVatNumber(String input) {
 		clearTextAndSendKeysByActions(id("basic_vatId"), input)
+		return this
+	}
+	
+	public RegistrationPage clickCheckboxPrivacy() {
+		WebUI.click(xpath("//*[@id='basic_consent']/label[1]//input"))
+		WebUI.click(xpath("//*[@id='basic_consent']/label[2]//input"))
+		WebUI.click(xpath("//*[@id='basic_consent']/label[3]//input"))
 		return this
 	}
 
@@ -121,7 +128,7 @@ public class RegistrationPage extends BasePage<RegistrationPage>{
 		WebUI.verifyEqual(actualError, inputExpected)
 		return this
 	}
-	
+
 	public RegistrationPage verifyShowErrorWhenInputVatNumber(String inputExpected) {
 		String actualError = WebUI.getText(xpath("//*[@id='basic_vatId_help']/div"))
 		WebUI.verifyEqual(actualError, inputExpected)
