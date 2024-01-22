@@ -32,29 +32,58 @@ Page.nav(DataUploadPage).clickEditProjectName(projectName)
 String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
-println '>>  Upload file part on Data upload page'
-Page.nav(DataUploadPage).uploadFileTesting('Sheet Metal Part', partName)
+println '>> Upload file part on Data upload page'
+Page.nav(DataUploadPage).uploadFileTesting('Milled / Turned Parts', partName)
 
-println '>> Select material'
-Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
-Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
-String material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
-println "material = $material"
-Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
+String material
+if (filePDF == "")
+{
+	println '>> Select material'
+	Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
+	Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
+	material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
+	println "material = $material"
+	Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
+	
+	println '>> Input required field'
+	Page.nav(ManufacturingInformationPage).inputFieldMTPShop(quantityNum, compliances, threadNum, tolerancesNum, quality, comment)
+}
+else
+{
+	Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Milled / Turned Parts', filePDF)
+	 String getMaterialName = Page.nav(ManufacturingInformationPage).getMaterialWhenUploadFilePDF()
+	 String getMaterialGroup = Page.nav(ManufacturingInformationPage).getMaterialGroupWhenUploadFilePDF()
+	 
+	 if (getMaterialName == null) {
+		Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
+		Page.nav(SelectMaterialPopup).clickMaterialGroup(materialGroup).inputSearchMaterial(materialName)
+		material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(materialName)
+		println "material = $material"
+		Page.nav(SelectMaterialPopup).selectMaterialName(materialName)
+	 }
+	 else {
+		Page.nav(ManufacturingInformationPage).clickPleaseSelectMaterial()
+		Page.nav(SelectMaterialPopup).clickMaterialGroup(getMaterialGroup).inputSearchMaterial(getMaterialName)
+		material = Page.nav(SelectMaterialPopup).getMaterialAndNumber(getMaterialName)
+		Page.nav(SelectMaterialPopup).clickCloseSearchMaterialPopup()
+	 }
+	 
+	 Page.nav(ManufacturingInformationPage).inputFieldMTPShop(quantityNum, "", "", "", quality, comment)
+}
 
-println '>> Input required field'
-Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', filePDF)
-							.inputFieldSMPShop(provideOwnProduct, partName, thicknessNum, quantityNum, surfaceTreatment, laserMarking, deburring, countersinkNum, threadNum, comment)
-
-println '>> click Calculate button'
+println '>> click Calculate and move to Review page'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 									.clickReview()
 
 println '>> click checkout button'
+List<String> tablePartReview = Page.nav(ReviewPage).getTablePartReview(partName)
+String unitPrice = tablePartReview[4]
+String netPrice = tablePartReview[5]
 Page.nav(ReviewPage).clickCheckout()
 
 println '>> Verify information Address Information show correctly'
-Page.nav(CheckoutPage).clickPreviewOfferToDownload()
+Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
+						.clickPreviewOfferToDownload()
 Page.nav(FileHelper).verifyFileDownloaded(projectName + '.pdf')
 						  
 println '>>  Clear data'

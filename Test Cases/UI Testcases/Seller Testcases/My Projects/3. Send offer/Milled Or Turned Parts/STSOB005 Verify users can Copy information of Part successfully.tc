@@ -83,6 +83,12 @@
       <value></value>
       <variableId>cdfcea39-f447-4aba-a17f-c56030d10ad7</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d6021c3a-d0dd-4c81-a793-b49b04e51c3a</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
@@ -173,5 +179,12 @@
       <id>cdfcea39-f447-4aba-a17f-c56030d10ad7</id>
       <masked>false</masked>
       <name>email</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>d6021c3a-d0dd-4c81-a793-b49b04e51c3a</id>
+      <masked>false</masked>
+      <name>compliances</name>
    </variable>
 </TestCaseEntity>

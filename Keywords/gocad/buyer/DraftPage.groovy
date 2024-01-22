@@ -1,8 +1,10 @@
 package gocad.buyer
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import katalon.fw.lib.BasePage
+
 import internal.GlobalVariable
+import katalon.fw.lib.BasePage
+import katalon.utility.CommonUtility
 
 public class DraftPage extends BasePage<DraftPage>{
 
@@ -47,8 +49,11 @@ public class DraftPage extends BasePage<DraftPage>{
 	}
 
 	public DraftPage verifyMaterialOnDetailPartColumn(String expectedResult) {
-		String material = WebUI.getText(xpath("//*[@class='ant-card-body']/div/label"))
-		WebUI.verifyEqual(material, expectedResult)
+		String actualResult = WebUI.getText(xpath("//*[@class='ant-card-body']/div/label"))
+		def pattern = /^(.*?)\/[0-9.]+$/
+		actualResult = CommonUtility.substringUseRegExp(actualResult, pattern, 1)
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 

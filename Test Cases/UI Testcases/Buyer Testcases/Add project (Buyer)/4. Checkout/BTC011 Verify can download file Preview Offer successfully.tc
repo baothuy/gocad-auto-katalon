@@ -9,182 +9,169 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</variableId>
+      <variableId>78717f81-35f4-4a03-bf31-6b51807c5f2e</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>c309959f-9012-4d31-b438-d72da8f55a0a</variableId>
+      <variableId>c1e5fcc0-d227-4a0e-9f7d-9cb640415ca0</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>297f10f3-6561-45ef-9b65-b342b95a5f1f</variableId>
+      <variableId>8e364813-81f4-4eaa-92dd-762cba92e264</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>5a487b1a-2dc0-4f54-857d-66e74db09fc5</variableId>
+      <variableId>cadcd02a-9a4a-4a73-96a0-9a835a65509b</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>2ca5335a-6b22-4a08-b341-d96e3c83dc9f</variableId>
+      <variableId>7fd59e68-2070-4b35-917c-741af579cf85</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>e5caabff-6263-4264-9e22-21159ba448bc</variableId>
+      <variableId>f06efde4-8b48-4e82-9c09-430fe0543fef</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>fea9d141-80e4-4ba2-ad38-ac670c1f71ab</variableId>
+      <variableId>af377a0c-b5de-4d25-ba0f-040df52de71f</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>92334211-dd7b-4ff4-9017-d7aefabddc39</variableId>
+      <variableId>1b5414b9-135f-4019-92be-a6c48ade3c11</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>d9ceecd4-f896-4810-9104-43692df248d9</variableId>
+      <variableId>29c96ef6-1888-43ec-957d-261d503503b9</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>d93a4a62-ecad-4141-8c7e-5e81629d891a</variableId>
+      <variableId>456ec4f7-0215-4fc4-b16f-466946f5511f</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>ba29974b-35b4-4f08-a539-615dda58fcf3</variableId>
+      <variableId>2c02cbb8-c167-4c76-b462-52fd79f1ac44</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>499794cd-e3be-4af0-9b39-46d8d0895543</variableId>
+      <variableId>65316e39-d770-41ee-abf8-b9c1bac26fa2</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</variableId>
+      <variableId>6a6a5e07-c633-4110-92b2-191780cab867</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>GlobalVariable.partNameSMP</defaultValue>
+      <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
-      <id>d9a8789a-a7a6-4ddf-b5c1-facc9c7b0265</id>
+      <id>78717f81-35f4-4a03-bf31-6b51807c5f2e</id>
       <masked>false</masked>
       <name>partName</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>c309959f-9012-4d31-b438-d72da8f55a0a</id>
+      <id>c1e5fcc0-d227-4a0e-9f7d-9cb640415ca0</id>
       <masked>false</masked>
       <name>filePDF</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
+      <defaultValue>'50'</defaultValue>
       <description></description>
-      <id>297f10f3-6561-45ef-9b65-b342b95a5f1f</id>
-      <masked>false</masked>
-      <name>thicknessNum</name>
-   </variable>
-   <variable>
-      <defaultValue>'1'</defaultValue>
-      <description></description>
-      <id>5a487b1a-2dc0-4f54-857d-66e74db09fc5</id>
+      <id>8e364813-81f4-4eaa-92dd-762cba92e264</id>
       <masked>false</masked>
       <name>quantityNum</name>
    </variable>
    <variable>
-      <defaultValue>'Sandblasting'</defaultValue>
+      <defaultValue>'3'</defaultValue>
       <description></description>
-      <id>2ca5335a-6b22-4a08-b341-d96e3c83dc9f</id>
-      <masked>false</masked>
-      <name>surfaceTreatment</name>
-   </variable>
-   <variable>
-      <defaultValue>GlobalVariable.laserMarking</defaultValue>
-      <description></description>
-      <id>e5caabff-6263-4264-9e22-21159ba448bc</id>
-      <masked>false</masked>
-      <name>laserMarking</name>
-   </variable>
-   <variable>
-      <defaultValue>'All layers'</defaultValue>
-      <description></description>
-      <id>fea9d141-80e4-4ba2-ad38-ac670c1f71ab</id>
-      <masked>false</masked>
-      <name>cuttingLayers</name>
-   </variable>
-   <variable>
-      <defaultValue>GlobalVariable.deburring</defaultValue>
-      <description></description>
-      <id>92334211-dd7b-4ff4-9017-d7aefabddc39</id>
-      <masked>false</masked>
-      <name>deburring</name>
-   </variable>
-   <variable>
-      <defaultValue>'0'</defaultValue>
-      <description></description>
-      <id>d9ceecd4-f896-4810-9104-43692df248d9</id>
-      <masked>false</masked>
-      <name>countersinkNum</name>
-   </variable>
-   <variable>
-      <defaultValue>'0'</defaultValue>
-      <description></description>
-      <id>d93a4a62-ecad-4141-8c7e-5e81629d891a</id>
+      <id>cadcd02a-9a4a-4a73-96a0-9a835a65509b</id>
       <masked>false</masked>
       <name>threadNum</name>
    </variable>
    <variable>
-      <defaultValue>'6'</defaultValue>
+      <defaultValue>'4'</defaultValue>
       <description></description>
-      <id>ba29974b-35b4-4f08-a539-615dda58fcf3</id>
+      <id>7fd59e68-2070-4b35-917c-741af579cf85</id>
+      <masked>false</masked>
+      <name>tolerancesNum</name>
+   </variable>
+   <variable>
+      <defaultValue>GlobalVariable.surfaceTreatmentMTP</defaultValue>
+      <description></description>
+      <id>f06efde4-8b48-4e82-9c09-430fe0543fef</id>
+      <masked>false</masked>
+      <name>surfaceTreatment</name>
+   </variable>
+   <variable>
+      <defaultValue>GlobalVariable.quality</defaultValue>
+      <description>Ra 3,2 - 25 (roughed); Rz 16 - 100; Ra 1,6 - 3,2 (settled); Rz 10 - 16</description>
+      <id>af377a0c-b5de-4d25-ba0f-040df52de71f</id>
+      <masked>false</masked>
+      <name>quality</name>
+   </variable>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description></description>
+      <id>1b5414b9-135f-4019-92be-a6c48ade3c11</id>
       <masked>false</masked>
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'Aluminum'</defaultValue>
+      <defaultValue>'No'</defaultValue>
       <description></description>
-      <id>499794cd-e3be-4af0-9b39-46d8d0895543</id>
+      <id>29c96ef6-1888-43ec-957d-261d503503b9</id>
+      <masked>false</masked>
+      <name>tolerancesToggle</name>
+   </variable>
+   <variable>
+      <defaultValue>GlobalVariable.materialGroupMTP</defaultValue>
+      <description></description>
+      <id>456ec4f7-0215-4fc4-b16f-466946f5511f</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'AlMg3-Blech'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameMTP</defaultValue>
       <description></description>
-      <id>dec36514-d1c6-4aae-b3cc-bd0f2e82789d</id>
+      <id>2c02cbb8-c167-4c76-b462-52fd79f1ac44</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
       <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
       <description></description>
-      <id>67ce9325-5d8a-4abc-bde3-7f4a1d6ba286</id>
+      <id>65316e39-d770-41ee-abf8-b9c1bac26fa2</id>
       <masked>false</masked>
       <name>provideOwnProduct</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>6a6a5e07-c633-4110-92b2-191780cab867</id>
+      <masked>false</masked>
+      <name>compliances</name>
    </variable>
 </TestCaseEntity>

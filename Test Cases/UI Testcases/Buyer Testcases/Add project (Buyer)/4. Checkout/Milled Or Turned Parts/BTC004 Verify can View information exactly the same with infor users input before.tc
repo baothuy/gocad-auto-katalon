@@ -77,6 +77,12 @@
       <value></value>
       <variableId>65316e39-d770-41ee-abf8-b9c1bac26fa2</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>6a6a5e07-c633-4110-92b2-191780cab867</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
@@ -160,5 +166,12 @@
       <id>65316e39-d770-41ee-abf8-b9c1bac26fa2</id>
       <masked>false</masked>
       <name>provideOwnProduct</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>6a6a5e07-c633-4110-92b2-191780cab867</id>
+      <masked>false</masked>
+      <name>compliances</name>
    </variable>
 </TestCaseEntity>

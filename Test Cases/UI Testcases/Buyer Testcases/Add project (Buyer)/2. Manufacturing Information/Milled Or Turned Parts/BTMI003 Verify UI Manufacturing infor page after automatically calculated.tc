@@ -92,6 +92,12 @@
       <value>unitPrice</value>
       <variableId>4117b2f1-9182-4aea-bf15-ca672583953e</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>3b8a0ee6-9fa6-4777-81f9-d2f1e9c05e62</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
@@ -182,5 +188,12 @@
       <id>23b6ec30-9008-4155-a7d4-65a5d22946d5</id>
       <masked>false</masked>
       <name>unitPrice</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>3b8a0ee6-9fa6-4777-81f9-d2f1e9c05e62</id>
+      <masked>false</masked>
+      <name>compliances</name>
    </variable>
 </TestCaseEntity>

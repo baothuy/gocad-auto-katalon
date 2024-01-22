@@ -59,6 +59,12 @@
       <value></value>
       <variableId>65ea5626-a86f-428b-85a0-330b4f97e630</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>088afd4c-341f-4183-a7f3-b66dfffa53b6</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
@@ -121,5 +127,12 @@
       <id>65ea5626-a86f-428b-85a0-330b4f97e630</id>
       <masked>false</masked>
       <name>materialName</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>088afd4c-341f-4183-a7f3-b66dfffa53b6</id>
+      <masked>false</masked>
+      <name>compliances</name>
    </variable>
 </TestCaseEntity>
