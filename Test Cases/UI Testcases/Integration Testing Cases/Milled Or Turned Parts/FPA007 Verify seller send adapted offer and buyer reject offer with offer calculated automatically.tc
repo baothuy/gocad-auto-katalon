@@ -15,99 +15,99 @@
       <testDataId>Data Files/Milled Or Turned Parts/FPA002-003-005-007</testDataId>
    </testDataLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>fileName</value>
       <variableId>78717f81-35f4-4a03-bf31-6b51807c5f2e</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>filePDF</value>
       <variableId>c1e5fcc0-d227-4a0e-9f7d-9cb640415ca0</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>quantityNum</value>
       <variableId>8e364813-81f4-4eaa-92dd-762cba92e264</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>threadNum</value>
       <variableId>cadcd02a-9a4a-4a73-96a0-9a835a65509b</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>tolerancesNum</value>
       <variableId>7fd59e68-2070-4b35-917c-741af579cf85</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>surfaceTreatment</value>
       <variableId>f06efde4-8b48-4e82-9c09-430fe0543fef</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>quality</value>
       <variableId>af377a0c-b5de-4d25-ba0f-040df52de71f</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>comment</value>
       <variableId>1b5414b9-135f-4019-92be-a6c48ade3c11</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>tolerancesToggle</value>
       <variableId>29c96ef6-1888-43ec-957d-261d503503b9</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>materialGroup</value>
       <variableId>456ec4f7-0215-4fc4-b16f-466946f5511f</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>materialName</value>
       <variableId>2c02cbb8-c167-4c76-b462-52fd79f1ac44</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>provideOwnProduct</value>
       <variableId>65316e39-d770-41ee-abf8-b9c1bac26fa2</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>deliveryOption</value>
       <variableId>e4167302-c2db-4dfd-9719-7d54247b3f49</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>shippingOption</value>
       <variableId>cb9b750c-6437-4e6d-82fb-de0eb22d6e6a</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>unitPriceChanged</value>
       <variableId>39fbb410-ac03-421d-8a57-a33405446d33</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>packagingAndShippingComments</value>
       <variableId>b62c1583-9534-4fd3-8764-8d8799a09f5c</variableId>
    </variableLinks>
    <variable>
