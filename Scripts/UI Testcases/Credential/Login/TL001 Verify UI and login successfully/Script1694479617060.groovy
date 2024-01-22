@@ -19,4 +19,4 @@ Page.nav(SignInPage).enterCredentialAsSeller().clickSignIn().verifySuccessfullyS
 Page.nav(LeftNavBar).clickLogout()
 
 '5. User buyer signs in to administration page with uppercases'
-Page.nav(SignInPage).openBrowser().inputEmail(email).inputPassword(password).clickSignIn().verifySuccessfullySignInAsBuyer()
+Page.nav(SignInPage).openBrowser().inputEmail(email).inputPassword(password).clickSignIn().verifySuccessfullySignInAsSeller()
