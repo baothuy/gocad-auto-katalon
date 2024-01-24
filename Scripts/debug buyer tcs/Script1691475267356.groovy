@@ -1,6 +1,6 @@
 import gocad.buyer.CheckoutPage
-import gocad.buyer.DraftPage
-import gocad.buyer.ReviewPage
+import gocad.buyer.RequestedOffersPage
+import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.SignInPage
 import katalon.fw.lib.Page
@@ -16,16 +16,13 @@ println '>> Random project name'
 println '>> User buyer signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
-Page.nav(LeftNavBar).clickDraft()
+Page.nav(LeftNavBar).clickRequestedOffers()
 
-Page.nav(DraftPage).clickViewAction("29548")
+Page.nav(RequestedOffersPage).clickAction("31373")
 
-Page.nav(ReviewPage).clickCheckout()
-
-List<String> getBillingAddress = Page.nav(CheckoutPage).getBillingAddress()
+List<String> getBillingAddress = Page.nav(DetailOffer).getBillingAddressDetailOffer()
 println "getBillingAddress: $getBillingAddress"
 
-List<String> getShippingAddress = Page.nav(CheckoutPage).getShippingAddress()
-println "getBillingAddress: $getShippingAddress"
+
 
 						
