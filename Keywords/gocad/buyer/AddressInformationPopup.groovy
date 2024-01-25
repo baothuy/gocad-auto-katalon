@@ -34,7 +34,7 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 
 	public AddressInformationPopup inputSearchBillingAddress(String houseNumber, String street, String city, String zipCode, String country) {
 		String address = Page.nav(FunctionCommon).formatAddress(houseNumber, street, city, zipCode, country)
-		clearTextAndSendKeysByActions(id("billingAddress_searchAddress"), address)
+		clearTextAndSendKeysByActions(xpath("//*[@id='billingAddress']//input[@name='shippingAddress_searchAddress']"), address)
 		return this
 	}
 
@@ -96,7 +96,7 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 
 	public AddressInformationPopup inputSearchShippingAddress(String houseNumber, String street, String city, String zipCode, String country) {
 		String address = Page.nav(FunctionCommon).formatAddress(houseNumber, street, city, zipCode, country)
-		clearTextAndSendKeysByActions(id("shippingAddress_searchAddress"), address)
+		clearTextAndSendKeysByActions(xpath("//*[@id='shippingAddress']//input[@name='shippingAddress_searchAddress']"), address)
 		return this
 	}
 
