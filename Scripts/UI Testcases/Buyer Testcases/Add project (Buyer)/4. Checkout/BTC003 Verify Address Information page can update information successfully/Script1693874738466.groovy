@@ -94,20 +94,15 @@ println '>> Verify information Address Information show correctly'
 println '>> Input edit information successfully'
 Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddressChanged[0])
 								.inputLastNameBillingAddress(billingAddressChanged[1])
-								.inputHouseNumberBillingAddress(billingAddressChanged[2])
-								.inputStreetBillingAddress(billingAddressChanged[3])
-								.selectCountryBillingAddress(billingAddressChanged[7])
-								.selectStateBillingAddress(billingAddressChanged[4])
-								.inputZIPCodeBillingAddress(billingAddressChanged[5])
-								.selectCityBillingAddress(billingAddressChanged[6])
+								.inputEmailBillingAddress(billingAddressChanged[2])
+								.inputPhoneBillingAddress(billingAddressChanged[3])
+								.inputSearchBillingAddress(billingAddressChanged[5], billingAddressChanged[4], billingAddressChanged[8], billingAddressChanged[9], billingAddressChanged[6])
 								.inputFirstNameShippingAddress(shippingAddressChanged[0])
 								.inputLastNameShippingAddress(shippingAddressChanged[1])
-								.inputHouseNumberShippingAddress(shippingAddressChanged[2])
-								.inputStreetShippingAddress(shippingAddressChanged[3])
-								.selectCountryShippingAddress(shippingAddressChanged[7])
-								.selectStateShippingAddress(shippingAddressChanged[4])
-								.inputZIPCodeShippingAddress(shippingAddressChanged[5])
-								.selectCityShippingAddress(shippingAddressChanged[6])		
+								.inputEmailShippingAddress(shippingAddressChanged[2])
+								.inputPhoneShippingAddress(shippingAddressChanged[3])
+								.inputSearchBillingAddress(shippingAddressChanged[5], shippingAddressChanged[4], shippingAddressChanged[8], shippingAddressChanged[9], shippingAddressChanged[6])
+									
 														
 println '>> Click Checkout button on Checkout Page'
 Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
@@ -122,8 +117,8 @@ Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
 							.clickPayButton()
 							.sleep(2)
 							
-List<String> listBillingAddress = [billingAddressChanged[0] + " " + billingAddressChanged[1], billingAddressChanged[2], billingAddressChanged[3], billingAddressChanged[4], billingAddressChanged[5], billingAddressChanged[6]]
-List<String> listShippingAddress = [shippingAddressChanged[0] + " " + shippingAddressChanged[1], shippingAddressChanged[2], shippingAddressChanged[3], shippingAddressChanged[4], shippingAddressChanged[5], shippingAddressChanged[6]]
+List<String> listBillingAddress = [billingAddressChanged[0] + " " + billingAddressChanged[1], billingAddressChanged[2], billingAddressChanged[3], billingAddressChanged[4], billingAddressChanged[5], billingAddressChanged[6], billingAddressChanged[7], billingAddressChanged[8], billingAddressChanged[9]]
+List<String> listShippingAddress = [shippingAddressChanged[0] + " " + shippingAddressChanged[1], shippingAddressChanged[2], shippingAddressChanged[3], shippingAddressChanged[4], shippingAddressChanged[5], shippingAddressChanged[6], shippingAddressChanged[7], shippingAddressChanged[8], shippingAddressChanged[9]]
 
 println '>> Verify after update show correctly on checkout page'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)
