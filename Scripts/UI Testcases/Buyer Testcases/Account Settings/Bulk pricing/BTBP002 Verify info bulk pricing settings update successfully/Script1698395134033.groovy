@@ -21,4 +21,4 @@ Page.nav(BulkPricingPage).inputQuantityRefOne(quantityRefOne)
 						 .clickSaveChanges()
 						 
 println '>> Verify message after updated'
-Page.nav(ToastMessage).verifyToastMessage("Success!", "Updated Account")
+Page.nav(ToastMessage).verifyToastMessage("Success!", "Update success")
