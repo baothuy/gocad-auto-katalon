@@ -93,8 +93,8 @@ Page.nav(RequestOfferPopup).clickOK()
 
 println '>> Get info Detail offer after click OK on Request Offer Popup'
 List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
-List<String> listBillingAddress = Page.nav(DetailOffer).getBillingAddress()
-List<String> listShippingAddress = Page.nav(DetailOffer).getShippingAddress()
+List<String> listBillingAddress = Page.nav(DetailOffer).getBillingAddressDetailOffer()
+List<String> listShippingAddress = Page.nav(DetailOffer).getShippingAddressDetailOffer()
 List<String> tablePart = Page.nav(DetailOffer).getTablePartReview(partName)
 //List<String> listOrderSummary = Page.nav(DetailOffer).getOrderSummary()
 String deliveryDate = listShippingInfo[3]
@@ -141,8 +141,8 @@ Page.nav(DetailOffer).inputUnitPrice(unitPriceChanged).clickAcceptChangeUnitPric
 
 println '>> get Information on Detail page after change unit price'
 List<String> listOrderSummaryChanged = Page.nav(DetailOffer).getOrderSummary()
-List<String> listBillingAddressChanged = Page.nav(DetailOffer).getBillingAddress()
-List<String> listShippingAddressChanged = Page.nav(DetailOffer).getShippingAddress()
+List<String> listBillingAddressChanged = Page.nav(DetailOffer).getBillingAddressDetailOffer()
+List<String> listShippingAddressChanged = Page.nav(DetailOffer).getShippingAddressDetailOffer()
 List<String> tablePartChanged = Page.nav(DetailOffer).getTablePartReview(partName)
 String netTotal = listOrderSummaryChanged[5]
 String grossTotal = listOrderSummaryChanged[7]
