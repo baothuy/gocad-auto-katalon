@@ -128,7 +128,7 @@
       <name>filePDF</name>
    </variable>
    <variable>
-      <defaultValue>'50'</defaultValue>
+      <defaultValue>'10'</defaultValue>
       <description></description>
       <id>71a0f345-b01f-4ff7-af72-54c53e25bc4d</id>
       <masked>false</masked>
@@ -191,14 +191,14 @@
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>['ThuyThuy', 'TruongTruong', '07940505050794050505', '359359', 'Baden-Württemberg', '7340573', 'Achern', 'Deutschland']</defaultValue>
+      <defaultValue>['Thuy12', 'Truong21', 'truongbaothuy93@gmail.com', '07940606066', '70B', 'Leibnizstraße', 'Germany', 'Berlin', 'Berlin', '74056']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
       <name>billingAddressChanged</name>
    </variable>
    <variable>
-      <defaultValue>['Thuy11', 'Truong22', '07940505044', '35933', 'Hamburg', '7340555', 'Altona', 'Deutschland']</defaultValue>
+      <defaultValue>['Thuy', 'Truong', 'thuyautomation0@gmail.com', '07941603067', '16a', 'Marie-Curie-Straße', 'Germany', 'Bavaria', 'Ingolstadt', '72405']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
