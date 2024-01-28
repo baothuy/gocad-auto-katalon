@@ -34,6 +34,13 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.click(xpath("//span[text()='Accept And Send Offer ']/parent::button"))
 		return this
 	}
+	
+	public DetailOffer clickEditShippingCost(String value) {
+		WebUI.click(xpath("//label[text()='Shipping costs']//following-sibling::label//span[@aria-label='edit']"))
+		clearTextAndSendKeysByActions(xpath("//*[@id='form-inline-shipping']//input[@id='form-inline-shipping_shipping']"), value)
+		WebUI.click(xpath("//*[@id='form-inline-shipping']//span[@aria-label='check']"))
+		return this
+	}
 
 	public DetailOffer clickSendAdaptedOffer() {
 		WebUI.click(xpath("//span[text()='Send Adapted Offer ']/parent::button"))

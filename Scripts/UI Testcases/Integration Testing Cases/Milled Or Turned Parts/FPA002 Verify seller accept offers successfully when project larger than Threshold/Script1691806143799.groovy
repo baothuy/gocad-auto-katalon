@@ -98,10 +98,8 @@ String shippingOption = Page.nav(CheckoutPage).getShippingOptions()
 String companyName = Page.nav(CheckoutPage).getCompanyName()
 String netTotal = Page.nav(CheckoutPage).getNetTotal()
 String grossTotal = Page.nav(CheckoutPage).getGrossTotal()
-List<String> listOrderSummary = Page.nav(CheckoutPage).getOrderSummary()
 List<String> listBillingAddress = Page.nav(CheckoutPage).getBillingAddress()
 List<String> listShippingAddress = Page.nav(CheckoutPage).getShippingAddress()
-//List<String> listShippingInfo = [orderNumber, numberOfParts, deliveryOption, deliveryDate, packagingAndShippingComments, shippingOption]
 String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
 
 println '>> Click Checkout button on Checkout Page'
@@ -110,7 +108,6 @@ Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
 						
 println '>> Click back to project to get shipping info'
 Page.nav(CompletedCheckoutPage).clickBackToProject()
-List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
 						
 println '>> Buyer click Logout button'
 Page.nav(LeftNavBar).clickLogout()
@@ -128,7 +125,9 @@ Page.nav(OpenInquiriesPage).verifyProjectName(projectId, projectName)
 							.clickAction(projectId)
 
 println '>> Seller click accept and send offers to buyer'
-Page.nav(DetailOffer).clickAcceptAndSendOffer().clickOKConfirmPopup()
+Page.nav(DetailOffer).clickEditShippingCost(shippingCost).clickAcceptAndSendOffer().clickOKConfirmPopup()
+List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
+List<String> listOrderSummary = Page.nav(DetailOffer).getOrderSummary()
 
 println '>> Seller go confirmed offers of buyer checkout'
 Page.nav(LeftNavBar).clickConfirmedOffers()
@@ -138,7 +137,7 @@ Page.nav(ConfirmedOffersPageOfSeller).verifyProjectName(projectId, projectName)
 									 .verifyCompanyName(projectId, companyName)
 									 .verifyOrderNumber(projectId)
 									 .verifyOrderDate(projectId, orderDate)
-									 .verifyNetTotal(projectId, netTotal)
+									 .verifyNetTotal(projectId, listOrderSummary[5])
 									 .verifyStatus(projectId, "Order confirmed")
 									 .clickAction(projectId)
 
@@ -162,7 +161,7 @@ Page.nav(ConfirmedOffersPageOfBuyer).verifyHighlightOnList(projectId)
 									.verifyProjectName(projectId, projectName)
 									.verifyDeliveryDate(projectId, deliveryDate)
 									.verifyOrderNumber(projectId)
-									.verifyGrossTotal(projectId, grossTotal)
+									.verifyGrossTotal(projectId, listOrderSummary[7])
 									.verifyStatus(projectId, "Order confirmed")
 									.clickAction(projectId)
 

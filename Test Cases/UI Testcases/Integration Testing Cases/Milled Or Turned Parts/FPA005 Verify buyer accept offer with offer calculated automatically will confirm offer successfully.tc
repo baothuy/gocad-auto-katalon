@@ -110,6 +110,12 @@
       <value>packagingAndShippingComments</value>
       <variableId>b62c1583-9534-4fd3-8764-8d8799a09f5c</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId>6c98c3d9-45d7-4802-a2ad-1efe596ead8d</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>shippingCost</value>
+      <variableId>4a502b58-932d-49f2-ba88-831d83c9c1c0</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
@@ -221,5 +227,12 @@
       <id>b62c1583-9534-4fd3-8764-8d8799a09f5c</id>
       <masked>false</masked>
       <name>packagingAndShippingComments</name>
+   </variable>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description></description>
+      <id>4a502b58-932d-49f2-ba88-831d83c9c1c0</id>
+      <masked>false</masked>
+      <name>shippingCost</name>
    </variable>
 </TestCaseEntity>

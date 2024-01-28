@@ -149,13 +149,14 @@ println '>> Input change unit price'
 Page.nav(DetailOffer).inputUnitPrice(unitPriceChanged).clickAcceptChangeUnitPrice().clickCloseToastMessage()
  
 println '>> Seller click accept and send offers to buyer'
-Page.nav(DetailOffer).clickSendAdaptedOffer().clickOKConfirmPopup().clickCloseToastMessage()
+Page.nav(DetailOffer).clickEditShippingCost(shippingCost).clickSendAdaptedOffer().clickOKConfirmPopup().clickCloseToastMessage()
 
 println '>> get Information on Detail page after change unit price'
 List<String> listOrderSummaryChanged = Page.nav(DetailOffer).getOrderSummary()
 List<String> listBillingAddressChanged = Page.nav(DetailOffer).getBillingAddressDetailOffer()
 List<String> listShippingAddressChanged = Page.nav(DetailOffer).getShippingAddressDetailOffer()
 List<String> tablePartChanged = Page.nav(DetailOffer).getTablePartReview(partName)
+List<String> listShippingInfoChanged = Page.nav(DetailOffer).getShippingInfo()
 String netTotalChanged = listOrderSummaryChanged[5]
 String grossTotalChanged = listOrderSummaryChanged[7]
  
@@ -177,7 +178,7 @@ Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(partName, tablePartChanged)
-					 .verifyShippingInfo(listShippingInfo)
+					 .verifyShippingInfo(listShippingInfoChanged)
  
 println '>> Seller click Logout button'
 Page.nav(LeftNavBar).clickLogout()
@@ -200,7 +201,7 @@ Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
 					  .verifyShippingAddress(listShippingAddressChanged)
 					  .verifyOrderSummary(listOrderSummaryChanged)
 					  .verifyTablePartReview(partName, tablePartChanged)
-					  .verifyShippingInfo(listShippingInfo)
+					  .verifyShippingInfo(listShippingInfoChanged)
 					  .clickAcceptOffer()
 					  .clickOKConfirmPopup()
   
@@ -219,7 +220,7 @@ Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(partName, tablePartChanged)
-					 .verifyShippingInfo(listShippingInfo)
+					 .verifyShippingInfo(listShippingInfoChanged)
  
 println '>> Seller click Logout button'
 Page.nav(LeftNavBar).clickLogout()
@@ -246,4 +247,4 @@ Page.nav(DetailOffer).verifyOrderStatus("Order confirmed")
 					 .verifyShippingAddress(listShippingAddressChanged)
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(partName, tablePartChanged)
-					 .verifyShippingInfo(listShippingInfo)
+					 .verifyShippingInfo(listShippingInfoChanged)

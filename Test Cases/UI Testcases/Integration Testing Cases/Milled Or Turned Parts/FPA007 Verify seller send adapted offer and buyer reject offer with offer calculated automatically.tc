@@ -10,7 +10,7 @@
       <id>f3e60329-d16e-4e87-b2a6-1da211bd3992</id>
       <iterationEntity>
          <iterationType>ALL</iterationType>
-         <value></value>
+         <value>2</value>
       </iterationEntity>
       <testDataId>Data Files/Milled Or Turned Parts/FPA002-003-005-007</testDataId>
    </testDataLinks>
@@ -109,6 +109,12 @@
       <type>DATA_COLUMN</type>
       <value>packagingAndShippingComments</value>
       <variableId>b62c1583-9534-4fd3-8764-8d8799a09f5c</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>shippingCost</value>
+      <variableId>adc396d1-0bf7-42ef-a6f9-3d8565a712fc</variableId>
    </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameMTP</defaultValue>
@@ -221,5 +227,12 @@
       <id>b62c1583-9534-4fd3-8764-8d8799a09f5c</id>
       <masked>false</masked>
       <name>packagingAndShippingComments</name>
+   </variable>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description></description>
+      <id>adc396d1-0bf7-42ef-a6f9-3d8565a712fc</id>
+      <masked>false</masked>
+      <name>shippingCost</name>
    </variable>
 </TestCaseEntity>

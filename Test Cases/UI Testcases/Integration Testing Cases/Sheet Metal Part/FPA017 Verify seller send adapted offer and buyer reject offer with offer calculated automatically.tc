@@ -122,6 +122,12 @@
       <value>packagingAndShippingComments</value>
       <variableId>f330aa7b-2459-47e5-9a40-d8b70fea6db4</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId>ef298c5d-03ac-45d0-8375-f8f0c08f119c</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>shippingCost</value>
+      <variableId>551cd12d-ae67-45f5-a1eb-93788a3a4f18</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
@@ -247,5 +253,12 @@
       <id>f330aa7b-2459-47e5-9a40-d8b70fea6db4</id>
       <masked>false</masked>
       <name>packagingAndShippingComments</name>
+   </variable>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description></description>
+      <id>551cd12d-ae67-45f5-a1eb-93788a3a4f18</id>
+      <masked>false</masked>
+      <name>shippingCost</name>
    </variable>
 </TestCaseEntity>

@@ -21,12 +21,12 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		clearTextAndSendKeysByActions(id("billingAddress_lastName"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup inputEmailBillingAddress(String input){
 		clearTextAndSendKeysByActions(id("billingAddress_email"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup inputPhoneBillingAddress(String input){
 		clearTextAndSendKeysByActions(id("billingAddress_phone"), input)
 		return this
@@ -84,12 +84,12 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		clearTextAndSendKeysByActions(id("shippingAddress_lastName"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup inputEmailShippingAddress(String input){
 		clearTextAndSendKeysByActions(id("shippingAddress_email"), input)
 		return this
 	}
-	
+
 	public AddressInformationPopup inputPhoneShippingAddress(String input){
 		clearTextAndSendKeysByActions(id("shippingAddress_phone"), input)
 		return this
