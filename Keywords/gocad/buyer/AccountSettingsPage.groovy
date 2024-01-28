@@ -66,10 +66,11 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		clearTextAndSendKeysByActions(id("basic_billingAddress_phone"), input)
 		return this
 	}
-	
+
 	public AccountSettingsPage inputSearchBillingAddress(String houseNumber, String street, String city, String zipCode, String country){
 		String address = Page.nav(FunctionCommon).formatAddress(houseNumber, street, city, zipCode, country)
 		clearTextAndSendKeysByActions(xpath("//*[@id='billingAddress']//input[@name='billingAddress_searchAddress']"), address)
+		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[text()='$address']/span"))
 		return this
 	}
 
@@ -126,10 +127,11 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		clearTextAndSendKeysByActions(id("basic_shippingAddress_phone"), input)
 		return this
 	}
-	
+
 	public AccountSettingsPage inputSearchShippingAddress(String houseNumber, String street, String city, String zipCode, String country){
 		String address = Page.nav(FunctionCommon).formatAddress(houseNumber, street, city, zipCode, country)
 		clearTextAndSendKeysByActions(xpath("//*[@id='shippingAddress']//input[@name='shippingAddress_searchAddress']"), address)
+		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[text()='$address']/span"))
 		return this
 	}
 

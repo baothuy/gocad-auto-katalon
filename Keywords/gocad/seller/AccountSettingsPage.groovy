@@ -1,6 +1,9 @@
 package gocad.seller
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
 import katalon.fw.lib.BasePage
+import katalon.fw.lib.Page
+import katalon.utility.FunctionCommon
 
 
 public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
@@ -22,6 +25,13 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 
 	public AccountSettingsPage inputLastNameContact(String input){
 		clearTextAndSendKeysByActions(id("basic_lastName"), input)
+		return this
+	}
+
+	public AccountSettingsPage inputSearchBillingAddress(String houseNumber, String street, String city, String zipCode, String country) {
+		String address = Page.nav(FunctionCommon).formatAddress(houseNumber, street, city, zipCode, country)
+		clearTextAndSendKeysByActions(xpath("//*[@id='billingAddress']//input[@name='billingAddress_searchAddress']"), address)
+		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[text()='$address']/span"))
 		return this
 	}
 

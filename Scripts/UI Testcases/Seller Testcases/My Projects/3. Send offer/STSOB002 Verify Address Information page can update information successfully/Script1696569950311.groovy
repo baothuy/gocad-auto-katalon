@@ -89,12 +89,12 @@ Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddressCha
 								.inputLastNameBillingAddress(billingAddressChanged[1])
 								.inputEmailBillingAddress(billingAddressChanged[2])
 								.inputPhoneBillingAddress(billingAddressChanged[3])
-								.inputSearchBillingAddress(billingAddressChanged[5], billingAddressChanged[4], billingAddressChanged[8], billingAddressChanged[9], billingAddressChanged[6])
+								.inputSearchBillingAddress(billingAddressChanged[4], billingAddressChanged[5], billingAddressChanged[8], billingAddressChanged[9], billingAddressChanged[6])
 								.inputFirstNameShippingAddress(shippingAddressChanged[0])
 								.inputLastNameShippingAddress(shippingAddressChanged[1])
 								.inputEmailShippingAddress(shippingAddressChanged[2])
 								.inputPhoneShippingAddress(shippingAddressChanged[3])
-								.inputSearchShippingAddress(shippingAddressChanged[5], shippingAddressChanged[4], shippingAddressChanged[8], shippingAddressChanged[9], shippingAddressChanged[6])
+								.inputSearchShippingAddress(shippingAddressChanged[4], shippingAddressChanged[5], shippingAddressChanged[8], shippingAddressChanged[9], shippingAddressChanged[6])
 								
 Page.nav(SendOfferPage).clickSendOffer()
 List<String> listBillingAddress = [billingAddressChanged[0] + " " + billingAddressChanged[1], billingAddressChanged[2], billingAddressChanged[3], billingAddressChanged[4], billingAddressChanged[5], billingAddressChanged[6], billingAddressChanged[7], billingAddressChanged[8], billingAddressChanged[9]]

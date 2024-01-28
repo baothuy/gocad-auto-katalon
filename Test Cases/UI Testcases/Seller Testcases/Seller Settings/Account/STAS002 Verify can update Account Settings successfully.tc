@@ -44,14 +44,14 @@
       <name>contactChanged</name>
    </variable>
    <variable>
-      <defaultValue>['Philipp', 'Sauter', 'seller@gocad.de', '0123456789', 'Am Stadtpark', '80', 'Deutschland', 'Hamburg', 'Altona', '70435']</defaultValue>
+      <defaultValue>['Thuy', 'Truong', 'thuyautomation0@gmail.com', '07941603067', '16a', 'Marie-Curie-Straße', 'Germany', 'Bavaria', 'Ingolstadt', '72405']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
       <name>billingAddress</name>
    </variable>
    <variable>
-      <defaultValue>['Philipp1', 'Sauter2', 'seller3@gocad.de', '01234567894', 'Am Stadtpark5', '806', 'Deutschland', 'Bremen', 'Bremerhaven', '704357']</defaultValue>
+      <defaultValue>['Thuy12', 'Truong21', 'truongbaothuy93@gmail.com', '07940606066', '70B', 'Leibnizstraße', 'Germany', 'Berlin', 'Berlin', '74056']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
