@@ -21,6 +21,7 @@ Page.nav(AccountSettingsPage).inputFirstNameContact("")
 println '>> Input billing/shipping address information'
 Page.nav(AccountSettingsPage).inputFirstNameBillingAddress("")
 								.inputLastNameBillingAddress("")
+								.inputEmailBillingAddress("")
 								.inputHouseNumberBillingAddress("")
 								.inputStreetBillingAddress("")
 								.inputZIPCodeBillingAddress("")

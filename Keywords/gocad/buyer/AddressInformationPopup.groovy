@@ -56,9 +56,7 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	}
 
 	public AddressInformationPopup selectCountryBillingAddress(String input){
-		List<String> findObject = findTestObjects("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']")
-		(findObject.size() != 0) ? WebUI.click(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']")) : WebUI.click(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']//input[@id='billingAddress_country']/parent::span"))
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//input"), input)
+		clearTextAndSendKeysByActions(id("basic_billingAddress_country"), input)
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
@@ -69,7 +67,7 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	}
 
 	public AddressInformationPopup selectCityBillingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[10]//input"), input)
+		clearTextAndSendKeysByActions(id("basic_billingAddress_city"), input)
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
@@ -119,8 +117,6 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	}
 
 	public AddressInformationPopup selectCountryShippingAddress(String input){
-		List<String> findObject = findTestObjects("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']")
-		(findObject.size() != 0) ? WebUI.click(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']")) : WebUI.click(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']//input[@id='billingAddress_country']/parent::span"))
 		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//input"), input)
 		WebUI.click(xpath("//*[@id='shippingAddress_country_list']/following::*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
@@ -132,7 +128,7 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	}
 
 	public AddressInformationPopup selectCityShippingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[10]//input"), input)
+		clearTextAndSendKeysByActions(id("basic_shippingAddress_city"), input)
 		WebUI.click(xpath("//*[@id='shippingAddress_city_list']/following::*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
@@ -184,7 +180,7 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		String name = firstName + " " + lastName
 		String houseNumber = WebUI.getAttribute(id("billingAddress_houseNumber"), "value")
 		String street = WebUI.getAttribute(id("billingAddress_streetName"), "value")
-		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"), "title")
+		String state = WebUI.getAttribute(id("billingAddress_state"), "value")
 		String zipCode = WebUI.getAttribute(id("billingAddress_postCode"), "value")
 		String city = WebUI.getAttribute(id("billingAddress_city"), "value")
 		List<String> actualBillingAddress = [
@@ -206,7 +202,7 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		String name = firstName + " " + lastName
 		String houseNumber = WebUI.getAttribute(id("shippingAddress_houseNumber"), "value")
 		String street = WebUI.getAttribute(id("shippingAddress_streetName"), "value")
-		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[6]//span[@class='ant-select-selection-item']"), "title")
+		String state = WebUI.getAttribute(id("shippingAddress_state"), "value")
 		String zipCode = WebUI.getAttribute(id("shippingAddress_postCode"), "value")
 		String city = WebUI.getAttribute(id("shippingAddress_city"), "value")
 		List<String> actualShippingAddress = [

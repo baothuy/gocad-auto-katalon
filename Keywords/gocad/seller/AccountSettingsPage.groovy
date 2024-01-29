@@ -91,7 +91,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	}
 
 	public AccountSettingsPage selectStateBillingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[11]//input"), input)
+		clearTextAndSendKeysByActions(id("basic_billingAddress_state"), input)
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
@@ -102,13 +102,13 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	}
 
 	public AccountSettingsPage selectCityBillingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[10]//input"), input)
+		clearTextAndSendKeysByActions(id("basic_billingAddress_city"), input)
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
 
 	public AccountSettingsPage selectCountryBillingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[12]//input"), input)
+		clearTextAndSendKeysByActions(id("basic_billingAddress_country"), input)
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
@@ -182,7 +182,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	}
 
 	public AccountSettingsPage verifyStateBillingAddressValue(String expectedResult){
-		String actualResult = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[11]//input"), "value")
+		String actualResult = WebUI.getAttribute(id("basic_billingAddress_state"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
@@ -194,13 +194,13 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	}
 
 	public AccountSettingsPage verifyCityBillingAddressValue(String expectedResult){
-		String actualResult = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[10]//input"), "value")
+		String actualResult = WebUI.getAttribute(id("basic_billingAddress_city"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
 	public AccountSettingsPage verifyCountryBillingAddressValue(String expectedResult){
-		String actualResult = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']"), "title")
+		String actualResult = WebUI.getAttribute(id("basic_billingAddress_country"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}

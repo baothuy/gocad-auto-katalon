@@ -191,14 +191,14 @@
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>['Thuy12', 'Truong21', 'truongbaothuy93@gmail.com', '07940606066', '70B', 'Leibnizstraße', 'Germany', 'Berlin', 'Berlin', '74056']</defaultValue>
+      <defaultValue>['Thuy12', 'Truong21', 'truongbaothuy93@gmail.com', '07940606066', '70B', 'Leibnizstraße', 'Germany', 'Berlin', 'Berlin', '10625']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
       <name>billingAddressChanged</name>
    </variable>
    <variable>
-      <defaultValue>['Thuy', 'Truong', 'thuyautomation0@gmail.com', '07941603067', '16a', 'Marie-Curie-Straße', 'Germany', 'Bavaria', 'Ingolstadt', '72405']</defaultValue>
+      <defaultValue>['Thuy', 'Truong', 'thuyautomation0@gmail.com', '07941603067', '16a', 'Marie-Curie-Straße', 'Germany', 'Bavaria', 'Ingolstadt', '85055']</defaultValue>
       <description></description>
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
