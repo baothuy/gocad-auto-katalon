@@ -58,6 +58,18 @@ public class CustomerOverviewDetailPage extends BasePage<ConfirmedOffersPageOfSe
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
+	
+	public CustomerOverviewDetailPage verifyEmail(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//span[text()='E-mail']/following-sibling::span"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public CustomerOverviewDetailPage verifyCompany(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//span[text()='Company']/following-sibling::span"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
 
 	public CustomerOverviewDetailPage verifyDiscount(String expectedResult) {
 		String actualResult = WebUI.getAttribute(id("discount"), "value")

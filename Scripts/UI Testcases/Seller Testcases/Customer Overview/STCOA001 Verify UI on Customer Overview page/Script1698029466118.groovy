@@ -14,14 +14,16 @@ println '>> Verify UI Requested Offers page'
 Page.nav(CustomerOverviewPage).verifyUIVisible()
 
 println '>> Get data first row to go detail verify UI'
-List<String> dataRow = Page.nav(CustomerOverviewPage).getDataRow("1")
+List<String> dataRow = Page.nav(CustomerOverviewPage).getDataRowByEmail(email)
 String customerId = dataRow[0]
 
 Page.nav(CustomerOverviewPage).clickAction(customerId)
 									
 Page.nav(CustomerOverviewDetailPage).verifyUIVisible()
 									.verifyFullName(dataRow[1])
-									.verifyDiscount(dataRow[5])
-									.verifyPartNumber(dataRow[2])
-									.verifyOrderTotal(dataRow[3])
-									.verifyCalculationsNumber(dataRow[4])
+									.verifyEmail(email)
+									.verifyCompany(dataRow[2])
+									.verifyDiscount(dataRow[6])
+									.verifyPartNumber(dataRow[3])
+									.verifyOrderTotal(dataRow[4])
+									.verifyCalculationsNumber(dataRow[5])
