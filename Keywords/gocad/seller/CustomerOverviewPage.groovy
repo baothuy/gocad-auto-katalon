@@ -28,6 +28,11 @@ public class CustomerOverviewPage extends BasePage<CustomerOverviewPage>{
 		WebUI.click(actionCol(customerId))
 		return this
 	}
+	
+	public CustomerOverviewPage inputSearch(String value) {
+		clearTextAndSendKeysByActions(xpath("//input[@placeholder='Search customer']"), value)
+		return this
+	}
 
 	public List<String> getDataRow(String rowNumber) {
 		String id = WebUI.getText(xpath(row(rowNumber) + "td[1]"))
