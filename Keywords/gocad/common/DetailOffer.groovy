@@ -34,7 +34,7 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.click(xpath("//span[text()='Accept And Send Offer ']/parent::button"))
 		return this
 	}
-	
+
 	public DetailOffer clickEditShippingCost(String value) {
 		WebUI.click(xpath("//label[text()='Shipping costs']//following-sibling::label//span[@aria-label='edit']"))
 		clearTextAndSendKeysByActions(xpath("//*[@id='form-inline-shipping']//input[@id='form-inline-shipping_shipping']"), value)
@@ -148,6 +148,12 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		String actualResult = WebUI.getText(xpath("//p[text()='Delivery Date']/parent::div"))
 		String newActualResult  = DateTimeUtility.changeDateFormat(actualResult)
 		WebUI.verifyEqual(newActualResult, expectedResult)
+		return this
+	}
+	
+	public DetailOffer verifyShippingCost(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//label[text()='Shipping costs']/following-sibling::label//span[2]")).trim()
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
