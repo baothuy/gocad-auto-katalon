@@ -1,11 +1,11 @@
 package gocad.common
 
 import com.kms.katalon.core.configuration.RunConfiguration
-import java.io.File
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import internal.GlobalVariable
 import katalon.fw.lib.BasePage
+import katalon.utility.CommonUtility
 
 public class DataUploadPage extends BasePage<DataUploadPage> {
 
@@ -25,8 +25,8 @@ public class DataUploadPage extends BasePage<DataUploadPage> {
 		String url = WebUI.getUrl()
 		println "url: $url"
 		// Extract the number using regular expressions
-		def number = url =~ /\d+/
-		String extractedNumber = Integer.parseInt(number[0]).toString()
+		def pattern = /\/(\d+)\//
+		String extractedNumber = CommonUtility.substringUseRegExp(url,pattern,1)
 		return extractedNumber
 	}
 

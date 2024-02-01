@@ -109,7 +109,7 @@ Page.nav(ConfirmedOffersPageOfSeller).verifyProjectName(projectId, projectName)
 									 .verifyCompanyName(projectId, companyName)
 									 .verifyOrderNumber(projectId)
 									 .verifyOrderDate(projectId, orderDate)
-									 .verifyNetTotal(projectId, netTotal)
+									 .verifyNetTotal(projectId, listOrderSummary[5])
 									 .verifyStatus(projectId, "Order confirmed")
 									 .clickAction(projectId)
 
