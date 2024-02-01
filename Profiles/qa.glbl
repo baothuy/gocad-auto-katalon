@@ -41,7 +41,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'https://devbu.gocad.de/'</initValue>
+      <initValue>'https://lst247.gocad.de/'</initValue>
       <name>myUrl</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -141,12 +141,12 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Stainless steel'</initValue>
+      <initValue>'Aluminium'</initValue>
       <name>materialGroupSMP</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'X2CrNiMo17'</initValue>
+      <initValue>'EN AW-5754 / AlMg3'</initValue>
       <name>materialNameSMP</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -161,7 +161,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Painting'</initValue>
+      <initValue>'Verchromen'</initValue>
       <name>surfaceTreatmentSMP</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -181,12 +181,12 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'#FFCB3D'</initValue>
+      <initValue>'#F40000'</initValue>
       <name>highlightProcessColor</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'#FFF8E6'</initValue>
+      <initValue>'#FFF6F2'</initValue>
       <name>highlightListColor</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

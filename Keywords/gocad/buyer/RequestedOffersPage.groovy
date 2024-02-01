@@ -25,12 +25,6 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 		WebUI.click(actionCol(projectId))
 		return this
 	}
-	
-	public DraftPage clickPaginationOption(String numberPage) {
-		WebUI.click(xpath("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']"))
-		WebUI.click(xpath("//*[@class='ant-pagination-options']//following::div[@class='rc-virtual-list']//div[text()='$numberPage / page']"))
-		return this
-	}
 
 	public RequestedOffersPage clickPaginationOption(String numberPage) {
 		List<String> findObj = findTestObjects("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']")
