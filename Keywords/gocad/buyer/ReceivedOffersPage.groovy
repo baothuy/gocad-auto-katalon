@@ -23,6 +23,12 @@ public class ReceivedOffersPage extends BasePage<ReceivedOffersPage>{
 		WebUI.click(actionCol(projectId))
 		return this
 	}
+	
+	public ReceivedOffersPage clickPaginationOption(String numberPage) {
+		WebUI.click(xpath("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[@class='ant-pagination-options']//following::div[@class='rc-virtual-list']//div[text()='$numberPage / page']"))
+		return this
+	}
 
 	public ReceivedOffersPage verifyHighlightOnList(String projectId) {
 		String backgroundColor = WebUI.getCSSValue(rowOfProject(projectId), 'background-color')
@@ -92,7 +98,14 @@ public class ReceivedOffersPage extends BasePage<ReceivedOffersPage>{
 		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "td[6]"))
 		String grossTotal = WebUI.getText(xpath(row(rowNumber) + "td[7]/div"))
 		String status = WebUI.getText(xpath(row(rowNumber) + "td[8]//span[normalize-space(text()) != '']"))
-		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
+		List<String> dataRow = [
+			id,
+			projectName,
+			deliveryDate,
+			orderNumber,
+			grossTotal,
+			status
+		]
 		return dataRow
 	}
 }

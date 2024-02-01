@@ -14,7 +14,6 @@ Page.nav(LeftNavBar).clickOpenInquiries()
 
 List<String> orderInfor = Page.nav(OpenInquiriesPage).getDataRowByStatus("New request")
 String projectId = orderInfor[0]
-String unitPriceChanged = CommonUtility.randomNumber(100)
 
 Page.nav(OpenInquiriesPage).clickAction(projectId)
 

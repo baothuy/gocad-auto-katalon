@@ -26,10 +26,15 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 		return this
 	}
 	
+	public DraftPage clickPaginationOption(String numberPage) {
+		WebUI.click(xpath("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[@class='ant-pagination-options']//following::div[@class='rc-virtual-list']//div[text()='$numberPage / page']"))
+		return this
+	}
+
 	public RequestedOffersPage clickPaginationOption(String numberPage) {
 		List<String> findObj = findTestObjects("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']")
-		if (findObj.size() != 0)
-		{
+		if (findObj.size() != 0) {
 			WebUI.click(xpath("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']"))
 			WebUI.click(xpath("//*[@class='ant-pagination-options']//following::div[@class='rc-virtual-list']//div[text()='$numberPage / page']"))
 		}
@@ -87,17 +92,31 @@ public class RequestedOffersPage extends BasePage<RequestedOffersPage>{
 		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "/td[6]"))
 		String grossTotal = WebUI.getText(xpath(row(rowNumber) + "/td[7]/div"))
 		String status = WebUI.getText(xpath(row(rowNumber) + "/td[8]//span[normalize-space(text()) != '']"))
-		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
+		List<String> dataRow = [
+			id,
+			projectName,
+			deliveryDate,
+			orderNumber,
+			grossTotal,
+			status
+		]
 		return dataRow
 	}
-	
+
 	public List<String> getDataRowByStatus(String status) {
 		String id = WebUI.getText(xpath(rowByStatus(status) + "/td[1]"))
 		String projectName = WebUI.getText(xpath(rowByStatus(status) + "/td[2]//a"))
 		String deliveryDate = WebUI.getText(xpath(rowByStatus(status) + "/td[5]/div"))
 		String orderNumber = WebUI.getText(xpath(rowByStatus(status) + "/td[6]"))
 		String grossTotal = WebUI.getText(xpath(rowByStatus(status) + "/td[7]/div"))
-		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
+		List<String> dataRow = [
+			id,
+			projectName,
+			deliveryDate,
+			orderNumber,
+			grossTotal,
+			status
+		]
 		return dataRow
 	}
 

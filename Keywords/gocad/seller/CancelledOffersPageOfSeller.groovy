@@ -2,6 +2,7 @@ package gocad.seller
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import gocad.buyer.CancelledOffersPageOfBuyer
 import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
@@ -23,6 +24,12 @@ public class CancelledOffersPageOfSeller extends BasePage<CancelledOffersPageOfS
 
 	public CancelledOffersPageOfSeller clickAction(String projectId) {
 		WebUI.click(actionCol(projectId))
+		return this
+	}
+	
+	public CancelledOffersPageOfSeller clickPaginationOption(String numberPage) {
+		WebUI.click(xpath("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[@class='ant-pagination-options']//following::div[@class='rc-virtual-list']//div[text()='$numberPage / page']"))
 		return this
 	}
 
@@ -84,7 +91,15 @@ public class CancelledOffersPageOfSeller extends BasePage<CancelledOffersPageOfS
 		String orderDate = WebUI.getText(xpath(row(rowNumber) + "td[5]"))
 		String NETTotal = WebUI.getText(xpath(row(rowNumber) + "td[6]/div"))
 		String status = WebUI.getText(xpath(row(rowNumber) + "td[7]//span[normalize-space(text()) != '']"))
-		List<String> dataRow = [id, projectName, companyName, orderNumber, orderDate, NETTotal, status]
+		List<String> dataRow = [
+			id,
+			projectName,
+			companyName,
+			orderNumber,
+			orderDate,
+			NETTotal,
+			status
+		]
 		return dataRow
 	}
 

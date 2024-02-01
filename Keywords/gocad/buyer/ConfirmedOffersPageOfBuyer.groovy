@@ -2,6 +2,7 @@ package gocad.buyer
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import gocad.seller.SentOffersPage
 import katalon.fw.lib.BasePage
 import katalon.utility.CommonUtility
 import internal.GlobalVariable
@@ -24,6 +25,12 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 
 	public ConfirmedOffersPageOfBuyer clickPayButton(String projectId) {
 		WebUI.click(paymentStatusCol(projectId))
+		return this
+	}
+	
+	public ConfirmedOffersPageOfBuyer clickPaginationOption(String numberPage) {
+		WebUI.click(xpath("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[@class='ant-pagination-options']//following::div[@class='rc-virtual-list']//div[text()='$numberPage / page']"))
 		return this
 	}
 
@@ -95,7 +102,14 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 		String orderNumber = WebUI.getText(xpath(row(rowNumber) + "td[6]"))
 		String grossTotal = WebUI.getText(xpath(row(rowNumber) + "td[7]/div"))
 		String status = WebUI.getText(xpath(row(rowNumber) + "td[8]//span[normalize-space(text()) != '']"))
-		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
+		List<String> dataRow = [
+			id,
+			projectName,
+			deliveryDate,
+			orderNumber,
+			grossTotal,
+			status
+		]
 		return dataRow
 	}
 
@@ -106,7 +120,14 @@ public class ConfirmedOffersPageOfBuyer extends BasePage<ConfirmedOffersPageOfBu
 		String orderNumber = WebUI.getText(xpath(rowByPaymentStatusButton + "/td[6]"))
 		String grossTotal = WebUI.getText(xpath(rowByPaymentStatusButton + "/td[7]/div"))
 		String status = WebUI.getText(xpath(rowByPaymentStatusButton + "/td[8]//span[normalize-space(text()) != '']"))
-		List<String> dataRow = [id, projectName, deliveryDate, orderNumber, grossTotal, status]
+		List<String> dataRow = [
+			id,
+			projectName,
+			deliveryDate,
+			orderNumber,
+			grossTotal,
+			status
+		]
 		return dataRow
 	}
 }
