@@ -14,6 +14,7 @@ Page.nav(RegistrationPage).inputEmail(email)
 							.inputPhone(phone)
 							.inputCompanyName(companyName)
 							.inputVatNumber(vatNumber)
+							.clickAcceptPrivacyCheckbox()
 							.clickRegistrationButton()
 							
 println '>> Input empty on Registration page'

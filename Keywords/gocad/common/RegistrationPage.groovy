@@ -51,6 +51,14 @@ public class RegistrationPage extends BasePage<RegistrationPage>{
 		WebUI.click(xpath("//*[text()='Registration']/parent::button[@type='submit']"))
 		return this
 	}
+	
+	public RegistrationPage clickAcceptPrivacyCheckbox() {
+		WebUI.click(xpath("//*[@id='basic_consent']//input[@value='consent1']"))
+		WebUI.click(xpath("//*[@id='basic_consent']//input[@value='consent2']"))
+		WebUI.click(xpath("//*[@id='basic_consent']//input[@value='consent3']"))
+		WebUI.click(xpath("//*[@id='basic_consent']//input[@value='consent4']"))
+		return this
+	}
 
 	public RegistrationPage verifyUIVisible() {
 		WebUI.verifyElementVisible(id("basic_email"))

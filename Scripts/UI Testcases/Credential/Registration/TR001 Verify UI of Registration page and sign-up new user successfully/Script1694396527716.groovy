@@ -17,6 +17,7 @@ Page.nav(RegistrationPage).verifyUIVisible()
 							.inputPhone(phone)
 							.inputCompanyName(companyName)
 							.inputVatNumber(vatNumber)
+							.clickAcceptPrivacyCheckbox()
 							.clickRegistrationButton()
 							.verifyRegisterSuccessfully()
 							
