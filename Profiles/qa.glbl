@@ -131,7 +131,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Standard shipping'</initValue>
+      <initValue>'Package delivery (extra costs)'</initValue>
       <name>shippingOption</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
