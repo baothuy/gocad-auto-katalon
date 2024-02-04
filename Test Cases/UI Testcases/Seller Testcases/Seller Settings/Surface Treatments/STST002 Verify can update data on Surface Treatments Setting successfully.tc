@@ -84,42 +84,42 @@
       <variableId>e4835690-1d34-40c2-b7de-1d750c880d84</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'Soft annealing'</defaultValue>
+      <defaultValue>'Nitrocarburieren'</defaultValue>
       <description></description>
       <id>d30989cc-1195-4b56-990d-1015be85cc76</id>
       <masked>false</masked>
       <name>method</name>
    </variable>
    <variable>
-      <defaultValue>'Soft annealing abc'</defaultValue>
+      <defaultValue>'Nitrocarburieren abc'</defaultValue>
       <description></description>
       <id>ee50727b-88b6-441e-b888-6d3d1f7cc121</id>
       <masked>false</masked>
       <name>englishChanged</name>
    </variable>
    <variable>
-      <defaultValue>'Weichglühen'</defaultValue>
+      <defaultValue>'Nitrocarburieren'</defaultValue>
       <description></description>
       <id>5943df49-d71b-4af9-8106-759e46187a09</id>
       <masked>false</masked>
       <name>german</name>
    </variable>
    <variable>
-      <defaultValue>'Ricottura di addolcimento'</defaultValue>
+      <defaultValue>'Plasma Nitrieren mit IONIT'</defaultValue>
       <description></description>
       <id>d21fb76a-cf1e-4541-9cdf-c1e672ff595c</id>
       <masked>false</masked>
       <name>italian</name>
    </variable>
    <variable>
-      <defaultValue>'Měkké žíhání'</defaultValue>
+      <defaultValue>'Nitrokarburizace'</defaultValue>
       <description></description>
       <id>17c1017f-58ef-41d7-a125-7b39cac5dc7f</id>
       <masked>false</masked>
       <name>czech</name>
    </variable>
    <variable>
-      <defaultValue>'SOAN'</defaultValue>
+      <defaultValue>'NICA'</defaultValue>
       <description></description>
       <id>5ef0c42e-6862-4ecb-b928-f5d87a3ef029</id>
       <masked>false</masked>
@@ -133,7 +133,7 @@
       <name>pricePerArea</name>
    </variable>
    <variable>
-      <defaultValue>'2.54'</defaultValue>
+      <defaultValue>'1.1'</defaultValue>
       <description></description>
       <id>316809b6-ff30-4588-a2da-75e7532f72b0</id>
       <masked>false</masked>

@@ -78,7 +78,7 @@
       <variableId>21eddc63-8f5d-43d0-ab4d-eb6267a2b065</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'1'</defaultValue>
+      <defaultValue>'3'</defaultValue>
       <description></description>
       <id>4e40f165-7612-47f8-984a-86477d6e6fae</id>
       <masked>false</masked>
@@ -127,7 +127,7 @@
       <name>partPriceManualThreshold</name>
    </variable>
    <variable>
-      <defaultValue>'1000'</defaultValue>
+      <defaultValue>'0'</defaultValue>
       <description></description>
       <id>36b94a31-8531-496e-913f-4cfe96b63591</id>
       <masked>false</masked>

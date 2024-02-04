@@ -30,7 +30,7 @@ Page.nav(SurfaceTreatmentsSettingPopup).inputLocalizedNamesGerman(german)
 										.clickOKButton()
 
 println '>> verify Toast Message'
-Page.nav(ToastMessage).verifyToastMessage("Update success!", "Surface treatment - Soft annealing")
+Page.nav(ToastMessage).verifyToastMessage("Update success!", "Surface treatment - Nitrocarburieren")
 						.refreshPage()
 						.sleep(2)
 						
