@@ -10,6 +10,7 @@ println '>> User seller signs in page'
 Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
 Page.nav(LeftNavBar).clickOpenInquiries()
+Page.nav(OpenInquiriesPage).clickPaginationOption('100')
 
 List<String> orderInfor = Page.nav(OpenInquiriesPage).getDataRowByStatus("New request")
 String projectId = orderInfor[0]
