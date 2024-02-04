@@ -34,7 +34,7 @@ public class SurfaceTreatmentsSettingPage extends BasePage<SurfaceTreatmentsSett
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[@aria-label='Min Order']"))
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[@aria-label='Delivery Week']"))
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Material Group']"))
-		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Status']"))
+		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[@aria-label='Status']"))
 		WebUI.verifyElementVisible(xpath("//*[@class='ant-table-thead']//th[text()='Action']"))
 		WebUI.verifyElementVisible(xpath("//ul[contains(@class,'ant-table-pagination')]"))
 		return this
