@@ -35,7 +35,7 @@ Page.nav(AccountSettingsPage).verifyShowErrorWhenFirstNameContactEmpty()
 							.verifyShowErrorWhenHouseNumberBillingAddressEmpty()
 							.verifyShowErrorWhenStreetBillingAddressEmpty()
 							.verifyShowErrorWhenZIPCodeBillingAddressEmpty()
-							.sleep(1)							
+							.sleep(2)							
 
 println '>> click Terms Of Payment'
 Page.nav(AccountSettingsLeftNavMenu).clickTermsOfPayment()
