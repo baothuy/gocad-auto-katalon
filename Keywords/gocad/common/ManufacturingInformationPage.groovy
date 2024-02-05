@@ -589,6 +589,21 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath('//span[text()="Review "]'))
 		return this
 	}
+	
+	public ManufacturingInformationPage verifyLengthInforVisible() {
+		WebUI.verifyElementVisible(xpath("//*[@class='text-label' and text()='Length']"))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyHeightInforVisible() {
+		WebUI.verifyElementVisible(xpath("//*[@class='text-label' and text()='Height']"))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyThicknessInforVisible() {
+		WebUI.verifyElementVisible(xpath("//*[@class='text-label' and text()='Thickness']"))
+		return this
+	}
 
 	public ManufacturingInformationPage verifyManufacturingInformationReportButtonVisible() {
 		WebUI.verifyElementVisible(xpath("//span[text()=' Manufacturing information']/parent::button"))
