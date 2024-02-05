@@ -101,7 +101,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'EN AW-7075 / AlZn5'</initValue>
+      <initValue>'EN AW-5754 / AlMg3'</initValue>
       <name>materialNameMTP</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -111,7 +111,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Sandblasting'</initValue>
+      <initValue>'Verchromen'</initValue>
       <name>surfaceTreatmentMTP</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -131,7 +131,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Standard shipping'</initValue>
+      <initValue>'Package delivery (extra costs)'</initValue>
       <name>shippingOption</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
