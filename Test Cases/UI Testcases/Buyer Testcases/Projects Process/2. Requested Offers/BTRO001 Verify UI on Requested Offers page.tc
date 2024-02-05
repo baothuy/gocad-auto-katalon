@@ -34,7 +34,7 @@
       <name>status</name>
    </variable>
    <variable>
-      <defaultValue>'10'</defaultValue>
+      <defaultValue>'100'</defaultValue>
       <description></description>
       <id>cf14def4-a296-46c5-a55e-e7574974c2ee</id>
       <masked>false</masked>

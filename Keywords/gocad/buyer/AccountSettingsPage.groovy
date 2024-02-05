@@ -526,7 +526,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		def actualTitle = WebUI.getText(xpath("//*[@class='ant-notification-notice-message']"))
 		def actualMessage = WebUI.getText(xpath("//*[@class='ant-notification-notice-description']"))
 		def expectedTitle = "Success!"
-		def expectedMessage = "Updated Account"
+		def expectedMessage = "Update success"
 		WebUI.verifyEqual(actualTitle, expectedTitle)
 		WebUI.verifyEqual(actualMessage, expectedMessage)
 		return this
