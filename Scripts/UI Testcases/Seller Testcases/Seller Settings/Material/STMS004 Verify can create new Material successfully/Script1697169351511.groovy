@@ -23,12 +23,31 @@ Page.nav(MaterialSettingsPopup).selectMaterialGroup(materialGroup)
 								.inputPricePerKilo(pricePerKilo)
 								.selectCompliances(compliances)
 								.selectShopType(shopType)
+								.inputLink(link)
+								.inputSynonym(synonym)
 								.selectStatusToggle(status)
 								.clickOKButton()
+								.clickCloseButton()
 								
 println '>> Verify create New material Success'
 Page.nav(ToastMessage).verifyToastMessage("Success!", "Material" + " - " + materialName)
 						.clickCloseToastMessage()
+						.sleep(1)
+						
+println '>> Verify after create New material Success'
+Page.nav(MaterialSettingsPage).inputSearchMaterial(materialName)
+								.clickEditButton(materialName)
+								
+Page.nav(MaterialSettingsPopup).verifyMaterialGroupValue(materialGroup)
+								.verifyNameValue(materialName)
+								.verifyNumberValue(number)
+								.verifyDensityValue(density)
+								.verifyPricePerKiloValue(pricePerKilo)
+								.verifyCompliancesValue(compliances)
+								.verifyShopTypeValue(shopType)
+								.verifyLinkValue(link)
+								.verifySynonymValue(synonym)
+								.verifyStatusValue(status)
 						
 println '>> Verify create thickness material success'
 Page.nav(MaterialSettingsPopup).inputThickness(thickness)

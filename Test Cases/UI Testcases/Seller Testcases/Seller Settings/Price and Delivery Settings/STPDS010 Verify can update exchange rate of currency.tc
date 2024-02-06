@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>STPDS010 Verify can update exchange rate of currency</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>eeafd4df-3c0d-48cd-92ee-b0c9661e4635</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>35b89439-2d83-4671-9dbd-f7752a6250f1</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>36c14ea0-1e0b-48a8-acd5-ca7a0316091b</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e134b475-9d78-4251-b51c-78bcb0ef6de1</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'CZK'</defaultValue>
+      <description></description>
+      <id>35b89439-2d83-4671-9dbd-f7752a6250f1</id>
+      <masked>false</masked>
+      <name>isoCode</name>
+   </variable>
+   <variable>
+      <defaultValue>'24.8'</defaultValue>
+      <description></description>
+      <id>36c14ea0-1e0b-48a8-acd5-ca7a0316091b</id>
+      <masked>false</masked>
+      <name>exchangeRateChanged</name>
+   </variable>
+   <variable>
+      <defaultValue>'24.7'</defaultValue>
+      <description></description>
+      <id>e134b475-9d78-4251-b51c-78bcb0ef6de1</id>
+      <masked>false</masked>
+      <name>exchangeRate</name>
+   </variable>
+</TestCaseEntity>

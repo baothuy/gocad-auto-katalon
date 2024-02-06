@@ -24,6 +24,9 @@ Page.nav(PriceAndDeliverySettingsSMFPage).inputTransportAdditions(transportAddit
 										 .inputMargin(margin)
 										 .inputMaterialAdditions(materialAdditions)
 										 .inputManufacturingAdditions(manufacturingAdditions)
+										 .inputCostPerHoleThreshold(costPerHoleThreshold)
+										 .inputCostPerHoleUnderThreshold(costPerHoleUnderThreshold)
+										 .inputCostPerHoleOverThreshold(costPerHoleOverThreshold)
 										 .clickSaveChangesButton()
 										 
 println '>> verify Toast Message'
