@@ -24,4 +24,9 @@ public class PriceAndDeliverySettingsLeftNavMenu extends BasePage<PriceAndDelive
 		WebUI.click(xpath("//span[text()='Sheet metal Formula']/parent::button"))
 		return this
 	}
+	
+	public PriceAndDeliverySettingsLeftNavMenu clickCurrency() {
+		WebUI.click(xpath("//span[text()='Currency']/parent::button"))
+		return this
+	}
 }

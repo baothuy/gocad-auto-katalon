@@ -83,6 +83,18 @@
       <value></value>
       <variableId>7ce23eef-8af1-4df8-826e-6d63cb855836</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a08e258e-3d4c-4568-8332-696bed4a3334</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f4e9c863-4e88-4677-bb34-d29b375540a5</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'Plastic'</defaultValue>
       <description></description>
@@ -173,5 +185,19 @@
       <id>7ce23eef-8af1-4df8-826e-6d63cb855836</id>
       <masked>false</masked>
       <name>pricePerKiloThickness</name>
+   </variable>
+   <variable>
+      <defaultValue>'abc@gmail.com'</defaultValue>
+      <description></description>
+      <id>a08e258e-3d4c-4568-8332-696bed4a3334</id>
+      <masked>false</masked>
+      <name>link</name>
+   </variable>
+   <variable>
+      <defaultValue>'none'</defaultValue>
+      <description></description>
+      <id>f4e9c863-4e88-4677-bb34-d29b375540a5</id>
+      <masked>false</masked>
+      <name>synonym</name>
    </variable>
 </TestCaseEntity>
