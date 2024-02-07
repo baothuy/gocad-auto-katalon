@@ -18,7 +18,7 @@ String projectId = orderInfor[0]
 
 Page.nav(OpenInquiriesPage).clickAction(projectId)
 
-Page.nav(DetailOffer).clickEditShippingCost(shippingCost)
+Page.nav(DetailOffer)
 						.sleep(2)
 						.refreshPage()
 

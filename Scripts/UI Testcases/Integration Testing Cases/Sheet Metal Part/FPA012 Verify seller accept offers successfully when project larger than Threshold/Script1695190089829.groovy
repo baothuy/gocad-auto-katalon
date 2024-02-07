@@ -97,9 +97,9 @@ Page.nav(OpenInquiriesPage).verifyProjectName(projectId, projectName)
 							.clickAction(projectId)
 
 println '>> Seller click accept and send offers to buyer'
-Page.nav(DetailOffer).clickEditShippingCost(shippingCost).clickAcceptAndSendOffer().clickOKConfirmPopup()
-List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
+Page.nav(DetailOffer).clickAcceptAndSendOffer().clickOKConfirmPopup()
 List<String> listOrderSummary = Page.nav(DetailOffer).getOrderSummary()
+List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
 
 println '>> Seller go confirmed offers of buyer checkout'
 Page.nav(LeftNavBar).clickConfirmedOffers()

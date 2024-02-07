@@ -121,7 +121,7 @@ println '>> Input change unit price'
 Page.nav(DetailOffer).inputUnitPrice(unitPriceChanged).clickAcceptChangeUnitPrice().clickCloseToastMessage()
  
 println '>> Seller click accept and send offers to buyer'
-Page.nav(DetailOffer).clickEditShippingCost(shippingCost).clickSendAdaptedOffer().clickOKConfirmPopup().clickCloseToastMessage()
+Page.nav(DetailOffer).clickSendAdaptedOffer().clickOKConfirmPopup().clickCloseToastMessage()
 
 println '>> get Information on Detail page after change unit price'
 List<String> listOrderSummaryChanged = Page.nav(DetailOffer).getOrderSummary()
