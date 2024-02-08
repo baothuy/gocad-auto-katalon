@@ -120,7 +120,7 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 	}
 	
 	public MaterialSettingsPopup inputSynonym(String value) {
-		clearTextAndSendKeysByActions(id("basic_synonym"), value)
+		clearTextAndSendKeysByActions(id("basic_synonyms"), value)
 		return this
 	}
 	
@@ -282,7 +282,7 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		WebUI.verifyElementVisible(xpath("//label[text()='Link']"))
 		WebUI.verifyElementVisible(xpath("//input[@id='basic_link']"))
 		WebUI.verifyElementVisible(xpath("//label[text()='Synonym']"))
-		WebUI.verifyElementVisible(xpath("//input[@id='basic_synonym']"))
+		WebUI.verifyElementVisible(xpath("//input[@id='basic_synonyms']"))
 		WebUI.verifyElementVisible(xpath("//span[text()='OK']/parent::button"))
 		WebUI.verifyElementVisible(xpath("//span[text()='Cancel']/parent::button"))
 		return this
@@ -306,23 +306,12 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		WebUI.verifyElementVisible(xpath("//label[text()='Link']"))
 		WebUI.verifyElementVisible(xpath("//input[@id='basic_link']"))
 		WebUI.verifyElementVisible(xpath("//label[text()='Synonym']"))
-		WebUI.verifyElementVisible(xpath("//input[@id='basic_synonym']"))
-		WebUI.verifyElementVisible(xpath("//label[text()='Type']"))
-		WebUI.verifyElementVisible(xpath("//input[@id='shapeType']/parent::span"))
-		WebUI.verifyElementVisible(xpath("//label[text()='Diameter']"))
-		WebUI.verifyElementVisible(id("diameter"))
-		WebUI.verifyElementVisible(xpath("//label[text()='Height']"))
-		WebUI.verifyElementVisible(id("height"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Raw Material']/following::label[text()='Price per Kilo']"))
-		WebUI.verifyElementVisible(id("pricePerKilo"))
-		WebUI.verifyElementVisible(xpath("//span[text()='Add New']"))
-		WebUI.verifyElementVisible(xpath("//span[text()='OK']/parent::button"))
-		WebUI.verifyElementVisible(xpath("//span[text()='Cancel']/parent::button"))
-		WebUI.verifyElementVisible(xpath("//th[text()='Type']"))
-		WebUI.verifyElementVisible(xpath("//th[text()='Diameter']"))
-		WebUI.verifyElementVisible(xpath("//th[text()='Height']"))
+		WebUI.verifyElementVisible(xpath("//input[@id='basic_synonyms']"))		
+		WebUI.verifyElementVisible(xpath("//th[text()='Thickness']"))
 		WebUI.verifyElementVisible(xpath("//th[text()='Price per Kilo']"))
 		WebUI.verifyElementVisible(xpath("//th[text()='Action']"))
+		WebUI.verifyElementVisible(xpath("//span[text()='OK']/parent::button"))
+		WebUI.verifyElementVisible(xpath("//span[text()='Cancel']/parent::button"))
 		return this
 	}
 }

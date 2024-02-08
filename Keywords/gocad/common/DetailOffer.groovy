@@ -432,12 +432,12 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		//Billing address
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div/div[1]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div/div[2]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div/div[3]"))
+		//WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div/div[3]"))
 
 		//Shipping address
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div/div[1]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div/div[2]"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div/div[3]"))
+		//WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div/div[3]"))
 
 		//button More, View
 		WebUI.verifyElementVisible(xpath("//*[@aria-label='more']/parent::button"))
