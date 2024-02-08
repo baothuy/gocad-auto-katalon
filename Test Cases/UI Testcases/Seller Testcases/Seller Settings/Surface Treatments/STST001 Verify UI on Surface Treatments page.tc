@@ -12,7 +12,7 @@
       <variableId>a04b35ac-0f79-4c7b-ade8-dc518073ac8e</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'Plasmanitrieren'</defaultValue>
+      <defaultValue>'Plasma nitriding'</defaultValue>
       <description></description>
       <id>a04b35ac-0f79-4c7b-ade8-dc518073ac8e</id>
       <masked>false</masked>

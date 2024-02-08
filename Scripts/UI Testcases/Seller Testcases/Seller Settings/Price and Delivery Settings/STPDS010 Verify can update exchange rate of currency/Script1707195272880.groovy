@@ -17,6 +17,7 @@ Page.nav(PriceAndDeliverySettingsLeftNavMenu).clickCurrency()
 Page.nav(PriceAndDeliverySettingsCurrency).clickEditButton(isoCode)
 											.inputExchangeRate(exchangeRateChanged)
 											.clickAcceptChangeButton()
+											.sleep(1)
 
 Page.nav(ToastMessage).verifyToastMessage("Success!", "Exchange Rate!")
 											.refreshPage()
@@ -29,3 +30,4 @@ Page.nav(PriceAndDeliverySettingsCurrency).verifyExchangeRateValue(isoCode, exch
 Page.nav(PriceAndDeliverySettingsCurrency).clickEditButton(isoCode)
 											.inputExchangeRate(exchangeRate)
 											.clickAcceptChangeButton()
+											.sleep(1)

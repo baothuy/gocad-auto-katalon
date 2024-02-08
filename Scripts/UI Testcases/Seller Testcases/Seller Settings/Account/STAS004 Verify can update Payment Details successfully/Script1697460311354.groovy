@@ -19,6 +19,24 @@ Page.nav(PaymentDetailsSettingsPage).inputBankName(bankName)
 									  .inputIBAN(iban)
 									  .inputBIC(bic)
 									  .clickSaveChangesButton()
+									  								  
+println '>> verify Toast Message'
+Page.nav(ToastMessage).verifyToastMessage("Success!", "Updated Account")
+									  						.refreshPage()
+									  
+println '>> click Payment Details'
+Page.nav(AccountSettingsLeftNavMenu).clickPaymentDetails()
+
+println '>> verify field'
+Page.nav(PaymentDetailsSettingsPage).verifyBankName(bankName)
+									  .verifyIBAN(iban)
+									  .verifyBIC(bic)
+									  
+println '>> input old value field'
+Page.nav(PaymentDetailsSettingsPage).inputBankName("")
+									.inputIBAN("")
+									.inputBIC("")
+									.clickSaveChangesButton()
 
 println '>> verify Toast Message'
 Page.nav(ToastMessage).verifyToastMessage("Success!", "Updated Account")

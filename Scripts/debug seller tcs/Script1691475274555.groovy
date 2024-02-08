@@ -1,21 +1,11 @@
-import gocad.buyer.AddressInformationPopup
-import gocad.buyer.ReviewPage
 import gocad.common.LeftNavBar
-import gocad.common.ManufacturingInformationPage
 import gocad.common.SignInPage
-import gocad.seller.MyProjectsPage
-import gocad.seller.SendOfferPage
+import gocad.common.ToastMessage
+import gocad.seller.AccountSettingsPage
 import katalon.fw.lib.Page
 
-
-println '>> User buyer signs in page'
+println '>> User Seller signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().verifySuccessfullySignInAsSeller()
 
-Page.nav(LeftNavBar).clickMyProjects()
-
-Page.nav(MyProjectsPage).clickViewAction("2830")
-
-Page.nav(ManufacturingInformationPage).clickReview()
-
-
-
+println '>> User Seller go to Price And Delivery Settings settings'
+Page.nav(LeftNavBar).clickAccount()

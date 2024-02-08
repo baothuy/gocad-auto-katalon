@@ -12,7 +12,7 @@
       <variableId>ee3abc7e-8c0a-468b-8172-b47b7ef4a193</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'DEB - Deburring'</defaultValue>
+      <defaultValue>'Cutting Machine'</defaultValue>
       <description></description>
       <id>ee3abc7e-8c0a-468b-8172-b47b7ef4a193</id>
       <masked>false</masked>

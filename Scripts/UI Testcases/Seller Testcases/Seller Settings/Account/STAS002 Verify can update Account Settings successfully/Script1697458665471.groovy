@@ -19,6 +19,7 @@ Page.nav(AccountSettingsPage).inputFirstNameContact(contactChanged[0])
 							.inputWebsiteContact(contactChanged[6])
 							
 println '>> Input billing/shipping address information'
+Page.nav(AccountSettingsPage).selectCurrencyValue(currency)
 Page.nav(AccountSettingsPage).inputFirstNameBillingAddress(billingAddressChanged[0])
 								.inputLastNameBillingAddress(billingAddressChanged[1])
 								.inputEmailBillingAddress(billingAddressChanged[2])

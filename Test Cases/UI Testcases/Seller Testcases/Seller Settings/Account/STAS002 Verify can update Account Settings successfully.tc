@@ -29,6 +29,12 @@
       <value></value>
       <variableId>4a835f25-dcfc-4247-87ed-d0785d064615</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d6c52c35-c055-4011-b6f1-eef86f2e09b0</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>['Philipp', 'Sauter', 'Male', 'Testproduzent GmbH', '0784060607', '123456789', 'https://devbu.gocad.de/']</defaultValue>
       <description></description>
@@ -56,5 +62,12 @@
       <id>4a835f25-dcfc-4247-87ed-d0785d064615</id>
       <masked>false</masked>
       <name>billingAddressChanged</name>
+   </variable>
+   <variable>
+      <defaultValue>'EUR'</defaultValue>
+      <description></description>
+      <id>d6c52c35-c055-4011-b6f1-eef86f2e09b0</id>
+      <masked>false</masked>
+      <name>currency</name>
    </variable>
 </TestCaseEntity>

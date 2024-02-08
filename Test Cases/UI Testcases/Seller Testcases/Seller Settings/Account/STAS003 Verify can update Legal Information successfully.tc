@@ -24,21 +24,21 @@
       <variableId>2bdac4a3-acee-4ea0-8f7b-3a1478da31d3</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>''</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description></description>
       <id>c550e1b8-0465-4e4c-b867-929d8716dea7</id>
       <masked>false</masked>
       <name>legal</name>
    </variable>
    <variable>
-      <defaultValue>''</defaultValue>
+      <defaultValue>'2'</defaultValue>
       <description></description>
       <id>edb104b4-4018-4ccb-9d19-16e848ebd161</id>
       <masked>false</masked>
       <name>vatId</name>
    </variable>
    <variable>
-      <defaultValue>''</defaultValue>
+      <defaultValue>'3'</defaultValue>
       <description></description>
       <id>2bdac4a3-acee-4ea0-8f7b-3a1478da31d3</id>
       <masked>false</masked>
