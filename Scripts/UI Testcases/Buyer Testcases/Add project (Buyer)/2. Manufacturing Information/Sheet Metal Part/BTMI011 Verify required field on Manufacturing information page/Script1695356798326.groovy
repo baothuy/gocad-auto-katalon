@@ -66,8 +66,7 @@ println '>> Remove old part'
 Page.nav(ManufacturingInformationPage).clickMoreOption().clickDeletePart().clickOK()
 
 println '>> click Workflow'
-Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
-						.clickCustomDXF()
+Page.nav(DataUploadPage).clickCustomDXF()
 						
 println '>> click Circle Panel Shape'
 Page.nav(CustomDXFLeftNavMenu).clickCirclePanelShape()

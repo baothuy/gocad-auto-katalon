@@ -23,8 +23,7 @@ String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
 println '>> click Workflow'
-Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
-						.clickCustomDXF()
+Page.nav(DataUploadPage).clickCustomDXF()
 						
 println '>> click Isosceles Trapezoid Panel Shape'
 Page.nav(CustomDXFLeftNavMenu).clickIsoscelesTrapezoidPanelShape()

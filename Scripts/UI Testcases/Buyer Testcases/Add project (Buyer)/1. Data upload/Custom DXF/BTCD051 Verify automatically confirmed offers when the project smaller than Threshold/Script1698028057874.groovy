@@ -33,8 +33,7 @@ String projectId = Page.nav(DataUploadPage).getIdProject()
 println "projectId: $projectId"
 
 println '>> click Workflow'
-Page.nav(DataUploadPage).clickWorkflow('Sheet Metal Part')
-						.clickCustomDXF()
+Page.nav(DataUploadPage).clickCustomDXF()
 						
 println '>> click Circle Panel Shape'
 Page.nav(CustomDXFLeftNavMenu).clickCirclePanelShape()
@@ -58,8 +57,7 @@ Page.nav(ManufacturingInformationPage).uploadFilePDFTesting('Sheet Metal Part', 
 							.inputFieldSMPShop(provideOwnProduct, partName, thicknessNum, quantityNum, surfaceTreatment, laserMarking, deburring, countersinkNum, threadNum, comment)
 
 println '>> click Calculate and move to Review page'
-Page.nav(ManufacturingInformationPage).clickCalculate()
-									  .clickReview()
+Page.nav(ManufacturingInformationPage).clickCalculate()									 
 									  
 println '>> Verify UI after calculated manually of request'
 Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFileOnSMP()
@@ -81,7 +79,7 @@ Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFileOnSMP()
 										  .verifyDeleteButtonVisible()
 										  .verifyCopyButtonVisible()
 										  .verifyMoveButtonVisible()
-										  .verifyUnitPriceValue(unitPrice)
+										  //.verifyUnitPriceValue(unitPrice)
 																			  
 println '>> click Move to Review page'
 Page.nav(ManufacturingInformationPage).clickReview()

@@ -190,7 +190,7 @@
       <name>partName</name>
    </variable>
    <variable>
-      <defaultValue>''</defaultValue>
+      <defaultValue>'goCAD_milling v4.pdf'</defaultValue>
       <description></description>
       <id>0dd103dd-6407-4cb8-99b1-54161967c049</id>
       <masked>false</masked>
@@ -288,14 +288,14 @@
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'STANDARD'</defaultValue>
+      <defaultValue>GlobalVariable.deliveryOption</defaultValue>
       <description></description>
       <id>645bf3e3-5d36-4bca-ac2a-1d16ce1f8c90</id>
       <masked>false</masked>
       <name>deliveryOption</name>
    </variable>
    <variable>
-      <defaultValue>'Standard shipping'</defaultValue>
+      <defaultValue>GlobalVariable.shippingOption</defaultValue>
       <description></description>
       <id>ab08fd45-0377-411b-9624-28476e5bf97b</id>
       <masked>false</masked>

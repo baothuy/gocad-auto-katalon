@@ -141,7 +141,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Aluminium'</initValue>
+      <initValue>'Aluminum'</initValue>
       <name>materialGroupSMP</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
