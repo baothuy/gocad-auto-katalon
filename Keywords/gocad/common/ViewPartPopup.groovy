@@ -102,8 +102,9 @@ public class ViewPartPopup extends BasePage<ViewPartPopup> {
 
 	public ViewPartPopup verifySurfaceTreatmentValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Surface Treatment']/following-sibling::label")).trim()
-		println "actualResult: $actualResult"
-		WebUI.verifyEqual(actualResult, expectedResult)
+		String conActualResult = (actualResult == "None") ? "" : actualResult
+		println "verifySurfaceTreatmentValue: $conActualResult"
+		WebUI.verifyEqual(conActualResult, expectedResult)
 		return this
 	}
 
