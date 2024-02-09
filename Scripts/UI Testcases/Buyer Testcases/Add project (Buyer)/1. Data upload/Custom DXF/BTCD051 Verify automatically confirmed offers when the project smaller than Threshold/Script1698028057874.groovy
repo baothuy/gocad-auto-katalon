@@ -111,16 +111,7 @@ String orderDate = Page.nav(DateTimeUtility).getCurrentDateTime()
 
 println '>> Click Checkout button on Checkout Page'
 Page.nav(CheckoutPage).clickCheckboxAgreeTermsAndConditions()
-					  .clickPlaceYourOrder()
-					  
-println '>> Appear Payment Method Popup'
-Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
-							  .inputCardExpiry(cardExpiry)
-							  .inputCardCvc(cardCvc)
-							  .inputBillingName(billingName)
-							  .selectCountry(country)
-							  .clickPayButton()
-							  .sleep(2)
+					  .clickPlaceYourOrder()					 
 					  
 println '>> Click back to project to get shipping info'
 Page.nav(CompletedCheckoutPage).clickBackToProject()
