@@ -78,7 +78,7 @@
       <variableId>3ab78f27-4d12-4550-aad2-82ce9ac53d28</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'step-testing.step'</defaultValue>
+      <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
       <id>a0d90357-0255-4d72-8057-0d8cab7166cc</id>
       <masked>false</masked>

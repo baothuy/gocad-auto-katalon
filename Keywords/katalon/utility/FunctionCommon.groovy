@@ -115,8 +115,8 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 		String phone = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_phone']"), 'value')
 		String streetName = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_streetName']"), 'value')
 		String houseNumber = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_houseNumber']"), 'value')
-		String country = WebUI.getAttribute(id("basic_billingAddress_country"), 'value')
-		String city = WebUI.getAttribute(id("basic_billingAddress_city"), 'value')
+		String country = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_country']"), 'value')
+		String city = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_city']"), 'value')
 		String postCode = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_postCode']"), 'value')
 		List<String> billingAddress = [
 			email,
@@ -136,8 +136,8 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 		String phone = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_phone']"), 'value')
 		String streetName = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_streetName']"), 'value')
 		String houseNumber = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_houseNumber']"), 'value')
-		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//input"), 'value')
-		String city = WebUI.getAttribute(id("basic_shippingAddress_city"), 'value')
+		String country = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_country']"), 'value')
+		String city = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_city']"), 'value')
 		String postCode = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_postCode']"), 'value')
 		List<String> billingAddress = [
 			email,
@@ -158,8 +158,8 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 		String phone = WebUI.getAttribute(xpath("//*[@id='billingAddress_phone']"), 'value')
 		String streetName = WebUI.getAttribute(xpath("//*[@id='billingAddress_streetName']"), 'value')
 		String houseNumber = WebUI.getAttribute(xpath("//*[@id='billingAddress_houseNumber']"), 'value')
-		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//input"), 'value')
-		String city = WebUI.getAttribute(id("basic_shippingAddress_city"), 'value')
+		String country = WebUI.getAttribute(xpath("//*[@id='billingAddress_country']"), 'value')
+		String city = WebUI.getAttribute(id("billingAddress_city"), 'value')
 		String postCode = WebUI.getAttribute(xpath("//*[@id='billingAddress_postCode']"), 'value')
 		List<String> billingAddress = [
 			email,
@@ -198,12 +198,12 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 		]
 		return orderSummary
 	}
-	
+
 	public String formatAddress(String houseNumber, String street, String city, String zipCode, String country) {
 		String address = "$street $houseNumber, $city, $country"
 		return address
 	}
-	
+
 	public List<String> getTablePartReview(String partName) {
 		String partNameCol = WebUI.getText(xpath(partCol(partName)))
 		String material = WebUI.getText(xpath(materialCol(partName)))

@@ -103,8 +103,9 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 
 	public CopyPartPopup verifySurfaceTreatmentValue(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Surface Treatment']/following-sibling::label")).trim()
-		println "actualResult: $actualResult"
-		WebUI.verifyEqual(actualResult, expectedResult)
+		String conActualResult = (actualResult == "None") ? "" : actualResult
+		println "verifySurfaceTreatmentValue: $conActualResult"
+		WebUI.verifyEqual(conActualResult, expectedResult)
 		return this
 	}
 
@@ -262,8 +263,7 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 		// file download file cad and pdf
 		WebUI.verifyElementVisible(xpath("//*[@class='text-decoration-none']"))
 		List<String> findTestObject = findTestObjects("//*[text()='Milled / Turned Parts']")
-		if(findTestObject.size() != 0)
-		{
+		if(findTestObject.size() != 0) {
 			// information part
 			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))
@@ -274,8 +274,7 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 			WebUI.verifyElementVisible(xpath("//*[text()='Tolerance requirement with smaller 1/100mm or IT 1 - IT 5']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Additional Comments']"))
 		}
-		else if(findTestObject.size() == 0)
-		{
+		else if(findTestObject.size() == 0) {
 			// information part
 			WebUI.verifyElementVisible(xpath("//*[text()='Material']"))
 			WebUI.verifyElementVisible(xpath("//*[text()='Quantity']"))

@@ -188,7 +188,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		return billingAddress
 	}
 
-	public List<String> getShippingAddressDetailOffer() {
+	public List<String> getShippingAddress() {
 		List<String> shippingAddress = Page.nav(FunctionCommon).getShippingAddressAccountSettings()
 		return shippingAddress
 	}

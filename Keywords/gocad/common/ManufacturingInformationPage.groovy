@@ -18,11 +18,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	def commonText = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
 	def contentManualSystemError = "${commonText}\nReason: There is a system error. Please contact the administrator. ($GlobalVariable.seller_mail)"
 	def contentManualAutomaticCalSettingOff = "${commonText}\nReason: The quotation function is currently disabled. You can request a manual quote here."
-	def contentManualCannotCalPart = "${commonText}\nReason: For this part no calculation could be executed. You can request a manual quote here."
-	def contentManualPriceExceedThreshold = "${commonText}\nReason: This part has exceeded the pricing limits for online order. You can request a manual quote here."
-	def contentManualSmallTolerance = "${commonText}\nReason: This tolerance requirement for this part are too high for online ordering. You can request a manual quote here."
+	def contentManualCannotCalPart = "${commonText}\nReason: We don't have a suitable raw material for your part. Please change the material or request a manual quote, and we'll find the best solution for you."
+	def contentManualPriceExceedThreshold = "${commonText}\nReason: The estimated price for your part exceeds our price range for automatic quotes. Please request a manual quote for a tailored pricing."
+	def contentManualSmallTolerance = "${commonText}\nReason: Your design's tight tolerances require special attention. Please request a manual quote so we can ensure it meets your precise needs."
 	def contentManualCannotManufacturePart = "${commonText}\nReason: Not all process steps to manufacture this part could be identified. You can request a manual quote here."
-	def contentManualCalError = "${commonText}\nReason: A technical error has occured when calculating this part. You can request a manual quote here."
+	def contentManualCalError = "${commonText}\nReason: There was an error in calculating your part. Please request a manual quote so we can investigate the issue further and provide a solution."
 
 	def commonTextForSeller = "These parts cannot be automatically calculated. Please prepare a quote for this request manually and enter it in the text field below \"Unit price\""
 	def contentManualSystemErrorForSeller = "${commonTextForSeller}\nReason: There is a system error. Please contact the administrator. (support@gocad.de)"
@@ -589,17 +589,17 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyElementVisible(xpath('//span[text()="Review "]'))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyLengthInforVisible() {
 		WebUI.verifyElementVisible(xpath("//*[@class='text-label' and text()='Length']"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyHeightInforVisible() {
 		WebUI.verifyElementVisible(xpath("//*[@class='text-label' and text()='Height']"))
 		return this
 	}
-	
+
 	public ManufacturingInformationPage verifyThicknessInforVisible() {
 		WebUI.verifyElementVisible(xpath("//*[@class='text-label' and text()='Thickness']"))
 		return this
