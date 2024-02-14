@@ -178,7 +178,7 @@ public class CheckoutPage extends BasePage<CheckoutPage>{
 		WebUI.verifyElementVisible(xpath("//*[text()='Packaging Cost']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Shipping costs']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='NET Total']"))
-		WebUI.verifyElementVisible(xpath("//*[@class='summary-price']//*[contains(text(),'VAT')]"))
+		WebUI.verifyElementVisible(xpath("//*[contains(@class, 'summary-price')]//*[contains(text(),'VAT')]"))
 		WebUI.verifyElementVisible(xpath("//*[text()='GROSS Total']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Preview Offer']"))
 		WebUI.verifyElementPresent(xpath("//*[@id='agreeTermConditions']"),5)

@@ -1,28 +1,31 @@
 import gocad.buyer.CheckoutPage
-import gocad.buyer.RequestedOffersPage
-import gocad.common.DetailOffer
+import gocad.buyer.DraftPage
+import gocad.buyer.ReviewPage
+import gocad.common.CopyPartPopup
 import gocad.common.LeftNavBar
 import gocad.common.SignInPage
 import katalon.fw.lib.Page
 
 
 
-
-
-println '>> FPA002 Verify seller accept offers successfully when project larger than Threshold'
-println '>> Random project name'
-//def projectName = CommonUtility.generateRandomProjectName(10)
-//
-println '>> User buyer signs in to administration page'
+println '>> User Seller signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
-Page.nav(LeftNavBar).clickRequestedOffers()
+println '>> User Seller go to Price And Delivery Settings settings'
+Page.nav(LeftNavBar).clickDraft()
 
-Page.nav(RequestedOffersPage).clickAction("31373")
+Page.nav(DraftPage).clickViewAction("35331")
 
-List<String> getBillingAddress = Page.nav(DetailOffer).getBillingAddressDetailOffer()
-println "getBillingAddress: $getBillingAddress"
+//Page.nav(ReviewPage).clickMoreOption("step-testing.step")
+//						.clickCopyPart()
 
+Page.nav(ReviewPage).clickCheckout()
 
-
+Page.nav(CheckoutPage).clickMoreOption("step-testing.step")
+						.clickCopy()
+						
+println '>> select project to copy'
+Page.nav(CopyPartPopup).inputProjectToCopy("Auto Generate Prj zgV4JG4Jzu")
+						  .clickOK()
+						  .verifyToastMessageWhenCopyProject("step-testing.step", "Auto Generate Prj zgV4JG4Jzu")
 						
