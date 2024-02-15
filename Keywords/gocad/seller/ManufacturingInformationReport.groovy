@@ -2,6 +2,7 @@ package gocad.seller
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 
 
@@ -113,7 +114,8 @@ public class ManufacturingInformationReport extends BasePage<ManufacturingInform
 
 	public ManufacturingInformationReport verifyUnitPriceOnManufacturingReportPage(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[text()='Unit price']/ancestor::h5/span"))
-		WebUI.verifyEqual(actualResult, expectedResult)
+		String conExpectedResult = expectedResult + " " + GlobalVariable.currency
+		WebUI.verifyEqual(actualResult, conExpectedResult)
 		return this
 	}
 

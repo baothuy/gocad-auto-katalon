@@ -75,12 +75,6 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>27c0e745-7472-4d6f-9dcb-5c9f39889c13</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
       <variableId>884724da-3f10-4a22-81f3-a98a2341950a</variableId>
    </variableLinks>
    <variableLinks>
@@ -96,7 +90,7 @@
       <variableId>b29452d0-9a57-496e-844f-5a5c263ce271</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'dxf-testing.dxf'</defaultValue>
+      <defaultValue>GlobalVariable.partNameSMP</defaultValue>
       <description></description>
       <id>dc98ccb3-7ccd-499a-9834-7775c7b4dc0d</id>
       <masked>false</masked>
@@ -131,14 +125,14 @@
       <name>quantityNum</name>
    </variable>
    <variable>
-      <defaultValue>'Painting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentSMP</defaultValue>
       <description></description>
       <id>76801fe8-5104-4ac9-b0a4-c5144cd894bd</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'No'</defaultValue>
+      <defaultValue>GlobalVariable.laserMarking</defaultValue>
       <description>Parallel, Quer, Egal</description>
       <id>79ae8df7-7aca-42d4-870d-40dd64cc7268</id>
       <masked>false</masked>
@@ -152,7 +146,7 @@
       <name>cuttingLayers</name>
    </variable>
    <variable>
-      <defaultValue>'No'</defaultValue>
+      <defaultValue>GlobalVariable.deburring</defaultValue>
       <description></description>
       <id>a07a0ffb-6408-4b5e-b80f-09d90349f013</id>
       <masked>false</masked>
@@ -173,13 +167,6 @@
       <name>threadNum</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
-      <description></description>
-      <id>27c0e745-7472-4d6f-9dcb-5c9f39889c13</id>
-      <masked>false</masked>
-      <name>partAccordingToTheDrawing</name>
-   </variable>
-   <variable>
       <defaultValue>'6'</defaultValue>
       <description></description>
       <id>884724da-3f10-4a22-81f3-a98a2341950a</id>
@@ -187,14 +174,14 @@
       <name>comment</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupSMP</defaultValue>
       <description></description>
       <id>94373710-02aa-4e48-aa07-8485d5ed3123</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'X14CrMoS17'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameSMP</defaultValue>
       <description></description>
       <id>b29452d0-9a57-496e-844f-5a5c263ce271</id>
       <masked>false</masked>

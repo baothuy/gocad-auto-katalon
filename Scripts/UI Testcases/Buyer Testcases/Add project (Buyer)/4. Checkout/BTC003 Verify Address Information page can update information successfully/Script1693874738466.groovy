@@ -93,7 +93,7 @@ Page.nav(ReviewPage).clickCheckout()
 
 println '>> Verify information Address Information show correctly'
 println '>> Input edit information successfully'
-Page.nav(AddressInformationPopup).clickCheckBoxCloneTheSameAddress()
+Page.nav(AddressInformationPopup).clickCheckBoxCloneTheSameAddress("false")
 Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddressChanged[0])
 								.inputLastNameBillingAddress(billingAddressChanged[1])
 								.inputEmailBillingAddress(billingAddressChanged[2])
