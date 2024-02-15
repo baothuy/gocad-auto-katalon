@@ -85,6 +85,7 @@ println '>> Click Edit address'
 Page.nav(SendOfferPage).inputCustomer(email)
 
 println '>> Input edit information successfully'
+Page.nav(AddressInformationPopup).clickCheckBoxCloneTheSameAddress("false")
 Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddressChanged[0])
 								.inputLastNameBillingAddress(billingAddressChanged[1])
 								.inputEmailBillingAddress(billingAddressChanged[2])

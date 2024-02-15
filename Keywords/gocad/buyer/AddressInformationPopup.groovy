@@ -133,8 +133,13 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		return this
 	}
 
-	public AddressInformationPopup clickCheckBoxCloneTheSameAddress() {
-		WebUI.click(xpath("//span[text()='The shipping address is the same as my billing address']/preceding-sibling::span"))
+	public AddressInformationPopup clickCheckBoxCloneTheSameAddress(String check) {
+		String contentClass = WebUI.getAttribute(xpath("//input[@class='ant-checkbox-input']/parent::span"), "class")
+		String isChecked = contentClass.contains("checked")
+		boolean isYes = check.equals("true")
+		if(Boolean.parseBoolean(isChecked) != isYes) {
+			WebUI.click(xpath("//span[text()='The shipping address is the same as my billing address']/preceding-sibling::span"))
+		}		
 		return this
 	}
 

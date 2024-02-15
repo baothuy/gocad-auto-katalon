@@ -131,3 +131,5 @@ Page.nav(MyProjectsPage).clickDownCirclePartColumn(projectId)
 println '>>  Clear data'
 Page.nav(MyProjectsPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
+					.clickArchiveAction(projectId2)
+					.clickCloseToastMessage()

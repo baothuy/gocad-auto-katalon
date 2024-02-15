@@ -194,7 +194,7 @@
       <name>provideOwnProduct</name>
    </variable>
    <variable>
-      <defaultValue>'CALCULATION_ERROR'</defaultValue>
+      <defaultValue>'PRICE_EXCEED_THRESHOLD'</defaultValue>
       <description></description>
       <id>2e8addc8-f4db-44f6-9cc8-490f70e0a67f</id>
       <masked>false</masked>

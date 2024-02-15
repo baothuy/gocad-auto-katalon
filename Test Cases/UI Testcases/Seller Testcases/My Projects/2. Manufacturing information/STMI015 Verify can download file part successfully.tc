@@ -71,12 +71,6 @@
       <value></value>
       <variableId>65ea5626-a86f-428b-85a0-330b4f97e630</variableId>
    </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>3ab78f27-4d12-4550-aad2-82ce9ac53d28</variableId>
-   </variableLinks>
    <variable>
       <defaultValue>GlobalVariable.partNameMTP</defaultValue>
       <description></description>
@@ -113,14 +107,14 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>'Sandblasting'</defaultValue>
+      <defaultValue>GlobalVariable.surfaceTreatmentMTP</defaultValue>
       <description></description>
       <id>13a23fa9-c05b-4523-b871-8c28f351aae6</id>
       <masked>false</masked>
       <name>surfaceTreatment</name>
    </variable>
    <variable>
-      <defaultValue>'Ra 0,8 - 1,6 (finely finished); Rz 6,3 - 10'</defaultValue>
+      <defaultValue>GlobalVariable.quality</defaultValue>
       <description>Ra 3,2 - 25 (roughed); Rz 16 - 100; Ra 1,6 - 3,2 (settled); Rz 10 - 16</description>
       <id>de9cd485-8d48-4f49-9737-49787efffd5b</id>
       <masked>false</masked>
@@ -141,24 +135,17 @@
       <name>tolerancesToggle</name>
    </variable>
    <variable>
-      <defaultValue>'All'</defaultValue>
+      <defaultValue>GlobalVariable.materialGroupMTP</defaultValue>
       <description></description>
       <id>fddd7fb2-f100-4a40-a5d7-fbdde2f10922</id>
       <masked>false</masked>
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'EN AW-7075 / AlZn5'</defaultValue>
+      <defaultValue>GlobalVariable.materialNameMTP</defaultValue>
       <description></description>
       <id>65ea5626-a86f-428b-85a0-330b4f97e630</id>
       <masked>false</masked>
       <name>materialName</name>
-   </variable>
-   <variable>
-      <defaultValue>'SMALL_TOLERANCES'</defaultValue>
-      <description></description>
-      <id>3ab78f27-4d12-4550-aad2-82ce9ac53d28</id>
-      <masked>false</masked>
-      <name>codeManual</name>
    </variable>
 </TestCaseEntity>

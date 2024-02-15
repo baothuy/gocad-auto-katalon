@@ -28,7 +28,7 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	def contentManualSystemErrorForSeller = "${commonTextForSeller}\nReason: There is a system error. Please contact the administrator. (support@gocad.de)"
 	def contentManualAutomaticCalSettingOffForSeller = "${commonTextForSeller}\nReason: The quotation function is currently disabled. You can reactivate it in the \"price and delivery settings\"."
 	def contentManualCannotCalPartForSeller = "${commonTextForSeller}\nReason: For this part no calculation could be executed. Please contact support@gocad.de."
-	def contentManualPriceExceedThresholdForSeller = "${commonTextForSeller}\nReason: The pricing limits should not apply in \"self-calculation\""
+	def contentManualPriceExceedThresholdForSeller = "${commonTextForSeller}\nReason: A customer's part estimate exceeds the automatic pricing threshold. Please provide a manual offer."
 	def contentManualSmallToleranceForSeller = "${commonTextForSeller}\nReason: This tolerance requirement for this part are very high. The automatic price quote is possible, but a critical check of the processed calculation is necessary."
 	def contentManualCannotManufacturePartForSeller = "${commonTextForSeller}\nReason: Only for XX % of the part, manufacturing process steps could be identified. Please check the calculation."
 	def contentManualCalErrorForSeller = "${commonTextForSeller}\nReason: A technical error has occured when calculating this part. Please contact support@gocad.de"

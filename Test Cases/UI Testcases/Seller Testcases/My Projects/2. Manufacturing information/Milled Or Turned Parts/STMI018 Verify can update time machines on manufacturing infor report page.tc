@@ -63,6 +63,12 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
+      <variableId>50a5b272-f8a1-4d2e-9f55-7eb44212ea5d</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>b93df84b-27ae-47ce-b0af-b1d3d5e8206d</variableId>
    </variableLinks>
    <variableLinks>
@@ -187,6 +193,13 @@
       <id>e55738fa-3645-4723-b96c-ed36a76fe8a6</id>
       <masked>false</masked>
       <name>tolerancesToggle</name>
+   </variable>
+   <variable>
+      <defaultValue>'false'</defaultValue>
+      <description></description>
+      <id>50a5b272-f8a1-4d2e-9f55-7eb44212ea5d</id>
+      <masked>false</masked>
+      <name>provideOwnProduct</name>
    </variable>
    <variable>
       <defaultValue>GlobalVariable.materialGroupMTP</defaultValue>
