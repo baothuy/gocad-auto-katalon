@@ -127,6 +127,13 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		clearTextAndSendKeysByActions(id("basic_shippingAddress_phone"), input)
 		return this
 	}
+	
+	public AccountSettingsPage selectCurrencyValue(String value) {
+		WebUI.click(xpath("//input[@id='basic_currencyExchangeId']/ancestor::div[contains(@class, 'ant-select-in-form-item')]"))
+		List<String> surfaceTreatmentObject = findTestObjects("//div[contains(@class, 'ant-select-item-option-content') and text()='$value']/parent::div")
+		(surfaceTreatmentObject.size() != 0) ? WebUI.click(xpath("//div[contains(@class, 'ant-select-item-option-content') and text()='$value']/parent::div")) : "Empty"
+		return this
+	}
 
 	public AccountSettingsPage inputSearchShippingAddress(String houseNumber, String street, String city, String zipCode, String country){
 		String address = Page.nav(FunctionCommon).formatAddress(houseNumber, street, city, zipCode, country)
