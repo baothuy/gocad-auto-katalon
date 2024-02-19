@@ -416,22 +416,14 @@ public class DetailOffer extends BasePage<DetailOffer>{
 		WebUI.verifyElementVisible(xpath("//*[text()='Delivery Option']"))
 		WebUI.verifyElementVisible(xpath("//*[text()='Delivery Date']"))
 		//Billing address
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Full Name']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='House number']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Street']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='ZIP Code']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='City']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div/div[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div/div[2]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Billing Address']/following-sibling::div/div[3]"))
 
 		//Shipping address
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Full Name']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='House number']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Street']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='ZIP Code']"))
-		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='City']"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div/div[1]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div/div[2]"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Shipping Address']/following-sibling::div/div[3]"))
 
 		//button More, View
 		WebUI.verifyElementVisible(xpath("//*[@aria-label='more']/parent::button"))
