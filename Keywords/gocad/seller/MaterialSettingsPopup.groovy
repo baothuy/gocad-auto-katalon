@@ -109,6 +109,16 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		return this
 	}
 	
+	public MaterialSettingsPopup inputLink(String value) {
+		clearTextAndSendKeysByActions(id("basic_link"), value)
+		return this
+	}
+	
+	public MaterialSettingsPopup inputSynonym(String value) {
+		clearTextAndSendKeysByActions(id("basic_synonym"), value)
+		return this
+	}
+	
 	public MaterialSettingsPopup clickAddNewThickness(String thickness) {
 		WebUI.click(xpath("//p[text()='Thickness']/following-sibling::form//span[text()='Add New']"))
 		return this
@@ -123,6 +133,69 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 	
 	public MaterialSettingsPopup clickAddNewRawMaterial() {
 		WebUI.click(xpath("//p[text()='Raw Material']/following-sibling::form//span[text()='Add New']"))
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyMaterialGroupValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@for='basic_groupId']/parent::div/following-sibling::div//span[@class='ant-select-selection-item']"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyNameValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_name"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyNumberValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_number"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyDensityValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_density"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyPricePerKiloValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_pricePerKilo"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyCompliancesValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@for='basic_complianceIds']/parent::div/following-sibling::div//span[@class='ant-select-selection-item-content']"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyShopTypeValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@for='basic_shopType']/parent::div/following-sibling::div//span[@class='ant-select-selection-item']"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyLinkValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_link"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifySynonymValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_synonym"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyStatusValue(String expectedResult) {
+		String isChecked = WebUI.getAttribute(id("basic_active"), "aria-checked")
+		println "isChecked: $isChecked"
+		def actualResult = (isChecked == "true") ? "Active" : "Inactive" 
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
@@ -199,22 +272,14 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		WebUI.verifyElementVisible(id("basic_pricePerKilo"))
 		WebUI.verifyElementVisible(xpath("//label[text()='Status']"))
 		WebUI.verifyElementVisible(id("basic_active"))
-		//WebUI.verifyElementVisible(xpath("//label[text()='Type']"))
-		//WebUI.verifyElementVisible(xpath("//input[@id='shapeType']/parent::span"))
-		//WebUI.verifyElementVisible(xpath("//label[text()='Diameter']"))
-		//WebUI.verifyElementVisible(id("diameter"))
-		//WebUI.verifyElementVisible(xpath("//label[text()='Height']"))
-		//WebUI.verifyElementVisible(id("height"))
-		//		WebUI.verifyElementVisible(xpath("//label[text()='Length']"))
-		//		WebUI.verifyElementVisible(id("length"))
-		//WebUI.verifyElementVisible(xpath("//span[text()='Add New']"))
+		WebUI.verifyElementVisible(xpath("//label[text()='Shop type']"))
+		WebUI.verifyElementVisible(xpath("//input[@id='basic_shopType']/parent::span"))
+		WebUI.verifyElementVisible(xpath("//label[text()='Link']"))
+		WebUI.verifyElementVisible(xpath("//input[@id='basic_link']"))
+		WebUI.verifyElementVisible(xpath("//label[text()='Synonym']"))
+		WebUI.verifyElementVisible(xpath("//input[@id='basic_synonym']"))
 		WebUI.verifyElementVisible(xpath("//span[text()='OK']/parent::button"))
 		WebUI.verifyElementVisible(xpath("//span[text()='Cancel']/parent::button"))
-		//WebUI.verifyElementVisible(xpath("//th[text()='Type']"))
-		//WebUI.verifyElementVisible(xpath("//th[text()='Diameter']"))
-		//WebUI.verifyElementVisible(xpath("//th[text()='Height']"))
-		//		WebUI.verifyElementVisible(xpath("//th[text()='Length']"))
-		//WebUI.verifyElementVisible(xpath("//th[text()='Action']"))
 		return this
 	}
 	
@@ -231,17 +296,27 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		WebUI.verifyElementVisible(id("basic_pricePerKilo"))
 		WebUI.verifyElementVisible(xpath("//label[text()='Status']"))
 		WebUI.verifyElementVisible(id("basic_active"))
+		WebUI.verifyElementVisible(xpath("//label[text()='Shop type']"))
+		WebUI.verifyElementVisible(xpath("//input[@id='basic_shopType']/parent::span"))
+		WebUI.verifyElementVisible(xpath("//label[text()='Link']"))
+		WebUI.verifyElementVisible(xpath("//input[@id='basic_link']"))
+		WebUI.verifyElementVisible(xpath("//label[text()='Synonym']"))
+		WebUI.verifyElementVisible(xpath("//input[@id='basic_synonym']"))
 		WebUI.verifyElementVisible(xpath("//label[text()='Type']"))
 		WebUI.verifyElementVisible(xpath("//input[@id='shapeType']/parent::span"))
 		WebUI.verifyElementVisible(xpath("//label[text()='Diameter']"))
 		WebUI.verifyElementVisible(id("diameter"))
 		WebUI.verifyElementVisible(xpath("//label[text()='Height']"))
 		WebUI.verifyElementVisible(id("height"))
+		WebUI.verifyElementVisible(xpath("//*[text()='Raw Material']/following::label[text()='Price per Kilo']"))
+		WebUI.verifyElementVisible(id("pricePerKilo"))
 		WebUI.verifyElementVisible(xpath("//span[text()='Add New']"))
 		WebUI.verifyElementVisible(xpath("//span[text()='OK']/parent::button"))
 		WebUI.verifyElementVisible(xpath("//span[text()='Cancel']/parent::button"))
 		WebUI.verifyElementVisible(xpath("//th[text()='Type']"))
 		WebUI.verifyElementVisible(xpath("//th[text()='Diameter']"))
+		WebUI.verifyElementVisible(xpath("//th[text()='Height']"))
+		WebUI.verifyElementVisible(xpath("//th[text()='Price per Kilo']"))
 		WebUI.verifyElementVisible(xpath("//th[text()='Action']"))
 		return this
 	}

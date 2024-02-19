@@ -9,22 +9,34 @@ import katalon.fw.lib.BasePage
 public class MaterialGroupPopup extends BasePage<MaterialGroupPopup>{
 
 	public MaterialGroupPopup inputLocalizedNamesEnglish(String input) {
-		clearTextAndSendKeysByActions(id("basic_localizations_0_name"), input)
-		return this
-	}
-	
-	public MaterialGroupPopup verifyInputLocalizedNamesEnglishVisible() {
-		WebUI.verifyElementVisible(id("basic_localizations_0_name"))
-		return this
-	}
-
-	public MaterialGroupPopup inputLocalizedNamesGerman(String input) {
 		clearTextAndSendKeysByActions(id("basic_localizations_1_name"), input)
 		return this
 	}
 	
-	public MaterialGroupPopup verifyInputLocalizedNamesGermanVisible(){
+	public MaterialGroupPopup verifyInputLocalizedNamesEnglishVisible() {
 		WebUI.verifyElementVisible(id("basic_localizations_1_name"))
+		return this
+	}
+	
+	public MaterialGroupPopup verifyInputLocalizedNamesEnglishValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_localizations_1_name"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public MaterialGroupPopup inputLocalizedNamesGerman(String input) {
+		clearTextAndSendKeysByActions(id("basic_localizations_0_name"), input)
+		return this
+	}
+	
+	public MaterialGroupPopup verifyInputLocalizedNamesGermanVisible(){
+		WebUI.verifyElementVisible(id("basic_localizations_0_name"))
+		return this
+	}
+	
+	public MaterialGroupPopup verifyInputLocalizedNamesGermanValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_localizations_0_name"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
@@ -38,6 +50,12 @@ public class MaterialGroupPopup extends BasePage<MaterialGroupPopup>{
 		return this
 	}
 	
+	public MaterialGroupPopup verifyInputLocalizedNamesItalianValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_localizations_2_name"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
 	public MaterialGroupPopup inputLocalizedNamesCzech(String input) {
 		clearTextAndSendKeysByActions(id("basic_localizations_3_name"), input)
 		return this
@@ -45,6 +63,12 @@ public class MaterialGroupPopup extends BasePage<MaterialGroupPopup>{
 	
 	public MaterialGroupPopup verifyInputLocalizedNamesCzechVisible() {
 		WebUI.verifyElementVisible(id("basic_localizations_3_name"))
+		return this
+	}
+	
+	public MaterialGroupPopup verifyInputLocalizedNamesCzechValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_localizations_3_name"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 

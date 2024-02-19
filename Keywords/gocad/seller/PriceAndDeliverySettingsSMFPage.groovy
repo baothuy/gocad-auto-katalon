@@ -63,6 +63,21 @@ public class PriceAndDeliverySettingsSMFPage extends BasePage<PriceAndDeliverySe
 		clearTextAndSendKeysByActions(id("basic_sheetMetalManufacturingAdditions"), input)
 		return this
 	}
+	
+	public PriceAndDeliverySettingsSMFPage inputCostPerHoleThreshold(String input) {
+		clearTextAndSendKeysByActions(id("basic_sheetMetalCostPerHoleThreshold"), input)
+		return this
+	}
+	
+	public PriceAndDeliverySettingsSMFPage inputCostPerHoleUnderThreshold(String input) {
+		clearTextAndSendKeysByActions(id("basic_sheetMetalCostPerHoleUnderThreshold"), input)
+		return this
+	}
+	
+	public PriceAndDeliverySettingsSMFPage inputCostPerHoleOverThreshold(String input) {
+		clearTextAndSendKeysByActions(id("basic_sheetMetalCostPerHoleOverThreshold"), input)
+		return this
+	}
 
 	//Visible
 

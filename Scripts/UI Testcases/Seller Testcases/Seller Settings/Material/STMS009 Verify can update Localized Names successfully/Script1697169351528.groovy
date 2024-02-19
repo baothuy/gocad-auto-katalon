@@ -27,3 +27,11 @@ Page.nav(MaterialGroupPopup).inputLocalizedNamesEnglish(english)
 							
 println '>> Verify Toast message'
 Page.nav(ToastMessage).verifyToastMessage("Success!", "Material group - $materialGroup")
+
+Page.nav(MaterialSettingsPage).inputSearchMaterial(materialName)
+								.clickMaterialGroupButton(materialName)
+
+Page.nav(MaterialGroupPopup).verifyInputLocalizedNamesEnglishValue(english)
+							.verifyInputLocalizedNamesGermanValue(german)
+							.verifyInputLocalizedNamesItalianValue(italian)
+							.verifyInputLocalizedNamesCzechValue(czech)

@@ -59,6 +59,24 @@
       <value></value>
       <variableId>fa339b58-b37f-4318-b61e-5613c50c3d41</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>beeb95b3-354b-4d30-860c-ab7f4b8fcddb</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>73a2b2a9-9425-47df-b9a7-f63d9b626bc2</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>400f52fe-3fbb-4942-b9a0-4b0efc22caf7</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'0.02'</defaultValue>
       <description></description>
@@ -121,5 +139,26 @@
       <id>2823809c-ed58-498d-8dbc-c8076c7a0bf6</id>
       <masked>false</masked>
       <name>manufacturingAdditions</name>
+   </variable>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description></description>
+      <id>beeb95b3-354b-4d30-860c-ab7f4b8fcddb</id>
+      <masked>false</masked>
+      <name>costPerHoleThreshold</name>
+   </variable>
+   <variable>
+      <defaultValue>'0.5'</defaultValue>
+      <description></description>
+      <id>73a2b2a9-9425-47df-b9a7-f63d9b626bc2</id>
+      <masked>false</masked>
+      <name>costPerHoleUnderThreshold</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description></description>
+      <id>400f52fe-3fbb-4942-b9a0-4b0efc22caf7</id>
+      <masked>false</masked>
+      <name>costPerHoleOverThreshold</name>
    </variable>
 </TestCaseEntity>
