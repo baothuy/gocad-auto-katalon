@@ -90,7 +90,7 @@ Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddressCha
 								.inputLastNameShippingAddress(shippingAddressChanged[1])
 								.inputEmailShippingAddress(shippingAddressChanged[2])
 								.inputPhoneShippingAddress(shippingAddressChanged[3])
-								.inputSearchBillingAddress(shippingAddressChanged[5], shippingAddressChanged[4], shippingAddressChanged[8], shippingAddressChanged[9], shippingAddressChanged[6])
+								.inputSearchShippingAddress(shippingAddressChanged[5], shippingAddressChanged[4], shippingAddressChanged[8], shippingAddressChanged[9], shippingAddressChanged[6])
 								
 Page.nav(SendOfferPage).clickSendOffer()
 List<String> listBillingAddress = [billingAddressChanged[0] + " " + billingAddressChanged[1], billingAddressChanged[2], billingAddressChanged[3], billingAddressChanged[4], billingAddressChanged[5], billingAddressChanged[6], billingAddressChanged[7], billingAddressChanged[8], billingAddressChanged[9]]

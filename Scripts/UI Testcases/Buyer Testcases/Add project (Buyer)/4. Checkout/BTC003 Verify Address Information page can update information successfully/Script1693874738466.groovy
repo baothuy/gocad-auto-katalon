@@ -95,7 +95,7 @@ Page.nav(AddressInformationPopup).inputFirstNameBillingAddress(billingAddressCha
 								.inputLastNameShippingAddress(shippingAddressChanged[1])
 								.inputEmailShippingAddress(shippingAddressChanged[2])
 								.inputPhoneShippingAddress(shippingAddressChanged[3])
-								.inputSearchBillingAddress(shippingAddressChanged[5], shippingAddressChanged[4], shippingAddressChanged[8], shippingAddressChanged[9], shippingAddressChanged[6])
+								.inputSearchShippingAddress(shippingAddressChanged[5], shippingAddressChanged[4], shippingAddressChanged[8], shippingAddressChanged[9], shippingAddressChanged[6])
 									
 														
 println '>> Click Checkout button on Checkout Page'
