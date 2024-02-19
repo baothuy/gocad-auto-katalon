@@ -17,21 +17,23 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	List<String> milledPartFileAllow = GlobalVariable.milledPartFileAllow
 	def commonText = "These parts cannot be automatically calculated. You can request a manual offer by the seller. All parts that could not automatically be calculated are bundled in this separate list."
 	def contentManualSystemError = "${commonText}\nReason: There is a system error. Please contact the administrator. ($GlobalVariable.seller_mail)"
-	def contentManualAutomaticCalSettingOff = "${commonText}\nReason: The quotation function is currently disabled. You can request a manual quote here."
+	def contentManualAutomaticCalSettingOff = "${commonText}\nReason: It looks like automatic pricing is turned off for your account. Please submit a manual request, and we'll provide you with a personalized offer."
 	def contentManualCannotCalPart = "${commonText}\nReason: We don't have a suitable raw material for your part. Please change the material or request a manual quote, and we'll find the best solution for you."
 	def contentManualPriceExceedThreshold = "${commonText}\nReason: The estimated price for your part exceeds our price range for automatic quotes. Please request a manual quote for a tailored pricing."
 	def contentManualSmallTolerance = "${commonText}\nReason: Your design's tight tolerances require special attention. Please request a manual quote so we can ensure it meets your precise needs."
 	def contentManualCannotManufacturePart = "${commonText}\nReason: Not all process steps to manufacture this part could be identified. You can request a manual quote here."
 	def contentManualCalError = "${commonText}\nReason: There was an error in calculating your part. Please request a manual quote so we can investigate the issue further and provide a solution."
-
+	def contentAnalyzeExceptionError = "${commonText}\nReason: We're having trouble automatically analyzing your file. Please submit it for a manual review, and we'll assist you further."
+	
 	def commonTextForSeller = "These parts cannot be automatically calculated. Please prepare a quote for this request manually and enter it in the text field below \"Unit price\""
 	def contentManualSystemErrorForSeller = "${commonTextForSeller}\nReason: There is a system error. Please contact the administrator. (support@gocad.de)"
-	def contentManualAutomaticCalSettingOffForSeller = "${commonTextForSeller}\nReason: The quotation function is currently disabled. You can reactivate it in the \"price and delivery settings\"."
+	def contentManualAutomaticCalSettingOffForSeller = "${commonTextForSeller}\nReason: The automatic calculation setting is off for a customer's account. Please review the request manually for pricing and manufacturing options."
 	def contentManualCannotCalPartForSeller = "${commonTextForSeller}\nReason: A suitable raw material dimension for a customer's part is not found in the system. Check inventory or suggest alternative materials to the customer."
 	def contentManualPriceExceedThresholdForSeller = "${commonTextForSeller}\nReason: A customer's part estimate exceeds the automatic pricing threshold. Please provide a manual offer."
 	def contentManualSmallToleranceForSeller = "${commonTextForSeller}\nReason: A part has small tolerances that might require special attention or manufacturing processes. Review and advise the customer accordingly."
 	def contentManualCannotManufacturePartForSeller = "${commonTextForSeller}\nReason: Only for XX % of the part, manufacturing process steps could be identified. Please check the calculation."
 	def contentManualCalErrorForSeller = "${commonTextForSeller}\nReason: A technical error has occured when calculating this part. Please contact support@gocad.de"
+	def contentAnalyzeExceptionErrorForSeller = "${commonText}\nReason: There's an issue analyzing a customer's file. Please manually review the file and provide a manual quote to the customer."
 	def contentAlert = "All parts will be manufactured according to industry norms. If there are specifics for the manufacturing process, that need to be considered, please upload a PDF-drawing to the affected part."
 
 	public ManufacturingInformationPage clickAddPart() {
@@ -897,6 +899,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 				def expectedResult = contentManualCalError
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
 				break;
+				
+			case "ANALYZE_EXCEPTION":
+				def expectedResult = contentAnalyzeExceptionError
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
 		}
 		return this
 	}
@@ -937,6 +944,11 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 
 			case "CALCULATION_ERROR":
 				def expectedResult = contentManualCalErrorForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+				
+			case "ANALYZE_EXCEPTION":
+				def expectedResult = contentAnalyzeExceptionErrorForSeller
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
 				break;
 		}
