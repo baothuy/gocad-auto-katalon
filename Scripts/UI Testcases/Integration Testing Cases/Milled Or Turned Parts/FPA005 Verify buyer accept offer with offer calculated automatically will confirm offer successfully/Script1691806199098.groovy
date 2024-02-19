@@ -149,8 +149,8 @@ Page.nav(DetailOffer).clickSendAdaptedOffer().clickOKConfirmPopup().clickCloseTo
 
 println '>> get Information on Detail page after change unit price'
 List<String> listOrderSummaryChanged = Page.nav(DetailOffer).getOrderSummary()
-List<String> listBillingAddressChanged = Page.nav(DetailOffer).getBillingAddress()
-List<String> listShippingAddressChanged = Page.nav(DetailOffer).getShippingAddress()
+List<String> listBillingAddressChanged = Page.nav(DetailOffer).getBillingAddressDetailOffer()
+List<String> listShippingAddressChanged = Page.nav(DetailOffer).getShippingAddressDetailOffer()
 List<String> tablePartChanged = Page.nav(DetailOffer).getTablePartReview(partName)
 String netTotalChanged = listOrderSummaryChanged[5]
 String grossTotalChanged = listOrderSummaryChanged[7]
