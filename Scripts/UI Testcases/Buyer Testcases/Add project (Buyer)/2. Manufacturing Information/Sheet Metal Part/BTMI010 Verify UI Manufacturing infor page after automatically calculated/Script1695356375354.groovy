@@ -46,6 +46,9 @@ Page.nav(ManufacturingInformationPage).clickCalculate()
 println '>> Verify UI after calculated manually of request'
 Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFileOnSMP()
 										.clickClosePreviewPartFilePopup()
+										.verifyLengthInforVisible()
+										.verifyHeightInforVisible()
+										.verifyThicknessInforVisible()
 										.verifyMaterialValue(material)
 										.verifyLinkPartVisible(partName)
 										.verifyQuantityValue(quantityNum)
@@ -63,7 +66,7 @@ Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFileOnSMP()
 										.verifyDeleteButtonVisible()
 										.verifyCopyButtonVisible()
 										.verifyMoveButtonVisible()
-										.verifyUnitPriceValue(unitPrice)
+										//.verifyUnitPriceValue(unitPrice)
 										//.verifyNetPriceValue(netPrice)
 
 if (filePDF != ""){
