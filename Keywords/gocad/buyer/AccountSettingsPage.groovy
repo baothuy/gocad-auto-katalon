@@ -85,7 +85,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	}
 
 	public AccountSettingsPage selectStateBillingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[11]//input"), input)
+		clearTextAndSendKeysByActions(id("basic_billingAddress_state"), input)
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
@@ -96,13 +96,13 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	}
 
 	public AccountSettingsPage selectCityBillingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[10]//input"), input)
+		clearTextAndSendKeysByActions(id("basic_billingAddress_city"), input)
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
 
 	public AccountSettingsPage selectCountryBillingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[12]//input"), input)
+		clearTextAndSendKeysByActions(id("basic_billingAddress_country"), input)
 		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
@@ -146,7 +146,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	}
 
 	public AccountSettingsPage selectStateShippingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[11]//input"), input)
+		clearTextAndSendKeysByActions(id("basic_shippingAddress_state"), input)
 		WebUI.click(xpath("//*[@id='basic_shippingAddress_state_list']/following::*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
@@ -157,13 +157,13 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	}
 
 	public AccountSettingsPage selectCityShippingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[10]//input"), input)
+		clearTextAndSendKeysByActions(id("basic_shippingAddress_city"), input)
 		WebUI.click(xpath("//*[@id='basic_shippingAddress_city_list']/following::*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
 
 	public AccountSettingsPage selectCountryShippingAddress(String input){
-		clearTextAndSendKeysByActions(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[12]//input"), input)
+		clearTextAndSendKeysByActions(id("basic_shippingAddress_country"), input)
 		WebUI.click(xpath("//*[@id='basic_shippingAddress_country_list']/following::*[@class='rc-virtual-list']//div[@title='$input']"))
 		return this
 	}
@@ -342,10 +342,10 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		WebUI.verifyElementVisible(xpath("//*[@id='basic_billingAddress_phone']"))
 		WebUI.verifyElementVisible(xpath("//*[@id='basic_billingAddress_streetName']"))
 		WebUI.verifyElementVisible(xpath("//*[@id='basic_billingAddress_houseNumber']"))
-		WebUI.verifyElementVisible(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[12]//input"))
+		WebUI.verifyElementVisible(id("basic_billingAddress_country"))
 		WebUI.verifyElementVisible(xpath("//*[@id='basic_billingAddress_postCode']"))
 		WebUI.verifyElementVisible(xpath("//*[@id='basic_billingAddress_city']"))
-		WebUI.verifyElementVisible(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[9]//span[@class='ant-select-selection-search']"))
+		WebUI.verifyElementVisible(id("basic_billingAddress_state"))
 		//shipping address
 		WebUI.verifyElementVisible(xpath("//*[@id='basic_shippingAddress_firstName']"))
 		WebUI.verifyElementVisible(xpath("//*[@id='basic_shippingAddress_lastName']"))
@@ -353,10 +353,10 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 		WebUI.verifyElementVisible(xpath("//*[@id='basic_shippingAddress_phone']"))
 		WebUI.verifyElementVisible(xpath("//*[@id='basic_shippingAddress_streetName']"))
 		WebUI.verifyElementVisible(xpath("//*[@id='basic_shippingAddress_houseNumber']"))
-		WebUI.verifyElementVisible(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[12]//input"))
+		WebUI.verifyElementVisible(id("basic_shippingAddress_country"))
 		WebUI.verifyElementVisible(xpath("//*[@id='basic_shippingAddress_postCode']"))
 		WebUI.verifyElementVisible(xpath("//*[@id='basic_shippingAddress_city']"))
-		WebUI.verifyElementVisible(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[9]//span[@class='ant-select-selection-search']"))
+		WebUI.verifyElementVisible(id("basic_shippingAddress_state"))
 		//button save change
 		WebUI.verifyElementVisible(xpath("//span[text()='Save Changes']"))
 		return this
@@ -400,7 +400,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	}
 
 	public AccountSettingsPage verifyStateBillingAddressValue(String expectedResult){
-		String actualResult = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[11]//input"), "value")
+		String actualResult = WebUI.getAttribute(id("basic_billingAddress_state"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
@@ -412,13 +412,13 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	}
 
 	public AccountSettingsPage verifyCityBillingAddressValue(String expectedResult){
-		String actualResult = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[10]//input"), "value")
+		String actualResult = WebUI.getAttribute(id("basic_billingAddress_city"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
 	public AccountSettingsPage verifyCountryBillingAddressValue(String expectedResult){
-		String actualResult = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[12]//input"), "title")
+		String actualResult = WebUI.getAttribute(id("basic_billingAddress_country"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
@@ -461,7 +461,7 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	}
 
 	public AccountSettingsPage verifyStateShippingAddressValue(String expectedResult){
-		String actualResult = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[11]//input"), "value")
+		String actualResult = WebUI.getAttribute(id("basic_shippingAddress_state"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
@@ -473,13 +473,13 @@ public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 	}
 
 	public AccountSettingsPage verifyCityShippingAddressValue(String expectedResult){
-		String actualResult = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[10]//input"), "value")
+		String actualResult = WebUI.getAttribute(id("basic_shippingAddress_city"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
 
 	public AccountSettingsPage verifyCountryShippingAddressValue(String expectedResult){
-		String actualResult = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[12]//input"), "title")
+		String actualResult = WebUI.getAttribute(id("basic_shippingAddress_country"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
