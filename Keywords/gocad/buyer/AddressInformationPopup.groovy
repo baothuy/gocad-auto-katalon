@@ -1,8 +1,10 @@
 package gocad.buyer
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import org.openqa.selenium.Keys
+
 import katalon.fw.lib.BasePage
+import katalon.fw.lib.Page
+import katalon.utility.FunctionCommon
 
 
 
@@ -27,6 +29,12 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	
 	public AddressInformationPopup inputPhoneBillingAddress(String input){
 		clearTextAndSendKeysByActions(id("billingAddress_phone"), input)
+		return this
+	}
+
+	public AddressInformationPopup inputSearchBillingAddress(String houseNumber, String street, String city, String zipCode, String country) {
+		String address = Page.nav(FunctionCommon).formatAddress(houseNumber, street, city, zipCode, country)
+		clearTextAndSendKeysByActions(id("billingAddress_searchAddress"), address)
 		return this
 	}
 
@@ -83,6 +91,12 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	
 	public AddressInformationPopup inputPhoneShippingAddress(String input){
 		clearTextAndSendKeysByActions(id("shippingAddress_phone"), input)
+		return this
+	}
+
+	public AddressInformationPopup inputSearchShippingAddress(String houseNumber, String street, String city, String zipCode, String country) {
+		String address = Page.nav(FunctionCommon).formatAddress(houseNumber, street, city, zipCode, country)
+		clearTextAndSendKeysByActions(id("shippingAddress_searchAddress"), address)
 		return this
 	}
 
