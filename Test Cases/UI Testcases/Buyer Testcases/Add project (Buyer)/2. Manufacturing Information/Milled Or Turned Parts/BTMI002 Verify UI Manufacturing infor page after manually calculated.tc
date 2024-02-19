@@ -9,7 +9,7 @@
       <combinationType>ONE</combinationType>
       <id>0404a827-4a7a-4dee-b78b-adb1c56a597c</id>
       <iterationEntity>
-         <iterationType>RANGE</iterationType>
+         <iterationType>ALL</iterationType>
          <value>1-3</value>
       </iterationEntity>
       <testDataId>Data Files/Milled Or Turned Parts/BTMI002</testDataId>

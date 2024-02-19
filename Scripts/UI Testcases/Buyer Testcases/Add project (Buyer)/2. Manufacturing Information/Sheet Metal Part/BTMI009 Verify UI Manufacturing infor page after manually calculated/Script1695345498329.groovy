@@ -41,9 +41,9 @@ println '>> click Calculate button'
 Page.nav(ManufacturingInformationPage).clickCalculate()
 
 println '>> Verify UI after calculated manually of request'
-Page.nav(ManufacturingInformationPage).verifyCanPreviewPartFileOnSMP()
+Page.nav(ManufacturingInformationPage).verifyContentAlertManualCalculateVisibleForBuyer(codeManual)
+										.verifyCanPreviewPartFileOnSMP()
 										.clickClosePreviewPartFilePopup()
-										.verifyContentAlertManualCalculateVisibleForBuyer(codeManual)
 										.verifyLengthInforVisible()
 										.verifyHeightInforVisible()
 										.verifyThicknessInforVisible()
