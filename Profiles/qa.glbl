@@ -96,12 +96,12 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Aluminum'</initValue>
+      <initValue>'Plastic'</initValue>
       <name>materialGroupMTP</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'EN AW-6060 / AlMgSi'</initValue>
+      <initValue>'PA66 (natur)'</initValue>
       <name>materialNameMTP</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -131,7 +131,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Standard shipping'</initValue>
+      <initValue>'Package delivery (extra costs)'</initValue>
       <name>shippingOption</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
