@@ -87,11 +87,13 @@ println '>> click checkout button'
 Page.nav(ReviewPage).clickCheckout()
 	
 println '>> Verify UI are visible'
-Page.nav(CheckoutPage).verifyUICheckoutVisible(partName)
+Page.nav(CheckoutPage).verifyUICheckoutVisible(partName)						
 
+Page.nav(AddressInformationPopup).clickCheckBoxCloneTheSameAddress("false")
 println '>> Verify file part can download successfully'
 Page.nav(AddressInformationPopup).inputFirstNameBillingAddress("")
 								.inputLastNameBillingAddress("")
+								.inputEmailBillingAddress("")
 								.inputStreetBillingAddress("")
 								.inputHouseNumberBillingAddress("")
 								.inputZIPCodeBillingAddress("")
@@ -104,6 +106,7 @@ Page.nav(AddressInformationPopup).inputFirstNameBillingAddress("")
 Page.nav(CheckoutPage).clickPlaceYourOrder()
 Page.nav(AddressInformationPopup).verifyShowErrorWhenFirstNameBillingAddressEmpty()
 								.verifyShowErrorWhenLastNameBillingAddressEmpty()
+								.verifyShowErrorWhenEmailBillingAddressEmpty()
 								.verifyShowErrorWhenHouseNumberBillingAddressEmpty()
 								.verifyShowErrorWhenStreetBillingAddressEmpty()
 								.verifyShowErrorWhenZIPCodeBillingAddressEmpty()

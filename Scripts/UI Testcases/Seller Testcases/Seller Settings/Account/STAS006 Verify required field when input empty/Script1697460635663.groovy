@@ -14,17 +14,17 @@ println '>> click Account'
 Page.nav(LeftNavBar).clickAccount()
 
 println '>> Input contact information'
-Page.nav(AccountSettingsPage).inputFirstNameContact("")
-							.inputLastNameContact("")
-							.inputCompanyNameContact("")
+Page.nav(AccountSettingsPage).inputFirstNameContact(firstNameContact)
+							.inputLastNameContact(lastNameContact)
+							.inputCompanyNameContact(companyNameContact)
 							
 println '>> Input billing/shipping address information'
-Page.nav(AccountSettingsPage).inputFirstNameBillingAddress("")
-								.inputLastNameBillingAddress("")
-								.inputEmailBillingAddress("")
-								.inputHouseNumberBillingAddress("")
-								.inputStreetBillingAddress("")
-								.inputZIPCodeBillingAddress("")
+Page.nav(AccountSettingsPage).inputFirstNameBillingAddress(firstName)
+								.inputLastNameBillingAddress(lastName)
+								.inputEmailBillingAddress(email)
+								.inputHouseNumberBillingAddress(houseNumber)
+								.inputStreetBillingAddress(street)
+								.inputZIPCodeBillingAddress(zipCode)
 								
 println '>> Verify error on account settings page'
 Page.nav(AccountSettingsPage).verifyShowErrorWhenFirstNameContactEmpty()
