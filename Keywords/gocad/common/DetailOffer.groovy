@@ -145,14 +145,14 @@ public class DetailOffer extends BasePage<DetailOffer>{
 	}
 
 	public DetailOffer verifyBillingAddress(List<String> expectedResult) {
-		List<String> actualBillingAddress = Page.nav(FunctionCommon).getBillingAddress()
+		List<String> actualBillingAddress = Page.nav(FunctionCommon).getBillingAddressDetailOffer()
 		println "actualBillingAddress: $actualBillingAddress"
 		WebUI.verifyEqual(actualBillingAddress, expectedResult)
 		return this
 	}
 
 	public DetailOffer verifyShippingAddress(List<String> expectedResult) {
-		List<String> actualShippingAddress = Page.nav(FunctionCommon).getShippingAddress()
+		List<String> actualShippingAddress = Page.nav(FunctionCommon).getShippingAddressDetailOffer()
 		println "actualShippingAddress: $actualShippingAddress"
 		WebUI.verifyEqual(actualShippingAddress, expectedResult)
 		return this

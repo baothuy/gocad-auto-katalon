@@ -24,25 +24,19 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 
 	//Billing Address
 	public List<String> getBillingAddressCheckoutPage() {
-		String firstName = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_firstName']"), "value")
-		String lastName = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_lastName']"), "value")
-		String fullName = firstName + " " + lastName
 		String email = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_email']"), "value")
 		String phone = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_phone']"), "value")
 		String houseNumber = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_houseNumber']"), "value")
 		String street = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_streetName']"), "value")
-		String country = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_country']/parent::span/following-sibling::span"), "title")
-		String state = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_state']"), "value")
+		String country = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_country']"), "value")
 		String zipCode = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_postCode']"), "value")
 		String city = WebUI.getAttribute(xpath("//*[text()='Billing Address']/following-sibling::div[@class='row']//input[@id='billingAddress_city']"), "value")
 		List<String> billingAddress = [
-			fullName,
 			email,
 			phone,
 			street,
 			houseNumber,
 			country,
-			state,
 			city,
 			zipCode
 		]
@@ -51,25 +45,19 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 
 	//Shipping Address
 	public List<String> getShippingAddressCheckoutPage() {
-		String firstName = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_firstName']"), "value")
-		String lastName = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_lastName']"), "value")
-		String fullName = firstName + " " + lastName
 		String email = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_email']"), "value")
 		String phone = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_phone']"), "value")
 		String houseNumber = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_houseNumber']"), "value")
 		String street = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_streetName']"), "value")
-		String country = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_country']/parent::span/following-sibling::span"), "title")
-		String state = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_state']"), "value")
+		String country = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_country']"), "value")
 		String zipCode = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_postCode']"), "value")
 		String city = WebUI.getAttribute(xpath("//*[text()='Shipping Address']/following-sibling::div[@class='row']//input[@id='shippingAddress_city']"), "value")
 		List<String> shippingAddress = [
-			fullName,
 			email,
 			phone,
 			street,
 			houseNumber,
 			country,
-			state,
 			city,
 			zipCode
 		]
@@ -77,24 +65,21 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 	}
 
 	//Billing Address
-	public List<String> getBillingAddress() {
-		String fullName = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String houseNumber = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String street = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Street']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String state = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String zipCode = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String city = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String country = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Country']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String email = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='E-mail']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String phone = WebUI.getText(xpath("//*[text()='Billing Address']/parent::div/following-sibling::div//*[text()='Phone']/ancestor::tr/following-sibling::tr[1]/td[3]"))
+	public List<String> getBillingAddressDetailOffer() {
+		String address = WebUI.getText(xpath("//*[text()='Billing Address']/following-sibling::div/div[1]"))
+		String houseNumber = CommonUtility.substringUseRegExp(address, /\b(\d+\s*[a-zA-Z]?)\b/, 1)
+		String street = CommonUtility.substringUseRegExp(address, /^([^0-9]+)(?:\s+\S+)*,/, 1)
+		String zipCode = CommonUtility.substringUseRegExp(address, /\b(\d{5})\b/, 1)
+		String city = CommonUtility.substringUseRegExp(address, /\b([A-Za-z]+)\s*,/, 1)
+		String country = CommonUtility.substringUseRegExp(address, /(\b[A-Za-z]+)\s*$/, 1)
+		String email = WebUI.getText(xpath("//*[text()='Billing Address']/following-sibling::div/div[2]"))
+		String phone = WebUI.getText(xpath("//*[text()='Billing Address']/following-sibling::div/div[3]"))
 		List<String> billingAddress = [
-			fullName,
 			email,
 			phone,
 			street,
 			houseNumber,
 			country,
-			state,
 			city,
 			zipCode
 		]
@@ -102,24 +87,21 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 	}
 
 	//Shipping Address
-	public List<String> getShippingAddress() {
-		String fullName = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Full Name']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String houseNumber = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='House number']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String street = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Street']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String state = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='State, Province, or Region']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String zipCode = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='ZIP Code']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String city = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='City']/ancestor::tr/following-sibling::tr[1]/td[3]"))
-		String country = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Country']/ancestor::tr/following-sibling::tr[1]/td[1]"))
-		String email = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='E-mail']/ancestor::tr/following-sibling::tr[1]/td[2]"))
-		String phone = WebUI.getText(xpath("//*[text()='Shipping Address']/parent::div/following-sibling::div//*[text()='Phone']/ancestor::tr/following-sibling::tr[1]/td[3]"))
+	public List<String> getShippingAddressDetailOffer() {
+		String address = WebUI.getText(xpath("//*[text()='Shipping Address']/following-sibling::div/div[1]"))
+		String houseNumber = CommonUtility.substringUseRegExp(address, /\b(\d+\s*[a-zA-Z]?)\b/, 1)
+		String street = CommonUtility.substringUseRegExp(address, /^([^0-9]+)(?:\s+\S+)*,/, 1)
+		String zipCode = CommonUtility.substringUseRegExp(address, /\b(\d{5})\b/, 1)
+		String city = CommonUtility.substringUseRegExp(address, /\b([A-Za-z]+)\s*,/, 1)
+		String country = CommonUtility.substringUseRegExp(address, /(\b[A-Za-z]+)\s*$/, 1)
+		String email = WebUI.getText(xpath("//*[text()='Shipping Address']/following-sibling::div/div[2]"))
+		String phone = WebUI.getText(xpath("//*[text()='Shipping Address']/following-sibling::div/div[3]"))
 		List<String> billingAddress = [
-			fullName,
 			email,
 			phone,
 			street,
 			houseNumber,
 			country,
-			state,
 			city,
 			zipCode
 		]
@@ -129,25 +111,19 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 	//Account Settings
 	//Billing address
 	public List<String> getBillingAddressAccountSettings() {
-		String firstName = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_firstName']"), 'value')
-		String lastName = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_lastName']"), 'value')
-		String name = (firstName + " " + lastName).replace(",", "")
 		String email = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_email']"), 'value')
 		String phone = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_phone']"), 'value')
 		String streetName = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_streetName']"), 'value')
 		String houseNumber = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_houseNumber']"), 'value')
-		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']"), 'title')
-		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[9]//input"), 'value')
-		String city = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Billing Address']/parent::div/div[@class='row']/div[10]//input"), 'value')
+		String country = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_country']"), 'value')
+		String city = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_city']"), 'value')
 		String postCode = WebUI.getAttribute(xpath("//*[@id='basic_billingAddress_postCode']"), 'value')
 		List<String> billingAddress = [
-			name,
 			email,
 			phone,
 			streetName,
 			houseNumber,
 			country,
-			state,
 			city,
 			postCode
 		]
@@ -156,53 +132,41 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 
 	//Shipping address
 	public List<String> getShippingAddressAccountSettings() {
-		String firstName = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_firstName']"), 'value')
-		String lastName = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_lastName']"), 'value')
-		String name = (firstName + " " + lastName).replace(",", "")
 		String email = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_email']"), 'value')
 		String phone = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_phone']"), 'value')
 		String streetName = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_streetName']"), 'value')
 		String houseNumber = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_houseNumber']"), 'value')
-		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']"), 'title')
-		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[9]//input"), 'value')
-		String city = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[10]//input"), 'value')
+		String country = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_country']"), 'value')
+		String city = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_city']"), 'value')
 		String postCode = WebUI.getAttribute(xpath("//*[@id='basic_shippingAddress_postCode']"), 'value')
 		List<String> billingAddress = [
-			name,
 			email,
 			phone,
 			streetName,
 			houseNumber,
 			country,
-			state,
 			city,
 			postCode
 		]
 		return billingAddress
 	}
-	
+
 	//Request Offer
 	//Shipping address
 	public List<String> getShippingAddressRequestOfferPopup() {
-		String firstName = WebUI.getAttribute(xpath("//*[@id='billingAddress_firstName']"), 'value')
-		String lastName = WebUI.getAttribute(xpath("//*[@id='billingAddress_lastName']"), 'value')
-		String name = (firstName + " " + lastName).replace(",", "")
 		String email = WebUI.getAttribute(xpath("//*[@id='billingAddress_email']"), 'value')
 		String phone = WebUI.getAttribute(xpath("//*[@id='billingAddress_phone']"), 'value')
 		String streetName = WebUI.getAttribute(xpath("//*[@id='billingAddress_streetName']"), 'value')
 		String houseNumber = WebUI.getAttribute(xpath("//*[@id='billingAddress_houseNumber']"), 'value')
-		String country = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[8]//span[@class='ant-select-selection-item']"), 'title')
-		String state = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[9]//input"), 'value')
-		String city = WebUI.getAttribute(xpath("//*[@class='sub-l' and text()='Shipping Address']/parent::div/div[@class='row']/div[10]//input"), 'value')
+		String country = WebUI.getAttribute(xpath("//*[@id='billingAddress_country']"), 'value')
+		String city = WebUI.getAttribute(id("billingAddress_city"), 'value')
 		String postCode = WebUI.getAttribute(xpath("//*[@id='billingAddress_postCode']"), 'value')
 		List<String> billingAddress = [
-			name,
 			email,
 			phone,
 			streetName,
 			houseNumber,
 			country,
-			state,
 			city,
 			postCode
 		]
@@ -211,16 +175,17 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 
 	//Order Summary
 	public List<String> getOrderSummary() {
-		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label"))
+		String totalPartPrice = WebUI.getText(xpath("//label[text()='Total Part Price']/following-sibling::label")).trim()
 		List<String> surfaceTreatmentSurchargeObject = findTestObjects("//label[text()='Surface Treatment Surcharge']/following-sibling::label")
 		def surfaceTreatmentSurcharge = (surfaceTreatmentSurchargeObject.size() != 0) ? WebUI.getText(xpath("//label[text()='Surface Treatment Surcharge']/following-sibling::label")) : "Empty"
-		String expressSurchargeValue = WebUI.getText(xpath("//label[text()='Express Surcharge']/following-sibling::label"))
+		String expressSurchargeValue = WebUI.getText(xpath("//label[text()='Express Surcharge']/following-sibling::label")).trim()
 		String expressSurcharge = expressSurchargeValue == "00.0 $GlobalVariable.currency" ? "-- $GlobalVariable.currency" : expressSurchargeValue
-		String packagingCost = WebUI.getText(xpath("//label[text()='Packaging Cost']/following-sibling::label"))
-		String shippingCosts = WebUI.getText(xpath("//label[text()='Shipping costs']/following-sibling::label"))
-		String netTotal = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::label"))
-		String vat = WebUI.getText(xpath("//*[contains(@class,'summary-price')]//*[contains(text(),'VAT')]/following-sibling::label"))
-		String grossTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label"))
+		String packagingCost = WebUI.getText(xpath("//label[text()='Packaging Cost']/following-sibling::label")).trim()
+		String shippingCosts = WebUI.getText(xpath("//label[text()='Shipping costs']/following-sibling::label")).trim()
+		String netTotal = WebUI.getText(xpath("//*[text()='NET Total']/following-sibling::label")).trim()
+		List<String> vatObject = findTestObjects("//*[contains(@class,'summary-price')]//*[contains(text(),'VAT')]/following-sibling::label")
+		def vat = (vatObject.size() != 0) ? WebUI.getText(xpath("//*[contains(@class,'summary-price')]//*[contains(text(),'VAT')]/following-sibling::label")) : "-- $GlobalVariable.currency"
+		String grossTotal = WebUI.getText(xpath("//*[text()='GROSS Total']/following-sibling::label")).trim()
 		List<String> orderSummary = [
 			totalPartPrice,
 			surfaceTreatmentSurcharge,
@@ -232,6 +197,11 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 			grossTotal
 		]
 		return orderSummary
+	}
+
+	public String formatAddress(String houseNumber, String street, String city, String zipCode, String country) {
+		String address = "$street $houseNumber, $city, $country"
+		return address
 	}
 
 	public List<String> getTablePartReview(String partName) {
