@@ -5,4 +5,17 @@
    <tag></tag>
    <comment></comment>
    <testCaseGuid>68012024-b10b-432c-93a0-388ae83914c6</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ba7617e0-b031-4dc3-bdd2-025cf27a05c3</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'thuyautomation0@gmail.com'</defaultValue>
+      <description></description>
+      <id>ba7617e0-b031-4dc3-bdd2-025cf27a05c3</id>
+      <masked>false</masked>
+      <name>email</name>
+   </variable>
 </TestCaseEntity>

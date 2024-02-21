@@ -14,7 +14,8 @@ println '>> Verify UI Requested Offers page'
 Page.nav(CustomerOverviewPage).verifyUIVisible()
 
 println '>> Get data first row to go detail verify UI'
-List<String> dataRow = Page.nav(CustomerOverviewPage).getDataRow("1")
+Page.nav(CustomerOverviewPage).inputSearch(email)
+List<String> dataRow = Page.nav(CustomerOverviewPage).getDataRowByEmail(email)
 String customerId = dataRow[0]
 
 Page.nav(CustomerOverviewPage).clickAction(customerId)

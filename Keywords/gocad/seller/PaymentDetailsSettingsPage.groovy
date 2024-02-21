@@ -29,6 +29,24 @@ public class PaymentDetailsSettingsPage extends BasePage<PaymentDetailsSettingsP
 		return this
 	}
 	
+	public PaymentDetailsSettingsPage verifyBankName(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_bankName"), 'value')
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public PaymentDetailsSettingsPage verifyIBAN(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_iban"), 'value')
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public PaymentDetailsSettingsPage verifyBIC(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_bic"), 'value')
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
 	public PaymentDetailsSettingsPage verifyUIPaymentDetailsVisible() {
 		//button Legal Information
 		WebUI.verifyElementVisible(xpath("//span[text()='Payment Details']"))

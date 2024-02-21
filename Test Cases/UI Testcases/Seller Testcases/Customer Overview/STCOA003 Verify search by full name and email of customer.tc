@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>STMS006 Verify can update Surcharge raw material successfully</name>
+   <name>STCOA003 Verify search by full name and email of customer</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>dcc785a9-3fa2-405b-96fe-9d7db97291b2</testCaseGuid>
+   <testCaseGuid>12db9b3f-e79c-4cb2-85ea-39b5b8d17c6f</testCaseGuid>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>5b339aee-a9ee-43d0-ae74-386c1148c19d</variableId>
+      <variableId>9a097f7f-a1be-4e7c-b2b4-446161e97215</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>cae05304-2f58-451d-b766-abddbb81dd4a</variableId>
+      <variableId>019bec3f-c2c1-466c-be5b-ad4974d1f3cb</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'3'</defaultValue>
+      <defaultValue>'Philipp Sauter'</defaultValue>
       <description></description>
-      <id>5b339aee-a9ee-43d0-ae74-386c1148c19d</id>
+      <id>9a097f7f-a1be-4e7c-b2b4-446161e97215</id>
       <masked>false</masked>
-      <name>round</name>
+      <name>fullName</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
+      <defaultValue>'truongbaothuy93@gmail.com'</defaultValue>
       <description></description>
-      <id>cae05304-2f58-451d-b766-abddbb81dd4a</id>
+      <id>019bec3f-c2c1-466c-be5b-ad4974d1f3cb</id>
       <masked>false</masked>
-      <name>rectangular</name>
+      <name>email</name>
    </variable>
 </TestCaseEntity>

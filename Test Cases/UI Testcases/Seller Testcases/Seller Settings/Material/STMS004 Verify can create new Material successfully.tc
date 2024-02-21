@@ -78,7 +78,7 @@
       <variableId>0faf4701-d280-4093-9bcc-731d24ae80e8</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'Plastic'</defaultValue>
+      <defaultValue>'Rubber'</defaultValue>
       <description></description>
       <id>89e8fab7-b712-40db-9b94-b4fd1926bd3d</id>
       <masked>false</masked>
