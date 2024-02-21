@@ -97,3 +97,5 @@ println '>>  Clear data'
 Page.nav(LeftNavBar).clickDraft()
 Page.nav(DraftPage).clickArchiveAction(projectId)
 					.clickCloseToastMessage()
+					.clickArchiveAction(projectId2)
+					.clickCloseToastMessage()
