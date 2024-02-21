@@ -7,13 +7,7 @@ import katalon.fw.lib.Page
 
 
 
-
-
-println '>> FPA002 Verify seller accept offers successfully when project larger than Threshold'
-println '>> Random project name'
-//def projectName = CommonUtility.generateRandomProjectName(10)
-//
-println '>> User buyer signs in to administration page'
+println '>> User Seller signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 Page.nav(LeftNavBar).clickDraft()
@@ -28,4 +22,11 @@ println "getBillingAddress: $getBillingAddress"
 List<String> getShippingAddress = Page.nav(CheckoutPage).getShippingAddress()
 println "getBillingAddress: $getShippingAddress"
 
+Page.nav(CheckoutPage).clickMoreOption("step-testing.step")
+						.clickCopy()
+						
+println '>> select project to copy'
+Page.nav(CopyPartPopup).inputProjectToCopy("Auto Generate Prj zgV4JG4Jzu")
+						  .clickOK()
+						  .verifyToastMessageWhenCopyProject("step-testing.step", "Auto Generate Prj zgV4JG4Jzu")
 						

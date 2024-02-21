@@ -39,7 +39,8 @@ public class CopyPartPopup extends BasePage<CopyPartPopup> {
 	}
 
 	public CopyPartPopup inputProjectToCopy(String projectName) {
-		WebUI.sendKeys(xpath("//*[@class='ant-input-prefix']/following::input[@type='search']"), projectName + Keys.ENTER)
+		clearTextAndSendKeysByActions(xpath("//*[@class='ant-modal-body']//*[@class='ant-input-prefix']/following::input[@type='search']"), projectName)
+		WebUI.click(xpath("//*[@class='rc-virtual-list']//div[@title='$projectName']"))
 		return this
 	}
 
