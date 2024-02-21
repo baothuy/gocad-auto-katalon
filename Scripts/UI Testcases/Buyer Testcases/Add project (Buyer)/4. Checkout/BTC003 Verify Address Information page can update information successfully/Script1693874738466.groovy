@@ -113,8 +113,8 @@ Page.nav(PaymentMethodPopup).inputCardNumber(cardNumber)
 							.clickPayButton()
 							.sleep(2)
 							
-List<String> listBillingAddress = [billingAddressChanged[0] + " " + billingAddressChanged[1], billingAddressChanged[2], billingAddressChanged[3], billingAddressChanged[4], billingAddressChanged[5], billingAddressChanged[6], billingAddressChanged[7], billingAddressChanged[8], billingAddressChanged[9]]
-List<String> listShippingAddress = [shippingAddressChanged[0] + " " + shippingAddressChanged[1], shippingAddressChanged[2], shippingAddressChanged[3], shippingAddressChanged[4], shippingAddressChanged[5], shippingAddressChanged[6], shippingAddressChanged[7], shippingAddressChanged[8], shippingAddressChanged[9]]
+List<String> listBillingAddress = [billingAddressChanged[2], billingAddressChanged[3], billingAddressChanged[4], billingAddressChanged[5], billingAddressChanged[6], billingAddressChanged[7], billingAddressChanged[8], billingAddressChanged[9]]
+List<String> listShippingAddress = [shippingAddressChanged[2], shippingAddressChanged[3], shippingAddressChanged[4], shippingAddressChanged[5], shippingAddressChanged[6], shippingAddressChanged[7], shippingAddressChanged[8], shippingAddressChanged[9]]
 
 println '>> Verify after update show correctly on checkout page'
 Page.nav(DetailOffer).verifyBillingAddress(listBillingAddress)

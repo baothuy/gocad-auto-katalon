@@ -231,6 +231,13 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 		WebUI.verifyEqual(lastName, expectedResult)
 		return this
 	}
+	
+	public AddressInformationPopup verifyShowErrorWhenEmailBillingAddressEmpty() {
+		String lastName = WebUI.getText(xpath("//*[@id='billingAddress_email_help']/div"))
+		String expectedResult = "E-mail is required."
+		WebUI.verifyEqual(lastName, expectedResult)
+		return this
+	}
 
 	public AddressInformationPopup verifyShowErrorWhenHouseNumberBillingAddressEmpty() {
 		String houseNumber = WebUI.getText(xpath("//*[@id='billingAddress_houseNumber_help']/div"))
@@ -278,6 +285,13 @@ public class AddressInformationPopup extends BasePage<AddressInformationPopup>{
 	public AddressInformationPopup verifyShowErrorWhenLastNameShippingAddressEmpty() {
 		String lastName = WebUI.getText(xpath("//*[@id='shippingAddress_lastName_help']/div"))
 		String expectedResult = "Lastname is required."
+		WebUI.verifyEqual(lastName, expectedResult)
+		return this
+	}
+	
+	public AddressInformationPopup verifyShowErrorWhenEmailShippingAddressEmpty() {
+		String lastName = WebUI.getText(xpath("//*[@id='shippingAddress_email_help']/div"))
+		String expectedResult = "E-mail is required."
 		WebUI.verifyEqual(lastName, expectedResult)
 		return this
 	}
