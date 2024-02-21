@@ -47,12 +47,6 @@
    <variableLinks>
       <testDataLinkId>9784cc6b-b40e-4781-a4a8-4f75fb06d654</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>compliances</value>
-      <variableId>f06efde4-8b48-4e82-9c09-430fe0543fef</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>9784cc6b-b40e-4781-a4a8-4f75fb06d654</testDataLinkId>
-      <type>DATA_COLUMN</type>
       <value>quality</value>
       <variableId>af377a0c-b5de-4d25-ba0f-040df52de71f</variableId>
    </variableLinks>
@@ -132,13 +126,6 @@
       <id>7fd59e68-2070-4b35-917c-741af579cf85</id>
       <masked>false</masked>
       <name>tolerancesNum</name>
-   </variable>
-   <variable>
-      <defaultValue>GlobalVariable.compliances</defaultValue>
-      <description></description>
-      <id>f06efde4-8b48-4e82-9c09-430fe0543fef</id>
-      <masked>false</masked>
-      <name>compliances</name>
    </variable>
    <variable>
       <defaultValue>GlobalVariable.quality</defaultValue>

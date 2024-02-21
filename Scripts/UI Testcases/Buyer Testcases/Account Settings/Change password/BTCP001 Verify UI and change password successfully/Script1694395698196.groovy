@@ -27,14 +27,15 @@ println '>> Get email and logout'
 Page.nav(LeftNavBar).clickLogout()
 
 println '>> Login with old password will show error'
-Page.nav(SignInPage).inputEmail(email)
-						.inputPassword(currentPassword)
+Page.nav(SignInPage).changeLanguage()
+						.inputEmail(email)
+						.inputPassword(currentPassword)						
 						.clickSignIn()
 						.verifyAfterInputWrongAccount()
 						
 println '>> Login with new password will sign in successfully'
 Page.nav(SignInPage).inputEmail(email)
-						.inputPassword(newPassword)
+						.inputPassword(newPassword)						
 						.clickSignIn()
 						
 println '>> Click Settings nav menu'

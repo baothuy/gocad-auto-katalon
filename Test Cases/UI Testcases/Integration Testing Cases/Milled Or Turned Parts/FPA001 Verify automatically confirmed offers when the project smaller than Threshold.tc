@@ -47,12 +47,6 @@
    <variableLinks>
       <testDataLinkId>4c007e34-e89c-4fb0-9985-e16a836f8375</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>compliances</value>
-      <variableId>f06efde4-8b48-4e82-9c09-430fe0543fef</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>4c007e34-e89c-4fb0-9985-e16a836f8375</testDataLinkId>
-      <type>DATA_COLUMN</type>
       <value>quality</value>
       <variableId>af377a0c-b5de-4d25-ba0f-040df52de71f</variableId>
    </variableLinks>
@@ -73,6 +67,12 @@
       <type>DATA_COLUMN</type>
       <value>materialName</value>
       <variableId>2c02cbb8-c167-4c76-b462-52fd79f1ac44</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>4c007e34-e89c-4fb0-9985-e16a836f8375</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>provideOwnProduct</value>
+      <variableId>65316e39-d770-41ee-abf8-b9c1bac26fa2</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>4c007e34-e89c-4fb0-9985-e16a836f8375</testDataLinkId>
@@ -152,13 +152,6 @@
       <name>tolerancesNum</name>
    </variable>
    <variable>
-      <defaultValue>GlobalVariable.compliances</defaultValue>
-      <description></description>
-      <id>f06efde4-8b48-4e82-9c09-430fe0543fef</id>
-      <masked>false</masked>
-      <name>compliances</name>
-   </variable>
-   <variable>
       <defaultValue>GlobalVariable.quality</defaultValue>
       <description>Ra 3,2 - 25 (roughed); Rz 16 - 100; Ra 1,6 - 3,2 (settled); Rz 10 - 16</description>
       <id>af377a0c-b5de-4d25-ba0f-040df52de71f</id>
@@ -185,6 +178,13 @@
       <id>2c02cbb8-c167-4c76-b462-52fd79f1ac44</id>
       <masked>false</masked>
       <name>materialName</name>
+   </variable>
+   <variable>
+      <defaultValue>GlobalVariable.provideOwnProduct</defaultValue>
+      <description></description>
+      <id>65316e39-d770-41ee-abf8-b9c1bac26fa2</id>
+      <masked>false</masked>
+      <name>provideOwnProduct</name>
    </variable>
    <variable>
       <defaultValue>GlobalVariable.deliveryOption</defaultValue>

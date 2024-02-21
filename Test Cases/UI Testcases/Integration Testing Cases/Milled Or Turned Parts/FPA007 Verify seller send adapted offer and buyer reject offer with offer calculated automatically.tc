@@ -10,7 +10,7 @@
       <id>f3e60329-d16e-4e87-b2a6-1da211bd3992</id>
       <iterationEntity>
          <iterationType>ALL</iterationType>
-         <value></value>
+         <value>2</value>
       </iterationEntity>
       <testDataId>Data Files/Milled Or Turned Parts/FPA002-003-005-007</testDataId>
    </testDataLinks>
@@ -43,12 +43,6 @@
       <type>DATA_COLUMN</type>
       <value>tolerancesNum</value>
       <variableId>7fd59e68-2070-4b35-917c-741af579cf85</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>compliances</value>
-      <variableId>f06efde4-8b48-4e82-9c09-430fe0543fef</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>f3e60329-d16e-4e87-b2a6-1da211bd3992</testDataLinkId>
@@ -138,13 +132,6 @@
       <id>7fd59e68-2070-4b35-917c-741af579cf85</id>
       <masked>false</masked>
       <name>tolerancesNum</name>
-   </variable>
-   <variable>
-      <defaultValue>GlobalVariable.compliances</defaultValue>
-      <description></description>
-      <id>f06efde4-8b48-4e82-9c09-430fe0543fef</id>
-      <masked>false</masked>
-      <name>compliances</name>
    </variable>
    <variable>
       <defaultValue>GlobalVariable.quality</defaultValue>
