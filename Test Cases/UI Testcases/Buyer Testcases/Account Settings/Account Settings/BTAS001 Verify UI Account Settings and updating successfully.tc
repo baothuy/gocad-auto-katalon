@@ -53,6 +53,12 @@
       <value></value>
       <variableId>e45968b3-a45b-4aee-804d-c1231654078e</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>84ec8fa3-5210-488a-b0fe-7f025c8f0f8f</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>['Bao', 'Thuy', 'Male', 'Thuy Com', '0784060607', '123456789']</defaultValue>
       <description></description>
@@ -108,5 +114,12 @@
       <id>e45968b3-a45b-4aee-804d-c1231654078e</id>
       <masked>false</masked>
       <name>vatNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'EUR'</defaultValue>
+      <description></description>
+      <id>84ec8fa3-5210-488a-b0fe-7f025c8f0f8f</id>
+      <masked>false</masked>
+      <name>currency</name>
    </variable>
 </TestCaseEntity>
