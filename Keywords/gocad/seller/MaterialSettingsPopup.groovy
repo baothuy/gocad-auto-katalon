@@ -125,6 +125,69 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 		WebUI.click(xpath("//p[text()='Raw Material']/following-sibling::form//span[text()='Add New']"))
 		return this
 	}
+	
+	public MaterialSettingsPopup verifyMaterialGroupValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@for='basic_groupId']/parent::div/following-sibling::div//span[@class='ant-select-selection-item']"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyNameValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_name"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyNumberValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_number"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyDensityValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_density"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyPricePerKiloValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_pricePerKilo"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyCompliancesValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@for='basic_complianceIds']/parent::div/following-sibling::div//span[@class='ant-select-selection-item-content']"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyShopTypeValue(String expectedResult) {
+		String actualResult = WebUI.getText(xpath("//*[@for='basic_shopType']/parent::div/following-sibling::div//span[@class='ant-select-selection-item']"))
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyLinkValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_link"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifySynonymValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_synonyms"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public MaterialSettingsPopup verifyStatusValue(String expectedResult) {
+		String isChecked = WebUI.getAttribute(id("basic_active"), "aria-checked")
+		println "isChecked: $isChecked"
+		def actualResult = (isChecked == "true") ? "Active" : "Inactive" 
+		println "actualResult: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
 
 	public MaterialSettingsPopup verifyShowErrorWhenMaterialGroupEmpty(String expectedResult) {
 		String actualResult = WebUI.getText(xpath("//*[@id='basic_groupId_help']/div"))
