@@ -189,4 +189,9 @@
       <initValue>'#FFF6F2'</initValue>
       <name>highlightListColor</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'https://plastx.gocad.de/shop/'</initValue>
+      <name>publicUrl</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

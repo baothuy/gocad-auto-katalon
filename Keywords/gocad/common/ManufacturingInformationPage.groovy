@@ -229,6 +229,14 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 				.inputComment(comment)
 		return this
 	}
+	
+	public ManufacturingInformationPage inputFieldSMPShopPublic(String partName, String thicknessNum,
+		String quantityNum, String comment) {
+			selectThickness(partName, thicknessNum)
+			.inputQuantity(quantityNum)
+			.inputComment(comment)
+	return this
+}
 
 	public ManufacturingInformationPage inputFieldMTPShop(String quantityNum, String threadNum,
 			String tolerancesNum, String quality, String comment) {

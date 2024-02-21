@@ -35,6 +35,11 @@ public class SignInPage extends BasePage<SignInPage> {
 		WebUI.navigateToUrl(GlobalVariable.myUrl)
 		return this
 	}
+	
+	public SignInPage openPublicSiteBrowser () {
+		WebUI.navigateToUrl(GlobalVariable.publicUrl)		
+		return this
+	}
 
 	public SignInPage inputEmail (String email) {
 		clearTextAndSendKeysByActions(id('basic_username'), email)

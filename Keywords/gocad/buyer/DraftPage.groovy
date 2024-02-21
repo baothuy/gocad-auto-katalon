@@ -23,6 +23,12 @@ public class DraftPage extends BasePage<DraftPage>{
 		return this
 	}
 
+	public DraftPage clickPaginationOption(String numberPage) {
+		WebUI.click(xpath("//*[@class='ant-pagination-options']//div[@class='ant-select-selector']"))
+		WebUI.click(xpath("//*[@class='ant-pagination-options']//following::div[@class='rc-virtual-list']//div[text()='$numberPage / page']"))
+		return this
+	}
+
 	public DraftPage clickArchiveAction(String projectId) {
 		WebUI.mouseOver(actionMoreCol(projectId))
 		WebUI.click(xpath("//span[text()='Archive']"))

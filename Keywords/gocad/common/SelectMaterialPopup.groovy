@@ -25,7 +25,7 @@ public class SelectMaterialPopup extends BasePage<SelectMaterialPopup>{
 	}
 
 	public SelectMaterialPopup selectMaterialName(String materialName) {
-		WebUI.click(xpath("//div[@class='material-list']//div[text()='$materialName']/parent::div[@class='row material-item']"))
+		scrollToAndClick(xpath("//div[@class='material-list']//div[text()='$materialName']/parent::div[@class='row material-item']"))
 		return this
 	}
 
