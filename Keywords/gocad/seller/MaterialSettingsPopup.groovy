@@ -185,7 +185,7 @@ public class MaterialSettingsPopup extends BasePage<MaterialSettingsPopup>{
 	}
 	
 	public MaterialSettingsPopup verifySynonymValue(String expectedResult) {
-		String actualResult = WebUI.getAttribute(id("basic_synonym"), "value")
+		String actualResult = WebUI.getAttribute(id("basic_synonyms"), "value")
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
