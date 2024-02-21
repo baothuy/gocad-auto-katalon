@@ -26,6 +26,7 @@ println '>> Input additional information'
 Page.nav(AccountSettingsPage).inputVATNumber(vatNumberChanged)
 
 println '>> Input billing/shipping address information'
+Page.nav(AccountSettingsPage).selectCurrencyValue(currency)
 Page.nav(AccountSettingsPage).inputFirstNameBillingAddress(billingAddressChanged[0])
 								.inputLastNameBillingAddress(billingAddressChanged[1])
 								.inputEmailBillingAddress(billingAddressChanged[2])
