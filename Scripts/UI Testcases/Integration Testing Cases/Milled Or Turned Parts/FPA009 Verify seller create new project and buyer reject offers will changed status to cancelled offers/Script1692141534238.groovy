@@ -1,20 +1,21 @@
 import gocad.buyer.CancelledOffersPageOfBuyer
 import gocad.buyer.ReceivedOffersPage
-import gocad.common.AddProjectPopup
+import gocad.common.ConfirmPopup
 import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.common.SignInPage
+import gocad.common.ToastMessage
 import gocad.seller.AccountSettingsPage
 import gocad.seller.CancelledOffersPageOfSeller
 import gocad.seller.MyProjectsPage
 import gocad.seller.SendOfferPage
+import internal.GlobalVariable
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
-import internal.GlobalVariable
 
 println '>> FPA008 Verify seller create new project and buyer accept offers will changed status to comfirmed offers'
 println '>> Random project name'
@@ -127,8 +128,16 @@ Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
 					  .verifyBillingAddress(listBillingAddress)
 					  .verifyShippingAddress(listShippingAddress)
 					  .verifyOrderSummary(listOrderSummary)
-					  .clickRejectOffer()
-					  .clickOKConfirmPopup()
+
+println '>> Seller click reject offer'
+Page.nav(DetailOffer).clickRejectOffer()
+	 
+Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Reject Order")
+					    .verifyContentConfirmPopup("Do you want to reject this order?")
+						.clickOK()
+	 
+Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_SELLER.g_SELLER_REJECTED")
+						.clickCloseToastMessage()
   
 println '>> Verify information show on list Cancelled Offers of buyer'
 Page.nav(LeftNavBar).clickCancelledOffers()

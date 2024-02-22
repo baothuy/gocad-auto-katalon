@@ -1,8 +1,10 @@
-import gocad.buyer.AddressInformationPopup
-import gocad.buyer.DraftPage
-import gocad.buyer.ReviewPage
+import gocad.buyer.ReceivedOffersPage
+import gocad.common.ConfirmPopup
+import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.SignInPage
+import gocad.common.ToastMessage
+import gocad.seller.OpenInquiriesPage
 import katalon.fw.lib.Page
 
 
@@ -11,15 +13,18 @@ println '>> User Seller signs in to administration page'
 Page.nav(SignInPage).enterCredentialAsBuyer().changeLanguage().clickSignIn().verifySuccessfullySignInAsBuyer()
 
 println '>> User Seller go to Price And Delivery Settings settings'
-Page.nav(LeftNavBar).clickDraft()
+Page.nav(LeftNavBar).clickReceivedOffers()
 
-Page.nav(DraftPage).clickViewAction("36663")
+List<String> getDataPrj = Page.nav(ReceivedOffersPage).getDataRow("1")
 
-//Page.nav(ReviewPage).clickMoreOption("step-testing.step")
-//						.clickCopyPart()
+Page.nav(ReceivedOffersPage).clickAction(getDataPrj[0])
 
-Page.nav(ReviewPage).clickCheckout()
+Page.nav(DetailOffer).clickAcceptOffer()
 
-Page.nav(AddressInformationPopup).clickCheckBoxCloneTheSameAddress("false")
-								.sleep(3)
+Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Confirm Order")
+						.verifyContentConfirmPopup("Do you want to send the order confirmation?")
+						.clickOK()
+
+Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_BUYER.f_BUYER_APPROVED")
+						.clickCloseToastMessage()
 						

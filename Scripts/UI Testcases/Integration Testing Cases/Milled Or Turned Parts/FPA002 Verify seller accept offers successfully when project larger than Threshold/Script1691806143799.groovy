@@ -1,20 +1,21 @@
-import gocad.common.AddProjectPopup
 import gocad.buyer.CheckoutPage
 import gocad.buyer.CompletedCheckoutPage
 import gocad.buyer.ConfirmedOffersPageOfBuyer
-import gocad.common.DataUploadPage
-import gocad.common.ManufacturingInformationPage
 import gocad.buyer.ReviewPage
-import gocad.common.SelectMaterialPopup
+import gocad.common.ConfirmPopup
+import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
+import gocad.common.ManufacturingInformationPage
+import gocad.common.SelectMaterialPopup
 import gocad.common.SignInPage
+import gocad.common.ToastMessage
 import gocad.seller.ConfirmedOffersPageOfSeller
 import gocad.seller.OpenInquiriesPage
+import internal.GlobalVariable
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
-import internal.GlobalVariable
 
 println '>> FPA002 Verify seller accept offers successfully when project larger than Threshold'
 println '>> Random project name'
@@ -125,7 +126,15 @@ Page.nav(OpenInquiriesPage).verifyProjectName(projectId, projectName)
 							.clickAction(projectId)
 
 println '>> Seller click accept and send offers to buyer'
-Page.nav(DetailOffer).clickAcceptAndSendOffer().clickOKConfirmPopup()
+Page.nav(DetailOffer).clickAcceptAndSendOffer()
+
+Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Confirm Order")
+						.verifyContentConfirmPopup("Please confirm the offer and send out order confirmation!")
+						.clickOK()
+						
+Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_SELLER.e_SELLER_APPROVED")
+						.clickCloseToastMessage()
+
 List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
 List<String> listOrderSummary = Page.nav(DetailOffer).getOrderSummary()
 

@@ -3,13 +3,14 @@ import gocad.buyer.CancelledOffersPageOfBuyer
 import gocad.buyer.RequestOfferPopup
 import gocad.buyer.RequestedOffersPage
 import gocad.buyer.ReviewPage
-import gocad.common.AddProjectPopup
+import gocad.common.ConfirmPopup
 import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.common.SignInPage
+import gocad.common.ToastMessage
 import gocad.seller.CancelledOffersPageOfSeller
 import gocad.seller.OpenInquiriesPage
 import katalon.fw.lib.Page
@@ -137,8 +138,15 @@ Page.nav(DetailOffer).verifyOrderStatus("Request for quotation")
 println '>> Input change unit price'
 Page.nav(DetailOffer).inputUnitPrice(unitPriceChanged).clickAcceptChangeUnitPrice().clickCloseToastMessage()
 
-println '>> Seller click accept and send offers to buyer'
-Page.nav(DetailOffer).clickRejectOffer().clickOKConfirmPopup()
+println '>> Seller click reject offer'
+Page.nav(DetailOffer).clickRejectOffer()
+   
+Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Reject Order")
+					    .verifyContentConfirmPopup("Do you want to reject this order?")
+						.clickOK()
+   
+Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_SELLER.g_SELLER_REJECTED")
+						.clickCloseToastMessage()
 
 println '>> get Information on Detail page after change unit price'
 List<String> listBillingAddressChanged = Page.nav(DetailOffer).getBillingAddressDetailOffer()

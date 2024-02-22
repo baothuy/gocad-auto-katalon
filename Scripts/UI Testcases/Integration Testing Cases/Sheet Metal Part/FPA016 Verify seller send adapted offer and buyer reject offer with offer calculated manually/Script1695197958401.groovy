@@ -4,13 +4,14 @@ import gocad.buyer.ReceivedOffersPage
 import gocad.buyer.RequestOfferPopup
 import gocad.buyer.RequestedOffersPage
 import gocad.buyer.ReviewPage
-import gocad.common.AddProjectPopup
+import gocad.common.ConfirmPopup
 import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
 import gocad.common.SelectMaterialPopup
 import gocad.common.SignInPage
+import gocad.common.ToastMessage
 import gocad.seller.CancelledOffersPageOfSeller
 import gocad.seller.OpenInquiriesPage
 import gocad.seller.SentOffersPage
@@ -119,8 +120,15 @@ List<String> tablePartChanged = Page.nav(DetailOffer).getTablePartReview(partNam
 String netTotal = listOrderSummaryChanged[5]
 String grossTotal = listOrderSummaryChanged[7]
 
-println '>> Seller click accept and send offers to buyer'
-Page.nav(DetailOffer).clickSendAdaptedOffer().clickOKConfirmPopup()
+println '>> Seller click send adapted offers to buyer'
+Page.nav(DetailOffer).clickSendAdaptedOffer()
+
+Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Confirm Order")
+						.verifyContentConfirmPopup("Please confirm sending the adapted offer!")
+						.clickOK()
+
+Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_SELLER.d_PRICE_ADAPTED")
+						.clickCloseToastMessage()
 
 println '>> Seller go sent offers'
 Page.nav(LeftNavBar).clickSentOffers()
@@ -164,8 +172,16 @@ Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(partName, tablePartChanged)
 					 .verifyShippingInfo(listShippingInfo)
-					 .clickRejectOffer()
-					 .clickOKConfirmPopup()
+
+println '>> Seller click reject offer'
+Page.nav(DetailOffer).clickRejectOffer()
+	
+Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Reject Order")
+						 .verifyContentConfirmPopup("Do you want to reject this order?")
+						 .clickOK()
+	
+Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_SELLER.g_SELLER_REJECTED")
+						.clickCloseToastMessage()
  
 println '>> Verify information show on list Rejected Offers of buyer'
 Page.nav(LeftNavBar).clickCancelledOffers()

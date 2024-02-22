@@ -4,13 +4,14 @@ import gocad.buyer.ReceivedOffersPage
 import gocad.buyer.RequestOfferPopup
 import gocad.buyer.RequestedOffersPage
 import gocad.buyer.ReviewPage
-import gocad.common.AddProjectPopup
+import gocad.common.ConfirmPopup
 import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.common.SignInPage
+import gocad.common.ToastMessage
 import gocad.seller.ConfirmedOffersPageOfSeller
 import gocad.seller.OpenInquiriesPage
 import gocad.seller.SentOffersPage
@@ -147,8 +148,15 @@ List<String> tablePartChanged = Page.nav(DetailOffer).getTablePartReview(partNam
 String netTotal = listOrderSummaryChanged[5]
 String grossTotal = listOrderSummaryChanged[7]
 
-println '>> Seller click accept and send offers to buyer'
-Page.nav(DetailOffer).clickSendAdaptedOffer().clickOKConfirmPopup()
+println '>> Seller click send adapted offers to buyer'
+Page.nav(DetailOffer).clickSendAdaptedOffer()
+
+Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Confirm Order")
+						.verifyContentConfirmPopup("Please confirm sending the adapted offer!")
+						.clickOK()
+
+Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_SELLER.d_PRICE_ADAPTED")
+						.clickCloseToastMessage()
 
 println '>> Seller go sent offers'
 Page.nav(LeftNavBar).clickSentOffers()
@@ -192,8 +200,16 @@ Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
 					 .verifyOrderSummary(listOrderSummaryChanged)
 					 .verifyTablePartReview(partName, tablePartChanged)
 					 .verifyShippingInfo(listShippingInfo)
-					 .clickAcceptOffer()
-					 .clickOKConfirmPopup()
+
+println '>> Go to Detail Offers and click accept offer'
+Page.nav(DetailOffer).clickAcceptOffer()
+ 
+Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Confirm Order")
+						 .verifyContentConfirmPopup("Do you want to send the order confirmation?")
+						 .clickOK()
+ 
+Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_BUYER.f_BUYER_APPROVED")
+						 .clickCloseToastMessage()
  
 println '>> Verify information show on list Confirmed Offers of buyer'
 Page.nav(LeftNavBar).clickConfirmedOffers()

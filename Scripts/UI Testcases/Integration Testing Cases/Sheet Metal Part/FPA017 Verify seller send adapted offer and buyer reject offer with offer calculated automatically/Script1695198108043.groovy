@@ -1,23 +1,24 @@
-import gocad.common.AddProjectPopup
 import gocad.buyer.CancelledOffersPageOfBuyer
 import gocad.buyer.CheckoutPage
 import gocad.buyer.CompletedCheckoutPage
-import gocad.common.DataUploadPage
-import gocad.common.ManufacturingInformationPage
 import gocad.buyer.ReceivedOffersPage
 import gocad.buyer.RequestedOffersPage
 import gocad.buyer.ReviewPage
-import gocad.common.SelectMaterialPopup
+import gocad.common.ConfirmPopup
+import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
+import gocad.common.ManufacturingInformationPage
+import gocad.common.SelectMaterialPopup
 import gocad.common.SignInPage
+import gocad.common.ToastMessage
 import gocad.seller.CancelledOffersPageOfSeller
 import gocad.seller.OpenInquiriesPage
 import gocad.seller.SentOffersPage
+import internal.GlobalVariable
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
-import internal.GlobalVariable
 
 println '>> FPA005 Verify buyer accept offer with offer calculated automatically will confirm offer successfully'
 println '>> Random project name'
@@ -173,8 +174,16 @@ Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
 					  .verifyOrderSummary(listOrderSummaryChanged)
 					  .verifyTablePartReview(partName, tablePartChanged)
 					  .verifyShippingInfo(listShippingInfoChanged)
-					  .clickRejectOffer()
-					  .clickOKConfirmPopup()
+
+println '>> Seller click reject offer'
+Page.nav(DetailOffer).clickRejectOffer()
+	 
+Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Reject Order")
+						 .verifyContentConfirmPopup("Do you want to reject this order?")
+						 .clickOK()
+	 
+Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_SELLER.g_SELLER_REJECTED")
+						.clickCloseToastMessage()
   
 println '>> Verify information show on list Rejected Offers of buyer'
 Page.nav(LeftNavBar).clickCancelledOffers()

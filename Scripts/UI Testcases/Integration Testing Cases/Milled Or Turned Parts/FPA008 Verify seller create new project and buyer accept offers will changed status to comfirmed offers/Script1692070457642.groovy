@@ -1,20 +1,21 @@
 import gocad.buyer.ConfirmedOffersPageOfBuyer
 import gocad.buyer.ReceivedOffersPage
-import gocad.common.AddProjectPopup
+import gocad.common.ConfirmPopup
 import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
 import gocad.common.ManufacturingInformationPage
-import gocad.common.SignInPage
 import gocad.common.SelectMaterialPopup
+import gocad.common.SignInPage
+import gocad.common.ToastMessage
 import gocad.seller.AccountSettingsPage
 import gocad.seller.ConfirmedOffersPageOfSeller
 import gocad.seller.MyProjectsPage
 import gocad.seller.SendOfferPage
+import internal.GlobalVariable
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
-import internal.GlobalVariable
 
 println '>> FPA008 Verify seller create new project and buyer accept offers will changed status to comfirmed offers'
 println '>> Random project name'
@@ -127,8 +128,17 @@ Page.nav(DetailOffer).verifyOrderStatus("Offer adapted")
 					  .verifyBillingAddress(listBillingAddress)
 					  .verifyShippingAddress(listShippingAddress)
 					  .verifyOrderSummary(listOrderSummary)
-					  .clickAcceptOffer()
-					  .clickOKConfirmPopup()
+
+
+println '>> Go to Detail Offers and click accept offer'
+Page.nav(DetailOffer).clickAcceptOffer()
+						 
+Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Confirm Order")
+						.verifyContentConfirmPopup("Do you want to send the order confirmation?")
+						.clickOK()
+	 
+Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_BUYER.f_BUYER_APPROVED")
+						 .clickCloseToastMessage()
   
 println '>> Verify information show on list Confirmed Offers of buyer'
 Page.nav(LeftNavBar).clickConfirmedOffers()

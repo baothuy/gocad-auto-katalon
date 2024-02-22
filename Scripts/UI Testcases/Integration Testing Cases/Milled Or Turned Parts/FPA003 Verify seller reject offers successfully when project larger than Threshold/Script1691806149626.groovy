@@ -1,20 +1,21 @@
-import gocad.common.AddProjectPopup
 import gocad.buyer.CancelledOffersPageOfBuyer
 import gocad.buyer.CheckoutPage
 import gocad.buyer.CompletedCheckoutPage
-import gocad.common.DataUploadPage
-import gocad.common.ManufacturingInformationPage
 import gocad.buyer.ReviewPage
-import gocad.common.SelectMaterialPopup
+import gocad.common.ConfirmPopup
+import gocad.common.DataUploadPage
 import gocad.common.DetailOffer
 import gocad.common.LeftNavBar
+import gocad.common.ManufacturingInformationPage
+import gocad.common.SelectMaterialPopup
 import gocad.common.SignInPage
+import gocad.common.ToastMessage
 import gocad.seller.CancelledOffersPageOfSeller
 import gocad.seller.OpenInquiriesPage
+import internal.GlobalVariable
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
-import internal.GlobalVariable
 
 println '>> FPA003 Verify seller reject offers successfully when project larger than Threshold'
 println '>> Random project name'
@@ -127,8 +128,15 @@ Page.nav(OpenInquiriesPage).verifyProjectName(projectId, projectName)
 							.verifyStatus(projectId, "New request")
 							.clickAction(projectId)
 
-println '>> Seller click accept and send offers to buyer'
-Page.nav(DetailOffer).clickRejectOffer().clickOKConfirmPopup()
+println '>> Seller click reject offer'
+Page.nav(DetailOffer).clickRejectOffer()
+
+Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Reject Order")
+						.verifyContentConfirmPopup("Do you want to reject this order?")
+						.clickOK()
+						
+Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_SELLER.g_SELLER_REJECTED")
+						.clickCloseToastMessage()
 
 println '>> Seller go confirmed offers of buyer checkout'
 Page.nav(LeftNavBar).clickCancelledOffers()
