@@ -136,7 +136,7 @@ Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Reject Order")
 					    .verifyContentConfirmPopup("Do you want to reject this order?")
 						.clickOK()
 	 
-Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_SELLER.g_SELLER_REJECTED")
+Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_BUYER.h_BUYER_REJECTED")
 						.clickCloseToastMessage()
   
 println '>> Verify information show on list Cancelled Offers of buyer'
