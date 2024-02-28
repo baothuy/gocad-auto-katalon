@@ -36,6 +36,13 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 	def contentAnalyzeExceptionErrorForSeller = "${commonText}\nReason: There's an issue analyzing a customer's file. Please manually review the file and provide a manual quote to the customer."
 	def contentAlert = "All parts will be manufactured according to industry norms. If there are specifics for the manufacturing process, that need to be considered, please upload a PDF-drawing to the affected part."
 
+	def partWarningFLANGE_TOO_NARROW = "Attention: The edge of the part is narrower than standard."
+	def partWarningHOLE_NEAR_FLEX = "Note: There is a hole near a bending area."
+	def partWarningPART_TOO_SMALL = "Please check: The part appears smaller than expected."
+	def partWarningPART_TOO_BIG = "Please check: The part appears larger than expected."
+	def partWarningPART_TOO_THIN = "Please note: The part is thinner than usual."
+	def partWarningPART_TOO_THICK = "Please note: The part is thicker than usual."
+	
 	public ManufacturingInformationPage clickAddPart() {
 		WebUI.click(xpath('//span[text()=" Add part"]'))
 		return this
@@ -975,6 +982,43 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 				
 			case "ANALYZE_EXCEPTION":
 				def expectedResult = contentAnalyzeExceptionErrorForSeller
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+		}
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyContentAttentionVisible(String code) {
+		WebUI.verifyElementVisible(xpath("//span[@aria-label='warning']/following::div[@class='ant-alert-message']"))
+		def contentAlertActual = WebUI.getText(xpath("//span[@aria-label='warning']/following::div[@class='ant-alert-message']"))
+		switch (code) {
+			case "FLANGE_TOO_NARROW":
+				def expectedResult = partWarningFLANGE_TOO_NARROW
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "HOLE_NEAR_FLEX":
+				def expectedResult = partWarningHOLE_NEAR_FLEX
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "PART_TOO_SMALL":
+				def expectedResult = partWarningPART_TOO_SMALL
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "PART_TOO_BIG":
+				def expectedResult = partWarningPART_TOO_BIG
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "PART_TOO_THIN":
+				def expectedResult = partWarningPART_TOO_THIN
+				WebUI.verifyEqual(contentAlertActual, expectedResult)
+				break;
+
+			case "PART_TOO_THICK":
+				def expectedResult = partWarningPART_TOO_THICK
 				WebUI.verifyEqual(contentAlertActual, expectedResult)
 				break;
 		}

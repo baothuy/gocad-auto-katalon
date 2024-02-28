@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTMI022 Verify warning attention on Manufacturing page</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>a4c06a52-7131-4914-9fea-59e57ed0331c</testCaseGuid>
+   <testDataLinks>
+      <combinationType>ONE</combinationType>
+      <id>7d0607ec-dba5-4930-ae10-2908b7c02dbe</id>
+      <iterationEntity>
+         <iterationType>ALL</iterationType>
+         <value></value>
+      </iterationEntity>
+      <testDataId>Data Files/Sheet Metal Part/BTMI022</testDataId>
+   </testDataLinks>
+   <variableLinks>
+      <testDataLinkId>7d0607ec-dba5-4930-ae10-2908b7c02dbe</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>partName</value>
+      <variableId>a8df570a-753d-464c-ac9a-18b74ad8891b</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>7d0607ec-dba5-4930-ae10-2908b7c02dbe</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>codeAttention</value>
+      <variableId>c6ea6295-79ea-4173-b37d-693665bc8ffe</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'FLANGE_TOO_NARROW.stp'</defaultValue>
+      <description></description>
+      <id>a8df570a-753d-464c-ac9a-18b74ad8891b</id>
+      <masked>false</masked>
+      <name>partName</name>
+   </variable>
+   <variable>
+      <defaultValue>'FLANGE_TOO_NARROW'</defaultValue>
+      <description></description>
+      <id>c6ea6295-79ea-4173-b37d-693665bc8ffe</id>
+      <masked>false</masked>
+      <name>codeAttention</name>
+   </variable>
+</TestCaseEntity>
