@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>BTMI021 Verify UI and function when users upload assembly group part file on SMP</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>ee6af92a-437a-4308-b105-c547890bf572</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>aaaf680e-c3b9-4006-9cd8-3a1464133b41</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'Assembly_group_sheetmetal.stp'</defaultValue>
+      <description></description>
+      <id>aaaf680e-c3b9-4006-9cd8-3a1464133b41</id>
+      <masked>false</masked>
+      <name>partName</name>
+   </variable>
+</TestCaseEntity>

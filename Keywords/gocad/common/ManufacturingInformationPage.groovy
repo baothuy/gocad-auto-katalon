@@ -860,6 +860,32 @@ public class ManufacturingInformationPage extends BasePage<ManufacturingInformat
 		WebUI.verifyEqual(errorEmpty, expectedResult)
 		return this
 	}
+	
+	public ManufacturingInformationPage clickRequestQuoteForCompleteAssembly() {
+		WebUI.click(xpath("//span[text()='Request quote for complete assembly']/parent::button"))
+		return this
+	}
+	
+	public ManufacturingInformationPage clickPreviewAssembly() {
+		WebUI.click(xpath("//span[text()='Preview']/parent::button"))
+		waitUntilElementInvisibleWithWebDriverWait(xpath("//div[@class='ant-modal-mask']/following::div[@class='icon-loading']"), 10)
+		WebUI.verifyElementPresent(xpath("//div[@class='ant-modal-body']"), 10)
+		return this
+	}
+	
+	public ManufacturingInformationPage clickDownloadAssemblyFile(String partName) {
+		WebUI.click(xpath("//span[text()='$partName']/parent::button"))
+		return this
+	}
+	
+	public ManufacturingInformationPage verifyUIAssemblyGroupPart(String partName) {
+		WebUI.verifyElementVisible(xpath("//*[text()='Assembly']"))
+		WebUI.verifyElementVisible(xpath("//span[text()='Request quote for complete assembly']/parent::button"))
+		WebUI.verifyElementVisible(xpath("//span[text()='Preview']/parent::button"))
+		WebUI.verifyElementVisible(xpath("//span[text()='$partName']/parent::button"))
+		WebUI.verifyElementVisible(xpath("//img[@class='ant-image-img']"))
+		return this
+	}
 
 	public ManufacturingInformationPage verifyContentAlertManualCalculateVisibleForBuyer(String code) {
 		WebUI.verifyElementVisible(xpath("//span[@aria-label='info-circle']/following::div[@class='ant-alert-message']"))

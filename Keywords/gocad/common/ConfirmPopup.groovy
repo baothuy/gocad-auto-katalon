@@ -35,4 +35,10 @@ public class ConfirmPopup extends BasePage<ConfirmPopup>{
 		WebUI.verifyEqual(actualContent, content)
 		return this
 	}
+	
+	public ConfirmPopup verifyContentConfirmPopupAssembly(String content) {
+		String actualContent = WebUI.getText(xpath("//*[@class='ant-modal-body']/p"))
+		WebUI.verifyEqual(actualContent, content)
+		return this
+	}
 }
