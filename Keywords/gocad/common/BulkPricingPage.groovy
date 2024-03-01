@@ -8,7 +8,7 @@ import katalon.fw.lib.BasePage
 
 
 public class BulkPricingPage extends BasePage<BulkPricingPage>{
-	
+
 	public BulkPricingPage clickSaveChanges() {
 		WebUI.click(xpath("//span[text()='Save Changes']/parent::button"))
 		return this

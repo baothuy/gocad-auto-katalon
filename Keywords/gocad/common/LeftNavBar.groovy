@@ -108,6 +108,41 @@ public class LeftNavBar extends BasePage<LeftNavBar> {
 		WebUI.click(link('Account'))
 		return this
 	}
+	
+	public LeftNavBar clickOpenJobs() {
+		WebUI.click(link('Open Jobs'))
+		return this
+	}
+	
+	public LeftNavBar clickJobsBoard() {
+		WebUI.click(link('Jobs Board'))
+		return this
+	}
+	
+	public LeftNavBar clickRunningJobs() {
+		WebUI.click(link('Running Jobs'))
+		return this
+	}
+	
+	public LeftNavBar clickFinishedJobs() {
+		WebUI.click(link('Finished Jobs'))
+		return this
+	}
+	
+	public LeftNavBar clickConfirmedJobs() {
+		WebUI.click(link('Confirmed Jobs'))
+		return this
+	}
+	
+	public LeftNavBar clickSuppliers() {
+		WebUI.click(link('Suppliers'))
+		return this
+	}
+	
+	public LeftNavBar clickSupplierGroups() {
+		WebUI.click(link('Supplier Groups'))
+		return this
+	}
 
 	public String getEmail() {
 		String email = WebUI.getAttribute(xpath("//*[@class='truncate']"), "title")

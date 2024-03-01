@@ -36,12 +36,12 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'gErsMkbMyRcUlA5todApqQ=='</initValue>
+      <initValue>'e1V7F5cNMHE='</initValue>
       <name>seller_pass</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'https://ensingerplastics.gocad.de/'</initValue>
+      <initValue>'https://manufacturer.gocad.de/'</initValue>
       <name>myUrl</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
