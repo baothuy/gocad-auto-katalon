@@ -11,12 +11,12 @@ Page.nav(SignInPage).enterCredentialAsSeller().changeLanguage().clickSignIn().ve
 
 Page.nav(LeftNavBar).clickOpenJobs()
 
-Page.nav(SearchJobs).inputEmail("buyer@gocad.de")
+Page.nav(SearchJobs).inputEmail("thuyautomation0@gmail.com")
 					.inputStartDate("2024-03-01")
-					.inputEndDate("2024-03-10")
+					.inputEndDate("2024-03-31")
 					.selectSortBy("Name")
 
-Page.nav(OpenJobsPage).clickSelectJobs("step-testing 2.step")
+Page.nav(OpenJobsPage).clickFirstJobsToAssign()
 						.clickAssign()
 
 Page.nav(AssignJobPopup).inputDeliveryDate("2024-06-01")

@@ -39,13 +39,13 @@ public class AssignJobPopup extends BasePage<AssignJobPopup>{
 	
 	public AssignJobPopup selectSupplierGroup(String supplierGroup) {
 		WebUI.click(xpath("//*[@value='supplier_group']/ancestor::div[@class='ant-space-item']//child::div[@class='ant-select-selector']"))
-		WebUI.click(xpath("//*[@id='rc_select_5_list']/following-sibling::div[@class='rc-virtual-list']//div[text()='$supplierGroup']"))
+		WebUI.click(xpath("//*[@id='supplierGroup_list']/following-sibling::div[@class='rc-virtual-list']//div[text()='$supplierGroup']"))
 		return this
 	}
 	
 	public AssignJobPopup selectSupplier(String supplier) {
 		WebUI.click(xpath("//*[@value='supplier']/ancestor::div[@class='ant-space-item']//child::div[@class='ant-select-selector']"))
-		WebUI.click(xpath("rc_select_6_list']/following-sibling::div[@class='rc-virtual-list']//div[text()='$supplier']"))
+		WebUI.click(xpath("//*[@id='supplier_list']/following-sibling::div[@class='rc-virtual-list']//div[text()='$supplier']"))
 		return this
 	}
 	
