@@ -9,7 +9,6 @@ import katalon.fw.lib.BasePage
 import katalon.fw.lib.Page
 import katalon.utility.DateTimeUtility
 import katalon.utility.FileHelper
-import katalon.utility.FunctionCommon
 
 public class DetailOffer extends BasePage<DetailOffer>{
 

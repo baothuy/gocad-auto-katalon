@@ -2,9 +2,9 @@ package gocad.buyer
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import gocad.common.FunctionCommon
 import katalon.fw.lib.BasePage
 import katalon.fw.lib.Page
-import katalon.utility.FunctionCommon
 
 
 

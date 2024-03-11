@@ -6,12 +6,12 @@ import java.text.DecimalFormat
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import gocad.common.FunctionCommon
 import internal.GlobalVariable
 import katalon.fw.lib.BasePage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
 import katalon.utility.DateTimeUtility
-import katalon.utility.FunctionCommon
 
 
 public class CheckoutPage extends BasePage<CheckoutPage>{

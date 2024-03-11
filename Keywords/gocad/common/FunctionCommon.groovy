@@ -1,17 +1,22 @@
-package katalon.utility
+package gocad.common
 
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+
+import org.openqa.selenium.Keys
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import internal.GlobalVariable
 import katalon.fw.lib.BasePage
+import katalon.utility.CommonUtility
 
 
 
 
 public class FunctionCommon extends BasePage<FunctionCommon>{
 
+	List<String> sheetMetalPartFileAllow = GlobalVariable.sheetMetalPartFileAllow
+	List<String> milledPartFileAllow = GlobalVariable.milledPartFileAllow
 	def partCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[2]"}
 	def fileCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[3]//a"}
 	def materialCol = { String partName -> return "//div[text()='$partName']/ancestor::tr/td[4]"}
@@ -247,5 +252,189 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 			CO2Emission
 		]
 		return actualResult
+	}
+
+	//Manufacturer
+	public FunctionCommon clickSelectJobs(String partName, String projectId) {
+		WebUI.click(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//span[text()='$partName'])[1]"))
+		return this
+	}
+
+	public FunctionCommon clickFirstJobsToAssign(String projectId) {
+		WebUI.click(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//input[@type='checkbox'])[1]"))
+		return this
+	}
+
+	public FunctionCommon inputDeliveryDate(String deliveryDate, String projectId) {
+		WebUI.click(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='For supplier']/following::label[text()='Delivery Date']/following-sibling::div//span[@aria-label='edit'])[1]"))
+		WebUI.sendKeys(xpath("//input[@id='form-inline-adaptDeliveryDateForSupplier_adaptDeliveryDateForSupplier']"), deliveryDate + Keys.RETURN)
+		return this
+	}
+
+	public FunctionCommon inputSupplierPrice(String price, String projectId) {
+		WebUI.click(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='For supplier']/following::label[text()='Adapt price']/following-sibling::label//span[@aria-label='edit'])[1]"))
+		clearTextAndSendKeysByActions(xpath("//*[@id='form-inline-unitPrice']"), price)
+		return this
+	}
+
+	public FunctionCommon inputNoteToSupplier(String input, String projectId) {
+		WebUI.click(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Note to supplier']/following::div[@class='textarea-inline']//span)[1]"))
+		WebUI.sendKeys(xpath("//*[@id='form-inline-sellerNote_sellerNote']"), input)
+		WebUI.click(xpath("//*[text()='Save']/parent::button"))
+		return this
+	}
+
+	public FunctionCommon clickAcceptChange() {
+		WebUI.click(xpath("//*[@aria-label='check']/parent::button"))
+		return this
+	}
+
+	public FunctionCommon clickCloseChange() {
+		WebUI.click(xpath("//*[@aria-label='close']/parent::button"))
+		return this
+	}
+
+	public FunctionCommon clickViewProject(String projectName) {
+		WebUI.click(xpath("(//a[text()='$projectName'])[1]"))
+		return this
+	}
+
+	public FunctionCommon verifyManufacturingInformationReportButtonVisible() {
+		WebUI.verifyElementVisible(xpath("(//span[text()=' Manufacturing information']/parent::button)[1]"))
+		return this
+	}
+
+	public FunctionCommon verifyProcessingReportButtonVisible() {
+		WebUI.verifyElementVisible(xpath("(//span[text()=' Processing report']/parent::button)[1]"))
+		return this
+	}
+
+	public FunctionCommon verifyEmissionReportButtonVisible() {
+		WebUI.verifyElementVisible(xpath("(//span[text()=' Emission report']/parent::button)[1]"))
+		return this
+	}
+
+	public FunctionCommon clickDownloadImage() {
+		WebUI.click(xpath('(//a[@class="text-decoration-none"])[1]'))
+		return this
+	}
+
+	public FunctionCommon verifyMaterialValue(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Material']/following-sibling::div)[1]")).trim()
+		def pattern = /^(.*?)\/[0-9.]+$/
+		actualResult = CommonUtility.substringUseRegExp(actualResult, pattern, 1)
+		println "MaterialValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public FunctionCommon verifyQuantityValue(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Quantity']/following-sibling::label)[1]")).trim()
+		println "QuantityValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public FunctionCommon verifyThreadValue(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Thread (Quantity)']/following-sibling::div)[1]")).trim()
+		println "ThreadValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public FunctionCommon verifyThreadValueOnSMP(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Thread Cutting']/following-sibling::label)[1]")).trim()
+		println "ThreadValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public FunctionCommon verifyTolerancesNumberValue(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Tolerances and fits with less than 1/10mm or IT 1 - IT 10 (Number)']/following-sibling::div)[1]")).trim()
+		println "TolerancesNumberValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public FunctionCommon verifyTolerancesToggleValue(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Tolerance requirement with smaller 1/100mm or IT 1 - IT 5']/following-sibling::label)[1]")).trim()
+		println "TolerancesToggleValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public FunctionCommon verifySurfaceTreatmentValue(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Surface Treatment']/following-sibling::label)[1]")).trim()
+		String conActualResult = (actualResult == "None") ? "" : actualResult
+		println "verifySurfaceTreatmentValue: $conActualResult"
+		WebUI.verifyEqual(conActualResult, expectedResult)
+		return this
+	}
+
+	public FunctionCommon verifySurfaceQualityValue(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Surface Quality']/following-sibling::label)[1]")).trim()
+		println "SurfaceQualityValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public FunctionCommon verifyRollingDirectionValue(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Rolling Direction']/following-sibling::label)[1]")).trim()
+		println "RollingDirectionValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public FunctionCommon verifyLaserMarkingValue(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Laser marking']/following-sibling::label)[1]")).trim()
+		println "LaserMarkingValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public FunctionCommon verifyCountersinkValue(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Countersink']/following-sibling::label)[1]")).trim()
+		println "CountersinkValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public FunctionCommon verifyThicknessValue(String partName, String expectedResult, String projectId) {
+		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
+			def isContains = partName.contains(sheetMetalPartFileAllow[i])
+			println "isContains: $isContains"
+			if (isContains) {
+				String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Thickness']/following-sibling::label)[1]")).trim()
+				def pattern = /(\d+(?:\.\d+)?)/
+				String newActualResult = CommonUtility.substringUseRegExp(actualResult,pattern,0)
+				WebUI.verifyEqual(newActualResult, expectedResult)
+				println "Thickness: $newActualResult"
+			}
+		}
+		return this
+	}
+
+	public FunctionCommon verifyCuttingLayersValue(String partName, String expectedResult, String projectId) {
+		for (int i = 0; i < sheetMetalPartFileAllow.size(); i++) {
+			def isContains = partName.contains(sheetMetalPartFileAllow[i])
+			if(isContains) {
+				String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Cutting layers']/following-sibling::label)[1]")).trim()
+				WebUI.verifyEqual(actualResult, expectedResult)
+			}
+		}
+		return this
+	}
+
+	public FunctionCommon verifyDeburringValue(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Deburring']/following-sibling::label)[1]")).trim()
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+
+	public FunctionCommon verifyAdditionalCommentsValue(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Buyer additional comments']/following-sibling::label)[1]")).trim()
+		println "AdditionalCommentsValue: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
 	}
 }
