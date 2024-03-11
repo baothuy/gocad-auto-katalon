@@ -128,7 +128,7 @@ Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Confirm Order")
 						.verifyContentConfirmPopup("Please confirm sending the adapted offer!")
 						.clickOK()
 
-Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_SELLER.d_PRICE_ADAPTED")
+Page.nav(ToastMessage).verifyToastMessage("Update!","Offer adapted")
 						.clickCloseToastMessage()
 
 println '>> get Information on Detail page after change unit price'
@@ -190,7 +190,7 @@ Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Confirm Order")
 					  .verifyContentConfirmPopup("Do you want to send the order confirmation?")
 						  .clickOK()
 	 
-Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_BUYER.f_BUYER_APPROVED")
+Page.nav(ToastMessage).verifyToastMessage("Update!","Order confirmed")
 					   .clickCloseToastMessage()
   
 println '>> Verify information show on list Confirmed Offers of buyer'

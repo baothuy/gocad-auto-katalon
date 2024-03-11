@@ -156,7 +156,7 @@ Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Confirm Order")
 						.verifyContentConfirmPopup("Please confirm sending the adapted offer!")
 						.clickOK()
 
-Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_SELLER.d_PRICE_ADAPTED")
+Page.nav(ToastMessage).verifyToastMessage("Update!","Offer adapted")
 						.clickCloseToastMessage()
 
 println '>> get Information on Detail page after change unit price'
@@ -218,7 +218,7 @@ Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Reject Order")
 					    .verifyContentConfirmPopup("Do you want to reject this order?")
 						.clickOK()
    
-Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_BUYER.h_BUYER_REJECTED")
+Page.nav(ToastMessage).verifyToastMessage("Update!","Offer rejected")
 						.clickCloseToastMessage()
   
 println '>> Verify information show on list Rejected Offers of buyer'

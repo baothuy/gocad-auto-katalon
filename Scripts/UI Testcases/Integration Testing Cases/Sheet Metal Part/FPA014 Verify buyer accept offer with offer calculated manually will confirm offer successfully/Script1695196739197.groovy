@@ -128,7 +128,7 @@ Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Confirm Order")
 						.verifyContentConfirmPopup("Please confirm sending the adapted offer!")
 						.clickOK()
 
-Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_SELLER.d_PRICE_ADAPTED")
+Page.nav(ToastMessage).verifyToastMessage("Update!","Offer adapted")
 						.clickCloseToastMessage()
 
 println '>> Seller go sent offers'

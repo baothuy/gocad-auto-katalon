@@ -25,6 +25,6 @@ Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Confirm Order")
 						.verifyContentConfirmPopup("Do you want to send the order confirmation?")
 						.clickOK()
 
-Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_BUYER.f_BUYER_APPROVED")
+Page.nav(ToastMessage).verifyToastMessage("Update!","Order confirmed")
 						.clickCloseToastMessage()
 						

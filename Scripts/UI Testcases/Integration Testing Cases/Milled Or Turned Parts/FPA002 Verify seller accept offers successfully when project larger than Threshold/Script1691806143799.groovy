@@ -132,7 +132,7 @@ Page.nav(ConfirmPopup).verifyTitleConfirmPopup("Confirm Order")
 						.verifyContentConfirmPopup("Please confirm the offer and send out order confirmation!")
 						.clickOK()
 						
-Page.nav(ToastMessage).verifyToastMessage("Update!","project.status.ROLE_SELLER.e_SELLER_APPROVED")
+Page.nav(ToastMessage).verifyToastMessage("Update!","Order confirmed")
 						.clickCloseToastMessage()
 
 List<String> listShippingInfo = Page.nav(DetailOffer).getShippingInfo()
