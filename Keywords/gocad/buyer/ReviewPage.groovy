@@ -4,10 +4,10 @@ import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import gocad.common.FunctionCommon
 import katalon.fw.lib.BasePage
 import katalon.fw.lib.Page
 import katalon.utility.CommonUtility
-import katalon.utility.FunctionCommon
 import internal.GlobalVariable
 
 public class ReviewPage extends BasePage<ReviewPage>{
