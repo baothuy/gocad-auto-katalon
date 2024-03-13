@@ -189,4 +189,14 @@
       <initValue>'#F2FEDC'</initValue>
       <name>highlightListColor</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'supplier1@gocad.de'</initValue>
+      <name>supplier_mail</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'1L2j3D2mjffC3EA85ClMGA=='</initValue>
+      <name>supplier_pass</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
