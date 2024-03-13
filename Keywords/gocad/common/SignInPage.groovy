@@ -22,6 +22,14 @@ public class SignInPage extends BasePage<SignInPage> {
 		WebUI.setEncryptedText(id('basic_password'), GlobalVariable.buyer_pass)
 		return this
 	}
+	
+	public SignInPage enterCredentialAsSupplier () {
+		WebUI.navigateToUrl(GlobalVariable.myUrl)
+		WebUI.waitForElementPresent(id('basic_username'), 60)
+		WebUI.sendKeys(id('basic_username'), GlobalVariable.supplier_mail)
+		WebUI.setEncryptedText(id('basic_password'), GlobalVariable.supplier_pass)
+		return this
+	}
 
 	public SignInPage enterCredential(String user_name, String password) {
 		WebUI.navigateToUrl(GlobalVariable.myUrl)
@@ -95,6 +103,19 @@ public class SignInPage extends BasePage<SignInPage> {
 	public SignInPage verifySuccessfullySignInAsBuyer () {
 		WebUI.delay(GlobalVariable.smallSleepTime)
 		List<String> findObjects = findTestObjects("//a[text()='Draft']")
+		if (findObjects.size() == 0) {
+			WebUI.click(xpath("//button[@class='btn']"))
+			WebUI.waitForElementPresent(xpath("//span[text()='English']"), 5)
+			WebUI.click(xpath("//span[text()='English']"))
+			WebUI.delay(1)
+		}
+		WebUI.verifyTextPresent('Draft', false)
+		return this
+	}
+	
+	public SignInPage verifySuccessfullySignInAsSupplier () {
+		WebUI.delay(GlobalVariable.smallSleepTime)
+		List<String> findObjects = findTestObjects("//a[text()='Jobs Board']")
 		if (findObjects.size() == 0) {
 			WebUI.click(xpath("//button[@class='btn']"))
 			WebUI.waitForElementPresent(xpath("//span[text()='English']"), 5)

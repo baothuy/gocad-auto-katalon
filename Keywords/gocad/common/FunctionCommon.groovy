@@ -283,6 +283,11 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 		WebUI.click(xpath("//*[text()='Save']/parent::button"))
 		return this
 	}
+	
+	public FunctionCommon clickAcceptJob() {
+		WebUI.click(xpath("//*[text()='Accept']/parent::button"))
+		return this
+	}
 
 	public FunctionCommon clickAcceptChange() {
 		WebUI.click(xpath("//*[@aria-label='check']/parent::button"))
@@ -316,6 +321,21 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 
 	public FunctionCommon clickDownloadImage() {
 		WebUI.click(xpath('(//a[@class="text-decoration-none"])[1]'))
+		return this
+	}
+	
+	public FunctionCommon clickUnassign(String projectId) {
+		WebUI.click(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Unassign']/parent::button)[1]"))
+		return this
+	}
+	
+	public FunctionCommon clickConfirm(String projectId) {
+		WebUI.click(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Confirm']/parent::button)[1]"))
+		return this
+	}
+	
+	public FunctionCommon clickMarkAsFinished(String projectId) {
+		WebUI.click(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Mark as finished']/parent::button)[1]"))
 		return this
 	}
 
@@ -430,11 +450,84 @@ public class FunctionCommon extends BasePage<FunctionCommon>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
+	
+	public FunctionCommon verifyBuyerName(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Buyer']/following-sibling::div)[1]")).trim()
+		println "Buyer Name: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public FunctionCommon verifyCompanyName(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Company']/following-sibling::div)[1]")).trim()
+		println "Company Name: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public FunctionCommon verifyEmail(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='E-mail']/following-sibling::div)[1]")).trim()
+		println "Email: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
 
 	public FunctionCommon verifyAdditionalCommentsValue(String expectedResult, String projectId) {
 		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='Buyer additional comments']/following-sibling::label)[1]")).trim()
-		println "AdditionalCommentsValue: $actualResult"
+		println "Buyer additional comments: $actualResult"
 		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	//for buyer
+	public FunctionCommon verifyDeliveryDateForBuyer(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='For buyer']/following-sibling::div//label[text()='Delivery Date']/following-sibling::label/span)[1]")).trim()
+		println "DeliveryDateForBuyer: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public FunctionCommon verifyUnitPriceForBuyer(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='For buyer']/following-sibling::div//label[text()='Unit price']/following-sibling::label)[1]")).trim()
+		println "UnitPriceForBuyer: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public FunctionCommon verifyNETTotalForBuyer(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='For buyer']/following-sibling::div//label[text()='NET Total']/following-sibling::h6)[1]")).trim()
+		println "NETTotalForBuyer: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	//for supplier
+	public FunctionCommon verifyDeliveryDateForSupplier(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='For buyer']/following-sibling::div//label[text()='Delivery Date']/following-sibling::label/span)[1]")).trim()
+		println "DeliveryDateForBuyer: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public FunctionCommon verifyAdaptPriceForSupplier(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='For buyer']/following-sibling::div//label[text()='Unit price']/following-sibling::label)[1]")).trim()
+		println "AdaptPriceForBuyer: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public FunctionCommon verifyNETTotalForSupplier(String expectedResult, String projectId) {
+		String actualResult = WebUI.getText(xpath("(//a[text()='$projectId']/ancestor::div[@class='ant-space-item']//*[text()='For buyer']/following-sibling::div//label[text()='NET Total']/following-sibling::h6)[1]")).trim()
+		println "NETTotalForBuyer: $actualResult"
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
+	
+	public FunctionCommon verifyFieldMTPShop(String materialName, String quality, String threadNum, String tolerancesNum, String projectId) {
+		verifyMaterialValue(materialName, projectId)
+		.verifySurfaceQualityValue(quality, projectId)
+		.verifyThreadValue(threadNum, projectId)
+		.verifyTolerancesNumberValue(tolerancesNum, projectId)
 		return this
 	}
 }

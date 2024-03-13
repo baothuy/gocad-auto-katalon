@@ -10,6 +10,13 @@ import katalon.fw.lib.Page
 public class AccountSettingsPage extends BasePage<AccountSettingsPage>{
 
 	//Contact
+	public String getFullNameContact(){
+		String firstName = WebUI.getText(id("basic_firstName"))
+		String lastName = WebUI.getText(id("basic_lastName"))
+		String fullName = firstName + " " + lastName
+		return fullName
+	}
+	
 	public AccountSettingsPage inputFirstNameContact(String input){
 		clearTextAndSendKeysByActions(id("basic_firstName"), input)
 		return this
