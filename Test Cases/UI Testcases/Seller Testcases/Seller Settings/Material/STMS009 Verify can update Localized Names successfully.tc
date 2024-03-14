@@ -39,6 +39,12 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
+      <variableId>261caab1-239a-41ff-854c-e9d6bc57a2a4</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
       <variableId>2d1887e9-6469-447a-828d-448e6ab65cde</variableId>
    </variableLinks>
    <variable>
@@ -75,6 +81,13 @@
       <id>1505ed4e-9a31-47be-b2ec-b2f2c6148f55</id>
       <masked>false</masked>
       <name>czech</name>
+   </variable>
+   <variable>
+      <defaultValue>'Szerszámacél'</defaultValue>
+      <description></description>
+      <id>261caab1-239a-41ff-854c-e9d6bc57a2a4</id>
+      <masked>false</masked>
+      <name>hungarian</name>
    </variable>
    <variable>
       <defaultValue>'1'</defaultValue>

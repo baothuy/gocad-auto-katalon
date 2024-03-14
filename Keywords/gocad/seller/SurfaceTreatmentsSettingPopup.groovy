@@ -66,6 +66,11 @@ public class SurfaceTreatmentsSettingPopup extends BasePage<SurfaceTreatmentsSet
 		clearTextAndSendKeysByActions(id("basic_localizations_3_name"), input)
 		return this
 	}
+	
+	public SurfaceTreatmentsSettingPopup inputLocalizedNamesHungarian(String input) {
+		clearTextAndSendKeysByActions(id("basic_localizations_4_name"), input)
+		return this
+	}
 
 	public SurfaceTreatmentsSettingPopup inputAbbr(String input) {
 		clearTextAndSendKeysByActions(id("basic_abbr"), input)

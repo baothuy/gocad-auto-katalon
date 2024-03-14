@@ -71,6 +71,22 @@ public class MaterialGroupPopup extends BasePage<MaterialGroupPopup>{
 		WebUI.verifyEqual(actualResult, expectedResult)
 		return this
 	}
+	
+	public MaterialGroupPopup inputLocalizedNamesHungarian(String input) {
+		clearTextAndSendKeysByActions(id("basic_localizations_4_name"), input)
+		return this
+	}
+	
+	public MaterialGroupPopup verifyInputLocalizedNamesHungarianVisible() {
+		WebUI.verifyElementVisible(id("basic_localizations_4_name"))
+		return this
+	}
+	
+	public MaterialGroupPopup verifyInputLocalizedNamesHungarianValue(String expectedResult) {
+		String actualResult = WebUI.getAttribute(id("basic_localizations_4_name"), "value")
+		WebUI.verifyEqual(actualResult, expectedResult)
+		return this
+	}
 
 	public MaterialGroupPopup inputCuttingParams(String input) {
 		clearTextAndSendKeysByActions(id("basic_cuttingParams"), input)

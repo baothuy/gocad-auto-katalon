@@ -103,14 +103,14 @@
       <name>materialGroup</name>
    </variable>
    <variable>
-      <defaultValue>'Auto Glass Plastic'</defaultValue>
+      <defaultValue>'Auto Create Material'</defaultValue>
       <description></description>
       <id>831d19f3-577a-4007-80fa-02ebd157f803</id>
       <masked>false</masked>
       <name>materialName</name>
    </variable>
    <variable>
-      <defaultValue>'2.0361'</defaultValue>
+      <defaultValue>'2.361123'</defaultValue>
       <description></description>
       <id>11e57b14-8dad-4c67-a190-776af18fd9a7</id>
       <masked>false</masked>
